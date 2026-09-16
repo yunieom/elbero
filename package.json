@@ -1,0 +1,20 @@
+{
+  "name": "elbero",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:mobile": "npm run start --workspace @elbero/mobile",
+    "dev:api": "npm run start:dev --workspace @elbero/api",
+    "build": "npm run build --workspace @elbero/contracts && npm run build --workspace @elbero/api",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=24.15.0"
+  }
+}
