@@ -40,3 +40,8 @@ T02의 KRIC 동선·환승·엘리베이터 API 검증 결과는
 ```bash
 npm run research:t02 -- --dry-run
 ```
+
+## 아키텍처와 컨벤션
+
+- [기술 스택과 기술 결정](docs/architecture/technology-stack.md)
+- [모바일 앱 아키텍처 및 코딩 컨벤션](docs/conventions/mobile-app-convention.md)
