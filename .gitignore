@@ -26,3 +26,5 @@ apps/api/dist/
 *.log
 npm-debug.log*
 
+# Public-data research responses may contain credentials or large payloads.
+data/research/t02/raw/

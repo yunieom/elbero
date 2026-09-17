@@ -30,3 +30,13 @@ npm run dev:mobile
 API 상태 확인 주소는 `http://localhost:3000/health`입니다. 실제 휴대폰에서
 개발 API에 연결할 때는 `apps/mobile/.env.example`을 복사한 뒤 localhost를
 개발 PC의 같은 네트워크 IP로 바꿉니다.
+
+## 공공데이터 조사
+
+T02의 KRIC 동선·환승·엘리베이터 API 검증 결과는
+[`docs/research/t02-f03-public-data-validation.md`](docs/research/t02-f03-public-data-validation.md)에
+기록합니다. 인증키 없이 요청 목록을 점검하려면 다음 명령을 실행합니다.
+
+```bash
+npm run research:t02 -- --dry-run
+```

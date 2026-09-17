@@ -1,0 +1,189 @@
+[
+  {
+    "id": "route-line-2",
+    "purpose": "2호선 역 순서와 역·운영기관 코드 확인",
+    "endpoint": "/trainUseInfo/subwayRouteInfo",
+    "params": { "format": "json", "mreaWideCd": "01", "lnCd": "2" }
+  },
+  {
+    "id": "route-line-5",
+    "purpose": "5호선 역 순서와 역·운영기관 코드 확인",
+    "endpoint": "/trainUseInfo/subwayRouteInfo",
+    "params": { "format": "json", "mreaWideCd": "01", "lnCd": "5" }
+  },
+  {
+    "id": "dapsimni-entry-westbound",
+    "purpose": "답십리에서 마장 방향 승강장까지의 진입 동선",
+    "endpoint": "/handicapped/stationMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "542",
+      "nextStinCd": "541"
+    }
+  },
+  {
+    "id": "ddp-transfer-5-to-2-westbound",
+    "purpose": "동대문역사문화공원 5호선에서 홍대입구 방향 2호선 환승 동선",
+    "endpoint": "/handicapped/transferMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "536",
+      "prevStinCd": "206",
+      "chthTgtLn": "2",
+      "chtnNextStinCd": "204"
+    }
+  },
+  {
+    "id": "euljiro4-transfer-5-to-2-westbound",
+    "purpose": "을지로4가 5호선에서 홍대입구 방향 2호선 대체 환승 동선",
+    "endpoint": "/handicapped/transferMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "535",
+      "prevStinCd": "205",
+      "chthTgtLn": "2",
+      "chtnNextStinCd": "203"
+    }
+  },
+  {
+    "id": "hongik-exit-westbound",
+    "purpose": "홍대입구 도착 방향의 승강장-출입구 동선",
+    "endpoint": "/handicapped/stationMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "2",
+      "stinCd": "239",
+      "nextStinCd": "238"
+    }
+  },
+  {
+    "id": "dapsimni-platform-line-5",
+    "purpose": "답십리 5호선 승강장 번호와 상·하행 방향 연결",
+    "endpoint": "/convenientInfo/stPlf",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "542"
+    }
+  },
+  {
+    "id": "dapsimni-gap-platform-1",
+    "purpose": "답십리 5호선 1번 승강장의 차량·문별 열차 이격거리 확인",
+    "endpoint": "/vulnerableUserInfo/stationPlatformTrainDistance",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "542",
+      "plfNo": "1"
+    }
+  },
+  {
+    "id": "dapsimni-gap-platform-2",
+    "purpose": "답십리 5호선 2번 승강장의 차량·문별 열차 이격거리 확인",
+    "endpoint": "/vulnerableUserInfo/stationPlatformTrainDistance",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "542",
+      "plfNo": "2"
+    }
+  },
+  {
+    "id": "ddp-elevator-movement-line-5",
+    "purpose": "동대문역사문화공원 5호선 엘리베이터 이동 단계와 경로 관리번호 확인",
+    "endpoint": "/vulnerableUserInfo/stationElevatorMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "536"
+    }
+  },
+  {
+    "id": "euljiro4-elevator-movement-line-5",
+    "purpose": "을지로4가 5호선 엘리베이터 이동 단계와 경로 관리번호 확인",
+    "endpoint": "/vulnerableUserInfo/stationElevatorMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "535"
+    }
+  },
+  {
+    "id": "ddp-nearby-car-line-2",
+    "purpose": "동대문역사문화공원 2호선 엘리베이터 인접 차량·문 번호 확인",
+    "endpoint": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "2",
+      "stinCd": "205"
+    }
+  },
+  {
+    "id": "euljiro4-nearby-car-line-2",
+    "purpose": "을지로4가 2호선 엘리베이터 인접 차량·문 번호 확인",
+    "endpoint": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "2",
+      "stinCd": "204"
+    }
+  },
+  {
+    "id": "ddp-platform-line-2",
+    "purpose": "동대문역사문화공원 2호선 승강장 번호와 운행 방향 연결",
+    "endpoint": "/convenientInfo/stPlf",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "2",
+      "stinCd": "205"
+    }
+  },
+  {
+    "id": "euljiro4-platform-line-2",
+    "purpose": "을지로4가 2호선 승강장 번호와 운행 방향 연결",
+    "endpoint": "/convenientInfo/stPlf",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "2",
+      "stinCd": "204"
+    }
+  },
+  {
+    "id": "ddp-elevator-facilities-line-5",
+    "purpose": "동대문역사문화공원 5호선 엘리베이터 층·출구·상세 위치 확인",
+    "endpoint": "/convenientInfo/stationElevator",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "536"
+    }
+  },
+  {
+    "id": "euljiro4-elevator-facilities-line-5",
+    "purpose": "을지로4가 5호선 엘리베이터 층·출구·상세 위치 확인",
+    "endpoint": "/convenientInfo/stationElevator",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "535"
+    }
+  }
+]

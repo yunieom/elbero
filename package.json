@@ -9,6 +9,7 @@
   "scripts": {
     "dev:mobile": "npm run start --workspace @elbero/mobile",
     "dev:api": "npm run start:dev --workspace @elbero/api",
+    "research:t02": "node tools/kric/fetch-t02-samples.mjs",
     "build": "npm run build --workspace @elbero/contracts && npm run build --workspace @elbero/api",
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
