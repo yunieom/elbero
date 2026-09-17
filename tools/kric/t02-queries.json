@@ -19,19 +19,31 @@
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "542",
-      "nextStinCd": "541"
+      "stinCd": "2543",
+      "nextStinCd": "2542"
+    }
+  },
+  {
+    "id": "dapsimni-entry-eastbound",
+    "purpose": "답십리에서 장한평·강동 방향 승강장까지의 진입 동선",
+    "endpoint": "/handicapped/stationMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2543",
+      "nextStinCd": "2544"
     }
   },
   {
     "id": "ddp-transfer-5-to-2-westbound",
     "purpose": "동대문역사문화공원 5호선에서 홍대입구 방향 2호선 환승 동선",
-    "endpoint": "/handicapped/transferMovement",
+    "endpoint": "/vulnerableUserInfo/transferMovement",
     "params": {
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "536",
+      "stinCd": "2537",
       "prevStinCd": "206",
       "chthTgtLn": "2",
       "chtnNextStinCd": "204"
@@ -40,12 +52,12 @@
   {
     "id": "euljiro4-transfer-5-to-2-westbound",
     "purpose": "을지로4가 5호선에서 홍대입구 방향 2호선 대체 환승 동선",
-    "endpoint": "/handicapped/transferMovement",
+    "endpoint": "/vulnerableUserInfo/transferMovement",
     "params": {
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "535",
+      "stinCd": "2536",
       "prevStinCd": "205",
       "chthTgtLn": "2",
       "chtnNextStinCd": "203"
@@ -64,6 +76,18 @@
     }
   },
   {
+    "id": "gangdong-exit-gildong-direction",
+    "purpose": "답십리에서 강동 도착 후 길동 방향 열차 기준 승강장-출입구 동선",
+    "endpoint": "/handicapped/stationMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2549",
+      "nextStinCd": "2550"
+    }
+  },
+  {
     "id": "dapsimni-platform-line-5",
     "purpose": "답십리 5호선 승강장 번호와 상·하행 방향 연결",
     "endpoint": "/convenientInfo/stPlf",
@@ -71,7 +95,18 @@
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "542"
+      "stinCd": "2543"
+    }
+  },
+  {
+    "id": "gangdong-platform-line-5",
+    "purpose": "강동 5호선 승강장 번호와 상·하행 방향 연결",
+    "endpoint": "/convenientInfo/stPlf",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2549"
     }
   },
   {
@@ -82,7 +117,7 @@
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "542",
+      "stinCd": "2543",
       "plfNo": "1"
     }
   },
@@ -94,30 +129,30 @@
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "542",
+      "stinCd": "2543",
       "plfNo": "2"
     }
   },
   {
     "id": "ddp-elevator-movement-line-5",
     "purpose": "동대문역사문화공원 5호선 엘리베이터 이동 단계와 경로 관리번호 확인",
-    "endpoint": "/vulnerableUserInfo/stationElevatorMovement",
+    "endpoint": "/trafficWeekInfo/stinElevatorMovement",
     "params": {
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "536"
+      "stinCd": "2537"
     }
   },
   {
     "id": "euljiro4-elevator-movement-line-5",
     "purpose": "을지로4가 5호선 엘리베이터 이동 단계와 경로 관리번호 확인",
-    "endpoint": "/vulnerableUserInfo/stationElevatorMovement",
+    "endpoint": "/trafficWeekInfo/stinElevatorMovement",
     "params": {
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "535"
+      "stinCd": "2536"
     }
   },
   {
@@ -140,6 +175,17 @@
       "railOprIsttCd": "S1",
       "lnCd": "2",
       "stinCd": "204"
+    }
+  },
+  {
+    "id": "gangdong-nearby-car-line-5",
+    "purpose": "강동 5호선 엘리베이터 인접 차량·문 번호 확인",
+    "endpoint": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2549"
     }
   },
   {
@@ -172,7 +218,7 @@
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "536"
+      "stinCd": "2537"
     }
   },
   {
@@ -183,7 +229,7 @@
       "format": "json",
       "railOprIsttCd": "S1",
       "lnCd": "5",
-      "stinCd": "535"
+      "stinCd": "2536"
     }
   }
 ]
