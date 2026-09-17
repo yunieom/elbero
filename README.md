@@ -27,9 +27,19 @@ npm run dev:api
 npm run dev:mobile
 ```
 
-API 상태 확인 주소는 `http://localhost:3000/health`입니다. 실제 휴대폰에서
-개발 API에 연결할 때는 `apps/mobile/.env.example`을 복사한 뒤 localhost를
-개발 PC의 같은 네트워크 IP로 바꿉니다.
+API 상태 확인 주소는 `http://localhost:3000/health`, Swagger 테스트 화면은
+`http://localhost:3000/docs`입니다. 서울 승강기 상태 API를 사용하려면
+`apps/api/.env.example`을 참고해 `SEOUL_OPEN_DATA_API_KEY`를 설정합니다.
+
+역별 승강기 상태는 다음 주소에서 조회합니다. 3자리 KRIC 역 코드는 API가
+4자리 서울교통공사 코드로 정규화합니다.
+
+```text
+GET http://localhost:3000/elevator-status/stations/2543
+```
+
+실제 휴대폰에서 개발 API에 연결할 때는 `apps/mobile/.env.example`을 복사한 뒤
+localhost를 개발 PC의 같은 네트워크 IP로 바꿉니다.
 
 ## 공공데이터 조사
 
