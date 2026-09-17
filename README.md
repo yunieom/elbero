@@ -38,6 +38,16 @@ API 상태 확인 주소는 `http://localhost:3000/health`, Swagger 테스트 �
 GET http://localhost:3000/elevator-status/stations/2543
 ```
 
+검증된 여정과 현재 승강기 상태를 결합한 결과는 다음 주소에서 확인합니다.
+
+```text
+GET http://localhost:3000/journeys/plan?originStationCode=2543&destinationStationCode=2549
+GET http://localhost:3000/journeys/plan?originStationCode=2543&destinationStationCode=239
+```
+
+현재 지원 여정과 안전한 제외 기준은
+[`T03 대표 여정 지원 범위와 G0 점검`](docs/product/t03-g0-support-scope.md)에 기록합니다.
+
 실제 휴대폰에서 개발 API에 연결할 때는 `apps/mobile/.env.example`을 복사한 뒤
 localhost를 개발 PC의 같은 네트워크 IP로 바꿉니다.
 

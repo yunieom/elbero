@@ -6,5 +6,6 @@ import { ElevatorStatusService } from './elevator-status.service.js';
 @Module({
   controllers: [ElevatorStatusController],
   providers: [ElevatorStatusClient, ElevatorStatusService],
+  exports: [ElevatorStatusClient],
 })
 export class ElevatorStatusModule {}

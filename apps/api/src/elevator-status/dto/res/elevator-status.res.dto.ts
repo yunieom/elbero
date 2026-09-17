@@ -22,7 +22,7 @@ export class ElevatorStatusItemResDto {
   @ApiProperty({
     description: 'Elbero 표준화 상태',
     enum: STATUS_VALUES,
-    example: ELEVATOR_STATUS.AVAILABLE,
+    example: ELEVATOR_STATUS.OPERATIONAL,
   })
   status: ElevatorStatus;
 
@@ -44,7 +44,7 @@ export class StationElevatorStatusResDto {
     description:
       '역 엘리베이터 종합 상태. 하나라도 운행 중지이면 out_of_service입니다.',
     enum: STATUS_VALUES,
-    example: ELEVATOR_STATUS.AVAILABLE,
+    example: ELEVATOR_STATUS.OPERATIONAL,
   })
   overallStatus: ElevatorStatus;
 

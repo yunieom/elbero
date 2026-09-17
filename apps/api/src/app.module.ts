@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { ElevatorStatusModule } from './elevator-status/elevator-status.module.js';
+import { JourneyModule } from './journey/journey.module.js';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { ElevatorStatusModule } from './elevator-status/elevator-status.module.j
       isGlobal: true,
     }),
     ElevatorStatusModule,
+    JourneyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

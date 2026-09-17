@@ -63,7 +63,7 @@ export class ElevatorStatusService {
 
   private toStatus(sourceStatus: string): ElevatorStatus {
     if (sourceStatus === '사용가능') {
-      return ELEVATOR_STATUS.AVAILABLE;
+      return ELEVATOR_STATUS.OPERATIONAL;
     }
     if (sourceStatus === '보수중') {
       return ELEVATOR_STATUS.OUT_OF_SERVICE;
@@ -89,7 +89,7 @@ export class ElevatorStatusService {
     ) {
       return ELEVATOR_STATUS.UNKNOWN;
     }
-    return ELEVATOR_STATUS.AVAILABLE;
+    return ELEVATOR_STATUS.OPERATIONAL;
   }
 
   private toBaseStationName(stationName: string): string {

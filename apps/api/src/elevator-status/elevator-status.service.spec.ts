@@ -43,7 +43,7 @@ describe('ElevatorStatusService', () => {
 
     expect(result.stationCode).toBe('0205');
     expect(result.stationName).toBe('동대문역사문화공원');
-    expect(result.overallStatus).toBe(ELEVATOR_STATUS.AVAILABLE);
+    expect(result.overallStatus).toBe(ELEVATOR_STATUS.OPERATIONAL);
     expect(result.elevators).toHaveLength(1);
     expect(result.checkedAt).toBe(checkedAt);
   });

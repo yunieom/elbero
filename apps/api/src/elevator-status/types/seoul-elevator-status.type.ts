@@ -1,5 +1,5 @@
 export const ELEVATOR_STATUS = {
-  AVAILABLE: 'available',
+  OPERATIONAL: 'operational',
   OUT_OF_SERVICE: 'out_of_service',
   UNKNOWN: 'unknown',
 } as const;
