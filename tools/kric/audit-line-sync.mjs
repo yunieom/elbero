@@ -248,6 +248,19 @@ function haveDifference(valueSets) {
   return valueSets.slice(1).some((values) => !areSetsEqual(valueSets[0], values));
 }
 
+function toDifferenceKinds(valueSets) {
+  const nonEmptySets = valueSets.filter((values) => values.length > 0);
+  const signatures = new Set(
+    nonEmptySets.map((values) => JSON.stringify(unique(values))),
+  );
+  const kinds = [];
+  if (signatures.size > 1) kinds.push('value_difference');
+  if (nonEmptySets.length > 0 && nonEmptySets.length < valueSets.length) {
+    kinds.push('coverage_gap');
+  }
+  return kinds;
+}
+
 function surfaceKricRows(rows) {
   return rows.filter(
     (row) =>
@@ -286,6 +299,10 @@ function compactStationName(name) {
   return String(name ?? '').replace(/\([^)]*\)/g, '').replaceAll(' ', '');
 }
 
+function normalizeStationCode(stationCode) {
+  return String(stationCode).padStart(4, '0');
+}
+
 const routePayload = await fetchKric(
   '/trainUseInfo/subwayRouteInfo',
   { mreaWideCd: '01', lnCd: line },
@@ -294,19 +311,28 @@ const routePayload = await fetchKric(
 const routeRows = body(routePayload);
 const stationMap = new Map();
 for (const row of routeRows) {
-  if (!stationMap.has(row.stinCd)) stationMap.set(row.stinCd, row);
+  const stationCode = normalizeStationCode(row.stinCd);
+  if (!stationMap.has(stationCode)) stationMap.set(stationCode, row);
 }
 const stations = [...stationMap.values()].sort(
   (left, right) =>
     left.stinConsOrdr - right.stinConsOrdr || left.stinCd.localeCompare(right.stinCd),
 );
 
-const platformPayload = await fetchKric(
-  '/convenientInfo/stPlf',
-  { railOprIsttCd: 'S1', lnCd: line },
-  `line-${line}-platforms`,
+const operatorCodes = unique(stations.map((station) => station.railOprIsttCd));
+const platformPayloads = await Promise.all(
+  operatorCodes.map((railOprIsttCd) =>
+    fetchKric(
+      '/convenientInfo/stPlf',
+      { railOprIsttCd, lnCd: line },
+      `line-${line}-${railOprIsttCd}-platforms`,
+    ),
+  ),
 );
-const platformsByStation = Map.groupBy(body(platformPayload), (row) => row.stinCd);
+const platformRows = platformPayloads.flatMap(body);
+const platformsByStation = Map.groupBy(platformRows, (row) =>
+  normalizeStationCode(row.stinCd),
+);
 
 console.log(`${line}호선 ${stations.length}개 역의 KRIC 응답을 수집합니다.`);
 
@@ -348,13 +374,13 @@ const stationPayloads = await mapLimit(stations, REQUEST_CONCURRENCY, async (sta
 });
 
 const gapTasks = stations.flatMap((station) =>
-  (platformsByStation.get(station.stinCd) ?? []).map((platform) => ({
+  (platformsByStation.get(normalizeStationCode(station.stinCd)) ?? []).map((platform) => ({
     station,
     platform,
   })),
 );
 const gapPayloads = await mapLimit(gapTasks, REQUEST_CONCURRENCY, async ({ station, platform }) => ({
-  stationCode: station.stinCd,
+  stationCode: normalizeStationCode(station.stinCd),
   platformNumber: String(platform.plfNo),
   payload: await fetchKric(
     '/vulnerableUserInfo/stationPlatformTrainDistance',
@@ -371,7 +397,9 @@ const gapsByStation = Map.groupBy(gapPayloads, (item) => item.stationCode);
 
 console.log('서울교통공사 승강기 현황을 수집합니다.');
 const seoulSnapshot = await fetchSeoulRows();
-const lineStationCodes = new Set(stations.map((station) => station.stinCd.padStart(4, '0')));
+const lineStationCodes = new Set(
+  stations.map((station) => normalizeStationCode(station.stinCd)),
+);
 const lineSeoulRows = seoulSnapshot.rows.filter(
   (row) => lineStationCodes.has(row.STN_CD) && row.ELVTR_SE === 'EV',
 );
@@ -383,13 +411,13 @@ const gapSummary = { green: 0, yellow: 0, red: 0, missing: 0 };
 
 for (const item of stationPayloads) {
   const { station } = item;
-  const stationCode = station.stinCd.padStart(4, '0');
+  const stationCode = normalizeStationCode(station.stinCd);
   const movementRows = body(item.movement);
   const elevatorMovementRows = body(item.elevatorMovement);
   const elevatorRows = body(item.elevators);
   const nearbyCarRows = body(item.nearbyCars);
-  const stationPlatforms = platformsByStation.get(station.stinCd) ?? [];
-  const stationGapPayloads = gapsByStation.get(station.stinCd) ?? [];
+  const stationPlatforms = platformsByStation.get(stationCode) ?? [];
+  const stationGapPayloads = gapsByStation.get(stationCode) ?? [];
   const gapRows = stationGapPayloads.flatMap((gap) => body(gap.payload));
   const seoulRows = seoulByStation.get(stationCode) ?? [];
 
@@ -431,6 +459,7 @@ for (const item of stationPayloads) {
       stationCode,
       stationName: station.stinNm,
       category: 'surface_exit_number',
+      differenceKinds: toDifferenceKinds(exitValueSets),
       normalizedValues: exitValues,
       apiResponses: {
         stationMovement: movementExitRows,
@@ -453,6 +482,7 @@ for (const item of stationPayloads) {
       stationCode,
       stationName: station.stinNm,
       category: 'elevator_operating_floor',
+      differenceKinds: toDifferenceKinds(Object.values(floorValues)),
       normalizedValues: floorValues,
       apiResponses: {
         stationElevator: elevatorRows,
@@ -484,6 +514,7 @@ for (const item of stationPayloads) {
       stationCode,
       stationName: station.stinNm,
       category: 'elevator_adjacent_car_door',
+      differenceKinds: toDifferenceKinds(Object.values(carDoorValues)),
       normalizedValues: carDoorValues,
       apiResponses: {
         stationElevatorCarNumber: nearbyCarRows,
@@ -514,6 +545,7 @@ for (const item of stationPayloads) {
       stationCode,
       stationName: station.stinNm,
       category: 'platform_gap_linkage',
+      differenceKinds: ['linkage_gap'],
       normalizedValues: {
         stPlf: platformNumbers,
         stationPlatformTrainDistance: gapPlatformNumbers,
@@ -549,6 +581,7 @@ for (const item of stationPayloads) {
       stationCode,
       stationName: station.stinNm,
       category: 'station_name',
+      differenceKinds: ['value_difference'],
       normalizedValues: {
         subwayRouteInfo: [station.stinNm],
         SeoulMetroFaciInfo: seoulNames,
@@ -567,11 +600,33 @@ const categoryCounts = Object.fromEntries(
   ),
 );
 const affectedStations = unique(differences.map((difference) => difference.stationCode));
+const differenceKindCounts = Object.fromEntries(
+  [...Map.groupBy(
+    differences.flatMap((difference) => difference.differenceKinds),
+    (kind) => kind,
+  ).entries()].map(([kind, items]) => [kind, items.length]),
+);
+const endpointNames = Object.keys(coverage[0]?.endpointCounts ?? {});
+const endpointCoverage = Object.fromEntries(
+  endpointNames.map((endpoint) => {
+    const stationCounts = coverage.map(
+      (station) => station.endpointCounts[endpoint],
+    );
+    return [
+      endpoint,
+      {
+        stationsWithRows: stationCounts.filter((count) => count > 0).length,
+        stationsWithoutRows: stationCounts.filter((count) => count === 0).length,
+        rowCount: stationCounts.reduce((sum, count) => sum + count, 0),
+      },
+    ];
+  }),
+);
 const report = {
   collectedAt: collectedAt.toISOString(),
   scope: {
     line: `${line}호선`,
-    railOperatorCode: 'S1',
+    railOperatorCodes: operatorCodes,
     stationCount: stations.length,
     goal: '서울 지하철 1~9호선 지원을 위한 노선별 API 동기화 감사',
   },
@@ -608,6 +663,8 @@ const report = {
     affectedStationCount: affectedStations.length,
     differenceCount: differences.length,
     categoryCounts,
+    differenceKindCounts,
+    endpointCoverage,
     gapRecordCount: Object.values(gapSummary).reduce((sum, count) => sum + count, 0),
     gapSummary,
   },
@@ -631,7 +688,7 @@ await writeFile(
   path.join(rawDirectory, 'kric.json'),
   `${JSON.stringify({
     route: routePayload,
-    platforms: platformPayload,
+    platforms: platformPayloads,
     stations: stationPayloads,
     gaps: gapPayloads,
   }, null, 2)}\n`,
@@ -659,6 +716,12 @@ const categoryLabels = {
   station_name: '역명',
 };
 
+const differenceKindLabels = {
+  value_difference: '값 차이',
+  coverage_gap: 'API 값 없음',
+  linkage_gap: '연결 레코드 없음',
+};
+
 const markdown = [
   `# ${line}호선 API 정보 차이 감사`,
   '',
@@ -676,6 +739,16 @@ const markdown = [
   '- 차량·문: 세 API의 차량-문 번호 집합이 다르면 기록한다.',
   '- 승강장·이격거리: 승강장, 인접 차량·문, 문별 이격거리 레코드가 연결되지 않으면 기록한다.',
   '- 빈 값은 `없음`으로 표시하며, 누락인지 실제 시설 부재인지 판정하지 않는다.',
+  '- `값 차이`와 `API 값 없음`은 별도 유형으로 표시한다.',
+  '',
+  '## API별 역 데이터 제공 범위',
+  '',
+  '| API | 값이 있는 역 | 값이 없는 역 | 응답 행 |',
+  '| --- | ---: | ---: | ---: |',
+  ...Object.entries(endpointCoverage).map(
+    ([endpoint, counts]) =>
+      `| ${endpoint} | ${counts.stationsWithRows} | ${counts.stationsWithoutRows} | ${counts.rowCount} |`,
+  ),
   '',
   '## 승강장 이격거리',
   '',
@@ -696,12 +769,14 @@ for (const [category, items] of Map.groupBy(
   markdown.push(`## ${categoryLabels[category] ?? category} (${items.length}역)`, '');
   const sourceNames = unique(items.flatMap((item) => Object.keys(item.normalizedValues)));
   markdown.push(
-    `| 역 | ${sourceNames.join(' | ')} |`,
-    `| --- | ${sourceNames.map(() => '---').join(' | ')} |`,
+    `| 역 | 구분 | ${sourceNames.join(' | ')} |`,
+    `| --- | --- | ${sourceNames.map(() => '---').join(' | ')} |`,
   );
   for (const item of items) {
     markdown.push(
-      `| ${item.stationName} (${item.stationCode}) | ${sourceNames
+      `| ${item.stationName} (${item.stationCode}) | ${item.differenceKinds
+        .map((kind) => differenceKindLabels[kind] ?? kind)
+        .join(' + ')} | ${sourceNames
         .map((source) => markdownCell(item.normalizedValues[source]))
         .join(' | ')} |`,
     );
@@ -712,7 +787,7 @@ for (const [category, items] of Map.groupBy(
 markdown.push(
   '## 1~9호선 확대',
   '',
-  '동일한 수집기에서 `--line 1`부터 `--line 9`까지 실행할 수 있다. 이번 결과는 5호선만 포함하며 다른 노선 결과는 아직 포함하지 않는다.',
+  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\`까지 실행할 수 있다. 이번 결과는 ${line}호선만 포함한다.`,
   '',
 );
 

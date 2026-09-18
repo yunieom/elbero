@@ -63,8 +63,10 @@ npm run research:t02 -- --dry-run
 ```
 
 1~9호선의 KRIC·서울교통공사 API 응답 차이는 노선별 감사 명령으로 수집합니다. 현재
-5호선 결과는
-[`docs/research/line-5-api-sync-audit.md`](docs/research/line-5-api-sync-audit.md)에 있습니다.
+완료된 감사 결과는 다음 문서에 있습니다.
+
+- [`5호선 API 정보 차이 감사`](docs/research/line-5-api-sync-audit.md)
+- [`9호선 API 정보 차이 감사`](docs/research/line-9-api-sync-audit.md)
 
 ```bash
 npm run research:line-sync -- --line 5
