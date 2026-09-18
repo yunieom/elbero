@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "line": "5",
+  "verificationDate": "2026-09-18",
+  "status": "partial",
+  "policy": {
+    "sourceApiResponsesRemainImmutable": true,
+    "onlyVerifiedEntriesMayOverrideRouteText": true,
+    "liveStatusRequiresASeparatelyVerifiedFacilityMatch": true
+  },
+  "verifiedStations": [
+    { "stationCode": "2511", "stationName": "방화", "exitNumbers": ["2"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2513", "stationName": "김포공항", "exitNumbers": ["3", "4"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2515", "stationName": "마곡", "exitNumbers": ["2", "3", "5", "7"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2519", "stationName": "까치산", "exitNumbers": ["2"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2520", "stationName": "신정", "exitNumbers": ["2"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2524", "stationName": "영등포구청", "exitNumbers": ["7"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2527", "stationName": "여의도", "exitNumbers": ["2", "3"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2529", "stationName": "마포", "exitNumbers": ["2"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2530", "stationName": "공덕", "exitNumbers": ["2", "5"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2533", "stationName": "서대문", "exitNumbers": ["2", "6"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2534", "stationName": "광화문", "exitNumbers": ["1"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2535", "stationName": "종로3가", "exitNumbers": ["8"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2536", "stationName": "을지로4가", "exitNumbers": ["8"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2537", "stationName": "동대문역사문화공원", "exitNumbers": ["1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2538", "stationName": "청구", "exitNumbers": ["1", "3"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2539", "stationName": "신금호", "exitNumbers": ["3"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2541", "stationName": "왕십리", "exitNumbers": ["4", "6-1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2544", "stationName": "장한평", "exitNumbers": ["1", "7"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2545", "stationName": "군자", "exitNumbers": ["4", "7"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2546", "stationName": "아차산", "exitNumbers": ["3"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
+    { "stationCode": "2547", "stationName": "광나루", "exitNumbers": ["1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2548", "stationName": "천호", "exitNumbers": ["6"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2549", "stationName": "강동", "exitNumbers": ["1"], "verificationMethod": "field", "evidenceNote": "현장 확인" },
+    { "stationCode": "2550", "stationName": "길동", "exitNumbers": ["1"], "verificationMethod": "field", "evidenceNote": "현장 확인" },
+    { "stationCode": "2555", "stationName": "둔촌동", "exitNumbers": ["2", "4"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2551", "stationName": "굽은다리", "exitNumbers": ["1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2552", "stationName": "명일", "exitNumbers": ["3"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2553", "stationName": "고덕", "exitNumbers": ["2", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2558", "stationName": "오금", "exitNumbers": ["1", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2554", "stationName": "상일동", "exitNumbers": ["1", "4", "6", "7"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2559", "stationName": "개롱", "exitNumbers": ["3"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2560", "stationName": "거여", "exitNumbers": ["1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2564", "stationName": "하남풍산", "exitNumbers": ["1", "5", "7"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2565", "stationName": "하남시청", "exitNumbers": ["3", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" }
+  ],
+  "unresolvedInputs": [
+    {
+      "rawStationName": "하남풍산",
+      "exitNumbers": ["1", "4"],
+      "evidenceNote": "편의정보 확인",
+      "reason": "하남풍산은 이미 1·5·7번으로 제출되었고 원래 검증 대상의 마지막 역은 하남검단산역이므로 대상 역 확인이 필요함"
+    }
+  ]
+}

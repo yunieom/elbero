@@ -13,7 +13,7 @@ describe('JourneyService', () => {
     getSnapshot.mockReset();
   });
 
-  it('답십리→강동에서 확인된 1번 출구를 사용하고 2-1번 출구는 unknown으로 남긴다', async () => {
+  it('답십리→강동에서 현장 확인된 1번 출구만 사용한다', async () => {
     getSnapshot.mockResolvedValue(snapshotForJourney('dapsimni-to-gangdong'));
 
     const result = await service.plan('2543', '2549');
@@ -30,17 +30,11 @@ describe('JourneyService', () => {
       (group) => group.id === 'gangdong-surface',
     );
     expect(surfaceGroup?.status).toBe(ELEVATOR_STATUS.OPERATIONAL);
-    expect(
-      surfaceGroup?.facilities.find(
-        (facility) => facility.id === 'gangdong-exit-2-1',
-      ),
-    ).toMatchObject({
-      status: ELEVATOR_STATUS.UNKNOWN,
-      matchStatus: 'unmatched',
-    });
+    expect(surfaceGroup?.facilities).toHaveLength(1);
+    expect(result.candidates[0].steps[6].instruction).not.toContain('2-1번');
   });
 
-  it('답십리→굽은다리는 출구 번호 충돌을 unknown으로 남겨 추천하지 않는다', async () => {
+  it('답십리→굽은다리는 검증된 1번 출구의 실시간 상태를 연결할 수 없어 추천하지 않는다', async () => {
     getSnapshot.mockResolvedValue(
       snapshotForJourney('dapsimni-to-gubeundari'),
     );
@@ -64,18 +58,14 @@ describe('JourneyService', () => {
     expect(surfaceGroup?.facilities).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          id: 'gubeundari-exit-2',
-          status: ELEVATOR_STATUS.OPERATIONAL,
-          matchStatus: 'verified',
-        }),
-        expect.objectContaining({
-          id: 'gubeundari-exit-number-conflict',
+          id: 'gubeundari-exit-1-verified',
           status: ELEVATOR_STATUS.UNKNOWN,
           matchStatus: 'unmatched',
         }),
       ]),
     );
     expect(result.candidates[0].steps[3].instruction).toContain('3호차 2번 문');
+    expect(result.candidates[0].steps[6].instruction).toContain('1번 출구');
     expect(result.candidates[0].steps[4].platformGap).toEqual({
       distanceCm: 9,
       level: 'green',

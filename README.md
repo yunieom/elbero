@@ -68,6 +68,9 @@ npm run research:t02 -- --dry-run
 - [`5호선 API 정보 차이 감사`](docs/research/line-5-api-sync-audit.md)
 - [`9호선 API 정보 차이 감사`](docs/research/line-9-api-sync-audit.md)
 
+지도·편의정보·현장 확인으로 확정한 값은 생성되는 감사 보고서를 직접 수정하지 않고
+[`5호선 지상 출구 수동 검증값`](data/verification/line-5-surface-exits.json)에 별도로 기록합니다.
+
 ```bash
 npm run research:line-sync -- --line 5
 ```

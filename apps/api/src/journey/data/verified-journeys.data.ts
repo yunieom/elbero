@@ -150,8 +150,8 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
     originStationName: '답십리',
     destinationStationCode: '2549',
     destinationStationName: '강동',
-    dataVersion: '2026-09-17.t02.1',
-    verifiedAt: '2026-09-17',
+    dataVersion: '2026-09-18.manual.1',
+    verifiedAt: '2026-09-18',
     candidates: [
       {
         id: 'line-5-direct',
@@ -180,7 +180,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
           {
             id: 'gangdong-surface',
             label: '강동 지상 출구 엘리베이터',
-            policy: 'any',
+            policy: 'all',
             facilities: [
               {
                 id: 'gangdong-exit-1',
@@ -190,15 +190,6 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
                 sourceFacilityName: '승강기)엘리베이터-강동 외부 2호기',
                 expectedOperatingSection: 'B3-1F',
                 expectedLocation: '1번 출입구',
-              },
-              {
-                id: 'gangdong-exit-2-1',
-                stationCode: '2549',
-                stationName: '강동',
-                role: 'B3 대합실에서 2-1번 출구 지상으로 이동',
-                sourceFacilityName: null,
-                expectedOperatingSection: null,
-                expectedLocation: null,
               },
             ],
           },
@@ -259,9 +250,10 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '강동',
             instruction:
-              '개찰구를 통과한 뒤 상태가 확인된 1번 출구 엘리베이터로 지상에 올라가세요. 2-1번 출구는 현재 상태를 확인할 수 없습니다.',
+              '개찰구를 통과한 뒤 현장에서 확인된 1번 출구 엘리베이터로 지상에 올라가세요.',
             facilityGroupId: 'gangdong-surface',
-            evidence: 'KRIC stationMovement 역순 + SeoulMetroFaciInfo',
+            evidence:
+              '사용자 현장 확인(2026-09-18) + KRIC stationMovement 역순 + SeoulMetroFaciInfo',
           },
         ],
       },
@@ -273,7 +265,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
     originStationName: '답십리',
     destinationStationCode: '2551',
     destinationStationName: '굽은다리',
-    dataVersion: '2026-09-18.t02.2',
+    dataVersion: '2026-09-18.manual.1',
     verifiedAt: '2026-09-18',
     candidates: [
       {
@@ -306,19 +298,10 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             policy: 'all',
             facilities: [
               {
-                id: 'gubeundari-exit-2',
+                id: 'gubeundari-exit-1-verified',
                 stationCode: '2551',
                 stationName: '굽은다리',
-                role: '현재 시설·상태 데이터가 가리키는 2번 출구 엘리베이터',
-                sourceFacilityName: '승강기)엘리베이터-굽은다리 외부3',
-                expectedOperatingSection: 'B1-1F',
-                expectedLocation: '2번 출입구',
-              },
-              {
-                id: 'gubeundari-exit-number-conflict',
-                stationCode: '2551',
-                stationName: '굽은다리',
-                role: 'KRIC 이동경로의 1번 출구 표기와 현재 시설 데이터의 2번 출구 표기가 충돌하여 현장 확인 필요',
+                role: '편의정보로 검증한 1번 출구와 서울 가동현황의 2번 출구 표기가 충돌하여 실시간 상태 연결 불가',
                 sourceFacilityName: null,
                 expectedOperatingSection: null,
                 expectedLocation: null,
@@ -384,19 +367,19 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             type: JOURNEY_STEP_TYPE.SAFETY,
             stationName: '굽은다리',
             instruction:
-              '지상 엘리베이터는 현재 시설·가동 데이터에서 2번 출구로 확인되지만 KRIC 이동경로 문장에는 1번 출구로 표기되어 있습니다. 현장 안내 표지나 역무원에게 출구 번호를 확인하세요.',
+              '지상 엘리베이터 위치는 편의정보 확인 결과 1번 출구입니다. 다만 서울 가동현황은 2번 출구로 반환되어 1번 출구 시설의 실시간 상태와 연결할 수 없습니다.',
             facilityGroupId: 'gubeundari-surface',
             evidence:
-              'KRIC stationMovement ↔ KRIC stationElevator·SeoulMetroFaciInfo 불일치',
+              '사용자 편의정보 확인(2026-09-18) + SeoulMetroFaciInfo 불일치',
           },
           {
             order: 8,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '굽은다리',
             instruction:
-              '현재 상태 데이터상 운행 중인 2번 출구 엘리베이터가 현장 동선과 연결되는지 확인한 뒤 지상으로 이동하세요.',
+              '1번 출구 엘리베이터의 실제 운행 여부를 현장에서 확인한 뒤 지상으로 이동하세요.',
             facilityGroupId: 'gubeundari-surface',
-            evidence: 'KRIC stationElevator + SeoulMetroFaciInfo',
+            evidence: '사용자 편의정보 확인(2026-09-18)',
           },
         ],
       },
