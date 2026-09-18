@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "line": "5",
   "verificationDate": "2026-09-18",
-  "status": "partial",
+  "status": "complete",
   "policy": {
     "sourceApiResponsesRemainImmutable": true,
     "onlyVerifiedEntriesMayOverrideRouteText": true,
@@ -42,14 +42,8 @@
     { "stationCode": "2559", "stationName": "개롱", "exitNumbers": ["3"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
     { "stationCode": "2560", "stationName": "거여", "exitNumbers": ["1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
     { "stationCode": "2564", "stationName": "하남풍산", "exitNumbers": ["1", "5", "7"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
-    { "stationCode": "2565", "stationName": "하남시청", "exitNumbers": ["3", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" }
+    { "stationCode": "2565", "stationName": "하남시청", "exitNumbers": ["3", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2566", "stationName": "하남검단산", "exitNumbers": ["1", "4"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" }
   ],
-  "unresolvedInputs": [
-    {
-      "rawStationName": "하남풍산",
-      "exitNumbers": ["1", "4"],
-      "evidenceNote": "편의정보 확인",
-      "reason": "하남풍산은 이미 1·5·7번으로 제출되었고 원래 검증 대상의 마지막 역은 하남검단산역이므로 대상 역 확인이 필요함"
-    }
-  ]
+  "unresolvedInputs": []
 }
