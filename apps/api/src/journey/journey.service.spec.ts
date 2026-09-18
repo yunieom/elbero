@@ -20,6 +20,11 @@ describe('JourneyService', () => {
 
     expect(result.recommendedRouteId).toBe('line-5-direct');
     expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.OPERATIONAL);
+    expect(result.candidates[0].steps[4].platformGap).toEqual({
+      distanceCm: 9,
+      level: 'green',
+      label: '안전',
+    });
 
     const surfaceGroup = result.candidates[0].facilityGroups.find(
       (group) => group.id === 'gangdong-surface',
@@ -71,6 +76,11 @@ describe('JourneyService', () => {
       ]),
     );
     expect(result.candidates[0].steps[3].instruction).toContain('3호차 2번 문');
+    expect(result.candidates[0].steps[4].platformGap).toEqual({
+      distanceCm: 9,
+      level: 'green',
+      label: '안전',
+    });
   });
 
   it('동대문역사문화공원 필수 승강기가 보수중이면 을지로4가를 추천한다', async () => {

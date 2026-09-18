@@ -1,4 +1,5 @@
 import type { ElevatorStatus } from '../../elevator-status/types/seoul-elevator-status.type.js';
+import type { PlatformGapInfo } from '../platform-gap.js';
 
 export const JOURNEY_STEP_TYPE = {
   ENTRY: 'entry',
@@ -37,6 +38,7 @@ export interface VerifiedJourneyStep {
   instruction: string;
   facilityGroupId?: string;
   evidence: string;
+  platformGap?: PlatformGapInfo;
 }
 
 export interface VerifiedRouteCandidate {

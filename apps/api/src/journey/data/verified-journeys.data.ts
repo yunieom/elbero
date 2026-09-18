@@ -3,6 +3,7 @@ import {
   type FacilityRequirementGroup,
   type VerifiedJourneyDefinition,
 } from '../types/verified-journey.type.js';
+import { toPlatformGap } from '../platform-gap.js';
 
 const DAPSIMNI_WEST_ENTRY: FacilityRequirementGroup[] = [
   {
@@ -240,8 +241,9 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             type: JOURNEY_STEP_TYPE.SAFETY,
             stationName: '답십리',
             instruction:
-              '8호차 4번 문 위치의 승강장 이격거리 값은 9입니다. 공식 단위가 확인되지 않아 숫자 단위를 표시하지 않습니다.',
+              '8호차 4번 문 위치의 승강장 이격거리는 9cm로 안전(green) 구간입니다.',
             evidence: 'KRIC stationPlatformTrainDistance · 답십리 승강장 2',
+            platformGap: toPlatformGap(9),
           },
           {
             order: 6,
@@ -363,8 +365,9 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             type: JOURNEY_STEP_TYPE.SAFETY,
             stationName: '답십리',
             instruction:
-              '3호차 2번 문 위치의 승강장 이격거리 값은 9입니다. 공식 단위가 확인되지 않아 숫자 단위를 표시하지 않습니다.',
+              '3호차 2번 문 위치의 승강장 이격거리는 9cm로 안전(green) 구간입니다.',
             evidence: 'KRIC stationPlatformTrainDistance · 답십리 승강장 2',
+            platformGap: toPlatformGap(9),
           },
           {
             order: 6,

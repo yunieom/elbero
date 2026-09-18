@@ -32,7 +32,7 @@ KRIC의 표준 이동경로 API는 출발역 진입, 환승, 도착역 퇴장을
 | 엘리베이터 단계 | [KRIC 교통약자 역사 내 엘리베이터 이동동선](https://data.kric.go.kr/rips/M_01_02/detail.do?id=391&operation=stinElevatorMovement&service=trafficWeekInfo) | 상세 이동내용, 거리, 경로 구분, 경로 관리번호, 순서 | `trafficWeekInfo/stinElevatorMovement`에서 출입구·환승 경로 단계를 함께 반환함 |
 | 인접 차량·문 | [KRIC 역사별 인접 승강기 차량번호](https://data.kric.go.kr/rips/M_01_02/detail.do?id=210&operation=stationElevatorCarNumber&service=vulnerableUserInfo) | 승강장번호, 차량순서, 출입문번호, 열차종별 | 방향 필드가 없으므로 승강장 정보와 결합해야 함 |
 | 승강장 방향 | [KRIC 역사별 승강장 정보](https://data.kric.go.kr/rips/M_01_02/detail.do?id=433&operation=stPlf&service=convenientInfo) | 승강장번호, 상하행, 방향 종착역, 층 | 차량·문 번호를 열차 방향에 연결하는 보조 소스 |
-| 승강장 이격거리 | [KRIC 역사별 승강장 이격거리](https://data.kric.go.kr/rips/M_01_02/detail.do?id=206&operation=stationPlatformTrainDistance&service=vulnerableUserInfo), 역·호선·승강장번호 | 차량순서, 출입문번호, `sfDst` 안전거리 | 탑승 단계의 문별 경고에 사용. 공개 명세에는 단위가 없어 실제 응답·공식 문의로 확인 필요 |
+| 승강장 이격거리 | [KRIC 역사별 승강장 이격거리](https://data.kric.go.kr/rips/M_01_02/detail.do?id=206&operation=stationPlatformTrainDistance&service=vulnerableUserInfo), 역·호선·승강장번호 | 차량순서, 출입문번호, `sfDst` 이격거리(cm) | 탑승 단계의 문별 경고에 사용. 2026-09-18 제품 기준으로 단위와 경계 규칙 확정 |
 | 시설 층·출구 | [KRIC 역사별 엘리베이터 현황](https://data.kric.go.kr/rips/M_01_02/detail.do?id=189&operation=stationElevator&service=convenientInfo) | 상세위치, 출구번호, 시작·종료 층 | 정적 시설 위치 보강. 공개 출력 목록에는 상태 관측 시각이 없음 |
 | 현재 가동상태 | [서울교통공사 교통약자 이용시설 승강기 가동현황](https://data.seoul.go.kr/dataList/OA-15994/S/1/datasetView.do), `SeoulMetroFaciInfo` | `STN_CD`, `STN_NM`, `ELVTR_NM`, `OPR_SEC`, `INSTL_PSTN`, `USE_YN`, `ELVTR_SE` | 역별 정상가동 여부, 매시 갱신. KRIC와 공통 시설 ID 및 행별 관측 시각은 없음 |
 | 시설 상태 스냅샷 | [KRIC 전국 도시광역철도 역사 엘리베이터 현황](https://data.kric.go.kr/rips/M_01_01/detail.do?id=933) | 관리번호, 상태·상태코드, 승강기 일련번호, 기준일자 | 파일 기준일은 2025-12-30이며 업데이트 주기가 `없음`; 실시간 고장 판단에는 부적합 |
@@ -173,9 +173,9 @@ KRIC는 HTTP 200 안에 자체 결과 코드를 담으므로 `header.resultCode`
    이어 붙인다.
 7. **퇴장:** 마지막 역의 승강장부터 지상 엘리베이터까지 순서대로 표시한다.
 
-이격거리 색상만으로 위험을 전달하지 않는다. 첨부 화면의 구간 기준은 `0~10`,
-`10 초과~15`, `15 초과`로 보이지만, 공식 API 명세에 `sfDst` 단위가 적혀 있지 않으므로
-단위와 경계 포함 규칙을 확인하기 전에는 제품 문구에서 수치 단위를 단정하지 않는다.
+`sfDst` 단위는 cm로 사용한다. `0cm 이상~10cm 이하`는 `green` 안전,
+`10cm 초과~15cm 이하`는 `yellow` 유의, `15cm 초과`는 `red` 추천하지 않음으로
+분류한다. 색상만으로 위험을 전달하지 않고 수치·아이콘·문구를 함께 표시한다.
 
 ## F03 정규화에 필요한 최소 연결키
 
@@ -209,7 +209,8 @@ KRIC는 HTTP 200 안에 자체 결과 코드를 담으므로 `header.resultCode`
    픽스처로 고정한다.
 2. 서울 상태 목록에 없는 KRIC 시설은 `unknown`으로 남기고 해당 시설이 필수인 경로는
    `가동 여부 미확인`으로 표시한다.
-3. 답십리의 문별 `sfDst` 값과 포털 화면을 대조해 단위와 경고 구간을 확정한다.
+3. 1~9호선의 문별 `sfDst`를 수집하고 인접 차량·문 레코드와 연결되지 않는 값을 별도
+   검증 목록으로 유지한다.
 4. 원본 관측 시각이 없으므로 앱에는 `마지막 확인: 수집시각`, `최대 1시간 지연 가능`을
    함께 표시한다.
 
@@ -221,4 +222,4 @@ KRIC는 HTTP 200 안에 자체 결과 코드를 담으므로 `header.resultCode`
 - 동대문역사문화공원 환승 동선과 을지로4가 대체 후보: **방향별 텍스트 경로 확인**
 - 특정 고장 엘리베이터 자동 제외: **상태 소스·상태값 확인, 검증된 시설부터 적용 가능**
 - 남은 차단 요인: 시설 연결표의 코드화, 서울 상태 목록의 일부 KRIC 시설 누락,
-  이격거리 단위, 행별 원본 관측 시각 부재
+  API 사이의 위치 정보 차이, 행별 원본 관측 시각 부재

@@ -117,6 +117,7 @@ export class JourneyService {
       steps: candidate.steps.map((step) => ({
         ...step,
         facilityGroupId: step.facilityGroupId ?? null,
+        platformGap: step.platformGap ?? null,
       })),
     };
   }

@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ELEVATOR_STATUS } from '../../../elevator-status/types/seoul-elevator-status.type.js';
 import { JOURNEY_STEP_TYPE } from '../../types/verified-journey.type.js';
+import { PLATFORM_GAP_LEVEL } from '../../platform-gap.js';
 
 const STATUS_VALUES = Object.values(ELEVATOR_STATUS);
 const STEP_TYPE_VALUES = Object.values(JOURNEY_STEP_TYPE);
@@ -19,6 +20,20 @@ export class JourneyDestinationStationResDto {
 
   @ApiProperty({ example: '홍대입구' })
   stationName: string;
+}
+
+export class JourneyPlatformGapResDto {
+  @ApiProperty({ example: 9, description: '승강장과 열차 사이의 이격거리(cm)' })
+  distanceCm: number;
+
+  @ApiProperty({
+    enum: Object.values(PLATFORM_GAP_LEVEL),
+    example: PLATFORM_GAP_LEVEL.GREEN,
+  })
+  level: string;
+
+  @ApiProperty({ enum: ['안전', '유의', '추천하지 않음'], example: '안전' })
+  label: string;
 }
 
 export class JourneyStepResDto {
@@ -44,6 +59,14 @@ export class JourneyStepResDto {
 
   @ApiProperty({ example: 'KRIC stationMovement · 답십리→마장 방면' })
   evidence: string;
+
+  @ApiProperty({
+    type: JourneyPlatformGapResDto,
+    nullable: true,
+    description:
+      '0~10cm green(안전), 10cm 초과~15cm yellow(유의), 15cm 초과 red(추천하지 않음)',
+  })
+  platformGap: JourneyPlatformGapResDto | null;
 }
 
 export class JourneyFacilityStatusResDto {
