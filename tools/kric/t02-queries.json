@@ -88,6 +88,18 @@
     }
   },
   {
+    "id": "gubeundari-exit-myeongil-direction",
+    "purpose": "답십리에서 굽은다리 도착 후 명일 방향 열차 기준 승강장-출입구 동선",
+    "endpoint": "/handicapped/stationMovement",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2551",
+      "nextStinCd": "2552"
+    }
+  },
+  {
     "id": "dapsimni-platform-line-5",
     "purpose": "답십리 5호선 승강장 번호와 상·하행 방향 연결",
     "endpoint": "/convenientInfo/stPlf",
@@ -107,6 +119,17 @@
       "railOprIsttCd": "S1",
       "lnCd": "5",
       "stinCd": "2549"
+    }
+  },
+  {
+    "id": "gubeundari-platform-line-5",
+    "purpose": "굽은다리 5호선 승강장 번호와 상·하행 방향 연결",
+    "endpoint": "/convenientInfo/stPlf",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2551"
     }
   },
   {
@@ -189,6 +212,17 @@
     }
   },
   {
+    "id": "gubeundari-nearby-car-line-5",
+    "purpose": "굽은다리 5호선 엘리베이터 인접 차량·문 번호 확인",
+    "endpoint": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2551"
+    }
+  },
+  {
     "id": "ddp-platform-line-2",
     "purpose": "동대문역사문화공원 2호선 승강장 번호와 운행 방향 연결",
     "endpoint": "/convenientInfo/stPlf",
@@ -230,6 +264,17 @@
       "railOprIsttCd": "S1",
       "lnCd": "5",
       "stinCd": "2536"
+    }
+  },
+  {
+    "id": "gubeundari-elevator-facilities-line-5",
+    "purpose": "굽은다리 5호선 엘리베이터 층·출구·상세 위치 확인",
+    "endpoint": "/convenientInfo/stationElevator",
+    "params": {
+      "format": "json",
+      "railOprIsttCd": "S1",
+      "lnCd": "5",
+      "stinCd": "2551"
     }
   }
 ]

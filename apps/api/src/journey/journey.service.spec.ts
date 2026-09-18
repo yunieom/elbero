@@ -35,6 +35,44 @@ describe('JourneyService', () => {
     });
   });
 
+  it('답십리→굽은다리는 출구 번호 충돌을 unknown으로 남겨 추천하지 않는다', async () => {
+    getSnapshot.mockResolvedValue(
+      snapshotForJourney('dapsimni-to-gubeundari'),
+    );
+
+    const result = await service.plan('2543', '2551');
+
+    expect(result.recommendedRouteId).toBeNull();
+    expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.UNKNOWN);
+    expect(result.selectionReason).toContain('위치 정보가 출처별로 충돌');
+    expect(result.candidates[0].blockingReasons[0]).toContain(
+      '출구 번호가 출처별로 충돌',
+    );
+
+    const platformGroup = result.candidates[0].facilityGroups.find(
+      (group) => group.id === 'gubeundari-platform',
+    );
+    const surfaceGroup = result.candidates[0].facilityGroups.find(
+      (group) => group.id === 'gubeundari-surface',
+    );
+    expect(platformGroup?.status).toBe(ELEVATOR_STATUS.OPERATIONAL);
+    expect(surfaceGroup?.facilities).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: 'gubeundari-exit-2',
+          status: ELEVATOR_STATUS.OPERATIONAL,
+          matchStatus: 'verified',
+        }),
+        expect.objectContaining({
+          id: 'gubeundari-exit-number-conflict',
+          status: ELEVATOR_STATUS.UNKNOWN,
+          matchStatus: 'unmatched',
+        }),
+      ]),
+    );
+    expect(result.candidates[0].steps[3].instruction).toContain('3호차 2번 문');
+  });
+
   it('동대문역사문화공원 필수 승강기가 보수중이면 을지로4가를 추천한다', async () => {
     const snapshot = snapshotForJourney('dapsimni-to-hongik');
     const brokenElevator = snapshot.rows.find(

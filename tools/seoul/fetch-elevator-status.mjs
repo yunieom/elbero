@@ -73,7 +73,13 @@ for (let startIndex = PAGE_SIZE + 1; startIndex <= totalCount; startIndex += PAG
   rows.push(...(page.row ?? []));
 }
 
-const targetStations = ['답십리', '강동', '동대문역사문화공원', '을지로4가'];
+const targetStations = [
+  '답십리',
+  '강동',
+  '굽은다리',
+  '동대문역사문화공원',
+  '을지로4가',
+];
 const stationBaseName = (stationName) => stationName?.replace(/\(\d+\)$/, '') ?? '';
 const targetRows = rows.filter((row) =>
   targetStations.includes(stationBaseName(row.STN_NM)),

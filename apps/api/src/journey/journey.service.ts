@@ -102,11 +102,7 @@ export class JourneyService {
       recommended: false,
       blockingReasons: facilityGroups
         .filter((group) => group.status !== ELEVATOR_STATUS.OPERATIONAL)
-        .map((group) =>
-          group.status === ELEVATOR_STATUS.OUT_OF_SERVICE
-            ? `${group.label}에 운행 중지 시설이 있어 이용할 수 없습니다.`
-            : `${group.label}의 가동 여부를 확인할 수 없습니다.`,
-        ),
+        .map((group) => this.toBlockingReason(group)),
       facilityGroups: facilityGroups.map(
         (group): JourneyFacilityGroupResDto => ({
           id: group.id,
@@ -246,6 +242,18 @@ export class JourneyService {
     recommendedCandidate: JourneyRouteCandidateResDto | undefined,
   ): string {
     if (!recommendedCandidate) {
+      const hasConflictingEvidence = candidates.some((candidate) =>
+        candidate.facilityGroups.some((group) =>
+          group.facilities.some(
+            (facility) =>
+              facility.status === ELEVATOR_STATUS.UNKNOWN &&
+              facility.role.includes('충돌'),
+          ),
+        ),
+      );
+      if (hasConflictingEvidence) {
+        return '필수 시설의 위치 정보가 출처별로 충돌하여 현장 확인 전에는 안전한 경로로 추천하지 않습니다.';
+      }
       return '필수 승강기가 운행 중지이거나 상태를 확인할 수 없어 안전하게 추천할 경로가 없습니다.';
     }
     if (recommendedCandidate.priority === 1) {
@@ -256,5 +264,21 @@ export class JourneyService {
       .filter((candidate) => candidate.priority < recommendedCandidate.priority)
       .flatMap((candidate) => candidate.blockingReasons);
     return `${skippedCandidates.join(' ')} 따라서 ${recommendedCandidate.label} 경로를 선택했습니다.`;
+  }
+
+  private toBlockingReason(group: EvaluatedFacilityGroup): string {
+    if (group.status === ELEVATOR_STATUS.OUT_OF_SERVICE) {
+      return `${group.label}에 운행 중지 시설이 있어 이용할 수 없습니다.`;
+    }
+    if (
+      group.facilities.some(
+        (facility) =>
+          facility.status === ELEVATOR_STATUS.UNKNOWN &&
+          facility.role.includes('충돌'),
+      )
+    ) {
+      return `${group.label}의 출구 번호가 출처별로 충돌하여 현장 확인이 필요합니다.`;
+    }
+    return `${group.label}의 가동 여부를 확인할 수 없습니다.`;
   }
 }

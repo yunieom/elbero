@@ -266,6 +266,140 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
     ],
   },
   {
+    id: 'dapsimni-to-gubeundari',
+    originStationCode: '2543',
+    originStationName: '답십리',
+    destinationStationCode: '2551',
+    destinationStationName: '굽은다리',
+    dataVersion: '2026-09-18.t02.2',
+    verifiedAt: '2026-09-18',
+    candidates: [
+      {
+        id: 'line-5-hanam-branch',
+        label: '5호선 하남검단산 방면 직통 경로',
+        priority: 1,
+        transferStation: null,
+        lines: ['5호선'],
+        facilityGroups: [
+          ...DAPSIMNI_EAST_ENTRY,
+          {
+            id: 'gubeundari-platform',
+            label: '굽은다리 명일 방면 승강장 엘리베이터',
+            policy: 'all',
+            facilities: [
+              {
+                id: 'gubeundari-internal-myeongil',
+                stationCode: '2551',
+                stationName: '굽은다리',
+                role: 'B2 명일 방면 승강장에서 B1 대합실로 이동',
+                sourceFacilityName: '승강기)엘리베이터-굽은다리 내부2',
+                expectedOperatingSection: 'B1-B2',
+                expectedLocation: '명일 방면3-2, 3-3 사이',
+              },
+            ],
+          },
+          {
+            id: 'gubeundari-surface',
+            label: '굽은다리 지상 출구 연결',
+            policy: 'all',
+            facilities: [
+              {
+                id: 'gubeundari-exit-2',
+                stationCode: '2551',
+                stationName: '굽은다리',
+                role: '현재 시설·상태 데이터가 가리키는 2번 출구 엘리베이터',
+                sourceFacilityName: '승강기)엘리베이터-굽은다리 외부3',
+                expectedOperatingSection: 'B1-1F',
+                expectedLocation: '2번 출입구',
+              },
+              {
+                id: 'gubeundari-exit-number-conflict',
+                stationCode: '2551',
+                stationName: '굽은다리',
+                role: 'KRIC 이동경로의 1번 출구 표기와 현재 시설 데이터의 2번 출구 표기가 충돌하여 현장 확인 필요',
+                sourceFacilityName: null,
+                expectedOperatingSection: null,
+                expectedLocation: null,
+              },
+            ],
+          },
+        ],
+        steps: [
+          {
+            order: 1,
+            type: JOURNEY_STEP_TYPE.ENTRY,
+            stationName: '답십리',
+            instruction:
+              '2번 또는 6번 출입구 옆에서 운행 중인 엘리베이터를 타고 B2 대합실로 이동하세요.',
+            facilityGroupId: 'dapsimni-east-surface',
+            evidence: 'KRIC stationMovement · 답십리→장한평 방면',
+          },
+          {
+            order: 2,
+            type: JOURNEY_STEP_TYPE.GATE,
+            stationName: '답십리',
+            instruction: '교통카드를 태그한 뒤 장한평 방면 엘리베이터로 이동하세요.',
+            evidence: 'KRIC stationMovement · 답십리→장한평 방면',
+          },
+          {
+            order: 3,
+            type: JOURNEY_STEP_TYPE.ELEVATOR,
+            stationName: '답십리',
+            instruction: '엘리베이터를 타고 B3 장한평 방면 승강장으로 이동하세요.',
+            facilityGroupId: 'dapsimni-east-platform',
+            evidence: 'KRIC stationMovement · 답십리→장한평 방면',
+          },
+          {
+            order: 4,
+            type: JOURNEY_STEP_TYPE.TRAIN,
+            stationName: '답십리',
+            instruction:
+              '전광판에서 하남검단산·상일동 방면인지 확인한 뒤 5호선 3호차 2번 문을 이용하세요. 마천 방면 열차는 타지 마세요.',
+            evidence:
+              'KRIC subwayRouteInfo + stationElevatorCarNumber · 굽은다리 승강장 2',
+          },
+          {
+            order: 5,
+            type: JOURNEY_STEP_TYPE.SAFETY,
+            stationName: '답십리',
+            instruction:
+              '3호차 2번 문 위치의 승강장 이격거리 값은 9입니다. 공식 단위가 확인되지 않아 숫자 단위를 표시하지 않습니다.',
+            evidence: 'KRIC stationPlatformTrainDistance · 답십리 승강장 2',
+          },
+          {
+            order: 6,
+            type: JOURNEY_STEP_TYPE.ELEVATOR,
+            stationName: '굽은다리',
+            instruction:
+              '굽은다리역에서 내린 뒤 3호차 2번 문 근처의 엘리베이터를 타고 B2 명일 방면 승강장에서 B1 대합실로 이동하세요.',
+            facilityGroupId: 'gubeundari-platform',
+            evidence:
+              'KRIC stationMovement 역순 + stationElevatorCarNumber · 굽은다리',
+          },
+          {
+            order: 7,
+            type: JOURNEY_STEP_TYPE.SAFETY,
+            stationName: '굽은다리',
+            instruction:
+              '지상 엘리베이터는 현재 시설·가동 데이터에서 2번 출구로 확인되지만 KRIC 이동경로 문장에는 1번 출구로 표기되어 있습니다. 현장 안내 표지나 역무원에게 출구 번호를 확인하세요.',
+            facilityGroupId: 'gubeundari-surface',
+            evidence:
+              'KRIC stationMovement ↔ KRIC stationElevator·SeoulMetroFaciInfo 불일치',
+          },
+          {
+            order: 8,
+            type: JOURNEY_STEP_TYPE.EXIT,
+            stationName: '굽은다리',
+            instruction:
+              '현재 상태 데이터상 운행 중인 2번 출구 엘리베이터가 현장 동선과 연결되는지 확인한 뒤 지상으로 이동하세요.',
+            facilityGroupId: 'gubeundari-surface',
+            evidence: 'KRIC stationElevator + SeoulMetroFaciInfo',
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: 'dapsimni-to-hongik',
     originStationCode: '2543',
     originStationName: '답십리',

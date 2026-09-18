@@ -20,7 +20,7 @@ export class JourneyController {
   @ApiOperation({
     summary: '검증된 엘리베이터 경로와 현재 상태를 결합한 여정 조회',
     description:
-      '현재는 답십리→강동과 답십리→홍대입구를 지원합니다. 필수 승강기가 운행 중지이면 검증된 대체 경로를 선택하고, 연결이 불확실하면 추천하지 않습니다.',
+      '현재는 답십리→강동·굽은다리·홍대입구를 지원합니다. 필수 승강기가 운행 중지이면 검증된 대체 경로를 선택하고, 연결이 불확실하면 추천하지 않습니다.',
   })
   @ApiOkResponse({ type: JourneyPlanResDto })
   @ApiBadRequestResponse({ description: '역 코드 형식이 올바르지 않음' })

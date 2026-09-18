@@ -42,6 +42,7 @@ GET http://localhost:3000/elevator-status/stations/2543
 
 ```text
 GET http://localhost:3000/journeys/plan?originStationCode=2543&destinationStationCode=2549
+GET http://localhost:3000/journeys/plan?originStationCode=2543&destinationStationCode=2551
 GET http://localhost:3000/journeys/plan?originStationCode=2543&destinationStationCode=239
 ```
 

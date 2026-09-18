@@ -10,6 +10,7 @@
 | 여정 | 지원 방식 | 현재 결정 |
 | --- | --- | --- |
 | 답십리→강동 | 5호선 직통 | 1번 출구를 기본 퇴장 경로로 안내. 2-1번 출구는 서울 상태 목록에 연결할 시설이 없어 `unknown` |
+| 답십리→굽은다리 | 5호선 하남검단산 방면 직통 | 승강장까지 확인. KRIC 이동경로는 지상 엘리베이터를 1번 출구로, KRIC 시설·서울 상태 데이터는 2번 출구로 표시하므로 출구 연결은 `unknown`이며 추천 시작 불가 |
 | 답십리→홍대입구 | 5호선→2호선 환승 | 동대문역사문화공원을 우선 후보로 사용. 필수 승강기가 운행 중지 또는 미확인이면 을지로4가의 검증된 후보를 평가 |
 
 위 두 여정 외 조합은 `UNSUPPORTED_JOURNEY`로 반환한다. 아직 검증되지 않은 연결을
@@ -45,6 +46,7 @@ G0는 대표 여정을 구현할 근거가 확보되었다는 의미로만 통�
 
 ```text
 GET /journeys/plan?originStationCode=2543&destinationStationCode=2549
+GET /journeys/plan?originStationCode=2543&destinationStationCode=2551
 GET /journeys/plan?originStationCode=2543&destinationStationCode=239
 ```
 
