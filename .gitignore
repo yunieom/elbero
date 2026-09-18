@@ -28,3 +28,4 @@ npm-debug.log*
 
 # Public-data research responses may contain credentials or large payloads.
 data/research/t02/raw/
+data/research/line-sync/raw/
