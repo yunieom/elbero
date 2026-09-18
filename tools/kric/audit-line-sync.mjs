@@ -24,11 +24,28 @@ for (const envFile of [
 
 const args = process.argv.slice(2);
 const lineIndex = args.indexOf('--line');
-const line = lineIndex === -1 ? '5' : args[lineIndex + 1];
+const requestedLine = lineIndex === -1 ? '5' : args[lineIndex + 1];
+const normalizedRequestedLine = requestedLine?.toLowerCase();
+const lineTarget = /^[1-9]$/.test(requestedLine ?? '')
+  ? {
+      code: requestedLine,
+      label: `${requestedLine}호선`,
+      artifactStem: `line-${requestedLine}`,
+    }
+  : ['a1', 'airport', 'arex'].includes(normalizedRequestedLine)
+    ? {
+        code: 'A1',
+        label: '공항철도',
+        artifactStem: 'airport-railroad',
+      }
+    : null;
 
-if (!line || !/^[1-9]$/.test(line)) {
-  throw new Error('--line 뒤에는 1부터 9까지의 호선 번호가 필요합니다.');
+if (!lineTarget) {
+  throw new Error(
+    '--line 뒤에는 1부터 9까지의 호선 번호 또는 공항철도 식별자 airport가 필요합니다.',
+  );
 }
+const line = lineTarget.code;
 if (!process.env.KRIC_SERVICE_KEY) {
   throw new Error('KRIC_SERVICE_KEY가 필요합니다.');
 }
@@ -41,14 +58,17 @@ const timestamp = collectedAt.toISOString().replaceAll(':', '-');
 const rawDirectory = path.join(
   repositoryRoot,
   'data/research/line-sync/raw',
-  `line-${line}-${timestamp}`,
+  `${lineTarget.artifactStem}-${timestamp}`,
 );
 const reportDirectory = path.join(repositoryRoot, 'data/research/line-sync');
-const reportPath = path.join(reportDirectory, `line-${line}-latest.json`);
+const reportPath = path.join(
+  reportDirectory,
+  `${lineTarget.artifactStem}-latest.json`,
+);
 const markdownPath = path.join(
   repositoryRoot,
   'docs/research',
-  `line-${line}-api-sync-audit.md`,
+  `${lineTarget.artifactStem}-api-sync-audit.md`,
 );
 
 await mkdir(rawDirectory, { recursive: true });
@@ -307,7 +327,8 @@ function compactStationName(name) {
 }
 
 function normalizeStationCode(stationCode) {
-  return String(stationCode).padStart(4, '0');
+  const code = String(stationCode);
+  return /^\d+$/.test(code) ? code.padStart(4, '0') : code.toUpperCase();
 }
 
 function stationIdentity(station) {
@@ -343,7 +364,7 @@ const platformPayloads = await Promise.all(
 const platformRows = platformPayloads.flatMap(body);
 const platformsByStation = Map.groupBy(platformRows, stationIdentity);
 
-console.log(`${line}호선 ${stations.length}개 역의 KRIC 응답을 수집합니다.`);
+console.log(`${lineTarget.label} ${stations.length}개 역의 KRIC 응답을 수집합니다.`);
 
 const stationPayloads = await mapLimit(stations, REQUEST_CONCURRENCY, async (station) => {
   const baseParams = {
@@ -663,10 +684,11 @@ const endpointCoverage = Object.fromEntries(
 const report = {
   collectedAt: collectedAt.toISOString(),
   scope: {
-    line: `${line}호선`,
+    line: lineTarget.label,
+    lineCode: line,
     railOperatorCodes: operatorCodes,
     stationCount: stations.length,
-    goal: '서울 지하철 1~9호선 지원을 위한 노선별 API 동기화 감사',
+    goal: '수도권 도시철도 지원을 위한 노선별 API 동기화 감사',
   },
   comparisonPolicy: {
     adjudication: '어떤 API가 맞는지 판정하지 않는다.',
@@ -715,7 +737,8 @@ await writeFile(
   path.join(rawDirectory, 'manifest.json'),
   `${JSON.stringify({
     collectedAt: collectedAt.toISOString(),
-    line,
+    lineCode: line,
+    lineLabel: lineTarget.label,
     kricRequests,
     seoulTotalCount: seoulSnapshot.totalCount,
     seoulLineElevatorCount: lineSeoulRows.length,
@@ -761,14 +784,14 @@ const differenceKindLabels = {
 };
 
 const markdown = [
-  `# ${line}호선 API 정보 차이 감사`,
+  `# ${lineTarget.label} API 정보 차이 감사`,
   '',
   `- 수집 시각: ${collectedAt.toISOString()}`,
   `- 대상: ${stations.length}개 역`,
   `- 차이가 기록된 역: ${affectedStations.length}개`,
   `- 차이 항목: ${differences.length}건`,
   '- 판정 원칙: 어떤 API가 맞는지 결정하지 않고 API별 반환 값만 병기한다.',
-  `- 상세 응답: [line-${line}-latest.json](../../data/research/line-sync/line-${line}-latest.json)`,
+  `- 상세 응답: [${lineTarget.artifactStem}-latest.json](../../data/research/line-sync/${lineTarget.artifactStem}-latest.json)`,
   '',
   '## 비교 기준',
   '',
@@ -788,6 +811,12 @@ const markdown = [
       `| ${endpoint} | ${counts.stationsWithRows} | ${counts.stationsWithoutRows} | ${counts.rowCount} |`,
   ),
   '',
+  ...(endpointCoverage.SeoulMetroFaciInfo?.rowCount === 0
+    ? [
+        '> 서울교통공사 승강기 가동현황 API가 이 노선의 역을 반환하지 않았다. 이 빈 값은 정답 오류가 아니라 API 제공 범위 차이로 기록한다.',
+        '',
+      ]
+    : []),
   '## 승강장 이격거리',
   '',
   '| 구간 | 등급 | 의미 |',
@@ -823,15 +852,15 @@ for (const [category, items] of Map.groupBy(
 }
 
 markdown.push(
-  '## 1~9호선 확대',
+  '## 지원 노선 확대',
   '',
-  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\`까지 실행할 수 있다. 이번 결과는 ${line}호선만 포함한다.`,
+  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\` 및 \`--line airport\`를 실행할 수 있다. 이번 결과는 ${lineTarget.label}만 포함한다.`,
 );
 
 await writeFile(markdownPath, `${markdown.join('\n')}\n`, 'utf8');
 
 console.log(
-  `${line}호선 감사 완료: ${affectedStations.length}개 역, ${differences.length}개 차이 항목`,
+  `${lineTarget.label} 감사 완료: ${affectedStations.length}개 역, ${differences.length}개 차이 항목`,
 );
 console.log(`보고서: ${path.relative(repositoryRoot, reportPath)}`);
 console.log(`문서: ${path.relative(repositoryRoot, markdownPath)}`);
