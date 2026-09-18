@@ -310,6 +310,10 @@ function normalizeStationCode(stationCode) {
   return String(stationCode).padStart(4, '0');
 }
 
+function stationIdentity(station) {
+  return `${station.railOprIsttCd}:${normalizeStationCode(station.stinCd)}`;
+}
+
 const routePayload = await fetchKric(
   '/trainUseInfo/subwayRouteInfo',
   { mreaWideCd: '01', lnCd: line },
@@ -318,8 +322,8 @@ const routePayload = await fetchKric(
 const routeRows = body(routePayload);
 const stationMap = new Map();
 for (const row of routeRows) {
-  const stationCode = normalizeStationCode(row.stinCd);
-  if (!stationMap.has(stationCode)) stationMap.set(stationCode, row);
+  const identity = stationIdentity(row);
+  if (!stationMap.has(identity)) stationMap.set(identity, row);
 }
 const stations = [...stationMap.values()].sort(
   (left, right) =>
@@ -337,9 +341,7 @@ const platformPayloads = await Promise.all(
   ),
 );
 const platformRows = platformPayloads.flatMap(body);
-const platformsByStation = Map.groupBy(platformRows, (row) =>
-  normalizeStationCode(row.stinCd),
-);
+const platformsByStation = Map.groupBy(platformRows, stationIdentity);
 
 console.log(`${line}호선 ${stations.length}개 역의 KRIC 응답을 수집합니다.`);
 
@@ -381,12 +383,13 @@ const stationPayloads = await mapLimit(stations, REQUEST_CONCURRENCY, async (sta
 });
 
 const gapTasks = stations.flatMap((station) =>
-  (platformsByStation.get(normalizeStationCode(station.stinCd)) ?? []).map((platform) => ({
+  (platformsByStation.get(stationIdentity(station)) ?? []).map((platform) => ({
     station,
     platform,
   })),
 );
 const gapPayloads = await mapLimit(gapTasks, REQUEST_CONCURRENCY, async ({ station, platform }) => ({
+  stationKey: stationIdentity(station),
   stationCode: normalizeStationCode(station.stinCd),
   platformNumber: String(platform.plfNo),
   payload: await fetchKric(
@@ -400,7 +403,7 @@ const gapPayloads = await mapLimit(gapTasks, REQUEST_CONCURRENCY, async ({ stati
     `${station.stinCd}-platform-${platform.plfNo}-gap`,
   ),
 }));
-const gapsByStation = Map.groupBy(gapPayloads, (item) => item.stationCode);
+const gapsByStation = Map.groupBy(gapPayloads, (item) => item.stationKey);
 
 console.log('서울교통공사 승강기 현황을 수집합니다.');
 const seoulSnapshot = await fetchSeoulRows();
@@ -410,7 +413,11 @@ const lineStationCodes = new Set(
 const lineSeoulRows = seoulSnapshot.rows.filter(
   (row) => lineStationCodes.has(row.STN_CD) && row.ELVTR_SE === 'EV',
 );
-const seoulByStation = Map.groupBy(lineSeoulRows, (row) => row.STN_CD);
+const stationCodeCounts = new Map();
+for (const station of stations) {
+  const stationCode = normalizeStationCode(station.stinCd);
+  stationCodeCounts.set(stationCode, (stationCodeCounts.get(stationCode) ?? 0) + 1);
+}
 
 const differences = [];
 const coverage = [];
@@ -418,15 +425,23 @@ const gapSummary = { green: 0, yellow: 0, red: 0, missing: 0 };
 
 for (const item of stationPayloads) {
   const { station } = item;
+  const stationKey = stationIdentity(station);
   const stationCode = normalizeStationCode(station.stinCd);
   const movementRows = body(item.movement);
   const elevatorMovementRows = body(item.elevatorMovement);
   const elevatorRows = body(item.elevators);
   const nearbyCarRows = body(item.nearbyCars);
-  const stationPlatforms = platformsByStation.get(stationCode) ?? [];
-  const stationGapPayloads = gapsByStation.get(stationCode) ?? [];
+  const stationPlatforms = platformsByStation.get(stationKey) ?? [];
+  const stationGapPayloads = gapsByStation.get(stationKey) ?? [];
   const gapRows = stationGapPayloads.flatMap((gap) => body(gap.payload));
-  const seoulRows = seoulByStation.get(stationCode) ?? [];
+  const seoulRowsForCode = lineSeoulRows.filter((row) => row.STN_CD === stationCode);
+  const seoulRows =
+    (stationCodeCounts.get(stationCode) ?? 0) > 1
+      ? seoulRowsForCode.filter(
+          (row) =>
+            compactStationName(row.STN_NM) === compactStationName(station.stinNm),
+        )
+      : seoulRowsForCode;
 
   const endpointCounts = {
     stationMovement: movementRows.length,
@@ -437,7 +452,13 @@ for (const item of stationPayloads) {
     stationPlatformTrainDistance: gapRows.length,
     SeoulMetroFaciInfo: seoulRows.length,
   };
-  coverage.push({ stationCode, stationName: station.stinNm, endpointCounts });
+  coverage.push({
+    stationKey,
+    stationCode,
+    stationName: station.stinNm,
+    railOperatorCode: station.railOprIsttCd,
+    endpointCounts,
+  });
 
   const movementExitRows = selectMovementExitRows(movementRows);
   const elevatorMovementExitRows = selectElevatorMovementExitRows(elevatorMovementRows);
@@ -465,6 +486,8 @@ for (const item of stationPayloads) {
     differences.push({
       stationCode,
       stationName: station.stinNm,
+      stationKey,
+      railOperatorCode: station.railOprIsttCd,
       category: 'surface_exit_number',
       differenceKinds: toDifferenceKinds(exitValueSets),
       normalizedValues: exitValues,
@@ -488,6 +511,8 @@ for (const item of stationPayloads) {
     differences.push({
       stationCode,
       stationName: station.stinNm,
+      stationKey,
+      railOperatorCode: station.railOprIsttCd,
       category: 'elevator_operating_floor',
       differenceKinds: toDifferenceKinds(Object.values(floorValues)),
       normalizedValues: floorValues,
@@ -520,6 +545,8 @@ for (const item of stationPayloads) {
     differences.push({
       stationCode,
       stationName: station.stinNm,
+      stationKey,
+      railOperatorCode: station.railOprIsttCd,
       category: 'elevator_adjacent_car_door',
       differenceKinds: toDifferenceKinds(Object.values(carDoorValues)),
       normalizedValues: carDoorValues,
@@ -551,6 +578,8 @@ for (const item of stationPayloads) {
     differences.push({
       stationCode,
       stationName: station.stinNm,
+      stationKey,
+      railOperatorCode: station.railOprIsttCd,
       category: 'platform_gap_linkage',
       differenceKinds: ['linkage_gap'],
       normalizedValues: {
@@ -587,6 +616,8 @@ for (const item of stationPayloads) {
     differences.push({
       stationCode,
       stationName: station.stinNm,
+      stationKey,
+      railOperatorCode: station.railOprIsttCd,
       category: 'station_name',
       differenceKinds: ['value_difference'],
       normalizedValues: {
@@ -606,7 +637,7 @@ const categoryCounts = Object.fromEntries(
     ([category, items]) => [category, items.length],
   ),
 );
-const affectedStations = unique(differences.map((difference) => difference.stationCode));
+const affectedStations = unique(differences.map((difference) => difference.stationKey));
 const differenceKindCounts = Object.fromEntries(
   [...Map.groupBy(
     differences.flatMap((difference) => difference.differenceKinds),
@@ -781,7 +812,7 @@ for (const [category, items] of Map.groupBy(
   );
   for (const item of items) {
     markdown.push(
-      `| ${item.stationName} (${item.stationCode}) | ${item.differenceKinds
+      `| ${item.stationName} (${item.stationCode}, ${item.railOperatorCode}) | ${item.differenceKinds
         .map((kind) => differenceKindLabels[kind] ?? kind)
         .join(' + ')} | ${sourceNames
         .map((source) => markdownCell(item.normalizedValues[source]))
@@ -795,7 +826,6 @@ markdown.push(
   '## 1~9호선 확대',
   '',
   `동일한 수집기에서 \`--line 1\`부터 \`--line 9\`까지 실행할 수 있다. 이번 결과는 ${line}호선만 포함한다.`,
-  '',
 );
 
 await writeFile(markdownPath, `${markdown.join('\n')}\n`, 'utf8');

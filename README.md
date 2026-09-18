@@ -62,17 +62,15 @@ T02의 KRIC 동선·환승·엘리베이터 API 검증 결과는
 npm run research:t02 -- --dry-run
 ```
 
-1~9호선의 KRIC·서울교통공사 API 응답 차이는 노선별 감사 명령으로 수집합니다. 현재
-완료된 감사 결과는 다음 문서에 있습니다.
-
-- [`5호선 API 정보 차이 감사`](docs/research/line-5-api-sync-audit.md)
-- [`9호선 API 정보 차이 감사`](docs/research/line-9-api-sync-audit.md)
+1~9호선의 KRIC·서울교통공사 API 응답 차이는 노선별 감사 명령으로 수집합니다.
+2026-09-18 기준 1~9호선 감사를 완료했으며 전체 현황과 노선별 문서는
+[`1~9호선 API 정보 차이 감사 요약`](docs/research/line-1-9-api-sync-summary.md)에서 확인합니다.
 
 지도·편의정보·현장 확인으로 확정한 값은 생성되는 감사 보고서를 직접 수정하지 않고
 [`5호선 지상 출구 수동 검증값`](data/verification/line-5-surface-exits.json)에 별도로 기록합니다.
 
 ```bash
-npm run research:line-sync -- --line 5
+npm run research:line-sync -- --line 2
 ```
 
 ## 아키텍처와 컨벤션
