@@ -6,7 +6,7 @@ const KRIC_API_ROOT = 'https://openapi.kric.go.kr/openapi';
 const SEOUL_API_ROOT = 'http://openapi.seoul.go.kr:8088';
 const SEOUL_SERVICE_NAME = 'SeoulMetroFaciInfo';
 const SEOUL_PAGE_SIZE = 1_000;
-const REQUEST_CONCURRENCY = 8;
+const REQUEST_CONCURRENCY = 4;
 const toolDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(toolDirectory, '../..');
 
@@ -56,7 +56,7 @@ await mkdir(reportDirectory, { recursive: true });
 
 const kricRequests = [];
 
-async function fetchTextWithRetry(url, attempts = 3) {
+async function fetchTextWithRetry(url, attempts = 5) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
@@ -65,11 +65,18 @@ async function fetchTextWithRetry(url, attempts = 3) {
         signal: AbortSignal.timeout(30_000),
       });
       const text = await response.text();
-      if (!response.ok && attempt < attempts) continue;
+      if (!response.ok && attempt < attempts) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 1_500));
+        continue;
+      }
       return { response, text };
     } catch (error) {
       lastError = error;
       if (attempt === attempts) throw error;
+      console.warn(
+        `API 연결 재시도 ${attempt}/${attempts - 1}: ${error?.cause?.code ?? error?.code ?? error?.name ?? 'unknown'}`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, attempt * 1_500));
     }
   }
   throw lastError;
