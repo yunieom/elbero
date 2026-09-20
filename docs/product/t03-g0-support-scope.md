@@ -7,7 +7,7 @@
 - 1차 제품 목표: 서울 지하철 1~9호선 지원
 - 노선별 검증 방식: API 간 값 차이와 데이터 제공 여부를 자동 수집하고 실제 정답은 수동 검증값으로 분리
 - 완료된 노선 감사: 1~9호선 (2026-09-18)
-- 추가 노선 감사: [`공항철도`](../research/airport-railroad-api-sync-audit.md) (2026-09-18)
+- 추가 노선 감사: [`공항철도`](../research/airport-railroad-api-sync-audit.md) (2026-09-18), [`인천 1호선`](../research/incheon-line-1-api-sync-audit.md) (2026-09-20)
 - 전체 결과: [`1~9호선 API 정보 차이 감사 요약`](../research/line-1-9-api-sync-summary.md)
 
 ## 첫 지원 범위

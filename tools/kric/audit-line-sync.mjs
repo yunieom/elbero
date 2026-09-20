@@ -6,7 +6,7 @@ const KRIC_API_ROOT = 'https://openapi.kric.go.kr/openapi';
 const SEOUL_API_ROOT = 'http://openapi.seoul.go.kr:8088';
 const SEOUL_SERVICE_NAME = 'SeoulMetroFaciInfo';
 const SEOUL_PAGE_SIZE = 1_000;
-const REQUEST_CONCURRENCY = 4;
+const REQUEST_CONCURRENCY = 2;
 const toolDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(toolDirectory, '../..');
 
@@ -26,23 +26,35 @@ const args = process.argv.slice(2);
 const lineIndex = args.indexOf('--line');
 const requestedLine = lineIndex === -1 ? '5' : args[lineIndex + 1];
 const normalizedRequestedLine = requestedLine?.toLowerCase();
+const airportRailroadTarget = {
+  code: 'A1',
+  label: '공항철도',
+  artifactStem: 'airport-railroad',
+};
+const incheonLineOneTarget = {
+  code: 'I1',
+  label: '인천 1호선',
+  artifactStem: 'incheon-line-1',
+};
+const namedLineTargets = {
+  a1: airportRailroadTarget,
+  airport: airportRailroadTarget,
+  arex: airportRailroadTarget,
+  i1: incheonLineOneTarget,
+  'incheon-1': incheonLineOneTarget,
+  incheon1: incheonLineOneTarget,
+};
 const lineTarget = /^[1-9]$/.test(requestedLine ?? '')
   ? {
       code: requestedLine,
       label: `${requestedLine}호선`,
       artifactStem: `line-${requestedLine}`,
     }
-  : ['a1', 'airport', 'arex'].includes(normalizedRequestedLine)
-    ? {
-        code: 'A1',
-        label: '공항철도',
-        artifactStem: 'airport-railroad',
-      }
-    : null;
+  : (namedLineTargets[normalizedRequestedLine] ?? null);
 
 if (!lineTarget) {
   throw new Error(
-    '--line 뒤에는 1부터 9까지의 호선 번호 또는 공항철도 식별자 airport가 필요합니다.',
+    '--line 뒤에는 1부터 9까지의 호선 번호나 지원 노선 식별자 airport, incheon-1이 필요합니다.',
   );
 }
 const line = lineTarget.code;
@@ -372,28 +384,26 @@ const stationPayloads = await mapLimit(stations, REQUEST_CONCURRENCY, async (sta
     lnCd: station.lnCd,
     stinCd: station.stinCd,
   };
-  const [movement, elevatorMovement, elevators, nearbyCars] = await Promise.all([
-    fetchKric(
-      '/handicapped/stationMovement',
-      baseParams,
-      `${station.stinCd}-stationMovement`,
-    ),
-    fetchKric(
-      '/trafficWeekInfo/stinElevatorMovement',
-      baseParams,
-      `${station.stinCd}-stinElevatorMovement`,
-    ),
-    fetchKric(
-      '/convenientInfo/stationElevator',
-      baseParams,
-      `${station.stinCd}-stationElevator`,
-    ),
-    fetchKric(
-      '/vulnerableUserInfo/stationElevatorCarNumber',
-      baseParams,
-      `${station.stinCd}-stationElevatorCarNumber`,
-    ),
-  ]);
+  const movement = await fetchKric(
+    '/handicapped/stationMovement',
+    baseParams,
+    `${station.stinCd}-stationMovement`,
+  );
+  const elevatorMovement = await fetchKric(
+    '/trafficWeekInfo/stinElevatorMovement',
+    baseParams,
+    `${station.stinCd}-stinElevatorMovement`,
+  );
+  const elevators = await fetchKric(
+    '/convenientInfo/stationElevator',
+    baseParams,
+    `${station.stinCd}-stationElevator`,
+  );
+  const nearbyCars = await fetchKric(
+    '/vulnerableUserInfo/stationElevatorCarNumber',
+    baseParams,
+    `${station.stinCd}-stationElevatorCarNumber`,
+  );
   return {
     station,
     movement,
@@ -854,7 +864,7 @@ for (const [category, items] of Map.groupBy(
 markdown.push(
   '## 지원 노선 확대',
   '',
-  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\` 및 \`--line airport\`를 실행할 수 있다. 이번 결과는 ${lineTarget.label}만 포함한다.`,
+  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\`, \`--line airport\`, \`--line incheon-1\`을 실행할 수 있다. 이번 결과는 ${lineTarget.label}만 포함한다.`,
 );
 
 await writeFile(markdownPath, `${markdown.join('\n')}\n`, 'utf8');
