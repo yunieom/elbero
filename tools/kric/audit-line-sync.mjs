@@ -26,24 +26,109 @@ const args = process.argv.slice(2);
 const lineIndex = args.indexOf('--line');
 const requestedLine = lineIndex === -1 ? '5' : args[lineIndex + 1];
 const normalizedRequestedLine = requestedLine?.toLowerCase();
-const airportRailroadTarget = {
-  code: 'A1',
-  label: '공항철도',
-  artifactStem: 'airport-railroad',
-};
-const incheonLineOneTarget = {
-  code: 'I1',
-  label: '인천 1호선',
-  artifactStem: 'incheon-line-1',
-};
-const namedLineTargets = {
-  a1: airportRailroadTarget,
-  airport: airportRailroadTarget,
-  arex: airportRailroadTarget,
-  i1: incheonLineOneTarget,
-  'incheon-1': incheonLineOneTarget,
-  incheon1: incheonLineOneTarget,
-};
+const namedLineTargetDefinitions = [
+  {
+    code: 'A1',
+    label: '공항철도',
+    artifactStem: 'airport-railroad',
+    aliases: ['a1', 'airport', 'arex'],
+  },
+  {
+    code: 'I1',
+    label: '인천 1호선',
+    artifactStem: 'incheon-line-1',
+    aliases: ['i1', 'incheon-1', 'incheon1'],
+  },
+  {
+    code: 'I2',
+    label: '인천 2호선',
+    artifactStem: 'incheon-line-2',
+    aliases: ['i2', 'incheon-2', 'incheon2'],
+  },
+  {
+    code: 'D1',
+    label: '신분당선',
+    artifactStem: 'shinbundang-line',
+    aliases: ['d1', 'shinbundang'],
+  },
+  {
+    code: 'E1',
+    label: '에버라인',
+    artifactStem: 'everline',
+    aliases: ['e1', 'everline'],
+  },
+  {
+    code: 'G1',
+    label: '김포골드라인',
+    artifactStem: 'gimpo-goldline',
+    aliases: ['g1', 'gimpo-goldline'],
+  },
+  {
+    code: 'A',
+    label: 'GTX-A',
+    artifactStem: 'gtx-a',
+    aliases: ['a', 'gtx-a'],
+  },
+  {
+    code: 'M1',
+    label: '인천공항 자기부상철도',
+    artifactStem: 'airport-maglev',
+    aliases: ['m1', 'airport-maglev'],
+  },
+  {
+    code: 'K1',
+    label: '수인분당선',
+    artifactStem: 'suin-bundang-line',
+    aliases: ['k1', 'suin-bundang'],
+  },
+  {
+    code: 'K2',
+    label: '경춘선',
+    artifactStem: 'gyeongchun-line',
+    aliases: ['k2', 'gyeongchun'],
+  },
+  {
+    code: 'K4',
+    label: '경의중앙선',
+    artifactStem: 'gyeongui-jungang-line',
+    aliases: ['k4', 'gyeongui-jungang'],
+  },
+  {
+    code: 'K5',
+    label: '경강선',
+    artifactStem: 'gyeonggang-line',
+    aliases: ['k5', 'gyeonggang'],
+  },
+  {
+    code: 'WS',
+    label: '서해선',
+    artifactStem: 'seohae-line',
+    aliases: ['ws', 'seohae'],
+  },
+  {
+    code: 'L1',
+    label: '신림선',
+    artifactStem: 'sillim-line',
+    aliases: ['l1', 'sillim'],
+  },
+  {
+    code: 'UI',
+    label: '우이신설선',
+    artifactStem: 'ui-sinseol-line',
+    aliases: ['ui', 'ui-sinseol'],
+  },
+  {
+    code: 'U1',
+    label: '의정부경전철',
+    artifactStem: 'uijeongbu-light-rail',
+    aliases: ['u1', 'uijeongbu'],
+  },
+];
+const namedLineTargets = Object.fromEntries(
+  namedLineTargetDefinitions.flatMap(({ aliases, ...target }) =>
+    aliases.map((alias) => [alias, target]),
+  ),
+);
 const lineTarget = /^[1-9]$/.test(requestedLine ?? '')
   ? {
       code: requestedLine,
@@ -54,7 +139,7 @@ const lineTarget = /^[1-9]$/.test(requestedLine ?? '')
 
 if (!lineTarget) {
   throw new Error(
-    '--line 뒤에는 1부터 9까지의 호선 번호나 지원 노선 식별자 airport, incheon-1이 필요합니다.',
+    '--line 뒤에는 1부터 9까지의 호선 번호나 등록된 수도권 노선 식별자가 필요합니다.',
   );
 }
 const line = lineTarget.code;
@@ -444,11 +529,6 @@ const lineStationCodes = new Set(
 const lineSeoulRows = seoulSnapshot.rows.filter(
   (row) => lineStationCodes.has(row.STN_CD) && row.ELVTR_SE === 'EV',
 );
-const stationCodeCounts = new Map();
-for (const station of stations) {
-  const stationCode = normalizeStationCode(station.stinCd);
-  stationCodeCounts.set(stationCode, (stationCodeCounts.get(stationCode) ?? 0) + 1);
-}
 
 const differences = [];
 const coverage = [];
@@ -467,12 +547,12 @@ for (const item of stationPayloads) {
   const gapRows = stationGapPayloads.flatMap((gap) => body(gap.payload));
   const seoulRowsForCode = lineSeoulRows.filter((row) => row.STN_CD === stationCode);
   const seoulRows =
-    (stationCodeCounts.get(stationCode) ?? 0) > 1
-      ? seoulRowsForCode.filter(
+    station.railOprIsttCd === 'S1'
+      ? seoulRowsForCode
+      : seoulRowsForCode.filter(
           (row) =>
             compactStationName(row.STN_NM) === compactStationName(station.stinNm),
-        )
-      : seoulRowsForCode;
+        );
 
   const endpointCounts = {
     stationMovement: movementRows.length,
@@ -864,7 +944,7 @@ for (const [category, items] of Map.groupBy(
 markdown.push(
   '## 지원 노선 확대',
   '',
-  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\`, \`--line airport\`, \`--line incheon-1\`을 실행할 수 있다. 이번 결과는 ${lineTarget.label}만 포함한다.`,
+  `동일한 수집기에서 \`--line 1\`부터 \`--line 9\` 및 등록된 수도권 노선 식별자를 실행할 수 있다. 이번 결과는 ${lineTarget.label}만 포함한다.`,
 );
 
 await writeFile(markdownPath, `${markdown.join('\n')}\n`, 'utf8');
