@@ -1,0 +1,4433 @@
+{
+  "collectedAt": "2026-09-21T00:58:12.242Z",
+  "scope": {
+    "line": "신림선",
+    "lineCode": "L1",
+    "railOperatorCodes": [
+      "SL"
+    ],
+    "stationCount": 11,
+    "goal": "수도권 도시철도 지원을 위한 노선별 API 동기화 감사"
+  },
+  "comparisonPolicy": {
+    "adjudication": "어떤 API가 맞는지 판정하지 않는다.",
+    "surfaceExitNumber": "stationMovement, stinElevatorMovement, stationElevator, SeoulMetroFaciInfo에서 추출한 출구 번호 집합을 비교한다.",
+    "elevatorOperatingFloor": "stationElevator와 SeoulMetroFaciInfo의 운행 층 구간을 방향과 무관한 층 쌍으로 비교한다.",
+    "elevatorAdjacentCarDoor": "stationElevatorCarNumber, stationElevator, SeoulMetroFaciInfo의 차량-문 번호 집합을 비교한다.",
+    "platformGapLinkage": "stPlf의 승강장, stationElevatorCarNumber의 인접 차량-문, stationPlatformTrainDistance의 이격거리 레코드 연결 여부를 비교한다.",
+    "gapUnit": "cm",
+    "gapLevels": {
+      "green": "0cm 이상 10cm 이하: 안전",
+      "yellow": "10cm 초과 15cm 이하: 유의",
+      "red": "15cm 초과: 추천하지 않음"
+    }
+  },
+  "sources": {
+    "subwayRouteInfo": "/trainUseInfo/subwayRouteInfo",
+    "stationMovement": "/handicapped/stationMovement",
+    "stinElevatorMovement": "/trafficWeekInfo/stinElevatorMovement",
+    "stationElevator": "/convenientInfo/stationElevator",
+    "stationElevatorCarNumber": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "stationPlatformTrainDistance": "/vulnerableUserInfo/stationPlatformTrainDistance",
+    "stPlf": "/convenientInfo/stPlf",
+    "SeoulMetroFaciInfo": "서울교통공사 승강기 가동현황 API"
+  },
+  "summary": {
+    "affectedStationCount": 11,
+    "differenceCount": 33,
+    "categoryCounts": {
+      "surface_exit_number": 11,
+      "elevator_operating_floor": 11,
+      "elevator_adjacent_car_door": 11
+    },
+    "differenceKindCounts": {
+      "coverage_gap": 33
+    },
+    "endpointCoverage": {
+      "stationMovement": {
+        "stationsWithRows": 11,
+        "stationsWithoutRows": 0,
+        "rowCount": 184
+      },
+      "stinElevatorMovement": {
+        "stationsWithRows": 11,
+        "stationsWithoutRows": 0,
+        "rowCount": 290
+      },
+      "stationElevator": {
+        "stationsWithRows": 11,
+        "stationsWithoutRows": 0,
+        "rowCount": 35
+      },
+      "stationElevatorCarNumber": {
+        "stationsWithRows": 11,
+        "stationsWithoutRows": 0,
+        "rowCount": 22
+      },
+      "stPlf": {
+        "stationsWithRows": 11,
+        "stationsWithoutRows": 0,
+        "rowCount": 22
+      },
+      "stationPlatformTrainDistance": {
+        "stationsWithRows": 11,
+        "stationsWithoutRows": 0,
+        "rowCount": 132
+      },
+      "SeoulMetroFaciInfo": {
+        "stationsWithRows": 0,
+        "stationsWithoutRows": 11,
+        "rowCount": 0
+      }
+    },
+    "gapRecordCount": 132,
+    "gapSummary": {
+      "green": 128,
+      "yellow": 4,
+      "red": 0,
+      "missing": 0
+    }
+  },
+  "coverage": [
+    {
+      "stationKey": "SL:S401",
+      "stationCode": "S401",
+      "stationName": "샛강",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 26,
+        "stationElevator": 2,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S402",
+      "stationCode": "S402",
+      "stationName": "대방",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 10,
+        "stinElevatorMovement": 46,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S403",
+      "stationCode": "S403",
+      "stationName": "서울지방병무청",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 24,
+        "stinElevatorMovement": 24,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S404",
+      "stationCode": "S404",
+      "stationName": "보라매",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 40,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S405",
+      "stationCode": "S405",
+      "stationName": "보라매공원",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 24,
+        "stinElevatorMovement": 24,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S406",
+      "stationCode": "S406",
+      "stationName": "보라매병원",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 24,
+        "stinElevatorMovement": 24,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S407",
+      "stationCode": "S407",
+      "stationName": "당곡",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 24,
+        "stinElevatorMovement": 24,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S408",
+      "stationCode": "S408",
+      "stationName": "신림",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 24,
+        "stinElevatorMovement": 52,
+        "stationElevator": 1,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S409",
+      "stationCode": "S409",
+      "stationName": "서원",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S410",
+      "stationCode": "S410",
+      "stationName": "서울대벤처타운",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "SL:S411",
+      "stationCode": "S411",
+      "stationName": "관악산(서울대)",
+      "railOperatorCode": "SL",
+      "endpointCounts": {
+        "stationMovement": 6,
+        "stinElevatorMovement": 6,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    }
+  ],
+  "differences": [
+    {
+      "stationCode": "S401",
+      "stationName": "샛강",
+      "stationKey": "SL:S401",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "2",
+          "3"
+        ],
+        "stinElevatorMovement": [
+          "2",
+          "3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 대방 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B4) 대방 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 3번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "3번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "3번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "3번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 대방 방면 엘리베이터 탑승",
+            "stMovePath": "3번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B4) 대방 방면 승강장으로 이동",
+            "stMovePath": "3번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "3번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0286_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 3번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S401",
+      "stationName": "샛강",
+      "stationKey": "SL:S401",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "B1↔B4"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "exitNo": null,
+            "dtlLoc": "(B1)샛강역대합실중앙(B4)샛강역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "exitNo": null,
+            "dtlLoc": "(B1)샛강역대합실중앙(B4)샛강역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S401",
+      "stationName": "샛강",
+      "stationKey": "SL:S401",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "exitNo": null,
+            "dtlLoc": "(B1)샛강역대합실중앙(B4)샛강역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S401",
+            "exitNo": null,
+            "dtlLoc": "(B1)샛강역대합실중앙(B4)샛강역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S402",
+      "stationName": "대방",
+      "stationKey": "SL:S402",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "6"
+        ],
+        "stinElevatorMovement": [
+          "6"
+        ],
+        "stationElevator": [
+          "6"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 6번 출입구 대합실로 이동",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "샛강 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 표 내는 곳 통과",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "샛강 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 샛강 방면 엘리베이터 탑승",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "샛강 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) (B4) 샛강 방면 승강장으로 이동",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "샛강 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) 승차 (휠체어칸)",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "샛강 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 6번 출입구 대합실로 이동",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 표 내는 곳 통과",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 서울지방병무청 방면 엘리베이터 탑승",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) (B4) 서울지방병무청 방면 승강장으로 이동",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) 승차 (휠체어칸)",
+            "stMovePath": "6번 출입구",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0132_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 6번 출입구 대합실로 이동"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 6번 출입구 대합실로 이동"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": null,
+            "dtlLoc": "(2F)대방역1호선환승통로(1F)대방역대합실",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구좌측(B3)대방지하차도중앙",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구옆(B3)대방역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구옆(B3)대방역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S402",
+      "stationName": "대방",
+      "stationKey": "SL:S402",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "1F↔B3"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": null,
+            "dtlLoc": "(2F)대방역1호선환승통로(1F)대방역대합실",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구좌측(B3)대방지하차도중앙",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구옆(B3)대방역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구옆(B3)대방역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S402",
+      "stationName": "대방",
+      "stationKey": "SL:S402",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S403",
+      "stationName": "서울지방병무청",
+      "stationKey": "SL:S403",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 대방 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 대방 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 대방 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 대방 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "대방 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1357_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서울지방병무청역1번출구앞(B2)서울지방병무청역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": "2",
+            "dtlLoc": "(1F)서울지방병무청역2번출구앞(B1)서울지방병무청역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S403",
+      "stationName": "서울지방병무청",
+      "stationKey": "SL:S403",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서울지방병무청역1번출구앞(B2)서울지방병무청역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": "2",
+            "dtlLoc": "(1F)서울지방병무청역2번출구앞(B1)서울지방병무청역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울지방병무청역대합실(B2)서울지방병무청역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울지방병무청역대합실(B2)서울지방병무청역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S403",
+      "stationName": "서울지방병무청",
+      "stationKey": "SL:S403",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-1"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울지방병무청역대합실(B2)서울지방병무청역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울지방병무청역대합실(B2)서울지방병무청역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S404",
+      "stationName": "보라매",
+      "stationKey": "SL:S404",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "6"
+        ],
+        "stinElevatorMovement": [
+          "6"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 6번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 서울지방병무청 방면 엘리베이터 탑승",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 서울지방병무청 방면 승강장으로 이동",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "서울지방병무청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 6번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매공원 방면 엘리베이터 탑승",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 보라매공원 방면 승강장으로 이동",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "6번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0232_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 6번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 6번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S404",
+      "stationName": "보라매",
+      "stationKey": "SL:S404",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "B1↔B2",
+          "B1↔B3"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매역대합실(B2)보라매역7호선환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매역대합실(B3)보라매역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매역대합실(B3)보라매역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S404",
+      "stationName": "보라매",
+      "stationKey": "SL:S404",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매역대합실(B2)보라매역7호선환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매역대합실(B3)보라매역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S404",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매역대합실(B3)보라매역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S405",
+      "stationName": "보라매공원",
+      "stationKey": "SL:S405",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매병원 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매병원 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매병원 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매병원 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1358_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": "1",
+            "dtlLoc": "(1F)보라매공원역1번출구앞(B1)보라매공원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": "2",
+            "dtlLoc": "(1F)보라매공원역2번출구앞(B1)보라매공원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S405",
+      "stationName": "보라매공원",
+      "stationKey": "SL:S405",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": "1",
+            "dtlLoc": "(1F)보라매공원역1번출구앞(B1)보라매공원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": "2",
+            "dtlLoc": "(1F)보라매공원역2번출구앞(B1)보라매공원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매공원역대합실(B2)보라매공원역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매공원역대합실(B2)보라매공원역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S405",
+      "stationName": "보라매공원",
+      "stationKey": "SL:S405",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매공원역대합실(B2)보라매공원역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매공원역대합실(B2)보라매공원역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S406",
+      "stationName": "보라매병원",
+      "stationKey": "SL:S406",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매공원 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매공원 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 당곡 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 당곡 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매공원 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 보라매공원 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매공원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 당곡 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 당곡 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1359_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": "1",
+            "dtlLoc": "(1F)보라매병원역1번출구앞(B1)보라매병원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": "2",
+            "dtlLoc": "(1F)보라매병원역2번출구앞(B1)보라매병원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S406",
+      "stationName": "보라매병원",
+      "stationKey": "SL:S406",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": "1",
+            "dtlLoc": "(1F)보라매병원역1번출구앞(B1)보라매병원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": "2",
+            "dtlLoc": "(1F)보라매병원역2번출구앞(B1)보라매병원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매병원역대합실(B2)보라매병원역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매병원역대합실(B2)보라매병원역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S406",
+      "stationName": "보라매병원",
+      "stationKey": "SL:S406",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매병원역대합실(B2)보라매병원역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": null,
+            "dtlLoc": "(B1)보라매병원역대합실(B2)보라매병원역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S407",
+      "stationName": "당곡",
+      "stationKey": "SL:S407",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매병원 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 보라매병원 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 신림 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 보라매병원 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 보라매병원 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "보라매병원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림 방면 엘리베이터 탑승",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 신림 방면 승강장으로 이동",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "2번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1360_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 2번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": "1",
+            "dtlLoc": "(1F)당곡역1번출구앞(B1)당곡역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": "2",
+            "dtlLoc": "(1F)당곡역2번출구앞(B1)당곡역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S407",
+      "stationName": "당곡",
+      "stationKey": "SL:S407",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": "1",
+            "dtlLoc": "(1F)당곡역1번출구앞(B1)당곡역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": "2",
+            "dtlLoc": "(1F)당곡역2번출구앞(B1)당곡역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": null,
+            "dtlLoc": "(B1)당곡역대합실(B2)당곡역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": null,
+            "dtlLoc": "(B1)당곡역대합실(B2)당곡역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S407",
+      "stationName": "당곡",
+      "stationKey": "SL:S407",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": null,
+            "dtlLoc": "(B1)당곡역대합실(B2)당곡역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": null,
+            "dtlLoc": "(B1)당곡역대합실(B2)당곡역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S408",
+      "stationName": "신림",
+      "stationKey": "SL:S408",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "5"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "5"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림선 승강장 방향 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 신림선 당곡 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림선 승강장 방향 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 신림선 서원 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 5번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림선 승강장 방향 엘리베이터 탑승",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 신림선 당곡 방면 승강장으로 이동",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "당곡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 5번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 신림선 대합실 표 내는 곳 통과",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림선 승강장 방향 엘리베이터 탑승",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B3) 신림선 서원 방면 승강장으로 이동",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "5번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_0361_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 5번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 5번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S408",
+      "stationName": "신림",
+      "stationKey": "SL:S408",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "B1↔B3"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "exitNo": null,
+            "dtlLoc": "(B1)신림역대합실(B3)신림역승강장상하선(섬식)",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S408",
+      "stationName": "신림",
+      "stationKey": "SL:S408",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S408",
+            "exitNo": null,
+            "dtlLoc": "(B1)신림역대합실(B3)신림역승강장상하선(섬식)",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S409",
+      "stationName": "서원",
+      "stationKey": "SL:S409",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 신림 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 신림 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "신림 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 서울대벤처타운 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 서울대벤처타운 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1361_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서원역1번출구앞(B1)서원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S409",
+      "stationName": "서원",
+      "stationKey": "SL:S409",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서원역1번출구앞(B1)서원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "exitNo": null,
+            "dtlLoc": "(B1)서원역대합실(B2)서원역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "exitNo": null,
+            "dtlLoc": "(B1)서원역대합실(B2)서원역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S409",
+      "stationName": "서원",
+      "stationKey": "SL:S409",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "exitNo": null,
+            "dtlLoc": "(B1)서원역대합실(B2)서원역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
+            "exitNo": null,
+            "dtlLoc": "(B1)서원역대합실(B2)서원역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S410",
+      "stationName": "서울대벤처타운",
+      "stationKey": "SL:S410",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 서원 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 서원 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서원 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "관악산 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "관악산 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "관악산 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 관악산 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "관악산 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 관악산 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "관악산 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "관악산 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1362_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서울대벤처타운역1번출구앞(B1)서울대벤처타운역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S410",
+      "stationName": "서울대벤처타운",
+      "stationKey": "SL:S410",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서울대벤처타운역1번출구앞(B1)서울대벤처타운역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S410",
+      "stationName": "서울대벤처타운",
+      "stationKey": "SL:S410",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
+            "exitNo": null,
+            "dtlLoc": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S411",
+      "stationName": "관악산(서울대)",
+      "stationKey": "SL:S411",
+      "railOperatorCode": "SL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1363_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) (B1) 대합실로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1363_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 표 내는 곳 통과",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1363_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 서울대벤처타운 방면 엘리베이터 탑승",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1363_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 5,
+            "mvContDtl": "5) (B2) 서울대벤처타운 방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1363_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 6,
+            "mvContDtl": "6) 승차 (휠체어칸)",
+            "stMovePath": "1번 출입구 옆 엘리베이터",
+            "edMovePath": "서울대벤처타운 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/SL/SL_L1_1363_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) (1F) 1번 출입구 옆 엘리베이터 탑승"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": "1",
+            "dtlLoc": "(1F)관악산역1번출구앞(B1)관악산역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S411",
+      "stationName": "관악산(서울대)",
+      "stationKey": "SL:S411",
+      "railOperatorCode": "SL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔B1",
+          "B1↔B2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": "1",
+            "dtlLoc": "(1F)관악산역1번출구앞(B1)관악산역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": null,
+            "dtlLoc": "(B1)관악산역대합실(B2)관악산역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": null,
+            "dtlLoc": "(B1)관악산역대합실(B2)관악산역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "S411",
+      "stationName": "관악산(서울대)",
+      "stationKey": "SL:S411",
+      "railOperatorCode": "SL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-2"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "plfNo": 1,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 3,
+            "carEtrcNo": 2
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "plfNo": 2,
+            "trnClsfCd": "A0",
+            "trnClsfNm": "일반열차",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": null,
+            "dtlLoc": "(B1)관악산역대합실(B2)관악산역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": null,
+            "dtlLoc": "(B1)관악산역대합실(B2)관악산역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    }
+  ]
+}

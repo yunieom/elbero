@@ -6,9 +6,8 @@
 - G0 판단: 조건부 통과
 - 1차 제품 목표: 서울 지하철 1~9호선 지원
 - 노선별 검증 방식: API 간 값 차이와 데이터 제공 여부를 자동 수집하고 실제 정답은 수동 검증값으로 분리
-- 완료된 노선 감사: 1~9호선 (2026-09-18)
-- 추가 노선 감사: [`공항철도`](../research/airport-railroad-api-sync-audit.md) (2026-09-18), [`인천 1호선`](../research/incheon-line-1-api-sync-audit.md) (2026-09-20)
-- 전체 결과: [`1~9호선 API 정보 차이 감사 요약`](../research/line-1-9-api-sync-summary.md)
+- 완료된 노선 감사: KRIC 최신 코드표의 수도권 25개 노선 그룹 (2026-09-21)
+- 전체 결과: [`수도권 도시철도 API 정보 차이 감사 요약`](../research/metropolitan-lines-api-sync-summary.md)
 
 ## 첫 지원 범위
 
@@ -21,8 +20,8 @@
 위 세 여정 외 조합은 `UNSUPPORTED_JOURNEY`로 반환한다. 아직 검증되지 않은 연결을
 일반 최단경로처럼 제공하지 않는다.
 
-1~9호선 전체 API 차이 목록은
-[`1~9호선 API 정보 차이 감사 요약`](../research/line-1-9-api-sync-summary.md)과 각 노선별 문서에
+수도권 전체 API 차이 목록은
+[`수도권 도시철도 API 정보 차이 감사 요약`](../research/metropolitan-lines-api-sync-summary.md)과 각 노선별 문서에
 기록하며, 어떤 소스가 맞는지는 코드에서 자동 판정하지 않는다.
 
 사용자가 지도·편의정보·현장으로 확인한 출구 값은

@@ -1,0 +1,5236 @@
+{
+  "collectedAt": "2026-09-21T00:58:52.607Z",
+  "scope": {
+    "line": "의정부경전철",
+    "lineCode": "U1",
+    "railOperatorCodes": [
+      "UL"
+    ],
+    "stationCount": 15,
+    "goal": "수도권 도시철도 지원을 위한 노선별 API 동기화 감사"
+  },
+  "comparisonPolicy": {
+    "adjudication": "어떤 API가 맞는지 판정하지 않는다.",
+    "surfaceExitNumber": "stationMovement, stinElevatorMovement, stationElevator, SeoulMetroFaciInfo에서 추출한 출구 번호 집합을 비교한다.",
+    "elevatorOperatingFloor": "stationElevator와 SeoulMetroFaciInfo의 운행 층 구간을 방향과 무관한 층 쌍으로 비교한다.",
+    "elevatorAdjacentCarDoor": "stationElevatorCarNumber, stationElevator, SeoulMetroFaciInfo의 차량-문 번호 집합을 비교한다.",
+    "platformGapLinkage": "stPlf의 승강장, stationElevatorCarNumber의 인접 차량-문, stationPlatformTrainDistance의 이격거리 레코드 연결 여부를 비교한다.",
+    "gapUnit": "cm",
+    "gapLevels": {
+      "green": "0cm 이상 10cm 이하: 안전",
+      "yellow": "10cm 초과 15cm 이하: 유의",
+      "red": "15cm 초과: 추천하지 않음"
+    }
+  },
+  "sources": {
+    "subwayRouteInfo": "/trainUseInfo/subwayRouteInfo",
+    "stationMovement": "/handicapped/stationMovement",
+    "stinElevatorMovement": "/trafficWeekInfo/stinElevatorMovement",
+    "stationElevator": "/convenientInfo/stationElevator",
+    "stationElevatorCarNumber": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "stationPlatformTrainDistance": "/vulnerableUserInfo/stationPlatformTrainDistance",
+    "stPlf": "/convenientInfo/stPlf",
+    "SeoulMetroFaciInfo": "서울교통공사 승강기 가동현황 API"
+  },
+  "summary": {
+    "affectedStationCount": 15,
+    "differenceCount": 45,
+    "categoryCounts": {
+      "surface_exit_number": 15,
+      "elevator_operating_floor": 15,
+      "elevator_adjacent_car_door": 15
+    },
+    "differenceKindCounts": {
+      "coverage_gap": 45
+    },
+    "endpointCoverage": {
+      "stationMovement": {
+        "stationsWithRows": 15,
+        "stationsWithoutRows": 0,
+        "rowCount": 150
+      },
+      "stinElevatorMovement": {
+        "stationsWithRows": 15,
+        "stationsWithoutRows": 0,
+        "rowCount": 158
+      },
+      "stationElevator": {
+        "stationsWithRows": 15,
+        "stationsWithoutRows": 0,
+        "rowCount": 54
+      },
+      "stationElevatorCarNumber": {
+        "stationsWithRows": 15,
+        "stationsWithoutRows": 0,
+        "rowCount": 32
+      },
+      "stPlf": {
+        "stationsWithRows": 15,
+        "stationsWithoutRows": 0,
+        "rowCount": 30
+      },
+      "stationPlatformTrainDistance": {
+        "stationsWithRows": 15,
+        "stationsWithoutRows": 0,
+        "rowCount": 180
+      },
+      "SeoulMetroFaciInfo": {
+        "stationsWithRows": 0,
+        "stationsWithoutRows": 15,
+        "rowCount": 0
+      }
+    },
+    "gapRecordCount": 180,
+    "gapSummary": {
+      "green": 180,
+      "yellow": 0,
+      "red": 0,
+      "missing": 0
+    }
+  },
+  "coverage": [
+    {
+      "stationKey": "UL:0110",
+      "stationCode": "0110",
+      "stationName": "발곡",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 8,
+        "stinElevatorMovement": 8,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0111",
+      "stationCode": "0111",
+      "stationName": "회룡",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 16,
+        "stinElevatorMovement": 24,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0112",
+      "stationCode": "0112",
+      "stationName": "범골",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0113",
+      "stationCode": "0113",
+      "stationName": "경전철의정부",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0114",
+      "stationCode": "0114",
+      "stationName": "의정부시청",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 3,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0115",
+      "stationCode": "0115",
+      "stationName": "흥선",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0117",
+      "stationCode": "0117",
+      "stationName": "의정부중앙",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 6,
+        "stinElevatorMovement": 6,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0118",
+      "stationCode": "0118",
+      "stationName": "동오",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0119",
+      "stationCode": "0119",
+      "stationName": "새말",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 6,
+        "stinElevatorMovement": 6,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 3,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0120",
+      "stationCode": "0120",
+      "stationName": "경기도청북부청사",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 6,
+        "stinElevatorMovement": 6,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0121",
+      "stationCode": "0121",
+      "stationName": "효자",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 6,
+        "stinElevatorMovement": 6,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0122",
+      "stationCode": "0122",
+      "stationName": "곤제",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0123",
+      "stationCode": "0123",
+      "stationName": "어룡(용현산업단지)",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0124",
+      "stationCode": "0124",
+      "stationName": "송산",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 12,
+        "stinElevatorMovement": 12,
+        "stationElevator": 4,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    },
+    {
+      "stationKey": "UL:0125",
+      "stationCode": "0125",
+      "stationName": "탑석",
+      "railOperatorCode": "UL",
+      "endpointCounts": {
+        "stationMovement": 6,
+        "stinElevatorMovement": 6,
+        "stationElevator": 3,
+        "stationElevatorCarNumber": 2,
+        "stPlf": 2,
+        "stationPlatformTrainDistance": 12,
+        "SeoulMetroFaciInfo": 0
+      }
+    }
+  ],
+  "differences": [
+    {
+      "stationCode": "0110",
+      "stationName": "발곡",
+      "stationKey": "UL:0110",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "2"
+        ],
+        "stationElevator": [
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 승강장 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 개집표기를 지나 우측 회룡방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 승강장 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 개집표기를 지나 좌측 회룡방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0216_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0110",
+      "stationName": "발곡",
+      "stationKey": "UL:0110",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0110",
+      "stationName": "발곡",
+      "stationKey": "UL:0110",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0110",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0111",
+      "stationName": "회룡",
+      "stationKey": "UL:0111",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 승강장 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 개집표기를 지나 발곡방면 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 엘리베이터를 이용하여 지상3층으로이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 승강장 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 개집표기를 지나 엘리베이터를 이용하여 지상3층으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 지상2층 대합실방면 개집표기로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 승강장 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상 3층으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 개집표기를 지나 발곡방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "발곡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 승강장 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 개집표기를 지나 범골방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0606_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0111",
+      "stationName": "회룡",
+      "stationKey": "UL:0111",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0111",
+      "stationName": "회룡",
+      "stationKey": "UL:0111",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0111",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0112",
+      "stationName": "범골",
+      "stationKey": "UL:0112",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 경전철의정부방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 회룡방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 경전철의정부방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 회룡방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "회룡 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0229_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0112",
+      "stationName": "범골",
+      "stationKey": "UL:0112",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0112",
+      "stationName": "범골",
+      "stationKey": "UL:0112",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0112",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0113",
+      "stationName": "경전철의정부",
+      "stationKey": "UL:0113",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 의정부시청방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 범골방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "범골 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 의정부시청방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 범골방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "범골 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0042_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0113",
+      "stationName": "경전철의정부",
+      "stationKey": "UL:0113",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0113",
+      "stationName": "경전철의정부",
+      "stationKey": "UL:0113",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0113",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0114",
+      "stationName": "의정부시청",
+      "stationKey": "UL:0114",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 흥선방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 경전철의정부방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 흥선방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 경전철의정부방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "경전철의정부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0471_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0114",
+      "stationName": "의정부시청",
+      "stationKey": "UL:0114",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "/",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0114",
+      "stationName": "의정부시청",
+      "stationKey": "UL:0114",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0114",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0115",
+      "stationName": "흥선",
+      "stationKey": "UL:0115",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 개집표기를 지나 의정부시청방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 개집표기를 지나 의정부중앙방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 개집표기를 지나 의정부시청방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 개집표기를 지나 의정부중앙방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부시청 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0611_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0115",
+      "stationName": "흥선",
+      "stationKey": "UL:0115",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0115",
+      "stationName": "흥선",
+      "stationKey": "UL:0115",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0115",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0117",
+      "stationName": "의정부중앙",
+      "stationKey": "UL:0117",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0472_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 흥선방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0472_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "흥선 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0472_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": null,
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0472_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 동오방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": null,
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0472_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": null,
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0472_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0117",
+      "stationName": "의정부중앙",
+      "stationKey": "UL:0117",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0117",
+      "stationName": "의정부중앙",
+      "stationKey": "UL:0117",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0117",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0118",
+      "stationName": "동오",
+      "stationKey": "UL:0118",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 의정부중앙방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "새말방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 새말방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "새말방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "새말방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 의정부중앙방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "의정부중앙 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "새말방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 새말방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "새말방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "새말방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0165_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0118",
+      "stationName": "동오",
+      "stationKey": "UL:0118",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0118",
+      "stationName": "동오",
+      "stationKey": "UL:0118",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0118",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0119",
+      "stationName": "새말",
+      "stationKey": "UL:0119",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "동오 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0284_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 동오방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "동오 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0284_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "동오 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0284_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경기도청북부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0284_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 경기도청북부방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경기도청북부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0284_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경기도청북부방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0284_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0119",
+      "stationName": "새말",
+      "stationKey": "UL:0119",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0119",
+      "stationName": "새말",
+      "stationKey": "UL:0119",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0119",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 1
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0120",
+      "stationName": "경기도청북부청사",
+      "stationKey": "UL:0120",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "새말 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0038_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 새말방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "새말 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0038_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "새말 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0038_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "효자방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0038_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 효자방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "효자방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0038_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "효자방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0038_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0120",
+      "stationName": "경기도청북부청사",
+      "stationKey": "UL:0120",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0120",
+      "stationName": "경기도청북부청사",
+      "stationKey": "UL:0120",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0120",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0121",
+      "stationName": "효자",
+      "stationKey": "UL:0121",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경기도청북부청사 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0608_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 경기도청북부청사방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경기도청북부청사 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0608_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "경기도청북부청사 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0608_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0608_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 곤제방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0608_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0608_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "exitNo": "1",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0121",
+      "stationName": "효자",
+      "stationKey": "UL:0121",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "exitNo": "1",
+            "dtlLoc": "내부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0121",
+      "stationName": "효자",
+      "stationKey": "UL:0121",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0121",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0122",
+      "stationName": "곤제",
+      "stationKey": "UL:0122",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "효자 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 효자방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "효자 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "효자 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 어룡방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "효자 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 효자방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "효자 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "효자 방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 어룡방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0052_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0122",
+      "stationName": "곤제",
+      "stationKey": "UL:0122",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0122",
+      "stationName": "곤제",
+      "stationKey": "UL:0122",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0122",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0123",
+      "stationName": "어룡(용현산업단지)",
+      "stationKey": "UL:0123",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 곤제방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 송산방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 곤제방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "곤제방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 송산방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0407_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "1",
+            "dtlLoc": "1번",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "2",
+            "dtlLoc": "2번",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0123",
+      "stationName": "어룡(용현산업단지)",
+      "stationKey": "UL:0123",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "1",
+            "dtlLoc": "1번",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "exitNo": "2",
+            "dtlLoc": "2번",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0123",
+      "stationName": "어룡(용현산업단지)",
+      "stationKey": "UL:0123",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0123",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0124",
+      "stationName": "송산",
+      "stationKey": "UL:0124",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1",
+          "2"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "2"
+        ],
+        "stationElevator": [
+          "1",
+          "2"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 어룡방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "탑석방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 탑석방면 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "탑석방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "탑석방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 어룡방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 3,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "어룡방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_3_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "탑석방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 탑석방면 엘리베이터로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "탑석방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 4,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "2번 출입구 근처엘리베이터",
+            "edMovePath": "탑석방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0329_4_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "mvPathMgNo": 3,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "mvPathMgNo": 4,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 2번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0124",
+      "stationName": "송산",
+      "stationKey": "UL:0124",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "exitNo": "2",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0124",
+      "stationName": "송산",
+      "stationKey": "UL:0124",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0124",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0125",
+      "stationName": "탑석",
+      "stationKey": "UL:0125",
+      "railOperatorCode": "UL",
+      "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationMovement": [
+          "1"
+        ],
+        "stinElevatorMovement": [
+          "1"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationMovement": [
+          {
+            "mvPathMgNo": 1,
+            "exitMvTpOrdr": 4,
+            "mvContDtl": "4) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": null,
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0567_1_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 1,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0567_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 2,
+            "mvContDtl": "2) 개집표기를 지나 우측 엘리베이터로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0567_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          },
+          {
+            "mvPathMgNo": 2,
+            "exitMvTpOrdr": 3,
+            "mvContDtl": "3) 엘리베이터를 이용하여 지상3층 승강장으로 이동",
+            "stMovePath": "1번 출입구 근처엘리베이터",
+            "edMovePath": "송산방면",
+            "imgPath": "http://hc.kric.go.kr/hc/ext/images/visual/handicapped/mvPath/UL/UL_U1_0567_2_1.png",
+            "elvtTpCd": null,
+            "elvtSttCd": null
+          }
+        ],
+        "stinElevatorMovement": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "mvPathMgNo": 1,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 4,
+            "mvDst": null,
+            "mvContDtl": "4) 1번출입구 근처 엘리베이터 이용"
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "mvPathMgNo": 2,
+            "mvPathDvCd": "1",
+            "mvPathDvNm": "출입구-승강장",
+            "mvTpOrdr": 1,
+            "mvDst": null,
+            "mvContDtl": "1) 1번출입구 근처 엘리베이터 이용"
+          }
+        ],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0125",
+      "stationName": "탑석",
+      "stationKey": "UL:0125",
+      "railOperatorCode": "UL",
+      "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevator": [
+          "1F↔2F",
+          "2F↔3F"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevator": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "exitNo": "/",
+            "dtlLoc": "상선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "exitNo": "/",
+            "dtlLoc": "하선",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "exitNo": "1",
+            "dtlLoc": "외부",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "0125",
+      "stationName": "탑석",
+      "stationKey": "UL:0125",
+      "railOperatorCode": "UL",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "plfNo": 1,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 1,
+            "carEtrcNo": 1
+          },
+          {
+            "railOprIsttCd": "UL",
+            "lnCd": "U1",
+            "stinCd": "0125",
+            "plfNo": 2,
+            "trnClsfCd": "B0",
+            "trnClsfNm": "경전철",
+            "carOrdr": 2,
+            "carEtrcNo": 3
+          }
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": []
+      }
+    }
+  ]
+}

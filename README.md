@@ -62,18 +62,17 @@ T02의 KRIC 동선·환승·엘리베이터 API 검증 결과는
 npm run research:t02 -- --dry-run
 ```
 
-1~9호선의 KRIC·서울교통공사 API 응답 차이는 노선별 감사 명령으로 수집합니다.
-2026-09-18 기준 1~9호선 감사를 완료했으며 전체 현황과 노선별 문서는
-[`1~9호선 API 정보 차이 감사 요약`](docs/research/line-1-9-api-sync-summary.md)에서 확인합니다.
-추가 수도권 노선 결과는
-[`공항철도 API 정보 차이 감사`](docs/research/airport-railroad-api-sync-audit.md)와
-[`인천 1호선 API 정보 차이 감사`](docs/research/incheon-line-1-api-sync-audit.md)에 기록합니다.
+KRIC·서울교통공사 API 응답 차이는 노선별 감사 명령으로 수집합니다. 2026-09-21 기준
+KRIC 최신 코드표에 등록된 수도권 25개 노선 그룹 감사를 완료했으며 전체 현황과 노선별
+문서는 [`수도권 도시철도 API 정보 차이 감사 요약`](docs/research/metropolitan-lines-api-sync-summary.md)에서
+확인합니다.
 
 지도·편의정보·현장 확인으로 확정한 값은 생성되는 감사 보고서를 직접 수정하지 않고
 [`5호선 지상 출구 수동 검증값`](data/verification/line-5-surface-exits.json)에 별도로 기록합니다.
 
 ```bash
 npm run research:line-sync -- --line incheon-1
+npm run research:line-sync -- --line suin-bundang
 ```
 
 ## 아키텍처와 컨벤션
