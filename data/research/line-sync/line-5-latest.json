@@ -1,10 +1,13 @@
 {
-  "collectedAt": "2026-09-18T01:48:27.258Z",
+  "collectedAt": "2026-09-22T07:09:52.560Z",
   "scope": {
     "line": "5호선",
-    "railOperatorCode": "S1",
+    "lineCode": "5",
+    "railOperatorCodes": [
+      "S1"
+    ],
     "stationCount": 56,
-    "goal": "서울 지하철 1~9호선 지원을 위한 노선별 API 동기화 감사"
+    "goal": "수도권 도시철도 지원을 위한 노선별 API 동기화 감사"
   },
   "comparisonPolicy": {
     "adjudication": "어떤 API가 맞는지 판정하지 않는다.",
@@ -39,6 +42,48 @@
       "platform_gap_linkage": 2,
       "station_name": 1
     },
+    "differenceKindCounts": {
+      "value_difference": 68,
+      "coverage_gap": 20,
+      "linkage_gap": 2
+    },
+    "endpointCoverage": {
+      "stationMovement": {
+        "stationsWithRows": 56,
+        "stationsWithoutRows": 0,
+        "rowCount": 1052
+      },
+      "stinElevatorMovement": {
+        "stationsWithRows": 56,
+        "stationsWithoutRows": 0,
+        "rowCount": 1760
+      },
+      "stationElevator": {
+        "stationsWithRows": 55,
+        "stationsWithoutRows": 1,
+        "rowCount": 184
+      },
+      "stationElevatorCarNumber": {
+        "stationsWithRows": 50,
+        "stationsWithoutRows": 6,
+        "rowCount": 111
+      },
+      "stPlf": {
+        "stationsWithRows": 56,
+        "stationsWithoutRows": 0,
+        "rowCount": 112
+      },
+      "stationPlatformTrainDistance": {
+        "stationsWithRows": 56,
+        "stationsWithoutRows": 0,
+        "rowCount": 3584
+      },
+      "SeoulMetroFaciInfo": {
+        "stationsWithRows": 55,
+        "stationsWithoutRows": 1,
+        "rowCount": 184
+      }
+    },
     "gapRecordCount": 3584,
     "gapSummary": {
       "green": 3164,
@@ -49,8 +94,10 @@
   },
   "coverage": [
     {
+      "stationKey": "S1:2511",
       "stationCode": "2511",
       "stationName": "방화",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 6,
         "stinElevatorMovement": 6,
@@ -62,8 +109,10 @@
       }
     },
     {
+      "stationKey": "S1:2512",
       "stationCode": "2512",
       "stationName": "개화산",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 20,
         "stinElevatorMovement": 20,
@@ -75,8 +124,10 @@
       }
     },
     {
+      "stationKey": "S1:2513",
       "stationCode": "2513",
       "stationName": "김포공항",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 112,
@@ -88,8 +139,10 @@
       }
     },
     {
+      "stationKey": "S1:2514",
       "stationCode": "2514",
       "stationName": "송정",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -101,8 +154,10 @@
       }
     },
     {
+      "stationKey": "S1:2515",
       "stationCode": "2515",
       "stationName": "마곡",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 48,
         "stinElevatorMovement": 48,
@@ -114,8 +169,10 @@
       }
     },
     {
+      "stationKey": "S1:2516",
       "stationCode": "2516",
       "stationName": "발산",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -127,8 +184,10 @@
       }
     },
     {
+      "stationKey": "S1:2517",
       "stationCode": "2517",
       "stationName": "우장산",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -140,8 +199,10 @@
       }
     },
     {
+      "stationKey": "S1:2518",
       "stationCode": "2518",
       "stationName": "화곡",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -153,8 +214,10 @@
       }
     },
     {
+      "stationKey": "S1:2519",
       "stationCode": "2519",
       "stationName": "까치산",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 8,
         "stinElevatorMovement": 17,
@@ -166,8 +229,10 @@
       }
     },
     {
+      "stationKey": "S1:2520",
       "stationCode": "2520",
       "stationName": "신정(은행정)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -179,8 +244,10 @@
       }
     },
     {
+      "stationKey": "S1:2521",
       "stationCode": "2521",
       "stationName": "목동",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -192,8 +259,10 @@
       }
     },
     {
+      "stationKey": "S1:2522",
       "stationCode": "2522",
       "stationName": "오목교(목동운동장앞)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -205,8 +274,10 @@
       }
     },
     {
+      "stationKey": "S1:2523",
       "stationCode": "2523",
       "stationName": "양평",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 14,
         "stinElevatorMovement": 14,
@@ -218,8 +289,10 @@
       }
     },
     {
+      "stationKey": "S1:2524",
       "stationCode": "2524",
       "stationName": "영등포구청",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 10,
         "stinElevatorMovement": 42,
@@ -231,8 +304,10 @@
       }
     },
     {
+      "stationKey": "S1:2525",
       "stationCode": "2525",
       "stationName": "영등포시장",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 14,
         "stinElevatorMovement": 14,
@@ -244,8 +319,10 @@
       }
     },
     {
+      "stationKey": "S1:2526",
       "stationCode": "2526",
       "stationName": "신길",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 44,
@@ -257,8 +334,10 @@
       }
     },
     {
+      "stationKey": "S1:2527",
       "stationCode": "2527",
       "stationName": "여의도",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 57,
@@ -270,8 +349,10 @@
       }
     },
     {
+      "stationKey": "S1:2528",
       "stationCode": "2528",
       "stationName": "여의나루",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 16,
@@ -283,8 +364,10 @@
       }
     },
     {
+      "stationKey": "S1:2529",
       "stationCode": "2529",
       "stationName": "마포",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -296,8 +379,10 @@
       }
     },
     {
+      "stationKey": "S1:2530",
       "stationCode": "2530",
       "stationName": "공덕",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 132,
@@ -309,8 +394,10 @@
       }
     },
     {
+      "stationKey": "S1:2531",
       "stationCode": "2531",
       "stationName": "애오개",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 32,
         "stinElevatorMovement": 32,
@@ -322,8 +409,10 @@
       }
     },
     {
+      "stationKey": "S1:2532",
       "stationCode": "2532",
       "stationName": "충정로(경기대입구)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 40,
@@ -335,8 +424,10 @@
       }
     },
     {
+      "stationKey": "S1:2533",
       "stationCode": "2533",
       "stationName": "서대문",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -348,8 +439,10 @@
       }
     },
     {
+      "stationKey": "S1:2534",
       "stationCode": "2534",
       "stationName": "광화문(세종문화회관)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -361,8 +454,10 @@
       }
     },
     {
+      "stationKey": "S1:2535",
       "stationCode": "2535",
       "stationName": "종로3가(탑골공원)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 14,
         "stinElevatorMovement": 98,
@@ -374,8 +469,10 @@
       }
     },
     {
+      "stationKey": "S1:2536",
       "stationCode": "2536",
       "stationName": "을지로4가",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 32,
@@ -387,8 +484,10 @@
       }
     },
     {
+      "stationKey": "S1:2537",
       "stationCode": "2537",
       "stationName": "동대문역사문화공원",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 18,
         "stinElevatorMovement": 70,
@@ -400,8 +499,10 @@
       }
     },
     {
+      "stationKey": "S1:2538",
       "stationCode": "2538",
       "stationName": "청구",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 32,
         "stinElevatorMovement": 56,
@@ -413,8 +514,10 @@
       }
     },
     {
+      "stationKey": "S1:2539",
       "stationCode": "2539",
       "stationName": "신금호",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -426,8 +529,10 @@
       }
     },
     {
+      "stationKey": "S1:2540",
       "stationCode": "2540",
       "stationName": "행당",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 14,
         "stinElevatorMovement": 14,
@@ -439,8 +544,10 @@
       }
     },
     {
+      "stationKey": "S1:2541",
       "stationCode": "2541",
       "stationName": "왕십리",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 28,
         "stinElevatorMovement": 142,
@@ -452,8 +559,10 @@
       }
     },
     {
+      "stationKey": "S1:2542",
       "stationCode": "2542",
       "stationName": "마장",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -465,8 +574,10 @@
       }
     },
     {
+      "stationKey": "S1:2543",
       "stationCode": "2543",
       "stationName": "답십리",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -478,8 +589,10 @@
       }
     },
     {
+      "stationKey": "S1:2544",
       "stationCode": "2544",
       "stationName": "장한평",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -491,8 +604,10 @@
       }
     },
     {
+      "stationKey": "S1:2545",
       "stationCode": "2545",
       "stationName": "군자(능동)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 40,
@@ -504,8 +619,10 @@
       }
     },
     {
+      "stationKey": "S1:2546",
       "stationCode": "2546",
       "stationName": "아차산(어린이대공원후문)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -517,8 +634,10 @@
       }
     },
     {
+      "stationKey": "S1:2547",
       "stationCode": "2547",
       "stationName": "광나루(장신대)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -530,8 +649,10 @@
       }
     },
     {
+      "stationKey": "S1:2548",
       "stationCode": "2548",
       "stationName": "천호(풍납토성)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 48,
@@ -543,8 +664,10 @@
       }
     },
     {
+      "stationKey": "S1:2549",
       "stationCode": "2549",
       "stationName": "강동",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 28,
         "stinElevatorMovement": 28,
@@ -556,8 +679,10 @@
       }
     },
     {
+      "stationKey": "S1:2550",
       "stationCode": "2550",
       "stationName": "길동",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 16,
@@ -569,8 +694,10 @@
       }
     },
     {
+      "stationKey": "S1:2555",
       "stationCode": "2555",
       "stationName": "둔촌동",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -582,8 +709,10 @@
       }
     },
     {
+      "stationKey": "S1:2551",
       "stationCode": "2551",
       "stationName": "굽은다리(강동구민회관앞)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -595,8 +724,10 @@
       }
     },
     {
+      "stationKey": "S1:2556",
       "stationCode": "2556",
       "stationName": "올림픽공원(한국체대)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 36,
@@ -608,8 +739,10 @@
       }
     },
     {
+      "stationKey": "S1:2552",
       "stationCode": "2552",
       "stationName": "명일",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -621,8 +754,10 @@
       }
     },
     {
+      "stationKey": "S1:2557",
       "stationCode": "2557",
       "stationName": "방이",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -634,8 +769,10 @@
       }
     },
     {
+      "stationKey": "S1:2553",
       "stationCode": "2553",
       "stationName": "고덕",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -647,8 +784,10 @@
       }
     },
     {
+      "stationKey": "S1:2558",
       "stationCode": "2558",
       "stationName": "오금",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 36,
@@ -660,8 +799,10 @@
       }
     },
     {
+      "stationKey": "S1:2554",
       "stationCode": "2554",
       "stationName": "상일동",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 48,
         "stinElevatorMovement": 48,
@@ -673,8 +814,10 @@
       }
     },
     {
+      "stationKey": "S1:2559",
       "stationCode": "2559",
       "stationName": "개롱",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -686,8 +829,10 @@
       }
     },
     {
+      "stationKey": "S1:2560",
       "stationCode": "2560",
       "stationName": "거여",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -699,8 +844,10 @@
       }
     },
     {
+      "stationKey": "S1:2562",
       "stationCode": "2562",
       "stationName": "강일",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 48,
         "stinElevatorMovement": 48,
@@ -712,8 +859,10 @@
       }
     },
     {
+      "stationKey": "S1:2561",
       "stationCode": "2561",
       "stationName": "마천",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 10,
         "stinElevatorMovement": 10,
@@ -725,8 +874,10 @@
       }
     },
     {
+      "stationKey": "S1:2563",
       "stationCode": "2563",
       "stationName": "미사",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -738,8 +889,10 @@
       }
     },
     {
+      "stationKey": "S1:2564",
       "stationCode": "2564",
       "stationName": "하남풍산",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 36,
         "stinElevatorMovement": 36,
@@ -751,8 +904,10 @@
       }
     },
     {
+      "stationKey": "S1:2565",
       "stationCode": "2565",
       "stationName": "하남시청(덕풍.신장)",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
@@ -764,8 +919,10 @@
       }
     },
     {
+      "stationKey": "S1:2566",
       "stationCode": "2566",
       "stationName": "하남검단산역",
+      "railOperatorCode": "S1",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
@@ -781,7 +938,12 @@
     {
       "stationCode": "2511",
       "stationName": "방화",
+      "stationKey": "S1:2511",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -894,7 +1056,7 @@
             "ELVTR_NM": "승강기)엘리베이터-방화 외부3",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "2번 출입구",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]
@@ -903,7 +1065,12 @@
     {
       "stationCode": "2511",
       "stationName": "방화",
+      "stationKey": "S1:2511",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-1",
@@ -993,7 +1160,12 @@
     {
       "stationCode": "2512",
       "stationName": "개화산",
+      "stationKey": "S1:2512",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "2-3",
@@ -1032,7 +1204,12 @@
     {
       "stationCode": "2513",
       "stationName": "김포공항",
+      "stationKey": "S1:2513",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "3",
@@ -1341,7 +1518,12 @@
     {
       "stationCode": "2513",
       "stationName": "김포공항",
+      "stationKey": "S1:2513",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-2",
@@ -1432,7 +1614,12 @@
     {
       "stationCode": "2514",
       "stationName": "송정",
+      "stationKey": "S1:2514",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-4",
@@ -1585,7 +1772,12 @@
     {
       "stationCode": "2515",
       "stationName": "마곡",
+      "stationKey": "S1:2515",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2",
@@ -2285,7 +2477,12 @@
     {
       "stationCode": "2515",
       "stationName": "마곡",
+      "stationKey": "S1:2515",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-4",
@@ -2375,7 +2572,12 @@
     {
       "stationCode": "2516",
       "stationName": "발산",
+      "stationKey": "S1:2516",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-3",
@@ -2466,7 +2668,12 @@
     {
       "stationCode": "2518",
       "stationName": "화곡",
+      "stationKey": "S1:2518",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-3",
@@ -2534,7 +2741,13 @@
     {
       "stationCode": "2519",
       "stationName": "까치산",
+      "stationKey": "S1:2519",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference",
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [],
         "stinElevatorMovement": [],
@@ -2589,7 +2802,12 @@
     {
       "stationCode": "2520",
       "stationName": "신정(은행정)",
+      "stationKey": "S1:2520",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2"
@@ -2754,7 +2972,12 @@
     {
       "stationCode": "2520",
       "stationName": "신정(은행정)",
+      "stationKey": "S1:2520",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "1-4",
@@ -2845,7 +3068,12 @@
     {
       "stationCode": "2522",
       "stationName": "오목교(목동운동장앞)",
+      "stationKey": "S1:2522",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "2-3",
@@ -2936,7 +3164,12 @@
     {
       "stationCode": "2523",
       "stationName": "양평",
+      "stationKey": "S1:2523",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-2",
@@ -3027,7 +3260,12 @@
     {
       "stationCode": "2524",
       "stationName": "영등포구청",
+      "stationKey": "S1:2524",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "7"
@@ -3201,7 +3439,12 @@
     {
       "stationCode": "2524",
       "stationName": "영등포구청",
+      "stationKey": "S1:2524",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "5-4",
@@ -3327,7 +3570,12 @@
     {
       "stationCode": "2526",
       "stationName": "신길",
+      "stationKey": "S1:2526",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "1-1",
@@ -3499,7 +3747,12 @@
     {
       "stationCode": "2527",
       "stationName": "여의도",
+      "stationKey": "S1:2527",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2",
@@ -3808,7 +4061,12 @@
     {
       "stationCode": "2528",
       "stationName": "여의나루",
+      "stationKey": "S1:2528",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B0.5",
@@ -3897,7 +4155,12 @@
     {
       "stationCode": "2529",
       "stationName": "마포",
+      "stationKey": "S1:2529",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -4090,7 +4353,12 @@
     {
       "stationCode": "2530",
       "stationName": "공덕",
+      "stationKey": "S1:2530",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2",
@@ -4427,7 +4695,12 @@
     {
       "stationCode": "2530",
       "stationName": "공덕",
+      "stationKey": "S1:2530",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "1-1",
@@ -4493,7 +4766,12 @@
     {
       "stationCode": "2532",
       "stationName": "충정로(경기대입구)",
+      "stationKey": "S1:2532",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B1",
@@ -4558,7 +4836,12 @@
     {
       "stationCode": "2532",
       "stationName": "충정로(경기대입구)",
+      "stationKey": "S1:2532",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-4",
@@ -4627,7 +4910,12 @@
     {
       "stationCode": "2533",
       "stationName": "서대문",
+      "stationKey": "S1:2533",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2"
@@ -4844,7 +5132,12 @@
     {
       "stationCode": "2533",
       "stationName": "서대문",
+      "stationKey": "S1:2533",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B0.5",
@@ -4933,7 +5226,12 @@
     {
       "stationCode": "2533",
       "stationName": "서대문",
+      "stationKey": "S1:2533",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-1",
@@ -5002,7 +5300,12 @@
     {
       "stationCode": "2534",
       "stationName": "광화문(세종문화회관)",
+      "stationKey": "S1:2534",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -5193,7 +5496,12 @@
     {
       "stationCode": "2534",
       "stationName": "광화문(세종문화회관)",
+      "stationKey": "S1:2534",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B2",
@@ -5258,7 +5566,12 @@
     {
       "stationCode": "2534",
       "stationName": "광화문(세종문화회관)",
+      "stationKey": "S1:2534",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [],
@@ -5300,7 +5613,12 @@
     {
       "stationCode": "2535",
       "stationName": "종로3가(탑골공원)",
+      "stationKey": "S1:2535",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "8"
@@ -5485,7 +5803,13 @@
     {
       "stationCode": "2535",
       "stationName": "종로3가(탑골공원)",
+      "stationKey": "S1:2535",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference",
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -5551,7 +5875,12 @@
     {
       "stationCode": "2536",
       "stationName": "을지로4가",
+      "stationKey": "S1:2536",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "8"
@@ -5716,7 +6045,12 @@
     {
       "stationCode": "2536",
       "stationName": "을지로4가",
+      "stationKey": "S1:2536",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [],
@@ -5758,7 +6092,13 @@
     {
       "stationCode": "2537",
       "stationName": "동대문역사문화공원",
+      "stationKey": "S1:2537",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference",
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -5995,7 +6335,13 @@
     {
       "stationCode": "2537",
       "stationName": "동대문역사문화공원",
+      "stationKey": "S1:2537",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference",
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "1-1",
@@ -6074,7 +6420,12 @@
     {
       "stationCode": "2538",
       "stationName": "청구",
+      "stationKey": "S1:2538",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -6463,7 +6814,12 @@
     {
       "stationCode": "2538",
       "stationName": "청구",
+      "stationKey": "S1:2538",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-3",
@@ -6502,7 +6858,12 @@
     {
       "stationCode": "2539",
       "stationName": "신금호",
+      "stationKey": "S1:2539",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "3"
@@ -6693,7 +7054,12 @@
     {
       "stationCode": "2539",
       "stationName": "신금호",
+      "stationKey": "S1:2539",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B2",
@@ -6753,7 +7119,7 @@
             "ELVTR_NM": "승강기)엘리베이터-신금호 내부1",
             "OPR_SEC": "B2-B8",
             "INSTL_PSTN": "청구 방면1-2, 행당 방면8-3",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           },
           {
@@ -6780,7 +7146,12 @@
     {
       "stationCode": "2540",
       "stationName": "행당",
+      "stationKey": "S1:2540",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B3",
@@ -6869,7 +7240,12 @@
     {
       "stationCode": "2541",
       "stationName": "왕십리",
+      "stationKey": "S1:2541",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "4",
@@ -7246,7 +7622,12 @@
     {
       "stationCode": "2542",
       "stationName": "마장",
+      "stationKey": "S1:2542",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-3",
@@ -7337,7 +7718,12 @@
     {
       "stationCode": "2544",
       "stationName": "장한평",
+      "stationKey": "S1:2544",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -7699,7 +8085,12 @@
     {
       "stationCode": "2544",
       "stationName": "장한평",
+      "stationKey": "S1:2544",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-4",
@@ -7768,7 +8159,12 @@
     {
       "stationCode": "2545",
       "stationName": "군자(능동)",
+      "stationKey": "S1:2545",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "4",
@@ -8105,7 +8501,12 @@
     {
       "stationCode": "2545",
       "stationName": "군자(능동)",
+      "stationKey": "S1:2545",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B1",
@@ -8174,7 +8575,7 @@
             "ELVTR_NM": "승강기)엘리베이터-군자 내부2",
             "OPR_SEC": "B3-B2-B1",
             "INSTL_PSTN": "장한평 방면4-3, 아차산 방면5-1",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           },
           {
@@ -8192,7 +8593,12 @@
     {
       "stationCode": "2545",
       "stationName": "군자(능동)",
+      "stationKey": "S1:2545",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-2",
@@ -8278,7 +8684,7 @@
             "ELVTR_NM": "승강기)엘리베이터-군자 내부2",
             "OPR_SEC": "B3-B2-B1",
             "INSTL_PSTN": "장한평 방면4-3, 아차산 방면5-1",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]
@@ -8287,7 +8693,12 @@
     {
       "stationCode": "2546",
       "stationName": "아차산(어린이대공원후문)",
+      "stationKey": "S1:2546",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "4"
@@ -8472,7 +8883,7 @@
             "ELVTR_NM": "승강기)엘리베이터-아차산 외부3",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "3번 출입구",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]
@@ -8481,7 +8892,12 @@
     {
       "stationCode": "2546",
       "stationName": "아차산(어린이대공원후문)",
+      "stationKey": "S1:2546",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B1",
@@ -8541,7 +8957,7 @@
             "ELVTR_NM": "승강기)엘리베이터-아차산 내부1",
             "OPR_SEC": "B3-B2-B1",
             "INSTL_PSTN": "군자 방면6-1",
-            "USE_YN": "보수중",
+            "USE_YN": "사용가능",
             "ELVTR_SE": "EV"
           },
           {
@@ -8559,7 +8975,7 @@
             "ELVTR_NM": "승강기)엘리베이터-아차산 외부3",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "3번 출입구",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]
@@ -8568,7 +8984,12 @@
     {
       "stationCode": "2546",
       "stationName": "아차산(어린이대공원후문)",
+      "stationKey": "S1:2546",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-3",
@@ -8641,7 +9062,7 @@
             "ELVTR_NM": "승강기)엘리베이터-아차산 내부1",
             "OPR_SEC": "B3-B2-B1",
             "INSTL_PSTN": "군자 방면6-1",
-            "USE_YN": "보수중",
+            "USE_YN": "사용가능",
             "ELVTR_SE": "EV"
           },
           {
@@ -8659,7 +9080,12 @@
     {
       "stationCode": "2547",
       "stationName": "광나루(장신대)",
+      "stationKey": "S1:2547",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -8876,7 +9302,12 @@
     {
       "stationCode": "2548",
       "stationName": "천호(풍납토성)",
+      "stationKey": "S1:2548",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "6"
@@ -9110,7 +9541,12 @@
     {
       "stationCode": "2548",
       "stationName": "천호(풍납토성)",
+      "stationKey": "S1:2548",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B0.5",
@@ -9221,7 +9657,12 @@
     {
       "stationCode": "2548",
       "stationName": "천호(풍납토성)",
+      "stationKey": "S1:2548",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-1",
@@ -9335,7 +9776,12 @@
     {
       "stationCode": "2549",
       "stationName": "강동",
+      "stationKey": "S1:2549",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -9726,7 +10172,12 @@
     {
       "stationCode": "2549",
       "stationName": "강동",
+      "stationKey": "S1:2549",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "8-4"
@@ -9792,7 +10243,12 @@
     {
       "stationCode": "2550",
       "stationName": "길동",
+      "stationKey": "S1:2550",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -10009,7 +10465,12 @@
     {
       "stationCode": "2550",
       "stationName": "길동",
+      "stationKey": "S1:2550",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "B0.5↔B1",
@@ -10096,7 +10557,12 @@
     {
       "stationCode": "2555",
       "stationName": "둔촌동",
+      "stationKey": "S1:2555",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2",
@@ -10458,7 +10924,12 @@
     {
       "stationCode": "2551",
       "stationName": "굽은다리(강동구민회관앞)",
+      "stationKey": "S1:2551",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -10651,7 +11122,12 @@
     {
       "stationCode": "2551",
       "stationName": "굽은다리(강동구민회관앞)",
+      "stationKey": "S1:2551",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-2",
@@ -10744,7 +11220,12 @@
     {
       "stationCode": "2556",
       "stationName": "올림픽공원(한국체대)",
+      "stationKey": "S1:2556",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-3",
@@ -10835,7 +11316,12 @@
     {
       "stationCode": "2556",
       "stationName": "올림픽공원(한국체대)",
+      "stationKey": "S1:2556",
+      "railOperatorCode": "S1",
       "category": "platform_gap_linkage",
+      "differenceKinds": [
+        "linkage_gap"
+      ],
       "normalizedValues": {
         "stPlf": [
           "1",
@@ -11491,7 +11977,12 @@
     {
       "stationCode": "2552",
       "stationName": "명일",
+      "stationKey": "S1:2552",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "3"
@@ -11685,7 +12176,12 @@
     {
       "stationCode": "2552",
       "stationName": "명일",
+      "stationKey": "S1:2552",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-3",
@@ -11778,7 +12274,12 @@
     {
       "stationCode": "2557",
       "stationName": "방이",
+      "stationKey": "S1:2557",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-4"
@@ -11868,7 +12369,12 @@
     {
       "stationCode": "2553",
       "stationName": "고덕",
+      "stationKey": "S1:2553",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "2",
@@ -12230,7 +12736,12 @@
     {
       "stationCode": "2558",
       "stationName": "오금",
+      "stationKey": "S1:2558",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -12558,7 +13069,7 @@
             "ELVTR_NM": "승강기)엘리베이터-오금(5) 외부5",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "5번 출입구",
-            "USE_YN": "보수중",
+            "USE_YN": "사용가능",
             "ELVTR_SE": "EV"
           }
         ]
@@ -12567,7 +13078,13 @@
     {
       "stationCode": "2558",
       "stationName": "오금",
+      "stationKey": "S1:2558",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference",
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -12680,7 +13197,12 @@
     {
       "stationCode": "2554",
       "stationName": "상일동",
+      "stationKey": "S1:2554",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -13383,7 +13905,12 @@
     {
       "stationCode": "2554",
       "stationName": "상일동",
+      "stationKey": "S1:2554",
+      "railOperatorCode": "S1",
       "category": "elevator_operating_floor",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevator": [
           "1F↔B1",
@@ -13537,7 +14064,12 @@
     {
       "stationCode": "2554",
       "stationName": "상일동",
+      "stationKey": "S1:2554",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -13604,7 +14136,12 @@
     {
       "stationCode": "2559",
       "stationName": "개롱",
+      "stationKey": "S1:2559",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "3"
@@ -13798,7 +14335,12 @@
     {
       "stationCode": "2559",
       "stationName": "개롱",
+      "stationKey": "S1:2559",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-4",
@@ -13889,7 +14431,12 @@
     {
       "stationCode": "2559",
       "stationName": "개롱",
+      "stationKey": "S1:2559",
+      "railOperatorCode": "S1",
       "category": "platform_gap_linkage",
+      "differenceKinds": [
+        "linkage_gap"
+      ],
       "normalizedValues": {
         "stPlf": [
           "1",
@@ -14545,7 +15092,12 @@
     {
       "stationCode": "2560",
       "stationName": "거여",
+      "stationKey": "S1:2560",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1"
@@ -14738,7 +15290,12 @@
     {
       "stationCode": "2561",
       "stationName": "마천",
+      "stationKey": "S1:2561",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "5-1"
@@ -14818,7 +15375,12 @@
     {
       "stationCode": "2564",
       "stationName": "하남풍산",
+      "stationKey": "S1:2564",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -15347,7 +15909,12 @@
     {
       "stationCode": "2564",
       "stationName": "하남풍산",
+      "stationKey": "S1:2564",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "5-1"
@@ -15447,7 +16014,12 @@
     {
       "stationCode": "2565",
       "stationName": "하남시청(덕풍.신장)",
+      "stationKey": "S1:2565",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "3",
@@ -15809,7 +16381,12 @@
     {
       "stationCode": "2565",
       "stationName": "하남시청(덕풍.신장)",
+      "stationKey": "S1:2565",
+      "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-4"
@@ -15897,7 +16474,12 @@
     {
       "stationCode": "2566",
       "stationName": "하남검단산역",
+      "stationKey": "S1:2566",
+      "railOperatorCode": "S1",
       "category": "surface_exit_number",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "stationMovement": [
           "1",
@@ -16120,7 +16702,12 @@
     {
       "stationCode": "2566",
       "stationName": "하남검단산역",
+      "stationKey": "S1:2566",
+      "railOperatorCode": "S1",
       "category": "station_name",
+      "differenceKinds": [
+        "value_difference"
+      ],
       "normalizedValues": {
         "subwayRouteInfo": [
           "하남검단산역"
