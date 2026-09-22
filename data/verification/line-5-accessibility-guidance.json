@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "line": "5",
   "decisionDate": "2026-09-22",
-  "auditCollectedAt": "2026-09-18T01:48:27.258Z",
+  "auditCollectedAt": "2026-09-22T07:09:52.560Z",
   "status": "partial",
   "sourceSelection": {
     "surfaceExitNumbers": {
@@ -28,9 +28,24 @@
   "platformGapPolicy": {
     "unit": "cm",
     "levels": [
-      { "level": "green", "minimumInclusive": 0, "maximumInclusive": 10, "label": "안전" },
-      { "level": "yellow", "minimumExclusive": 10, "maximumInclusive": 15, "label": "유의" },
-      { "level": "red", "minimumExclusive": 15, "maximumInclusive": null, "label": "추천하지 않음" }
+      {
+        "level": "green",
+        "minimumInclusive": 0,
+        "maximumInclusive": 10,
+        "label": "안전"
+      },
+      {
+        "level": "yellow",
+        "minimumExclusive": 10,
+        "maximumInclusive": 15,
+        "label": "유의"
+      },
+      {
+        "level": "red",
+        "minimumExclusive": 15,
+        "maximumInclusive": null,
+        "label": "추천하지 않음"
+      }
     ],
     "redFallback": {
       "action": "recommend_safest_adjacent_door",
@@ -69,17 +84,26 @@
     {
       "stationCode": "2511",
       "stationName": "방화",
+      "verificationMethod": "manual_direction_assignment",
       "directions": [
         {
           "toward": "방화",
-          "sourceDoors": ["4-1"],
-          "recommendedDoors": ["4-1"],
+          "sourceDoors": [
+            "4-1"
+          ],
+          "recommendedDoors": [
+            "4-1"
+          ],
           "decision": "stationElevatorCarNumber"
         },
         {
           "toward": "개화산",
-          "sourceDoors": ["5-4"],
-          "recommendedDoors": ["5-4"],
+          "sourceDoors": [
+            "5-4"
+          ],
+          "recommendedDoors": [
+            "5-4"
+          ],
           "decision": "stationElevatorCarNumber"
         }
       ]
@@ -87,17 +111,26 @@
     {
       "stationCode": "2512",
       "stationName": "개화산",
+      "verificationMethod": "manual_direction_assignment",
       "directions": [
         {
           "toward": "방화",
-          "sourceDoors": ["2-3"],
-          "recommendedDoors": ["2-3"],
+          "sourceDoors": [
+            "2-3"
+          ],
+          "recommendedDoors": [
+            "2-3"
+          ],
           "decision": "stationElevatorCarNumber"
         },
         {
           "toward": "김포공항",
-          "sourceDoors": ["7-2"],
-          "recommendedDoors": ["7-2"],
+          "sourceDoors": [
+            "7-2"
+          ],
+          "recommendedDoors": [
+            "7-2"
+          ],
           "decision": "stationElevatorCarNumber"
         }
       ]
@@ -105,23 +138,44 @@
     {
       "stationCode": "2513",
       "stationName": "김포공항",
+      "verificationMethod": "manual_direction_assignment",
       "directions": [
         {
           "toward": "개화산",
-          "sourceDoors": ["6-3"],
-          "recommendedDoors": ["6-3"],
+          "sourceDoors": [
+            "6-3"
+          ],
+          "recommendedDoors": [
+            "6-3"
+          ],
           "decision": "stationElevatorCarNumber"
         },
         {
           "toward": "송정",
-          "sourceDoors": ["3-2"],
-          "recommendedDoors": ["3-1"],
+          "sourceDoors": [
+            "3-2"
+          ],
+          "recommendedDoors": [
+            "3-1"
+          ],
           "decision": "red_gap_adjacent_override",
           "platformNumber": "2",
           "gapEvidence": [
-            { "door": "3-2", "distanceCm": 17, "level": "red" },
-            { "door": "3-1", "distanceCm": 12, "level": "yellow" },
-            { "door": "3-3", "distanceCm": 15, "level": "yellow" }
+            {
+              "door": "3-2",
+              "distanceCm": 17,
+              "level": "red"
+            },
+            {
+              "door": "3-1",
+              "distanceCm": 12,
+              "level": "yellow"
+            },
+            {
+              "door": "3-3",
+              "distanceCm": 15,
+              "level": "yellow"
+            }
           ],
           "note": "3-2는 red이므로 양옆 문 중 이격거리가 더 짧은 3-1로 안내한다. 계단에 가까운 3-3보다 3-1을 우선한다."
         }
@@ -130,59 +184,1958 @@
     {
       "stationCode": "2514",
       "stationName": "송정",
+      "verificationMethod": "manual_direction_assignment",
       "directions": [
         {
           "toward": "김포공항",
-          "sourceDoors": ["4-4", "5-1"],
-          "recommendedDoors": ["4-4", "5-1"],
+          "sourceDoors": [
+            "4-4",
+            "5-1"
+          ],
+          "recommendedDoors": [
+            "4-4",
+            "5-1"
+          ],
           "decision": "stationElevatorCarNumber"
         },
         {
           "toward": "마곡",
-          "sourceDoors": ["3-4", "4-1", "4-4", "5-1", "5-4", "6-1"],
-          "recommendedDoors": ["3-4", "4-1", "4-4", "5-1", "5-4", "6-1"],
+          "sourceDoors": [
+            "3-4",
+            "4-1",
+            "4-4",
+            "5-1",
+            "5-4",
+            "6-1"
+          ],
+          "recommendedDoors": [
+            "3-4",
+            "4-1",
+            "4-4",
+            "5-1",
+            "5-4",
+            "6-1"
+          ],
           "decision": "stationElevatorCarNumber"
+        }
+      ]
+    },
+    {
+      "stationCode": "2515",
+      "stationName": "마곡",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "송정",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "발산",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "5-1"
+          ],
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-1",
+              "sourceGap": {
+                "distanceCm": 7,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-1",
+              "recommendedGap": {
+                "distanceCm": 7,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2516",
+      "stationName": "발산",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "마곡",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-2"
+          ],
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "decision": "red_gap_adjacent_override",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-2",
+              "sourceGap": {
+                "distanceCm": 20,
+                "level": "red",
+                "label": "추천하지 않음"
+              },
+              "recommendedDoor": "5-1",
+              "recommendedGap": {
+                "distanceCm": 13,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "red_gap_adjacent_override"
+            }
+          ]
+        },
+        {
+          "toward": "우장산",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "4-3"
+          ],
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-3",
+              "sourceGap": {
+                "distanceCm": 3,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-3",
+              "recommendedGap": {
+                "distanceCm": 3,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2518",
+      "stationName": "화곡",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "우장산",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-2"
+          ],
+          "recommendedDoors": [
+            "5-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-2",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-2",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "까치산",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "4-3"
+          ],
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-3",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-3",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2520",
+      "stationName": "신정",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "까치산",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "7-4"
+          ],
+          "recommendedDoors": [
+            "7-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "7-4",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "7-4",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "목동",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "1-4"
+          ],
+          "recommendedDoors": [
+            "1-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "1-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "1-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2522",
+      "stationName": "오목교",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "목동",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "7-1"
+          ],
+          "recommendedDoors": [
+            "7-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "7-1",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "7-1",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "양평",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "2-3"
+          ],
+          "recommendedDoors": [
+            "2-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "2-3",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "2-3",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2523",
+      "stationName": "양평",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "오목교",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "3-2"
+          ],
+          "recommendedDoors": [
+            "3-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "3-2",
+              "sourceGap": {
+                "distanceCm": 5,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "3-2",
+              "recommendedGap": {
+                "distanceCm": 5,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "영등포구청",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "6-2"
+          ],
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-2",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "6-2",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2524",
+      "stationName": "영등포구청",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "양평",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "6-4",
+            "8-4"
+          ],
+          "recommendedDoors": [
+            "6-4",
+            "8-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "6-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            },
+            {
+              "sourceDoor": "8-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "8-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "영등포시장",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "5-4"
+          ],
+          "recommendedDoors": [
+            "5-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2526",
+      "stationName": "신길",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "영등포시장",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-3"
+          ],
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-3",
+              "sourceGap": {
+                "distanceCm": 4,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-3",
+              "recommendedGap": {
+                "distanceCm": 4,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "여의도",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "1-1",
+            "4-2"
+          ],
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "decision": "partial_gap_unknown",
+          "doorDecisions": [
+            {
+              "sourceDoor": "1-1",
+              "sourceGap": {
+                "distanceCm": 13,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "1-1",
+              "recommendedGap": {
+                "distanceCm": 13,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            },
+            {
+              "sourceDoor": "4-2",
+              "sourceGap": {
+                "distanceCm": 20,
+                "level": "red",
+                "label": "추천하지 않음"
+              },
+              "recommendedDoor": null,
+              "recommendedGap": null,
+              "decision": "no_acceptable_adjacent_door"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2530",
+      "stationName": "공덕",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "마포",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "1-1"
+          ],
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "1-1",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "1-1",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "애오개",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "8-4"
+          ],
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "8-4",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "8-4",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2532",
+      "stationName": "충정로",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "애오개",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "3-4"
+          ],
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "3-4",
+              "sourceGap": {
+                "distanceCm": 13,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "3-4",
+              "recommendedGap": {
+                "distanceCm": 13,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "서대문",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "6-1"
+          ],
+          "recommendedDoors": [
+            "6-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-1",
+              "sourceGap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "6-1",
+              "recommendedGap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2533",
+      "stationName": "서대문",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "충정로",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "3-1"
+          ],
+          "recommendedDoors": [
+            "3-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "3-1",
+              "sourceGap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "3-1",
+              "recommendedGap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "광화문",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "6-3"
+          ],
+          "recommendedDoors": [
+            "6-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-3",
+              "sourceGap": {
+                "distanceCm": 14,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "6-3",
+              "recommendedGap": {
+                "distanceCm": 14,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2537",
+      "stationName": "동대문역사문화공원",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "을지로4가",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "8-4"
+          ],
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "8-4",
+              "sourceGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "8-4",
+              "recommendedGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "청구",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "1-1"
+          ],
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "1-1",
+              "sourceGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "1-1",
+              "recommendedGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2538",
+      "stationName": "청구",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "동대문역사문화공원",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "4-3"
+          ],
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-3",
+              "sourceGap": {
+                "distanceCm": 4,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-3",
+              "recommendedGap": {
+                "distanceCm": 4,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "신금호",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "5-4"
+          ],
+          "recommendedDoors": [
+            "5-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-4",
+              "sourceGap": {
+                "distanceCm": 5,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-4",
+              "recommendedGap": {
+                "distanceCm": 5,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2542",
+      "stationName": "마장",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "왕십리",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "4-3"
+          ],
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-3",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-3",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "답십리",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "5-2"
+          ],
+          "recommendedDoors": [
+            "5-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-2",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-2",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2544",
+      "stationName": "장한평",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "답십리",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "군자",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "5-1"
+          ],
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-1",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-1",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2545",
+      "stationName": "군자",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "장한평",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-4"
+          ],
+          "recommendedDoors": [
+            "5-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-4",
+              "sourceGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-4",
+              "recommendedGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "아차산",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "4-2"
+          ],
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-2",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-2",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2546",
+      "stationName": "아차산",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "군자",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "6-1"
+          ],
+          "recommendedDoors": [
+            "6-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-1",
+              "sourceGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "6-1",
+              "recommendedGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "광나루",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "3-3"
+          ],
+          "recommendedDoors": [
+            "3-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "3-3",
+              "sourceGap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "3-3",
+              "recommendedGap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2548",
+      "stationName": "천호",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "광나루",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-4"
+          ],
+          "recommendedDoors": [
+            "5-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-4",
+              "sourceGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-4",
+              "recommendedGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "강동",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "4-1"
+          ],
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-1",
+              "sourceGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "4-1",
+              "recommendedGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2549",
+      "stationName": "강동",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "길동",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "8-4"
+          ],
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "8-4",
+              "sourceGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "8-4",
+              "recommendedGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2551",
+      "stationName": "굽은다리",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "길동",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "6-2"
+          ],
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-2",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "6-2",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "명일",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "3-2"
+          ],
+          "recommendedDoors": [
+            "3-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "3-2",
+              "sourceGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "3-2",
+              "recommendedGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2556",
+      "stationName": "올림픽공원",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "둔촌동",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "3-3"
+          ],
+          "recommendedDoors": [
+            "3-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "3-3",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "3-3",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "방이",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "6-6"
+          ],
+          "recommendedDoors": [],
+          "decision": "partial_gap_unknown",
+          "doorDecisions": [
+            {
+              "sourceDoor": "6-6",
+              "sourceGap": null,
+              "recommendedDoor": null,
+              "recommendedGap": null,
+              "decision": "gap_unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2557",
+      "stationName": "방이",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "올림픽공원",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "오금",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2552",
+      "stationName": "명일",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "굽은다리",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-2"
+          ],
+          "recommendedDoors": [
+            "5-2"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-2",
+              "sourceGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "recommendedDoor": "5-2",
+              "recommendedGap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "고덕",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "4-3"
+          ],
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-3",
+              "sourceGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-3",
+              "recommendedGap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2559",
+      "stationName": "개롱",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "오금",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-5"
+          ],
+          "recommendedDoors": [],
+          "decision": "partial_gap_unknown",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-5",
+              "sourceGap": null,
+              "recommendedDoor": null,
+              "recommendedGap": null,
+              "decision": "gap_unknown"
+            }
+          ]
+        },
+        {
+          "toward": "거여",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2561",
+      "stationName": "마천",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "마천",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2561",
+          "apiTerminalName": "마천",
+          "sourceDoors": [
+            "5-1"
+          ],
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-1",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-1",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2564",
+      "stationName": "하남풍산",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "미사",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "5-1"
+          ],
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-1",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-1",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "하남풍산",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "5-1"
+          ],
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "5-1",
+              "sourceGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "5-1",
+              "recommendedGap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2565",
+      "stationName": "하남시청",
+      "verificationMethod": "api_platform_linkage",
+      "directions": [
+        {
+          "toward": "하남풍산",
+          "platformNumber": "1",
+          "apiUpDownCode": "1",
+          "apiTerminalCode": "2511",
+          "apiTerminalName": "방화",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 6.1,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 6.1,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
+        },
+        {
+          "toward": "하남풍산",
+          "platformNumber": "2",
+          "apiUpDownCode": "2",
+          "apiTerminalCode": "2564",
+          "apiTerminalName": "하남풍산",
+          "sourceDoors": [
+            "4-4"
+          ],
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "decision": "stationElevatorCarNumber",
+          "doorDecisions": [
+            {
+              "sourceDoor": "4-4",
+              "sourceGap": {
+                "distanceCm": 6.2,
+                "level": "green",
+                "label": "안전"
+              },
+              "recommendedDoor": "4-4",
+              "recommendedGap": {
+                "distanceCm": 6.2,
+                "level": "green",
+                "label": "안전"
+              },
+              "decision": "source_door_acceptable"
+            }
+          ]
         }
       ]
     }
   ],
   "coverage": {
     "auditDifferenceStationCount": 36,
-    "directionVerifiedStationCount": 4,
-    "remainingStationCount": 32
+    "directionRecordedStationCount": 31,
+    "directionCompleteStationCount": 25,
+    "partiallyResolvedStationCount": 6,
+    "unresolvedStationCount": 5
   },
   "unresolvedStations": [
-    { "stationCode": "2515", "stationName": "마곡" },
-    { "stationCode": "2516", "stationName": "발산" },
-    { "stationCode": "2518", "stationName": "화곡" },
-    { "stationCode": "2520", "stationName": "신정(은행정)" },
-    { "stationCode": "2522", "stationName": "오목교(목동운동장앞)" },
-    { "stationCode": "2523", "stationName": "양평" },
-    { "stationCode": "2524", "stationName": "영등포구청" },
-    { "stationCode": "2526", "stationName": "신길" },
-    { "stationCode": "2530", "stationName": "공덕" },
-    { "stationCode": "2532", "stationName": "충정로(경기대입구)" },
-    { "stationCode": "2533", "stationName": "서대문" },
-    { "stationCode": "2534", "stationName": "광화문(세종문화회관)" },
-    { "stationCode": "2535", "stationName": "종로3가(탑골공원)" },
-    { "stationCode": "2536", "stationName": "을지로4가" },
-    { "stationCode": "2537", "stationName": "동대문역사문화공원" },
-    { "stationCode": "2538", "stationName": "청구" },
-    { "stationCode": "2542", "stationName": "마장" },
-    { "stationCode": "2544", "stationName": "장한평" },
-    { "stationCode": "2545", "stationName": "군자(능동)" },
-    { "stationCode": "2546", "stationName": "아차산(어린이대공원후문)" },
-    { "stationCode": "2548", "stationName": "천호(풍납토성)" },
-    { "stationCode": "2549", "stationName": "강동" },
-    { "stationCode": "2551", "stationName": "굽은다리(강동구민회관앞)" },
-    { "stationCode": "2556", "stationName": "올림픽공원(한국체대)" },
-    { "stationCode": "2552", "stationName": "명일" },
-    { "stationCode": "2557", "stationName": "방이" },
-    { "stationCode": "2558", "stationName": "오금" },
-    { "stationCode": "2554", "stationName": "상일동" },
-    { "stationCode": "2559", "stationName": "개롱" },
-    { "stationCode": "2561", "stationName": "마천" },
-    { "stationCode": "2564", "stationName": "하남풍산" },
-    { "stationCode": "2565", "stationName": "하남시청(덕풍.신장)" }
+    {
+      "stationCode": "2534",
+      "stationName": "광화문",
+      "reason": "stationElevatorCarNumber_empty"
+    },
+    {
+      "stationCode": "2535",
+      "stationName": "종로3가",
+      "reason": "stationElevatorCarNumber_empty"
+    },
+    {
+      "stationCode": "2536",
+      "stationName": "을지로4가",
+      "reason": "stationElevatorCarNumber_empty"
+    },
+    {
+      "stationCode": "2558",
+      "stationName": "오금",
+      "reason": "stationElevatorCarNumber_empty"
+    },
+    {
+      "stationCode": "2554",
+      "stationName": "상일동",
+      "reason": "stationElevatorCarNumber_empty"
+    }
+  ],
+  "partiallyResolvedStations": [
+    {
+      "stationCode": "2526",
+      "stationName": "신길",
+      "issues": [
+        {
+          "platformNumber": "2",
+          "reason": "no_acceptable_adjacent_door",
+          "sourceDoors": [
+            "4-2"
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2549",
+      "stationName": "강동",
+      "issues": [
+        {
+          "platformNumber": "1",
+          "reason": "stationElevatorCarNumber_platform_empty"
+        }
+      ]
+    },
+    {
+      "stationCode": "2556",
+      "stationName": "올림픽공원",
+      "issues": [
+        {
+          "platformNumber": "2",
+          "reason": "gap_unknown",
+          "sourceDoors": [
+            "6-6"
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2559",
+      "stationName": "개롱",
+      "issues": [
+        {
+          "platformNumber": "1",
+          "reason": "gap_unknown",
+          "sourceDoors": [
+            "5-5"
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2561",
+      "stationName": "마천",
+      "issues": [
+        {
+          "platformNumber": "1",
+          "reason": "stationElevatorCarNumber_platform_empty"
+        }
+      ]
+    },
+    {
+      "stationCode": "2565",
+      "stationName": "하남시청",
+      "issues": [
+        {
+          "platformNumber": "2",
+          "reason": "platform_direction_conflict",
+          "upDownCode": "2",
+          "terminalCode": "2564"
+        }
+      ]
+    }
   ]
 }

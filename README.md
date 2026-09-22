@@ -71,6 +71,14 @@ KRIC 최신 코드표에 등록된 수도권 25개 노선 그룹 감사를 완�
 [`5호선 지상 출구 수동 검증값`](data/verification/line-5-surface-exits.json)과
 [`5호선 접근성 안내 검증값`](data/verification/line-5-accessibility-guidance.json)에 별도로 기록합니다.
 
+5호선 API를 다시 수집한 뒤 방향별 차량·문과 이격거리 검증값을 갱신하려면 순서대로
+실행합니다.
+
+```bash
+npm run research:line-sync -- --line 5
+npm run verification:line-5
+```
+
 ```bash
 npm run research:line-sync -- --line incheon-1
 npm run research:line-sync -- --line suin-bundang
