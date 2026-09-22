@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "line": "5",
+  "decisionDate": "2026-09-22",
+  "auditCollectedAt": "2026-09-18T01:48:27.258Z",
+  "status": "partial",
+  "sourceSelection": {
+    "surfaceExitNumbers": {
+      "source": "manual_verification",
+      "dataFile": "line-5-surface-exits.json",
+      "status": "complete"
+    },
+    "elevatorAdjacentCarDoor": {
+      "source": "stationElevatorCarNumber",
+      "directionAssignment": "manual_verification",
+      "status": "partial"
+    },
+    "elevatorOperatingFloor": {
+      "source": "stationElevator",
+      "status": "selected"
+    },
+    "platformDoorGap": {
+      "source": "stationPlatformTrainDistance",
+      "status": "selected",
+      "validDoorDomain": "only car-door records returned by stationPlatformTrainDistance"
+    }
+  },
+  "platformGapPolicy": {
+    "unit": "cm",
+    "levels": [
+      { "level": "green", "minimumInclusive": 0, "maximumInclusive": 10, "label": "안전" },
+      { "level": "yellow", "minimumExclusive": 10, "maximumInclusive": 15, "label": "유의" },
+      { "level": "red", "minimumExclusive": 15, "maximumInclusive": null, "label": "추천하지 않음" }
+    ],
+    "redFallback": {
+      "action": "recommend_safest_adjacent_door",
+      "selection": "immediately adjacent non-red door with the smallest distance",
+      "whenNoNonRedAdjacentDoor": "do_not_recommend"
+    }
+  },
+  "stationNameAliases": [
+    {
+      "stationCode": "2566",
+      "sourceName": "하남검단산역",
+      "normalizedName": "하남검단산"
+    }
+  ],
+  "linkageDecisions": [
+    {
+      "stationCode": "2556",
+      "stationName": "올림픽공원",
+      "platformNumber": "2",
+      "unmatchedAdjacentDoor": "6-6",
+      "decision": "exclude_unmatched_adjacent_door",
+      "source": "stationPlatformTrainDistance",
+      "note": "stationPlatformTrainDistance에 6-6 레코드가 없으므로 이 문을 안내에 사용하지 않는다. 대체 인접 문은 아직 미확정이다."
+    },
+    {
+      "stationCode": "2559",
+      "stationName": "개롱",
+      "platformNumber": "1",
+      "unmatchedAdjacentDoor": "5-5",
+      "decision": "exclude_unmatched_adjacent_door",
+      "source": "stationPlatformTrainDistance",
+      "note": "stationPlatformTrainDistance에 5-5 레코드가 없으므로 이 문을 안내에 사용하지 않는다. 대체 인접 문은 아직 미확정이다."
+    }
+  ],
+  "directionalBoarding": [
+    {
+      "stationCode": "2511",
+      "stationName": "방화",
+      "directions": [
+        {
+          "toward": "방화",
+          "sourceDoors": ["4-1"],
+          "recommendedDoors": ["4-1"],
+          "decision": "stationElevatorCarNumber"
+        },
+        {
+          "toward": "개화산",
+          "sourceDoors": ["5-4"],
+          "recommendedDoors": ["5-4"],
+          "decision": "stationElevatorCarNumber"
+        }
+      ]
+    },
+    {
+      "stationCode": "2512",
+      "stationName": "개화산",
+      "directions": [
+        {
+          "toward": "방화",
+          "sourceDoors": ["2-3"],
+          "recommendedDoors": ["2-3"],
+          "decision": "stationElevatorCarNumber"
+        },
+        {
+          "toward": "김포공항",
+          "sourceDoors": ["7-2"],
+          "recommendedDoors": ["7-2"],
+          "decision": "stationElevatorCarNumber"
+        }
+      ]
+    },
+    {
+      "stationCode": "2513",
+      "stationName": "김포공항",
+      "directions": [
+        {
+          "toward": "개화산",
+          "sourceDoors": ["6-3"],
+          "recommendedDoors": ["6-3"],
+          "decision": "stationElevatorCarNumber"
+        },
+        {
+          "toward": "송정",
+          "sourceDoors": ["3-2"],
+          "recommendedDoors": ["3-1"],
+          "decision": "red_gap_adjacent_override",
+          "platformNumber": "2",
+          "gapEvidence": [
+            { "door": "3-2", "distanceCm": 17, "level": "red" },
+            { "door": "3-1", "distanceCm": 12, "level": "yellow" },
+            { "door": "3-3", "distanceCm": 15, "level": "yellow" }
+          ],
+          "note": "3-2는 red이므로 양옆 문 중 이격거리가 더 짧은 3-1로 안내한다. 계단에 가까운 3-3보다 3-1을 우선한다."
+        }
+      ]
+    },
+    {
+      "stationCode": "2514",
+      "stationName": "송정",
+      "directions": [
+        {
+          "toward": "김포공항",
+          "sourceDoors": ["4-4", "5-1"],
+          "recommendedDoors": ["4-4", "5-1"],
+          "decision": "stationElevatorCarNumber"
+        },
+        {
+          "toward": "마곡",
+          "sourceDoors": ["3-4", "4-1", "4-4", "5-1", "5-4", "6-1"],
+          "recommendedDoors": ["3-4", "4-1", "4-4", "5-1", "5-4", "6-1"],
+          "decision": "stationElevatorCarNumber"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "auditDifferenceStationCount": 36,
+    "directionVerifiedStationCount": 4,
+    "remainingStationCount": 32
+  },
+  "unresolvedStations": [
+    { "stationCode": "2515", "stationName": "마곡" },
+    { "stationCode": "2516", "stationName": "발산" },
+    { "stationCode": "2518", "stationName": "화곡" },
+    { "stationCode": "2520", "stationName": "신정(은행정)" },
+    { "stationCode": "2522", "stationName": "오목교(목동운동장앞)" },
+    { "stationCode": "2523", "stationName": "양평" },
+    { "stationCode": "2524", "stationName": "영등포구청" },
+    { "stationCode": "2526", "stationName": "신길" },
+    { "stationCode": "2530", "stationName": "공덕" },
+    { "stationCode": "2532", "stationName": "충정로(경기대입구)" },
+    { "stationCode": "2533", "stationName": "서대문" },
+    { "stationCode": "2534", "stationName": "광화문(세종문화회관)" },
+    { "stationCode": "2535", "stationName": "종로3가(탑골공원)" },
+    { "stationCode": "2536", "stationName": "을지로4가" },
+    { "stationCode": "2537", "stationName": "동대문역사문화공원" },
+    { "stationCode": "2538", "stationName": "청구" },
+    { "stationCode": "2542", "stationName": "마장" },
+    { "stationCode": "2544", "stationName": "장한평" },
+    { "stationCode": "2545", "stationName": "군자(능동)" },
+    { "stationCode": "2546", "stationName": "아차산(어린이대공원후문)" },
+    { "stationCode": "2548", "stationName": "천호(풍납토성)" },
+    { "stationCode": "2549", "stationName": "강동" },
+    { "stationCode": "2551", "stationName": "굽은다리(강동구민회관앞)" },
+    { "stationCode": "2556", "stationName": "올림픽공원(한국체대)" },
+    { "stationCode": "2552", "stationName": "명일" },
+    { "stationCode": "2557", "stationName": "방이" },
+    { "stationCode": "2558", "stationName": "오금" },
+    { "stationCode": "2554", "stationName": "상일동" },
+    { "stationCode": "2559", "stationName": "개롱" },
+    { "stationCode": "2561", "stationName": "마천" },
+    { "stationCode": "2564", "stationName": "하남풍산" },
+    { "stationCode": "2565", "stationName": "하남시청(덕풍.신장)" }
+  ]
+}

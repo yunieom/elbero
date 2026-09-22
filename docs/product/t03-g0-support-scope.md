@@ -28,6 +28,15 @@
 [`5호선 지상 출구 수동 검증값`](../../data/verification/line-5-surface-exits.json)에 원본 API와
 분리해 기록한다. 2026-09-18 기준 차이가 발견된 35역의 출구 검증을 완료했다.
 
+나머지 5호선 충돌 항목의 소스 선택과 방향별 차량·문 검증값은
+[`5호선 접근성 안내 검증값`](../../data/verification/line-5-accessibility-guidance.json)에 기록한다.
+운행 층은 `stationElevator`, 승강장·문별 이격거리는 `stationPlatformTrainDistance`를
+사용한다. 인접 차량·문은 `stationElevatorCarNumber`를 기반으로 방향을 수동 검증하며,
+현재 방화·개화산·김포공항·송정 4개 역까지 완료했다. `red` 문은 바로 안내하지 않고
+양옆의 `red`가 아닌 문 중 이격거리가 가장 짧은 문을 우선한다.
+`stationPlatformTrainDistance`에 존재하지 않는 올림픽공원 `2:6-6`, 개롱 `1:5-5`는
+안내에서 제외하고 대체 인접 문이 검증될 때까지 미확정으로 둔다.
+
 ## 시설 상태 연결 규칙
 
 KRIC와 서울교통공사 데이터에는 공통 시설 ID가 없다. 따라서 역 코드, 서울 승강기명,
