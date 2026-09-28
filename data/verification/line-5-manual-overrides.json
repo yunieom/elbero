@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "line": "5",
+  "verifiedAt": "2026-09-28",
+  "policy": {
+    "missingAccessibilityData": "show_general_route_with_unverified_warning",
+    "yellowGap": "warn_and_recommend",
+    "redGap": "exclude",
+    "directionLabel": "terminal_first",
+    "adjacentDoorPriority": [
+      "farther_from_stairs",
+      "farther_from_escalators_when_location_is_known",
+      "smaller_platform_gap"
+    ]
+  },
+  "stations": [
+    {
+      "stationCode": "2511",
+      "stationName": "방화",
+      "directions": [
+        { "toward": "방화", "platformNumber": "1", "sourceDoors": ["4-1"], "recommendedDoors": ["4-1"] },
+        { "toward": "개화산", "platformNumber": "2", "sourceDoors": ["5-4"], "recommendedDoors": ["5-4"] }
+      ]
+    },
+    {
+      "stationCode": "2512",
+      "stationName": "개화산",
+      "directions": [
+        { "toward": "방화", "platformNumber": "1", "sourceDoors": ["2-3"], "recommendedDoors": ["2-3"] },
+        { "toward": "김포공항", "platformNumber": "2", "sourceDoors": ["7-2"], "recommendedDoors": ["7-2"] }
+      ]
+    },
+    {
+      "stationCode": "2513",
+      "stationName": "김포공항",
+      "directions": [
+        { "toward": "개화산", "platformNumber": "1", "sourceDoors": ["6-3"], "recommendedDoors": ["6-3"] },
+        {
+          "toward": "송정",
+          "platformNumber": "2",
+          "sourceDoors": ["3-2"],
+          "recommendedDoors": ["3-1"],
+          "decision": "red_gap_adjacent_override",
+          "avoidDoorsNearStairs": ["3-3"],
+          "note": "3-2는 red이며 3-3은 계단에 가까워 3-1을 안내한다."
+        }
+      ]
+    },
+    {
+      "stationCode": "2514",
+      "stationName": "송정",
+      "directions": [
+        { "toward": "김포공항", "platformNumber": "1", "sourceDoors": ["4-4", "5-1"], "recommendedDoors": ["4-4", "5-1"] },
+        { "toward": "마곡", "platformNumber": "2", "sourceDoors": ["3-4", "4-1", "4-4", "5-1", "5-4", "6-1"], "recommendedDoors": ["3-4", "4-1", "4-4", "5-1", "5-4", "6-1"] }
+      ]
+    },
+    {
+      "stationCode": "2534",
+      "stationName": "광화문",
+      "directions": [
+        { "toward": "서대문", "platformNumber": "1", "sourceDoors": ["1-1"], "recommendedDoors": ["1-1"] },
+        { "toward": "종로3가", "platformNumber": "2", "sourceDoors": ["8-4"], "recommendedDoors": ["8-4"] }
+      ]
+    },
+    {
+      "stationCode": "2535",
+      "stationName": "종로3가",
+      "directions": [
+        { "toward": "광화문", "platformNumber": "1", "sourceDoors": ["8-4"], "recommendedDoors": ["8-4"] },
+        { "toward": "을지로4가", "platformNumber": "2", "sourceDoors": ["1-1"], "recommendedDoors": ["1-1"] }
+      ]
+    },
+    {
+      "stationCode": "2536",
+      "stationName": "을지로4가",
+      "directions": [
+        { "toward": "종로3가", "platformNumber": "1", "sourceDoors": ["10-4"], "recommendedDoors": ["10-4"], "evidence": "SeoulMetroFaciInfo", "allowUnknownGap": true, "note": "5호선 이격거리 API에는 10호차가 없어 안전 경로는 미확인으로 표시한다." },
+        { "toward": "동대문역사문화공원", "platformNumber": "2", "sourceDoors": ["1-1"], "recommendedDoors": ["1-1"], "evidence": "SeoulMetroFaciInfo" }
+      ]
+    },
+    {
+      "stationCode": "2549",
+      "stationName": "강동",
+      "status": "partial",
+      "issues": [
+        { "reason": "천호·길동 방면 인접 문은 아직 미확정" }
+      ],
+      "directions": [
+        { "toward": "둔촌동", "platformNumber": null, "sourceDoors": ["8-3"], "recommendedDoors": ["8-3"], "evidence": "user_confirmation" }
+      ]
+    },
+    {
+      "stationCode": "2556",
+      "stationName": "올림픽공원",
+      "directions": [
+        { "toward": "둔촌동", "platformNumber": "1", "sourceDoors": ["3-2"], "recommendedDoors": ["3-2"] },
+        { "toward": "방이", "platformNumber": "2", "sourceDoors": ["6-3"], "recommendedDoors": ["6-3"] }
+      ]
+    },
+    {
+      "stationCode": "2558",
+      "stationName": "오금",
+      "directions": [
+        { "toward": "방이", "platformNumber": "1", "sourceDoors": ["4-4"], "recommendedDoors": ["4-4"] },
+        { "toward": "개롱", "platformNumber": "2", "sourceDoors": ["5-1"], "recommendedDoors": ["5-1"] }
+      ]
+    },
+    {
+      "stationCode": "2559",
+      "stationName": "개롱",
+      "directions": [
+        { "toward": "오금", "platformNumber": "1", "sourceDoors": ["5-1"], "recommendedDoors": ["5-1"] },
+        { "toward": "거여", "platformNumber": "2", "sourceDoors": ["4-4"], "recommendedDoors": ["4-4"] }
+      ]
+    },
+    {
+      "stationCode": "2561",
+      "stationName": "마천",
+      "directions": [
+        { "toward": "거여", "platformNumber": "1", "sourceDoors": ["4-3"], "recommendedDoors": ["4-3"] },
+        { "toward": "마천", "platformNumber": "2", "sourceDoors": ["5-2"], "recommendedDoors": ["5-2"] }
+      ]
+    },
+    {
+      "stationCode": "2554",
+      "stationName": "상일동",
+      "directions": [
+        { "toward": "고덕", "platformNumber": "1", "sourceDoors": ["6-1"], "recommendedDoors": ["6-1"] },
+        { "toward": "강일", "platformNumber": "2", "sourceDoors": ["3-4"], "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "2565",
+      "stationName": "하남시청",
+      "directions": [
+        { "toward": "하남풍산", "platformNumber": "1", "sourceDoors": ["4-4"], "recommendedDoors": ["4-4"] },
+        { "toward": "하남검단산", "platformNumber": "2", "sourceDoors": ["4-4"], "recommendedDoors": ["4-4"] }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,18 @@ const reportPath = path.join(
   repositoryRoot,
   'data/research/line-sync/line-5-latest.json',
 );
+const manualOverridesPath = path.join(
+  repositoryRoot,
+  'data/verification/line-5-manual-overrides.json',
+);
+const surfaceExitsPath = path.join(
+  repositoryRoot,
+  'data/verification/line-5-surface-exits.json',
+);
+const runtimeDataPath = path.join(
+  repositoryRoot,
+  'apps/api/src/journey/data/line-5-guidance.generated.ts',
+);
 
 const rawDirectories = (await readdir(rawRoot, { withFileTypes: true }))
   .filter(
@@ -25,11 +37,20 @@ if (!latestRawDirectory) {
   throw new Error('5호선 원본 응답이 없습니다. 먼저 line-sync 감사를 실행하세요.');
 }
 
-const [raw, report, currentVerification, manifest] = await Promise.all([
+const [
+  raw,
+  report,
+  currentVerification,
+  manifest,
+  manualOverrides,
+  surfaceExits,
+] = await Promise.all([
   readJson(path.join(rawRoot, latestRawDirectory, 'kric.json')),
   readJson(reportPath),
   readJson(verificationPath),
   readJson(path.join(rawRoot, latestRawDirectory, 'manifest.json')),
+  readJson(manualOverridesPath),
+  readJson(surfaceExitsPath),
 ]);
 
 if (report.collectedAt !== manifest.collectedAt) {
@@ -159,26 +180,40 @@ const gapRowsByStationPlatform = new Map(
   ]),
 );
 
-const differenceStations = report.differences
-  .filter((difference) => difference.category === 'elevator_adjacent_car_door')
-  .map((difference) => ({
-    stationCode: String(difference.stationCode),
-    stationName: normalizeStationName(difference.stationName),
-  }));
+const targetStations = raw.route.body.map((station) => ({
+  stationCode: String(station.stinCd),
+  stationName: normalizeStationName(station.stinNm),
+}));
+const auditDifferenceStationCount = new Set(
+  report.differences
+    .filter((difference) => difference.category === 'elevator_adjacent_car_door')
+    .map((difference) => String(difference.stationCode)),
+).size;
 const manualStations = new Map(
-  currentVerification.directionalBoarding
-    .filter((station) => station.verificationMethod === 'manual_direction_assignment')
-    .map((station) => [station.stationCode, station]),
+  manualOverrides.stations.map((station) => [station.stationCode, station]),
+);
+const verifiedSurfaceExits = new Map(
+  surfaceExits.verifiedStations.map((station) => [
+    station.stationCode,
+    station.exitNumbers,
+  ]),
 );
 
 const generatedStations = [];
 const unresolvedStations = [];
 const partialStations = [];
 
-for (const station of differenceStations) {
+for (const station of targetStations) {
   const manual = manualStations.get(station.stationCode);
   if (manual) {
-    generatedStations.push(manual);
+    generatedStations.push(enrichManualStation(manual));
+    if (manual.status === 'partial') {
+      partialStations.push({
+        stationCode: manual.stationCode,
+        stationName: manual.stationName,
+        issues: manual.issues ?? [{ reason: 'manual_partial' }],
+      });
+    }
     continue;
   }
 
@@ -188,6 +223,12 @@ for (const station of differenceStations) {
     unresolvedStations.push({
       ...station,
       reason: 'stationElevatorCarNumber_empty',
+    });
+    generatedStations.push({
+      stationCode: station.stationCode,
+      stationName: station.stationName,
+      verificationMethod: 'api_missing',
+      directions: [],
     });
     continue;
   }
@@ -233,8 +274,11 @@ for (const station of differenceStations) {
 
     const gapRows =
       gapRowsByStationPlatform.get(`${station.stationCode}:${platformNumber}`) ?? [];
+    const stairRows = (stationItem?.nearbyStairs?.body ?? []).filter(
+      (row) => String(row.plfNo) === platformNumber,
+    );
     const doorDecisions = uniqueDoors(sourceRows).map((sourceDoor) =>
-      decideDoor(sourceDoor, gapRows),
+      decideDoor(sourceDoor, gapRows, stairRows),
     );
     const recommendedDoors = unique(
       doorDecisions.map((decision) => decision.recommendedDoor).filter(Boolean),
@@ -297,10 +341,13 @@ const nextVerification = {
   },
   directionalBoarding: generatedStations,
   coverage: {
-    auditDifferenceStationCount: differenceStations.length,
+    stationCount: targetStations.length,
+    auditDifferenceStationCount,
     directionRecordedStationCount: generatedStations.length,
     directionCompleteStationCount:
-      generatedStations.length - partialStations.length,
+      generatedStations.length -
+      partialStations.length -
+      unresolvedStations.length,
     partiallyResolvedStationCount: partialStations.length,
     unresolvedStationCount: unresolvedStations.length,
   },
@@ -311,6 +358,21 @@ const nextVerification = {
 await writeFile(
   verificationPath,
   `${JSON.stringify(nextVerification, null, 2)}\n`,
+  'utf8',
+);
+
+const runtimeData = {
+  dataVersion: `${manifest.collectedAt}.manual-${manualOverrides.verifiedAt}`,
+  verifiedAt: manualOverrides.verifiedAt,
+  policy: manualOverrides.policy,
+  topologies: line5Topologies,
+  stations: generatedStations.map((station) =>
+    toRuntimeStation(station, stationItems.get(station.stationCode)),
+  ),
+};
+await writeFile(
+  runtimeDataPath,
+  `// Generated by tools/kric/update-line5-accessibility-guidance.mjs.\nexport const LINE_5_GUIDANCE = ${JSON.stringify(runtimeData, null, 2)} as const;\n`,
   'utf8',
 );
 
@@ -335,27 +397,42 @@ function normalizeStationName(name) {
 }
 
 function resolveDirection(stationCode, terminalCode, upDownCode) {
-  const topology = line5Topologies.find(
+  let topology = line5Topologies.find(
     (candidate) =>
       candidate.includes(stationCode) && candidate.includes(terminalCode),
   );
+  if (!topology) {
+    topology = line5Topologies.find((candidate) => {
+      const index = candidate.indexOf(stationCode);
+      if (index === -1) return false;
+      return upDownCode === '1' ? index > 0 : index < candidate.length - 1;
+    });
+  }
   if (!topology) return null;
   const stationIndex = topology.indexOf(stationCode);
-  const terminalIndex = topology.indexOf(terminalCode);
+  const apiTerminalIndex = topology.indexOf(terminalCode);
+  const expectedTerminalIndex = upDownCode === '1' ? 0 : topology.length - 1;
+  const terminalIndex =
+    apiTerminalIndex === -1 ||
+    (upDownCode === '1' && apiTerminalIndex > stationIndex) ||
+    (upDownCode === '2' && apiTerminalIndex < stationIndex)
+      ? expectedTerminalIndex
+      : apiTerminalIndex;
   const nextIndex =
     stationIndex === terminalIndex
       ? stationIndex
       : stationIndex + Math.sign(terminalIndex - stationIndex);
   const nextStationCode = topology[nextIndex];
   const apiDirectionSign = upDownCode === '1' ? -1 : upDownCode === '2' ? 1 : 0;
-  const routeDirectionSign = Math.sign(terminalIndex - stationIndex);
+  const routeDirectionSign = Math.sign(apiTerminalIndex - stationIndex);
   return {
     terminalCode,
     terminalName: stationNames.get(terminalCode) ?? terminalCode,
     nextStationCode,
     nextStationName: stationNames.get(nextStationCode) ?? nextStationCode,
     matchesApiDirectionCode:
-      routeDirectionSign === 0 || apiDirectionSign === routeDirectionSign,
+      apiTerminalIndex !== -1 &&
+      (routeDirectionSign === 0 || apiDirectionSign === routeDirectionSign),
   };
 }
 
@@ -369,7 +446,128 @@ function unique(values) {
   );
 }
 
-function decideDoor(sourceDoor, gapRows) {
+function enrichManualStation(station) {
+  const stationItem = stationItems.get(station.stationCode);
+  const stairRows = stationItem?.nearbyStairs?.body ?? [];
+  return {
+    ...station,
+    verificationMethod: 'manual_direction_assignment',
+    directions: station.directions.map((direction) => {
+      const gapRows = direction.platformNumber
+        ? (gapRowsByStationPlatform.get(
+            `${station.stationCode}:${direction.platformNumber}`,
+          ) ?? [])
+        : [...gapRowsByStationPlatform.entries()]
+            .filter(([key]) => key.startsWith(`${station.stationCode}:`))
+            .flatMap(([, rows]) => rows);
+      const platformStairs = direction.platformNumber
+        ? stairRows.filter(
+            (row) => String(row.plfNo) === direction.platformNumber,
+          )
+        : stairRows;
+      const doorDecisions = direction.sourceDoors.map((sourceDoor, index) => {
+        const providedDoor =
+          direction.recommendedDoors[index] ??
+          (direction.recommendedDoors.length === 1
+            ? direction.recommendedDoors[0]
+            : sourceDoor);
+        const sourceGapRow = gapRows.find((row) => doorOf(row) === sourceDoor);
+        const recommendedGapRow = gapRows.find(
+          (row) => doorOf(row) === providedDoor,
+        );
+        if (direction.allowUnknownGap && !recommendedGapRow) {
+          return {
+            sourceDoor,
+            sourceGap: sourceGapRow ? toGap(sourceGapRow.sfDst) : null,
+            recommendedDoor: providedDoor,
+            recommendedGap: null,
+            decision: 'manual_override_gap_unknown',
+          };
+        }
+        if (providedDoor !== sourceDoor) {
+          return {
+            sourceDoor,
+            sourceGap: sourceGapRow ? toGap(sourceGapRow.sfDst) : null,
+            recommendedDoor:
+              recommendedGapRow && recommendedGapRow.sfDst > 15
+                ? null
+                : providedDoor,
+            recommendedGap: recommendedGapRow
+              ? toGap(recommendedGapRow.sfDst)
+              : null,
+            decision: direction.decision ?? 'manual_override',
+          };
+        }
+        return decideDoor(
+          sourceDoor,
+          gapRows,
+          platformStairs,
+          direction.avoidDoorsNearStairs ?? [],
+        );
+      });
+      return {
+        ...direction,
+        recommendedDoors: unique(
+          doorDecisions
+            .map((decision) => decision.recommendedDoor)
+            .filter(Boolean),
+        ),
+        decision:
+          direction.decision ?? summarizeDoorDecisions(doorDecisions),
+        doorDecisions,
+      };
+    }),
+  };
+}
+
+function toRuntimeStation(station, stationItem) {
+  const sourceExitNumbers = unique(
+    (stationItem?.elevators?.body ?? [])
+      .flatMap((elevator) => String(elevator.exitNo ?? '').split(','))
+      .map((value) => value.trim())
+      .filter(Boolean),
+  );
+  return {
+    stationCode: station.stationCode,
+    stationName: station.stationName,
+    exitNumbers:
+      verifiedSurfaceExits.get(station.stationCode) ?? sourceExitNumbers,
+    verificationMethod: station.verificationMethod,
+    directions: station.directions.map((direction) => ({
+      toward: direction.toward,
+      platformNumber: direction.platformNumber ?? null,
+      recommendedDoors: direction.recommendedDoors,
+      doorGaps: (direction.doorDecisions ?? [])
+        .filter((decision) => decision.recommendedDoor)
+        .map((decision) => ({
+          door: decision.recommendedDoor,
+          gap: decision.recommendedGap,
+        })),
+      accessibilityVerified:
+        direction.recommendedDoors.length > 0 &&
+        !(direction.doorDecisions ?? []).some(
+          (decision) =>
+            decision.recommendedDoor && !decision.recommendedGap,
+        ),
+      warning:
+        direction.recommendedDoors.length === 0
+          ? '엘리베이터 안전 경로 미확인'
+          : (direction.doorDecisions ?? []).some(
+                (decision) =>
+                  decision.recommendedDoor && !decision.recommendedGap,
+              )
+            ? '승강장 이격거리 미확인'
+            : null,
+    })),
+  };
+}
+
+function decideDoor(
+  sourceDoor,
+  gapRows,
+  stairRows = [],
+  manualAvoidDoors = [],
+) {
   const sourceGapRow = gapRows.find((row) => doorOf(row) === sourceDoor);
   if (!sourceGapRow || !Number.isFinite(sourceGapRow.sfDst)) {
     return {
@@ -393,6 +591,10 @@ function decideDoor(sourceDoor, gapRows) {
   }
 
   const sourceOrdinal = doorOrdinal(sourceGapRow.carOrdr, sourceGapRow.carEtrcNo);
+  const stairOrdinals = [
+    ...stairRows.map((row) => doorOrdinal(row.carOrdr, row.carEtrcNo)),
+    ...manualAvoidDoors.map((door) => doorOrdinalFromText(door)),
+  ];
   const adjacent = gapRows
     .filter(
       (row) =>
@@ -402,6 +604,8 @@ function decideDoor(sourceDoor, gapRows) {
     )
     .sort(
       (left, right) =>
+        distanceFromNearestHazard(right, stairOrdinals) -
+          distanceFromNearestHazard(left, stairOrdinals) ||
         left.sfDst - right.sfDst ||
         doorOrdinal(left.carOrdr, left.carEtrcNo) -
           doorOrdinal(right.carOrdr, right.carEtrcNo),
@@ -446,6 +650,21 @@ function doorOf(row) {
 
 function doorOrdinal(carNumber, doorNumber) {
   return (Number(carNumber) - 1) * 4 + Number(doorNumber);
+}
+
+function doorOrdinalFromText(door) {
+  const [carNumber, doorNumber] = String(door).split('-').map(Number);
+  return doorOrdinal(carNumber, doorNumber);
+}
+
+function distanceFromNearestHazard(row, hazardOrdinals) {
+  if (hazardOrdinals.length === 0) return 0;
+  const ordinal = doorOrdinal(row.carOrdr, row.carEtrcNo);
+  return Math.min(
+    ...hazardOrdinals.map((hazardOrdinal) =>
+      Math.abs(ordinal - hazardOrdinal),
+    ),
+  );
 }
 
 function toGap(distanceCm) {
