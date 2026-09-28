@@ -149,6 +149,14 @@ export function StationSearchScreen() {
         <Text style={styles.exampleText}>QA 예시 채우기 · 답십리 → 굽은다리</Text>
       </Pressable>
 
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => router.push('/qa/states')}
+        style={styles.qaStateButton}
+      >
+        <Text style={styles.qaStateButtonText}>QA 예외 상태 시제품 보기</Text>
+      </Pressable>
+
       <View style={styles.infoCard}>
         <Text style={styles.infoTitle}>안내 기준</Text>
         <Text style={styles.infoText}>
@@ -328,6 +336,22 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 14,
     fontWeight: '700',
+  },
+  qaStateButton: {
+    minHeight: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    backgroundColor: colors.surface,
+  },
+  qaStateButtonText: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    fontWeight: '700',
+    textAlign: 'center',
   },
   infoCard: {
     borderRadius: radius.md,
