@@ -45,9 +45,10 @@ describe('createLine5JourneyDefinition', () => {
 
     expect(journey).not.toBeNull();
     expect(trainStep?.instruction).toContain('추천 차량·문을 확인할 수 없어');
-    expect(journey?.candidates[0].facilityGroups[0].facilities[0].role).toBe(
-      '엘리베이터 안전 경로 미확인',
+    const facilityRoles = journey?.candidates[0].facilityGroups.flatMap(
+      (group) => group.facilities.map((facility) => facility.role),
     );
+    expect(facilityRoles).toContain('엘리베이터 안전 경로 미확인');
   });
 
   it('5호선의 서로 다른 모든 역 조합에서 일반 경로를 만들고 red 문은 안내하지 않는다', () => {

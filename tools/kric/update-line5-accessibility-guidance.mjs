@@ -39,6 +39,7 @@ if (!latestRawDirectory) {
 
 const [
   raw,
+  seoul,
   report,
   currentVerification,
   manifest,
@@ -46,6 +47,7 @@ const [
   surfaceExits,
 ] = await Promise.all([
   readJson(path.join(rawRoot, latestRawDirectory, 'kric.json')),
+  readJson(path.join(rawRoot, latestRawDirectory, 'seoul.json')),
   readJson(reportPath),
   readJson(verificationPath),
   readJson(path.join(rawRoot, latestRawDirectory, 'manifest.json')),
@@ -178,6 +180,10 @@ const gapRowsByStationPlatform = new Map(
     `${item.stationCode}:${item.platformNumber}`,
     item.payload.body ?? [],
   ]),
+);
+const liveElevatorsByStation = Map.groupBy(
+  (seoul.rows ?? []).filter((row) => row.ELVTR_SE === 'EV'),
+  (row) => String(row.STN_CD),
 );
 
 const targetStations = raw.route.body.map((station) => ({
@@ -533,6 +539,15 @@ function toRuntimeStation(station, stationItem) {
     exitNumbers:
       verifiedSurfaceExits.get(station.stationCode) ?? sourceExitNumbers,
     verificationMethod: station.verificationMethod,
+    liveElevators: (liveElevatorsByStation.get(station.stationCode) ?? []).map(
+      (row, index) => ({
+        id: `${station.stationCode}-live-${index + 1}`,
+        name: row.ELVTR_NM,
+        operatingSection: row.OPR_SEC,
+        location: row.INSTL_PSTN,
+        kind: classifyLiveElevator(row),
+      }),
+    ),
     directions: station.directions.map((direction) => ({
       toward: direction.toward,
       platformNumber: direction.platformNumber ?? null,
@@ -560,6 +575,24 @@ function toRuntimeStation(station, stationItem) {
             : null,
     })),
   };
+}
+
+function classifyLiveElevator(row) {
+  const name = String(row.ELVTR_NM ?? '');
+  const operatingSection = String(row.OPR_SEC ?? '');
+  const location = String(row.INSTL_PSTN ?? '');
+  if (
+    name.includes('외부') ||
+    name.includes('출구') ||
+    location.includes('출입구') ||
+    (operatingSection.includes('1F') && !location.includes('방면'))
+  ) {
+    return 'surface';
+  }
+  if (name.includes('내부') || location.includes('방면')) {
+    return 'platform';
+  }
+  return 'other';
 }
 
 function decideDoor(
@@ -604,8 +637,10 @@ function decideDoor(
     )
     .sort(
       (left, right) =>
-        distanceFromNearestHazard(right, stairOrdinals) -
-          distanceFromNearestHazard(left, stairOrdinals) ||
+        (stairOrdinals.length > 0
+          ? distanceFromNearestHazard(right, stairOrdinals) -
+            distanceFromNearestHazard(left, stairOrdinals)
+          : 0) ||
         left.sfDst - right.sfDst ||
         doorOrdinal(left.carOrdr, left.carEtrcNo) -
           doorOrdinal(right.carOrdr, right.carEtrcNo),

@@ -7,10 +7,12 @@ export const LINE_5_GUIDANCE = {
     "yellowGap": "warn_and_recommend",
     "redGap": "exclude",
     "directionLabel": "terminal_first",
+    "missingStairData": "choose_any_safe_adjacent_door",
     "adjacentDoorPriority": [
       "farther_from_stairs",
       "farther_from_escalators_when_location_is_known",
-      "smaller_platform_gap"
+      "smaller_platform_gap",
+      "lower_door_ordinal_when_tied"
     ]
   },
   "topologies": [
@@ -122,6 +124,29 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2511-live-1",
+          "name": "승강기)엘리베이터-방화 내부1",
+          "operatingSection": "B1-B2",
+          "location": "방화 방면4-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2511-live-2",
+          "name": "승강기)엘리베이터-방화 내부2",
+          "operatingSection": "B1-B2",
+          "location": "개화산 방면5-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2511-live-3",
+          "name": "승강기)엘리베이터-방화 외부3",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "방화",
@@ -171,6 +196,22 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2512-live-1",
+          "name": "승강기)엘리베이터-개화산 외부1",
+          "operatingSection": "B2-1F",
+          "location": "1번 출입구(대합실 내)",
+          "kind": "surface"
+        },
+        {
+          "id": "2512-live-2",
+          "name": "승강기)엘리베이터-개화산 외부2",
+          "operatingSection": "B2-1F",
+          "location": "2번 출입구(대합실 내)",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "방화",
@@ -220,6 +261,22 @@ export const LINE_5_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2513-live-1",
+          "name": "승강기)엘리베이터-김포공항 내부1",
+          "operatingSection": "B2-B3",
+          "location": "개화산 방면6-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2513-live-2",
+          "name": "승강기)엘리베이터-김포공항 내부2",
+          "operatingSection": "B2-B3",
+          "location": "송정 방면3-1",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "개화산",
@@ -269,6 +326,36 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2514-live-1",
+          "name": "승강기)엘리베이터-송정 내부1",
+          "operatingSection": "B2-B3",
+          "location": "김포공항 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2514-live-2",
+          "name": "승강기)엘리베이터-송정 내부2",
+          "operatingSection": "B2-B3",
+          "location": "마곡 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2514-live-3",
+          "name": "승강기)엘리베이터-송정 외부3",
+          "operatingSection": "B2-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2514-live-4",
+          "name": "승강기)엘리베이터-송정 외부4",
+          "operatingSection": "B1-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "김포공항",
@@ -374,6 +461,50 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2515-live-1",
+          "name": "승강기)엘리베이터-마곡 3번 출입구 외부 5호기",
+          "operatingSection": "B1-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2515-live-2",
+          "name": "승강기)엘리베이터-마곡 4번 출입구 외부 6호기",
+          "operatingSection": "B1-1F",
+          "location": "4,5번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2515-live-3",
+          "name": "승강기)엘리베이터-마곡 내부1",
+          "operatingSection": "B1-B2",
+          "location": "송정 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2515-live-4",
+          "name": "승강기)엘리베이터-마곡 내부2",
+          "operatingSection": "B1-B2",
+          "location": "발산 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2515-live-5",
+          "name": "승강기)엘리베이터-마곡 외부3",
+          "operatingSection": "B1-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2515-live-6",
+          "name": "승강기)엘리베이터-마곡 외부4",
+          "operatingSection": "B1-1F",
+          "location": "6,7번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "송정",
@@ -422,6 +553,29 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2516-live-1",
+          "name": "승강기)엘리베이터-발산 내부1",
+          "operatingSection": "B1-B2",
+          "location": "마곡방면 5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2516-live-2",
+          "name": "승강기)엘리베이터-발산 내부2",
+          "operatingSection": "B1-B2",
+          "location": "우장산 방면4-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2516-live-3",
+          "name": "승강기)엘리베이터-발산 외부3",
+          "operatingSection": "B1-1F",
+          "location": "7번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "마곡",
@@ -470,6 +624,29 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2517-live-1",
+          "name": "승강기)엘리베이터-우장산 내부1",
+          "operatingSection": "B1-B2",
+          "location": "발산 방면4-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2517-live-2",
+          "name": "승강기)엘리베이터-우장산 내부2",
+          "operatingSection": "B1-B2",
+          "location": "화곡 방면5-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2517-live-3",
+          "name": "승강기)엘리베이터-우장산 외부3",
+          "operatingSection": "B1-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "발산",
@@ -518,6 +695,22 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2518-live-1",
+          "name": "승강기)엘리베이터-화곡 내부1",
+          "operatingSection": "B1-B2",
+          "location": "까치산 방면4-3,우장산 방면7-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2518-live-2",
+          "name": "승강기)엘리베이터-화곡 외부2",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "우장산",
@@ -566,6 +759,36 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_missing",
+      "liveElevators": [
+        {
+          "id": "2519-live-1",
+          "name": "승강기)엘리베이터-까치산 1호기",
+          "operatingSection": "B1-B4",
+          "location": "대합실(1,2,3,4번 출입구 화장실 방향)",
+          "kind": "surface"
+        },
+        {
+          "id": "2519-live-2",
+          "name": "승강기)엘리베이터_까치산(5)역 2번출구 E/L 2호기 13인승(P241",
+          "operatingSection": "B1-1F",
+          "location": "고색안전실 측",
+          "kind": "surface"
+        },
+        {
+          "id": "2519-live-3",
+          "name": "승강기)엘리베이터_까치산(5)역 내부 상선 E/L 3호기 21인승(P24",
+          "operatingSection": "B5-B1",
+          "location": "내부 상선측",
+          "kind": "platform"
+        },
+        {
+          "id": "2519-live-4",
+          "name": "승강기)엘리베이터_까치산(5)역 내부 하선 E/L 4호기 15인승(P24",
+          "operatingSection": "B5-B1",
+          "location": "내부 하선측",
+          "kind": "platform"
+        }
+      ],
       "directions": []
     },
     {
@@ -575,6 +798,22 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2520-live-1",
+          "name": "승강기)엘리베이터-신정 내부1",
+          "operatingSection": "B2-B3",
+          "location": "까치산 방면8-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2520-live-2",
+          "name": "승강기)엘리베이터-신정 내부2",
+          "operatingSection": "B2-B3",
+          "location": "목동 방면1-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "까치산",
@@ -623,6 +862,29 @@ export const LINE_5_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2521-live-1",
+          "name": "승강기)엘리베이터-목동 내부1",
+          "operatingSection": "B1-B2",
+          "location": "신정 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2521-live-2",
+          "name": "승강기)엘리베이터-목동 내부2",
+          "operatingSection": "B1-B2",
+          "location": "오목교 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2521-live-3",
+          "name": "승강기)엘리베이터-목동 외부3",
+          "operatingSection": "B1-1F",
+          "location": "5번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "신정",
@@ -671,6 +933,29 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2522-live-1",
+          "name": "승강기)엘리베이터-오목교 내부1",
+          "operatingSection": "B1-B3",
+          "location": "목동 방면7-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2522-live-2",
+          "name": "승강기)엘리베이터-오목교 내부2",
+          "operatingSection": "B1-B3",
+          "location": "양평 방면2-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2522-live-3",
+          "name": "승강기)엘리베이터-오목교 외부3",
+          "operatingSection": "B1-1F",
+          "location": "7번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "목동",
@@ -719,6 +1004,29 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2523-live-1",
+          "name": "승강기)엘리베이터-양평 내부1",
+          "operatingSection": "B1-B5",
+          "location": "오목교 방면3-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2523-live-2",
+          "name": "승강기)엘리베이터-양평 내부2",
+          "operatingSection": "B4-B5",
+          "location": "영등포구청 방면6-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2523-live-3",
+          "name": "승강기)엘리베이터-양평 외부3",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "오목교",
@@ -767,6 +1075,36 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2524-live-1",
+          "name": "승강기)엘리베이터-영등포구청 내부 4호기",
+          "operatingSection": "B4-B5",
+          "location": "영등포시장 방면1-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2524-live-2",
+          "name": "승강기)엘리베이터-영등포구청 내부2",
+          "operatingSection": "B4-B5",
+          "location": "영등포시장 방면5-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2524-live-3",
+          "name": "승강기)엘리베이터-영등포구청(5) 내부3",
+          "operatingSection": "B4-B5",
+          "location": "양평 방면8-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2524-live-4",
+          "name": "승강기)엘리베이터-영등포구청(5) 외부1",
+          "operatingSection": "B5-1F",
+          "location": "6,7번 출입구 사이(공영주차장입구)",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "양평",
@@ -824,6 +1162,29 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2525-live-1",
+          "name": "승강기)엘리베이터-영등포시장 내부1",
+          "operatingSection": "B5-B6",
+          "location": "영등포구청 방면4-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2525-live-2",
+          "name": "승강기)엘리베이터-영등포시장 내부2",
+          "operatingSection": "B1-B6",
+          "location": "신길 방면5-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2525-live-3",
+          "name": "승강기)엘리베이터-영등포시장역 2번 출입구 외부 3호기",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "영등포구청",
@@ -872,6 +1233,50 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2526-live-1",
+          "name": "승강기)엘리베이터-신길 3번 출구측 외부 3호기",
+          "operatingSection": "B2-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2526-live-2",
+          "name": "승강기)엘리베이터-신길 경사형 내부 6호기",
+          "operatingSection": "B3-B1",
+          "location": "환승통로(경사형)",
+          "kind": "platform"
+        },
+        {
+          "id": "2526-live-3",
+          "name": "승강기)엘리베이터-신길 내부 1호기",
+          "operatingSection": "B4-B3",
+          "location": "영등포시장 방면5-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2526-live-4",
+          "name": "승강기)엘리베이터-신길 내부 2호기",
+          "operatingSection": "B4-B3",
+          "location": "여의도 방면4-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2526-live-5",
+          "name": "승강기)엘리베이터-신길 내부 4호기",
+          "operatingSection": "B4-B3",
+          "location": "여의도 방면1-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2526-live-6",
+          "name": "승강기)엘리베이터-신길 내부 5호기",
+          "operatingSection": "B4-B3",
+          "location": "영등포시장 방면8-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "영등포시장",
@@ -921,6 +1326,22 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2527-live-1",
+          "name": "승강기)엘리베이터-여의도 내부1",
+          "operatingSection": "B1-B4",
+          "location": "신길 방면6-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2527-live-2",
+          "name": "승강기)엘리베이터-여의도 내부2",
+          "operatingSection": "B1-B4",
+          "location": "여의나루 방면6-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "신길",
@@ -969,6 +1390,29 @@ export const LINE_5_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2528-live-1",
+          "name": "승강기)엘리베이터-여의나루 내부1",
+          "operatingSection": "B1-B5",
+          "location": "여의도 방면6-2, 마포 방면3-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2528-live-2",
+          "name": "승강기)엘리베이터-여의나루 내부2",
+          "operatingSection": "BM1-B1",
+          "location": "대합실(경사형)",
+          "kind": "platform"
+        },
+        {
+          "id": "2528-live-3",
+          "name": "승강기)엘리베이터-여의나루 외부3",
+          "operatingSection": "BM1-1F",
+          "location": "4번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "여의도",
@@ -1017,6 +1461,22 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2529-live-1",
+          "name": "승강기)엘리베이터-마포 내부1",
+          "operatingSection": "B1-B5",
+          "location": "여의나루 방면5-1, 공덕 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2529-live-2",
+          "name": "승강기)엘리베이터-마포 외부2",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "여의나루",
@@ -1066,6 +1526,22 @@ export const LINE_5_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2530-live-1",
+          "name": "승강기)엘리베이터-공덕 내부1",
+          "operatingSection": "B3-B1",
+          "location": "환승통로(애오개 방면8-4 마포 방면1-1)",
+          "kind": "platform"
+        },
+        {
+          "id": "2530-live-2",
+          "name": "승강기)엘리베이터-공덕 외부2",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "마포",
@@ -1115,6 +1591,43 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2531-live-1",
+          "name": "승강기)엘리베이터-애오개 내부1",
+          "operatingSection": "B3-B4",
+          "location": "공덕 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2531-live-2",
+          "name": "승강기)엘리베이터-애오개 내부2",
+          "operatingSection": "B3-B4",
+          "location": "충정로 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2531-live-3",
+          "name": "승강기)엘리베이터-애오개 내부3",
+          "operatingSection": "B1-B3",
+          "location": "대합실",
+          "kind": "platform"
+        },
+        {
+          "id": "2531-live-4",
+          "name": "승강기)엘리베이터-애오개 외부4",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2531-live-5",
+          "name": "승강기)엘리베이터-애오개 외부5",
+          "operatingSection": "B1-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "공덕",
@@ -1163,6 +1676,22 @@ export const LINE_5_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2532-live-1",
+          "name": "승강기)엘리베이터-충정로 내부1",
+          "operatingSection": "B5-B2-B1",
+          "location": "애오개 방면3-3, 서대문 방면6-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2532-live-2",
+          "name": "승강기)엘리베이터-충정로 외부2",
+          "operatingSection": "B1-1F",
+          "location": "8번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "애오개",
@@ -1212,6 +1741,29 @@ export const LINE_5_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2533-live-1",
+          "name": "승강기)엘리베이터-서대문 내부1",
+          "operatingSection": "B1-B4",
+          "location": "충정로 방면3-2, 광화문 방면6-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2533-live-2",
+          "name": "승강기)엘리베이터-서대문 외부2",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2533-live-3",
+          "name": "승강기)엘리베이터-서대문 외부3",
+          "operatingSection": "BM1-1F",
+          "location": "5,6번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "충정로",
@@ -1260,6 +1812,22 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2534-live-1",
+          "name": "승강기)엘리베이터-광화문 내부2",
+          "operatingSection": "B2-B4",
+          "location": "서대문 방면1-1,종로3가 방면8-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2534-live-2",
+          "name": "승강기)엘리베이터-광화문 외부1",
+          "operatingSection": "B2-B1-1F",
+          "location": "서대문 방면1-1, 종로3가 방면8-4",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "서대문",
@@ -1308,6 +1876,22 @@ export const LINE_5_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2535-live-1",
+          "name": "승강기)엘리베이터-종로3가 내부1",
+          "operatingSection": "B1-B4",
+          "location": "환승통로(광화문 방면8-4 을지로4가 방면1-1)",
+          "kind": "platform"
+        },
+        {
+          "id": "2535-live-2",
+          "name": "승강기)엘리베이터-종로3가(5) 내부 2호기",
+          "operatingSection": "B4-B5",
+          "location": "광화문 방면8-4, 을지로4가 방면1-1",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "광화문",
@@ -1356,6 +1940,15 @@ export const LINE_5_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2536-live-1",
+          "name": "승강기)엘리베이터-을지로4가 내부1",
+          "operatingSection": "B1-B5",
+          "location": "동대문역사문화공원방면 1-1,종로3가방면 10-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "종로3가",
@@ -1400,6 +1993,22 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2537-live-1",
+          "name": "승강기)엘리베이터-동역사(5) 내부1",
+          "operatingSection": "B1-B4",
+          "location": "대합실(6,7번 출입구 사이)",
+          "kind": "surface"
+        },
+        {
+          "id": "2537-live-2",
+          "name": "승강기)엘리베이터-동역사(5) 내부2",
+          "operatingSection": "B1-B5",
+          "location": "청구방면 1-1,을지로4가 방면10-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "을지로4가",
@@ -1449,6 +2058,7 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [],
       "directions": [
         {
           "toward": "동대문역사문화공원",
@@ -1497,6 +2107,29 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2539-live-1",
+          "name": "승강기)엘리베이터-신금호 내부1",
+          "operatingSection": "B2-B8",
+          "location": "청구 방면1-2, 행당 방면8-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2539-live-2",
+          "name": "승강기)엘리베이터-신금호 내부2",
+          "operatingSection": "B2-B8",
+          "location": "청구 방면1-2, 행당 방면8-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2539-live-3",
+          "name": "승강기)엘리베이터-신금호 외부3",
+          "operatingSection": "B2-B1-1F",
+          "location": "고객안전실 측",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "청구",
@@ -1545,6 +2178,29 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2540-live-1",
+          "name": "승강기)엘리베이터-행당 내부1",
+          "operatingSection": "B5-B4-B3",
+          "location": "신금호 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2540-live-2",
+          "name": "승강기)엘리베이터-행당 내부2",
+          "operatingSection": "B4-B5",
+          "location": "왕십리 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2540-live-3",
+          "name": "승강기)엘리베이터-행당 외부3",
+          "operatingSection": "B3-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "신금호",
@@ -1594,6 +2250,29 @@ export const LINE_5_GUIDANCE = {
         "6-1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2541-live-1",
+          "name": "승강기)엘리베이터-왕십리 내부2",
+          "operatingSection": "B4-B5",
+          "location": "행당 방면3-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2541-live-2",
+          "name": "승강기)엘리베이터-왕십리 내부3",
+          "operatingSection": "B4-B5",
+          "location": "마장 방면6-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2541-live-3",
+          "name": "승강기)엘리베이터-왕십리 외부1",
+          "operatingSection": "B4-1F",
+          "location": "4번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "행당",
@@ -1642,6 +2321,29 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2542-live-1",
+          "name": "승강기)엘리베이터-마장 내부1",
+          "operatingSection": "B2-B3",
+          "location": "왕십리 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2542-live-2",
+          "name": "승강기)엘리베이터-마장 내부2",
+          "operatingSection": "B2-B3",
+          "location": "답십리 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2542-live-3",
+          "name": "승강기)엘리베이터-마장 내부3",
+          "operatingSection": "B2-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "왕십리",
@@ -1691,6 +2393,36 @@ export const LINE_5_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2543-live-1",
+          "name": "승강기)엘리베이터-답십리 내부1",
+          "operatingSection": "B2-B3",
+          "location": "마장 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2543-live-2",
+          "name": "승강기)엘리베이터-답십리 내부2",
+          "operatingSection": "B2-B3",
+          "location": "장한평 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2543-live-3",
+          "name": "승강기)엘리베이터-답십리 외부3",
+          "operatingSection": "B2-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2543-live-4",
+          "name": "승강기)엘리베이터-답십리 외부4",
+          "operatingSection": "B2-1F",
+          "location": "6번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "마장",
@@ -1740,6 +2472,29 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2544-live-1",
+          "name": "승강기)엘리베이터-장한평 내부1",
+          "operatingSection": "B2-B3",
+          "location": "답십리 방면4-2, 군자 방면5-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2544-live-2",
+          "name": "승강기)엘리베이터-장한평 외부2",
+          "operatingSection": "B2-1F",
+          "location": "7,8번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2544-live-3",
+          "name": "승강기)엘리베이터-장한평 외부3",
+          "operatingSection": "B2-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "답십리",
@@ -1789,6 +2544,29 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2545-live-1",
+          "name": "승강기)엘리베이터-군자 내부1",
+          "operatingSection": "B3-B2-B1",
+          "location": "장한평 방면5-3, 아차산 방면4-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2545-live-2",
+          "name": "승강기)엘리베이터-군자 내부2",
+          "operatingSection": "B3-B2-B1",
+          "location": "장한평 방면4-3, 아차산 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2545-live-3",
+          "name": "승강기)엘리베이터-군자 외부3",
+          "operatingSection": "B1-1F",
+          "location": "4번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "장한평",
@@ -1837,6 +2615,29 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2546-live-1",
+          "name": "승강기)엘리베이터-아차산 내부1",
+          "operatingSection": "B3-B2-B1",
+          "location": "군자 방면6-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2546-live-2",
+          "name": "승강기)엘리베이터-아차산 내부2",
+          "operatingSection": "B3-B2-B1",
+          "location": "광나루 방면3-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2546-live-3",
+          "name": "승강기)엘리베이터-아차산 외부3",
+          "operatingSection": "B1-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "군자",
@@ -1885,6 +2686,36 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2547-live-1",
+          "name": "승강기)엘리베이터-광나루 내부1",
+          "operatingSection": "B2-B3",
+          "location": "아차산 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2547-live-2",
+          "name": "승강기)엘리베이터-광나루 내부2",
+          "operatingSection": "B2-B3",
+          "location": "천호 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2547-live-3",
+          "name": "승강기)엘리베이터-광나루 외부3",
+          "operatingSection": "B2-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2547-live-4",
+          "name": "승강기)엘리베이터-광나루 외부4",
+          "operatingSection": "B1-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "아차산",
@@ -1933,6 +2764,36 @@ export const LINE_5_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2548-live-1",
+          "name": "승강기)엘리베이터-천호(5) 내부2",
+          "operatingSection": "B1-B3",
+          "location": "대합실",
+          "kind": "platform"
+        },
+        {
+          "id": "2548-live-2",
+          "name": "승강기)엘리베이터-천호(5) 내부3",
+          "operatingSection": "B2-B3",
+          "location": "광나루 방면6-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2548-live-3",
+          "name": "승강기)엘리베이터-천호(5) 내부4",
+          "operatingSection": "B2-B3",
+          "location": "강동 방면4-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2548-live-4",
+          "name": "승강기)엘리베이터-천호(5) 외부1",
+          "operatingSection": "BM1-1F",
+          "location": "6,7번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "광나루",
@@ -1981,6 +2842,29 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2549-live-1",
+          "name": "승강기)엘리베이터-강동 내부 1호기",
+          "operatingSection": "B3-B4",
+          "location": "둔촌동 방면8-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2549-live-2",
+          "name": "승강기)엘리베이터-강동 내부 3호기",
+          "operatingSection": "B4-B3",
+          "location": "천호 방면1-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2549-live-3",
+          "name": "승강기)엘리베이터-강동 외부 2호기",
+          "operatingSection": "B3-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "둔촌동",
@@ -2010,6 +2894,29 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2550-live-1",
+          "name": "승강기)엘리베이터-길동 내부1",
+          "operatingSection": "B2-B3",
+          "location": "강동 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2550-live-2",
+          "name": "승강기)엘리베이터-길동 내부2",
+          "operatingSection": "B2-B3",
+          "location": "굽은다리 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2550-live-3",
+          "name": "승강기)엘리베이터-길동 내부3",
+          "operatingSection": "B1-BM2",
+          "location": "대합실(1번 출입구 세븐일레븐 옆)",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "강동",
@@ -2059,6 +2966,36 @@ export const LINE_5_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2555-live-1",
+          "name": "승강기)엘리베이터-둔촌동 2번 출구측 4",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2555-live-2",
+          "name": "승강기)엘리베이터-둔촌동 내부1",
+          "operatingSection": "B1-B2",
+          "location": "강동 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2555-live-3",
+          "name": "승강기)엘리베이터-둔촌동 내부2",
+          "operatingSection": "B1-B2",
+          "location": "올림픽공원 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2555-live-4",
+          "name": "승강기)엘리베이터-둔촌동 외부3",
+          "operatingSection": "B1-1F",
+          "location": "3,4번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "강동",
@@ -2107,6 +3044,29 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2551-live-1",
+          "name": "승강기)엘리베이터-굽은다리 내부1",
+          "operatingSection": "B1-B2",
+          "location": "길동 방면6-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2551-live-2",
+          "name": "승강기)엘리베이터-굽은다리 내부2",
+          "operatingSection": "B1-B2",
+          "location": "명일 방면3-2, 3-3 사이",
+          "kind": "platform"
+        },
+        {
+          "id": "2551-live-3",
+          "name": "승강기)엘리베이터-굽은다리 외부3",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "길동",
@@ -2155,6 +3115,29 @@ export const LINE_5_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2556-live-1",
+          "name": "승강기)엘리베이터-올림픽공원 내부1",
+          "operatingSection": "B2-B3",
+          "location": "둔촌동 방면3-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2556-live-2",
+          "name": "승강기)엘리베이터-올림픽공원 내부2",
+          "operatingSection": "B2-B3",
+          "location": "방이 방면6-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2556-live-3",
+          "name": "승강기)엘리베이터-올림픽공원 외부4",
+          "operatingSection": "B2-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "둔촌동",
@@ -2204,6 +3187,36 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2557-live-1",
+          "name": "승강기)엘리베이터-방이 내부1",
+          "operatingSection": "B1-B2",
+          "location": "올림픽공원 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2557-live-2",
+          "name": "승강기)엘리베이터-방이 내부2",
+          "operatingSection": "B1-B2",
+          "location": "오금 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2557-live-3",
+          "name": "승강기)엘리베이터-방이 외부3",
+          "operatingSection": "B1-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2557-live-4",
+          "name": "승강기)엘리베이터-방이 외부4",
+          "operatingSection": "B1-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "올림픽공원",
@@ -2252,6 +3265,29 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2552-live-1",
+          "name": "승강기)엘리베이터-명일 내부1",
+          "operatingSection": "B1-B2",
+          "location": "굽은다리 방면5-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2552-live-2",
+          "name": "승강기)엘리베이터-명일 내부2",
+          "operatingSection": "B1-B2",
+          "location": "고덕 방면4-3, 4-4 사이",
+          "kind": "platform"
+        },
+        {
+          "id": "2552-live-3",
+          "name": "승강기)엘리베이터-명일 외부3",
+          "operatingSection": "B1-1F",
+          "location": "3,4번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "굽은다리",
@@ -2301,6 +3337,43 @@ export const LINE_5_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2558-live-1",
+          "name": "승강기)엘리베이터-오금(5) 내부1",
+          "operatingSection": "B1-B2",
+          "location": "방이 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2558-live-2",
+          "name": "승강기)엘리베이터-오금(5) 내부2",
+          "operatingSection": "B1-B2",
+          "location": "개롱 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2558-live-3",
+          "name": "승강기)엘리베이터-오금(5) 내부3",
+          "operatingSection": "B2-B3",
+          "location": "환승통로(방이 방면8-4)",
+          "kind": "platform"
+        },
+        {
+          "id": "2558-live-4",
+          "name": "승강기)엘리베이터-오금(5) 내부4",
+          "operatingSection": "B2-B3",
+          "location": "환승통로(개롱 방면1-1)",
+          "kind": "platform"
+        },
+        {
+          "id": "2558-live-5",
+          "name": "승강기)엘리베이터-오금(5) 외부5",
+          "operatingSection": "B1-1F",
+          "location": "5번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "방이",
@@ -2350,6 +3423,36 @@ export const LINE_5_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2553-live-1",
+          "name": "승강기)엘리베이터-고덕 내부1",
+          "operatingSection": "B1-B2",
+          "location": "명일 방면4-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2553-live-2",
+          "name": "승강기)엘리베이터-고덕 내부2",
+          "operatingSection": "B1-B2",
+          "location": "상일동 방면6-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2553-live-3",
+          "name": "승강기)엘리베이터-고덕 외부3",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구(역사 화장실 앞)",
+          "kind": "surface"
+        },
+        {
+          "id": "2553-live-4",
+          "name": "승강기)엘리베이터-고덕 외부4",
+          "operatingSection": "B1-1F",
+          "location": "4,5번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "명일",
@@ -2398,6 +3501,29 @@ export const LINE_5_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2559-live-1",
+          "name": "승강기)엘리베이터-개롱 내부1",
+          "operatingSection": "B1-B2",
+          "location": "오금 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2559-live-2",
+          "name": "승강기)엘리베이터-개롱 내부2",
+          "operatingSection": "B1-B2",
+          "location": "거여 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2559-live-3",
+          "name": "승강기)엘리베이터-개롱 외부3",
+          "operatingSection": "B1-1F",
+          "location": "3,4번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "오금",
@@ -2449,6 +3575,50 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2554-live-1",
+          "name": "승강기)엘리베이터-상일동 1번 출입구 외부 1호기",
+          "operatingSection": "B2-1F",
+          "location": "1,2번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2554-live-2",
+          "name": "승강기)엘리베이터-상일동 3번 출입구 외부 2호기",
+          "operatingSection": "B2-1F",
+          "location": "3,4번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2554-live-3",
+          "name": "승강기)엘리베이터-상일동 5번 출입구 외부 3호기",
+          "operatingSection": "B1-1F",
+          "location": "5,6번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2554-live-4",
+          "name": "승강기)엘리베이터-상일동 8번 출입구 외부 4호기",
+          "operatingSection": "B1-1F",
+          "location": "7,8번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2554-live-5",
+          "name": "승강기)엘리베이터-상일동 내부 5호기",
+          "operatingSection": "B1-B2",
+          "location": "고덕방면 6-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2554-live-6",
+          "name": "승강기)엘리베이터-상일동 내부 6호기",
+          "operatingSection": "B1-B2",
+          "location": "강일 방면3-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "고덕",
@@ -2500,6 +3670,64 @@ export const LINE_5_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2562-live-1",
+          "name": "승강기)엘리베이터-강일역 1번 출입구 외부 엘리베이터 5호기",
+          "operatingSection": "B2-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2562-live-2",
+          "name": "승강기)엘리베이터-강일역 2번 출입구 외부 엘리베이터 6호기",
+          "operatingSection": "B2-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2562-live-3",
+          "name": "승강기)엘리베이터-강일역 3번 출입구 외부 엘리베이터 7호기",
+          "operatingSection": "B2-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2562-live-4",
+          "name": "승강기)엘리베이터-강일역 4번 출입구 외부 엘리베이터 8호기",
+          "operatingSection": "B2-1F",
+          "location": "4번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2562-live-5",
+          "name": "승강기)엘리베이터-강일역 내부 엘리베이터 1호기",
+          "operatingSection": "B3-B2",
+          "location": "상일동 방면1-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2562-live-6",
+          "name": "승강기)엘리베이터-강일역 내부 엘리베이터 2호기",
+          "operatingSection": "B3-B2",
+          "location": "미사 방면8-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2562-live-7",
+          "name": "승강기)엘리베이터-강일역 내부 엘리베이터 3호기",
+          "operatingSection": "B3-B1",
+          "location": "상일동 방면8-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2562-live-8",
+          "name": "승강기)엘리베이터-강일역 내부 엘리베이터 4호기",
+          "operatingSection": "B3-B1",
+          "location": "미사 방면1-2",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "상일동",
@@ -2566,6 +3794,29 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2560-live-1",
+          "name": "승강기)엘리베이터-거여 내부1",
+          "operatingSection": "B1-B2",
+          "location": "개롱 방면6-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2560-live-2",
+          "name": "승강기)엘리베이터-거여 내부2",
+          "operatingSection": "B1-B2",
+          "location": "마천 방면3-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2560-live-3",
+          "name": "승강기)엘리베이터-거여 외부3",
+          "operatingSection": "B1-1F",
+          "location": "2번 출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "개롱",
@@ -2614,6 +3865,29 @@ export const LINE_5_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2561-live-1",
+          "name": "승강기)엘리베이터-마천역 1번출입구 3호기",
+          "operatingSection": "1F-B1",
+          "location": "1번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2561-live-2",
+          "name": "승강기)엘리베이터-마천역 내부 1호기",
+          "operatingSection": "B4-B2",
+          "location": "마천 방면5-2",
+          "kind": "platform"
+        },
+        {
+          "id": "2561-live-3",
+          "name": "승강기)엘리베이터-마천역 내부 엘리베이터 2호기",
+          "operatingSection": "B1-B4",
+          "location": "거여 방면4-3",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "거여",
@@ -2663,6 +3937,36 @@ export const LINE_5_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2563-live-1",
+          "name": "승강기)엘리베이터-미사역 1번 출입구 외부 3호기",
+          "operatingSection": "B1-1F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2563-live-2",
+          "name": "승강기)엘리베이터-미사역 6번 출입구 외부 4호기",
+          "operatingSection": "B1-1F",
+          "location": "6번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2563-live-3",
+          "name": "승강기)엘리베이터-미사역 내부 1호기",
+          "operatingSection": "B2-B1",
+          "location": "강일 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2563-live-4",
+          "name": "승강기)엘리베이터-미사역 내부 2호기",
+          "operatingSection": "B2-B1",
+          "location": "하남풍산 방면5-1",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "강일",
@@ -2713,6 +4017,43 @@ export const LINE_5_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2564-live-1",
+          "name": "승강기)엘리베이터-하남풍산역 1번 출입구 외부 3호기",
+          "operatingSection": "1F-2F",
+          "location": "1번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2564-live-2",
+          "name": "승강기)엘리베이터-하남풍산역 5번 출입구 외부 4호기",
+          "operatingSection": "B1-1F",
+          "location": "5번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2564-live-3",
+          "name": "승강기)엘리베이터-하남풍산역 7번 출입구 외부 5호기",
+          "operatingSection": "B1-1F",
+          "location": "7번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2564-live-4",
+          "name": "승강기)엘리베이터-하남풍산역 내부 1호기",
+          "operatingSection": "B2-B1",
+          "location": "미사 방면4-4",
+          "kind": "platform"
+        },
+        {
+          "id": "2564-live-5",
+          "name": "승강기)엘리베이터-하남풍산역 내부 2호기",
+          "operatingSection": "B2-B1",
+          "location": "하남시청 방면5-1",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "미사",
@@ -2762,6 +4103,36 @@ export const LINE_5_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "manual_direction_assignment",
+      "liveElevators": [
+        {
+          "id": "2565-live-1",
+          "name": "승강)엘리베이터-하남시청역 엘리베이터 1호기",
+          "operatingSection": "B3-B2",
+          "location": "하남풍산 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2565-live-2",
+          "name": "승강)엘리베이터-하남시청역 엘리베이터 2호기",
+          "operatingSection": "B3-B2",
+          "location": "하남검단산 방면5-1",
+          "kind": "platform"
+        },
+        {
+          "id": "2565-live-3",
+          "name": "승강)엘리베이터-하남시청역 엘리베이터 3호기",
+          "operatingSection": "B2-1F",
+          "location": "3번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2565-live-4",
+          "name": "승강)엘리베이터-하남시청역 엘리베이터 4호기",
+          "operatingSection": "B2-1F",
+          "location": "5,6번 출입구 사이",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "하남풍산",
@@ -2811,6 +4182,36 @@ export const LINE_5_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "api_platform_linkage",
+      "liveElevators": [
+        {
+          "id": "2566-live-1",
+          "name": "승강기)엘리베이터-하남검단산역 1번 출입구 외부 3호기",
+          "operatingSection": "B1-1F",
+          "location": "1,2번 출입구 사이",
+          "kind": "surface"
+        },
+        {
+          "id": "2566-live-2",
+          "name": "승강기)엘리베이터-하남검단산역 3번 출입구 외부 4호기",
+          "operatingSection": "B1-1F",
+          "location": "4번 출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "2566-live-3",
+          "name": "승강기)엘리베이터-하남검단산역 내부 1호기",
+          "operatingSection": "B3-B1",
+          "location": "하남시청 방면4-3",
+          "kind": "platform"
+        },
+        {
+          "id": "2566-live-4",
+          "name": "승강기)엘리베이터-하남검단산역 내부 2호기",
+          "operatingSection": "B3-B1",
+          "location": "하남검단산 방면5-3",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "하남시청",

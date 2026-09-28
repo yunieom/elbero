@@ -3,6 +3,7 @@ import { ElevatorStatusClient } from '../elevator-status/elevator-status.client.
 import { ELEVATOR_STATUS } from '../elevator-status/types/seoul-elevator-status.type.js';
 import { VERIFIED_JOURNEYS } from './data/verified-journeys.data.js';
 import { JourneyService } from './journey.service.js';
+import { createLine5JourneyDefinition } from './line-5-journey.factory.js';
 
 describe('JourneyService', () => {
   const getSnapshot = vi.fn();
@@ -144,10 +145,33 @@ describe('JourneyService', () => {
       ]),
     );
   });
+
+  it('동적 5호선 경로도 검증된 서울 승강기 행과 연결해 현재 상태를 평가한다', async () => {
+    const journey = createLine5JourneyDefinition('2534', '2558')!;
+    getSnapshot.mockResolvedValue(snapshotForDefinition(journey));
+
+    const result = await service.plan('2534', '2558');
+
+    expect(result.recommendedRouteId).toBe('line-5-general-route');
+    expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.OPERATIONAL);
+    expect(result.candidates[0].facilityGroups).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          status: ELEVATOR_STATUS.OPERATIONAL,
+        }),
+      ]),
+    );
+  });
 });
 
 function snapshotForJourney(journeyId: string) {
   const journey = VERIFIED_JOURNEYS.find((item) => item.id === journeyId)!;
+  return snapshotForDefinition(journey);
+}
+
+function snapshotForDefinition(
+  journey: NonNullable<ReturnType<typeof createLine5JourneyDefinition>>,
+) {
   const uniqueFacilities = new Map<
     string,
     (typeof journey.candidates)[number]['facilityGroups'][number]['facilities'][number]

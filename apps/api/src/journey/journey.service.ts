@@ -6,7 +6,11 @@ import {
   type SeoulElevatorFacilityRow,
 } from '../elevator-status/types/seoul-elevator-status.type.js';
 import { VERIFIED_JOURNEYS } from './data/verified-journeys.data.js';
-import { createLine5JourneyDefinition } from './line-5-journey.factory.js';
+import {
+  createLine5JourneyDefinition,
+  listLine5Stations,
+} from './line-5-journey.factory.js';
+import type { Line5StationResDto } from './dto/res/line-5-station.res.dto.js';
 import type {
   JourneyFacilityGroupResDto,
   JourneyFacilityStatusResDto,
@@ -26,6 +30,10 @@ const MAX_SOURCE_DELAY_MINUTES = 60;
 @Injectable()
 export class JourneyService {
   constructor(private readonly elevatorStatusClient: ElevatorStatusClient) {}
+
+  listLine5Stations(): Line5StationResDto[] {
+    return listLine5Stations();
+  }
 
   async plan(
     originStationCode: string,

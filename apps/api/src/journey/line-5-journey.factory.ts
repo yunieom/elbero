@@ -7,6 +7,7 @@ import {
 } from './types/verified-journey.type.js';
 
 type Line5Topology = readonly string[];
+type Line5Segment = ReturnType<typeof toSegment>;
 interface Line5Direction {
   toward: string;
   platformNumber: string | null;
@@ -19,11 +20,20 @@ interface Line5Direction {
   warning: string | null;
 }
 
+interface Line5LiveElevator {
+  id: string;
+  name: string;
+  operatingSection: string;
+  location: string;
+  kind: 'surface' | 'platform' | 'other';
+}
+
 interface Line5Station {
   stationCode: string;
   stationName: string;
   exitNumbers: readonly string[];
   verificationMethod: string;
+  liveElevators: readonly Line5LiveElevator[];
   directions: readonly Line5Direction[];
 }
 
@@ -32,6 +42,14 @@ const line5Topologies =
   LINE_5_GUIDANCE.topologies as readonly Line5Topology[];
 
 const TRANSFER_STATION_CODE = '2549';
+
+export function listLine5Stations() {
+  return line5Stations.map((station) => ({
+    stationCode: station.stationCode,
+    stationName: station.stationName,
+    lineName: '5호선' as const,
+  }));
+}
 
 export function createLine5JourneyDefinition(
   originStationCode: string,
@@ -59,7 +77,8 @@ export function createLine5JourneyDefinition(
     evidence: toStationEvidence(origin),
   });
 
-  let hasUnverifiedAccessibility = origin.exitNumbers.length === 0;
+  let hasUnverifiedAccessibility =
+    origin.exitNumbers.length === 0 || segments.length > 1;
   for (const [index, segment] of segments.entries()) {
     if (index > 0) {
       steps.push({
@@ -116,6 +135,40 @@ export function createLine5JourneyDefinition(
     evidence: toStationEvidence(destination),
   });
 
+  const firstSegment = segments[0];
+  const originDirection = findDepartureDirection(origin, firstSegment);
+  const facilityGroups = [
+    createSurfaceFacilityGroup('origin', origin, '출발역 지상 진입'),
+    ...createDirectionalFacilityGroups(
+      'origin-platform',
+      origin,
+      originDirection,
+      '출발 승강장 이동',
+    ),
+    ...createTransferFacilityGroups(segments),
+    ...createDirectionalFacilityGroups(
+      'destination-platform',
+      destination,
+      destinationDirection,
+      '도착 승강장 하차',
+    ),
+    createSurfaceFacilityGroup(
+      'destination',
+      destination,
+      '도착역 지상 퇴장',
+    ),
+  ];
+  if (hasUnverifiedAccessibility) {
+    facilityGroups.push(
+      createUnknownFacilityGroup(
+        'line-5-static-accessibility-unverified',
+        destination,
+        '정적 엘리베이터 안전 경로 확인',
+        '엘리베이터 안전 경로 미확인',
+      ),
+    );
+  }
+
   const transferStation = segments.length > 1 ? '강동' : null;
   return {
     id: `line-5-${originStationCode}-to-${destinationStationCode}`,
@@ -134,26 +187,7 @@ export function createLine5JourneyDefinition(
         priority: 1,
         transferStation,
         lines: ['5호선'],
-        facilityGroups: [
-          {
-            id: 'line-5-live-status-unverified',
-            label: '5호선 엘리베이터 실시간 안전 확인',
-            policy: 'all',
-            facilities: [
-              {
-                id: 'line-5-live-status-unverified',
-                stationCode: destinationStationCode,
-                stationName: destination.stationName,
-                role: hasUnverifiedAccessibility
-                  ? '엘리베이터 안전 경로 미확인'
-                  : '정적 위치는 확인됐지만 실시간 시설 연결 미확인',
-                sourceFacilityName: null,
-                expectedOperatingSection: null,
-                expectedLocation: null,
-              },
-            ],
-          },
-        ],
+        facilityGroups,
         steps,
       },
     ],
@@ -233,6 +267,155 @@ function findArrivalDirection(
     segment.topology[destinationIndex + segment.step] ?? destinationCode;
   const nextName = findStation(nextCode)?.stationName;
   return station.directions.find((direction) => direction.toward === nextName);
+}
+
+function findDepartureDirection(
+  station: Line5Station,
+  segment: ReturnType<typeof toSegment>,
+) {
+  const nextCode = segment.codes[1] ?? segment.codes[0];
+  const nextName = findStation(nextCode)?.stationName;
+  return station.directions.find((direction) => direction.toward === nextName);
+}
+
+function createTransferFacilityGroups(
+  segments: readonly Line5Segment[],
+) {
+  if (segments.length < 2) return [];
+  const transferStation = findStation(TRANSFER_STATION_CODE)!;
+  const arrivalDirection = findArrivalDirection(transferStation, segments[0]);
+  const departureDirection = findDepartureDirection(
+    transferStation,
+    segments[1],
+  );
+  return [
+    ...createDirectionalFacilityGroups(
+      'transfer-arrival',
+      transferStation,
+      arrivalDirection,
+      '강동역 환승 하차',
+    ),
+    ...createDirectionalFacilityGroups(
+      'transfer-departure',
+      transferStation,
+      departureDirection,
+      '강동역 환승 승차',
+    ),
+  ];
+}
+
+function createSurfaceFacilityGroup(
+  prefix: string,
+  station: Line5Station,
+  role: string,
+) {
+  const facilities = station.liveElevators.filter(
+    (facility) => facility.kind === 'surface',
+  );
+  if (facilities.length === 0) {
+    return createUnknownFacilityGroup(
+      `${prefix}-surface-unverified`,
+      station,
+      `${station.stationName} 지상 엘리베이터`,
+      `${role} 실시간 시설 연결 미확인`,
+    );
+  }
+  return {
+    id: `${prefix}-${station.stationCode}-surface`,
+    label: `${station.stationName} 지상 엘리베이터`,
+    policy: 'any' as const,
+    facilities: facilities.map((facility) =>
+      toFacilityRef(station, facility, role),
+    ),
+  };
+}
+
+function createDirectionalFacilityGroups(
+  prefix: string,
+  station: Line5Station,
+  direction: Line5Direction | undefined,
+  role: string,
+) {
+  const facilities = direction
+    ? station.liveElevators.filter(
+        (facility) =>
+          facility.kind === 'platform' &&
+          normalizeText(facility.location).includes(
+            normalizeText(direction.toward),
+          ),
+      )
+    : [];
+  if (!direction || facilities.length === 0) {
+    return [
+      createUnknownFacilityGroup(
+        `${prefix}-${station.stationCode}-unverified`,
+        station,
+        `${station.stationName} 승강장 엘리베이터`,
+        `${role} 실시간 시설 연결 미확인`,
+      ),
+    ];
+  }
+
+  const bySection = new Map<string, Line5LiveElevator[]>();
+  for (const facility of facilities) {
+    const sectionFacilities = bySection.get(facility.operatingSection) ?? [];
+    sectionFacilities.push(facility);
+    bySection.set(facility.operatingSection, sectionFacilities);
+  }
+  return [...bySection.entries()].map(
+    ([operatingSection, sectionFacilities], index) => ({
+      id: `${prefix}-${station.stationCode}-${index + 1}`,
+      label: `${station.stationName} ${direction.toward} 방면 ${operatingSection} 엘리베이터`,
+      policy: 'any' as const,
+      facilities: sectionFacilities.map((facility) =>
+        toFacilityRef(station, facility, role),
+      ),
+    }),
+  );
+}
+
+function createUnknownFacilityGroup(
+  id: string,
+  station: Line5Station,
+  label: string,
+  role: string,
+) {
+  return {
+    id,
+    label,
+    policy: 'all' as const,
+    facilities: [
+      {
+        id,
+        stationCode: station.stationCode,
+        stationName: station.stationName,
+        role,
+        sourceFacilityName: null,
+        expectedOperatingSection: null,
+        expectedLocation: null,
+      },
+    ],
+  };
+}
+
+function toFacilityRef(
+  station: Line5Station,
+  facility: Line5LiveElevator,
+  role: string,
+) {
+  return {
+    id: facility.id,
+    stationCode: station.stationCode,
+    stationName: station.stationName,
+    role,
+    sourceFacilityName: facility.name,
+    expectedOperatingSection: facility.operatingSection,
+    expectedLocation: facility.location,
+  };
+}
+
+function normalizeText(value: string) {
+  return value.replace(/[\s()]/g, '');
 }
 
 function selectBoardingDoor(

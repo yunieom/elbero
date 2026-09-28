@@ -7,10 +7,12 @@
     "yellowGap": "warn_and_recommend",
     "redGap": "exclude",
     "directionLabel": "terminal_first",
+    "missingStairData": "choose_any_safe_adjacent_door",
     "adjacentDoorPriority": [
       "farther_from_stairs",
       "farther_from_escalators_when_location_is_known",
-      "smaller_platform_gap"
+      "smaller_platform_gap",
+      "lower_door_ordinal_when_tied"
     ]
   },
   "stations": [

@@ -9,12 +9,23 @@ import {
 } from '@nestjs/swagger';
 import { PlanJourneyReqDto } from './dto/req/plan-journey.req.dto.js';
 import { JourneyPlanResDto } from './dto/res/journey-plan.res.dto.js';
+import { Line5StationResDto } from './dto/res/line-5-station.res.dto.js';
 import { JourneyService } from './journey.service.js';
 
 @ApiTags('여정')
 @Controller('journeys')
 export class JourneyController {
   constructor(private readonly journeyService: JourneyService) {}
+
+  @Get('line-5/stations')
+  @ApiOperation({
+    summary: '현재 지원하는 5호선 역 목록 조회',
+    description: '앱의 출발역·도착역 검색에서 사용하는 5호선 56개 역을 노선 순서로 반환합니다.',
+  })
+  @ApiOkResponse({ type: [Line5StationResDto] })
+  listLine5Stations(): Line5StationResDto[] {
+    return this.journeyService.listLine5Stations();
+  }
 
   @Get('plan')
   @ApiOperation({
