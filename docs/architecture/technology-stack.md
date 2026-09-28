@@ -1,6 +1,6 @@
 # Elbero 기술 스택과 기술 결정
 
-- 기준일: 2026-09-17
+- 기준일: 2026-09-28
 - 대상: iOS, Android, 개발용 Web, NestJS API
 - 저장소: npm workspaces 기반 모노레포
 
@@ -54,6 +54,7 @@ React Native 앱
 | UI 런타임 | React 19.2.3 | 사용 중 |
 | 네이티브 런타임 | React Native 0.86.3 | 사용 중 |
 | 웹 확인 | React Native Web 0.21.x | 개발용으로 사용 중 |
+| 내비게이션 | Expo Router 57 | 사용 중 |
 | 스타일 | React Native `StyleSheet` | 사용 중 |
 | 플랫폼 | iOS·Android, 개발용 Web | 사용 중 |
 
@@ -69,16 +70,19 @@ Expo SDK 57은 React Native 0.86과 React 19.2.3 조합을 대상으로 한다. 
 | 테스트 | Vitest, Supertest | 사용 중 |
 | 린트 | Oxlint | 사용 중 |
 | 포맷 | Prettier | 사용 중 |
-| 외부 데이터 | KRIC Open API | T02에서 표본 검증 중 |
+| API 문서 | `@nestjs/swagger` | 사용 중 |
+| 설정 | `@nestjs/config` | 사용 중 |
+| 요청 검증 | `class-validator`, `class-transformer` | 사용 중 |
+| 외부 데이터 | KRIC Open API, 서울교통공사 승강기 가동현황 API | 5호선 경로에 사용 중 |
 
-현재 제품 API는 `/health`만 구현되어 있다. KRIC 호출 스크립트는 제품 API가 아니며, Swagger와
-KRIC 도메인 모듈은 별도 구현 대상이다.
+현재 제품 API는 상태 확인, 역별 승강기 상태, 5호선 역 목록과 여정 계획을 제공한다. KRIC 호출
+스크립트는 여전히 조사·검증 도구이며 제품 API가 아니다. Swagger에서 제품 API를 직접 시험할 수
+있다.
 
 ## 4. 채택 예정인 모바일 기술
 
 | 영역 | 선택 | 상태 | 선택 기준 |
 | --- | --- | --- | --- |
-| 내비게이션 | Expo Router | 채택 예정 | Expo SDK 57 호환, 파일 기반 라우팅, 딥링크와 화면 경계 표준화 |
 | 서버 상태 | TanStack Query | 채택 예정 | 요청 상태·캐시·재시도·무효화와 화면 상태 분리 |
 | API 계약 | Nest Swagger OpenAPI에서 앱 타입 생성 | 채택 예정 | 요청·응답 계약의 단일 원천 유지 |
 | 로컬 상태 | React state/context | 기본 선택 | 화면·작은 공유 상태에 추가 라이브러리 없이 사용 |
@@ -109,9 +113,7 @@ KRIC 도메인 모듈은 별도 구현 대상이다.
 
 | 영역 | 선택 | 상태 |
 | --- | --- | --- |
-| API 문서와 수동 테스트 | `@nestjs/swagger` | 채택 예정 |
-| 설정 검증 | `@nestjs/config` + 시작 시 환경변수 검증 | 채택 예정 |
-| 요청 검증 | `class-validator`, `class-transformer`, 전역 `ValidationPipe` | 채택 예정 |
+| 환경변수 시작 시 스키마 검증 | 별도 검증 계층 | 채택 예정 |
 | 외부 API | KRIC 전용 client/service + timeout + 오류 매핑 | 채택 예정 |
 | 캐시 | 먼저 메모리 또는 파일 패키지, 운영 규모에 따라 Redis 검토 | 조건부 |
 | DB | 지원 범위·갱신 방식 확정 후 선택 | 미결정 |
