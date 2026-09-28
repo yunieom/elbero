@@ -12,6 +12,7 @@
     "research:t02": "node tools/kric/fetch-t02-samples.mjs",
     "research:line-sync": "node tools/kric/audit-line-sync.mjs",
     "verification:line-5": "node tools/kric/update-line5-accessibility-guidance.mjs",
+    "verification:t06": "node tools/validation/validate-t06-normalized-sample.mjs",
     "research:elevator-status": "node tools/seoul/fetch-elevator-status.mjs",
     "build": "npm run build --workspace @elbero/contracts && npm run build --workspace @elbero/api",
     "lint": "npm run lint --workspaces --if-present",

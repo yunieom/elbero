@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-28T00:00:00.000Z",
+  "lines": [
+    {
+      "id": "line:S1:5",
+      "operatorCode": "S1",
+      "sourceLineCode": "5",
+      "name": "5호선",
+      "evidence": [
+        {
+          "sourceSystem": "kric",
+          "dataset": "trainUseInfo/subwayRouteInfo",
+          "rawRecordKey": "S1:5",
+          "collectedAt": "2026-09-18T01:29:34.781Z",
+          "observedAt": null,
+          "verificationStatus": "verified"
+        }
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "station:2543",
+      "name": "답십리",
+      "aliases": [],
+      "evidence": [
+        {
+          "sourceSystem": "kric",
+          "dataset": "trainUseInfo/subwayRouteInfo",
+          "rawRecordKey": "S1:5:2543",
+          "collectedAt": "2026-09-18T01:29:34.781Z",
+          "observedAt": null,
+          "verificationStatus": "verified"
+        }
+      ]
+    },
+    { "id": "station:2542", "name": "마장", "aliases": [], "evidence": [] },
+    { "id": "station:2544", "name": "장한평", "aliases": [], "evidence": [] },
+    { "id": "station:2511", "name": "방화", "aliases": [], "evidence": [] },
+    { "id": "station:2561", "name": "마천", "aliases": [], "evidence": [] }
+  ],
+  "stationLines": [
+    {
+      "id": "station-line:S1:5:2543",
+      "stationId": "station:2543",
+      "lineId": "line:S1:5",
+      "sourceStationCode": "2543",
+      "sequence": 33,
+      "previousStationLineId": "station-line:S1:5:2542",
+      "nextStationLineId": "station-line:S1:5:2544",
+      "evidence": []
+    },
+    { "id": "station-line:S1:5:2542", "stationId": "station:2542", "lineId": "line:S1:5", "sourceStationCode": "2542", "sequence": 32, "previousStationLineId": null, "nextStationLineId": "station-line:S1:5:2543", "evidence": [] },
+    { "id": "station-line:S1:5:2544", "stationId": "station:2544", "lineId": "line:S1:5", "sourceStationCode": "2544", "sequence": 34, "previousStationLineId": "station-line:S1:5:2543", "nextStationLineId": null, "evidence": [] },
+    { "id": "station-line:S1:5:2511", "stationId": "station:2511", "lineId": "line:S1:5", "sourceStationCode": "2511", "sequence": 1, "previousStationLineId": null, "nextStationLineId": null, "evidence": [] },
+    { "id": "station-line:S1:5:2561", "stationId": "station:2561", "lineId": "line:S1:5", "sourceStationCode": "2561", "sequence": 47, "previousStationLineId": null, "nextStationLineId": null, "evidence": [] }
+  ],
+  "platforms": [
+    {
+      "id": "platform:S1:5:2543:1",
+      "stationLineId": "station-line:S1:5:2543",
+      "sourcePlatformNumber": "1",
+      "floor": "B3",
+      "direction": {
+        "previousStationLineId": "station-line:S1:5:2544",
+        "nextStationLineId": "station-line:S1:5:2542",
+        "terminalStationLineId": "station-line:S1:5:2511",
+        "sourceUpDownCode": "1",
+        "displayLabel": "방화 방면"
+      },
+      "evidence": [
+        {
+          "sourceSystem": "kric",
+          "dataset": "convenientInfo/stPlf",
+          "rawRecordKey": "S1:5:2543:1",
+          "collectedAt": "2026-09-18T01:29:34.781Z",
+          "observedAt": null,
+          "verificationStatus": "verified"
+        }
+      ]
+    },
+    {
+      "id": "platform:S1:5:2543:2",
+      "stationLineId": "station-line:S1:5:2543",
+      "sourcePlatformNumber": "2",
+      "floor": "B3",
+      "direction": {
+        "previousStationLineId": "station-line:S1:5:2542",
+        "nextStationLineId": "station-line:S1:5:2544",
+        "terminalStationLineId": "station-line:S1:5:2561",
+        "sourceUpDownCode": "2",
+        "displayLabel": "마천 방면"
+      },
+      "evidence": [
+        {
+          "sourceSystem": "kric",
+          "dataset": "convenientInfo/stPlf",
+          "rawRecordKey": "S1:5:2543:2",
+          "collectedAt": "2026-09-18T01:29:34.781Z",
+          "observedAt": null,
+          "verificationStatus": "verified"
+        }
+      ]
+    }
+  ],
+  "places": [
+    { "id": "place:2543:exit:2", "stationLineId": "station-line:S1:5:2543", "type": "surface_exit", "name": "2번 출입구", "floor": "1F", "exitNumber": "2", "platformId": null, "evidence": [] },
+    { "id": "place:2543:exit:6", "stationLineId": "station-line:S1:5:2543", "type": "surface_exit", "name": "6번 출입구", "floor": "1F", "exitNumber": "6", "platformId": null, "evidence": [] },
+    { "id": "place:2543:concourse:B2", "stationLineId": "station-line:S1:5:2543", "type": "concourse", "name": "B2 대합실", "floor": "B2", "exitNumber": null, "platformId": null, "evidence": [] },
+    { "id": "place:2543:gate:B2", "stationLineId": "station-line:S1:5:2543", "type": "fare_gate", "name": "B2 개찰구", "floor": "B2", "exitNumber": null, "platformId": null, "evidence": [] },
+    { "id": "place:2543:platform:1", "stationLineId": "station-line:S1:5:2543", "type": "platform", "name": "B3 방화 방면 승강장", "floor": "B3", "exitNumber": null, "platformId": "platform:S1:5:2543:1", "evidence": [] },
+    { "id": "place:2543:platform:2", "stationLineId": "station-line:S1:5:2543", "type": "platform", "name": "B3 마천 방면 승강장", "floor": "B3", "exitNumber": null, "platformId": "platform:S1:5:2543:2", "evidence": [] }
+  ],
+  "facilities": [
+    { "id": "facility:2543:internal1", "stationLineId": "station-line:S1:5:2543", "type": "elevator", "name": "승강기)엘리베이터-답십리 내부1", "operatingSection": "B2-B3", "locationDescription": "마장 방면4-4", "servedPlaceIds": ["place:2543:concourse:B2", "place:2543:platform:1"], "evidence": [] },
+    { "id": "facility:2543:internal2", "stationLineId": "station-line:S1:5:2543", "type": "elevator", "name": "승강기)엘리베이터-답십리 내부2", "operatingSection": "B2-B3", "locationDescription": "장한평 방면5-1", "servedPlaceIds": ["place:2543:concourse:B2", "place:2543:platform:2"], "evidence": [] },
+    { "id": "facility:2543:external3", "stationLineId": "station-line:S1:5:2543", "type": "elevator", "name": "승강기)엘리베이터-답십리 외부3", "operatingSection": "B2-1F", "locationDescription": "2번 출입구", "servedPlaceIds": ["place:2543:exit:2", "place:2543:concourse:B2"], "evidence": [] },
+    { "id": "facility:2543:external4", "stationLineId": "station-line:S1:5:2543", "type": "elevator", "name": "승강기)엘리베이터-답십리 외부4", "operatingSection": "B2-1F", "locationDescription": "6번 출입구", "servedPlaceIds": ["place:2543:exit:6", "place:2543:concourse:B2"], "evidence": [] }
+  ],
+  "boardingPoints": [
+    {
+      "id": "boarding:2543:1:4-4",
+      "platformId": "platform:S1:5:2543:1",
+      "position": { "carNumber": 4, "doorNumber": 4 },
+      "adjacentFacilityIds": ["facility:2543:internal1"],
+      "gapDistanceCm": 9,
+      "recommended": true,
+      "evidence": [
+        { "sourceSystem": "kric", "dataset": "vulnerableUserInfo/stationElevatorCarNumber", "rawRecordKey": "S1:5:2543:1:4:4", "collectedAt": "2026-09-28T01:11:11.728Z", "observedAt": null, "verificationStatus": "verified" },
+        { "sourceSystem": "kric", "dataset": "vulnerableUserInfo/stationPlatformTrainDistance", "rawRecordKey": "S1:5:2543:1:4:4", "collectedAt": "2026-09-18T01:29:34.781Z", "observedAt": null, "verificationStatus": "verified" }
+      ]
+    },
+    {
+      "id": "boarding:2543:2:5-1",
+      "platformId": "platform:S1:5:2543:2",
+      "position": { "carNumber": 5, "doorNumber": 1 },
+      "adjacentFacilityIds": ["facility:2543:internal2"],
+      "gapDistanceCm": 9,
+      "recommended": true,
+      "evidence": []
+    }
+  ],
+  "paths": [
+    {
+      "id": "path:2543:entry:1",
+      "stationLineId": "station-line:S1:5:2543",
+      "type": "entry",
+      "sourcePathManagementNumber": "1",
+      "fromPlaceId": "place:2543:exit:2",
+      "toPlaceId": "place:2543:platform:1",
+      "directionCondition": {
+        "incomingStationLineId": null,
+        "outgoingStationLineId": "station-line:S1:5:2542",
+        "terminalStationLineId": "station-line:S1:5:2511",
+        "sourcePreviousStationCode": null,
+        "sourceNextStationCode": "2542"
+      },
+      "segmentIds": ["segment:2543:entry:1:1", "segment:2543:entry:1:2", "segment:2543:entry:1:3", "segment:2543:entry:1:4", "segment:2543:entry:1:5", "segment:2543:entry:1:6"],
+      "evidence": [
+        { "sourceSystem": "kric", "dataset": "handicapped/stationMovement", "rawRecordKey": "S1:5:2543:2542:1", "collectedAt": "2026-09-18T01:29:34.781Z", "observedAt": null, "verificationStatus": "verified" }
+      ]
+    }
+  ],
+  "pathSegments": [
+    { "id": "segment:2543:entry:1:1", "pathId": "path:2543:entry:1", "order": 1, "fromPlaceId": "place:2543:exit:2", "toPlaceId": "place:2543:concourse:B2", "facilityId": "facility:2543:external3", "instruction": "2번 출입구 옆 엘리베이터로 B2 대합실까지 이동하세요.", "rawInstruction": "1) (1F) 2번 출입구 옆 엘리베이터 탑승 ", "mappingStatus": "mapped", "evidence": [] },
+    { "id": "segment:2543:entry:1:2", "pathId": "path:2543:entry:1", "order": 2, "fromPlaceId": null, "toPlaceId": "place:2543:concourse:B2", "facilityId": null, "instruction": "B2 대합실로 이동하세요.", "rawInstruction": "2) (B2) 대합실로 이동 ", "mappingStatus": "partial", "evidence": [] },
+    { "id": "segment:2543:entry:1:3", "pathId": "path:2543:entry:1", "order": 3, "fromPlaceId": "place:2543:concourse:B2", "toPlaceId": "place:2543:gate:B2", "facilityId": null, "instruction": "교통카드를 태그한 뒤 승강장 방향 엘리베이터로 이동하세요.", "rawInstruction": "3) 승차 태그 후 승강장 방향 엘리베이터 탑승", "mappingStatus": "partial", "evidence": [] },
+    { "id": "segment:2543:entry:1:4", "pathId": "path:2543:entry:1", "order": 4, "fromPlaceId": "place:2543:gate:B2", "toPlaceId": "place:2543:platform:1", "facilityId": "facility:2543:internal1", "instruction": "엘리베이터로 B3 승강장까지 이동하세요.", "rawInstruction": "4) (B3) 승강장으로 이동", "mappingStatus": "mapped", "evidence": [] },
+    { "id": "segment:2543:entry:1:5", "pathId": "path:2543:entry:1", "order": 5, "fromPlaceId": "place:2543:platform:1", "toPlaceId": "place:2543:platform:1", "facilityId": null, "instruction": "B3 마장 방면 승강장으로 이동하세요.", "rawInstruction": "5) (B3) 마장 방면 승강장으로 이동", "mappingStatus": "mapped", "evidence": [] },
+    { "id": "segment:2543:entry:1:6", "pathId": "path:2543:entry:1", "order": 6, "fromPlaceId": "place:2543:platform:1", "toPlaceId": null, "facilityId": null, "instruction": "휠체어칸에 승차하세요.", "rawInstruction": "6) 승차(휠체어칸)", "mappingStatus": "partial", "evidence": [] }
+  ],
+  "statusObservations": [
+    { "id": "status:2543:internal1:2026-09-18T01:30:07.044Z", "facilityId": "facility:2543:internal1", "status": "operational", "sourceStatus": "사용가능", "observedAt": null, "collectedAt": "2026-09-18T01:30:07.044Z", "expiresAt": "2026-09-18T02:30:07.044Z", "evidence": [{ "sourceSystem": "seoul_metro", "dataset": "SeoulMetroFaciInfo", "rawRecordKey": "2543:승강기)엘리베이터-답십리 내부1", "collectedAt": "2026-09-18T01:30:07.044Z", "observedAt": null, "verificationStatus": "verified" }] },
+    { "id": "status:2543:internal2:2026-09-18T01:30:07.044Z", "facilityId": "facility:2543:internal2", "status": "operational", "sourceStatus": "사용가능", "observedAt": null, "collectedAt": "2026-09-18T01:30:07.044Z", "expiresAt": "2026-09-18T02:30:07.044Z", "evidence": [] },
+    { "id": "status:2543:external3:2026-09-18T01:30:07.044Z", "facilityId": "facility:2543:external3", "status": "operational", "sourceStatus": "사용가능", "observedAt": null, "collectedAt": "2026-09-18T01:30:07.044Z", "expiresAt": "2026-09-18T02:30:07.044Z", "evidence": [] },
+    { "id": "status:2543:external4:2026-09-18T01:30:07.044Z", "facilityId": "facility:2543:external4", "status": "operational", "sourceStatus": "사용가능", "observedAt": null, "collectedAt": "2026-09-18T01:30:07.044Z", "expiresAt": "2026-09-18T02:30:07.044Z", "evidence": [] }
+  ],
+  "unmappedSourceRecords": [
+    { "id": "unmapped:stationMovement:elevator-codes", "sourceSystem": "kric", "dataset": "handicapped/stationMovement", "rawRecordKey": "S1:5:2543:2542:1", "fieldNames": ["elvtTpCd", "elvtSttCd"], "reason": "표본 값이 null이고 경로 관리번호와 서울 시설 사이의 공통 ID가 없어 특정 시설 상태로 연결할 수 없음", "collectedAt": "2026-09-18T01:29:34.781Z" },
+    { "id": "unmapped:seoul:facility-id-observed-at", "sourceSystem": "seoul_metro", "dataset": "SeoulMetroFaciInfo", "rawRecordKey": null, "fieldNames": ["stableFacilityId", "observedAt"], "reason": "응답에 KRIC와 공유하는 시설 ID와 행별 상태 관측 시각이 없음", "collectedAt": "2026-09-18T01:30:07.044Z" },
+    { "id": "unmapped:stationMovement:segment-boundaries", "sourceSystem": "kric", "dataset": "handicapped/stationMovement", "rawRecordKey": "S1:5:2543:2542:1", "fieldNames": ["stMovePath", "edMovePath", "mvContDtl"], "reason": "일부 단계는 출발·도착 Place 경계를 구분하지 않는 자연어이므로 partial로 보존", "collectedAt": "2026-09-18T01:29:34.781Z" }
+  ]
+}
