@@ -10,7 +10,6 @@ const stepTypeLabels: Record<string, string> = {
   train: '열차 이동',
   transfer: '환승',
   exit: '역 퇴장',
-  safety: '안전 안내',
 };
 
 interface GuidanceStepCardProps {

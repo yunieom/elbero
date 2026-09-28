@@ -8,7 +8,6 @@ export const JOURNEY_STEP_TYPE = {
   TRAIN: 'train',
   TRANSFER: 'transfer',
   EXIT: 'exit',
-  SAFETY: 'safety',
 } as const;
 
 export type JourneyStepType =

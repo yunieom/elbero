@@ -21,18 +21,21 @@ describe('JourneyService', () => {
 
     expect(result.recommendedRouteId).toBe('line-5-direct');
     expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.OPERATIONAL);
-    expect(result.candidates[0].steps[4].platformGap).toEqual({
+    expect(result.candidates[0].steps[3].platformGap).toEqual({
       distanceCm: 9,
       level: 'green',
       label: '안전',
     });
+    expect(result.candidates[0].steps).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ type: 'safety' })]),
+    );
 
     const surfaceGroup = result.candidates[0].facilityGroups.find(
       (group) => group.id === 'gangdong-surface',
     );
     expect(surfaceGroup?.status).toBe(ELEVATOR_STATUS.OPERATIONAL);
     expect(surfaceGroup?.facilities).toHaveLength(1);
-    expect(result.candidates[0].steps[6].instruction).not.toContain('2-1번');
+    expect(result.candidates[0].steps[5].instruction).not.toContain('2-1번');
   });
 
   it('답십리→굽은다리는 2번 출구 실시간 상태를 연결해 추천한다', async () => {

@@ -226,18 +226,10 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             instruction:
               '5호선 장한평 방면 열차의 8호차 4번 문을 이용하세요.',
             evidence: 'KRIC stationElevatorCarNumber · 강동',
-          },
-          {
-            order: 5,
-            type: JOURNEY_STEP_TYPE.SAFETY,
-            stationName: '답십리',
-            instruction:
-              '8호차 4번 문 위치의 승강장 이격거리는 9cm로 안전(green) 구간입니다.',
-            evidence: 'KRIC stationPlatformTrainDistance · 답십리 승강장 2',
             platformGap: toPlatformGap(9),
           },
           {
-            order: 6,
+            order: 5,
             type: JOURNEY_STEP_TYPE.ELEVATOR,
             stationName: '강동',
             instruction:
@@ -246,7 +238,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             evidence: 'KRIC stationMovement · 강동 길동·둔촌동 방면 역순',
           },
           {
-            order: 7,
+            order: 6,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '강동',
             instruction:
