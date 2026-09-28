@@ -6,6 +6,7 @@ import {
   type SeoulElevatorFacilityRow,
 } from '../elevator-status/types/seoul-elevator-status.type.js';
 import { VERIFIED_JOURNEYS } from './data/verified-journeys.data.js';
+import { createLine5JourneyDefinition } from './line-5-journey.factory.js';
 import type {
   JourneyFacilityGroupResDto,
   JourneyFacilityStatusResDto,
@@ -32,11 +33,13 @@ export class JourneyService {
   ): Promise<JourneyPlanResDto> {
     const normalizedOrigin = originStationCode.padStart(4, '0');
     const normalizedDestination = destinationStationCode.padStart(4, '0');
-    const definition = VERIFIED_JOURNEYS.find(
+    const definition =
+      VERIFIED_JOURNEYS.find(
       (journey) =>
         journey.originStationCode === normalizedOrigin &&
         journey.destinationStationCode === normalizedDestination,
-    );
+      ) ??
+      createLine5JourneyDefinition(normalizedOrigin, normalizedDestination);
 
     if (!definition) {
       throw new UnprocessableEntityException({

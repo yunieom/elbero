@@ -118,6 +118,32 @@ describe('JourneyService', () => {
     );
     expect(getSnapshot).not.toHaveBeenCalled();
   });
+
+  it('하드코딩되지 않은 5호선 역 조합도 일반 경로를 반환한다', async () => {
+    getSnapshot.mockResolvedValue({
+      checkedAt: '2026-09-28T00:00:00.000Z',
+      expiresAt: Date.now() + 60_000,
+      rows: [],
+    });
+
+    const result = await service.plan('2534', '2558');
+
+    expect(result.journeyId).toBe('line-5-2534-to-2558');
+    expect(result.candidates[0]).toMatchObject({
+      id: 'line-5-general-route',
+      status: ELEVATOR_STATUS.UNKNOWN,
+      recommended: false,
+    });
+    expect(result.recommendedRouteId).toBeNull();
+    expect(result.candidates[0].steps).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: 'train',
+          instruction: expect.stringContaining('5호차 1번 문'),
+        }),
+      ]),
+    );
+  });
 });
 
 function snapshotForJourney(journeyId: string) {
