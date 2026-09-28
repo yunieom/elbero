@@ -14,6 +14,20 @@ describe('JourneyService', () => {
     getSnapshot.mockReset();
   });
 
+  it('검증된 단일 출구 여정은 출구 중이라는 표현을 사용하지 않는다', () => {
+    const exitSteps = VERIFIED_JOURNEYS.flatMap((journey) =>
+      journey.candidates.flatMap((candidate) =>
+        candidate.steps.filter((step) => step.type === 'exit'),
+      ),
+    );
+
+    expect(exitSteps.length).toBeGreaterThan(0);
+    for (const step of exitSteps) {
+      expect(step.instruction).toMatch(/\d+(?:-\d+)?번 출구 쪽 지상 엘리베이터/);
+      expect(step.instruction).not.toContain('출구 중');
+    }
+  });
+
   it('답십리→강동에서 현장 확인된 1번 출구만 사용한다', async () => {
     getSnapshot.mockResolvedValue(snapshotForJourney('dapsimni-to-gangdong'));
 

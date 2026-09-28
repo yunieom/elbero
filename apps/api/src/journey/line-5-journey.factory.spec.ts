@@ -71,4 +71,34 @@ describe('createLine5JourneyDefinition', () => {
       }
     }
   });
+
+  it('5호선 전체 역의 퇴장 문구를 출구 개수에 맞게 만든다', () => {
+    const stations = LINE_5_GUIDANCE.stations;
+
+    for (const destination of stations) {
+      const exitNumbers: readonly string[] = destination.exitNumbers;
+      const origin = stations.find(
+        (station) => station.stationCode !== destination.stationCode,
+      )!;
+      const journey = createLine5JourneyDefinition(
+        origin.stationCode,
+        destination.stationCode,
+      );
+      const exitStep = journey?.candidates[0].steps.find(
+        (step) => step.type === 'exit',
+      );
+
+      expect(exitStep).toBeDefined();
+      if (exitNumbers.length === 0) {
+        expect(exitStep?.instruction).toContain('출구 정보가 확인되지 않았습니다');
+      } else if (exitNumbers.length === 1) {
+        expect(exitStep?.instruction).toBe(
+          `${exitNumbers[0]}번 출구 쪽 지상 엘리베이터를 이용하세요.`,
+        );
+        expect(exitStep?.instruction).not.toContain('출구 중');
+      } else {
+        expect(exitStep?.instruction).toContain('출구 중 목적지와 가까운');
+      }
+    }
+  });
 });

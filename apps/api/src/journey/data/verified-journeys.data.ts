@@ -241,8 +241,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 6,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '강동',
-            instruction:
-              '개찰구를 통과한 뒤 현장에서 확인된 1번 출구 엘리베이터로 지상에 올라가세요.',
+            instruction: '1번 출구 쪽 지상 엘리베이터를 이용하세요.',
             facilityGroupId: 'gangdong-surface',
             evidence:
               '사용자 현장 확인(2026-09-18) + KRIC stationMovement 역순 + SeoulMetroFaciInfo',
@@ -350,8 +349,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 6,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '굽은다리',
-            instruction:
-              '개찰구를 통과한 뒤 2번 출구 엘리베이터로 지상에 올라가세요.',
+            instruction: '2번 출구 쪽 지상 엘리베이터를 이용하세요.',
             facilityGroupId: 'gubeundari-surface',
             evidence: 'SeoulMetroFaciInfo + KRIC stationElevator',
           },
@@ -446,8 +444,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 8,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '홍대입구',
-            instruction:
-              '개찰구를 통과하고 8번 출구 엘리베이터를 타고 지상으로 이동하세요.',
+            instruction: '8번 출구 쪽 지상 엘리베이터를 이용하세요.',
             facilityGroupId: 'hongik-surface',
             evidence: 'KRIC stationMovement · 홍대입구 합정 방면 역순',
           },
@@ -511,8 +508,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 8,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '홍대입구',
-            instruction:
-              '개찰구를 통과하고 8번 출구 엘리베이터를 타고 지상으로 이동하세요.',
+            instruction: '8번 출구 쪽 지상 엘리베이터를 이용하세요.',
             facilityGroupId: 'hongik-surface',
             evidence: 'KRIC stationMovement · 홍대입구 합정 방면 역순',
           },
