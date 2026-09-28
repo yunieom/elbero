@@ -199,7 +199,12 @@ async function fetchTextWithRetry(url, attempts = 5) {
   throw lastError;
 }
 
-async function fetchKric(endpoint, params, requestId) {
+async function fetchKric(
+  endpoint,
+  params,
+  requestId,
+  acceptedResultCodes = ['00', '03'],
+) {
   const url = new URL(`${KRIC_API_ROOT}${endpoint}`);
   url.searchParams.set('serviceKey', process.env.KRIC_SERVICE_KEY);
   url.searchParams.set('format', 'json');
@@ -216,7 +221,7 @@ async function fetchKric(endpoint, params, requestId) {
   }
 
   const resultCode = payload?.header?.resultCode ?? null;
-  if (!response.ok || !['00', '03'].includes(resultCode)) {
+  if (!response.ok || !acceptedResultCodes.includes(resultCode)) {
     throw new Error(
       `${requestId}: HTTP ${response.status}, API ${resultCode ?? 'unknown'} ${payload?.header?.resultMsg ?? ''}`,
     );
@@ -489,12 +494,19 @@ const stationPayloads = await mapLimit(stations, REQUEST_CONCURRENCY, async (sta
     baseParams,
     `${station.stinCd}-stationElevatorCarNumber`,
   );
+  const nearbyStairs = await fetchKric(
+    '/vulnerableUserInfo/stationStairCarNumber',
+    baseParams,
+    `${station.stinCd}-stationStairCarNumber`,
+    ['00', '03', '30'],
+  );
   return {
     station,
     movement,
     elevatorMovement,
     elevators,
     nearbyCars,
+    nearbyStairs,
   };
 });
 
@@ -542,6 +554,7 @@ for (const item of stationPayloads) {
   const elevatorMovementRows = body(item.elevatorMovement);
   const elevatorRows = body(item.elevators);
   const nearbyCarRows = body(item.nearbyCars);
+  const nearbyStairRows = body(item.nearbyStairs);
   const stationPlatforms = platformsByStation.get(stationKey) ?? [];
   const stationGapPayloads = gapsByStation.get(stationKey) ?? [];
   const gapRows = stationGapPayloads.flatMap((gap) => body(gap.payload));
@@ -559,6 +572,7 @@ for (const item of stationPayloads) {
     stinElevatorMovement: elevatorMovementRows.length,
     stationElevator: elevatorRows.length,
     stationElevatorCarNumber: nearbyCarRows.length,
+    stationStairCarNumber: nearbyStairRows.length,
     stPlf: stationPlatforms.length,
     stationPlatformTrainDistance: gapRows.length,
     SeoulMetroFaciInfo: seoulRows.length,
@@ -804,6 +818,7 @@ const report = {
     stationElevator: '/convenientInfo/stationElevator',
     stationElevatorCarNumber:
       '/vulnerableUserInfo/stationElevatorCarNumber',
+    stationStairCarNumber: '/vulnerableUserInfo/stationStairCarNumber',
     stationPlatformTrainDistance:
       '/vulnerableUserInfo/stationPlatformTrainDistance',
     stPlf: '/convenientInfo/stPlf',

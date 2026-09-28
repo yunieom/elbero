@@ -1,6 +1,6 @@
 # 5호선 API 정보 차이 감사
 
-- 수집 시각: 2026-09-22T07:09:52.560Z
+- 수집 시각: 2026-09-28T01:11:11.728Z
 - 대상: 56개 역
 - 차이가 기록된 역: 49개
 - 차이 항목: 85건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 56 | 0 | 1760 |
 | stationElevator | 55 | 1 | 184 |
 | stationElevatorCarNumber | 50 | 6 | 111 |
+| stationStairCarNumber | 0 | 56 | 0 |
 | stPlf | 56 | 0 | 112 |
 | stationPlatformTrainDistance | 56 | 0 | 3584 |
 | SeoulMetroFaciInfo | 55 | 1 | 184 |
