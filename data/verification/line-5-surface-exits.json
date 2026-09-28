@@ -6,7 +6,14 @@
   "policy": {
     "sourceApiResponsesRemainImmutable": true,
     "onlyVerifiedEntriesMayOverrideRouteText": true,
-    "liveStatusRequiresASeparatelyVerifiedFacilityMatch": true
+    "liveStatusRequiresASeparatelyVerifiedFacilityMatch": true,
+    "userFacingExitSourcePriority": [
+      "SeoulMetroFaciInfo",
+      "stationElevator",
+      "manual_verification"
+    ],
+    "adjacentExitStatusMayBeReused": true,
+    "sourceDifferencesAreInternalOnly": true
   },
   "verifiedStations": [
     { "stationCode": "2511", "stationName": "방화", "exitNumbers": ["2"], "verificationMethod": "map", "evidenceNote": "지도 확인" },
@@ -34,7 +41,7 @@
     { "stationCode": "2549", "stationName": "강동", "exitNumbers": ["1"], "verificationMethod": "field", "evidenceNote": "현장 확인" },
     { "stationCode": "2550", "stationName": "길동", "exitNumbers": ["1"], "verificationMethod": "field", "evidenceNote": "현장 확인" },
     { "stationCode": "2555", "stationName": "둔촌동", "exitNumbers": ["2", "4"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
-    { "stationCode": "2551", "stationName": "굽은다리", "exitNumbers": ["1"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
+    { "stationCode": "2551", "stationName": "굽은다리", "exitNumbers": ["2"], "verificationMethod": "seoul_live_status", "evidenceNote": "서울 가동현황과 KRIC 시설 현황 확인" },
     { "stationCode": "2552", "stationName": "명일", "exitNumbers": ["3"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
     { "stationCode": "2553", "stationName": "고덕", "exitNumbers": ["2", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },
     { "stationCode": "2558", "stationName": "오금", "exitNumbers": ["1", "5"], "verificationMethod": "facility_information", "evidenceNote": "편의정보 확인" },

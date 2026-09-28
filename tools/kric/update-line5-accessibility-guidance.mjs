@@ -527,6 +527,14 @@ function enrichManualStation(station) {
 }
 
 function toRuntimeStation(station, stationItem) {
+  const liveElevators = liveElevatorsByStation.get(station.stationCode) ?? [];
+  const liveSurfaceExitNumbers = unique(
+    liveElevators
+      .filter((row) => classifyLiveElevator(row) === 'surface')
+      .flatMap((row) =>
+        extractExitNumbers(`${row.INSTL_PSTN ?? ''} ${row.ELVTR_NM ?? ''}`),
+      ),
+  );
   const sourceExitNumbers = unique(
     (stationItem?.elevators?.body ?? [])
       .flatMap((elevator) => String(elevator.exitNo ?? '').split(','))
@@ -537,9 +545,21 @@ function toRuntimeStation(station, stationItem) {
     stationCode: station.stationCode,
     stationName: station.stationName,
     exitNumbers:
-      verifiedSurfaceExits.get(station.stationCode) ?? sourceExitNumbers,
+      liveSurfaceExitNumbers.length > 0
+        ? liveSurfaceExitNumbers
+        : sourceExitNumbers.length > 0
+          ? sourceExitNumbers
+          : (verifiedSurfaceExits.get(station.stationCode) ?? []),
+    exitSource:
+      liveSurfaceExitNumbers.length > 0
+        ? 'SeoulMetroFaciInfo'
+        : sourceExitNumbers.length > 0
+          ? 'stationElevator'
+          : verifiedSurfaceExits.has(station.stationCode)
+            ? 'manual_verification'
+            : 'unavailable',
     verificationMethod: station.verificationMethod,
-    liveElevators: (liveElevatorsByStation.get(station.stationCode) ?? []).map(
+    liveElevators: liveElevators.map(
       (row, index) => ({
         id: `${station.stationCode}-live-${index + 1}`,
         name: row.ELVTR_NM,
@@ -575,6 +595,12 @@ function toRuntimeStation(station, stationItem) {
             : null,
     })),
   };
+}
+
+function extractExitNumbers(value) {
+  return [...String(value).matchAll(/(\d+(?:-\d+)?)\s*번\s*(?:출입구|출구)/g)].map(
+    (match) => match[1],
+  );
 }
 
 function classifyLiveElevator(row) {

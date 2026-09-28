@@ -57,7 +57,6 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
             </Text>
           </View>
         ) : null}
-        <Text style={styles.evidence}>근거 · {step.evidence}</Text>
       </View>
     </View>
   );
@@ -147,11 +146,5 @@ const styles = StyleSheet.create({
   },
   gapWarningText: {
     color: colors.warning,
-  },
-  evidence: {
-    color: colors.textMuted,
-    fontSize: 11,
-    lineHeight: 17,
-    marginTop: spacing.sm,
   },
 });

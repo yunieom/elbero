@@ -123,6 +123,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -195,6 +196,7 @@ export const LINE_5_GUIDANCE = {
         "1",
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -260,6 +262,7 @@ export const LINE_5_GUIDANCE = {
         "3",
         "4"
       ],
+      "exitSource": "manual_verification",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -325,6 +328,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -455,11 +459,13 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2515",
       "stationName": "마곡",
       "exitNumbers": [
-        "2",
+        "1",
         "3",
+        "4",
         "5",
         "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -552,6 +558,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -623,6 +630,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "1"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -694,6 +702,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -756,8 +765,10 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2519",
       "stationName": "까치산",
       "exitNumbers": [
-        "2"
+        "2",
+        "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_missing",
       "liveElevators": [
         {
@@ -797,6 +808,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "manual_verification",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -861,6 +873,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "5"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -932,6 +945,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1003,6 +1017,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1074,6 +1089,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1161,6 +1177,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1232,6 +1249,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1325,6 +1343,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "3"
       ],
+      "exitSource": "manual_verification",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1389,6 +1408,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1460,6 +1480,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1522,9 +1543,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2530",
       "stationName": "공덕",
       "exitNumbers": [
-        "2",
-        "5"
+        "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1590,6 +1611,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1675,6 +1697,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "8"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1740,6 +1763,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "6"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -1811,6 +1835,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "1"
       ],
+      "exitSource": "stationElevator",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -1875,6 +1900,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "8"
       ],
+      "exitSource": "manual_verification",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -1939,6 +1965,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "8"
       ],
+      "exitSource": "manual_verification",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -1990,8 +2017,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2537",
       "stationName": "동대문역사문화공원",
       "exitNumbers": [
-        "1"
+        "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2057,6 +2085,7 @@ export const LINE_5_GUIDANCE = {
         "1",
         "3"
       ],
+      "exitSource": "manual_verification",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [],
       "directions": [
@@ -2106,6 +2135,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "3"
       ],
+      "exitSource": "stationElevator",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2177,6 +2207,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2246,9 +2277,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2541",
       "stationName": "왕십리",
       "exitNumbers": [
-        "4",
-        "6-1"
+        "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2320,6 +2351,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2392,6 +2424,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "6"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2469,8 +2502,9 @@ export const LINE_5_GUIDANCE = {
       "stationName": "장한평",
       "exitNumbers": [
         "1",
-        "7"
+        "8"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2540,9 +2574,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2545",
       "stationName": "군자",
       "exitNumbers": [
-        "4",
-        "7"
+        "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2614,6 +2648,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2683,8 +2718,10 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2547",
       "stationName": "광나루",
       "exitNumbers": [
-        "1"
+        "1",
+        "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2761,8 +2798,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2548",
       "stationName": "천호",
       "exitNumbers": [
-        "6"
+        "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2841,6 +2879,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "1"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -2893,6 +2932,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "1"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -2965,6 +3005,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3041,8 +3082,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2551",
       "stationName": "굽은다리",
       "exitNumbers": [
-        "1"
+        "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3114,6 +3156,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -3186,6 +3229,7 @@ export const LINE_5_GUIDANCE = {
         "1",
         "3"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3262,8 +3306,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2552",
       "stationName": "명일",
       "exitNumbers": [
-        "3"
+        "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3333,9 +3378,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2558",
       "stationName": "오금",
       "exitNumbers": [
-        "1",
         "5"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -3422,6 +3467,7 @@ export const LINE_5_GUIDANCE = {
         "2",
         "5"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3498,8 +3544,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2559",
       "stationName": "개롱",
       "exitNumbers": [
-        "3"
+        "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -3570,10 +3617,14 @@ export const LINE_5_GUIDANCE = {
       "stationName": "상일동",
       "exitNumbers": [
         "1",
+        "2",
+        "3",
         "4",
+        "5",
         "6",
-        "7"
+        "8"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -3669,6 +3720,7 @@ export const LINE_5_GUIDANCE = {
         "3",
         "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3791,8 +3843,9 @@ export const LINE_5_GUIDANCE = {
       "stationCode": "2560",
       "stationName": "거여",
       "exitNumbers": [
-        "1"
+        "2"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -3864,6 +3917,7 @@ export const LINE_5_GUIDANCE = {
       "exitNumbers": [
         "1"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -3936,6 +3990,7 @@ export const LINE_5_GUIDANCE = {
         "1",
         "6"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -4016,6 +4071,7 @@ export const LINE_5_GUIDANCE = {
         "5",
         "7"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {
@@ -4100,8 +4156,9 @@ export const LINE_5_GUIDANCE = {
       "stationName": "하남시청",
       "exitNumbers": [
         "3",
-        "5"
+        "6"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "manual_direction_assignment",
       "liveElevators": [
         {
@@ -4179,8 +4236,11 @@ export const LINE_5_GUIDANCE = {
       "stationName": "하남검단산",
       "exitNumbers": [
         "1",
+        "2",
+        "3",
         "4"
       ],
+      "exitSource": "SeoulMetroFaciInfo",
       "verificationMethod": "api_platform_linkage",
       "liveElevators": [
         {

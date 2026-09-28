@@ -80,20 +80,10 @@ export function JourneyResultScreen({
       </View>
 
       <JourneyStatusCard
+        blockingReasons={route.blockingReasons}
         reason={journey.selectionReason}
         status={route.status}
       />
-
-      {route.blockingReasons.length > 0 ? (
-        <View style={styles.blockingCard}>
-          <Text style={styles.blockingTitle}>확인이 필요한 내용</Text>
-          {route.blockingReasons.map((reason, index) => (
-            <Text key={`${index}-${reason}`} style={styles.blockingText}>
-              • {reason}
-            </Text>
-          ))}
-        </View>
-      ) : null}
 
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>이동 순서</Text>
@@ -288,23 +278,6 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontSize: 14,
     marginTop: spacing.xs,
-  },
-  blockingCard: {
-    borderRadius: radius.md,
-    padding: spacing.md,
-    marginTop: spacing.md,
-    backgroundColor: colors.warningSoft,
-  },
-  blockingTitle: {
-    color: colors.warning,
-    fontSize: 14,
-    fontWeight: '800',
-    marginBottom: spacing.xs,
-  },
-  blockingText: {
-    color: colors.warning,
-    fontSize: 13,
-    lineHeight: 20,
   },
   sectionHeader: {
     flexDirection: 'row',

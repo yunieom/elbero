@@ -13,7 +13,6 @@ export interface JourneyStep {
   type: string;
   stationName: string;
   instruction: string;
-  evidence: string;
   platformGap: JourneyPlatformGap | null;
 }
 

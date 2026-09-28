@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -38,6 +38,11 @@ export function StationPickerModal({
   onSelect,
 }: StationPickerModalProps) {
   const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    if (visible) setQuery('');
+  }, [title, visible]);
+
   const filteredStations = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase('ko');
     if (!normalizedQuery) return stations;

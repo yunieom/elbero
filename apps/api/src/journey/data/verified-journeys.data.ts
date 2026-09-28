@@ -294,17 +294,17 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
           },
           {
             id: 'gubeundari-surface',
-            label: '굽은다리 지상 출구 연결',
+            label: '굽은다리 2번 출구 엘리베이터',
             policy: 'all',
             facilities: [
               {
-                id: 'gubeundari-exit-1-verified',
+                id: 'gubeundari-exit-2',
                 stationCode: '2551',
                 stationName: '굽은다리',
-                role: '편의정보로 검증한 1번 출구와 서울 가동현황의 2번 출구 표기가 충돌하여 실시간 상태 연결 불가',
-                sourceFacilityName: null,
-                expectedOperatingSection: null,
-                expectedLocation: null,
+                role: 'B1 대합실에서 2번 출구 지상으로 이동',
+                sourceFacilityName: '승강기)엘리베이터-굽은다리 외부3',
+                expectedOperatingSection: 'B1-1F',
+                expectedLocation: '2번 출입구',
               },
             ],
           },
@@ -342,18 +342,10 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
               '전광판에서 하남검단산·상일동 방면인지 확인한 뒤 5호선 3호차 2번 문을 이용하세요. 마천 방면 열차는 타지 마세요.',
             evidence:
               'KRIC subwayRouteInfo + stationElevatorCarNumber · 굽은다리 승강장 2',
-          },
-          {
-            order: 5,
-            type: JOURNEY_STEP_TYPE.SAFETY,
-            stationName: '답십리',
-            instruction:
-              '3호차 2번 문 위치의 승강장 이격거리는 9cm로 안전(green) 구간입니다.',
-            evidence: 'KRIC stationPlatformTrainDistance · 답십리 승강장 2',
             platformGap: toPlatformGap(9),
           },
           {
-            order: 6,
+            order: 5,
             type: JOURNEY_STEP_TYPE.ELEVATOR,
             stationName: '굽은다리',
             instruction:
@@ -363,23 +355,13 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
               'KRIC stationMovement 역순 + stationElevatorCarNumber · 굽은다리',
           },
           {
-            order: 7,
-            type: JOURNEY_STEP_TYPE.SAFETY,
-            stationName: '굽은다리',
-            instruction:
-              '지상 엘리베이터 위치는 편의정보 확인 결과 1번 출구입니다. 다만 서울 가동현황은 2번 출구로 반환되어 1번 출구 시설의 실시간 상태와 연결할 수 없습니다.',
-            facilityGroupId: 'gubeundari-surface',
-            evidence:
-              '사용자 편의정보 확인(2026-09-18) + SeoulMetroFaciInfo 불일치',
-          },
-          {
-            order: 8,
+            order: 6,
             type: JOURNEY_STEP_TYPE.EXIT,
             stationName: '굽은다리',
             instruction:
-              '1번 출구 엘리베이터의 실제 운행 여부를 현장에서 확인한 뒤 지상으로 이동하세요.',
+              '개찰구를 통과한 뒤 2번 출구 엘리베이터로 지상에 올라가세요.',
             facilityGroupId: 'gubeundari-surface',
-            evidence: '사용자 편의정보 확인(2026-09-18)',
+            evidence: 'SeoulMetroFaciInfo + KRIC stationElevator',
           },
         ],
       },
