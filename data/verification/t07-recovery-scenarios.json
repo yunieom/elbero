@@ -1,0 +1,134 @@
+{
+  "snapshot": {
+    "snapshotSchemaVersion": 1,
+    "contractVersion": "1.0",
+    "snapshotId": "snapshot:dapsimni-to-olympic-park:20260928T030000Z",
+    "savedAt": "2026-09-28T03:00:00.000Z",
+    "expiresAt": "2026-09-28T04:00:00.000Z",
+    "journeyId": "line-5:2543:2556",
+    "originStationCode": "2543",
+    "destinationStationCode": "2556",
+    "selectedRouteId": "line-5-direct",
+    "currentStepOrder": 2,
+    "dataVersion": "2026-09-28.line5.1",
+    "statusCheckedAt": "2026-09-28T03:00:00.000Z",
+    "payload": {
+      "originName": "답십리",
+      "destinationName": "올림픽공원",
+      "route": {
+        "id": "line-5-direct",
+        "label": "5호선 직통",
+        "facilityStatus": "operational",
+        "steps": [
+          {
+            "id": "line-5:2543:2556-1",
+            "order": 1,
+            "type": "entry",
+            "stationName": "답십리",
+            "instruction": "2번 출구 쪽 지상 엘리베이터를 이용하세요."
+          },
+          {
+            "id": "line-5:2543:2556-2",
+            "order": 2,
+            "type": "train",
+            "stationName": "답십리",
+            "instruction": "마천 방면 열차를 이용하세요."
+          }
+        ]
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "name": "online-fresh",
+      "context": {
+        "isOnline": true,
+        "isSnapshotValid": true,
+        "now": "2026-09-28T03:30:00.000Z",
+        "currentContractVersion": "1.1",
+        "currentSnapshotSchemaVersion": 1,
+        "currentDataVersion": "2026-09-28.line5.1"
+      },
+      "expectedAction": "resume_fresh",
+      "expectedFacilityTrust": true
+    },
+    {
+      "name": "online-expired",
+      "context": {
+        "isOnline": true,
+        "isSnapshotValid": true,
+        "now": "2026-09-28T04:01:00.000Z",
+        "currentContractVersion": "1.0",
+        "currentSnapshotSchemaVersion": 1,
+        "currentDataVersion": "2026-09-28.line5.1"
+      },
+      "expectedAction": "refresh_then_resume",
+      "expectedFacilityTrust": false
+    },
+    {
+      "name": "offline-expired",
+      "context": {
+        "isOnline": false,
+        "isSnapshotValid": true,
+        "now": "2026-09-28T04:01:00.000Z",
+        "currentContractVersion": "1.0",
+        "currentSnapshotSchemaVersion": 1,
+        "currentDataVersion": null
+      },
+      "expectedAction": "resume_offline_limited",
+      "expectedFacilityTrust": false
+    },
+    {
+      "name": "online-data-version-changed",
+      "context": {
+        "isOnline": true,
+        "isSnapshotValid": true,
+        "now": "2026-09-28T03:30:00.000Z",
+        "currentContractVersion": "1.0",
+        "currentSnapshotSchemaVersion": 1,
+        "currentDataVersion": "2026-09-28.line5.2"
+      },
+      "expectedAction": "refresh_then_resume",
+      "expectedFacilityTrust": false
+    },
+    {
+      "name": "schema-incompatible",
+      "context": {
+        "isOnline": true,
+        "isSnapshotValid": true,
+        "now": "2026-09-28T03:30:00.000Z",
+        "currentContractVersion": "1.0",
+        "currentSnapshotSchemaVersion": 2,
+        "currentDataVersion": "2026-09-28.line5.1"
+      },
+      "expectedAction": "discard",
+      "expectedFacilityTrust": false
+    },
+    {
+      "name": "contract-major-incompatible",
+      "context": {
+        "isOnline": true,
+        "isSnapshotValid": true,
+        "now": "2026-09-28T03:30:00.000Z",
+        "currentContractVersion": "2.0",
+        "currentSnapshotSchemaVersion": 1,
+        "currentDataVersion": "2026-09-28.line5.1"
+      },
+      "expectedAction": "discard",
+      "expectedFacilityTrust": false
+    },
+    {
+      "name": "corrupted",
+      "context": {
+        "isOnline": false,
+        "isSnapshotValid": false,
+        "now": "2026-09-28T03:30:00.000Z",
+        "currentContractVersion": "1.0",
+        "currentSnapshotSchemaVersion": 1,
+        "currentDataVersion": null
+      },
+      "expectedAction": "discard",
+      "expectedFacilityTrust": false
+    }
+  ]
+}
