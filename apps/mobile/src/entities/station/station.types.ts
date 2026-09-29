@@ -1,5 +1,29 @@
 export type TransitLineId =
-  '5' | '1' | '2' | '3' | 'gyeongui-jungang' | 'airport';
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | 'gyeongui-jungang'
+  | 'airport'
+  | 'suin-bundang'
+  | 'gyeongchun'
+  | 'gyeonggang'
+  | 'seohae'
+  | 'shinbundang'
+  | 'incheon-1'
+  | 'incheon-2'
+  | 'ui-sinseol'
+  | 'sillim'
+  | 'gimpo-gold'
+  | 'everline'
+  | 'uijeongbu'
+  | 'gtx-a'
+  | 'airport-maglev';
 
 export interface Station {
   id: string;

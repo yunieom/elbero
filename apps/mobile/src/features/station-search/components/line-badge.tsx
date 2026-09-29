@@ -28,13 +28,14 @@ export function LineBadge({ lineId, compact = false }: LineBadgeProps) {
 
 const styles = StyleSheet.create({
   badge: {
-    width: 28,
+    minWidth: 28,
     height: 28,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: radius.pill,
+    paddingHorizontal: 4,
   },
-  compactBadge: { width: 24, height: 24 },
+  compactBadge: { minWidth: 24, height: 24 },
   text: { color: colors.white, fontSize: 13, fontWeight: '900' },
   compactText: { fontSize: 11 },
 });

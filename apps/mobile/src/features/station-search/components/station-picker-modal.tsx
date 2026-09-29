@@ -163,7 +163,7 @@ export function StationPickerModal({
                   : '일치하는 역이 없습니다.'}
               </Text>
               <Text style={styles.emptyText}>
-                1·2·3·5호선, 경의중앙선, 공항철도 역을 찾을 수 있어요.
+                수도권 전철 25개 노선의 역을 찾을 수 있어요.
               </Text>
             </View>
           }

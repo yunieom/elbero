@@ -47,7 +47,7 @@ export function StationSearchScreen() {
     }
     if (!origin.journeySupported || !destination.journeySupported) {
       setValidationMessage(
-        '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 5호선 경로만 안내할 수 있어요.',
+        '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 5호선과 7호선 경로를 안내할 수 있어요.',
       );
       return;
     }
@@ -76,7 +76,7 @@ export function StationSearchScreen() {
         </View>
         <Text style={styles.brand}>엘베로</Text>
         <View style={styles.betaBadge}>
-          <Text style={styles.betaText}>6개 노선 선택</Text>
+          <Text style={styles.betaText}>수도권 전철</Text>
         </View>
       </View>
 
