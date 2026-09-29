@@ -1,14 +1,16 @@
-import { UnprocessableEntityException } from '@nestjs/common';
+import type { JourneyContractResult } from '@elbero/contracts';
 import { ElevatorStatusClient } from '../elevator-status/elevator-status.client.js';
 import { ELEVATOR_STATUS } from '../elevator-status/types/seoul-elevator-status.type.js';
 import { VERIFIED_JOURNEYS } from './data/verified-journeys.data.js';
 import { JourneyService } from './journey.service.js';
+import { JourneyRouteEngine } from './journey-route-engine.service.js';
+import type { JourneyPlanResDto } from './dto/res/journey-plan.res.dto.js';
 import { createLine5JourneyDefinition } from './line-5-journey.factory.js';
 
 describe('JourneyService', () => {
   const getSnapshot = vi.fn();
   const client = { getSnapshot } as unknown as ElevatorStatusClient;
-  const service = new JourneyService(client);
+  const service = new JourneyService(client, new JourneyRouteEngine());
 
   beforeEach(() => {
     getSnapshot.mockReset();
@@ -23,7 +25,9 @@ describe('JourneyService', () => {
 
     expect(exitSteps.length).toBeGreaterThan(0);
     for (const step of exitSteps) {
-      expect(step.instruction).toMatch(/\d+(?:-\d+)?번 출구 쪽 지상 엘리베이터/);
+      expect(step.instruction).toMatch(
+        /\d+(?:-\d+)?번 출구 쪽 지상 엘리베이터/,
+      );
       expect(step.instruction).not.toContain('출구 중');
     }
   });
@@ -31,7 +35,7 @@ describe('JourneyService', () => {
   it('답십리→강동에서 현장 확인된 1번 출구만 사용한다', async () => {
     getSnapshot.mockResolvedValue(snapshotForJourney('dapsimni-to-gangdong'));
 
-    const result = await service.plan('2543', '2549');
+    const result = expectSuccess(await service.plan('2543', '2549'));
 
     expect(result.recommendedRouteId).toBe('line-5-direct');
     expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.OPERATIONAL);
@@ -53,11 +57,9 @@ describe('JourneyService', () => {
   });
 
   it('답십리→굽은다리는 2번 출구 실시간 상태를 연결해 추천한다', async () => {
-    getSnapshot.mockResolvedValue(
-      snapshotForJourney('dapsimni-to-gubeundari'),
-    );
+    getSnapshot.mockResolvedValue(snapshotForJourney('dapsimni-to-gubeundari'));
 
-    const result = await service.plan('2543', '2551');
+    const result = expectSuccess(await service.plan('2543', '2551'));
 
     expect(result.recommendedRouteId).toBe('line-5-hanam-branch');
     expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.OPERATIONAL);
@@ -91,13 +93,12 @@ describe('JourneyService', () => {
   it('동대문역사문화공원 필수 승강기가 보수중이면 을지로4가를 추천한다', async () => {
     const snapshot = snapshotForJourney('dapsimni-to-hongik');
     const brokenElevator = snapshot.rows.find(
-      (row) =>
-        row.ELVTR_NM === '승강기)엘리베이터-동역사(5) 내부2',
+      (row) => row.ELVTR_NM === '승강기)엘리베이터-동역사(5) 내부2',
     );
     brokenElevator!.USE_YN = '보수중';
     getSnapshot.mockResolvedValue(snapshot);
 
-    const result = await service.plan('2543', '239');
+    const result = expectSuccess(await service.plan('2543', '239'));
 
     expect(result.recommendedRouteId).toBe('transfer-at-euljiro4');
     expect(result.candidates[0]).toMatchObject({
@@ -120,17 +121,26 @@ describe('JourneyService', () => {
     );
     getSnapshot.mockResolvedValue(snapshot);
 
-    const result = await service.plan('2543', '2549');
+    const response = await service.plan('2543', '2549');
+    const result = expectSuccess(response);
 
     expect(result.recommendedRouteId).toBeNull();
     expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.UNKNOWN);
     expect(result.selectionReason).toContain('안전하게 추천할 경로가 없습니다');
+    expect(
+      response.ok && response.warnings.map((warning) => warning.code),
+    ).toEqual(
+      expect.arrayContaining(['DATA_MISSING', 'FACILITY_STATUS_UNKNOWN']),
+    );
   });
 
   it('검증되지 않은 역 조합은 UNSUPPORTED_JOURNEY로 거절한다', async () => {
-    await expect(service.plan('2543', '9999')).rejects.toBeInstanceOf(
-      UnprocessableEntityException,
-    );
+    const result = await service.plan('2543', '9999');
+    expect(result).toMatchObject({
+      ok: false,
+      error: { code: 'UNSUPPORTED_JOURNEY' },
+      meta: { dataVersion: null },
+    });
     expect(getSnapshot).not.toHaveBeenCalled();
   });
 
@@ -141,7 +151,7 @@ describe('JourneyService', () => {
       rows: [],
     });
 
-    const result = await service.plan('2534', '2558');
+    const result = expectSuccess(await service.plan('2534', '2558'));
 
     expect(result.journeyId).toBe('line-5-2534-to-2558');
     expect(result.candidates[0]).toMatchObject({
@@ -164,7 +174,7 @@ describe('JourneyService', () => {
     const journey = createLine5JourneyDefinition('2534', '2558')!;
     getSnapshot.mockResolvedValue(snapshotForDefinition(journey));
 
-    const result = await service.plan('2534', '2558');
+    const result = expectSuccess(await service.plan('2534', '2558'));
 
     expect(result.recommendedRouteId).toBe('line-5-general-route');
     expect(result.candidates[0].status).toBe(ELEVATOR_STATUS.OPERATIONAL);
@@ -177,6 +187,15 @@ describe('JourneyService', () => {
     );
   });
 });
+
+function expectSuccess(
+  result: JourneyContractResult<JourneyPlanResDto>,
+): JourneyPlanResDto {
+  expect(result.ok).toBe(true);
+  if (!result.ok) throw new Error(result.error.message);
+  expect(result.meta.dataVersion).toBe(result.data.dataVersion);
+  return result.data;
+}
 
 function snapshotForJourney(journeyId: string) {
   const journey = VERIFIED_JOURNEYS.find((item) => item.id === journeyId)!;

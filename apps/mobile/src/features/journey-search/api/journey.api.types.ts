@@ -5,7 +5,7 @@ interface JourneyStationApiDto {
 
 interface JourneyPlatformGapApiDto {
   distanceCm: number;
-  level: 'green' | 'yellow' | 'red';
+  level: "green" | "yellow" | "red";
   label: string;
 }
 
@@ -21,13 +21,13 @@ interface JourneyStepApiDto {
 interface JourneyFacilityGroupApiDto {
   id: string;
   label: string;
-  status: 'operational' | 'out_of_service' | 'unknown';
+  status: "operational" | "out_of_service" | "unknown";
 }
 
 interface JourneyRouteApiDto {
   id: string;
   label: string;
-  status: 'operational' | 'out_of_service' | 'unknown';
+  status: "operational" | "out_of_service" | "unknown";
   recommended: boolean;
   transferStation: string | null;
   blockingReasons: string[];
@@ -48,3 +48,31 @@ export interface JourneyPlanApiDto {
   notice: string;
   candidates: JourneyRouteApiDto[];
 }
+
+interface JourneyContractErrorApiDto {
+  code: string;
+  category: string;
+  message: string;
+  retryable: boolean;
+  details: Record<string, string | number | boolean | null>;
+}
+
+interface JourneyContractMetaApiDto {
+  contractVersion: string;
+  requestId: string;
+  generatedAt: string;
+  dataVersion: string | null;
+}
+
+export type JourneyPlanResultApiDto =
+  | {
+      ok: true;
+      data: JourneyPlanApiDto;
+      warnings: JourneyContractErrorApiDto[];
+      meta: JourneyContractMetaApiDto;
+    }
+  | {
+      ok: false;
+      error: JourneyContractErrorApiDto;
+      meta: JourneyContractMetaApiDto;
+    };

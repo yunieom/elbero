@@ -202,3 +202,59 @@ export class JourneyPlanResDto {
   @ApiProperty({ type: [JourneyRouteCandidateResDto] })
   candidates: JourneyRouteCandidateResDto[];
 }
+
+export class JourneyContractErrorResDto {
+  @ApiProperty({ example: 'DATA_MISSING' })
+  code: string;
+
+  @ApiProperty({ example: 'incomplete_data' })
+  category: string;
+
+  @ApiProperty({ example: '일부 필수 시설 정보를 확인할 수 없습니다.' })
+  message: string;
+
+  @ApiProperty({ example: false })
+  retryable: boolean;
+
+  @ApiProperty({ type: Object })
+  details: Record<string, string | number | boolean | null>;
+}
+
+export class JourneyContractMetaResDto {
+  @ApiProperty({ example: '1.0' })
+  contractVersion: string;
+
+  @ApiProperty({ example: 'd14b8e49-3360-49b0-bf30-8fb8b88f33e0' })
+  requestId: string;
+
+  @ApiProperty({ format: 'date-time' })
+  generatedAt: string;
+
+  @ApiProperty({ nullable: true, example: '2026-09-29.t11.1' })
+  dataVersion: string | null;
+}
+
+export class JourneyPlanResultResDto {
+  @ApiProperty({ example: true })
+  ok: true;
+
+  @ApiProperty({ type: JourneyPlanResDto })
+  data: JourneyPlanResDto;
+
+  @ApiProperty({ type: [JourneyContractErrorResDto] })
+  warnings: JourneyContractErrorResDto[];
+
+  @ApiProperty({ type: JourneyContractMetaResDto })
+  meta: JourneyContractMetaResDto;
+}
+
+export class JourneyPlanErrorResDto {
+  @ApiProperty({ example: false })
+  ok: false;
+
+  @ApiProperty({ type: JourneyContractErrorResDto })
+  error: JourneyContractErrorResDto;
+
+  @ApiProperty({ type: JourneyContractMetaResDto })
+  meta: JourneyContractMetaResDto;
+}

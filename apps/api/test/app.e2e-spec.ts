@@ -3,6 +3,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import request from 'supertest';
 import { AppModule } from './../src/app.module.js';
 import { ElevatorStatusClient } from '../src/elevator-status/elevator-status.client.js';
+import { JourneyContractExceptionFilter } from '../src/common/http/journey-contract-exception.filter.js';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -77,6 +78,7 @@ describe('AppController (e2e)', () => {
         transform: true,
       }),
     );
+    app.useGlobalFilters(new JourneyContractExceptionFilter());
     await app.init();
   });
 
@@ -114,17 +116,25 @@ describe('AppController (e2e)', () => {
       .expect(200);
 
     expect(response.body).toMatchObject({
-      journeyId: 'dapsimni-to-gangdong',
-      recommendedRouteId: 'line-5-direct',
+      ok: true,
+      data: {
+        journeyId: 'dapsimni-to-gangdong',
+        recommendedRouteId: 'line-5-direct',
+      },
+      meta: { dataVersion: expect.any(String) },
     });
-    expect(response.body.candidates[0].status).toBe('operational');
+    expect(response.body.data.candidates[0].status).toBe('operational');
   });
 
-  it('/journeys/plan rejects an unsupported journey', () => {
-    return request(app.getHttpServer())
+  it('/journeys/plan rejects an unsupported journey', async () => {
+    const response = await request(app.getHttpServer())
       .get('/journeys/plan')
       .query({ originStationCode: '2543', destinationStationCode: '9999' })
       .expect(422);
+    expect(response.body).toMatchObject({
+      ok: false,
+      error: { code: 'UNSUPPORTED_JOURNEY' },
+    });
   });
 
   afterEach(async () => {
