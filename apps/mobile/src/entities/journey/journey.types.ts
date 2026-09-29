@@ -1,5 +1,5 @@
-export type JourneyStatus = 'operational' | 'out_of_service' | 'unknown';
-export type PlatformGapLevel = 'green' | 'yellow' | 'red';
+export type JourneyStatus = "operational" | "out_of_service" | "unknown";
+export type PlatformGapLevel = "green" | "yellow" | "red";
 
 export interface JourneyPlatformGap {
   distanceCm: number;
@@ -31,6 +31,33 @@ export interface JourneyRoute {
   blockingReasons: string[];
   facilityGroups: JourneyFacilityGroup[];
   steps: JourneyStep[];
+  summary: JourneySummary;
+  trainSegments: JourneyTrainSegment[];
+  validationIssues: string[];
+}
+
+export interface JourneyDoorPosition {
+  carNumber: number;
+  doorNumber: number;
+}
+
+export interface JourneyTrainSegment {
+  order: number;
+  lineName: string;
+  direction: string;
+  originStationName: string;
+  destinationStationName: string;
+  boardingPosition: JourneyDoorPosition | null;
+  alightingPosition: JourneyDoorPosition | null;
+  positionBasis: "destination_elevator" | "unverified";
+  platformGap: JourneyPlatformGap | null;
+}
+
+export interface JourneySummary {
+  lineNames: string[];
+  directions: string[];
+  transferCount: number;
+  elevatorCount: number;
 }
 
 export interface JourneyPlan {

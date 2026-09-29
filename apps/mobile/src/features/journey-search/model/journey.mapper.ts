@@ -1,13 +1,14 @@
-import type { JourneyPlan } from '@/entities/journey';
+import type { JourneyPlan } from "@/entities/journey";
 
-import type { JourneyPlanApiDto } from '../api/journey.api.types';
+import type { JourneyPlanApiDto } from "../api/journey.api.types";
 
 export function toJourneyPlan(dto: JourneyPlanApiDto): JourneyPlan {
   const selectedRoute =
-    dto.candidates.find((candidate) => candidate.id === dto.recommendedRouteId) ??
-    dto.candidates[0];
+    dto.candidates.find(
+      (candidate) => candidate.id === dto.recommendedRouteId,
+    ) ?? dto.candidates[0];
   if (!selectedRoute) {
-    throw new Error('표시할 수 있는 경로가 없습니다.');
+    throw new Error("표시할 수 있는 경로가 없습니다.");
   }
 
   return {
@@ -40,6 +41,9 @@ export function toJourneyPlan(dto: JourneyPlanApiDto): JourneyPlan {
         instruction: step.instruction,
         platformGap: step.platformGap,
       })),
+      summary: selectedRoute.summary,
+      trainSegments: selectedRoute.trainSegments,
+      validationIssues: selectedRoute.validationIssues,
     },
   };
 }

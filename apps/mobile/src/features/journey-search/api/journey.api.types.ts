@@ -33,6 +33,24 @@ interface JourneyRouteApiDto {
   blockingReasons: string[];
   facilityGroups: JourneyFacilityGroupApiDto[];
   steps: JourneyStepApiDto[];
+  summary: {
+    lineNames: string[];
+    directions: string[];
+    transferCount: number;
+    elevatorCount: number;
+  };
+  trainSegments: Array<{
+    order: number;
+    lineName: string;
+    direction: string;
+    originStationName: string;
+    destinationStationName: string;
+    boardingPosition: { carNumber: number; doorNumber: number } | null;
+    alightingPosition: { carNumber: number; doorNumber: number } | null;
+    positionBasis: "destination_elevator" | "unverified";
+    platformGap: JourneyPlatformGapApiDto | null;
+  }>;
+  validationIssues: string[];
 }
 
 export interface JourneyPlanApiDto {

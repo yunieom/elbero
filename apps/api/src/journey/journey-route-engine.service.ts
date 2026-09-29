@@ -19,6 +19,7 @@ import type {
   JourneyPlanResDto,
   JourneyRouteCandidateResDto,
 } from './dto/res/journey-plan.res.dto.js';
+import { calculateJourneySummary } from './journey-summary.js';
 import type {
   EvaluatedFacility,
   EvaluatedFacilityGroup,
@@ -79,6 +80,18 @@ export class JourneyRouteEngine {
       recommended: candidate.id === recommendedCandidate?.id,
     }));
     const warnings: JourneyContractError[] = [];
+    const positionValidationIssues = candidates.flatMap(
+      (candidate) => candidate.validationIssues,
+    );
+    if (positionValidationIssues.length > 0) {
+      warnings.push(
+        createJourneyContractError(
+          JOURNEY_ERROR_CODE.DATA_CONFLICT,
+          '열차 승차·하차 위치 기준이 일치하지 않는 구간이 있습니다.',
+          { issueCount: positionValidationIssues.length },
+        ),
+      );
+    }
     if (!recommendedCandidate && hasUnknown) {
       warnings.push(
         createJourneyContractError(
@@ -171,7 +184,12 @@ export class JourneyRouteEngine {
     const facilityGroups = candidate.facilityGroups.map((group) =>
       this.evaluateGroup(group, rows),
     );
-    const status = this.toRequiredStatus(facilityGroups);
+    const calculated = calculateJourneySummary(candidate);
+    const facilityStatus = this.toRequiredStatus(facilityGroups);
+    const status =
+      calculated.validationIssues.length > 0
+        ? ELEVATOR_STATUS.UNKNOWN
+        : facilityStatus;
     return {
       id: candidate.id,
       label: candidate.label,
@@ -199,6 +217,9 @@ export class JourneyRouteEngine {
         facilityGroupId: step.facilityGroupId ?? null,
         platformGap: step.platformGap ?? null,
       })),
+      summary: calculated.summary,
+      trainSegments: calculated.trainSegments,
+      validationIssues: calculated.validationIssues,
     };
   }
 

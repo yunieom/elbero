@@ -1,8 +1,11 @@
 export type {
   JourneyFacilityGroup,
+  JourneyDoorPosition,
   JourneyPlan,
   JourneyPlatformGap,
   JourneyRoute,
+  JourneySummary,
   JourneyStatus,
   JourneyStep,
-} from './journey.types';
+  JourneyTrainSegment,
+} from "./journey.types";

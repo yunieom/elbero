@@ -69,6 +69,57 @@ export class JourneyStepResDto {
   platformGap: JourneyPlatformGapResDto | null;
 }
 
+export class JourneyDoorPositionResDto {
+  @ApiProperty({ example: 5 })
+  carNumber: number;
+
+  @ApiProperty({ example: 1 })
+  doorNumber: number;
+}
+
+export class JourneyTrainSegmentResDto {
+  @ApiProperty({ example: 1 })
+  order: number;
+
+  @ApiProperty({ example: '5호선' })
+  lineName: string;
+
+  @ApiProperty({ example: '마천 방면' })
+  direction: string;
+
+  @ApiProperty({ example: '답십리' })
+  originStationName: string;
+
+  @ApiProperty({ example: '굽은다리' })
+  destinationStationName: string;
+
+  @ApiProperty({ type: JourneyDoorPositionResDto, nullable: true })
+  boardingPosition: JourneyDoorPositionResDto | null;
+
+  @ApiProperty({ type: JourneyDoorPositionResDto, nullable: true })
+  alightingPosition: JourneyDoorPositionResDto | null;
+
+  @ApiProperty({ enum: ['destination_elevator', 'unverified'] })
+  positionBasis: 'destination_elevator' | 'unverified';
+
+  @ApiProperty({ type: JourneyPlatformGapResDto, nullable: true })
+  platformGap: JourneyPlatformGapResDto | null;
+}
+
+export class JourneySummaryResDto {
+  @ApiProperty({ example: ['5호선'] })
+  lineNames: string[];
+
+  @ApiProperty({ example: ['마천 방면'] })
+  directions: string[];
+
+  @ApiProperty({ example: 0 })
+  transferCount: number;
+
+  @ApiProperty({ example: 4 })
+  elevatorCount: number;
+}
+
 export class JourneyFacilityStatusResDto {
   @ApiProperty({ example: 'dapsimni-exit-2' })
   id: string;
@@ -153,6 +204,15 @@ export class JourneyRouteCandidateResDto {
 
   @ApiProperty({ type: [JourneyStepResDto] })
   steps: JourneyStepResDto[];
+
+  @ApiProperty({ type: JourneySummaryResDto })
+  summary: JourneySummaryResDto;
+
+  @ApiProperty({ type: [JourneyTrainSegmentResDto] })
+  trainSegments: JourneyTrainSegmentResDto[];
+
+  @ApiProperty({ type: [String], example: [] })
+  validationIssues: string[];
 }
 
 export class JourneyPlanResDto {

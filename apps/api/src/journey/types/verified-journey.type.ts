@@ -38,6 +38,22 @@ export interface VerifiedJourneyStep {
   facilityGroupId?: string;
   evidence: string;
   platformGap?: PlatformGapInfo;
+  trainSegment?: VerifiedTrainSegment;
+}
+
+export interface JourneyDoorPosition {
+  carNumber: number;
+  doorNumber: number;
+}
+
+export interface VerifiedTrainSegment {
+  lineName: string;
+  direction: string;
+  originStationName: string;
+  destinationStationName: string;
+  boardingPosition: JourneyDoorPosition | null;
+  alightingPosition: JourneyDoorPosition | null;
+  positionBasis: 'destination_elevator' | 'unverified';
 }
 
 export interface VerifiedRouteCandidate {

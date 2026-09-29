@@ -1,14 +1,21 @@
-import { useRouter } from 'expo-router';
-import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useRouter } from "expo-router";
+import {
+  ActivityIndicator,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
-import type { JourneyStatus } from '@/entities/journey';
-import { colors, radius, spacing } from '@/shared/theme';
-import { PrimaryButton, Screen } from '@/shared/ui';
+import type { JourneyStatus } from "@/entities/journey";
+import { colors, radius, spacing } from "@/shared/theme";
+import { PrimaryButton, Screen } from "@/shared/ui";
 
-import { GuidanceStepCard } from '../components/guidance-step-card';
-import { JourneyStatusCard } from '../components/journey-status-card';
-import { useJourneyPlan } from '../hooks/use-journey-plan';
-import { journeyStatusPresentation } from '../model/journey-status';
+import { GuidanceStepCard } from "../components/guidance-step-card";
+import { JourneySummaryCard } from "../components/journey-summary-card";
+import { JourneyStatusCard } from "../components/journey-status-card";
+import { useJourneyPlan } from "../hooks/use-journey-plan";
+import { journeyStatusPresentation } from "../model/journey-status";
 
 interface JourneyResultScreenProps {
   originStationCode: string;
@@ -52,9 +59,13 @@ export function JourneyResultScreen({
             경로를 불러오지 못했어요
           </Text>
           <Text style={styles.loadingText}>
-            {errorMessage ?? '잠시 후 다시 시도해 주세요.'}
+            {errorMessage ?? "잠시 후 다시 시도해 주세요."}
           </Text>
-          <PrimaryButton label="다시 시도" onPress={retry} style={styles.retry} />
+          <PrimaryButton
+            label="다시 시도"
+            onPress={retry}
+            style={styles.retry}
+          />
         </View>
       </Screen>
     );
@@ -75,7 +86,7 @@ export function JourneyResultScreen({
         <Text style={styles.routeSubtitle}>
           {route.transferStation
             ? `${route.transferStation}에서 같은 5호선 분기 환승`
-            : '환승 없는 5호선 경로'}
+            : "환승 없는 5호선 경로"}
         </Text>
       </View>
 
@@ -84,6 +95,11 @@ export function JourneyResultScreen({
         reason={journey.selectionReason}
         status={route.status}
       />
+
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionTitle}>여정 요약</Text>
+      </View>
+      <JourneySummaryCard route={route} />
 
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>이동 순서</Text>
@@ -116,7 +132,7 @@ export function JourneyResultScreen({
       <View style={styles.dataCard}>
         <Text style={styles.dataTitle}>데이터 확인 정보</Text>
         <Text style={styles.dataText}>
-          상태 확인 {formatDateTime(journey.statusCheckedAt)} · 최대{' '}
+          상태 확인 {formatDateTime(journey.statusCheckedAt)} · 최대{" "}
           {journey.maxSourceDelayMinutes}분 지연
         </Text>
         <Text style={styles.dataText}>경로 검증일 {journey.verifiedAt}</Text>
@@ -181,26 +197,26 @@ function FacilityStatusRow({
 function formatDateTime(value: string) {
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
-  return new Intl.DateTimeFormat('ko-KR', {
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
+  return new Intl.DateTimeFormat("ko-KR", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   }).format(parsed);
 }
 
 const styles = StyleSheet.create({
   header: {
     minHeight: 56,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     paddingTop: spacing.xs,
   },
   backButton: {
     width: 48,
     height: 48,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: "flex-start",
+    justifyContent: "center",
   },
   backIcon: {
     color: colors.textPrimary,
@@ -210,19 +226,19 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: colors.textPrimary,
     fontSize: 17,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   centerState: {
     flex: 1,
     minHeight: 520,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingBottom: 80,
   },
   loadingTitle: {
     color: colors.textPrimary,
     fontSize: 20,
-    fontWeight: '800',
+    fontWeight: "800",
     marginTop: spacing.lg,
   },
   loadingText: {
@@ -230,28 +246,28 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontSize: 15,
     lineHeight: 23,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: spacing.xs,
   },
   errorIcon: {
     width: 48,
     height: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: radius.pill,
     backgroundColor: colors.danger,
   },
   errorIconText: {
     color: colors.white,
     fontSize: 24,
-    fontWeight: '900',
+    fontWeight: "900",
   },
   retry: {
     minWidth: 180,
     marginTop: spacing.xl,
   },
   routeTitleArea: {
-    alignItems: 'flex-start',
+    alignItems: "flex-start",
     paddingTop: spacing.lg,
     paddingBottom: spacing.xl,
   },
@@ -264,13 +280,13 @@ const styles = StyleSheet.create({
   lineBadgeText: {
     color: colors.white,
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   routeTitle: {
     color: colors.textPrimary,
     fontSize: 28,
     lineHeight: 38,
-    fontWeight: '800',
+    fontWeight: "800",
     letterSpacing: -0.7,
     marginTop: spacing.sm,
   },
@@ -280,20 +296,20 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: spacing.xxl,
     marginBottom: spacing.md,
   },
   sectionTitle: {
     color: colors.textPrimary,
     fontSize: 20,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   sectionCount: {
     color: colors.textSecondary,
     fontSize: 13,
-    marginLeft: 'auto',
+    marginLeft: "auto",
   },
   facilityCard: {
     borderRadius: radius.lg,
@@ -302,8 +318,8 @@ const styles = StyleSheet.create({
   },
   facilityRow: {
     minHeight: 60,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   facilityDivider: {
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -319,12 +335,12 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.textPrimary,
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: "600",
     paddingRight: spacing.sm,
   },
   facilityStatus: {
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   dataCard: {
     borderRadius: radius.md,
@@ -335,7 +351,7 @@ const styles = StyleSheet.create({
   dataTitle: {
     color: colors.textPrimary,
     fontSize: 14,
-    fontWeight: '800',
+    fontWeight: "800",
     marginBottom: spacing.xs,
   },
   dataText: {
@@ -351,8 +367,8 @@ const styles = StyleSheet.create({
   },
   secondaryButton: {
     minHeight: 52,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
@@ -362,6 +378,6 @@ const styles = StyleSheet.create({
   secondaryButtonText: {
     color: colors.textPrimary,
     fontSize: 15,
-    fontWeight: '700',
+    fontWeight: "700",
   },
 });

@@ -38,8 +38,7 @@ interface Line5Station {
 }
 
 const line5Stations = LINE_5_GUIDANCE.stations as readonly Line5Station[];
-const line5Topologies =
-  LINE_5_GUIDANCE.topologies as readonly Line5Topology[];
+const line5Topologies = LINE_5_GUIDANCE.topologies as readonly Line5Topology[];
 
 const TRANSFER_STATION_CODE = '2549';
 
@@ -105,7 +104,17 @@ export function createLine5JourneyDefinition(
       type: JOURNEY_STEP_TYPE.TRAIN,
       stationName: findStation(segment.codes[0])!.stationName,
       instruction: `5호선 ${segment.terminalLabel} 열차를 타고 ${arrival.stationName}까지 이동하세요. ${boardingText}.`,
-      evidence: 'KRIC stPlf · stationElevatorCarNumber · stationPlatformTrainDistance',
+      evidence:
+        'KRIC stPlf · stationElevatorCarNumber · stationPlatformTrainDistance',
+      trainSegment: {
+        lineName: '5호선',
+        direction: segment.terminalLabel,
+        originStationName: findStation(segment.codes[0])!.stationName,
+        destinationStationName: arrival.stationName,
+        boardingPosition: boarding ? toDoorPosition(boarding.door) : null,
+        alightingPosition: boarding ? toDoorPosition(boarding.door) : null,
+        positionBasis: boarding ? 'destination_elevator' : 'unverified',
+      },
       ...(boarding?.gap
         ? { platformGap: toPlatformGap(boarding.gap.distanceCm) }
         : {}),
@@ -149,11 +158,7 @@ export function createLine5JourneyDefinition(
       destinationDirection,
       '도착 승강장 하차',
     ),
-    createSurfaceFacilityGroup(
-      'destination',
-      destination,
-      '도착역 지상 퇴장',
-    ),
+    createSurfaceFacilityGroup('destination', destination, '도착역 지상 퇴장'),
   ];
   if (hasUnverifiedAccessibility) {
     facilityGroups.push(
@@ -178,9 +183,7 @@ export function createLine5JourneyDefinition(
     candidates: [
       {
         id: 'line-5-general-route',
-        label: transferStation
-          ? '5호선 강동 환승 경로'
-          : '5호선 직통 경로',
+        label: transferStation ? '5호선 강동 환승 경로' : '5호선 직통 경로',
         priority: 1,
         transferStation,
         lines: ['5호선'],
@@ -191,9 +194,16 @@ export function createLine5JourneyDefinition(
   };
 }
 
+function toDoorPosition(door: string) {
+  const match = /^(\d+)-(\d+)$/.exec(door);
+  if (!match) return null;
+  return { carNumber: Number(match[1]), doorNumber: Number(match[2]) };
+}
+
 function resolveSegments(originCode: string, destinationCode: string) {
   const directTopologies = line5Topologies.filter(
-    (topology) => topology.includes(originCode) && topology.includes(destinationCode),
+    (topology) =>
+      topology.includes(originCode) && topology.includes(destinationCode),
   );
   if (directTopologies.length > 0) {
     const topology = chooseDirectTopology(
@@ -201,19 +211,34 @@ function resolveSegments(originCode: string, destinationCode: string) {
       originCode,
       destinationCode,
     );
-    return [toSegment(topology, originCode, destinationCode, directTopologies.length > 1)];
+    return [
+      toSegment(
+        topology,
+        originCode,
+        destinationCode,
+        directTopologies.length > 1,
+      ),
+    ];
   }
 
   const originTopology = line5Topologies.find(
-    (topology) => topology.includes(originCode) && topology.includes(TRANSFER_STATION_CODE),
+    (topology) =>
+      topology.includes(originCode) && topology.includes(TRANSFER_STATION_CODE),
   );
   const destinationTopology = line5Topologies.find(
-    (topology) => topology.includes(destinationCode) && topology.includes(TRANSFER_STATION_CODE),
+    (topology) =>
+      topology.includes(destinationCode) &&
+      topology.includes(TRANSFER_STATION_CODE),
   );
   if (!originTopology || !destinationTopology) return null;
   return [
     toSegment(originTopology, originCode, TRANSFER_STATION_CODE, false),
-    toSegment(destinationTopology, TRANSFER_STATION_CODE, destinationCode, false),
+    toSegment(
+      destinationTopology,
+      TRANSFER_STATION_CODE,
+      destinationCode,
+      false,
+    ),
   ];
 }
 
@@ -275,9 +300,7 @@ function findDepartureDirection(
   return station.directions.find((direction) => direction.toward === nextName);
 }
 
-function createTransferFacilityGroups(
-  segments: readonly Line5Segment[],
-) {
+function createTransferFacilityGroups(segments: readonly Line5Segment[]) {
   if (segments.length < 2) return [];
   const transferStation = findStation(TRANSFER_STATION_CODE)!;
   const arrivalDirection = findArrivalDirection(transferStation, segments[0]);
@@ -450,9 +473,7 @@ function selectBoardingDoor(
 }
 
 function findStation(stationCode: string) {
-  return line5Stations.find(
-    (station) => station.stationCode === stationCode,
-  );
+  return line5Stations.find((station) => station.stationCode === stationCode);
 }
 
 function formatDoor(door: string) {

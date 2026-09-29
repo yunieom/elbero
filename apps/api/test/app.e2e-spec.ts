@@ -124,6 +124,21 @@ describe('AppController (e2e)', () => {
       meta: { dataVersion: expect.any(String) },
     });
     expect(response.body.data.candidates[0].status).toBe('operational');
+    expect(response.body.data.candidates[0]).toMatchObject({
+      summary: {
+        lineNames: ['5호선'],
+        transferCount: 0,
+        elevatorCount: 4,
+      },
+      trainSegments: [
+        {
+          boardingPosition: { carNumber: 8, doorNumber: 4 },
+          alightingPosition: { carNumber: 8, doorNumber: 4 },
+          positionBasis: 'destination_elevator',
+        },
+      ],
+      validationIssues: [],
+    });
   });
 
   it('/journeys/plan rejects an unsupported journey', async () => {

@@ -83,8 +83,7 @@ const HONGIK_EXIT: FacilityRequirementGroup[] = [
         stationCode: '0239',
         stationName: '홍대입구',
         role: 'B2 합정 방면 승강장에서 B1 대합실로 이동',
-        sourceFacilityName:
-          '승강기)엘리베이터-홍대입구 섬식(외)7-2 내부#1',
+        sourceFacilityName: '승강기)엘리베이터-홍대입구 섬식(외)7-2 내부#1',
         expectedOperatingSection: 'B2-B1',
         expectedLocation: '합정 방면7-2, 신촌 방면4-3',
       },
@@ -100,8 +99,7 @@ const HONGIK_EXIT: FacilityRequirementGroup[] = [
         stationCode: '0239',
         stationName: '홍대입구',
         role: 'B1 대합실에서 8번 출구 지상으로 이동',
-        sourceFacilityName:
-          '승강기)엘리베이터-홍대입구 8번 출구측 외부#1',
+        sourceFacilityName: '승강기)엘리베이터-홍대입구 8번 출구측 외부#1',
         expectedOperatingSection: 'B1-1F',
         expectedLocation: '8번 출입구',
       },
@@ -109,39 +107,49 @@ const HONGIK_EXIT: FacilityRequirementGroup[] = [
   },
 ];
 
-const DAPSIMNI_TO_HONGIK_COMMON_STEPS = [
-  {
-    order: 1,
-    type: JOURNEY_STEP_TYPE.ENTRY,
-    stationName: '답십리',
-    instruction:
-      '2번 또는 6번 출입구 옆에서 운행 중인 엘리베이터를 타고 B2 대합실로 이동하세요.',
-    facilityGroupId: 'dapsimni-west-surface',
-    evidence: 'KRIC stationMovement · 답십리→마장 방면',
-  },
-  {
-    order: 2,
-    type: JOURNEY_STEP_TYPE.GATE,
-    stationName: '답십리',
-    instruction: '교통카드를 태그한 뒤 마장 방면 엘리베이터로 이동하세요.',
-    evidence: 'KRIC stationMovement · 답십리→마장 방면',
-  },
-  {
-    order: 3,
-    type: JOURNEY_STEP_TYPE.ELEVATOR,
-    stationName: '답십리',
-    instruction: '엘리베이터를 타고 B3 마장 방면 승강장으로 이동하세요.',
-    facilityGroupId: 'dapsimni-west-platform',
-    evidence: 'KRIC stationMovement · 답십리→마장 방면',
-  },
-  {
-    order: 4,
-    type: JOURNEY_STEP_TYPE.TRAIN,
-    stationName: '답십리',
-    instruction: '5호선 방화 방면 열차를 타세요.',
-    evidence: 'KRIC subwayRouteInfo',
-  },
-] as const;
+const dapsimniToHongikCommonSteps = (destinationStationName: string) =>
+  [
+    {
+      order: 1,
+      type: JOURNEY_STEP_TYPE.ENTRY,
+      stationName: '답십리',
+      instruction:
+        '2번 또는 6번 출입구 옆에서 운행 중인 엘리베이터를 타고 B2 대합실로 이동하세요.',
+      facilityGroupId: 'dapsimni-west-surface',
+      evidence: 'KRIC stationMovement · 답십리→마장 방면',
+    },
+    {
+      order: 2,
+      type: JOURNEY_STEP_TYPE.GATE,
+      stationName: '답십리',
+      instruction: '교통카드를 태그한 뒤 마장 방면 엘리베이터로 이동하세요.',
+      evidence: 'KRIC stationMovement · 답십리→마장 방면',
+    },
+    {
+      order: 3,
+      type: JOURNEY_STEP_TYPE.ELEVATOR,
+      stationName: '답십리',
+      instruction: '엘리베이터를 타고 B3 마장 방면 승강장으로 이동하세요.',
+      facilityGroupId: 'dapsimni-west-platform',
+      evidence: 'KRIC stationMovement · 답십리→마장 방면',
+    },
+    {
+      order: 4,
+      type: JOURNEY_STEP_TYPE.TRAIN,
+      stationName: '답십리',
+      instruction: '5호선 방화 방면 열차를 타세요.',
+      evidence: 'KRIC subwayRouteInfo',
+      trainSegment: {
+        lineName: '5호선',
+        direction: '방화 방면',
+        originStationName: '답십리',
+        destinationStationName,
+        boardingPosition: null,
+        alightingPosition: null,
+        positionBasis: 'unverified',
+      },
+    },
+  ] as const;
 
 export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
   {
@@ -208,14 +216,16 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 2,
             type: JOURNEY_STEP_TYPE.GATE,
             stationName: '답십리',
-            instruction: '교통카드를 태그한 뒤 장한평 방면 엘리베이터로 이동하세요.',
+            instruction:
+              '교통카드를 태그한 뒤 장한평 방면 엘리베이터로 이동하세요.',
             evidence: 'KRIC stationMovement · 답십리→장한평 방면',
           },
           {
             order: 3,
             type: JOURNEY_STEP_TYPE.ELEVATOR,
             stationName: '답십리',
-            instruction: '엘리베이터를 타고 B3 장한평 방면 승강장으로 이동하세요.',
+            instruction:
+              '엘리베이터를 타고 B3 장한평 방면 승강장으로 이동하세요.',
             facilityGroupId: 'dapsimni-east-platform',
             evidence: 'KRIC stationMovement · 답십리→장한평 방면',
           },
@@ -223,10 +233,18 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 4,
             type: JOURNEY_STEP_TYPE.TRAIN,
             stationName: '답십리',
-            instruction:
-              '5호선 장한평 방면 열차의 8호차 4번 문을 이용하세요.',
+            instruction: '5호선 장한평 방면 열차의 8호차 4번 문을 이용하세요.',
             evidence: 'KRIC stationElevatorCarNumber · 강동',
             platformGap: toPlatformGap(9),
+            trainSegment: {
+              lineName: '5호선',
+              direction: '하남검단산·마천 방면',
+              originStationName: '답십리',
+              destinationStationName: '강동',
+              boardingPosition: { carNumber: 8, doorNumber: 4 },
+              alightingPosition: { carNumber: 8, doorNumber: 4 },
+              positionBasis: 'destination_elevator',
+            },
           },
           {
             order: 5,
@@ -314,14 +332,16 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             order: 2,
             type: JOURNEY_STEP_TYPE.GATE,
             stationName: '답십리',
-            instruction: '교통카드를 태그한 뒤 장한평 방면 엘리베이터로 이동하세요.',
+            instruction:
+              '교통카드를 태그한 뒤 장한평 방면 엘리베이터로 이동하세요.',
             evidence: 'KRIC stationMovement · 답십리→장한평 방면',
           },
           {
             order: 3,
             type: JOURNEY_STEP_TYPE.ELEVATOR,
             stationName: '답십리',
-            instruction: '엘리베이터를 타고 B3 장한평 방면 승강장으로 이동하세요.',
+            instruction:
+              '엘리베이터를 타고 B3 장한평 방면 승강장으로 이동하세요.',
             facilityGroupId: 'dapsimni-east-platform',
             evidence: 'KRIC stationMovement · 답십리→장한평 방면',
           },
@@ -334,6 +354,15 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             evidence:
               'KRIC subwayRouteInfo + stationElevatorCarNumber · 굽은다리 승강장 2',
             platformGap: toPlatformGap(9),
+            trainSegment: {
+              lineName: '5호선',
+              direction: '하남검단산·상일동 방면',
+              originStationName: '답십리',
+              destinationStationName: '굽은다리',
+              boardingPosition: { carNumber: 3, doorNumber: 2 },
+              alightingPosition: { carNumber: 3, doorNumber: 2 },
+              positionBasis: 'destination_elevator',
+            },
           },
           {
             order: 5,
@@ -384,8 +413,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
                 stationCode: '2537',
                 stationName: '동대문역사문화공원',
                 role: '5호선 B5 승강장에서 4호선 환승 통로 방향으로 이동',
-                sourceFacilityName:
-                  '승강기)엘리베이터-동역사(5) 내부2',
+                sourceFacilityName: '승강기)엘리베이터-동역사(5) 내부2',
                 expectedOperatingSection: 'B1-B5',
                 expectedLocation: '청구방면 1-1,을지로4가 방면10-4',
               },
@@ -414,7 +442,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
           ...HONGIK_EXIT,
         ],
         steps: [
-          ...DAPSIMNI_TO_HONGIK_COMMON_STEPS,
+          ...dapsimniToHongikCommonSteps('동대문역사문화공원'),
           {
             order: 5,
             type: JOURNEY_STEP_TYPE.TRANSFER,
@@ -430,6 +458,15 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             stationName: '동대문역사문화공원',
             instruction: '2호선 을지로4가·홍대입구 방면 열차를 타세요.',
             evidence: 'KRIC transferMovement + subwayRouteInfo',
+            trainSegment: {
+              lineName: '2호선',
+              direction: '홍대입구 방면',
+              originStationName: '동대문역사문화공원',
+              destinationStationName: '홍대입구',
+              boardingPosition: { carNumber: 7, doorNumber: 2 },
+              alightingPosition: { carNumber: 7, doorNumber: 2 },
+              positionBasis: 'destination_elevator',
+            },
           },
           {
             order: 7,
@@ -470,15 +507,14 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
                 role: '5호선 B5 승강장에서 2호선 B2 승강장으로 이동',
                 sourceFacilityName: '승강기)엘리베이터-을지로4가 내부1',
                 expectedOperatingSection: 'B1-B5',
-                expectedLocation:
-                  '동대문역사문화공원방면 1-1,종로3가방면 10-4',
+                expectedLocation: '동대문역사문화공원방면 1-1,종로3가방면 10-4',
               },
             ],
           },
           ...HONGIK_EXIT,
         ],
         steps: [
-          ...DAPSIMNI_TO_HONGIK_COMMON_STEPS,
+          ...dapsimniToHongikCommonSteps('을지로4가'),
           {
             order: 5,
             type: JOURNEY_STEP_TYPE.TRANSFER,
@@ -494,6 +530,15 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             stationName: '을지로4가',
             instruction: '2호선 을지로3가·홍대입구 방면 열차를 타세요.',
             evidence: 'KRIC transferMovement + subwayRouteInfo',
+            trainSegment: {
+              lineName: '2호선',
+              direction: '홍대입구 방면',
+              originStationName: '을지로4가',
+              destinationStationName: '홍대입구',
+              boardingPosition: { carNumber: 7, doorNumber: 2 },
+              alightingPosition: { carNumber: 7, doorNumber: 2 },
+              positionBasis: 'destination_elevator',
+            },
           },
           {
             order: 7,

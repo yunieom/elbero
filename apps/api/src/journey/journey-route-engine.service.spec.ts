@@ -73,6 +73,29 @@ describe('JourneyRouteEngine', () => {
       JOURNEY_ERROR_CODE.FACILITY_STATUS_UNKNOWN,
     ]);
   });
+
+  it('승차·하차 위치 불일치를 DATA_CONFLICT warning으로 반환한다', () => {
+    const fixture = definition();
+    fixture.candidates[0].steps.find(
+      (step) => step.type === 'train',
+    )!.trainSegment!.alightingPosition = { carNumber: 6, doorNumber: 1 };
+
+    const result = engine.plan(
+      fixture,
+      snapshot('사용가능', '사용가능'),
+      'request-5',
+    );
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.warnings.map((warning) => warning.code)).toContain(
+      JOURNEY_ERROR_CODE.DATA_CONFLICT,
+    );
+    expect(result.data.candidates[0]).toMatchObject({
+      status: ELEVATOR_STATUS.UNKNOWN,
+      recommended: false,
+    });
+  });
 });
 
 function definition(): VerifiedJourneyDefinition {
@@ -131,6 +154,22 @@ function candidate(
         stationName: '도착역',
         instruction: '지상 엘리베이터로 역에서 나오세요.',
         evidence: 'fixture',
+      },
+      {
+        order: 3,
+        type: 'train',
+        stationName: '출발역',
+        instruction: '열차를 이용하세요.',
+        evidence: 'fixture',
+        trainSegment: {
+          lineName: '5호선',
+          direction: '도착역 방면',
+          originStationName: '출발역',
+          destinationStationName: '도착역',
+          boardingPosition: { carNumber: 5, doorNumber: 1 },
+          alightingPosition: { carNumber: 5, doorNumber: 1 },
+          positionBasis: 'destination_elevator',
+        },
       },
     ],
   };
