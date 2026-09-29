@@ -1,32 +1,32 @@
-export const JOURNEY_CONTRACT_VERSION = '1.0' as const;
+export const JOURNEY_CONTRACT_VERSION = "1.0" as const;
 export const JOURNEY_SNAPSHOT_SCHEMA_VERSION = 1 as const;
 
 export const JOURNEY_ERROR_CODE = {
-  INVALID_REQUEST: 'INVALID_REQUEST',
-  UNSUPPORTED_JOURNEY: 'UNSUPPORTED_JOURNEY',
-  SOURCE_UNAVAILABLE: 'SOURCE_UNAVAILABLE',
-  SOURCE_TIMEOUT: 'SOURCE_TIMEOUT',
-  DATA_MISSING: 'DATA_MISSING',
-  DATA_CONFLICT: 'DATA_CONFLICT',
-  FACILITY_STATUS_UNKNOWN: 'FACILITY_STATUS_UNKNOWN',
-  NO_ACCESSIBLE_ROUTE: 'NO_ACCESSIBLE_ROUTE',
-  DATA_VERSION_UNSUPPORTED: 'DATA_VERSION_UNSUPPORTED',
-  SNAPSHOT_CORRUPTED: 'SNAPSHOT_CORRUPTED',
-  SNAPSHOT_EXPIRED: 'SNAPSHOT_EXPIRED',
+  INVALID_REQUEST: "INVALID_REQUEST",
+  UNSUPPORTED_JOURNEY: "UNSUPPORTED_JOURNEY",
+  SOURCE_UNAVAILABLE: "SOURCE_UNAVAILABLE",
+  SOURCE_TIMEOUT: "SOURCE_TIMEOUT",
+  DATA_MISSING: "DATA_MISSING",
+  DATA_CONFLICT: "DATA_CONFLICT",
+  FACILITY_STATUS_UNKNOWN: "FACILITY_STATUS_UNKNOWN",
+  NO_ACCESSIBLE_ROUTE: "NO_ACCESSIBLE_ROUTE",
+  DATA_VERSION_UNSUPPORTED: "DATA_VERSION_UNSUPPORTED",
+  SNAPSHOT_CORRUPTED: "SNAPSHOT_CORRUPTED",
+  SNAPSHOT_EXPIRED: "SNAPSHOT_EXPIRED",
 } as const;
 
 export type JourneyErrorCode =
   (typeof JOURNEY_ERROR_CODE)[keyof typeof JOURNEY_ERROR_CODE];
 
 export type JourneyErrorCategory =
-  | 'invalid_request'
-  | 'unsupported'
-  | 'source_failure'
-  | 'incomplete_data'
-  | 'unavailable_status'
-  | 'no_route'
-  | 'version'
-  | 'storage';
+  | "invalid_request"
+  | "unsupported"
+  | "source_failure"
+  | "incomplete_data"
+  | "unavailable_status"
+  | "no_route"
+  | "version"
+  | "storage";
 
 export interface JourneyContractMeta {
   contractVersion: string;
@@ -61,89 +61,118 @@ export interface JourneyErrorPolicy {
   retryable: boolean;
   httpStatus: 400 | 409 | 422 | 503;
   mobileFallback:
-    | 'fix_request'
-    | 'show_unsupported'
-    | 'retry'
-    | 'show_incomplete'
-    | 'show_unknown_status'
-    | 'show_no_safe_route'
-    | 'refresh_data'
-    | 'discard_snapshot';
+    | "fix_request"
+    | "show_unsupported"
+    | "retry"
+    | "show_incomplete"
+    | "show_unknown_status"
+    | "show_no_safe_route"
+    | "refresh_data"
+    | "discard_snapshot";
 }
 
-export const JOURNEY_ERROR_POLICY: Record<JourneyErrorCode, JourneyErrorPolicy> = {
+export const JOURNEY_ERROR_POLICY: Record<
+  JourneyErrorCode,
+  JourneyErrorPolicy
+> = {
   INVALID_REQUEST: {
-    category: 'invalid_request',
+    category: "invalid_request",
     retryable: false,
     httpStatus: 400,
-    mobileFallback: 'fix_request',
+    mobileFallback: "fix_request",
   },
   UNSUPPORTED_JOURNEY: {
-    category: 'unsupported',
+    category: "unsupported",
     retryable: false,
     httpStatus: 422,
-    mobileFallback: 'show_unsupported',
+    mobileFallback: "show_unsupported",
   },
   SOURCE_UNAVAILABLE: {
-    category: 'source_failure',
+    category: "source_failure",
     retryable: true,
     httpStatus: 503,
-    mobileFallback: 'retry',
+    mobileFallback: "retry",
   },
   SOURCE_TIMEOUT: {
-    category: 'source_failure',
+    category: "source_failure",
     retryable: true,
     httpStatus: 503,
-    mobileFallback: 'retry',
+    mobileFallback: "retry",
   },
   DATA_MISSING: {
-    category: 'incomplete_data',
+    category: "incomplete_data",
     retryable: false,
     httpStatus: 422,
-    mobileFallback: 'show_incomplete',
+    mobileFallback: "show_incomplete",
   },
   DATA_CONFLICT: {
-    category: 'incomplete_data',
+    category: "incomplete_data",
     retryable: false,
     httpStatus: 409,
-    mobileFallback: 'show_incomplete',
+    mobileFallback: "show_incomplete",
   },
   FACILITY_STATUS_UNKNOWN: {
-    category: 'unavailable_status',
+    category: "unavailable_status",
     retryable: true,
     httpStatus: 503,
-    mobileFallback: 'show_unknown_status',
+    mobileFallback: "show_unknown_status",
   },
   NO_ACCESSIBLE_ROUTE: {
-    category: 'no_route',
+    category: "no_route",
     retryable: false,
     httpStatus: 422,
-    mobileFallback: 'show_no_safe_route',
+    mobileFallback: "show_no_safe_route",
   },
   DATA_VERSION_UNSUPPORTED: {
-    category: 'version',
+    category: "version",
     retryable: true,
     httpStatus: 409,
-    mobileFallback: 'refresh_data',
+    mobileFallback: "refresh_data",
   },
   SNAPSHOT_CORRUPTED: {
-    category: 'storage',
+    category: "storage",
     retryable: false,
     httpStatus: 409,
-    mobileFallback: 'discard_snapshot',
+    mobileFallback: "discard_snapshot",
   },
   SNAPSHOT_EXPIRED: {
-    category: 'storage',
+    category: "storage",
     retryable: true,
     httpStatus: 409,
-    mobileFallback: 'refresh_data',
+    mobileFallback: "refresh_data",
   },
 };
 
+export function createJourneyContractMeta(
+  requestId: string,
+  dataVersion: string | null,
+  generatedAt = new Date().toISOString(),
+): JourneyContractMeta {
+  return {
+    contractVersion: JOURNEY_CONTRACT_VERSION,
+    requestId,
+    generatedAt,
+    dataVersion,
+  };
+}
+
+export function createJourneyContractError(
+  code: JourneyErrorCode,
+  message: string,
+  details: JourneyContractError["details"] = {},
+): JourneyContractError {
+  const policy = JOURNEY_ERROR_POLICY[code];
+  return {
+    code,
+    category: policy.category,
+    message,
+    retryable: policy.retryable,
+    details,
+  };
+}
+
 export type JourneySnapshotFacilityStatus =
-  | 'operational'
-  | 'out_of_service'
-  | 'unknown';
+  "operational" | "out_of_service" | "unknown";
 
 export interface JourneySnapshotStep {
   id: string;
@@ -181,22 +210,22 @@ export interface JourneySnapshot {
 }
 
 export const JOURNEY_RECOVERY_ACTION = {
-  RESUME_FRESH: 'resume_fresh',
-  RESUME_OFFLINE_LIMITED: 'resume_offline_limited',
-  REFRESH_THEN_RESUME: 'refresh_then_resume',
-  DISCARD: 'discard',
+  RESUME_FRESH: "resume_fresh",
+  RESUME_OFFLINE_LIMITED: "resume_offline_limited",
+  REFRESH_THEN_RESUME: "refresh_then_resume",
+  DISCARD: "discard",
 } as const;
 
 export type JourneyRecoveryAction =
   (typeof JOURNEY_RECOVERY_ACTION)[keyof typeof JOURNEY_RECOVERY_ACTION];
 
 export type JourneyRecoveryReason =
-  | 'compatible'
-  | 'offline_stale'
-  | 'snapshot_stale'
-  | 'schema_incompatible'
-  | 'contract_incompatible'
-  | 'snapshot_corrupted';
+  | "compatible"
+  | "offline_stale"
+  | "snapshot_stale"
+  | "schema_incompatible"
+  | "contract_incompatible"
+  | "snapshot_corrupted";
 
 export interface JourneyRecoveryContext {
   isOnline: boolean;
@@ -235,18 +264,16 @@ export function decideJourneySnapshotRecovery(
   ) {
     return {
       action: JOURNEY_RECOVERY_ACTION.DISCARD,
-      reason: 'snapshot_corrupted',
+      reason: "snapshot_corrupted",
       canShowStoredDirections: false,
       canTrustStoredFacilityStatus: false,
     };
   }
 
-  if (
-    snapshot.snapshotSchemaVersion !== context.currentSnapshotSchemaVersion
-  ) {
+  if (snapshot.snapshotSchemaVersion !== context.currentSnapshotSchemaVersion) {
     return {
       action: JOURNEY_RECOVERY_ACTION.DISCARD,
-      reason: 'schema_incompatible',
+      reason: "schema_incompatible",
       canShowStoredDirections: false,
       canTrustStoredFacilityStatus: false,
     };
@@ -259,7 +286,7 @@ export function decideJourneySnapshotRecovery(
   ) {
     return {
       action: JOURNEY_RECOVERY_ACTION.DISCARD,
-      reason: 'contract_incompatible',
+      reason: "contract_incompatible",
       canShowStoredDirections: false,
       canTrustStoredFacilityStatus: false,
     };
@@ -274,7 +301,7 @@ export function decideJourneySnapshotRecovery(
     if (context.isOnline) {
       return {
         action: JOURNEY_RECOVERY_ACTION.REFRESH_THEN_RESUME,
-        reason: 'snapshot_stale',
+        reason: "snapshot_stale",
         canShowStoredDirections: true,
         canTrustStoredFacilityStatus: false,
       };
@@ -282,7 +309,7 @@ export function decideJourneySnapshotRecovery(
 
     return {
       action: JOURNEY_RECOVERY_ACTION.RESUME_OFFLINE_LIMITED,
-      reason: 'offline_stale',
+      reason: "offline_stale",
       canShowStoredDirections: true,
       canTrustStoredFacilityStatus: false,
     };
@@ -290,7 +317,7 @@ export function decideJourneySnapshotRecovery(
 
   return {
     action: JOURNEY_RECOVERY_ACTION.RESUME_FRESH,
-    reason: 'compatible',
+    reason: "compatible",
     canShowStoredDirections: true,
     canTrustStoredFacilityStatus: true,
   };

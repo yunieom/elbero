@@ -1,10 +1,10 @@
 export type AccessibilityEntityId = string;
 
-export type SourceSystem = 'kric' | 'seoul_metro' | 'manual_verification';
+export type SourceSystem = "kric" | "seoul_metro" | "manual_verification";
 
-export type MappingStatus = 'mapped' | 'partial' | 'unmapped';
+export type MappingStatus = "mapped" | "partial" | "unmapped";
 
-export type VerificationStatus = 'verified' | 'unverified' | 'conflict';
+export type VerificationStatus = "verified" | "unverified" | "conflict";
 
 export interface SourceEvidence {
   sourceSystem: SourceSystem;
@@ -59,12 +59,12 @@ export interface Platform {
 }
 
 export type PlaceType =
-  | 'surface_exit'
-  | 'concourse'
-  | 'fare_gate'
-  | 'platform'
-  | 'transfer_area'
-  | 'other';
+  | "surface_exit"
+  | "concourse"
+  | "fare_gate"
+  | "platform"
+  | "transfer_area"
+  | "other";
 
 export interface Place {
   id: AccessibilityEntityId;
@@ -77,7 +77,7 @@ export interface Place {
   evidence: SourceEvidence[];
 }
 
-export type AccessibilityFacilityType = 'elevator';
+export type AccessibilityFacilityType = "elevator";
 
 export interface AccessibilityFacility {
   id: AccessibilityEntityId;
@@ -113,7 +113,7 @@ export interface PathDirectionCondition {
   sourceNextStationCode: string | null;
 }
 
-export type AccessiblePathType = 'entry' | 'exit' | 'transfer';
+export type AccessiblePathType = "entry" | "exit" | "transfer";
 
 export interface AccessiblePath {
   id: AccessibilityEntityId;
@@ -141,9 +141,7 @@ export interface PathSegment {
 }
 
 export type FacilityOperatingStatus =
-  | 'operational'
-  | 'out_of_service'
-  | 'unknown';
+  "operational" | "out_of_service" | "unknown";
 
 export interface FacilityStatusObservation {
   id: AccessibilityEntityId;
@@ -168,6 +166,7 @@ export interface UnmappedSourceRecord {
 
 export interface AccessibilityDataPackage {
   schemaVersion: number;
+  dataVersion: string;
   generatedAt: string;
   lines: RailLine[];
   stations: Station[];

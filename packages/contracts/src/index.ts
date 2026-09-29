@@ -1,11 +1,9 @@
 export type ElevatorOperatingStatus =
-  | 'operational'
-  | 'out_of_service'
-  | 'unknown';
+  "operational" | "out_of_service" | "unknown";
 
 export interface HealthResponse {
-  status: 'ok';
-  service: 'elbero-api';
+  status: "ok";
+  service: "elbero-api";
 }
 
 export interface ElevatorStatus {
@@ -40,16 +38,42 @@ export type {
   UnmappedSourceRecord,
   VehicleDoorPosition,
   VerificationStatus,
-} from './accessibility-domain.js';
+} from "./accessibility-domain.js";
 
 export {
+  createJourneyContractError,
+  createJourneyContractMeta,
   decideJourneySnapshotRecovery,
   JOURNEY_CONTRACT_VERSION,
   JOURNEY_ERROR_CODE,
   JOURNEY_ERROR_POLICY,
   JOURNEY_RECOVERY_ACTION,
   JOURNEY_SNAPSHOT_SCHEMA_VERSION,
-} from './journey-runtime.js';
+} from "./journey-runtime.js";
+
+export {
+  accessibilityDataPackageSchema,
+  accessibilityFacilitySchema,
+  accessiblePathSchema,
+  facilityStatusObservationSchema,
+  pathSegmentSchema,
+  placeSchema,
+  platformBoardingPointSchema,
+  platformSchema,
+  railLineSchema,
+  stationLineSchema,
+  stationSchema,
+  unmappedSourceRecordSchema,
+} from "./accessibility-data.schema.js";
+
+export { validateAccessibilityDataPackage } from "./accessibility-data.validation.js";
+
+export type {
+  AccessibilityCollectionName,
+  AccessibilityValidationIssue,
+  AccessibilityValidationReport,
+  ValidatedAccessibilityData,
+} from "./accessibility-data.validation.js";
 
 export type {
   JourneyContractError,
@@ -66,4 +90,4 @@ export type {
   JourneySnapshotFacilityStatus,
   JourneySnapshotPayload,
   JourneySnapshotStep,
-} from './journey-runtime.js';
+} from "./journey-runtime.js";
