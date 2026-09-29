@@ -22,6 +22,9 @@ apps/mobile/ios/
 coverage/
 apps/api/dist/
 
+# TypeScript incremental build cache
+*.tsbuildinfo
+
 # Logs
 *.log
 npm-debug.log*
