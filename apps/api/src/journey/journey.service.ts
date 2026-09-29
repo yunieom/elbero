@@ -10,6 +10,8 @@ import {
   createLine5JourneyDefinition,
   listLine5Stations,
 } from './line-5-journey.factory.js';
+import { createLine5Line7JourneyDefinition } from './line-5-7-journey.factory.js';
+import { createLine7JourneyDefinition } from './line-7-journey.factory.js';
 import type { VerifiedJourneyDefinition } from './types/verified-journey.type.js';
 
 @Injectable()
@@ -57,7 +59,12 @@ export class JourneyService {
           journey.originStationCode === originStationCode &&
           journey.destinationStationCode === destinationStationCode,
       ) ??
-      createLine5JourneyDefinition(originStationCode, destinationStationCode)
+      createLine5JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine7JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine5Line7JourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      )
     );
   }
 }

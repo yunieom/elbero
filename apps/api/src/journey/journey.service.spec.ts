@@ -6,6 +6,7 @@ import { JourneyService } from './journey.service.js';
 import { JourneyRouteEngine } from './journey-route-engine.service.js';
 import type { JourneyPlanResDto } from './dto/res/journey-plan.res.dto.js';
 import { createLine5JourneyDefinition } from './line-5-journey.factory.js';
+import { createLine7JourneyDefinition } from './line-7-journey.factory.js';
 
 describe('JourneyService', () => {
   const getSnapshot = vi.fn();
@@ -186,6 +187,24 @@ describe('JourneyService', () => {
       ]),
     );
   });
+
+  it('7호선 전체 역 경로와 사용자 검증 차량·문을 실시간 승강기에 연결한다', async () => {
+    const journey = createLine7JourneyDefinition('2713', '2731')!;
+    getSnapshot.mockResolvedValue(snapshotForDefinition(journey));
+
+    const result = expectSuccess(await service.plan('2713', '2731'));
+
+    expect(result.journeyId).toBe('line-7-2713-to-2731');
+    expect(result.recommendedRouteId).toBe('line-7-direct');
+    expect(result.candidates[0]).toMatchObject({
+      lines: ['7호선'],
+      status: ELEVATOR_STATUS.OPERATIONAL,
+    });
+    expect(result.candidates[0].trainSegments[0]).toMatchObject({
+      direction: '석남 방면',
+      boardingPosition: { carNumber: 2, doorNumber: 1 },
+    });
+  });
 });
 
 function expectSuccess(
@@ -203,7 +222,9 @@ function snapshotForJourney(journeyId: string) {
 }
 
 function snapshotForDefinition(
-  journey: NonNullable<ReturnType<typeof createLine5JourneyDefinition>>,
+  journey:
+    | NonNullable<ReturnType<typeof createLine5JourneyDefinition>>
+    | NonNullable<ReturnType<typeof createLine7JourneyDefinition>>,
 ) {
   const uniqueFacilities = new Map<
     string,

@@ -38,7 +38,7 @@ export class JourneyController {
   @ApiOperation({
     summary: '검증된 엘리베이터 경로와 현재 상태를 결합한 여정 조회',
     description:
-      '5호선 전체 역 조합과 답십리→홍대입구 대표 환승 여정을 지원합니다. 정보가 부족한 5호선 경로는 일반 경로와 확인된 차량·문을 표시하되 엘리베이터 안전 경로 미확인으로 반환합니다.',
+      '5호선과 7호선 전체 역 조합, 군자역 5↔7호선 환승, 답십리→홍대입구 대표 환승 여정을 지원합니다. 정보가 부족한 경로는 일반 경로와 확인된 차량·문을 표시하되 엘리베이터 안전 경로 미확인으로 반환합니다.',
   })
   @ApiOkResponse({ type: JourneyPlanResultResDto })
   @ApiBadRequestResponse({ description: '역 코드 형식이 올바르지 않음' })
