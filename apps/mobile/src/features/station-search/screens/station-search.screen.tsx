@@ -2,34 +2,26 @@ import { useState } from 'react';
 import { useRouter } from 'expo-router';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import type { Station } from '@/entities/station';
+import { stationCatalog, type Station } from '@/entities/station';
 import { colors, radius, spacing } from '@/shared/theme';
 import { PrimaryButton, Screen } from '@/shared/ui';
 
 import { StationField } from '../components/station-field';
 import { StationPickerModal } from '../components/station-picker-modal';
-import { useLine5Stations } from '../hooks/use-line5-stations';
 
-const DAPSIMNI: Station = {
-  stationCode: '2543',
-  stationName: '답십리',
-  lineName: '5호선',
-};
-const GUBEUNDARI: Station = {
-  stationCode: '2551',
-  stationName: '굽은다리',
-  lineName: '5호선',
-};
+const DAPSIMNI = stationCatalog.find((station) => station.id === '5:2543');
+const GUBEUNDARI = stationCatalog.find((station) => station.id === '5:2551');
 
 type ActiveField = 'origin' | 'destination';
 
 export function StationSearchScreen() {
   const router = useRouter();
-  const { stations, isLoading, errorMessage, retry } = useLine5Stations();
   const [origin, setOrigin] = useState<Station | null>(null);
   const [destination, setDestination] = useState<Station | null>(null);
   const [activeField, setActiveField] = useState<ActiveField | null>(null);
-  const [validationMessage, setValidationMessage] = useState<string | null>(null);
+  const [validationMessage, setValidationMessage] = useState<string | null>(
+    null,
+  );
 
   const handleSelect = (station: Station) => {
     if (activeField === 'origin') setOrigin(station);
@@ -49,8 +41,14 @@ export function StationSearchScreen() {
       setValidationMessage('출발역과 도착역을 모두 선택해 주세요.');
       return;
     }
-    if (origin.stationCode === destination.stationCode) {
+    if (origin.stationKey === destination.stationKey) {
       setValidationMessage('출발역과 도착역은 서로 달라야 합니다.');
+      return;
+    }
+    if (!origin.journeySupported || !destination.journeySupported) {
+      setValidationMessage(
+        '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 5호선 경로만 안내할 수 있어요.',
+      );
       return;
     }
     router.push({
@@ -63,6 +61,7 @@ export function StationSearchScreen() {
   };
 
   const handleUseExample = () => {
+    if (!DAPSIMNI || !GUBEUNDARI) return;
     setOrigin(DAPSIMNI);
     setDestination(GUBEUNDARI);
     setValidationMessage(null);
@@ -77,7 +76,7 @@ export function StationSearchScreen() {
         </View>
         <Text style={styles.brand}>엘베로</Text>
         <View style={styles.betaBadge}>
-          <Text style={styles.betaText}>5호선 QA</Text>
+          <Text style={styles.betaText}>6개 노선 선택</Text>
         </View>
       </View>
 
@@ -125,7 +124,9 @@ export function StationSearchScreen() {
         </View>
         <View style={styles.optionTextArea}>
           <Text style={styles.optionTitle}>승강기 운행 상태 반영</Text>
-          <Text style={styles.optionDescription}>최대 1시간 지연될 수 있어요.</Text>
+          <Text style={styles.optionDescription}>
+            최대 1시간 지연될 수 있어요.
+          </Text>
         </View>
       </View>
 
@@ -146,7 +147,9 @@ export function StationSearchScreen() {
         onPress={handleUseExample}
         style={styles.exampleButton}
       >
-        <Text style={styles.exampleText}>QA 예시 채우기 · 답십리 → 굽은다리</Text>
+        <Text style={styles.exampleText}>
+          QA 예시 채우기 · 답십리 → 굽은다리
+        </Text>
       </Pressable>
 
       <Pressable
@@ -160,19 +163,16 @@ export function StationSearchScreen() {
       <View style={styles.infoCard}>
         <Text style={styles.infoTitle}>안내 기준</Text>
         <Text style={styles.infoText}>
-          15cm를 초과하는 승강장 간격은 추천에서 제외하고, 정보가 부족하면 일반 경로와
-          함께 ‘안전 경로 미확인’으로 표시합니다.
+          15cm를 초과하는 승강장 간격은 추천에서 제외하고, 정보가 부족하면 일반
+          경로와 함께 ‘안전 경로 미확인’으로 표시합니다.
         </Text>
       </View>
 
       <StationPickerModal
-        errorMessage={errorMessage}
-        isLoading={isLoading}
         onClose={() => setActiveField(null)}
-        onRetry={retry}
         onSelect={handleSelect}
-        selectedStationCode={selectedStation?.stationCode}
-        stations={stations}
+        selectedStationId={selectedStation?.id}
+        stations={stationCatalog}
         title={activeField === 'origin' ? '출발역 선택' : '도착역 선택'}
         visible={activeField !== null}
       />

@@ -3,6 +3,8 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '@/shared/theme';
 import type { Station } from '@/entities/station';
 
+import { LineBadge } from './line-badge';
+
 interface StationFieldProps {
   label: string;
   markerColor: string;
@@ -31,9 +33,7 @@ export function StationField({
         </Text>
       </View>
       {station ? (
-        <View style={styles.lineBadge}>
-          <Text style={styles.lineBadgeText}>{station.lineName}</Text>
-        </View>
+        <LineBadge lineId={station.lineId} />
       ) : (
         <Text aria-hidden style={styles.chevron}>
           ›
@@ -78,17 +78,6 @@ const styles = StyleSheet.create({
   placeholder: {
     color: colors.textMuted,
     fontWeight: '500',
-  },
-  lineBadge: {
-    borderRadius: radius.pill,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 6,
-    backgroundColor: colors.line5,
-  },
-  lineBadgeText: {
-    color: colors.white,
-    fontSize: 12,
-    fontWeight: '800',
   },
   chevron: {
     color: colors.textMuted,

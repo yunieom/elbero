@@ -1,5 +1,13 @@
+export type TransitLineId =
+  '5' | '1' | '2' | '3' | 'gyeongui-jungang' | 'airport';
+
 export interface Station {
+  id: string;
+  stationKey: string;
   stationCode: string;
   stationName: string;
-  lineName: '5호선';
+  lineId: TransitLineId;
+  lineName: string;
+  lineOrder: number;
+  journeySupported: boolean;
 }
