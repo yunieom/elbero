@@ -7,7 +7,7 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
   const { summary, trainSegments } = route;
   const accessibilityLabel = [
     `이용 노선 ${summary.lineNames.join(", ")}`,
-    `방향 ${summary.directions.join(", ")}`,
+    `방향 ${summary.directions.map((direction, index) => toTerminalDirection(direction, trainSegments[index]?.lineName)).join(", ")}`,
     `환승 ${summary.transferCount}회`,
     `엘리베이터 ${summary.elevatorCount}회`,
     ...trainSegments.map(
@@ -26,7 +26,13 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
           value={`${summary.elevatorCount}회`}
         />
       </View>
-      <Text style={styles.direction}>{summary.directions.join(" · ")}</Text>
+      <Text style={styles.direction}>
+        {summary.directions
+          .map((direction, index) =>
+            toTerminalDirection(direction, trainSegments[index]?.lineName),
+          )
+          .join(" · ")}
+      </Text>
       {trainSegments.map((segment) => (
         <View
           key={`${segment.order}-${segment.lineName}`}
@@ -45,6 +51,14 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
       ))}
     </View>
   );
+}
+
+function toTerminalDirection(direction: string, lineName?: string) {
+  if (lineName === "2호선") return direction;
+  if (direction === "하남검단산·마천 방면") {
+    return "하남검단산·상일동행 / 마천행";
+  }
+  return direction.replace(/\s*방면$/u, "행");
 }
 
 function SummaryMetric({ label, value }: { label: string; value: string }) {

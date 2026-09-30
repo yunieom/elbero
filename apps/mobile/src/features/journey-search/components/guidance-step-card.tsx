@@ -26,7 +26,12 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
   const isGapUnknown = Boolean(train) && !gap;
   const isExitPlatformElevator =
     access?.phase === "exit" && access.kind === "platform_elevator";
-  const showLocation = Boolean(access?.location) && !isExitPlatformElevator;
+  const isEntryPlatformElevator =
+    access?.phase === "entry" && access.kind === "platform_elevator";
+  const showLocation =
+    Boolean(access?.location) &&
+    !isExitPlatformElevator &&
+    !isEntryPlatformElevator;
   const showDirection = Boolean(access?.direction) && !isExitPlatformElevator;
   const displayInstruction = toDisplayInstruction(step);
   const boardingPosition = train?.boardingPosition
@@ -38,7 +43,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
           ? `${access.fromFloor}에서 ${access.toFloor}`
           : null,
         showLocation ? access.location : null,
-        showDirection ? access.direction : null,
+        showDirection ? access.direction?.replace(/방면$/u, "방향") : null,
       ]
         .filter(Boolean)
         .join(", ")
@@ -52,7 +57,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
         {!isLast ? <View style={styles.line} /> : null}
       </View>
       <View
-        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${train.direction}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
+        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
         style={styles.card}
       >
         <View style={styles.cardHeader}>
@@ -69,7 +74,9 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
                 ? `빠른환승 ${boardingPosition}`
                 : "빠른환승 위치 미확인"}
             </Text>
-            <Text style={styles.trainDirection}>{train.direction}</Text>
+            <Text style={styles.trainDirection}>
+              {toTerminalDirection(train.direction, train.lineName)}
+            </Text>
           </View>
         ) : null}
         {access ? (
@@ -84,7 +91,10 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
               <DetailRow label="위치" value={access.location} />
             ) : null}
             {showDirection && access.direction ? (
-              <DetailRow label="방향" value={access.direction} />
+              <DetailRow
+                label="방향"
+                value={access.direction.replace(/방면$/u, "방향")}
+              />
             ) : null}
           </View>
         ) : null}
@@ -120,6 +130,14 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
       </View>
     </View>
   );
+}
+
+function toTerminalDirection(direction: string, lineName: string) {
+  if (lineName === "2호선") return direction;
+  if (direction === "하남검단산·마천 방면") {
+    return "하남검단산·상일동행 / 마천행";
+  }
+  return direction.replace(/\s*방면$/u, "행");
 }
 
 function toDisplayInstruction(step: JourneyStep) {

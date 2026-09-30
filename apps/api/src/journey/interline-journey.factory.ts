@@ -4,6 +4,11 @@ import {
   hasLine2Station,
 } from './line-2-journey.factory.js';
 import {
+  createLine3JourneyDefinition,
+  getLine3Distance,
+  hasLine3Station,
+} from './line-3-journey.factory.js';
+import {
   createLine5JourneyDefinition,
   getLine5Distance,
   hasLine5Station,
@@ -21,7 +26,7 @@ import {
   type VerifiedRouteCandidate,
 } from './types/verified-journey.type.js';
 
-type SupportedLineId = '2' | '5' | '7';
+type SupportedLineId = '2' | '3' | '5' | '7';
 
 interface LineAdapter {
   lineName: string;
@@ -49,6 +54,12 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     distance: getLine2Distance,
     create: createLine2JourneyDefinition,
   },
+  '3': {
+    lineName: '3호선',
+    hasStation: hasLine3Station,
+    distance: getLine3Distance,
+    create: createLine3JourneyDefinition,
+  },
   '5': {
     lineName: '5호선',
     hasStation: hasLine5Station,
@@ -64,6 +75,31 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
 };
 
 const interchanges: readonly Interchange[] = [
+  {
+    stationName: '을지로3가',
+    stationCodes: { '2': '0203', '3': '0320' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '교대',
+    stationCodes: { '2': '0223', '3': '0330' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '종로3가',
+    stationCodes: { '3': '0319', '5': '2535' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '오금',
+    stationCodes: { '3': '0342', '5': '2558' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '고속터미널',
+    stationCodes: { '3': '0329', '7': '2736' },
+    accessibilityVerified: false,
+  },
   {
     stationName: '충정로',
     stationCodes: { '2': '0243', '5': '2532' },

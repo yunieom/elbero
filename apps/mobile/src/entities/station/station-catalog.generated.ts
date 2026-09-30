@@ -1535,104 +1535,104 @@ export const stationCatalog: Station[] = [
     "journeySupported": true
   },
   {
-    "id": "3:0309",
-    "stationKey": "3:0309",
+    "id": "3:K309",
+    "stationKey": "3:K309",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0309",
+    "stationCode": "K309",
     "stationName": "대화",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0310",
-    "stationKey": "3:0310",
+    "id": "3:K310",
+    "stationKey": "3:K310",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0310",
+    "stationCode": "K310",
     "stationName": "주엽",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0311",
-    "stationKey": "3:0311",
+    "id": "3:K311",
+    "stationKey": "3:K311",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0311",
+    "stationCode": "K311",
     "stationName": "정발산",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0312",
-    "stationKey": "3:0312",
+    "id": "3:K312",
+    "stationKey": "3:K312",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0312",
+    "stationCode": "K312",
     "stationName": "마두",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0313",
-    "stationKey": "3:0313",
+    "id": "3:K313",
+    "stationKey": "3:K313",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0313",
+    "stationCode": "K313",
     "stationName": "백석",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0314",
+    "id": "3:K314",
     "stationKey": "transfer:대곡",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0314",
+    "stationCode": "K314",
     "stationName": "대곡",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0315",
-    "stationKey": "3:0315",
+    "id": "3:K315",
+    "stationKey": "3:K315",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0315",
+    "stationCode": "K315",
     "stationName": "화정",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0316",
-    "stationKey": "3:0316",
+    "id": "3:K316",
+    "stationKey": "3:K316",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0316",
+    "stationCode": "K316",
     "stationName": "원당",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0317",
-    "stationKey": "3:0317",
+    "id": "3:K317",
+    "stationKey": "3:K317",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0317",
+    "stationCode": "K317",
     "stationName": "원흥",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "3:0318",
-    "stationKey": "3:0318",
+    "id": "3:K318",
+    "stationKey": "3:K318",
     "lineId": "3",
     "lineName": "3호선",
-    "stationCode": "0318",
+    "stationCode": "K318",
     "stationName": "삼송",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0309",
@@ -1642,7 +1642,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0309",
     "stationName": "지축",
     "lineOrder": 11,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0310",
@@ -1652,7 +1652,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0310",
     "stationName": "구파발",
     "lineOrder": 12,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0311",
@@ -1662,7 +1662,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0311",
     "stationName": "연신내",
     "lineOrder": 13,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0312",
@@ -1672,7 +1672,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0312",
     "stationName": "불광",
     "lineOrder": 14,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0313",
@@ -1682,7 +1682,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0313",
     "stationName": "녹번",
     "lineOrder": 15,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0314",
@@ -1692,7 +1692,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0314",
     "stationName": "홍제",
     "lineOrder": 16,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0315",
@@ -1702,7 +1702,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0315",
     "stationName": "무악재",
     "lineOrder": 17,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0316",
@@ -1712,7 +1712,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0316",
     "stationName": "독립문",
     "lineOrder": 18,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0317",
@@ -1722,7 +1722,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0317",
     "stationName": "경복궁(정부서울청사)",
     "lineOrder": 19,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0318",
@@ -1732,7 +1732,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0318",
     "stationName": "안국",
     "lineOrder": 20,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0319",
@@ -1742,7 +1742,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0319",
     "stationName": "종로3가",
     "lineOrder": 21,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0320",
@@ -1752,7 +1752,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0320",
     "stationName": "을지로3가",
     "lineOrder": 22,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0321",
@@ -1762,7 +1762,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0321",
     "stationName": "충무로",
     "lineOrder": 23,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0322",
@@ -1772,7 +1772,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0322",
     "stationName": "동대입구",
     "lineOrder": 24,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0323",
@@ -1782,7 +1782,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0323",
     "stationName": "약수",
     "lineOrder": 25,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0324",
@@ -1792,7 +1792,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0324",
     "stationName": "금호",
     "lineOrder": 26,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0325",
@@ -1802,7 +1802,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0325",
     "stationName": "옥수",
     "lineOrder": 27,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0326",
@@ -1812,7 +1812,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0326",
     "stationName": "압구정",
     "lineOrder": 28,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0327",
@@ -1822,7 +1822,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0327",
     "stationName": "신사",
     "lineOrder": 29,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0328",
@@ -1832,7 +1832,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0328",
     "stationName": "잠원",
     "lineOrder": 30,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0329",
@@ -1842,7 +1842,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0329",
     "stationName": "고속터미널",
     "lineOrder": 31,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0330",
@@ -1852,7 +1852,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0330",
     "stationName": "교대(법원.검찰청)",
     "lineOrder": 32,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0331",
@@ -1862,7 +1862,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0331",
     "stationName": "남부터미널(예술의전당)",
     "lineOrder": 33,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0332",
@@ -1872,7 +1872,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0332",
     "stationName": "양재(서초구청)",
     "lineOrder": 34,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0333",
@@ -1882,7 +1882,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0333",
     "stationName": "매봉",
     "lineOrder": 35,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0334",
@@ -1892,7 +1892,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0334",
     "stationName": "도곡",
     "lineOrder": 36,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0335",
@@ -1902,7 +1902,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0335",
     "stationName": "대치",
     "lineOrder": 37,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0336",
@@ -1912,7 +1912,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0336",
     "stationName": "학여울",
     "lineOrder": 38,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0337",
@@ -1922,7 +1922,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0337",
     "stationName": "대청",
     "lineOrder": 39,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0338",
@@ -1932,7 +1932,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0338",
     "stationName": "일원",
     "lineOrder": 40,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0339",
@@ -1942,7 +1942,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0339",
     "stationName": "수서",
     "lineOrder": 41,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0340",
@@ -1952,7 +1952,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0340",
     "stationName": "가락시장",
     "lineOrder": 42,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0341",
@@ -1962,7 +1962,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0341",
     "stationName": "경찰병원",
     "lineOrder": 43,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "3:0342",
@@ -1972,7 +1972,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "0342",
     "stationName": "오금",
     "lineOrder": 44,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "4:0405",

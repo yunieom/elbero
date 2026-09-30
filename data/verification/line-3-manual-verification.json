@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "line": "3",
+  "verifiedAt": "2026-09-30",
+  "topology": [
+    "K309", "K310", "K311", "K312", "K313", "K314", "K315", "K316", "K317", "K318",
+    "0309", "0310", "0311", "0312", "0313", "0314", "0315", "0316", "0317", "0318",
+    "0319", "0320", "0321", "0322", "0323", "0324", "0325", "0326", "0327", "0328",
+    "0329", "0330", "0331", "0332", "0333", "0334", "0335", "0336", "0337", "0338",
+    "0339", "0340", "0341", "0342"
+  ],
+  "surfaceExits": [
+    { "stationCode": "K309", "stationName": "대화", "exitNumbers": ["1", "4"] },
+    { "stationCode": "K310", "stationName": "주엽", "exitNumbers": ["3"] },
+    { "stationCode": "K316", "stationName": "원당", "exitNumbers": ["3", "5"] },
+    { "stationCode": "K317", "stationName": "원흥", "exitNumbers": ["2", "4", "5", "8"] },
+    { "stationCode": "K318", "stationName": "삼송", "exitNumbers": ["5", "6", "8"] },
+    { "stationCode": "0312", "stationName": "불광", "exitNumbers": ["1", "8"] },
+    { "stationCode": "0314", "stationName": "홍제", "exitNumbers": ["4"] },
+    { "stationCode": "0319", "stationName": "종로3가", "exitNumbers": ["8", "2-1"] },
+    { "stationCode": "0320", "stationName": "을지로3가", "exitNumbers": ["10", "12"] },
+    { "stationCode": "0322", "stationName": "동대입구", "exitNumbers": ["6"] },
+    { "stationCode": "0324", "stationName": "금호", "exitNumbers": ["2", "3"] },
+    { "stationCode": "0325", "stationName": "옥수", "exitNumbers": ["4"] },
+    { "stationCode": "0327", "stationName": "신사", "exitNumbers": ["1", "6", "8"] },
+    { "stationCode": "0330", "stationName": "교대", "exitNumbers": ["12", "13"] },
+    { "stationCode": "0332", "stationName": "양재", "exitNumbers": ["1", "4", "7", "10", "11"] },
+    { "stationCode": "0340", "stationName": "가락시장", "exitNumbers": ["1", "4", "7"] },
+    { "stationCode": "0342", "stationName": "오금", "exitNumbers": ["5", "7"] }
+  ],
+  "directionalDoors": [
+    {
+      "stationCode": "0319",
+      "stationName": "종로3가",
+      "directions": [
+        { "toward": "지축", "platformNumber": "1", "recommendedDoors": ["4-3"] },
+        { "toward": "오금", "platformNumber": "2", "recommendedDoors": ["7-1"] }
+      ]
+    },
+    {
+      "stationCode": "0328",
+      "stationName": "잠원",
+      "directions": [
+        { "toward": "고속터미널", "platformNumber": "2", "recommendedDoors": ["8-2"] },
+        { "toward": "신사", "platformNumber": "1", "recommendedDoors": ["3-3"] }
+      ]
+    }
+  ]
+}

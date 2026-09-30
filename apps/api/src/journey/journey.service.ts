@@ -8,6 +8,7 @@ import type { Line5StationResDto } from './dto/res/line-5-station.res.dto.js';
 import { JourneyRouteEngine } from './journey-route-engine.service.js';
 import { createInterlineJourneyDefinition } from './interline-journey.factory.js';
 import { createLine2JourneyDefinition } from './line-2-journey.factory.js';
+import { createLine3JourneyDefinition } from './line-3-journey.factory.js';
 import {
   createLine5JourneyDefinition,
   listLine5Stations,
@@ -61,6 +62,7 @@ export class JourneyService {
           journey.destinationStationCode === destinationStationCode,
       ) ??
       createLine2JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine3JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine5JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine7JourneyDefinition(originStationCode, destinationStationCode) ??
       createInterlineJourneyDefinition(
