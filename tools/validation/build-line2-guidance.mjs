@@ -23,6 +23,9 @@ const [raw, seoul, manual] = await Promise.all(
 const manualByStation = new Map(
   manual.directionalDoors.map((station) => [station.stationCode, station]),
 );
+const manualExitsByStation = new Map(
+  manual.surfaceExits.map((station) => [station.stationCode, station]),
+);
 const rawByStation = new Map(
   raw.stations.map((station) => [
     normalizeCode(station.station.stinCd),
@@ -37,6 +40,7 @@ const stations = raw.route.body.map((routeStation) => {
   const rawStation = rawByStation.get(stationCode);
   const seoulRows = seoulByStation.get(stationCode) ?? [];
   const manualStation = manualByStation.get(stationCode);
+  const manualExits = manualExitsByStation.get(stationCode);
   const liveElevators = seoulRows.map((row, index) => ({
     id: `${stationCode}-live-${index + 1}`,
     name: row.ELVTR_NM,
@@ -44,13 +48,15 @@ const stations = raw.route.body.map((routeStation) => {
     location: row.INSTL_PSTN,
     kind: classifyElevator(row.INSTL_PSTN),
   }));
-  const exitNumbers = [
-    ...new Set(
-      seoulRows
-        .filter((row) => classifyElevator(row.INSTL_PSTN) === "surface")
-        .flatMap((row) => parseExitNumbers(row.INSTL_PSTN)),
-    ),
-  ].sort(numericTextSort);
+  const exitNumbers = (
+    manualExits?.exitNumbers ?? [
+      ...new Set(
+        seoulRows
+          .filter((row) => classifyElevator(row.INSTL_PSTN) === "surface")
+          .flatMap((row) => parseExitNumbers(row.INSTL_PSTN)),
+      ),
+    ]
+  ).toSorted(numericTextSort);
 
   const movementDirections = [
     ...new Set(
@@ -130,9 +136,10 @@ const stations = raw.route.body.map((routeStation) => {
     stationCode,
     stationName: normalizeStationName(routeStation.stinNm),
     exitNumbers,
-    verificationMethod: manualStation
-      ? "manual_verification"
-      : "SeoulMetroFaciInfo",
+    verificationMethod:
+      manualStation || manualExits
+        ? "manual_verification"
+        : "SeoulMetroFaciInfo",
     liveElevators,
     directions,
   };
@@ -152,7 +159,7 @@ await writeFile(
 );
 
 console.log(
-  `2호선 안내 데이터 생성: ${stations.length}역, 수동 차량·문 ${manual.directionalDoors.length}역`,
+  `2호선 안내 데이터 생성: ${stations.length}역, 수동 지상 출구 ${manual.surfaceExits.length}역, 수동 차량·문 ${manual.directionalDoors.length}역`,
 );
 
 function normalizeCode(value) {

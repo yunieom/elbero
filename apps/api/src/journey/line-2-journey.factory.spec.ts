@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { LINE_2_GUIDANCE } from './data/line-2-guidance.generated.js';
 import { createLine2JourneyDefinition } from './line-2-journey.factory.js';
 
 describe('createLine2JourneyDefinition', () => {
@@ -46,14 +47,44 @@ describe('createLine2JourneyDefinition', () => {
   });
 
   it('uses the closer-exit wording when multiple surface elevators exist', () => {
-    const definition = createLine2JourneyDefinition('0234', '0248');
+    const definition = createLine2JourneyDefinition('0238', '0237');
     const entry = definition?.candidates[0].steps.find(
       (step) => step.type === 'entry',
     );
 
     expect(entry?.instruction).toBe(
-      '1, 3번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.',
+      '1, 4, 6, 9번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.',
     );
+  });
+
+  it('uses all 17 manually verified surface-exit values', () => {
+    const expected = new Map<string, readonly string[]>([
+      ['0201', ['9']],
+      ['0238', ['1', '4', '6', '9']],
+      ['0235', ['1', '4', '5']],
+      ['0234', ['3']],
+      ['0233', ['3', '7']],
+      ['0247', ['1']],
+      ['0232', ['1', '2']],
+      ['0249', ['2']],
+      ['0223', ['5', '13']],
+      ['0222', ['1', '8', '10']],
+      ['0219', ['1', '4', '6']],
+      ['0216', ['1']],
+      ['0212', ['1', '6']],
+      ['0209', ['2', '4']],
+      ['0207', ['1-1']],
+      ['0204', ['8', '10']],
+      ['0202', ['1', '5']],
+    ]);
+
+    expect(expected.size).toBe(17);
+    for (const [stationCode, exitNumbers] of expected) {
+      const station = LINE_2_GUIDANCE.stations.find(
+        (candidate) => candidate.stationCode === stationCode,
+      );
+      expect(station?.exitNumbers).toEqual(exitNumbers);
+    }
   });
 });
 

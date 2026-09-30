@@ -507,9 +507,9 @@ export const LINE_2_GUIDANCE = {
       "stationName": "합정",
       "exitNumbers": [
         "1",
-        "2",
-        "3",
-        "4"
+        "4",
+        "6",
+        "9"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
@@ -748,6 +748,7 @@ export const LINE_2_GUIDANCE = {
       "stationName": "문래",
       "exitNumbers": [
         "1",
+        "4",
         "5"
       ],
       "verificationMethod": "manual_verification",
@@ -832,7 +833,6 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0234",
       "stationName": "신도림",
       "exitNumbers": [
-        "1",
         "3"
       ],
       "verificationMethod": "manual_verification",
@@ -1021,7 +1021,7 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0233",
       "stationName": "대림",
       "exitNumbers": [
-        "4",
+        "3",
         "7"
       ],
       "verificationMethod": "manual_verification",
@@ -1105,7 +1105,9 @@ export const LINE_2_GUIDANCE = {
     {
       "stationCode": "0247",
       "stationName": "도림천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
         {
@@ -1271,9 +1273,8 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0232",
       "stationName": "구로디지털단지",
       "exitNumbers": [
-        "2",
-        "3",
-        "6"
+        "1",
+        "2"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
@@ -2052,7 +2053,8 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0223",
       "stationName": "교대",
       "exitNumbers": [
-        "5"
+        "5",
+        "13"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
@@ -2130,6 +2132,7 @@ export const LINE_2_GUIDANCE = {
       "stationName": "강남",
       "exitNumbers": [
         "1",
+        "8",
         "10"
       ],
       "verificationMethod": "manual_verification",
@@ -2354,8 +2357,7 @@ export const LINE_2_GUIDANCE = {
       "exitNumbers": [
         "1",
         "4",
-        "6",
-        "8"
+        "6"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
@@ -2600,8 +2602,7 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0216",
       "stationName": "잠실",
       "exitNumbers": [
-        "1",
-        "6"
+        "1"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
@@ -2876,6 +2877,7 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0212",
       "stationName": "건대입구",
       "exitNumbers": [
+        "1",
         "6"
       ],
       "verificationMethod": "manual_verification",
@@ -3160,6 +3162,7 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0209",
       "stationName": "한양대",
       "exitNumbers": [
+        "2",
         "4"
       ],
       "verificationMethod": "manual_verification",
@@ -3712,7 +3715,8 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "0204",
       "stationName": "을지로4가",
       "exitNumbers": [
-        "8"
+        "8",
+        "10"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [
@@ -3846,8 +3850,7 @@ export const LINE_2_GUIDANCE = {
       "stationName": "을지로입구",
       "exitNumbers": [
         "1",
-        "5",
-        "6"
+        "5"
       ],
       "verificationMethod": "manual_verification",
       "liveElevators": [

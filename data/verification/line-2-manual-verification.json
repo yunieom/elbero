@@ -51,6 +51,77 @@
     "sinjeong": ["0234", "0247", "0248", "0249", "234-4"],
     "seongsu": ["0211", "0244", "0245", "0250", "0246"]
   },
+  "surfaceExits": [
+    { "stationCode": "0201", "stationName": "시청", "exitNumbers": ["9"] },
+    {
+      "stationCode": "0238",
+      "stationName": "합정",
+      "exitNumbers": ["1", "4", "6", "9"]
+    },
+    {
+      "stationCode": "0235",
+      "stationName": "문래",
+      "exitNumbers": ["1", "4", "5"]
+    },
+    { "stationCode": "0234", "stationName": "신도림", "exitNumbers": ["3"] },
+    {
+      "stationCode": "0233",
+      "stationName": "대림",
+      "exitNumbers": ["3", "7"]
+    },
+    { "stationCode": "0247", "stationName": "도림천", "exitNumbers": ["1"] },
+    {
+      "stationCode": "0232",
+      "stationName": "구로디지털단지",
+      "exitNumbers": ["1", "2"]
+    },
+    {
+      "stationCode": "0249",
+      "stationName": "신정네거리",
+      "exitNumbers": ["2"]
+    },
+    {
+      "stationCode": "0223",
+      "stationName": "교대",
+      "exitNumbers": ["5", "13"]
+    },
+    {
+      "stationCode": "0222",
+      "stationName": "강남",
+      "exitNumbers": ["1", "8", "10"]
+    },
+    {
+      "stationCode": "0219",
+      "stationName": "삼성",
+      "exitNumbers": ["1", "4", "6"]
+    },
+    { "stationCode": "0216", "stationName": "잠실", "exitNumbers": ["1"] },
+    {
+      "stationCode": "0212",
+      "stationName": "건대입구",
+      "exitNumbers": ["1", "6"]
+    },
+    {
+      "stationCode": "0209",
+      "stationName": "한양대",
+      "exitNumbers": ["2", "4"]
+    },
+    {
+      "stationCode": "0207",
+      "stationName": "상왕십리",
+      "exitNumbers": ["1-1"]
+    },
+    {
+      "stationCode": "0204",
+      "stationName": "을지로4가",
+      "exitNumbers": ["8", "10"]
+    },
+    {
+      "stationCode": "0202",
+      "stationName": "을지로입구",
+      "exitNumbers": ["1", "5"]
+    }
+  ],
   "directionalDoors": [
     {
       "stationCode": "0201",
