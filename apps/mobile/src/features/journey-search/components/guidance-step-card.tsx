@@ -26,12 +26,8 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
   const isGapUnknown = Boolean(train) && !gap;
   const isExitPlatformElevator =
     access?.phase === "exit" && access.kind === "platform_elevator";
-  const isEntryPlatformElevator =
-    access?.phase === "entry" && access.kind === "platform_elevator";
-  const showLocation =
-    Boolean(access?.location) &&
-    !isExitPlatformElevator &&
-    !isEntryPlatformElevator;
+  const isPlatformElevator = access?.kind === "platform_elevator";
+  const showLocation = Boolean(access?.location) && !isPlatformElevator;
   const showDirection = Boolean(access?.direction) && !isExitPlatformElevator;
   const displayInstruction = toDisplayInstruction(step);
   const boardingPosition = train?.boardingPosition
@@ -43,7 +39,9 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
           ? `${access.fromFloor}에서 ${access.toFloor}`
           : null,
         showLocation ? access.location : null,
-        showDirection ? access.direction?.replace(/방면$/u, "방향") : null,
+        showDirection && access.direction
+          ? toAccessDirection(access.direction)
+          : null,
       ]
         .filter(Boolean)
         .join(", ")
@@ -93,7 +91,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
             {showDirection && access.direction ? (
               <DetailRow
                 label="방향"
-                value={access.direction.replace(/방면$/u, "방향")}
+                value={toAccessDirection(access.direction)}
               />
             ) : null}
           </View>
@@ -130,6 +128,10 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
       </View>
     </View>
   );
+}
+
+function toAccessDirection(direction: string) {
+  return direction.trim().replace(/\s*방면$/u, " 방향");
 }
 
 function toTerminalDirection(direction: string, lineName: string) {
