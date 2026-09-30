@@ -1582,19 +1582,20 @@ export const LINE_2_GUIDANCE = {
       "stationCode": "234-4",
       "stationName": "까치산",
       "exitNumbers": [],
-      "verificationMethod": "SeoulMetroFaciInfo",
+      "verificationMethod": "manual_verification",
       "liveElevators": [],
       "directions": [
         {
           "toward": "신정네거리",
           "aliases": [],
           "service": null,
+          "sharedFacilityLine": "5",
           "platformNumber": null,
           "recommendedDoors": [],
           "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "unverified"
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         }
       ]
     },
@@ -1826,7 +1827,7 @@ export const LINE_2_GUIDANCE = {
         "6",
         "14"
       ],
-      "verificationMethod": "SeoulMetroFaciInfo",
+      "verificationMethod": "manual_verification",
       "liveElevators": [
         {
           "id": "0226-live-1",
@@ -1857,13 +1858,13 @@ export const LINE_2_GUIDANCE = {
           "service": null,
           "platformNumber": "2",
           "recommendedDoors": [
-            "4-4"
+            "5-2"
           ],
           "doorGaps": [
             {
-              "door": "4-4",
+              "door": "5-2",
               "gap": {
-                "distanceCm": 8,
+                "distanceCm": 8.5,
                 "level": "green",
                 "label": "안전"
               }
@@ -1871,18 +1872,29 @@ export const LINE_2_GUIDANCE = {
           ],
           "accessibilityVerified": true,
           "warning": null,
-          "source": "SeoulMetroFaciInfo"
+          "source": "manual_verification"
         },
         {
           "toward": "낙성대",
           "aliases": [],
           "service": null,
-          "platformNumber": null,
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "unverified"
+          "platformNumber": "1",
+          "recommendedDoors": [
+            "6-3"
+          ],
+          "doorGaps": [
+            {
+              "door": "6-3",
+              "gap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         }
       ]
     },
@@ -2302,7 +2314,7 @@ export const LINE_2_GUIDANCE = {
         "5",
         "10"
       ],
-      "verificationMethod": "SeoulMetroFaciInfo",
+      "verificationMethod": "manual_verification",
       "liveElevators": [
         {
           "id": "0220-live-1",
@@ -2331,23 +2343,45 @@ export const LINE_2_GUIDANCE = {
           "toward": "삼성",
           "aliases": [],
           "service": null,
-          "platformNumber": null,
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "unverified"
+          "platformNumber": "1",
+          "recommendedDoors": [
+            "8-1"
+          ],
+          "doorGaps": [
+            {
+              "door": "8-1",
+              "gap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         },
         {
           "toward": "역삼",
           "aliases": [],
           "service": null,
-          "platformNumber": null,
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "unverified"
+          "platformNumber": "2",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "doorGaps": [
+            {
+              "door": "3-4",
+              "gap": {
+                "distanceCm": 9.5,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         }
       ]
     },
@@ -2820,7 +2854,7 @@ export const LINE_2_GUIDANCE = {
       "exitNumbers": [
         "2"
       ],
-      "verificationMethod": "SeoulMetroFaciInfo",
+      "verificationMethod": "manual_verification",
       "liveElevators": [
         {
           "id": "0213-live-1",
@@ -2842,12 +2876,23 @@ export const LINE_2_GUIDANCE = {
           "toward": "건대입구",
           "aliases": [],
           "service": null,
-          "platformNumber": null,
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "unverified"
+          "platformNumber": "1",
+          "recommendedDoors": [
+            "7-2"
+          ],
+          "doorGaps": [
+            {
+              "door": "7-2",
+              "gap": {
+                "distanceCm": 8,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         },
         {
           "toward": "강변",
@@ -2869,7 +2914,7 @@ export const LINE_2_GUIDANCE = {
           ],
           "accessibilityVerified": true,
           "warning": null,
-          "source": "SeoulMetroFaciInfo"
+          "source": "manual_verification"
         }
       ]
     },
@@ -3463,17 +3508,6 @@ export const LINE_2_GUIDANCE = {
       "directions": [
         {
           "toward": "용두",
-          "aliases": [],
-          "service": null,
-          "platformNumber": null,
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "unverified"
-        },
-        {
-          "toward": "신설동",
           "aliases": [],
           "service": null,
           "platformNumber": null,

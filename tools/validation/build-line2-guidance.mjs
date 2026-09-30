@@ -101,10 +101,12 @@ const stations = raw.route.body.map((routeStation) => {
     const recommendedDoors = [
       ...new Set(manualDirection?.recommendedDoors ?? liveDoors),
     ];
-    const platformNumber = inferPlatformNumber(
-      rawStation?.nearbyCars?.body ?? [],
-      recommendedDoors,
-    );
+    const platformNumber =
+      manualDirection?.platformNumber ??
+      inferPlatformNumber(
+        rawStation?.nearbyCars?.body ?? [],
+        recommendedDoors,
+      );
     const doorGaps = recommendedDoors.map((door) => ({
       door,
       gap: findGap(stationCode, platformNumber, door),
@@ -114,6 +116,9 @@ const stations = raw.route.body.map((routeStation) => {
       toward,
       aliases,
       service,
+      ...(manualDirection?.sharedFacilityLine
+        ? { sharedFacilityLine: manualDirection.sharedFacilityLine }
+        : {}),
       platformNumber,
       recommendedDoors,
       doorGaps,
@@ -121,7 +126,7 @@ const stations = raw.route.body.map((routeStation) => {
         Boolean(manualDirection) ||
         (recommendedDoors.length > 0 && liveDoors.length > 0),
       warning:
-        recommendedDoors.length === 0
+        recommendedDoors.length === 0 && !manualDirection?.sharedFacilityLine
           ? "방향별 승강기 인접 차량·문 미확인"
           : null,
       source: manualDirection

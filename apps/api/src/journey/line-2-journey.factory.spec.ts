@@ -86,6 +86,45 @@ describe('createLine2JourneyDefinition', () => {
       expect(station?.exitNumbers).toEqual(exitNumbers);
     }
   });
+
+  it('links the manually verified missing platform doors to their gap data', () => {
+    const expected = [
+      ['0226', '낙성대', '6-3', 10],
+      ['0226', '방배', '5-2', 8.5],
+      ['0220', '삼성', '8-1', 9],
+      ['0220', '역삼', '3-4', 9.5],
+      ['0213', '건대입구', '7-2', 8],
+      ['0213', '강변', '4-3', 8.5],
+      ['0246', '용두', '4-4', 8],
+    ] as const;
+
+    for (const [stationCode, toward, door, distanceCm] of expected) {
+      const direction = LINE_2_GUIDANCE.stations
+        .find((station) => station.stationCode === stationCode)
+        ?.directions.find((candidate) => candidate.toward === toward);
+
+      expect(direction?.recommendedDoors).toEqual([door]);
+      expect(direction?.doorGaps[0]?.gap).toMatchObject({
+        distanceCm,
+        level: 'green',
+      });
+      expect(direction?.warning).toBeNull();
+    }
+  });
+
+  it('uses the shared line 5 elevator route at Kkachisan without inventing a door', () => {
+    const direction = LINE_2_GUIDANCE.stations
+      .find((station) => station.stationCode === '234-4')
+      ?.directions.find((candidate) => candidate.toward === '신정네거리');
+
+    expect(direction).toMatchObject({
+      sharedFacilityLine: '5',
+      recommendedDoors: [],
+      accessibilityVerified: true,
+      warning: null,
+      source: 'manual_verification',
+    });
+  });
 });
 
 function findTrainSteps(

@@ -282,6 +282,41 @@
       ]
     },
     {
+      "stationCode": "0226",
+      "stationName": "사당",
+      "directions": [
+        { "toward": "낙성대", "platformNumber": "1", "recommendedDoors": ["6-3"] },
+        { "toward": "방배", "platformNumber": "2", "recommendedDoors": ["5-2"] }
+      ]
+    },
+    {
+      "stationCode": "0220",
+      "stationName": "선릉",
+      "directions": [
+        { "toward": "삼성", "platformNumber": "1", "recommendedDoors": ["8-1"] },
+        { "toward": "역삼", "platformNumber": "2", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "0213",
+      "stationName": "구의",
+      "directions": [
+        { "toward": "강변", "platformNumber": "2", "recommendedDoors": ["4-3"] },
+        { "toward": "건대입구", "platformNumber": "1", "recommendedDoors": ["7-2"] }
+      ]
+    },
+    {
+      "stationCode": "234-4",
+      "stationName": "까치산",
+      "directions": [
+        {
+          "toward": "신정네거리",
+          "recommendedDoors": [],
+          "sharedFacilityLine": "5"
+        }
+      ]
+    },
+    {
       "stationCode": "0244",
       "stationName": "용답",
       "directions": [
@@ -308,7 +343,7 @@
     {
       "stationCode": "0246",
       "stationName": "신설동",
-      "directions": [{ "toward": "신설동", "recommendedDoors": ["4-4"] }]
+      "directions": [{ "toward": "용두", "recommendedDoors": ["4-4"] }]
     }
   ]
 }
