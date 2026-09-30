@@ -221,6 +221,7 @@ export class JourneyRouteEngine {
         facilityGroupId: step.facilityGroupId ?? null,
         stationAccess: step.stationAccess ?? null,
         platformGap: step.platformGap ?? null,
+        trainSegment: step.trainSegment ?? null,
       })),
       summary: calculated.summary,
       trainSegments: calculated.trainSegments,

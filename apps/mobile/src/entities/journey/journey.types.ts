@@ -31,6 +31,17 @@ export interface JourneyStep {
   instruction: string;
   stationAccess: JourneyStationAccess | null;
   platformGap: JourneyPlatformGap | null;
+  trainSegment: JourneyStepTrainSegment | null;
+}
+
+export interface JourneyStepTrainSegment {
+  lineName: string;
+  direction: string;
+  originStationName: string;
+  destinationStationName: string;
+  boardingPosition: JourneyDoorPosition | null;
+  alightingPosition: JourneyDoorPosition | null;
+  positionBasis: "destination_elevator" | "unverified";
 }
 
 export interface JourneyFacilityGroup {

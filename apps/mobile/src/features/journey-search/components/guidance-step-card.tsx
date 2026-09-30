@@ -20,14 +20,25 @@ interface GuidanceStepCardProps {
 export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
   const gap = step.platformGap;
   const access = step.stationAccess;
+  const train = step.trainSegment;
   const isGapWarning = gap?.level === "yellow";
+  const isGapDanger = gap?.level === "red";
+  const isGapUnknown = Boolean(train) && !gap;
+  const isExitPlatformElevator =
+    access?.phase === "exit" && access.kind === "platform_elevator";
+  const showLocation = Boolean(access?.location) && !isExitPlatformElevator;
+  const showDirection = Boolean(access?.direction) && !isExitPlatformElevator;
+  const displayInstruction = toDisplayInstruction(step);
+  const boardingPosition = train?.boardingPosition
+    ? `${train.boardingPosition.carNumber}-${train.boardingPosition.doorNumber}`
+    : null;
   const accessLabel = access
     ? [
         access.fromFloor && access.toFloor
           ? `${access.fromFloor}에서 ${access.toFloor}`
           : null,
-        access.location,
-        access.direction,
+        showLocation ? access.location : null,
+        showDirection ? access.direction : null,
       ]
         .filter(Boolean)
         .join(", ")
@@ -41,7 +52,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
         {!isLast ? <View style={styles.line} /> : null}
       </View>
       <View
-        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${step.instruction}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : ""}`}
+        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${train.direction}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
         style={styles.card}
       >
         <View style={styles.cardHeader}>
@@ -50,7 +61,17 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
           </Text>
           <Text style={styles.stationName}>{step.stationName}</Text>
         </View>
-        <Text style={styles.instruction}>{step.instruction}</Text>
+        <Text style={styles.instruction}>{displayInstruction}</Text>
+        {train ? (
+          <View style={styles.trainDetails}>
+            <Text style={styles.quickTransfer}>
+              {boardingPosition
+                ? `빠른환승 ${boardingPosition}`
+                : "빠른환승 위치 미확인"}
+            </Text>
+            <Text style={styles.trainDirection}>{train.direction}</Text>
+          </View>
+        ) : null}
         {access ? (
           <View style={styles.accessDetails}>
             {access.fromFloor && access.toFloor ? (
@@ -59,45 +80,61 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
                 value={`${access.fromFloor} → ${access.toFloor}`}
               />
             ) : null}
-            {access.location ? (
+            {showLocation && access.location ? (
               <DetailRow label="위치" value={access.location} />
             ) : null}
-            {access.direction ? (
+            {showDirection && access.direction ? (
               <DetailRow label="방향" value={access.direction} />
             ) : null}
-            <View style={styles.verificationBlock}>
-              {access.facilityIds.length > 0 ? (
-                <Text style={styles.verificationText}>
-                  시설 {access.facilityIds.join(", ")}
-                </Text>
-              ) : null}
-              <Text style={styles.verificationText}>{access.source}</Text>
-              <Text style={styles.verificationText}>
-                {access.verifiedAt} 확인
-              </Text>
-            </View>
           </View>
         ) : null}
-        {gap ? (
+        {gap || isGapUnknown ? (
           <View
             style={[
               styles.gapBadge,
-              isGapWarning ? styles.gapWarning : styles.gapSafe,
+              isGapUnknown
+                ? styles.gapUnknown
+                : isGapDanger
+                  ? styles.gapDanger
+                  : isGapWarning
+                    ? styles.gapWarning
+                    : styles.gapSafe,
             ]}
           >
             <Text
               style={[
                 styles.gapText,
-                isGapWarning ? styles.gapWarningText : styles.gapSafeText,
+                isGapUnknown
+                  ? styles.gapUnknownText
+                  : isGapDanger
+                    ? styles.gapDangerText
+                    : isGapWarning
+                      ? styles.gapWarningText
+                      : styles.gapSafeText,
               ]}
             >
-              승강장 간격 {gap.label}
+              {gap ? `승강장 간격 ${gap.label}` : "승강장 간격 미확인"}
             </Text>
           </View>
         ) : null}
       </View>
     </View>
   );
+}
+
+function toDisplayInstruction(step: JourneyStep) {
+  if (step.trainSegment) {
+    return `${step.trainSegment.lineName} 열차를 타고 ${step.trainSegment.destinationStationName}까지 이동하세요.`;
+  }
+  if (
+    step.stationAccess?.phase === "exit" &&
+    step.stationAccess.kind === "platform_elevator"
+  ) {
+    return step.instruction
+      .replace(/^하차 후\s*/u, "")
+      .replace(/(\d+)호차\s*(\d+)번 문/gu, "$1-$2");
+  }
+  return step.instruction;
 }
 
 function DetailRow({ label, value }: { label: string; value: string }) {
@@ -175,6 +212,22 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     fontWeight: "700",
   },
+  trainDetails: {
+    marginTop: spacing.sm,
+    gap: spacing.xxs,
+  },
+  quickTransfer: {
+    color: colors.textPrimary,
+    fontSize: 15,
+    lineHeight: 22,
+    fontWeight: "800",
+  },
+  trainDirection: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: "600",
+  },
   accessDetails: {
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
@@ -203,14 +256,6 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: "600",
   },
-  verificationBlock: {
-    marginTop: spacing.xs,
-  },
-  verificationText: {
-    color: colors.textMuted,
-    fontSize: 11,
-    lineHeight: 17,
-  },
   gapBadge: {
     alignSelf: "flex-start",
     borderRadius: radius.pill,
@@ -224,6 +269,12 @@ const styles = StyleSheet.create({
   gapWarning: {
     backgroundColor: colors.warningSoft,
   },
+  gapDanger: {
+    backgroundColor: colors.dangerSoft,
+  },
+  gapUnknown: {
+    backgroundColor: colors.unknownSoft,
+  },
   gapText: {
     fontSize: 12,
     fontWeight: "800",
@@ -233,5 +284,11 @@ const styles = StyleSheet.create({
   },
   gapWarningText: {
     color: colors.warning,
+  },
+  gapDangerText: {
+    color: colors.danger,
+  },
+  gapUnknownText: {
+    color: colors.unknown,
   },
 });

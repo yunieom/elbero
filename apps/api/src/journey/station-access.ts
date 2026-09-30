@@ -95,8 +95,11 @@ function toDetail(
   );
   const [entryFrom, entryTo] = toEntryFloors(section, kind);
   const isExit = phase === STATION_ACCESS_PHASE.EXIT;
+  const direction = findDirection(step.instruction, group?.label);
   const locations = uniqueValues(
-    group?.facilities.map((facility) => facility.expectedLocation) ?? [],
+    group?.facilities.map((facility) =>
+      selectDirectionalLocation(facility.expectedLocation, direction),
+    ) ?? [],
   );
 
   return {
@@ -110,7 +113,7 @@ function toDetail(
           : null,
     fromFloor: isExit ? entryTo : entryFrom,
     toFloor: isExit ? entryFrom : entryTo,
-    direction: findDirection(step.instruction, group?.label),
+    direction,
     facilityIds:
       group?.facilities
         .filter((facility) => facility.sourceFacilityName !== null)
@@ -118,6 +121,24 @@ function toDetail(
     source: step.evidence,
     verifiedAt,
   };
+}
+
+function selectDirectionalLocation(
+  location: string | null,
+  direction: string | null,
+) {
+  if (!location || !direction || !location.includes('방면')) return location;
+  const directionKey = normalizeDirection(direction);
+  const segments = location.split(/\s*[,/]\s*/u);
+  const matched = segments.filter((segment) =>
+    normalizeDirection(segment).includes(directionKey),
+  );
+  if (matched.length > 0) return matched.join(', ');
+  return segments.length > 1 ? null : location;
+}
+
+function normalizeDirection(value: string) {
+  return value.replace(/방면|[\s()]/gu, '');
 }
 
 function toEntryFloors(

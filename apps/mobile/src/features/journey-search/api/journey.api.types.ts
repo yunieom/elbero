@@ -29,6 +29,15 @@ interface JourneyStepApiDto {
   evidence: string;
   stationAccess: JourneyStationAccessApiDto | null;
   platformGap: JourneyPlatformGapApiDto | null;
+  trainSegment: {
+    lineName: string;
+    direction: string;
+    originStationName: string;
+    destinationStationName: string;
+    boardingPosition: { carNumber: number; doorNumber: number } | null;
+    alightingPosition: { carNumber: number; doorNumber: number } | null;
+    positionBasis: "destination_elevator" | "unverified";
+  } | null;
 }
 
 interface JourneyFacilityGroupApiDto {

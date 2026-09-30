@@ -108,6 +108,13 @@ export class JourneyStepResDto {
       '0~10cm green(안전), 10cm 초과~15cm yellow(유의), 15cm 초과 red(추천하지 않음)',
   })
   platformGap: JourneyPlatformGapResDto | null;
+
+  @ApiProperty({
+    type: Object,
+    nullable: true,
+    description: '열차 이동 단계의 노선·방향·빠른환승 차량-문 정보',
+  })
+  trainSegment: object | null;
 }
 
 export class JourneyDoorPositionResDto {

@@ -38,8 +38,8 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
           </Text>
           <Text style={styles.segmentPosition}>
             {segment.positionBasis === "destination_elevator"
-              ? `승차·하차 ${formatPosition(segment.boardingPosition)}`
-              : "승차·하차 위치 미확인"}
+              ? `빠른환승 ${formatPosition(segment.boardingPosition)}`
+              : "빠른환승 위치 미확인"}
           </Text>
         </View>
       ))}
@@ -60,7 +60,7 @@ function formatPosition(
   position: { carNumber: number; doorNumber: number } | null,
 ) {
   return position
-    ? `${position.carNumber}호차 ${position.doorNumber}번 문`
+    ? `${position.carNumber}-${position.doorNumber}`
     : "위치 미확인";
 }
 

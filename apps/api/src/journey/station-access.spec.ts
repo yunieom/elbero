@@ -24,6 +24,8 @@ describe('attachStationAccessDetails', () => {
       kind: 'platform_elevator',
       fromFloor: 'B2',
       toFloor: 'B3',
+      location: '을지로입구 방면5-3',
+      direction: '을지로입구 방면',
     });
     expect(steps[4].stationAccess).toMatchObject({
       kind: 'platform_elevator',
@@ -50,7 +52,12 @@ function candidate(): VerifiedRouteCandidate {
     lines: ['5호선'],
     facilityGroups: [
       facilityGroup('origin-surface', 'origin-surface-elevator', 'B2-1F'),
-      facilityGroup('origin-platform', 'origin-platform-elevator', 'B2-B3'),
+      facilityGroup(
+        'origin-platform',
+        'origin-platform-elevator',
+        'B2-B3',
+        '충정로 방면6-2, 을지로입구 방면5-3',
+      ),
       facilityGroup(
         'destination-platform',
         'destination-platform-elevator',
@@ -65,7 +72,10 @@ function candidate(): VerifiedRouteCandidate {
     steps: [
       step(1, 'entry', '출발역', 'origin-surface'),
       step(2, 'gate', '출발역'),
-      step(3, 'elevator', '출발역', 'origin-platform'),
+      {
+        ...step(3, 'elevator', '출발역', 'origin-platform'),
+        instruction: '을지로입구 방면 승강장 엘리베이터를 이용하세요.',
+      },
       {
         ...step(4, 'train', '출발역'),
         trainSegment: {
@@ -85,7 +95,12 @@ function candidate(): VerifiedRouteCandidate {
   };
 }
 
-function facilityGroup(id: string, facilityId: string, section: string) {
+function facilityGroup(
+  id: string,
+  facilityId: string,
+  section: string,
+  location = 'fixture 위치',
+) {
   return {
     id,
     label: `${id} 승강기`,
@@ -98,7 +113,7 @@ function facilityGroup(id: string, facilityId: string, section: string) {
         role: 'fixture',
         sourceFacilityName: facilityId,
         expectedOperatingSection: section,
-        expectedLocation: 'fixture 위치',
+        expectedLocation: location,
       },
     ],
   };
