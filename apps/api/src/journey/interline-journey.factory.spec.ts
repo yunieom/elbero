@@ -47,8 +47,19 @@ describe('createInterlineJourneyDefinition', () => {
 
   it('keeps the previously verified Gunja transfer available', () => {
     const definition = createInterlineJourneyDefinition('2543', '2733');
+    const line7Train = definition?.candidates[0].steps.find(
+      (step) => step.trainSegment?.lineName === '7호선',
+    );
 
     expect(definition?.candidates[0].transferStation).toBe('군자');
+    expect(line7Train?.trainSegment?.boardingPosition).toEqual({
+      carNumber: 5,
+      doorNumber: 1,
+    });
+    expect(line7Train?.platformGap).toMatchObject({
+      distanceCm: 4,
+      level: 'green',
+    });
     expect(
       definition?.candidates[0].facilityGroups.some((group) =>
         group.id.startsWith('transfer-5-7-'),

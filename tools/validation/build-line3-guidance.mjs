@@ -194,6 +194,7 @@ function stripDirection(value) {
   return String(value ?? "")
     .replace(/\s*방면.*$/u, "")
     .replace(/역$/u, "")
+    .replace(/^원흉$/u, "원흥")
     .trim();
 }
 

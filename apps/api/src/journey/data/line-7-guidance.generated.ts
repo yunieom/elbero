@@ -1,7 +1,7 @@
 // Generated from the 7-line KRIC/Seoul audit and manual verification.
 export const LINE_7_GUIDANCE = {
-  dataVersion: '2026-09-28T01:35:56.606Z.manual-2026-09-29',
-  verifiedAt: '2026-09-29',
+  dataVersion: '2026-09-28T01:35:56.606Z.manual-2026-09-30',
+  verifiedAt: '2026-09-30',
   topology: [
     '2711',
     '2712',
@@ -268,11 +268,20 @@ export const LINE_7_GUIDANCE = {
         {
           toward: '수락산',
           platformNumber: '1',
-          recommendedDoors: [],
-          doorGaps: [],
-          accessibilityVerified: false,
-          warning: '엘리베이터 안전 경로 미확인',
-          source: 'stationElevatorCarNumber',
+          recommendedDoors: ['8-4'],
+          doorGaps: [
+            {
+              door: '8-4',
+              gap: {
+                distanceCm: 9,
+                level: 'green',
+                label: '안전',
+              },
+            },
+          ],
+          accessibilityVerified: true,
+          warning: null,
+          source: 'SeoulMetroFaciInfo',
         },
         {
           toward: '노원',
@@ -1306,11 +1315,20 @@ export const LINE_7_GUIDANCE = {
         {
           toward: '자양',
           platformNumber: '2',
-          recommendedDoors: [],
-          doorGaps: [],
-          accessibilityVerified: false,
-          warning: '엘리베이터 안전 경로 미확인',
-          source: 'stationElevatorCarNumber',
+          recommendedDoors: ['4-1'],
+          doorGaps: [
+            {
+              door: '4-1',
+              gap: {
+                distanceCm: 9,
+                level: 'green',
+                label: '안전',
+              },
+            },
+          ],
+          accessibilityVerified: true,
+          warning: null,
+          source: 'SeoulMetroFaciInfo',
         },
       ],
     },
@@ -1547,12 +1565,12 @@ export const LINE_7_GUIDANCE = {
         {
           toward: '강남구청',
           platformNumber: '1',
-          recommendedDoors: ['5-1'],
+          recommendedDoors: ['4-4'],
           doorGaps: [
             {
-              door: '5-1',
+              door: '4-4',
               gap: {
-                distanceCm: 5,
+                distanceCm: 6,
                 level: 'green',
                 label: '안전',
               },
@@ -1560,16 +1578,25 @@ export const LINE_7_GUIDANCE = {
           ],
           accessibilityVerified: true,
           warning: null,
-          source: 'stationElevatorCarNumber',
+          source: 'SeoulMetroFaciInfo',
         },
         {
           toward: '논현',
           platformNumber: '2',
-          recommendedDoors: [],
-          doorGaps: [],
-          accessibilityVerified: false,
-          warning: '엘리베이터 안전 경로 미확인',
-          source: 'stationElevatorCarNumber',
+          recommendedDoors: ['5-1'],
+          doorGaps: [
+            {
+              door: '5-1',
+              gap: {
+                distanceCm: 4,
+                level: 'green',
+                label: '안전',
+              },
+            },
+          ],
+          accessibilityVerified: true,
+          warning: null,
+          source: 'SeoulMetroFaciInfo',
         },
       ],
     },
@@ -2268,11 +2295,20 @@ export const LINE_7_GUIDANCE = {
         {
           toward: '보라매',
           platformNumber: '2',
-          recommendedDoors: [],
-          doorGaps: [],
-          accessibilityVerified: false,
-          warning: '엘리베이터 안전 경로 미확인',
-          source: 'stationElevatorCarNumber',
+          recommendedDoors: ['4-4'],
+          doorGaps: [
+            {
+              door: '4-4',
+              gap: {
+                distanceCm: 5,
+                level: 'green',
+                label: '안전',
+              },
+            },
+          ],
+          accessibilityVerified: true,
+          warning: null,
+          source: 'SeoulMetroFaciInfo',
         },
       ],
     },
@@ -2724,11 +2760,20 @@ export const LINE_7_GUIDANCE = {
         {
           toward: '철산',
           platformNumber: '1',
-          recommendedDoors: [],
-          doorGaps: [],
-          accessibilityVerified: false,
-          warning: '엘리베이터 안전 경로 미확인',
-          source: 'stationElevatorCarNumber',
+          recommendedDoors: ['1-1'],
+          doorGaps: [
+            {
+              door: '1-1',
+              gap: {
+                distanceCm: 5,
+                level: 'green',
+                label: '안전',
+              },
+            },
+          ],
+          accessibilityVerified: true,
+          warning: null,
+          source: 'SeoulMetroFaciInfo',
         },
         {
           toward: '천왕',

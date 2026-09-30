@@ -342,7 +342,7 @@ export const LINE_3_GUIDANCE = {
       "liveElevators": [],
       "directions": [
         {
-          "toward": "원흉",
+          "toward": "원흥",
           "aliases": [],
           "service": null,
           "platformNumber": null,
