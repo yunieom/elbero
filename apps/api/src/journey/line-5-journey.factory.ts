@@ -2,6 +2,7 @@ import { LINE_5_GUIDANCE } from './data/line-5-guidance.generated.js';
 import { toPlatformGap } from './platform-gap.js';
 import {
   JOURNEY_STEP_TYPE,
+  type FacilityRequirementGroup,
   type VerifiedJourneyDefinition,
   type VerifiedJourneyStep,
 } from './types/verified-journey.type.js';
@@ -63,6 +64,33 @@ export function createLine5JourneyDefinition(
   const segments = resolveSegments(originStationCode, destinationStationCode);
   if (!segments) return null;
 
+  const firstSegment = segments[0];
+  const finalSegment = segments.at(-1)!;
+  const originDirection = findDepartureDirection(origin, firstSegment);
+  const destinationDirection = findArrivalDirection(destination, finalSegment);
+  const originSurfaceGroup = createSurfaceFacilityGroup(
+    'origin',
+    origin,
+    '출발역 지상 진입',
+  );
+  const originPlatformGroups = createDirectionalFacilityGroups(
+    'origin-platform',
+    origin,
+    originDirection,
+    '출발 승강장 이동',
+  );
+  const destinationPlatformGroups = createDirectionalFacilityGroups(
+    'destination-platform',
+    destination,
+    destinationDirection,
+    '도착 승강장 하차',
+  );
+  const destinationSurfaceGroup = createSurfaceFacilityGroup(
+    'destination',
+    destination,
+    '도착역 지상 퇴장',
+  );
+
   const steps: VerifiedJourneyStep[] = [];
   let order = 1;
   steps.push({
@@ -73,8 +101,28 @@ export function createLine5JourneyDefinition(
       origin.exitNumbers.length > 0
         ? `${origin.exitNumbers.join(', ')}번 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.`
         : '지상 엘리베이터 출구 정보가 확인되지 않았습니다. 현장 안내를 확인하세요.',
+    facilityGroupId: originSurfaceGroup.id,
     evidence: toStationEvidence(origin),
   });
+  steps.push({
+    order: order++,
+    type: JOURNEY_STEP_TYPE.GATE,
+    stationName: origin.stationName,
+    instruction: '대합실에서 교통카드를 태그하고 개찰구를 통과하세요.',
+    evidence: toStationEvidence(origin),
+  });
+  for (const group of orderPlatformGroups(originPlatformGroups, 'entry')) {
+    steps.push({
+      order: order++,
+      type: JOURNEY_STEP_TYPE.ELEVATOR,
+      stationName: origin.stationName,
+      instruction: originDirection
+        ? `${originDirection.toward} 방면 승강장 엘리베이터를 이용하세요.`
+        : '진행 방향 승강장 엘리베이터 위치를 현장 안내에서 확인하세요.',
+      facilityGroupId: group.id,
+      evidence: toStationEvidence(origin),
+    });
+  }
 
   let hasUnverifiedAccessibility =
     origin.exitNumbers.length === 0 || segments.length > 1;
@@ -121,16 +169,24 @@ export function createLine5JourneyDefinition(
     });
   }
 
-  const finalSegment = segments.at(-1)!;
-  const destinationDirection = findArrivalDirection(destination, finalSegment);
   const destinationBoarding = selectBoardingDoor(destinationDirection);
+  for (const group of orderPlatformGroups(destinationPlatformGroups, 'exit')) {
+    steps.push({
+      order: order++,
+      type: JOURNEY_STEP_TYPE.ELEVATOR,
+      stationName: destination.stationName,
+      instruction: destinationBoarding
+        ? `하차 후 ${formatDoor(destinationBoarding.door)} 부근의 엘리베이터를 이용해 대합실로 이동하세요.`
+        : '하차 후 승강장 엘리베이터를 이용해 대합실로 이동하세요. 위치는 현장 안내를 확인하세요.',
+      facilityGroupId: group.id,
+      evidence: toStationEvidence(destination),
+    });
+  }
   steps.push({
     order: order++,
-    type: JOURNEY_STEP_TYPE.ELEVATOR,
+    type: JOURNEY_STEP_TYPE.GATE,
     stationName: destination.stationName,
-    instruction: destinationBoarding
-      ? `하차 후 ${formatDoor(destinationBoarding.door)} 부근의 엘리베이터로 이동하세요.`
-      : '하차 후 엘리베이터 위치가 확인되지 않았습니다. 현장 안내를 확인하세요.',
+    instruction: '대합실에서 하차 태그 후 개찰구를 통과하세요.',
     evidence: toStationEvidence(destination),
   });
   steps.push({
@@ -138,27 +194,16 @@ export function createLine5JourneyDefinition(
     type: JOURNEY_STEP_TYPE.EXIT,
     stationName: destination.stationName,
     instruction: toExitInstruction(destination.exitNumbers),
+    facilityGroupId: destinationSurfaceGroup.id,
     evidence: toStationEvidence(destination),
   });
 
-  const firstSegment = segments[0];
-  const originDirection = findDepartureDirection(origin, firstSegment);
   const facilityGroups = [
-    createSurfaceFacilityGroup('origin', origin, '출발역 지상 진입'),
-    ...createDirectionalFacilityGroups(
-      'origin-platform',
-      origin,
-      originDirection,
-      '출발 승강장 이동',
-    ),
+    originSurfaceGroup,
+    ...originPlatformGroups,
     ...createTransferFacilityGroups(segments),
-    ...createDirectionalFacilityGroups(
-      'destination-platform',
-      destination,
-      destinationDirection,
-      '도착 승강장 하차',
-    ),
-    createSurfaceFacilityGroup('destination', destination, '도착역 지상 퇴장'),
+    ...destinationPlatformGroups,
+    destinationSurfaceGroup,
   ];
   if (hasUnverifiedAccessibility) {
     facilityGroups.push(
@@ -436,6 +481,35 @@ function toFacilityRef(
 
 function normalizeText(value: string) {
   return value.replace(/[\s()]/g, '');
+}
+
+function orderPlatformGroups(
+  groups: readonly FacilityRequirementGroup[],
+  phase: 'entry' | 'exit',
+) {
+  return [...groups].sort((left, right) => {
+    const difference = groupGroundDistance(left) - groupGroundDistance(right);
+    return phase === 'entry' ? difference : -difference;
+  });
+}
+
+function groupGroundDistance(group: FacilityRequirementGroup) {
+  const floors = group.facilities.flatMap((facility) =>
+    facility.expectedOperatingSection
+      ? [
+          ...facility.expectedOperatingSection.matchAll(
+            /BM\d+(?:\.\d+)?|B\d+(?:\.\d+)?|\d+(?:\.\d+)?F/g,
+          ),
+        ].map((match) => match[0])
+      : [],
+  );
+  return Math.min(...floors.map(floorDistance), Number.POSITIVE_INFINITY);
+}
+
+function floorDistance(floor: string) {
+  if (floor.startsWith('BM')) return Number(floor.slice(2)) - 0.5;
+  if (floor.startsWith('B')) return Number(floor.slice(1));
+  return Math.abs(Number(floor.slice(0, -1)) - 1);
 }
 
 function toExitInstruction(exitNumbers: readonly string[]) {

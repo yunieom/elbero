@@ -13,6 +13,35 @@ export const JOURNEY_STEP_TYPE = {
 export type JourneyStepType =
   (typeof JOURNEY_STEP_TYPE)[keyof typeof JOURNEY_STEP_TYPE];
 
+export const STATION_ACCESS_PHASE = {
+  ENTRY: 'entry',
+  EXIT: 'exit',
+} as const;
+
+export type StationAccessPhase =
+  (typeof STATION_ACCESS_PHASE)[keyof typeof STATION_ACCESS_PHASE];
+
+export const STATION_ACCESS_KIND = {
+  SURFACE_ELEVATOR: 'surface_elevator',
+  GATE: 'gate',
+  PLATFORM_ELEVATOR: 'platform_elevator',
+} as const;
+
+export type StationAccessKind =
+  (typeof STATION_ACCESS_KIND)[keyof typeof STATION_ACCESS_KIND];
+
+export interface StationAccessDetail {
+  phase: StationAccessPhase;
+  kind: StationAccessKind;
+  location: string | null;
+  fromFloor: string | null;
+  toFloor: string | null;
+  direction: string | null;
+  facilityIds: string[];
+  source: string;
+  verifiedAt: string;
+}
+
 export interface VerifiedFacilityRef {
   id: string;
   stationCode: string;
@@ -37,6 +66,7 @@ export interface VerifiedJourneyStep {
   instruction: string;
   facilityGroupId?: string;
   evidence: string;
+  stationAccess?: StationAccessDetail;
   platformGap?: PlatformGapInfo;
   trainSegment?: VerifiedTrainSegment;
 }

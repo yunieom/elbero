@@ -9,12 +9,25 @@ interface JourneyPlatformGapApiDto {
   label: string;
 }
 
+interface JourneyStationAccessApiDto {
+  phase: "entry" | "exit";
+  kind: "surface_elevator" | "gate" | "platform_elevator";
+  location: string | null;
+  fromFloor: string | null;
+  toFloor: string | null;
+  direction: string | null;
+  facilityIds: string[];
+  source: string;
+  verifiedAt: string;
+}
+
 interface JourneyStepApiDto {
   order: number;
   type: string;
   stationName: string;
   instruction: string;
   evidence: string;
+  stationAccess: JourneyStationAccessApiDto | null;
   platformGap: JourneyPlatformGapApiDto | null;
 }
 

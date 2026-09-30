@@ -1,6 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ELEVATOR_STATUS } from '../../../elevator-status/types/seoul-elevator-status.type.js';
 import { JOURNEY_STEP_TYPE } from '../../types/verified-journey.type.js';
+import {
+  STATION_ACCESS_KIND,
+  STATION_ACCESS_PHASE,
+} from '../../types/verified-journey.type.js';
 import { PLATFORM_GAP_LEVEL } from '../../platform-gap.js';
 
 const STATUS_VALUES = Object.values(ELEVATOR_STATUS);
@@ -36,6 +40,40 @@ export class JourneyPlatformGapResDto {
   label: string;
 }
 
+export class JourneyStationAccessResDto {
+  @ApiProperty({ enum: Object.values(STATION_ACCESS_PHASE), example: 'entry' })
+  phase: string;
+
+  @ApiProperty({
+    enum: Object.values(STATION_ACCESS_KIND),
+    example: 'surface_elevator',
+  })
+  kind: string;
+
+  @ApiProperty({ nullable: true, example: '2번 출입구' })
+  location: string | null;
+
+  @ApiProperty({ nullable: true, example: '1F' })
+  fromFloor: string | null;
+
+  @ApiProperty({ nullable: true, example: 'B2' })
+  toFloor: string | null;
+
+  @ApiProperty({ nullable: true, example: '장한평 방면' })
+  direction: string | null;
+
+  @ApiProperty({ type: [String], example: ['2543-live-3'] })
+  facilityIds: string[];
+
+  @ApiProperty({
+    example: 'KRIC stationMovement · 서울교통공사 승강기 가동현황',
+  })
+  source: string;
+
+  @ApiProperty({ format: 'date', example: '2026-09-28' })
+  verifiedAt: string;
+}
+
 export class JourneyStepResDto {
   @ApiProperty({ example: 1 })
   order: number;
@@ -59,6 +97,9 @@ export class JourneyStepResDto {
 
   @ApiProperty({ example: 'KRIC stationMovement · 답십리→마장 방면' })
   evidence: string;
+
+  @ApiProperty({ type: JourneyStationAccessResDto, nullable: true })
+  stationAccess: JourneyStationAccessResDto | null;
 
   @ApiProperty({
     type: JourneyPlatformGapResDto,

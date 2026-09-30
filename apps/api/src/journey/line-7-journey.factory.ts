@@ -66,21 +66,33 @@ export function createLine7JourneyDefinition(
   );
   const boarding = selectDoor(destinationDirection);
 
+  const originSurfaceGroup = createSurfaceGroup(
+    'origin',
+    origin,
+    '출발역 지상 진입',
+  );
+  const originPlatformGroup = createPlatformGroup(
+    'origin-platform',
+    origin,
+    originDirection,
+    '출발 승강장 이동',
+  );
+  const destinationPlatformGroup = createPlatformGroup(
+    'destination-platform',
+    destination,
+    destinationDirection,
+    '도착 승강장 하차',
+  );
+  const destinationSurfaceGroup = createSurfaceGroup(
+    'destination',
+    destination,
+    '도착역 지상 퇴장',
+  );
   const facilityGroups: FacilityRequirementGroup[] = [
-    createSurfaceGroup('origin', origin, '출발역 지상 진입'),
-    createPlatformGroup(
-      'origin-platform',
-      origin,
-      originDirection,
-      '출발 승강장 이동',
-    ),
-    createPlatformGroup(
-      'destination-platform',
-      destination,
-      destinationDirection,
-      '도착 승강장 하차',
-    ),
-    createSurfaceGroup('destination', destination, '도착역 지상 퇴장'),
+    originSurfaceGroup,
+    originPlatformGroup,
+    destinationPlatformGroup,
+    destinationSurfaceGroup,
   ];
   if (
     !originDirection?.accessibilityVerified ||
@@ -102,10 +114,28 @@ export function createLine7JourneyDefinition(
       type: JOURNEY_STEP_TYPE.ENTRY,
       stationName: origin.stationName,
       instruction: toEntryInstruction(origin.exitNumbers),
+      facilityGroupId: originSurfaceGroup.id,
       evidence: toEvidence(origin),
     },
     {
       order: 2,
+      type: JOURNEY_STEP_TYPE.GATE,
+      stationName: origin.stationName,
+      instruction: '대합실에서 교통카드를 태그하고 개찰구를 통과하세요.',
+      evidence: toEvidence(origin),
+    },
+    {
+      order: 3,
+      type: JOURNEY_STEP_TYPE.ELEVATOR,
+      stationName: origin.stationName,
+      instruction: originDirection
+        ? `${originDirection.toward} 방면 승강장 엘리베이터를 이용하세요.`
+        : '진행 방향 승강장 엘리베이터 위치를 현장 안내에서 확인하세요.',
+      facilityGroupId: originPlatformGroup.id,
+      evidence: toEvidence(origin),
+    },
+    {
+      order: 4,
       type: JOURNEY_STEP_TYPE.TRAIN,
       stationName: origin.stationName,
       instruction: `7호선 ${terminalName} 방면 열차를 타고 ${destination.stationName}까지 이동하세요. ${
@@ -130,19 +160,28 @@ export function createLine7JourneyDefinition(
         : {}),
     },
     {
-      order: 3,
+      order: 5,
       type: JOURNEY_STEP_TYPE.ELEVATOR,
       stationName: destination.stationName,
       instruction: boarding
-        ? `하차 후 ${formatDoor(boarding.door)} 부근의 엘리베이터로 이동하세요.`
-        : '하차 후 현장 안내에서 승강장 엘리베이터 위치를 확인하세요.',
+        ? `하차 후 ${formatDoor(boarding.door)} 부근의 엘리베이터를 이용해 대합실로 이동하세요.`
+        : '하차 후 승강장 엘리베이터를 이용해 대합실로 이동하세요. 위치는 현장 안내를 확인하세요.',
+      facilityGroupId: destinationPlatformGroup.id,
       evidence: toEvidence(destination),
     },
     {
-      order: 4,
+      order: 6,
+      type: JOURNEY_STEP_TYPE.GATE,
+      stationName: destination.stationName,
+      instruction: '대합실에서 하차 태그 후 개찰구를 통과하세요.',
+      evidence: toEvidence(destination),
+    },
+    {
+      order: 7,
       type: JOURNEY_STEP_TYPE.EXIT,
       stationName: destination.stationName,
       instruction: toExitInstruction(destination.exitNumbers),
+      facilityGroupId: destinationSurfaceGroup.id,
       evidence: toEvidence(destination),
     },
   ];

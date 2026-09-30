@@ -20,6 +20,7 @@ import type {
   JourneyRouteCandidateResDto,
 } from './dto/res/journey-plan.res.dto.js';
 import { calculateJourneySummary } from './journey-summary.js';
+import { attachStationAccessDetails } from './station-access.js';
 import type {
   EvaluatedFacility,
   EvaluatedFacilityGroup,
@@ -56,7 +57,9 @@ export class JourneyRouteEngine {
     }
 
     const evaluatedCandidates = definition.candidates
-      .map((candidate) => this.evaluateCandidate(candidate, snapshot.rows))
+      .map((candidate) =>
+        this.evaluateCandidate(candidate, snapshot.rows, definition.verifiedAt),
+      )
       .sort((left, right) => left.priority - right.priority);
     const recommendedCandidate = evaluatedCandidates.find(
       (candidate) => candidate.status === ELEVATOR_STATUS.OPERATIONAL,
@@ -180,6 +183,7 @@ export class JourneyRouteEngine {
   private evaluateCandidate(
     candidate: VerifiedRouteCandidate,
     rows: SeoulElevatorFacilityRow[],
+    verifiedAt: string,
   ): JourneyRouteCandidateResDto {
     const facilityGroups = candidate.facilityGroups.map((group) =>
       this.evaluateGroup(group, rows),
@@ -212,9 +216,10 @@ export class JourneyRouteEngine {
           ),
         }),
       ),
-      steps: candidate.steps.map((step) => ({
+      steps: attachStationAccessDetails(candidate, verifiedAt).map((step) => ({
         ...step,
         facilityGroupId: step.facilityGroupId ?? null,
+        stationAccess: step.stationAccess ?? null,
         platformGap: step.platformGap ?? null,
       })),
       summary: calculated.summary,

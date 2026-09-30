@@ -39,6 +39,7 @@ export function toJourneyPlan(dto: JourneyPlanApiDto): JourneyPlan {
         type: step.type,
         stationName: step.stationName,
         instruction: step.instruction,
+        stationAccess: step.stationAccess,
         platformGap: step.platformGap,
       })),
       summary: selectedRoute.summary,

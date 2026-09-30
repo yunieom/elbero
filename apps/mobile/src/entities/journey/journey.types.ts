@@ -7,12 +7,29 @@ export interface JourneyPlatformGap {
   label: string;
 }
 
+export type StationAccessPhase = "entry" | "exit";
+export type StationAccessKind =
+  "surface_elevator" | "gate" | "platform_elevator";
+
+export interface JourneyStationAccess {
+  phase: StationAccessPhase;
+  kind: StationAccessKind;
+  location: string | null;
+  fromFloor: string | null;
+  toFloor: string | null;
+  direction: string | null;
+  facilityIds: string[];
+  source: string;
+  verifiedAt: string;
+}
+
 export interface JourneyStep {
   id: string;
   order: number;
   type: string;
   stationName: string;
   instruction: string;
+  stationAccess: JourneyStationAccess | null;
   platformGap: JourneyPlatformGap | null;
 }
 

@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import type { JourneyStatus } from "@/entities/journey";
+import { transitLines } from "@/entities/station/transit-lines";
 import { colors, radius, spacing } from "@/shared/theme";
 import { PrimaryButton, Screen } from "@/shared/ui";
 
@@ -72,21 +73,36 @@ export function JourneyResultScreen({
   }
 
   const route = journey.route;
+  const routeLines = route.summary.lineNames.map((lineName) =>
+    transitLines.find((line) => line.name === lineName),
+  );
   return (
     <Screen>
       <Header onBack={() => router.back()} />
 
       <View style={styles.routeTitleArea}>
-        <View style={styles.lineBadge}>
-          <Text style={styles.lineBadgeText}>5호선</Text>
+        <View style={styles.lineBadges}>
+          {route.summary.lineNames.map((lineName, index) => (
+            <View
+              key={lineName}
+              style={[
+                styles.lineBadge,
+                { backgroundColor: routeLines[index]?.color ?? colors.primary },
+              ]}
+            >
+              <Text style={styles.lineBadgeText}>
+                {routeLines[index]?.badge ?? lineName}
+              </Text>
+            </View>
+          ))}
         </View>
         <Text accessibilityRole="header" style={styles.routeTitle}>
           {journey.originName} → {journey.destinationName}
         </Text>
         <Text style={styles.routeSubtitle}>
           {route.transferStation
-            ? `${route.transferStation}에서 같은 5호선 분기 환승`
-            : "환승 없는 5호선 경로"}
+            ? `${route.transferStation} 환승 · ${route.summary.lineNames.join(" → ")}`
+            : `환승 없는 ${route.summary.lineNames.join("·")} 경로`}
         </Text>
       </View>
 
@@ -275,7 +291,11 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     paddingHorizontal: spacing.sm,
     paddingVertical: 6,
-    backgroundColor: colors.line5,
+  },
+  lineBadges: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: spacing.xs,
   },
   lineBadgeText: {
     color: colors.white,

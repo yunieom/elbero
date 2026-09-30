@@ -54,7 +54,10 @@ describe('JourneyService', () => {
     );
     expect(surfaceGroup?.status).toBe(ELEVATOR_STATUS.OPERATIONAL);
     expect(surfaceGroup?.facilities).toHaveLength(1);
-    expect(result.candidates[0].steps[5].instruction).not.toContain('2-1번');
+    const exitStep = result.candidates[0].steps.find(
+      (step) => step.type === 'exit',
+    );
+    expect(exitStep?.instruction).not.toContain('2-1번');
   });
 
   it('답십리→굽은다리는 2번 출구 실시간 상태를 연결해 추천한다', async () => {
@@ -83,7 +86,28 @@ describe('JourneyService', () => {
       ]),
     );
     expect(result.candidates[0].steps[3].instruction).toContain('3호차 2번 문');
-    expect(result.candidates[0].steps[5].instruction).toContain('2번 출구');
+    const exitStep = result.candidates[0].steps.find(
+      (step) => step.type === 'exit',
+    );
+    expect(exitStep?.instruction).toContain('2번 출구');
+    expect(exitStep?.stationAccess).toMatchObject({
+      phase: 'exit',
+      kind: 'surface_elevator',
+      location: '2번 출입구',
+      fromFloor: 'B1',
+      toFloor: '1F',
+      facilityIds: ['gubeundari-exit-2'],
+      verifiedAt: '2026-09-18',
+    });
+    expect(result.candidates[0].steps.map((step) => step.type)).toEqual([
+      'entry',
+      'gate',
+      'elevator',
+      'train',
+      'elevator',
+      'gate',
+      'exit',
+    ]);
     expect(result.candidates[0].steps[3].platformGap).toEqual({
       distanceCm: 9,
       level: 'green',
