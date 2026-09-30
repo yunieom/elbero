@@ -42,6 +42,20 @@ interface Line7Station {
 const topology = LINE_7_GUIDANCE.topology as readonly string[];
 const stations = LINE_7_GUIDANCE.stations as readonly Line7Station[];
 
+export function hasLine7Station(stationCode: string) {
+  return topology.includes(stationCode);
+}
+
+export function getLine7Distance(
+  originStationCode: string,
+  destinationStationCode: string,
+) {
+  const originIndex = topology.indexOf(originStationCode);
+  const destinationIndex = topology.indexOf(destinationStationCode);
+  if (originIndex === -1 || destinationIndex === -1) return null;
+  return Math.abs(destinationIndex - originIndex);
+}
+
 export function createLine7JourneyDefinition(
   originStationCode: string,
   destinationStationCode: string,

@@ -43,6 +43,26 @@ const line5Topologies = LINE_5_GUIDANCE.topologies as readonly Line5Topology[];
 
 const TRANSFER_STATION_CODE = '2549';
 
+export function hasLine5Station(stationCode: string) {
+  return Boolean(findStation(stationCode));
+}
+
+export function getLine5Distance(
+  originStationCode: string,
+  destinationStationCode: string,
+) {
+  if (originStationCode === destinationStationCode) {
+    return findStation(originStationCode) ? 0 : null;
+  }
+  const segments = resolveSegments(originStationCode, destinationStationCode);
+  return (
+    segments?.reduce(
+      (total, segment) => total + Math.max(segment.codes.length - 1, 0),
+      0,
+    ) ?? null
+  );
+}
+
 export function listLine5Stations() {
   return line5Stations.map((station) => ({
     stationCode: station.stationCode,

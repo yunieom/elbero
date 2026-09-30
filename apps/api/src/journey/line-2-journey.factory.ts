@@ -59,6 +59,23 @@ const stationByCode = new Map(
 );
 const graph = createGraph();
 
+export function hasLine2Station(stationCode: string) {
+  return stationByCode.has(stationCode);
+}
+
+export function getLine2Distance(
+  originStationCode: string,
+  destinationStationCode: string,
+) {
+  if (originStationCode === destinationStationCode) {
+    return stationByCode.has(originStationCode) ? 0 : null;
+  }
+  return (
+    findShortestPath(originStationCode, destinationStationCode)?.edges.length ??
+    null
+  );
+}
+
 export function createLine2JourneyDefinition(
   originStationCode: string,
   destinationStationCode: string,
