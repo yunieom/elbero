@@ -41,7 +41,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
         {!isLast ? <View style={styles.line} /> : null}
       </View>
       <View
-        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${step.instruction}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.distanceCm}센티미터 ${gap.label}` : ""}`}
+        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${step.instruction}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : ""}`}
         style={styles.card}
       >
         <View style={styles.cardHeader}>
@@ -91,7 +91,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
                 isGapWarning ? styles.gapWarningText : styles.gapSafeText,
               ]}
             >
-              {isGapWarning ? "주의" : "안전"} · 승강장 간격 {gap.distanceCm}cm
+              승강장 간격 {gap.label}
             </Text>
           </View>
         ) : null}

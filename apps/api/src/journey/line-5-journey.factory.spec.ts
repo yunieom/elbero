@@ -2,6 +2,17 @@ import { createLine5JourneyDefinition } from './line-5-journey.factory.js';
 import { LINE_5_GUIDANCE } from './data/line-5-guidance.generated.js';
 
 describe('createLine5JourneyDefinition', () => {
+  it('출발역에 지상 엘리베이터 출구가 여러 개면 가까운 출구를 선택하도록 안내한다', () => {
+    const journey = createLine5JourneyDefinition('2543', '2551');
+    const entryStep = journey?.candidates[0].steps.find(
+      (step) => step.type === 'entry',
+    );
+
+    expect(entryStep?.instruction).toBe(
+      '2, 6번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.',
+    );
+  });
+
   it('광화문에서 오금까지 종착역 우선 방향과 도착 엘리베이터 문을 안내한다', () => {
     const journey = createLine5JourneyDefinition('2534', '2558');
 
@@ -90,7 +101,9 @@ describe('createLine5JourneyDefinition', () => {
 
       expect(exitStep).toBeDefined();
       if (exitNumbers.length === 0) {
-        expect(exitStep?.instruction).toContain('출구 정보가 확인되지 않았습니다');
+        expect(exitStep?.instruction).toContain(
+          '출구 정보가 확인되지 않았습니다',
+        );
       } else if (exitNumbers.length === 1) {
         expect(exitStep?.instruction).toBe(
           `${exitNumbers[0]}번 출구 쪽 지상 엘리베이터를 이용하세요.`,

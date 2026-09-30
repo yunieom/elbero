@@ -114,7 +114,7 @@ const dapsimniToHongikCommonSteps = (destinationStationName: string) =>
       type: JOURNEY_STEP_TYPE.ENTRY,
       stationName: '답십리',
       instruction:
-        '2번 또는 6번 출입구 옆에서 운행 중인 엘리베이터를 타고 B2 대합실로 이동하세요.',
+        '2, 6번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.',
       facilityGroupId: 'dapsimni-west-surface',
       evidence: 'KRIC stationMovement · 답십리→마장 방면',
     },
@@ -208,7 +208,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             type: JOURNEY_STEP_TYPE.ENTRY,
             stationName: '답십리',
             instruction:
-              '2번 또는 6번 출입구 옆에서 운행 중인 엘리베이터를 타고 B2 대합실로 이동하세요.',
+              '2, 6번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.',
             facilityGroupId: 'dapsimni-east-surface',
             evidence: 'KRIC stationMovement · 답십리→장한평 방면',
           },
@@ -330,7 +330,7 @@ export const VERIFIED_JOURNEYS: VerifiedJourneyDefinition[] = [
             type: JOURNEY_STEP_TYPE.ENTRY,
             stationName: '답십리',
             instruction:
-              '2번 또는 6번 출입구 옆에서 운행 중인 엘리베이터를 타고 B2 대합실로 이동하세요.',
+              '2, 6번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.',
             facilityGroupId: 'dapsimni-east-surface',
             evidence: 'KRIC stationMovement · 답십리→장한평 방면',
           },

@@ -97,10 +97,7 @@ export function createLine5JourneyDefinition(
     order: order++,
     type: JOURNEY_STEP_TYPE.ENTRY,
     stationName: origin.stationName,
-    instruction:
-      origin.exitNumbers.length > 0
-        ? `${origin.exitNumbers.join(', ')}번 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.`
-        : '지상 엘리베이터 출구 정보가 확인되지 않았습니다. 현장 안내를 확인하세요.',
+    instruction: toEntryInstruction(origin.exitNumbers),
     facilityGroupId: originSurfaceGroup.id,
     evidence: toStationEvidence(origin),
   });
@@ -526,6 +523,16 @@ function toExitInstruction(exitNumbers: readonly string[]) {
       ? `${exitLabels[0]}과 ${exitLabels[1]}`
       : exitLabels.join(', ');
   return `${candidateText} 출구 중 목적지와 가까운 지상 엘리베이터를 이용하세요.`;
+}
+
+function toEntryInstruction(exitNumbers: readonly string[]) {
+  if (exitNumbers.length === 0) {
+    return '지상 엘리베이터 출구 정보가 확인되지 않았습니다. 현장 안내를 확인하세요.';
+  }
+  if (exitNumbers.length === 1) {
+    return `${exitNumbers[0]}번 출구 쪽 지상 엘리베이터를 이용해 대합실로 이동하세요.`;
+  }
+  return `${exitNumbers.join(', ')}번 출구 중 가까운 출구의 지상 엘리베이터를 이용해 대합실로 이동하세요.`;
 }
 
 function selectBoardingDoor(
