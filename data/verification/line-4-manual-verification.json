@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "line": "4",
+  "verifiedAt": "2026-09-30",
+  "topology": [
+    "0405", "0406", "0408", "0409", "0410", "0411", "0412", "0413", "0414", "0415",
+    "0416", "0417", "0418", "0419", "0420", "0421", "0422", "0423", "0424", "0425",
+    "0426", "0427", "0428", "0429", "0430", "0431", "0432", "0433", "0434", "0435",
+    "0436", "0437", "0438", "0439", "0440", "0441", "0442", "0443", "0444", "0445",
+    "0446", "0447", "0448", "0449", "0450", "0451", "0452", "0453", "0454", "0455", "0456"
+  ],
+  "surfaceExits": [
+    { "stationCode": "0409", "stationName": "불암산", "exitNumbers": ["1", "4"] },
+    { "stationCode": "0410", "stationName": "상계", "exitNumbers": ["1", "5"] },
+    { "stationCode": "0414", "stationName": "수유", "exitNumbers": ["2"] },
+    { "stationCode": "0415", "stationName": "미아", "exitNumbers": ["1"] },
+    { "stationCode": "0417", "stationName": "길음", "exitNumbers": ["4", "5"] },
+    { "stationCode": "0419", "stationName": "한성대입구", "exitNumbers": ["4", "5"] },
+    { "stationCode": "0421", "stationName": "동대문", "exitNumbers": ["9"] },
+    { "stationCode": "0422", "stationName": "동대문역사문화공원", "exitNumbers": ["1", "4"] },
+    { "stationCode": "0425", "stationName": "회현", "exitNumbers": ["5"] },
+    { "stationCode": "0428", "stationName": "삼각지", "exitNumbers": ["1", "3", "5"] },
+    { "stationCode": "0430", "stationName": "이촌", "exitNumbers": ["1", "2", "3-1"] },
+    { "stationCode": "0433", "stationName": "사당", "exitNumbers": ["6", "14"] },
+    { "stationCode": "0434", "stationName": "남태령", "exitNumbers": ["2"] },
+    { "stationCode": "0437", "stationName": "대공원", "exitNumbers": ["1", "5"] },
+    { "stationCode": "0438", "stationName": "과천", "exitNumbers": ["2", "6", "7"] },
+    { "stationCode": "0439", "stationName": "정부과천청사", "exitNumbers": ["1", "5", "8"] },
+    { "stationCode": "0440", "stationName": "인덕원", "exitNumbers": ["3", "4"] },
+    { "stationCode": "0444", "stationName": "산본", "exitNumbers": ["3", "4"] },
+    { "stationCode": "0445", "stationName": "수리산", "exitNumbers": ["1", "2"] },
+    { "stationCode": "0448", "stationName": "상록수", "exitNumbers": [], "status": "surface_elevator_unverified" },
+    { "stationCode": "0449", "stationName": "한대앞", "exitNumbers": ["1", "2", "3"] },
+    { "stationCode": "0451", "stationName": "고잔", "exitNumbers": ["1", "2"] }
+  ],
+  "directionalDoors": [
+    {
+      "stationCode": "0406",
+      "stationName": "오남",
+      "directions": [
+        { "toward": "진접", "recommendedDoors": ["6-1"] },
+        { "toward": "별내별가람", "recommendedDoors": ["5-4"] }
+      ]
+    },
+    {
+      "stationCode": "0412",
+      "stationName": "창동",
+      "directions": [
+        { "toward": "노원", "recommendedDoors": ["2-4", "8-2"] },
+        { "toward": "쌍문", "recommendedDoors": ["3-2", "8-4"] }
+      ]
+    },
+    {
+      "stationCode": "0424",
+      "stationName": "명동",
+      "directions": [
+        { "toward": "충무로", "recommendedDoors": ["1-1"] },
+        { "toward": "회현", "recommendedDoors": ["10-4"] }
+      ]
+    },
+    {
+      "stationCode": "0444",
+      "stationName": "산본",
+      "directions": [
+        { "toward": "금정", "recommendedDoors": ["6-3"] },
+        { "toward": "수리산", "recommendedDoors": ["5-2"] }
+      ]
+    },
+    {
+      "stationCode": "0448",
+      "stationName": "상록수",
+      "directions": [
+        { "toward": "반월", "recommendedDoors": ["4-2"] },
+        { "toward": "한대앞", "recommendedDoors": ["4-2"] }
+      ]
+    },
+    {
+      "stationCode": "0453",
+      "stationName": "안산",
+      "directions": [
+        { "toward": "초지", "recommendedDoors": ["7-2"] },
+        { "toward": "신길온천", "recommendedDoors": ["4-3"] }
+      ]
+    },
+    {
+      "stationCode": "0456",
+      "stationName": "오이도",
+      "directions": [
+        { "toward": "정왕", "recommendedDoors": ["4-3"] }
+      ]
+    }
+  ],
+  "allPlatformsSafeStations": ["0444", "0448", "0453", "0456"]
+}

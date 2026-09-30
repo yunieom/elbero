@@ -86,4 +86,28 @@ describe('createInterlineJourneyDefinition', () => {
       ).toBe(true);
     },
   );
+
+  it.each([
+    ['0424', '0222', ['4호선', '2호선']],
+    ['0222', '0424', ['2호선', '4호선']],
+    ['0424', '0328', ['4호선', '3호선']],
+    ['0328', '0424', ['3호선', '4호선']],
+    ['0424', '2543', ['4호선', '5호선']],
+    ['2543', '0424', ['5호선', '4호선']],
+    ['0424', '2733', ['4호선', '7호선']],
+    ['2733', '0424', ['7호선', '4호선']],
+  ] as const)(
+    'connects line 4 journey %s to %s',
+    (origin, destination, expectedLines) => {
+      const definition = createInterlineJourneyDefinition(origin, destination);
+
+      expect(definition?.candidates.length).toBeGreaterThan(0);
+      expect(definition?.candidates[0].lines).toEqual(expectedLines);
+      expect(
+        definition?.candidates[0].steps.some(
+          (step) => step.type === 'transfer',
+        ),
+      ).toBe(true);
+    },
+  );
 });

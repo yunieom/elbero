@@ -9,6 +9,11 @@ import {
   hasLine3Station,
 } from './line-3-journey.factory.js';
 import {
+  createLine4JourneyDefinition,
+  getLine4Distance,
+  hasLine4Station,
+} from './line-4-journey.factory.js';
+import {
   createLine5JourneyDefinition,
   getLine5Distance,
   hasLine5Station,
@@ -26,7 +31,7 @@ import {
   type VerifiedRouteCandidate,
 } from './types/verified-journey.type.js';
 
-type SupportedLineId = '2' | '3' | '5' | '7';
+type SupportedLineId = '2' | '3' | '4' | '5' | '7';
 
 interface LineAdapter {
   lineName: string;
@@ -60,6 +65,12 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     distance: getLine3Distance,
     create: createLine3JourneyDefinition,
   },
+  '4': {
+    lineName: '4호선',
+    hasStation: hasLine4Station,
+    distance: getLine4Distance,
+    create: createLine4JourneyDefinition,
+  },
   '5': {
     lineName: '5호선',
     hasStation: hasLine5Station,
@@ -75,6 +86,31 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
 };
 
 const interchanges: readonly Interchange[] = [
+  {
+    stationName: '동대문역사문화공원',
+    stationCodes: { '2': '0205', '4': '0422', '5': '2537' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '사당',
+    stationCodes: { '2': '0226', '4': '0433' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '충무로',
+    stationCodes: { '3': '0321', '4': '0423' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '노원',
+    stationCodes: { '4': '0411', '7': '2715' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '총신대입구(이수)',
+    stationCodes: { '4': '0432', '7': '2737' },
+    accessibilityVerified: false,
+  },
   {
     stationName: '을지로3가',
     stationCodes: { '2': '0203', '3': '0320' },
@@ -108,11 +144,6 @@ const interchanges: readonly Interchange[] = [
   {
     stationName: '을지로4가',
     stationCodes: { '2': '0204', '5': '2536' },
-    accessibilityVerified: false,
-  },
-  {
-    stationName: '동대문역사문화공원',
-    stationCodes: { '2': '0205', '5': '2537' },
     accessibilityVerified: false,
   },
   {

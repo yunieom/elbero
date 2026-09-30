@@ -9,6 +9,7 @@ import { JourneyRouteEngine } from './journey-route-engine.service.js';
 import { createInterlineJourneyDefinition } from './interline-journey.factory.js';
 import { createLine2JourneyDefinition } from './line-2-journey.factory.js';
 import { createLine3JourneyDefinition } from './line-3-journey.factory.js';
+import { createLine4JourneyDefinition } from './line-4-journey.factory.js';
 import {
   createLine5JourneyDefinition,
   listLine5Stations,
@@ -63,6 +64,7 @@ export class JourneyService {
       ) ??
       createLine2JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine3JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine4JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine5JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine7JourneyDefinition(originStationCode, destinationStationCode) ??
       createInterlineJourneyDefinition(
