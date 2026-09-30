@@ -6,6 +6,7 @@ import { VERIFIED_JOURNEYS } from './data/verified-journeys.data.js';
 import type { JourneyPlanResDto } from './dto/res/journey-plan.res.dto.js';
 import type { Line5StationResDto } from './dto/res/line-5-station.res.dto.js';
 import { JourneyRouteEngine } from './journey-route-engine.service.js';
+import { createLine2JourneyDefinition } from './line-2-journey.factory.js';
 import {
   createLine5JourneyDefinition,
   listLine5Stations,
@@ -59,6 +60,7 @@ export class JourneyService {
           journey.originStationCode === originStationCode &&
           journey.destinationStationCode === destinationStationCode,
       ) ??
+      createLine2JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine5JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine7JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine5Line7JourneyDefinition(

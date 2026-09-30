@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "line": "2",
+  "verifiedAt": "2026-09-30",
+  "topologies": {
+    "main": [
+      "0201",
+      "0243",
+      "0242",
+      "0241",
+      "0240",
+      "0239",
+      "0238",
+      "0237",
+      "0236",
+      "0235",
+      "0234",
+      "0233",
+      "0232",
+      "0231",
+      "0230",
+      "0229",
+      "0228",
+      "0227",
+      "0226",
+      "0225",
+      "0224",
+      "0223",
+      "0222",
+      "0221",
+      "0220",
+      "0219",
+      "0218",
+      "0217",
+      "0216",
+      "0215",
+      "0214",
+      "0213",
+      "0212",
+      "0211",
+      "0210",
+      "0209",
+      "0208",
+      "0207",
+      "0206",
+      "0205",
+      "0204",
+      "0203",
+      "0202"
+    ],
+    "sinjeong": ["0234", "0247", "0248", "0249", "234-4"],
+    "seongsu": ["0211", "0244", "0245", "0250", "0246"]
+  },
+  "directionalDoors": [
+    {
+      "stationCode": "0201",
+      "stationName": "시청",
+      "directions": [
+        { "toward": "충정로", "recommendedDoors": ["6-2"] },
+        { "toward": "을지로입구", "recommendedDoors": ["5-3"] }
+      ]
+    },
+    {
+      "stationCode": "0238",
+      "stationName": "합정",
+      "directions": [
+        { "toward": "당산", "recommendedDoors": ["4-2"] },
+        { "toward": "홍대입구", "recommendedDoors": ["7-2"] }
+      ]
+    },
+    {
+      "stationCode": "0235",
+      "stationName": "문래",
+      "directions": [
+        { "toward": "영등포구청", "recommendedDoors": ["7-4"] },
+        { "toward": "신도림", "recommendedDoors": ["4-1"] }
+      ]
+    },
+    {
+      "stationCode": "0234",
+      "stationName": "신도림",
+      "directions": [
+        { "service": "main", "toward": "문래", "recommendedDoors": ["7-1"] },
+        { "service": "main", "toward": "대림", "recommendedDoors": ["4-4"] },
+        {
+          "service": "sinjeong",
+          "toward": "대림",
+          "recommendedDoors": ["3-2"]
+        },
+        {
+          "service": "sinjeong",
+          "toward": "도림천",
+          "recommendedDoors": ["1-3"]
+        }
+      ]
+    },
+    {
+      "stationCode": "0233",
+      "stationName": "대림",
+      "directions": [
+        { "toward": "구로디지털단지", "recommendedDoors": ["3-2"] },
+        { "toward": "신도림", "recommendedDoors": ["8-3"] }
+      ]
+    },
+    {
+      "stationCode": "0247",
+      "stationName": "도림천",
+      "directions": [
+        { "toward": "신도림", "recommendedDoors": ["4-4"] },
+        {
+          "toward": "도림천",
+          "aliases": ["양천구청"],
+          "recommendedDoors": ["2-4"]
+        }
+      ]
+    },
+    {
+      "stationCode": "0232",
+      "stationName": "구로디지털단지",
+      "directions": [
+        { "toward": "대림", "recommendedDoors": ["7-4"] },
+        { "toward": "신대방", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "0248",
+      "stationName": "양천구청",
+      "directions": [
+        { "toward": "도림천", "recommendedDoors": ["3-3"] },
+        { "toward": "신정네거리", "recommendedDoors": ["4-1"] }
+      ]
+    },
+    {
+      "stationCode": "0249",
+      "stationName": "신정네거리",
+      "directions": [
+        { "toward": "까치산", "recommendedDoors": ["4-1"] },
+        { "toward": "양천구청", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "0223",
+      "stationName": "교대",
+      "directions": [
+        { "toward": "강남", "recommendedDoors": ["8-4"] },
+        { "toward": "서초", "recommendedDoors": ["3-1"] }
+      ]
+    },
+    {
+      "stationCode": "0222",
+      "stationName": "강남",
+      "directions": [
+        { "toward": "역삼", "recommendedDoors": ["8-1"] },
+        { "toward": "교대", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "0219",
+      "stationName": "삼성",
+      "directions": [
+        { "toward": "종합운동장", "recommendedDoors": ["3-1"] },
+        { "toward": "선릉", "recommendedDoors": ["8-4"] }
+      ]
+    },
+    {
+      "stationCode": "0216",
+      "stationName": "잠실",
+      "directions": [
+        { "toward": "잠실새내", "recommendedDoors": ["6-3"] },
+        { "toward": "잠실나루", "recommendedDoors": ["5-2"] }
+      ]
+    },
+    {
+      "stationCode": "0212",
+      "stationName": "건대입구",
+      "directions": [
+        { "toward": "구의", "recommendedDoors": ["7-3"] },
+        { "toward": "성수", "recommendedDoors": ["5-4"] }
+      ]
+    },
+    {
+      "stationCode": "0209",
+      "stationName": "한양대",
+      "directions": [
+        { "toward": "왕십리", "recommendedDoors": ["3-3"] },
+        { "toward": "뚝섬", "recommendedDoors": ["8-4"] }
+      ]
+    },
+    {
+      "stationCode": "0207",
+      "stationName": "상왕십리",
+      "directions": [
+        { "toward": "신당", "recommendedDoors": ["7-4"] },
+        { "toward": "왕십리", "recommendedDoors": ["4-1"] }
+      ]
+    },
+    {
+      "stationCode": "0204",
+      "stationName": "을지로4가",
+      "directions": [
+        { "toward": "을지로3가", "recommendedDoors": ["3-1"] },
+        { "toward": "동대문역사문화공원", "recommendedDoors": ["8-4"] }
+      ]
+    },
+    {
+      "stationCode": "0202",
+      "stationName": "을지로입구",
+      "directions": [
+        { "toward": "시청", "recommendedDoors": ["5-4"] },
+        { "toward": "을지로3가", "recommendedDoors": ["6-1"] }
+      ]
+    },
+    {
+      "stationCode": "0244",
+      "stationName": "용답",
+      "directions": [
+        { "toward": "신답", "recommendedDoors": ["2-2"] },
+        { "toward": "성수", "recommendedDoors": ["3-3"] }
+      ]
+    },
+    {
+      "stationCode": "0245",
+      "stationName": "신답",
+      "directions": [
+        { "toward": "용두", "recommendedDoors": ["2-4"] },
+        { "toward": "용답", "recommendedDoors": ["3-2"] }
+      ]
+    },
+    {
+      "stationCode": "0250",
+      "stationName": "용두",
+      "directions": [
+        { "toward": "신답", "recommendedDoors": ["1-1"] },
+        { "toward": "신설동", "recommendedDoors": ["4-3"] }
+      ]
+    },
+    {
+      "stationCode": "0246",
+      "stationName": "신설동",
+      "directions": [{ "toward": "신설동", "recommendedDoors": ["4-4"] }]
+    }
+  ]
+}

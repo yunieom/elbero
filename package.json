@@ -13,6 +13,7 @@
     "research:line-sync": "node tools/kric/audit-line-sync.mjs",
     "verification:line-5": "node tools/kric/update-line5-accessibility-guidance.mjs",
     "verification:line-7": "node tools/validation/validate-line7-manual-verification.mjs",
+    "verification:line-2": "node tools/validation/build-line2-guidance.mjs",
     "verification:t06": "node tools/validation/validate-t06-normalized-sample.mjs",
     "verification:t07": "npm run build --workspace @elbero/contracts && node tools/validation/validate-t07-contract.mjs",
     "verification:t10": "npm run build --workspace @elbero/contracts && node tools/validation/build-t10-data-package.mjs",
