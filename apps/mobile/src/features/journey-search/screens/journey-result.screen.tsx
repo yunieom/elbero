@@ -39,8 +39,10 @@ export function JourneyResultScreen({
         <Header onBack={() => router.back()} />
         <View accessibilityLiveRegion="polite" style={styles.centerState}>
           <ActivityIndicator color={colors.primary} size="large" />
-          <Text style={styles.loadingTitle}>승강기 상태를 확인하고 있어요</Text>
-          <Text style={styles.loadingText}>
+          <Text maxFontSizeMultiplier={1.6} style={styles.loadingTitle}>
+            승강기 상태를 확인하고 있어요
+          </Text>
+          <Text maxFontSizeMultiplier={2} style={styles.loadingText}>
             안전한 차량·문과 이용 가능한 엘리베이터를 연결하는 중입니다.
           </Text>
         </View>
@@ -54,12 +56,18 @@ export function JourneyResultScreen({
         <Header onBack={() => router.back()} />
         <View accessibilityLiveRegion="assertive" style={styles.centerState}>
           <View style={styles.errorIcon}>
-            <Text style={styles.errorIconText}>!</Text>
+            <Text allowFontScaling={false} style={styles.errorIconText}>
+              !
+            </Text>
           </View>
-          <Text accessibilityRole="header" style={styles.loadingTitle}>
+          <Text
+            accessibilityRole="header"
+            maxFontSizeMultiplier={1.6}
+            style={styles.loadingTitle}
+          >
             경로를 불러오지 못했어요
           </Text>
-          <Text style={styles.loadingText}>
+          <Text maxFontSizeMultiplier={2} style={styles.loadingText}>
             {errorMessage ?? "잠시 후 다시 시도해 주세요."}
           </Text>
           <PrimaryButton
@@ -176,9 +184,13 @@ function Header({ onBack }: { onBack: () => void }) {
         onPress={onBack}
         style={styles.backButton}
       >
-        <Text style={styles.backIcon}>‹</Text>
+        <Text allowFontScaling={false} style={styles.backIcon}>
+          ‹
+        </Text>
       </Pressable>
-      <Text style={styles.headerTitle}>안전 경로 안내</Text>
+      <Text maxFontSizeMultiplier={2} style={styles.headerTitle}>
+        안전 경로 안내
+      </Text>
     </View>
   );
 }
@@ -226,6 +238,7 @@ const styles = StyleSheet.create({
     minHeight: 56,
     flexDirection: "row",
     alignItems: "center",
+    flexWrap: "wrap",
     paddingTop: spacing.xs,
   },
   backButton: {
@@ -240,6 +253,7 @@ const styles = StyleSheet.create({
     lineHeight: 38,
   },
   headerTitle: {
+    flexShrink: 1,
     color: colors.textPrimary,
     fontSize: 17,
     fontWeight: "800",
@@ -252,10 +266,12 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
   },
   loadingTitle: {
+    maxWidth: "100%",
     color: colors.textPrimary,
     fontSize: 20,
     fontWeight: "800",
     marginTop: spacing.lg,
+    textAlign: "center",
   },
   loadingText: {
     maxWidth: 340,
@@ -340,6 +356,9 @@ const styles = StyleSheet.create({
     minHeight: 60,
     flexDirection: "row",
     alignItems: "center",
+    flexWrap: "wrap",
+    gap: spacing.xs,
+    paddingVertical: spacing.sm,
   },
   facilityDivider: {
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -353,6 +372,7 @@ const styles = StyleSheet.create({
   },
   facilityLabel: {
     flex: 1,
+    minWidth: 160,
     color: colors.textPrimary,
     fontSize: 14,
     fontWeight: "600",

@@ -257,10 +257,7 @@ function findGap(stationCode, platformNumber, door, allPlatformsSafe) {
   if (distances.length === 0 || distances.some((value) => !Number.isFinite(value))) {
     return null;
   }
-  if (distances.length !== 1 && !allPlatformsSafe) return null;
-  const distanceCm = allPlatformsSafe
-    ? Math.max(...distances)
-    : distances[0];
+  const distanceCm = Math.max(...distances);
   if (allPlatformsSafe && distanceCm > 10) return null;
   return {
     distanceCm,

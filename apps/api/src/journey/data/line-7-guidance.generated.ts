@@ -67,16 +67,20 @@ export const LINE_7_GUIDANCE = {
       directions: [
         {
           toward: '도봉산',
-          platformNumber: '2',
+          platformNumber: '1',
           recommendedDoors: ['4-3'],
           doorGaps: [
             {
               door: '4-3',
-              gap: null,
+              gap: {
+                distanceCm: 7,
+                level: 'green',
+                label: '안전',
+              },
             },
           ],
-          accessibilityVerified: false,
-          warning: '승강장 이격거리 미확인',
+          accessibilityVerified: true,
+          warning: null,
           source: 'manual_verification',
         },
       ],

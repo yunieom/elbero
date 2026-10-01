@@ -1,29 +1,29 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from "react";
 import {
   FlatList,
   Modal,
   Pressable,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   View,
-} from 'react-native';
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
   transitLineById,
   transitLines,
   type Station,
   type TransitLineId,
-} from '@/entities/station';
-import { colors, radius, spacing } from '@/shared/theme';
+} from "@/entities/station";
+import { colors, radius, spacing } from "@/shared/theme";
 
-import { LineBadge } from './line-badge';
+import { LineBadge } from "./line-badge";
 import {
   filterSelectableStations,
   groupLineIdsByStationKey,
   type StationPickerMode,
-} from '../model/station-selection';
+} from "../model/station-selection";
 
 interface StationPickerModalProps {
   visible: boolean;
@@ -42,14 +42,14 @@ export function StationPickerModal({
   onClose,
   onSelect,
 }: StationPickerModalProps) {
-  const [mode, setMode] = useState<StationPickerMode>('search');
-  const [query, setQuery] = useState('');
-  const [selectedLineId, setSelectedLineId] = useState<TransitLineId>('5');
+  const [mode, setMode] = useState<StationPickerMode>("search");
+  const [query, setQuery] = useState("");
+  const [selectedLineId, setSelectedLineId] = useState<TransitLineId>("5");
 
   useEffect(() => {
     if (!visible) return;
-    setQuery('');
-    setMode('search');
+    setQuery("");
+    setMode("search");
   }, [title, visible]);
 
   const linesByStationKey = useMemo(() => {
@@ -71,8 +71,14 @@ export function StationPickerModal({
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.header}>
           <View>
-            <Text style={styles.eyebrow}>역과 노선을 함께 선택해요</Text>
-            <Text accessibilityRole="header" style={styles.title}>
+            <Text maxFontSizeMultiplier={2} style={styles.eyebrow}>
+              역과 노선을 함께 선택해요
+            </Text>
+            <Text
+              accessibilityRole="header"
+              maxFontSizeMultiplier={2}
+              style={styles.title}
+            >
               {title}
             </Text>
           </View>
@@ -83,27 +89,30 @@ export function StationPickerModal({
             onPress={onClose}
             style={styles.closeButton}
           >
-            <Text style={styles.closeButtonText}>닫기</Text>
+            <Text maxFontSizeMultiplier={2} style={styles.closeButtonText}>
+              닫기
+            </Text>
           </Pressable>
         </View>
 
         <View accessibilityRole="tablist" style={styles.modeTabs}>
           <ModeTab
             label="검색"
-            selected={mode === 'search'}
-            onPress={() => setMode('search')}
+            selected={mode === "search"}
+            onPress={() => setMode("search")}
           />
           <ModeTab
             label="노선도"
-            selected={mode === 'map'}
-            onPress={() => setMode('map')}
+            selected={mode === "map"}
+            onPress={() => setMode("map")}
           />
         </View>
 
-        {mode === 'search' ? (
+        {mode === "search" ? (
           <TextInput
             accessibilityLabel="역명 또는 노선 검색"
             autoFocus
+            maxFontSizeMultiplier={2}
             onChangeText={setQuery}
             placeholder="역명을 입력하세요"
             placeholderTextColor={colors.textMuted}
@@ -132,7 +141,9 @@ export function StationPickerModal({
                   ]}
                 >
                   <LineBadge lineId={item.id} compact />
-                  <Text style={styles.lineTabName}>{item.name}</Text>
+                  <Text maxFontSizeMultiplier={2} style={styles.lineTabName}>
+                    {item.name}
+                  </Text>
                 </Pressable>
               );
             }}
@@ -146,12 +157,12 @@ export function StationPickerModal({
           keyboardShouldPersistTaps="handled"
           ListEmptyComponent={
             <View style={styles.emptyState}>
-              <Text style={styles.emptyTitle}>
-                {mode === 'search' && !query.trim()
-                  ? '찾을 역 이름을 입력해 주세요.'
-                  : '일치하는 역이 없습니다.'}
+              <Text maxFontSizeMultiplier={1.6} style={styles.emptyTitle}>
+                {mode === "search" && !query.trim()
+                  ? "찾을 역 이름을 입력해 주세요."
+                  : "일치하는 역이 없습니다."}
               </Text>
-              <Text style={styles.emptyText}>
+              <Text maxFontSizeMultiplier={2} style={styles.emptyText}>
                 수도권 전철 25개 노선의 역을 찾을 수 있어요.
               </Text>
             </View>
@@ -163,7 +174,7 @@ export function StationPickerModal({
             ];
             return (
               <Pressable
-                accessibilityLabel={`${item.stationName}, ${item.lineName}${item.journeySupported ? '' : ', 안전 경로 준비 중'}`}
+                accessibilityLabel={`${item.stationName}, ${item.lineName}${item.journeySupported ? "" : ", 안전 경로 준비 중"}`}
                 accessibilityRole="button"
                 accessibilityState={{ selected: isSelected }}
                 onPress={() => onSelect(item)}
@@ -173,7 +184,7 @@ export function StationPickerModal({
                   pressed && styles.pressedRow,
                 ]}
               >
-                {mode === 'map' ? (
+                {mode === "map" ? (
                   <View style={styles.railArea}>
                     {index > 0 ? (
                       <View
@@ -206,9 +217,13 @@ export function StationPickerModal({
                   <LineBadge lineId={item.lineId} />
                 )}
                 <View style={styles.stationTextArea}>
-                  <Text style={styles.stationName}>{item.stationName}</Text>
+                  <Text maxFontSizeMultiplier={2} style={styles.stationName}>
+                    {item.stationName}
+                  </Text>
                   {!item.journeySupported ? (
-                    <Text style={styles.supportText}>안전 경로 준비 중</Text>
+                    <Text maxFontSizeMultiplier={2} style={styles.supportText}>
+                      안전 경로 준비 중
+                    </Text>
                   ) : null}
                 </View>
                 <View style={styles.transferBadges}>
@@ -242,6 +257,7 @@ function ModeTab({
       style={[styles.modeTab, selected && styles.selectedModeTab]}
     >
       <Text
+        maxFontSizeMultiplier={2}
         style={[styles.modeTabText, selected && styles.selectedModeTabText]}
       >
         {label}
@@ -253,10 +269,10 @@ function ModeTab({
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: colors.surface },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
     gap: spacing.sm,
     paddingHorizontal: spacing.xl,
     paddingTop: spacing.lg,
@@ -265,18 +281,18 @@ const styles = StyleSheet.create({
   eyebrow: {
     color: colors.primary,
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: "800",
     marginBottom: spacing.xxs,
   },
-  title: { color: colors.textPrimary, fontSize: 24, fontWeight: '800' },
+  title: { color: colors.textPrimary, fontSize: 24, fontWeight: "800" },
   closeButton: {
     minHeight: 48,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingHorizontal: spacing.sm,
   },
-  closeButtonText: { color: colors.primary, fontSize: 16, fontWeight: '700' },
+  closeButtonText: { color: colors.primary, fontSize: 16, fontWeight: "700" },
   modeTabs: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: spacing.xl,
     marginBottom: spacing.md,
     padding: spacing.xxs,
@@ -286,12 +302,12 @@ const styles = StyleSheet.create({
   modeTab: {
     flex: 1,
     minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: radius.sm,
   },
   selectedModeTab: { backgroundColor: colors.surface },
-  modeTabText: { color: colors.textSecondary, fontSize: 15, fontWeight: '700' },
+  modeTabText: { color: colors.textSecondary, fontSize: 15, fontWeight: "700" },
   selectedModeTabText: { color: colors.textPrimary },
   searchInput: {
     minHeight: 52,
@@ -310,8 +326,8 @@ const styles = StyleSheet.create({
   },
   lineTab: {
     minHeight: 48,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     flexShrink: 0,
     gap: spacing.xs,
     borderWidth: 2,
@@ -325,13 +341,13 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 13,
     lineHeight: 19,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   listContent: { paddingHorizontal: spacing.xl, paddingBottom: spacing.xxxl },
   stationRow: {
     minHeight: 68,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: spacing.sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
@@ -346,25 +362,25 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 17,
     lineHeight: 24,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   supportText: { color: colors.textMuted, fontSize: 12, marginTop: 3 },
   transferBadges: {
-    maxWidth: '45%',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-end',
+    maxWidth: "45%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "flex-end",
     gap: 4,
   },
   railArea: {
     width: 28,
     minHeight: 68,
-    alignSelf: 'stretch',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignSelf: "stretch",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  railTop: { position: 'absolute', top: 0, width: 4, height: 26 },
-  railBottom: { position: 'absolute', bottom: 0, width: 4, height: 26 },
+  railTop: { position: "absolute", top: 0, width: 4, height: 26 },
+  railBottom: { position: "absolute", bottom: 0, width: 4, height: 26 },
   railNode: {
     width: 18,
     height: 18,
@@ -373,21 +389,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
   },
   emptyState: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingTop: spacing.xxl,
     paddingHorizontal: spacing.lg,
   },
   emptyTitle: {
     color: colors.textPrimary,
     fontSize: 16,
-    fontWeight: '800',
-    textAlign: 'center',
+    fontWeight: "800",
+    textAlign: "center",
   },
   emptyText: {
     color: colors.textSecondary,
     fontSize: 14,
     lineHeight: 21,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: spacing.xs,
   },
 });

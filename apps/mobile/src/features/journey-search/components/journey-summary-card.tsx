@@ -87,10 +87,13 @@ const styles = StyleSheet.create({
   },
   metrics: {
     flexDirection: "row",
+    flexWrap: "wrap",
     gap: spacing.sm,
   },
   metric: {
-    flex: 1,
+    flexGrow: 1,
+    flexBasis: 120,
+    minWidth: 0,
   },
   metricLabel: {
     color: colors.textSecondary,

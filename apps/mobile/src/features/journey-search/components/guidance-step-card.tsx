@@ -50,7 +50,9 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
     <View style={styles.row}>
       <View style={styles.timeline} accessible={false}>
         <View style={styles.numberCircle}>
-          <Text style={styles.number}>{step.order}</Text>
+          <Text maxFontSizeMultiplier={1.6} style={styles.number}>
+            {step.order}
+          </Text>
         </View>
         {!isLast ? <View style={styles.line} /> : null}
       </View>
@@ -59,7 +61,7 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
         style={styles.card}
       >
         <View style={styles.cardHeader}>
-          <Text style={styles.typeLabel}>
+          <Text maxFontSizeMultiplier={2} style={styles.typeLabel}>
             {stepTypeLabels[step.type] ?? step.type}
           </Text>
           <Text style={styles.stationName}>{step.stationName}</Text>
@@ -172,6 +174,7 @@ const styles = StyleSheet.create({
   },
   timeline: {
     width: 52,
+    flexShrink: 0,
     alignItems: "center",
   },
   numberCircle: {

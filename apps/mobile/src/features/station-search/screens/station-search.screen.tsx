@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { useRouter } from 'expo-router';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { useRouter } from "expo-router";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
-import { stationCatalog, type Station } from '@/entities/station';
-import { colors, radius, spacing } from '@/shared/theme';
-import { PrimaryButton, Screen } from '@/shared/ui';
+import { stationCatalog, type Station } from "@/entities/station";
+import { colors, radius, spacing } from "@/shared/theme";
+import { PrimaryButton, Screen } from "@/shared/ui";
 
-import { StationField } from '../components/station-field';
-import { StationPickerModal } from '../components/station-picker-modal';
-import { stationSelectionError } from '../model/station-selection';
+import { StationField } from "../components/station-field";
+import { StationPickerModal } from "../components/station-picker-modal";
+import { stationSelectionError } from "../model/station-selection";
 
-const DAPSIMNI = stationCatalog.find((station) => station.id === '5:2543');
-const GUBEUNDARI = stationCatalog.find((station) => station.id === '5:2551');
+const DAPSIMNI = stationCatalog.find((station) => station.id === "5:2543");
+const GUBEUNDARI = stationCatalog.find((station) => station.id === "5:2551");
 
-type ActiveField = 'origin' | 'destination';
+type ActiveField = "origin" | "destination";
 
 export function StationSearchScreen() {
   const router = useRouter();
@@ -25,8 +25,8 @@ export function StationSearchScreen() {
   );
 
   const handleSelect = (station: Station) => {
-    if (activeField === 'origin') setOrigin(station);
-    if (activeField === 'destination') setDestination(station);
+    if (activeField === "origin") setOrigin(station);
+    if (activeField === "destination") setDestination(station);
     setActiveField(null);
     setValidationMessage(null);
   };
@@ -45,7 +45,7 @@ export function StationSearchScreen() {
     }
     if (!origin || !destination) return;
     router.push({
-      pathname: '/journeys/result',
+      pathname: "/journeys/result",
       params: {
         originStationCode: origin.stationCode,
         destinationStationCode: destination.stationCode,
@@ -60,24 +60,34 @@ export function StationSearchScreen() {
     setValidationMessage(null);
   };
 
-  const selectedStation = activeField === 'origin' ? origin : destination;
+  const selectedStation = activeField === "origin" ? origin : destination;
   return (
     <Screen>
       <View style={styles.brandRow}>
         <View style={styles.brandMark}>
-          <Text style={styles.brandMarkText}>↕</Text>
+          <Text allowFontScaling={false} style={styles.brandMarkText}>
+            ↕
+          </Text>
         </View>
-        <Text style={styles.brand}>엘베로</Text>
+        <Text maxFontSizeMultiplier={1.6} style={styles.brand}>
+          엘베로
+        </Text>
         <View style={styles.betaBadge}>
-          <Text style={styles.betaText}>수도권 전철</Text>
+          <Text maxFontSizeMultiplier={1.6} style={styles.betaText}>
+            수도권 전철
+          </Text>
         </View>
       </View>
 
       <View style={styles.hero}>
-        <Text accessibilityRole="header" style={styles.title}>
+        <Text
+          accessibilityRole="header"
+          maxFontSizeMultiplier={2}
+          style={styles.title}
+        >
           출발지와 도착지를{`\n`}입력해 주세요
         </Text>
-        <Text style={styles.description}>
+        <Text maxFontSizeMultiplier={2} style={styles.description}>
           운행 중인 엘리베이터와 안전한 승하차 위치를 반영해 경로를 안내해요.
         </Text>
       </View>
@@ -86,14 +96,14 @@ export function StationSearchScreen() {
         <StationField
           label="출발역"
           markerColor={colors.textPrimary}
-          onPress={() => setActiveField('origin')}
+          onPress={() => setActiveField("origin")}
           station={origin}
         />
         <View style={styles.connector} />
         <StationField
           label="도착역"
           markerColor={colors.primary}
-          onPress={() => setActiveField('destination')}
+          onPress={() => setActiveField("destination")}
           station={destination}
         />
         <Pressable
@@ -107,7 +117,9 @@ export function StationSearchScreen() {
             !origin && !destination && styles.swapDisabled,
           ]}
         >
-          <Text style={styles.swapIcon}>⇅</Text>
+          <Text allowFontScaling={false} style={styles.swapIcon}>
+            ⇅
+          </Text>
         </Pressable>
       </View>
 
@@ -116,8 +128,10 @@ export function StationSearchScreen() {
           <Text style={styles.checkMark}>✓</Text>
         </View>
         <View style={styles.optionTextArea}>
-          <Text style={styles.optionTitle}>승강기 운행 상태 반영</Text>
-          <Text style={styles.optionDescription}>
+          <Text maxFontSizeMultiplier={2} style={styles.optionTitle}>
+            승강기 운행 상태 반영
+          </Text>
+          <Text maxFontSizeMultiplier={2} style={styles.optionDescription}>
             최대 1시간 지연될 수 있어요.
           </Text>
         </View>
@@ -147,7 +161,7 @@ export function StationSearchScreen() {
 
       <Pressable
         accessibilityRole="button"
-        onPress={() => router.push('/qa/states')}
+        onPress={() => router.push("/qa/states")}
         style={styles.qaStateButton}
       >
         <Text style={styles.qaStateButtonText}>QA 예외 상태 시제품 보기</Text>
@@ -166,7 +180,7 @@ export function StationSearchScreen() {
         onSelect={handleSelect}
         selectedStationId={selectedStation?.id}
         stations={stationCatalog}
-        title={activeField === 'origin' ? '출발역 선택' : '도착역 선택'}
+        title={activeField === "origin" ? "출발역 선택" : "도착역 선택"}
         visible={activeField !== null}
       />
     </Screen>
@@ -175,40 +189,43 @@ export function StationSearchScreen() {
 
 const styles = StyleSheet.create({
   brandRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: spacing.sm,
     paddingTop: spacing.lg,
   },
   brandMark: {
     width: 34,
     height: 34,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: radius.sm,
-    marginRight: spacing.sm,
     backgroundColor: colors.primary,
   },
   brandMarkText: {
     color: colors.white,
     fontSize: 19,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   brand: {
     color: colors.textPrimary,
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   betaBadge: {
+    maxWidth: "100%",
     borderRadius: radius.pill,
     paddingHorizontal: spacing.sm,
     paddingVertical: 5,
-    marginLeft: 'auto',
+    marginLeft: "auto",
     backgroundColor: colors.primarySoft,
   },
   betaText: {
+    flexShrink: 1,
     color: colors.primary,
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   hero: {
     marginTop: 54,
@@ -218,7 +235,7 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 30,
     lineHeight: 40,
-    fontWeight: '800',
+    fontWeight: "800",
     letterSpacing: -0.8,
   },
   description: {
@@ -229,17 +246,17 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   formCard: {
-    position: 'relative',
+    position: "relative",
     gap: spacing.xs,
     borderRadius: radius.lg,
     padding: spacing.xs,
     backgroundColor: colors.surface,
     ...Platform.select({
       web: {
-        boxShadow: '0 8px 20px rgba(28, 39, 69, 0.08)',
+        boxShadow: "0 8px 20px rgba(28, 39, 69, 0.08)",
       },
       default: {
-        shadowColor: '#1C2745',
+        shadowColor: "#1C2745",
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.08,
         shadowRadius: 20,
@@ -248,9 +265,9 @@ const styles = StyleSheet.create({
     }),
   },
   connector: {
-    position: 'absolute',
+    position: "absolute",
     left: 27,
-    top: '50%',
+    top: "50%",
     width: 2,
     height: 16,
     transform: [{ translateY: -8 }],
@@ -258,13 +275,13 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   swapButton: {
-    position: 'absolute',
+    position: "absolute",
     right: spacing.lg,
-    top: '50%',
+    top: "50%",
     width: 46,
     height: 46,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.border,
@@ -281,19 +298,19 @@ const styles = StyleSheet.create({
   swapIcon: {
     color: colors.primary,
     fontSize: 22,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   optionRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginVertical: spacing.lg,
     paddingHorizontal: spacing.xs,
   },
   checkBox: {
     width: 22,
     height: 22,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 6,
     marginRight: spacing.sm,
     backgroundColor: colors.primary,
@@ -301,7 +318,7 @@ const styles = StyleSheet.create({
   checkMark: {
     color: colors.white,
     fontSize: 14,
-    fontWeight: '900',
+    fontWeight: "900",
   },
   optionTextArea: {
     flex: 1,
@@ -309,7 +326,7 @@ const styles = StyleSheet.create({
   optionTitle: {
     color: colors.textPrimary,
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   optionDescription: {
     color: colors.textMuted,
@@ -324,18 +341,18 @@ const styles = StyleSheet.create({
   },
   exampleButton: {
     minHeight: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   exampleText: {
     color: colors.primary,
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   qaStateButton: {
     minHeight: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderWidth: 1,
     borderColor: colors.border,
     borderRadius: radius.md,
@@ -345,8 +362,8 @@ const styles = StyleSheet.create({
   qaStateButtonText: {
     color: colors.textSecondary,
     fontSize: 14,
-    fontWeight: '700',
-    textAlign: 'center',
+    fontWeight: "700",
+    textAlign: "center",
   },
   infoCard: {
     borderRadius: radius.md,
@@ -357,7 +374,7 @@ const styles = StyleSheet.create({
   infoTitle: {
     color: colors.textPrimary,
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: "800",
     marginBottom: spacing.xs,
   },
   infoText: {

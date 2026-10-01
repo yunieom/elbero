@@ -99,7 +99,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "5-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -117,7 +121,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "6-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 12,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -161,7 +169,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "2-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 12.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -405,7 +417,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "6-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 15.5,
+                "level": "red",
+                "label": "추천하지 않음"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -493,7 +509,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "4-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -639,7 +659,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "8-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -657,7 +681,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -716,7 +744,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "8-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 9.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -734,7 +766,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 9.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -1008,7 +1044,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "1-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 7.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -1238,7 +1278,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 8.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -1473,7 +1517,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 10.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -1491,7 +1539,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "4-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -1734,7 +1786,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "5-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 6,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -2297,7 +2353,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "4-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -2465,7 +2525,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "8-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 10.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -2601,7 +2665,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "7-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -2681,7 +2749,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "5-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 14,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -2954,7 +3026,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "7-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 10.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -2972,7 +3048,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "5-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 8.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3116,7 +3196,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "7-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3134,7 +3218,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "7-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3176,7 +3264,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 9.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3194,7 +3286,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "2-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 9,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3307,7 +3403,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 17,
+                "level": "red",
+                "label": "추천하지 않음"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3325,7 +3425,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "2-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 14,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3384,7 +3488,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "1-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 12,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3402,7 +3510,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "4-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 13,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3444,7 +3556,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 5.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3572,7 +3688,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "7-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 11.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3590,7 +3710,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "4-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 12.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3718,7 +3842,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "8-3",
-              "gap": null
+              "gap": {
+                "distanceCm": 3.5,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3736,7 +3864,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 11.5,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3788,7 +3920,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3806,7 +3942,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "8-4",
-              "gap": null
+              "gap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3870,7 +4010,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "3-2",
-              "gap": null
+              "gap": {
+                "distanceCm": 11,
+                "level": "yellow",
+                "label": "유의"
+              }
             }
           ],
           "accessibilityVerified": true,
@@ -3951,7 +4095,11 @@ export const LINE_2_GUIDANCE = {
           "doorGaps": [
             {
               "door": "6-1",
-              "gap": null
+              "gap": {
+                "distanceCm": 10,
+                "level": "green",
+                "label": "안전"
+              }
             }
           ],
           "accessibilityVerified": true,

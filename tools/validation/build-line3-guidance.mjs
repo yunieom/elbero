@@ -240,8 +240,10 @@ function findGap(stationCode, platformNumber, door) {
     .flatMap((gap) => gap.payload?.body ?? [])
     .filter((row) => row.carOrdr === carNumber && row.carEtrcNo === doorNumber);
   const distances = [...new Set(candidates.map((row) => Number(row.sfDst)))];
-  if (distances.length !== 1 || !Number.isFinite(distances[0])) return null;
-  const distanceCm = distances[0];
+  if (distances.length === 0 || distances.some((value) => !Number.isFinite(value))) {
+    return null;
+  }
+  const distanceCm = Math.max(...distances);
   return {
     distanceCm,
     level: distanceCm <= 10 ? "green" : distanceCm <= 15 ? "yellow" : "red",
