@@ -270,7 +270,9 @@ const styles = StyleSheet.create({
   },
   detailValue: {
     flex: 1,
-    minWidth: 140,
+    minWidth: 0,
+    flexBasis: 140,
+    flexShrink: 1,
     color: colors.textPrimary,
     fontSize: 14,
     lineHeight: 21,

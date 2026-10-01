@@ -19,6 +19,11 @@ import {
 import { colors, radius, spacing } from '@/shared/theme';
 
 import { LineBadge } from './line-badge';
+import {
+  filterSelectableStations,
+  groupLineIdsByStationKey,
+  type StationPickerMode,
+} from '../model/station-selection';
 
 interface StationPickerModalProps {
   visible: boolean;
@@ -29,8 +34,6 @@ interface StationPickerModalProps {
   onSelect: (station: Station) => void;
 }
 
-type PickerMode = 'search' | 'map';
-
 export function StationPickerModal({
   visible,
   title,
@@ -39,7 +42,7 @@ export function StationPickerModal({
   onClose,
   onSelect,
 }: StationPickerModalProps) {
-  const [mode, setMode] = useState<PickerMode>('search');
+  const [mode, setMode] = useState<StationPickerMode>('search');
   const [query, setQuery] = useState('');
   const [selectedLineId, setSelectedLineId] = useState<TransitLineId>('5');
 
@@ -50,27 +53,13 @@ export function StationPickerModal({
   }, [title, visible]);
 
   const linesByStationKey = useMemo(() => {
-    const result = new Map<string, TransitLineId[]>();
-    for (const station of stations) {
-      const lineIds = result.get(station.stationKey) ?? [];
-      if (!lineIds.includes(station.lineId)) lineIds.push(station.lineId);
-      result.set(station.stationKey, lineIds);
-    }
-    return result;
+    return groupLineIdsByStationKey(stations);
   }, [stations]);
 
-  const visibleStations = useMemo(() => {
-    if (mode === 'map') {
-      return stations.filter((station) => station.lineId === selectedLineId);
-    }
-    const normalizedQuery = query.trim().toLocaleLowerCase('ko');
-    if (!normalizedQuery) return [];
-    return stations.filter((station) =>
-      `${station.stationName} ${station.lineName}`
-        .toLocaleLowerCase('ko')
-        .includes(normalizedQuery),
-    );
-  }, [mode, query, selectedLineId, stations]);
+  const visibleStations = useMemo(
+    () => filterSelectableStations(stations, mode, query, selectedLineId),
+    [mode, query, selectedLineId, stations],
+  );
 
   return (
     <Modal
@@ -267,6 +256,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
     paddingHorizontal: spacing.xl,
     paddingTop: spacing.lg,
     paddingBottom: spacing.md,
@@ -321,6 +312,7 @@ const styles = StyleSheet.create({
     minHeight: 48,
     flexDirection: 'row',
     alignItems: 'center',
+    flexShrink: 0,
     gap: spacing.xs,
     borderWidth: 2,
     borderColor: colors.border,
@@ -328,7 +320,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     backgroundColor: colors.surface,
   },
-  lineTabName: { color: colors.textPrimary, fontSize: 13, fontWeight: '700' },
+  lineTabName: {
+    flexShrink: 1,
+    color: colors.textPrimary,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+  },
   listContent: { paddingHorizontal: spacing.xl, paddingBottom: spacing.xxxl },
   stationRow: {
     minHeight: 68,
@@ -338,16 +336,30 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
     paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.sm,
   },
   selectedRow: { backgroundColor: colors.primarySoft },
   pressedRow: { opacity: 0.7 },
-  stationTextArea: { flex: 1 },
-  stationName: { color: colors.textPrimary, fontSize: 17, fontWeight: '700' },
+  stationTextArea: { flex: 1, minWidth: 0 },
+  stationName: {
+    flexShrink: 1,
+    color: colors.textPrimary,
+    fontSize: 17,
+    lineHeight: 24,
+    fontWeight: '700',
+  },
   supportText: { color: colors.textMuted, fontSize: 12, marginTop: 3 },
-  transferBadges: { flexDirection: 'row', gap: 4 },
+  transferBadges: {
+    maxWidth: '45%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+    gap: 4,
+  },
   railArea: {
     width: 28,
-    height: 68,
+    minHeight: 68,
+    alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
   },

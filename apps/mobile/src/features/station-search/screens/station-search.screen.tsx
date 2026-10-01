@@ -8,6 +8,7 @@ import { PrimaryButton, Screen } from '@/shared/ui';
 
 import { StationField } from '../components/station-field';
 import { StationPickerModal } from '../components/station-picker-modal';
+import { stationSelectionError } from '../model/station-selection';
 
 const DAPSIMNI = stationCatalog.find((station) => station.id === '5:2543');
 const GUBEUNDARI = stationCatalog.find((station) => station.id === '5:2551');
@@ -37,20 +38,12 @@ export function StationSearchScreen() {
   };
 
   const handleSubmit = () => {
-    if (!origin || !destination) {
-      setValidationMessage('출발역과 도착역을 모두 선택해 주세요.');
+    const selectionError = stationSelectionError(origin, destination);
+    if (selectionError) {
+      setValidationMessage(selectionError);
       return;
     }
-    if (origin.stationKey === destination.stationKey) {
-      setValidationMessage('출발역과 도착역은 서로 달라야 합니다.');
-      return;
-    }
-    if (!origin.journeySupported || !destination.journeySupported) {
-      setValidationMessage(
-        '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 5호선과 7호선 경로를 안내할 수 있어요.',
-      );
-      return;
-    }
+    if (!origin || !destination) return;
     router.push({
       pathname: '/journeys/result',
       params: {
@@ -257,16 +250,17 @@ const styles = StyleSheet.create({
   connector: {
     position: 'absolute',
     left: 27,
-    top: 77,
+    top: '50%',
     width: 2,
     height: 16,
+    transform: [{ translateY: -8 }],
     backgroundColor: colors.border,
     zIndex: 2,
   },
   swapButton: {
     position: 'absolute',
     right: spacing.lg,
-    top: 68,
+    top: '50%',
     width: 46,
     height: 46,
     alignItems: 'center',
@@ -275,6 +269,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
+    transform: [{ translateY: -23 }],
     zIndex: 3,
   },
   swapPressed: {

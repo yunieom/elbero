@@ -63,6 +63,8 @@ const styles = StyleSheet.create({
   },
   textArea: {
     flex: 1,
+    minWidth: 0,
+    paddingVertical: spacing.sm,
   },
   label: {
     color: colors.textSecondary,
@@ -71,8 +73,10 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xxs,
   },
   value: {
+    flexShrink: 1,
     color: colors.textPrimary,
     fontSize: 18,
+    lineHeight: 25,
     fontWeight: '700',
   },
   placeholder: {
