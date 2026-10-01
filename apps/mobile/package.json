@@ -7,6 +7,7 @@
     "@expo/metro-runtime": "~57.0.15",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~57.0.25",
+    "expo-clipboard": "~57.0.2",
     "expo-router": "~57.0.23",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
@@ -29,7 +30,7 @@
     "ios": "expo start --ios",
     "preweb": "npm run build --workspace @elbero/contracts",
     "web": "expo start --web",
-    "test": "node --experimental-strip-types --test src/features/station-search/model/station-selection.spec.mjs src/features/journey-search/model/journey-snapshot.spec.mjs src/features/journey-search/model/journey-error.spec.mjs",
+    "test": "node --experimental-strip-types --test src/features/station-search/model/station-selection.spec.mjs src/features/journey-search/model/journey-snapshot.spec.mjs src/features/journey-search/model/journey-error.spec.mjs src/features/journey-report/model/journey-report.spec.mjs src/features/journey-report/service/journey-report-delivery-core.spec.mjs",
     "typecheck": "tsc --noEmit"
   },
   "private": true

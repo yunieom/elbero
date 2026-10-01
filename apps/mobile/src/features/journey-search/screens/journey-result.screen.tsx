@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "expo-router";
 import {
   ActivityIndicator,
@@ -7,7 +8,8 @@ import {
   View,
 } from "react-native";
 
-import type { JourneyStatus } from "@/entities/journey";
+import type { JourneyStatus, JourneyStep } from "@/entities/journey";
+import { JourneyReportModal } from "@/features/journey-report";
 import { transitLines } from "@/entities/station/transit-lines";
 import { colors, radius, spacing } from "@/shared/theme";
 import { PrimaryButton, Screen } from "@/shared/ui";
@@ -29,6 +31,7 @@ export function JourneyResultScreen({
   destinationStationCode,
 }: JourneyResultScreenProps) {
   const router = useRouter();
+  const [reportStep, setReportStep] = useState<JourneyStep | null>(null);
   const {
     journey,
     isLoading,
@@ -189,6 +192,7 @@ export function JourneyResultScreen({
             isCurrent={step.order === currentStepOrder}
             isLast={index === route.steps.length - 1}
             key={step.id}
+            onReport={() => setReportStep(step)}
             step={step}
           />
         ))}
@@ -267,6 +271,12 @@ export function JourneyResultScreen({
       >
         <Text style={styles.secondaryButtonText}>다른 역으로 검색</Text>
       </Pressable>
+
+      <JourneyReportModal
+        journey={journey}
+        onClose={() => setReportStep(null)}
+        step={reportStep}
+      />
     </Screen>
   );
 }

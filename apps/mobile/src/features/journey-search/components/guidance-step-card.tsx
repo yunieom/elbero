@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { JourneyStep } from "@/entities/journey";
 import { colors, radius, spacing } from "@/shared/theme";
@@ -16,12 +16,14 @@ interface GuidanceStepCardProps {
   step: JourneyStep;
   isLast: boolean;
   isCurrent?: boolean;
+  onReport?: () => void;
 }
 
 export function GuidanceStepCard({
   step,
   isLast,
   isCurrent = false,
+  onReport,
 }: GuidanceStepCardProps) {
   const gap = step.platformGap;
   const access = step.stationAccess;
@@ -61,82 +63,95 @@ export function GuidanceStepCard({
         </View>
         {!isLast ? <View style={styles.line} /> : null}
       </View>
-      <View
-        accessible
-        accessibilityLabel={`${isCurrent ? "현재 단계, " : ""}${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
-        style={[styles.card, isCurrent && styles.currentCard]}
-      >
-        <View style={styles.cardHeader}>
-          {isCurrent ? (
-            <Text maxFontSizeMultiplier={2} style={styles.currentLabel}>
-              현재 단계
+      <View style={[styles.card, isCurrent && styles.currentCard]}>
+        <View
+          accessible
+          accessibilityLabel={`${isCurrent ? "현재 단계, " : ""}${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
+        >
+          <View style={styles.cardHeader}>
+            {isCurrent ? (
+              <Text maxFontSizeMultiplier={2} style={styles.currentLabel}>
+                현재 단계
+              </Text>
+            ) : null}
+            <Text maxFontSizeMultiplier={2} style={styles.typeLabel}>
+              {stepTypeLabels[step.type] ?? step.type}
             </Text>
+            <Text style={styles.stationName}>{step.stationName}</Text>
+          </View>
+          <Text style={styles.instruction}>{displayInstruction}</Text>
+          {train ? (
+            <View style={styles.trainDetails}>
+              <Text style={styles.quickTransfer}>
+                {boardingPosition
+                  ? `빠른환승 ${boardingPosition}`
+                  : "빠른환승 위치 미확인"}
+              </Text>
+              <Text style={styles.trainDirection}>
+                {toTerminalDirection(train.direction, train.lineName)}
+              </Text>
+            </View>
           ) : null}
-          <Text maxFontSizeMultiplier={2} style={styles.typeLabel}>
-            {stepTypeLabels[step.type] ?? step.type}
-          </Text>
-          <Text style={styles.stationName}>{step.stationName}</Text>
-        </View>
-        <Text style={styles.instruction}>{displayInstruction}</Text>
-        {train ? (
-          <View style={styles.trainDetails}>
-            <Text style={styles.quickTransfer}>
-              {boardingPosition
-                ? `빠른환승 ${boardingPosition}`
-                : "빠른환승 위치 미확인"}
-            </Text>
-            <Text style={styles.trainDirection}>
-              {toTerminalDirection(train.direction, train.lineName)}
-            </Text>
-          </View>
-        ) : null}
-        {access ? (
-          <View style={styles.accessDetails}>
-            {access.fromFloor && access.toFloor ? (
-              <DetailRow
-                label="이동 층"
-                value={`${access.fromFloor} → ${access.toFloor}`}
-              />
-            ) : null}
-            {showLocation && access.location ? (
-              <DetailRow label="위치" value={access.location} />
-            ) : null}
-            {showDirection && access.direction ? (
-              <DetailRow
-                label="방향"
-                value={toAccessDirection(access.direction)}
-              />
-            ) : null}
-          </View>
-        ) : null}
-        {gap || isGapUnknown ? (
-          <View
-            style={[
-              styles.gapBadge,
-              isGapUnknown
-                ? styles.gapUnknown
-                : isGapDanger
-                  ? styles.gapDanger
-                  : isGapWarning
-                    ? styles.gapWarning
-                    : styles.gapSafe,
-            ]}
-          >
-            <Text
+          {access ? (
+            <View style={styles.accessDetails}>
+              {access.fromFloor && access.toFloor ? (
+                <DetailRow
+                  label="이동 층"
+                  value={`${access.fromFloor} → ${access.toFloor}`}
+                />
+              ) : null}
+              {showLocation && access.location ? (
+                <DetailRow label="위치" value={access.location} />
+              ) : null}
+              {showDirection && access.direction ? (
+                <DetailRow
+                  label="방향"
+                  value={toAccessDirection(access.direction)}
+                />
+              ) : null}
+            </View>
+          ) : null}
+          {gap || isGapUnknown ? (
+            <View
               style={[
-                styles.gapText,
+                styles.gapBadge,
                 isGapUnknown
-                  ? styles.gapUnknownText
+                  ? styles.gapUnknown
                   : isGapDanger
-                    ? styles.gapDangerText
+                    ? styles.gapDanger
                     : isGapWarning
-                      ? styles.gapWarningText
-                      : styles.gapSafeText,
+                      ? styles.gapWarning
+                      : styles.gapSafe,
               ]}
             >
-              {gap ? `승강장 간격 ${gap.label}` : "승강장 간격 미확인"}
+              <Text
+                style={[
+                  styles.gapText,
+                  isGapUnknown
+                    ? styles.gapUnknownText
+                    : isGapDanger
+                      ? styles.gapDangerText
+                      : isGapWarning
+                        ? styles.gapWarningText
+                        : styles.gapSafeText,
+                ]}
+              >
+                {gap ? `승강장 간격 ${gap.label}` : "승강장 간격 미확인"}
+              </Text>
+            </View>
+          ) : null}
+        </View>
+        {onReport ? (
+          <Pressable
+            accessibilityLabel={`${step.order}단계 ${step.stationName} 안내 정보 제보`}
+            accessibilityRole="button"
+            onPress={onReport}
+            style={styles.reportButton}
+          >
+            <Text maxFontSizeMultiplier={2} style={styles.reportButtonText}>
+              이 단계 정보 제보
             </Text>
-          </View>
+          </Pressable>
         ) : null}
       </View>
     </View>
@@ -340,5 +355,19 @@ const styles = StyleSheet.create({
   },
   gapUnknownText: {
     color: colors.unknown,
+  },
+  reportButton: {
+    alignSelf: "flex-start",
+    minHeight: 44,
+    justifyContent: "center",
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
+    paddingTop: spacing.sm,
+    marginTop: spacing.md,
+  },
+  reportButtonText: {
+    color: colors.primary,
+    fontSize: 13,
+    fontWeight: "800",
   },
 });
