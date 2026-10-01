@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 import { stationCatalog, type Station } from "@/entities/station";
+import { useSavedJourney } from "@/features/journey-search";
 import { colors, radius, spacing } from "@/shared/theme";
 import { PrimaryButton, Screen } from "@/shared/ui";
 
@@ -17,6 +18,7 @@ type ActiveField = "origin" | "destination";
 
 export function StationSearchScreen() {
   const router = useRouter();
+  const { savedJourney, recoveryMessage } = useSavedJourney();
   const [origin, setOrigin] = useState<Station | null>(null);
   const [destination, setDestination] = useState<Station | null>(null);
   const [activeField, setActiveField] = useState<ActiveField | null>(null);
@@ -61,6 +63,16 @@ export function StationSearchScreen() {
   };
 
   const selectedStation = activeField === "origin" ? origin : destination;
+  const handleResume = () => {
+    if (!savedJourney) return;
+    router.push({
+      pathname: "/journeys/result",
+      params: {
+        originStationCode: savedJourney.originStationCode,
+        destinationStationCode: savedJourney.destinationStationCode,
+      },
+    });
+  };
   return (
     <Screen>
       <View style={styles.brandRow}>
@@ -91,6 +103,39 @@ export function StationSearchScreen() {
           운행 중인 엘리베이터와 안전한 승하차 위치를 반영해 경로를 안내해요.
         </Text>
       </View>
+
+      {savedJourney ? (
+        <Pressable
+          accessibilityHint={`${savedJourney.currentStepOrder}단계부터 저장된 안내를 엽니다.`}
+          accessibilityLabel={`저장된 여정 계속 보기, ${savedJourney.originName}에서 ${savedJourney.destinationName}`}
+          accessibilityRole="button"
+          onPress={handleResume}
+          style={styles.resumeCard}
+        >
+          <View style={styles.resumeTextArea}>
+            <Text maxFontSizeMultiplier={2} style={styles.resumeLabel}>
+              저장된 여정 계속 보기
+            </Text>
+            <Text maxFontSizeMultiplier={2} style={styles.resumeRoute}>
+              {savedJourney.originName} → {savedJourney.destinationName}
+            </Text>
+            <Text maxFontSizeMultiplier={2} style={styles.resumeMeta}>
+              {savedJourney.currentStepOrder}단계 ·{" "}
+              {formatSavedAt(savedJourney.savedAt)}
+              {savedJourney.isStatusStale ? " · 시설 상태 재확인 필요" : ""}
+            </Text>
+          </View>
+          <Text allowFontScaling={false} style={styles.resumeArrow}>
+            ›
+          </Text>
+        </Pressable>
+      ) : null}
+
+      {recoveryMessage ? (
+        <Text accessibilityLiveRegion="polite" style={styles.recoveryMessage}>
+          {recoveryMessage}
+        </Text>
+      ) : null}
 
       <View style={styles.formCard}>
         <StationField
@@ -187,6 +232,17 @@ export function StationSearchScreen() {
   );
 }
 
+function formatSavedAt(value: string) {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return new Intl.DateTimeFormat("ko-KR", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(parsed);
+}
+
 const styles = StyleSheet.create({
   brandRow: {
     flexDirection: "row",
@@ -230,6 +286,50 @@ const styles = StyleSheet.create({
   hero: {
     marginTop: 54,
     marginBottom: spacing.xxl,
+  },
+  resumeCard: {
+    minHeight: 88,
+    flexDirection: "row",
+    alignItems: "center",
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
+    backgroundColor: colors.primarySoft,
+  },
+  resumeTextArea: {
+    flex: 1,
+    minWidth: 0,
+  },
+  resumeLabel: {
+    color: colors.primary,
+    fontSize: 13,
+    fontWeight: "800",
+  },
+  resumeRoute: {
+    color: colors.textPrimary,
+    fontSize: 17,
+    lineHeight: 24,
+    fontWeight: "800",
+    marginTop: spacing.xxs,
+  },
+  resumeMeta: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    lineHeight: 18,
+    marginTop: spacing.xxs,
+  },
+  resumeArrow: {
+    color: colors.primary,
+    fontSize: 32,
+    marginLeft: spacing.sm,
+  },
+  recoveryMessage: {
+    color: colors.warning,
+    fontSize: 13,
+    lineHeight: 20,
+    marginBottom: spacing.md,
   },
   title: {
     color: colors.textPrimary,

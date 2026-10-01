@@ -15,9 +15,14 @@ const stepTypeLabels: Record<string, string> = {
 interface GuidanceStepCardProps {
   step: JourneyStep;
   isLast: boolean;
+  isCurrent?: boolean;
 }
 
-export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
+export function GuidanceStepCard({
+  step,
+  isLast,
+  isCurrent = false,
+}: GuidanceStepCardProps) {
   const gap = step.platformGap;
   const access = step.stationAccess;
   const train = step.trainSegment;
@@ -57,10 +62,16 @@ export function GuidanceStepCard({ step, isLast }: GuidanceStepCardProps) {
         {!isLast ? <View style={styles.line} /> : null}
       </View>
       <View
-        accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
-        style={styles.card}
+        accessible
+        accessibilityLabel={`${isCurrent ? "현재 단계, " : ""}${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
+        style={[styles.card, isCurrent && styles.currentCard]}
       >
         <View style={styles.cardHeader}>
+          {isCurrent ? (
+            <Text maxFontSizeMultiplier={2} style={styles.currentLabel}>
+              현재 단계
+            </Text>
+          ) : null}
           <Text maxFontSizeMultiplier={2} style={styles.typeLabel}>
             {stepTypeLabels[step.type] ?? step.type}
           </Text>
@@ -207,6 +218,10 @@ const styles = StyleSheet.create({
     marginBottom: spacing.md,
     backgroundColor: colors.surface,
   },
+  currentCard: {
+    borderWidth: 2,
+    borderColor: colors.primary,
+  },
   cardHeader: {
     flexDirection: "row",
     alignItems: "center",
@@ -222,6 +237,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "800",
     backgroundColor: colors.primarySoft,
+    overflow: "hidden",
+  },
+  currentLabel: {
+    borderRadius: radius.pill,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 5,
+    color: colors.white,
+    fontSize: 12,
+    fontWeight: "800",
+    backgroundColor: colors.primary,
     overflow: "hidden",
   },
   stationName: {

@@ -16,6 +16,7 @@ import { GuidanceStepCard } from "../components/guidance-step-card";
 import { JourneySummaryCard } from "../components/journey-summary-card";
 import { JourneyStatusCard } from "../components/journey-status-card";
 import { useJourneyPlan } from "../hooks/use-journey-plan";
+import { presentJourneyError } from "../model/journey-error";
 import { journeyStatusPresentation } from "../model/journey-status";
 
 interface JourneyResultScreenProps {
@@ -28,10 +29,17 @@ export function JourneyResultScreen({
   destinationStationCode,
 }: JourneyResultScreenProps) {
   const router = useRouter();
-  const { journey, isLoading, errorMessage, retry } = useJourneyPlan(
-    originStationCode,
-    destinationStationCode,
-  );
+  const {
+    journey,
+    isLoading,
+    error,
+    currentStepOrder,
+    savedAt,
+    recoveryMode,
+    storageNotice,
+    retry,
+    setCurrentStepOrder,
+  } = useJourneyPlan(originStationCode, destinationStationCode);
 
   if (isLoading && !journey) {
     return (
@@ -50,7 +58,8 @@ export function JourneyResultScreen({
     );
   }
 
-  if (errorMessage || !journey) {
+  if (error || !journey) {
+    const presentation = presentJourneyError(error);
     return (
       <Screen>
         <Header onBack={() => router.back()} />
@@ -65,14 +74,16 @@ export function JourneyResultScreen({
             maxFontSizeMultiplier={1.6}
             style={styles.loadingTitle}
           >
-            경로를 불러오지 못했어요
+            {presentation.title}
           </Text>
           <Text maxFontSizeMultiplier={2} style={styles.loadingText}>
-            {errorMessage ?? "잠시 후 다시 시도해 주세요."}
+            {presentation.description}
           </Text>
           <PrimaryButton
-            label="다시 시도"
-            onPress={retry}
+            label={presentation.actionLabel}
+            onPress={
+              presentation.action === "retry" ? retry : () => router.back()
+            }
             style={styles.retry}
           />
         </View>
@@ -81,6 +92,15 @@ export function JourneyResultScreen({
   }
 
   const route = journey.route;
+  const currentStepIndex = Math.max(
+    0,
+    route.steps.findIndex((step) => step.order === currentStepOrder),
+  );
+  const previousStep = route.steps[currentStepIndex - 1] ?? null;
+  const nextStep = route.steps[currentStepIndex + 1] ?? null;
+  const sources = formatSources(
+    route.steps.map((step) => step.stationAccess?.source),
+  );
   const routeLines = route.summary.lineNames.map((lineName) =>
     transitLines.find((line) => line.name === lineName),
   );
@@ -114,8 +134,42 @@ export function JourneyResultScreen({
         </Text>
       </View>
 
+      {recoveryMode !== "live" || isLoading ? (
+        <View
+          accessibilityLiveRegion="polite"
+          style={[
+            styles.recoveryBanner,
+            recoveryMode === "offline" || recoveryMode === "stale"
+              ? styles.recoveryBannerWarning
+              : null,
+          ]}
+        >
+          <Text maxFontSizeMultiplier={2} style={styles.recoveryTitle}>
+            {recoveryMode === "offline"
+              ? "오프라인 저장 여정"
+              : recoveryMode === "stale"
+                ? "저장된 안내 · 시설 상태 재확인 필요"
+                : "저장된 여정 복구 완료"}
+          </Text>
+          <Text maxFontSizeMultiplier={2} style={styles.recoveryText}>
+            {recoveryMode === "offline" || recoveryMode === "stale"
+              ? "이동 순서는 계속 볼 수 있지만 승강기 상태는 저장 시점 정보입니다."
+              : "저장한 단계부터 이어서 보여드리며 최신 상태를 확인하고 있습니다."}
+          </Text>
+        </View>
+      ) : null}
+
+      {storageNotice ? (
+        <Text accessibilityLiveRegion="polite" style={styles.storageNotice}>
+          {storageNotice}
+        </Text>
+      ) : null}
+
       <JourneyStatusCard
-        blockingReasons={route.blockingReasons}
+        blockingReasons={[
+          ...route.blockingReasons,
+          ...(journey.warnings ?? []).map((warning) => warning.message),
+        ]}
         reason={journey.selectionReason}
         status={route.status}
       />
@@ -132,11 +186,48 @@ export function JourneyResultScreen({
       <View>
         {route.steps.map((step, index) => (
           <GuidanceStepCard
+            isCurrent={step.order === currentStepOrder}
             isLast={index === route.steps.length - 1}
             key={step.id}
             step={step}
           />
         ))}
+      </View>
+
+      <View
+        accessibilityLabel={`현재 ${currentStepOrder}단계, 전체 ${route.steps.length}단계`}
+        style={styles.stepControls}
+      >
+        <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ disabled: !previousStep }}
+          disabled={!previousStep}
+          onPress={() =>
+            previousStep && void setCurrentStepOrder(previousStep.order)
+          }
+          style={[
+            styles.stepButton,
+            !previousStep && styles.stepButtonDisabled,
+          ]}
+        >
+          <Text maxFontSizeMultiplier={2} style={styles.stepButtonText}>
+            이전 단계
+          </Text>
+        </Pressable>
+        <Text maxFontSizeMultiplier={2} style={styles.stepPosition}>
+          {currentStepIndex + 1} / {route.steps.length}
+        </Text>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ disabled: !nextStep }}
+          disabled={!nextStep}
+          onPress={() => nextStep && void setCurrentStepOrder(nextStep.order)}
+          style={[styles.stepButton, !nextStep && styles.stepButtonDisabled]}
+        >
+          <Text maxFontSizeMultiplier={2} style={styles.stepButtonText}>
+            다음 단계
+          </Text>
+        </Pressable>
       </View>
 
       <View style={styles.sectionHeader}>
@@ -160,6 +251,12 @@ export function JourneyResultScreen({
           {journey.maxSourceDelayMinutes}분 지연
         </Text>
         <Text style={styles.dataText}>경로 검증일 {journey.verifiedAt}</Text>
+        <Text style={styles.dataText}>정보 출처 {sources}</Text>
+        {savedAt ? (
+          <Text style={styles.dataText}>
+            여정 저장 {formatDateTime(savedAt)}
+          </Text>
+        ) : null}
         <Text style={styles.dataNotice}>{journey.notice}</Text>
       </View>
 
@@ -207,6 +304,7 @@ function FacilityStatusRow({
   const presentation = journeyStatusPresentation[status];
   return (
     <View
+      accessible
       accessibilityLabel={`${label}, ${presentation.label}`}
       style={[styles.facilityRow, !isLast && styles.facilityDivider]}
     >
@@ -231,6 +329,24 @@ function formatDateTime(value: string) {
     hour: "2-digit",
     minute: "2-digit",
   }).format(parsed);
+}
+
+function formatSources(sources: Array<string | undefined>) {
+  const labels = sources
+    .filter((source): source is string => Boolean(source))
+    .map((source) => {
+      if (source === "SeoulMetroFaciInfo") return "서울교통공사";
+      if (source === "manual_verification") return "사용자·현장 검증";
+      if (source === "unverified") return "미확인";
+      if (
+        source === "stationElevatorCarNumber" ||
+        source === "stationPlatformTrainDistance"
+      ) {
+        return "국가철도공단(KRIC)";
+      }
+      return "공공데이터·검증 자료";
+    });
+  return [...new Set(labels)].join(" · ") || "확인 중";
 }
 
 const styles = StyleSheet.create({
@@ -303,6 +419,35 @@ const styles = StyleSheet.create({
     paddingTop: spacing.lg,
     paddingBottom: spacing.xl,
   },
+  recoveryBanner: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+    backgroundColor: colors.primarySoft,
+  },
+  recoveryBannerWarning: {
+    borderColor: colors.warning,
+    backgroundColor: colors.warningSoft,
+  },
+  recoveryTitle: {
+    color: colors.textPrimary,
+    fontSize: 14,
+    fontWeight: "800",
+  },
+  recoveryText: {
+    color: colors.textSecondary,
+    fontSize: 13,
+    lineHeight: 20,
+    marginTop: spacing.xxs,
+  },
+  storageNotice: {
+    color: colors.warning,
+    fontSize: 13,
+    lineHeight: 20,
+    marginBottom: spacing.md,
+  },
   lineBadge: {
     borderRadius: radius.pill,
     paddingHorizontal: spacing.sm,
@@ -346,6 +491,39 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontSize: 13,
     marginLeft: "auto",
+  },
+  stepControls: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: spacing.sm,
+    marginTop: spacing.xs,
+  },
+  stepButton: {
+    minHeight: 48,
+    minWidth: 112,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    backgroundColor: colors.surface,
+  },
+  stepButtonDisabled: {
+    borderColor: colors.border,
+    opacity: 0.45,
+  },
+  stepButtonText: {
+    color: colors.primary,
+    fontSize: 14,
+    fontWeight: "800",
+  },
+  stepPosition: {
+    color: colors.textSecondary,
+    fontSize: 13,
+    fontWeight: "700",
   },
   facilityCard: {
     borderRadius: radius.lg,

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
+    "@elbero/contracts": "*",
     "@expo/metro-runtime": "~57.0.15",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~57.0.25",
     "expo-router": "~57.0.23",
     "expo-status-bar": "~57.0.1",
@@ -19,11 +21,15 @@
     "typescript": "~6.0.3"
   },
   "scripts": {
+    "prestart": "npm run build --workspace @elbero/contracts",
     "start": "expo start",
+    "preandroid": "npm run build --workspace @elbero/contracts",
     "android": "expo start --android",
+    "preios": "npm run build --workspace @elbero/contracts",
     "ios": "expo start --ios",
+    "preweb": "npm run build --workspace @elbero/contracts",
     "web": "expo start --web",
-    "test": "node --experimental-strip-types --test src/features/station-search/model/station-selection.spec.mjs",
+    "test": "node --experimental-strip-types --test src/features/station-search/model/station-selection.spec.mjs src/features/journey-search/model/journey-snapshot.spec.mjs src/features/journey-search/model/journey-error.spec.mjs",
     "typecheck": "tsc --noEmit"
   },
   "private": true

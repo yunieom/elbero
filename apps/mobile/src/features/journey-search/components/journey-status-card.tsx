@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 
-import type { JourneyStatus } from '@/entities/journey';
-import { radius, spacing } from '@/shared/theme';
+import type { JourneyStatus } from "@/entities/journey";
+import { radius, spacing } from "@/shared/theme";
 
-import { journeyStatusPresentation } from '../model/journey-status';
+import { journeyStatusPresentation } from "../model/journey-status";
 
 interface JourneyStatusCardProps {
   status: JourneyStatus;
@@ -20,17 +20,15 @@ export function JourneyStatusCard({
   const uniqueBlockingReasons = [...new Set(blockingReasons)];
   const accessibilityLabel = [
     `${presentation.label}. ${reason}`,
-    ...uniqueBlockingReasons.map((blockingReason) =>
-      `확인이 필요한 내용. ${blockingReason}`,
+    ...uniqueBlockingReasons.map(
+      (blockingReason) => `확인이 필요한 내용. ${blockingReason}`,
     ),
-  ].join(' ');
+  ].join(" ");
   return (
     <View
+      accessible
       accessibilityLabel={accessibilityLabel}
-      style={[
-        styles.card,
-        { backgroundColor: presentation.backgroundColor },
-      ]}
+      style={[styles.card, { backgroundColor: presentation.backgroundColor }]}
     >
       <View
         style={[styles.icon, { backgroundColor: presentation.color }]}
@@ -42,7 +40,9 @@ export function JourneyStatusCard({
         <Text style={[styles.title, { color: presentation.color }]}>
           {presentation.label}
         </Text>
-        <Text style={[styles.reason, { color: presentation.color }]}>{reason}</Text>
+        <Text style={[styles.reason, { color: presentation.color }]}>
+          {reason}
+        </Text>
         {uniqueBlockingReasons.length > 0 ? (
           <View
             style={[
@@ -70,29 +70,29 @@ export function JourneyStatusCard({
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: 'row',
+    flexDirection: "row",
     borderRadius: radius.lg,
     padding: spacing.md,
   },
   icon: {
     width: 34,
     height: 34,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: radius.pill,
     marginRight: spacing.sm,
   },
   iconText: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     fontSize: 17,
-    fontWeight: '900',
+    fontWeight: "900",
   },
   textArea: {
     flex: 1,
   },
   title: {
     fontSize: 15,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   reason: {
     fontSize: 13,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   blockingTitle: {
     fontSize: 13,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   blockingReason: {
     fontSize: 13,

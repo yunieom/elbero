@@ -1,8 +1,14 @@
 import type { JourneyPlan } from "@/entities/journey";
 
-import type { JourneyPlanApiDto } from "../api/journey.api.types";
+import type {
+  JourneyContractErrorApiDto,
+  JourneyPlanApiDto,
+} from "../api/journey.api.types";
 
-export function toJourneyPlan(dto: JourneyPlanApiDto): JourneyPlan {
+export function toJourneyPlan(
+  dto: JourneyPlanApiDto,
+  warnings: JourneyContractErrorApiDto[] = [],
+): JourneyPlan {
   const selectedRoute =
     dto.candidates.find(
       (candidate) => candidate.id === dto.recommendedRouteId,
@@ -21,6 +27,12 @@ export function toJourneyPlan(dto: JourneyPlanApiDto): JourneyPlan {
     statusCheckedAt: dto.statusCheckedAt,
     maxSourceDelayMinutes: dto.maxSourceDelayMinutes,
     notice: dto.notice,
+    warnings: warnings.map((warning) => ({
+      code: warning.code,
+      category: warning.category,
+      message: warning.message,
+      retryable: warning.retryable,
+    })),
     route: {
       id: selectedRoute.id,
       label: selectedRoute.label,

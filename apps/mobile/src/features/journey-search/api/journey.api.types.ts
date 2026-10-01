@@ -89,7 +89,7 @@ export interface JourneyPlanApiDto {
   candidates: JourneyRouteApiDto[];
 }
 
-interface JourneyContractErrorApiDto {
+export interface JourneyContractErrorApiDto {
   code: string;
   category: string;
   message: string;
@@ -97,7 +97,7 @@ interface JourneyContractErrorApiDto {
   details: Record<string, string | number | boolean | null>;
 }
 
-interface JourneyContractMetaApiDto {
+export interface JourneyContractMetaApiDto {
   contractVersion: string;
   requestId: string;
   generatedAt: string;

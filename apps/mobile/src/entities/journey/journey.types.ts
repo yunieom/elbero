@@ -98,5 +98,13 @@ export interface JourneyPlan {
   statusCheckedAt: string;
   maxSourceDelayMinutes: number;
   notice: string;
+  warnings: JourneyWarning[];
   route: JourneyRoute;
+}
+
+export interface JourneyWarning {
+  code: string;
+  category: string;
+  message: string;
+  retryable: boolean;
 }
