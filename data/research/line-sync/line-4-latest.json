@@ -1,14 +1,15 @@
 {
-  "collectedAt": "2026-09-18T09:14:06.844Z",
+  "collectedAt": "2026-10-01T02:18:04.291Z",
   "scope": {
     "line": "4호선",
+    "lineCode": "4",
     "railOperatorCodes": [
       "KR",
       "NU",
       "S1"
     ],
     "stationCount": 51,
-    "goal": "서울 지하철 1~9호선 지원을 위한 노선별 API 동기화 감사"
+    "goal": "수도권 도시철도 지원을 위한 노선별 API 동기화 감사"
   },
   "comparisonPolicy": {
     "adjudication": "어떤 API가 맞는지 판정하지 않는다.",
@@ -29,6 +30,7 @@
     "stinElevatorMovement": "/trafficWeekInfo/stinElevatorMovement",
     "stationElevator": "/convenientInfo/stationElevator",
     "stationElevatorCarNumber": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "stationStairCarNumber": "/vulnerableUserInfo/stationStairCarNumber",
     "stationPlatformTrainDistance": "/vulnerableUserInfo/stationPlatformTrainDistance",
     "stPlf": "/convenientInfo/stPlf",
     "SeoulMetroFaciInfo": "서울교통공사 승강기 가동현황 API"
@@ -68,6 +70,11 @@
         "stationsWithoutRows": 5,
         "rowCount": 103
       },
+      "stationStairCarNumber": {
+        "stationsWithRows": 0,
+        "stationsWithoutRows": 51,
+        "rowCount": 0
+      },
       "stPlf": {
         "stationsWithRows": 48,
         "stationsWithoutRows": 3,
@@ -103,6 +110,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 6,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 0,
         "stationPlatformTrainDistance": 0,
         "SeoulMetroFaciInfo": 0
@@ -118,6 +126,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 0,
         "stationPlatformTrainDistance": 0,
         "SeoulMetroFaciInfo": 0
@@ -133,6 +142,7 @@
         "stinElevatorMovement": 36,
         "stationElevator": 5,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 0,
         "stationPlatformTrainDistance": 0,
         "SeoulMetroFaciInfo": 0
@@ -148,6 +158,7 @@
         "stinElevatorMovement": 28,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -163,6 +174,7 @@
         "stinElevatorMovement": 28,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 1
@@ -178,6 +190,7 @@
         "stinElevatorMovement": 66,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -193,6 +206,7 @@
         "stinElevatorMovement": 49,
         "stationElevator": 8,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 8
@@ -208,6 +222,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -223,6 +238,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -238,6 +254,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -253,6 +270,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -268,6 +286,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -283,6 +302,7 @@
         "stinElevatorMovement": 50,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 4
@@ -298,6 +318,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -313,6 +334,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 4
@@ -328,6 +350,7 @@
         "stinElevatorMovement": 38,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -343,6 +366,7 @@
         "stinElevatorMovement": 68,
         "stationElevator": 2,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -358,6 +382,7 @@
         "stinElevatorMovement": 32,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 4
@@ -373,6 +398,7 @@
         "stinElevatorMovement": 10,
         "stationElevator": 2,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -388,6 +414,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -403,6 +430,7 @@
         "stinElevatorMovement": 86,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -418,6 +446,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -433,6 +462,7 @@
         "stinElevatorMovement": 56,
         "stationElevator": 5,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 5
@@ -448,6 +478,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 4
@@ -463,6 +494,7 @@
         "stinElevatorMovement": 68,
         "stationElevator": 5,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 5
@@ -478,6 +510,7 @@
         "stinElevatorMovement": 60,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -493,6 +526,7 @@
         "stinElevatorMovement": 52,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 4
@@ -508,6 +542,7 @@
         "stinElevatorMovement": 46,
         "stationElevator": 2,
         "stationElevatorCarNumber": 1,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 2
@@ -523,6 +558,7 @@
         "stinElevatorMovement": 16,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 3
@@ -538,6 +574,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -553,6 +590,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -568,6 +606,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -583,6 +622,7 @@
         "stinElevatorMovement": 36,
         "stationElevator": 5,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -598,6 +638,7 @@
         "stinElevatorMovement": 36,
         "stationElevator": 5,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -613,6 +654,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 5,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -628,6 +670,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -643,6 +686,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -658,6 +702,7 @@
         "stinElevatorMovement": 60,
         "stationElevator": 1,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -673,6 +718,7 @@
         "stinElevatorMovement": 42,
         "stationElevator": 3,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -688,6 +734,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -703,6 +750,7 @@
         "stinElevatorMovement": 16,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -718,6 +766,7 @@
         "stinElevatorMovement": 14,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -733,6 +782,7 @@
         "stinElevatorMovement": 40,
         "stationElevator": 2,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -748,6 +798,7 @@
         "stinElevatorMovement": 30,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -763,6 +814,7 @@
         "stinElevatorMovement": 20,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -778,6 +830,7 @@
         "stinElevatorMovement": 38,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -793,6 +846,7 @@
         "stinElevatorMovement": 56,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -808,6 +862,7 @@
         "stinElevatorMovement": 16,
         "stationElevator": 2,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -823,6 +878,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -838,6 +894,7 @@
         "stinElevatorMovement": 20,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -853,6 +910,7 @@
         "stinElevatorMovement": 14,
         "stationElevator": 4,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 80,
         "SeoulMetroFaciInfo": 0
@@ -5403,7 +5461,7 @@
             "ELVTR_NM": "승강기)엘리베이터-동대문(4) 섬식(상) 6-3 내부#1",
             "OPR_SEC": "B4-B1",
             "INSTL_PSTN": "혜화 방면6-3,동대문역사문화공원 방면5-2",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]

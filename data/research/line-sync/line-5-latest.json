@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-09-28T01:11:11.728Z",
+  "collectedAt": "2026-10-01T02:18:34.891Z",
   "scope": {
     "line": "5호선",
     "lineCode": "5",
@@ -11175,7 +11175,7 @@
             "ELVTR_NM": "승강기)엘리베이터-굽은다리 외부3",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "2번 출입구",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]
@@ -13131,7 +13131,7 @@
             "ELVTR_NM": "승강기)엘리베이터-오금(5) 외부5",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "5번 출입구",
-            "USE_YN": "보수중",
+            "USE_YN": "사용가능",
             "ELVTR_SE": "EV"
           }
         ]

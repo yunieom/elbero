@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-09-28T01:35:56.606Z",
+  "collectedAt": "2026-10-01T02:18:37.840Z",
   "scope": {
     "line": "7호선",
     "lineCode": "7",
@@ -1752,7 +1752,7 @@
             "ELVTR_NM": "승강기)엘리베이터-도봉산(7) 내부3",
             "OPR_SEC": "1F-2F",
             "INSTL_PSTN": "장암 방면3-4",
-            "USE_YN": "보수중",
+            "USE_YN": "사용가능",
             "ELVTR_SE": "EV"
           },
           {
@@ -2815,7 +2815,7 @@
             "ELVTR_NM": "승강기)엘리베이터-하계 외부4",
             "OPR_SEC": "B1-1F",
             "INSTL_PSTN": "6번 출입구",
-            "USE_YN": "사용가능",
+            "USE_YN": "보수중",
             "ELVTR_SE": "EV"
           }
         ]

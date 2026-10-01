@@ -1,12 +1,10 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const RAW_PATH = resolve(
-  "data/research/line-sync/raw/line-3-2026-09-18T09-13-58.955Z/kric.json",
-);
-const SEOUL_PATH = resolve(
-  "data/research/line-sync/raw/line-3-2026-09-18T09-13-58.955Z/seoul.json",
-);
+const rawDirectory = await findLatestRawDirectory("3");
+const auditVersion = rawDirectory.split("/").at(-1);
+const RAW_PATH = resolve(rawDirectory, "kric.json");
+const SEOUL_PATH = resolve(rawDirectory, "seoul.json");
 const MANUAL_PATH = resolve(
   "data/verification/line-3-manual-verification.json",
 );
@@ -55,9 +53,14 @@ const stations = raw.route.body.map((routeStation) => {
   const exitNumbers = (
     manualExits?.exitNumbers ?? [
       ...new Set(
-        seoulRows
-          .filter((row) => classifyElevator(row.INSTL_PSTN) === "surface")
-          .flatMap((row) => parseExitNumbers(row.INSTL_PSTN)),
+        [
+          ...seoulRows
+            .filter((row) => classifyElevator(row.INSTL_PSTN) === "surface")
+            .flatMap((row) => parseExitNumbers(row.INSTL_PSTN)),
+          ...(rawStation?.elevators?.body ?? []).flatMap((row) =>
+            parseExitNumbers(row.exitNo),
+          ),
+        ],
       ),
     ]
   ).toSorted(numericTextSort);
@@ -102,15 +105,26 @@ const stations = raw.route.body.map((routeStation) => {
       .flatMap((facility) =>
         parseDirectionalDoors(facility.location, [toward, ...aliases]),
       );
+    const directionalPlatform = inferDirectionalPlatform(stationCode, toward);
+    const kricDoors = (rawStation?.nearbyCars?.body ?? [])
+      .filter(
+        (row) =>
+          directionalPlatform && String(row.plfNo) === directionalPlatform,
+      )
+      .map((row) => `${row.carOrdr}-${row.carEtrcNo}`);
     const recommendedDoors = [
-      ...new Set(manualDirection?.recommendedDoors ?? liveDoors),
+      ...new Set(
+        manualDirection?.recommendedDoors ??
+          (liveDoors.length > 0 ? liveDoors : kricDoors),
+      ),
     ];
     const platformNumber =
       manualDirection?.platformNumber ??
       inferPlatformNumber(
         rawStation?.nearbyCars?.body ?? [],
         recommendedDoors,
-      );
+      ) ??
+      directionalPlatform;
     const doorGaps = recommendedDoors.map((door) => ({
       door,
       gap: findGap(stationCode, platformNumber, door),
@@ -128,15 +142,18 @@ const stations = raw.route.body.map((routeStation) => {
       doorGaps,
       accessibilityVerified:
         Boolean(manualDirection) ||
-        (recommendedDoors.length > 0 && liveDoors.length > 0),
+        (recommendedDoors.length > 0 &&
+          (liveDoors.length > 0 || kricDoors.length > 0)),
       warning:
         recommendedDoors.length === 0 && !manualDirection?.sharedFacilityLine
           ? "방향별 승강기 인접 차량·문 미확인"
           : null,
       source: manualDirection
         ? "manual_verification"
-        : recommendedDoors.length > 0
+        : liveDoors.length > 0
           ? "SeoulMetroFaciInfo"
+          : kricDoors.length > 0
+            ? "stationElevatorCarNumber"
           : "unverified",
     };
   });
@@ -155,7 +172,7 @@ const stations = raw.route.body.map((routeStation) => {
 });
 
 const output = {
-  dataVersion: `line-3.audit-2026-09-18.manual-${manual.verifiedAt}`,
+  dataVersion: `${auditVersion}.manual-${manual.verifiedAt}`,
   verifiedAt: manual.verifiedAt,
   topology: manual.topology,
   stations,
@@ -254,4 +271,37 @@ function findGap(stationCode, platformNumber, door) {
 
 function numericTextSort(left, right) {
   return left.localeCompare(right, "ko", { numeric: true });
+}
+
+function inferDirectionalPlatform(stationCode, toward) {
+  const stationIndex = manual.topology.indexOf(stationCode);
+  if (stationIndex === -1) return null;
+  const previousCode = manual.topology[stationIndex - 1];
+  const nextCode = manual.topology[stationIndex + 1];
+  if (previousCode && stationName(previousCode) === normalizeText(toward)) {
+    return "1";
+  }
+  if (nextCode && stationName(nextCode) === normalizeText(toward)) return "2";
+  return null;
+}
+
+function stationName(stationCode) {
+  const station = raw.route.body.find(
+    (item) => normalizeStationCode(item) === stationCode,
+  );
+  return normalizeText(normalizeStationName(station?.stinNm ?? ""));
+}
+
+async function findLatestRawDirectory(lineId) {
+  const root = resolve("data/research/line-sync/raw");
+  const directories = (await readdir(root, { withFileTypes: true }))
+    .filter(
+      (entry) =>
+        entry.isDirectory() && entry.name.startsWith(`line-${lineId}-20`),
+    )
+    .map((entry) => entry.name)
+    .sort();
+  const latest = directories.at(-1);
+  if (!latest) throw new Error(`${lineId}호선 원본 응답이 없습니다.`);
+  return resolve(root, latest);
 }

@@ -1,12 +1,10 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-const RAW_PATH = resolve(
-  "data/research/line-sync/raw/line-2-2026-09-18T09-13-50.545Z/kric.json",
-);
-const SEOUL_PATH = resolve(
-  "data/research/line-sync/raw/line-2-2026-09-18T09-13-50.545Z/seoul.json",
-);
+const rawDirectory = await findLatestRawDirectory("2");
+const auditVersion = rawDirectory.split("/").at(-1);
+const RAW_PATH = resolve(rawDirectory, "kric.json");
+const SEOUL_PATH = resolve(rawDirectory, "seoul.json");
 const MANUAL_PATH = resolve(
   "data/verification/line-2-manual-verification.json",
 );
@@ -51,21 +49,29 @@ const stations = raw.route.body.map((routeStation) => {
   const exitNumbers = (
     manualExits?.exitNumbers ?? [
       ...new Set(
-        seoulRows
-          .filter((row) => classifyElevator(row.INSTL_PSTN) === "surface")
-          .flatMap((row) => parseExitNumbers(row.INSTL_PSTN)),
+        [
+          ...seoulRows
+            .filter((row) => classifyElevator(row.INSTL_PSTN) === "surface")
+            .flatMap((row) => parseExitNumbers(row.INSTL_PSTN)),
+          ...(rawStation?.elevators?.body ?? []).flatMap((row) =>
+            parseExitNumbers(row.exitNo),
+          ),
+        ],
       ),
     ]
   ).toSorted(numericTextSort);
 
+  const manualDirections = manualStation?.directions ?? [];
   const movementDirections = [
     ...new Set(
       (rawStation?.movement?.body ?? [])
         .map((item) => stripDirection(item.edMovePath))
         .filter(Boolean),
     ),
-  ];
-  const manualDirections = manualStation?.directions ?? [];
+  ].filter(
+    (toward) =>
+      !manualDirections.some((direction) => direction.toward === toward),
+  );
   const directionKeys = [
     ...movementDirections.map((toward) => ({ toward, service: null })),
     ...manualDirections.map((direction) => ({
@@ -151,7 +157,7 @@ const stations = raw.route.body.map((routeStation) => {
 });
 
 const output = {
-  dataVersion: `line-2.audit-2026-09-18.manual-${manual.verifiedAt}`,
+  dataVersion: `${auditVersion}.manual-${manual.verifiedAt}`,
   verifiedAt: manual.verifiedAt,
   topologies: manual.topologies,
   stations,
@@ -243,4 +249,18 @@ function findGap(stationCode, platformNumber, door) {
 
 function numericTextSort(left, right) {
   return left.localeCompare(right, "ko", { numeric: true });
+}
+
+async function findLatestRawDirectory(lineId) {
+  const root = resolve("data/research/line-sync/raw");
+  const directories = (await readdir(root, { withFileTypes: true }))
+    .filter(
+      (entry) =>
+        entry.isDirectory() && entry.name.startsWith(`line-${lineId}-20`),
+    )
+    .map((entry) => entry.name)
+    .sort();
+  const latest = directories.at(-1);
+  if (!latest) throw new Error(`${lineId}호선 원본 응답이 없습니다.`);
+  return resolve(root, latest);
 }

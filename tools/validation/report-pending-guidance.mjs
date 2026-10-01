@@ -34,7 +34,10 @@ for (const lineId of lineIds) {
     .filter((station) => station.exitNumbers.length === 0)
     .filter((station) => {
       const manualExit = manualExits.get(station.stationCode);
-      return manualExit?.status !== 'requires_interchange_guidance';
+      return ![
+        'requires_interchange_guidance',
+        'surface_elevator_unverified',
+      ].includes(manualExit?.status);
     })
     .map((station) => ({
       stationCode: station.stationCode,
@@ -79,6 +82,7 @@ console.log(
 );
 
 function needsDirectionVerification(direction) {
+  if (direction.sharedFacilityLine) return false;
   return (
     direction.recommendedDoors.length === 0 ||
     direction.accessibilityVerified === false ||
