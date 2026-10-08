@@ -55,12 +55,23 @@ for (const lineId of lineIds) {
   sections.push(renderLineSection(lineId, directions, exits));
 }
 
+const expansionSections = [];
+for (const lineId of ['8', '9']) {
+  const readiness = await readOptionalJson(
+    resolve(`data/verification/line-${lineId}-api-consensus.json`),
+  );
+  if (!readiness) continue;
+  totalDirectionCount += readiness.pendingDirectionDoorReview.length;
+  totalExitCount += readiness.pendingSurfaceExitConflicts.length;
+  expansionSections.push(renderExpansionLineSection(readiness));
+}
+
 const output = `# 지원 노선 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
 - 사용자 검증 입력 완료: 1·2·3호선
 - 현재 경로 엔진 반영 대상: 2·3·4·5·7호선
-- 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}건
+- 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
 - 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
 
 ## 판정 기준
@@ -83,6 +94,8 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 - 두 노선 모두 아직 경로 엔진에 연결되지 않았으므로 자동 후보를 사용자 안전 경로로 노출하지 않는다.
 
 ${sections.join('\n\n')}
+
+${expansionSections.join('\n\n')}
 `;
 
 await writeFile(
@@ -147,6 +160,52 @@ ${directionRows}
 | 역 | 확인할 내용 |
 | --- | --- |
 ${exitRows}`;
+}
+
+function renderExpansionLineSection(readiness) {
+  const directionRows =
+    readiness.pendingDirectionDoorReview.length > 0
+      ? readiness.pendingDirectionDoorReview
+          .map(
+            ({ stationName, stationCode, reason, sourceValues }) =>
+              `| ${stationName} (${stationCode}) | ${reason === 'source_value_conflict' ? 'API 값 충돌' : '차량·문 API 값 없음'} | ${formatSourceValues(sourceValues)} |`,
+          )
+          .join('\n')
+      : '| 없음 | - | - |';
+  const exitRows =
+    readiness.pendingSurfaceExitConflicts.length > 0
+      ? readiness.pendingSurfaceExitConflicts
+          .map(
+            ({ stationName, stationCode, sourceValues }) =>
+              `| ${stationName} (${stationCode}) | ${formatSourceValues(sourceValues)} |`,
+          )
+          .join('\n')
+      : '| 없음 | - |';
+
+  return `## ${readiness.line}호선 · 경로 엔진 연결 전
+
+### 방향별 차량·문 (${readiness.pendingDirectionDoorReview.length}역)
+
+| 역 | 확인 이유 | API별 후보 |
+| --- | --- | --- |
+${directionRows}
+
+### 지상 엘리베이터 출구 (${readiness.pendingSurfaceExitConflicts.length}역)
+
+| 역 | API별 값 |
+| --- | --- |
+${exitRows}`;
+}
+
+function formatSourceValues(sourceValues = {}) {
+  const entries = Object.entries(sourceValues).filter(
+    ([, values]) => values.length > 0,
+  );
+  return entries.length > 0
+    ? entries
+        .map(([source, values]) => `${source}: ${values.join(', ')}`)
+        .join('<br>')
+    : '후보 없음';
 }
 
 async function readOptionalJson(path) {
