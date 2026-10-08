@@ -37,6 +37,7 @@ for (const lineId of lineIds) {
       return ![
         'requires_interchange_guidance',
         'surface_elevator_unverified',
+        'no_surface_elevator',
       ].includes(manualExit?.status);
     })
     .map((station) => ({
@@ -57,7 +58,8 @@ for (const lineId of lineIds) {
 const output = `# 지원 노선 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
-- 대상: 2·3·4·5·7호선
+- 사용자 검증 입력 완료: 1·2·3호선
+- 현재 경로 엔진 반영 대상: 2·3·4·5·7호선
 - 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}건
 - 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
 
@@ -67,6 +69,12 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 - 방향별 차량·문이 없거나, 선택한 문과 이격거리 레코드가 연결되지 않거나, 안전 경로 검증 상태가 거짓인 경우만 기록한다.
 - 지상 엘리베이터 출구 번호가 없더라도 다른 호선 이용으로 확정한 역은 제외한다.
 - 이 문서는 생성 데이터에서 자동 산출한다. 같은 감사를 반복하지 말고 \`npm run verification:pending-guidance\`로 갱신한다.
+
+## 1호선 반영 상태
+
+- 사용자 검증은 완료했다.
+- 1호선은 아직 경로 엔진 지원 대상이 아니므로 이 문서의 자동 대기 건수에는 포함하지 않는다.
+- 1호선 경로 어댑터를 추가할 때 완료된 검증값을 원본 검증 데이터로 이관한다.
 
 ${sections.join('\n\n')}
 `;

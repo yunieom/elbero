@@ -13,7 +13,7 @@ describe('createLine3JourneyDefinition', () => {
     expect(findTrain(northbound)?.trainSegment?.direction).toBe('대화 방면');
   });
 
-  it('uses all 17 manually verified surface-exit values', () => {
+  it('uses all 22 manually verified surface-exit values', () => {
     expect(
       LINE_3_GUIDANCE.stations.filter(
         (station) => station.verificationMethod === 'manual_verification',
@@ -23,16 +23,25 @@ describe('createLine3JourneyDefinition', () => {
         expect.objectContaining({ stationName: '대화', exitNumbers: ['1', '4'] }),
         expect.objectContaining({ stationName: '종로3가', exitNumbers: ['2-1', '8'] }),
         expect.objectContaining({ stationName: '오금', exitNumbers: ['5', '7'] }),
+        expect.objectContaining({ stationName: '지축', exitNumbers: ['1'] }),
+        expect.objectContaining({ stationName: '연신내', exitNumbers: ['6'] }),
+        expect.objectContaining({ stationName: '충무로', exitNumbers: ['7'] }),
+        expect.objectContaining({ stationName: '고속터미널', exitNumbers: ['1'] }),
+        expect.objectContaining({ stationName: '도곡', exitNumbers: ['3'] }),
       ]),
     );
   });
 
-  it('uses the verified Jongno 3-ga and Jamwon directional doors', () => {
+  it('uses all verified direction-specific doors', () => {
     const cases = [
       ['0319', '지축', '4-3'],
       ['0319', '오금', '7-1'],
       ['0328', '고속터미널', '8-2'],
       ['0328', '신사', '3-3'],
+      ['0321', '을지로3가', '3-4'],
+      ['0321', '동대입구', '8-3'],
+      ['0334', '매봉', '6-3'],
+      ['0334', '대치', '5-2'],
     ] as const;
 
     for (const [stationCode, toward, door] of cases) {

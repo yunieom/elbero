@@ -57,7 +57,7 @@ describe('createLine2JourneyDefinition', () => {
     );
   });
 
-  it('uses all 17 manually verified surface-exit values', () => {
+  it('uses all 24 manually verified surface-exit results', () => {
     const expected = new Map<string, readonly string[]>([
       ['0201', ['9']],
       ['0238', ['1', '4', '6', '9']],
@@ -76,15 +76,38 @@ describe('createLine2JourneyDefinition', () => {
       ['0207', ['1-1']],
       ['0204', ['8', '10']],
       ['0202', ['1', '5']],
+      ['234-4', []],
+      ['0215', ['1', '4']],
+      ['0214', ['1', '4']],
+      ['0244', ['1']],
+      ['0245', ['1']],
+      ['0208', ['4', '6-1']],
+      ['0203', ['10', '12']],
     ]);
 
-    expect(expected.size).toBe(17);
+    expect(expected.size).toBe(24);
     for (const [stationCode, exitNumbers] of expected) {
       const station = LINE_2_GUIDANCE.stations.find(
         (candidate) => candidate.stationCode === stationCode,
       );
       expect(station?.exitNumbers).toEqual(exitNumbers);
     }
+  });
+
+  it('uses the verified branch access sequence at Yongdap and Sindap', () => {
+    const yongdap = createLine2JourneyDefinition('0244', '0211');
+    const sindap = createLine2JourneyDefinition('0245', '0244');
+    const yongdapElevator = yongdap?.candidates[0].steps.find(
+      (step) => step.type === 'elevator' && step.stationName === '용답',
+    );
+    const sindapElevator = sindap?.candidates[0].steps.find(
+      (step) => step.type === 'elevator' && step.stationName === '신답',
+    );
+
+    expect(yongdapElevator?.instruction).toContain('신답 방면 승강장');
+    expect(yongdapElevator?.instruction).toContain('3층');
+    expect(sindapElevator?.instruction).toContain('용두 방면 엘리베이터');
+    expect(sindapElevator?.instruction).toContain('1층 용답 방면 승강장');
   });
 
   it('links the manually verified missing platform doors to their gap data', () => {

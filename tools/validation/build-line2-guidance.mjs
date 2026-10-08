@@ -122,6 +122,9 @@ const stations = raw.route.body.map((routeStation) => {
       toward,
       aliases,
       service,
+      ...(manualDirection?.entryInstruction
+        ? { entryInstruction: manualDirection.entryInstruction }
+        : {}),
       ...(manualDirection?.sharedFacilityLine
         ? { sharedFacilityLine: manualDirection.sharedFacilityLine }
         : {}),
@@ -147,6 +150,7 @@ const stations = raw.route.body.map((routeStation) => {
     stationCode,
     stationName: normalizeStationName(routeStation.stinNm),
     exitNumbers,
+    ...(manualExits?.status ? { surfaceStatus: manualExits.status } : {}),
     verificationMethod:
       manualStation || manualExits
         ? "manual_verification"

@@ -23,6 +23,7 @@ interface Line2Direction {
   recommendedDoors: readonly string[];
   doorGaps: ReadonlyArray<{ door: string; gap: Line2Gap | null }>;
   accessibilityVerified: boolean;
+  entryInstruction?: string;
 }
 
 interface Line2LiveElevator {
@@ -125,7 +126,8 @@ export function createLine2JourneyDefinition(
       type: JOURNEY_STEP_TYPE.ELEVATOR,
       stationName: origin.stationName,
       instruction: originDirection
-        ? `${originDirection.toward} 방면 승강장 엘리베이터를 이용하세요.`
+        ? originDirection.entryInstruction ??
+          `${originDirection.toward} 방면 승강장 엘리베이터를 이용하세요.`
         : '진행 방향 승강장 엘리베이터 위치를 현장 안내에서 확인하세요.',
       facilityGroupId: originPlatformGroup.id,
       evidence: toEvidence(origin),

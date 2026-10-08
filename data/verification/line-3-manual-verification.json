@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "line": "3",
-  "verifiedAt": "2026-09-30",
+  "verifiedAt": "2026-10-08",
   "topology": [
     "K309", "K310", "K311", "K312", "K313", "K314", "K315", "K316", "K317", "K318",
     "0309", "0310", "0311", "0312", "0313", "0314", "0315", "0316", "0317", "0318",
@@ -26,7 +26,12 @@
     { "stationCode": "0330", "stationName": "교대", "exitNumbers": ["12", "13"] },
     { "stationCode": "0332", "stationName": "양재", "exitNumbers": ["1", "4", "7", "10", "11"] },
     { "stationCode": "0340", "stationName": "가락시장", "exitNumbers": ["1", "4", "7"] },
-    { "stationCode": "0342", "stationName": "오금", "exitNumbers": ["5", "7"] }
+    { "stationCode": "0342", "stationName": "오금", "exitNumbers": ["5", "7"] },
+    { "stationCode": "0309", "stationName": "지축", "exitNumbers": ["1"], "accessNote": "개찰구 통과 후 지상 엘리베이터 이용" },
+    { "stationCode": "0311", "stationName": "연신내", "exitNumbers": ["6"] },
+    { "stationCode": "0321", "stationName": "충무로", "exitNumbers": ["7"] },
+    { "stationCode": "0329", "stationName": "고속터미널", "exitNumbers": ["1"] },
+    { "stationCode": "0334", "stationName": "도곡", "exitNumbers": ["3"] }
   ],
   "directionalDoors": [
     {
@@ -43,6 +48,22 @@
       "directions": [
         { "toward": "고속터미널", "platformNumber": "2", "recommendedDoors": ["8-2"] },
         { "toward": "신사", "platformNumber": "1", "recommendedDoors": ["3-3"] }
+      ]
+    },
+    {
+      "stationCode": "0321",
+      "stationName": "충무로",
+      "directions": [
+        { "toward": "을지로3가", "recommendedDoors": ["3-4"] },
+        { "toward": "동대입구", "recommendedDoors": ["8-3"] }
+      ]
+    },
+    {
+      "stationCode": "0334",
+      "stationName": "도곡",
+      "directions": [
+        { "toward": "매봉", "recommendedDoors": ["6-3"] },
+        { "toward": "대치", "recommendedDoors": ["5-2"] }
       ]
     }
   ]

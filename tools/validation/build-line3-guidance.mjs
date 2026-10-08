@@ -162,6 +162,7 @@ const stations = raw.route.body.map((routeStation) => {
     stationCode,
     stationName: normalizeStationName(routeStation.stinNm),
     exitNumbers,
+    ...(manualExits?.accessNote ? { accessNote: manualExits.accessNote } : {}),
     verificationMethod:
       manualStation || manualExits
         ? "manual_verification"

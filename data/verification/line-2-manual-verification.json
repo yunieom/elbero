@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "line": "2",
-  "verifiedAt": "2026-09-30",
+  "verifiedAt": "2026-10-08",
   "topologies": {
     "main": [
       "0201",
@@ -120,6 +120,34 @@
       "stationCode": "0202",
       "stationName": "을지로입구",
       "exitNumbers": ["1", "5"]
+    },
+    {
+      "stationCode": "234-4",
+      "stationName": "까치산",
+      "exitNumbers": [],
+      "status": "no_surface_elevator"
+    },
+    {
+      "stationCode": "0215",
+      "stationName": "잠실나루",
+      "exitNumbers": ["1", "4"]
+    },
+    {
+      "stationCode": "0214",
+      "stationName": "강변",
+      "exitNumbers": ["1", "4"]
+    },
+    { "stationCode": "0244", "stationName": "용답", "exitNumbers": ["1"] },
+    { "stationCode": "0245", "stationName": "신답", "exitNumbers": ["1"] },
+    {
+      "stationCode": "0208",
+      "stationName": "왕십리",
+      "exitNumbers": ["4", "6-1"]
+    },
+    {
+      "stationCode": "0203",
+      "stationName": "을지로3가",
+      "exitNumbers": ["10", "12"]
     }
   ],
   "directionalDoors": [
@@ -321,7 +349,11 @@
       "stationName": "용답",
       "directions": [
         { "toward": "신답", "recommendedDoors": ["2-2"] },
-        { "toward": "성수", "recommendedDoors": ["3-3"] }
+        {
+          "toward": "성수",
+          "recommendedDoors": ["3-3"],
+          "entryInstruction": "1번 출구 쪽 지상 엘리베이터로 2층에 이동한 뒤 신답 방면 승강장으로 이동하세요. 엘리베이터 앞 개찰구를 통과하고 연결통로 방향 엘리베이터로 3층에 올라가 성수 방면 엘리베이터를 이용하세요."
+        }
       ]
     },
     {
@@ -329,7 +361,11 @@
       "stationName": "신답",
       "directions": [
         { "toward": "용두", "recommendedDoors": ["2-4"] },
-        { "toward": "용답", "recommendedDoors": ["3-2"] }
+        {
+          "toward": "용답",
+          "recommendedDoors": ["3-2"],
+          "entryInstruction": "1번 출구 쪽 지상 엘리베이터를 이용한 뒤 2층 이동통로에서 용두 방면 엘리베이터를 타고 1층 용답 방면 승강장으로 이동하세요."
+        }
       ]
     },
     {
