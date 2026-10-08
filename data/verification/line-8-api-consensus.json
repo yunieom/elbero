@@ -1,0 +1,818 @@
+{
+  "schemaVersion": 1,
+  "line": "8",
+  "sourceCollectedAt": "2026-09-18T09:14:31.475Z",
+  "generatedAt": "2026-10-08T06:23:33.440Z",
+  "routeEngineSupported": false,
+  "policy": {
+    "autoSurfaceExit": "비어 있지 않은 API 값이 서로 충돌하지 않을 때만 후보로 저장",
+    "autoAdjacentDoor": "stationElevatorCarNumber가 있고 다른 API와 값 충돌이 없을 때만 승강장별 후보로 저장",
+    "productionUse": "사용자 방향 검증과 경로 엔진 연결 전에는 안전 경로 추천에 사용하지 않음"
+  },
+  "gapSummary": {
+    "green": 935,
+    "yellow": 70,
+    "red": 3,
+    "missing": 144
+  },
+  "autoSurfaceExits": [
+    {
+      "stationCode": "2808",
+      "stationName": "장자호수공원",
+      "exitNumbers": [
+        "1",
+        "5"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2809",
+      "stationName": "암사역사공원",
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2812",
+      "stationName": "천호",
+      "exitNumbers": [
+        "6"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2813",
+      "stationName": "강동구청",
+      "exitNumbers": [
+        "4"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2814",
+      "stationName": "몽촌토성",
+      "exitNumbers": [
+        "4"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2821",
+      "stationName": "복정",
+      "exitNumbers": [
+        "1"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2822",
+      "stationName": "산성",
+      "exitNumbers": [
+        "3"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2824",
+      "stationName": "단대오거리",
+      "exitNumbers": [
+        "4"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2825",
+      "stationName": "신흥",
+      "exitNumbers": [
+        "4"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2826",
+      "stationName": "수진",
+      "exitNumbers": [
+        "3"
+      ],
+      "status": "source_consensus_candidate"
+    },
+    {
+      "stationCode": "2827",
+      "stationName": "모란",
+      "exitNumbers": [
+        "11"
+      ],
+      "status": "source_consensus_candidate"
+    }
+  ],
+  "pendingSurfaceExitConflicts": [
+    {
+      "stationCode": "2804",
+      "stationName": "별내",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "4",
+          "5",
+          "6"
+        ],
+        "stinElevatorMovement": [
+          "4",
+          "5",
+          "6"
+        ],
+        "stationElevator": [
+          "4",
+          "5",
+          "7"
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "2806",
+      "stationName": "다산",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "3",
+          "4"
+        ],
+        "stationElevator": [
+          "1",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "2807",
+      "stationName": "동구릉",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "2",
+          "5"
+        ],
+        "stinElevatorMovement": [
+          "2",
+          "5"
+        ],
+        "stationElevator": [
+          "2",
+          "3",
+          "5"
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "2805",
+      "stationName": "구리",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "7"
+        ],
+        "stinElevatorMovement": [
+          "7"
+        ],
+        "stationElevator": [
+          "4",
+          "7"
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
+      "stationCode": "2811",
+      "stationName": "암사",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "3"
+        ],
+        "stinElevatorMovement": [
+          "3"
+        ],
+        "stationElevator": [
+          "3",
+          "4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2815",
+      "stationName": "잠실",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "9",
+          "10"
+        ],
+        "stinElevatorMovement": [
+          "9",
+          "10"
+        ],
+        "stationElevator": [
+          "9"
+        ],
+        "SeoulMetroFaciInfo": [
+          "9"
+        ]
+      }
+    },
+    {
+      "stationCode": "2816",
+      "stationName": "석촌",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "1",
+          "5"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "5"
+        ],
+        "stationElevator": [
+          "1"
+        ],
+        "SeoulMetroFaciInfo": [
+          "1"
+        ]
+      }
+    },
+    {
+      "stationCode": "2817",
+      "stationName": "송파",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "2",
+          "4"
+        ],
+        "stinElevatorMovement": [
+          "2",
+          "4"
+        ],
+        "stationElevator": [
+          "1",
+          "2",
+          "4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "2",
+          "4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2818",
+      "stationName": "가락시장",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "1",
+          "4",
+          "7"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "4",
+          "7"
+        ],
+        "stationElevator": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "2",
+          "4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2819",
+      "stationName": "문정",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "2",
+          "3",
+          "4"
+        ],
+        "stinElevatorMovement": [
+          "2",
+          "3",
+          "4"
+        ],
+        "stationElevator": [
+          "2",
+          "4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "2",
+          "4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2820",
+      "stationName": "장지",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "1",
+          "4"
+        ],
+        "stinElevatorMovement": [
+          "1",
+          "4"
+        ],
+        "stationElevator": [
+          "1",
+          "3"
+        ],
+        "SeoulMetroFaciInfo": [
+          "1",
+          "3"
+        ]
+      }
+    },
+    {
+      "stationCode": "2828",
+      "stationName": "남위례",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "5"
+        ],
+        "stinElevatorMovement": [
+          "5"
+        ],
+        "stationElevator": [
+          "1",
+          "5"
+        ],
+        "SeoulMetroFaciInfo": [
+          "1",
+          "5"
+        ]
+      }
+    },
+    {
+      "stationCode": "2823",
+      "stationName": "남한산성입구",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationMovement": [
+          "3"
+        ],
+        "stinElevatorMovement": [
+          "3"
+        ],
+        "stationElevator": [
+          "3",
+          "4"
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    }
+  ],
+  "autoAdjacentDoorCandidates": [
+    {
+      "stationCode": "2804",
+      "stationName": "별내",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "3-2"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "3-2"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2806",
+      "stationName": "다산",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "4-1"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "4-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2809",
+      "stationName": "암사역사공원",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "3-4"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "4-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2811",
+      "stationName": "암사",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "3-4"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "4-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2815",
+      "stationName": "잠실",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "2-3"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "5-2"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2817",
+      "stationName": "송파",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "3-4"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "4-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2819",
+      "stationName": "문정",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "3-4"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "4-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2820",
+      "stationName": "장지",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "4-1"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "3-4"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2824",
+      "stationName": "단대오거리",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "2-4"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "5-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2825",
+      "stationName": "신흥",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "4-1"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "3-4"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2826",
+      "stationName": "수진",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "3-4"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "4-1"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    },
+    {
+      "stationCode": "2827",
+      "stationName": "모란",
+      "platforms": [
+        {
+          "platformNumber": "1",
+          "doors": [
+            "2-3"
+          ]
+        },
+        {
+          "platformNumber": "2",
+          "doors": [
+            "5-2"
+          ]
+        }
+      ],
+      "status": "platform_direction_mapping_required"
+    }
+  ],
+  "pendingDirectionDoorReview": [
+    {
+      "stationCode": "2807",
+      "stationName": "동구릉",
+      "reason": "station_elevator_car_number_missing",
+      "sourceValues": {}
+    },
+    {
+      "stationCode": "2805",
+      "stationName": "구리",
+      "reason": "station_elevator_car_number_missing",
+      "sourceValues": {}
+    },
+    {
+      "stationCode": "2808",
+      "stationName": "장자호수공원",
+      "reason": "station_elevator_car_number_missing",
+      "sourceValues": {}
+    },
+    {
+      "stationCode": "2812",
+      "stationName": "천호",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "2-1",
+          "5-4"
+        ],
+        "stationElevator": [
+          "2-2",
+          "5-4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "2-2",
+          "5-4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2813",
+      "stationName": "강동구청",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "3-2",
+          "4-2"
+        ],
+        "stationElevator": [
+          "3-2",
+          "3-3",
+          "4-2"
+        ],
+        "SeoulMetroFaciInfo": [
+          "3-2",
+          "3-3",
+          "4-2"
+        ]
+      }
+    },
+    {
+      "stationCode": "2814",
+      "stationName": "몽촌토성",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "3-4",
+          "4-1"
+        ],
+        "stationElevator": [
+          "3-4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "3-4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2816",
+      "stationName": "석촌",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "3-4",
+          "4-1"
+        ],
+        "stationElevator": [
+          "3-4",
+          "4-1"
+        ],
+        "SeoulMetroFaciInfo": [
+          "3-4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2818",
+      "stationName": "가락시장",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "2-3",
+          "5-4",
+          "6-4"
+        ],
+        "stationElevator": [
+          "2-3",
+          "5-4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "1-1",
+          "2-3",
+          "5-4",
+          "6-4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2821",
+      "stationName": "복정",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "3-4"
+        ],
+        "stationElevator": [
+          "3-4",
+          "4-1"
+        ],
+        "SeoulMetroFaciInfo": [
+          "3-4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2828",
+      "stationName": "남위례",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "3-4",
+          "4-1"
+        ],
+        "stationElevator": [],
+        "SeoulMetroFaciInfo": [
+          "3-4"
+        ]
+      }
+    },
+    {
+      "stationCode": "2822",
+      "stationName": "산성",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "6-1"
+        ],
+        "stationElevator": [
+          "1-3",
+          "6-2"
+        ],
+        "SeoulMetroFaciInfo": [
+          "1-3",
+          "6-2"
+        ]
+      }
+    },
+    {
+      "stationCode": "2823",
+      "stationName": "남한산성입구",
+      "reason": "source_value_conflict",
+      "sourceValues": {
+        "stationElevatorCarNumber": [
+          "1-1",
+          "3-1",
+          "3-2",
+          "6-1"
+        ],
+        "stationElevator": [
+          "3-4"
+        ],
+        "SeoulMetroFaciInfo": [
+          "3-4"
+        ]
+      }
+    }
+  ]
+}

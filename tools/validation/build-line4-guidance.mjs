@@ -101,6 +101,8 @@ const stations = raw.route.body.map((routeStation) => {
       (direction) =>
         direction.toward === toward && (direction.service ?? null) === service,
     );
+    const sourceUnavailable =
+      manualDirection?.verificationStatus === "source_unavailable";
     const aliases = manualDirection?.aliases ?? [];
     const liveDoors = liveElevators
       .filter(
@@ -150,15 +152,23 @@ const stations = raw.route.body.map((routeStation) => {
       ...(manualDirection?.sharedFacilityLine
         ? { sharedFacilityLine: manualDirection.sharedFacilityLine }
         : {}),
+      ...(manualDirection?.verificationStatus
+        ? { verificationStatus: manualDirection.verificationStatus }
+        : {}),
+      ...(manualDirection?.gapVerificationStatus
+        ? { gapVerificationStatus: manualDirection.gapVerificationStatus }
+        : {}),
       platformNumber,
       recommendedDoors,
       doorGaps,
       accessibilityVerified:
-        Boolean(manualDirection) ||
+        (!sourceUnavailable && Boolean(manualDirection)) ||
         (recommendedDoors.length > 0 &&
           (liveDoors.length > 0 || kricDoors.length > 0)),
       warning:
-        recommendedDoors.length === 0 && !manualDirection?.sharedFacilityLine
+        sourceUnavailable
+          ? "방향별 승강기 인접 차량·문 원천 정보 없음"
+          : recommendedDoors.length === 0 && !manualDirection?.sharedFacilityLine
           ? "방향별 승강기 인접 차량·문 미확인"
           : null,
       source: manualDirection
@@ -175,6 +185,7 @@ const stations = raw.route.body.map((routeStation) => {
     stationCode,
     stationName: normalizeStationName(routeStation.stinNm),
     exitNumbers,
+    ...(manualExits?.accessNote ? { accessNote: manualExits.accessNote } : {}),
     verificationMethod:
       manualStation || manualExits
         ? "manual_verification"

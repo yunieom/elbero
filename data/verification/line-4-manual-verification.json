@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "line": "4",
-  "verifiedAt": "2026-09-30",
+  "verifiedAt": "2026-10-08",
   "topology": [
     "0405", "0406", "0408", "0409", "0410", "0411", "0412", "0413", "0414", "0415",
     "0416", "0417", "0418", "0419", "0420", "0421", "0422", "0423", "0424", "0425",
@@ -31,15 +31,34 @@
     { "stationCode": "0445", "stationName": "수리산", "exitNumbers": ["1", "2"] },
     { "stationCode": "0448", "stationName": "상록수", "exitNumbers": [], "status": "surface_elevator_unverified" },
     { "stationCode": "0449", "stationName": "한대앞", "exitNumbers": ["1", "2", "3"] },
-    { "stationCode": "0451", "stationName": "고잔", "exitNumbers": ["1", "2"] }
+    { "stationCode": "0451", "stationName": "고잔", "exitNumbers": ["1", "2"] },
+    { "stationCode": "0416", "stationName": "미아사거리", "exitNumbers": ["1"] },
+    { "stationCode": "0431", "stationName": "동작", "exitNumbers": ["1"], "accessNote": "개찰구 통과 후 지상 엘리베이터 이용" },
+    { "stationCode": "0443", "stationName": "금정", "exitNumbers": ["2", "4", "7"] },
+    { "stationCode": "0453", "stationName": "안산", "exitNumbers": ["1", "2"] }
   ],
   "directionalDoors": [
+    {
+      "stationCode": "0405",
+      "stationName": "진접",
+      "directions": [
+        { "toward": "오남", "recommendedDoors": ["7-3"] }
+      ]
+    },
     {
       "stationCode": "0406",
       "stationName": "오남",
       "directions": [
-        { "toward": "진접", "recommendedDoors": ["6-1"] },
-        { "toward": "별내별가람", "recommendedDoors": ["5-4"] }
+        { "toward": "진접", "recommendedDoors": ["6-1"], "gapVerificationStatus": "source_unavailable" },
+        { "toward": "별내별가람", "recommendedDoors": ["5-4"], "gapVerificationStatus": "source_unavailable" }
+      ]
+    },
+    {
+      "stationCode": "0408",
+      "stationName": "별내별가람",
+      "directions": [
+        { "toward": "오남", "recommendedDoors": [], "verificationStatus": "source_unavailable" },
+        { "toward": "불암산", "recommendedDoors": [], "verificationStatus": "source_unavailable" }
       ]
     },
     {
@@ -56,6 +75,14 @@
       "directions": [
         { "toward": "충무로", "recommendedDoors": ["1-1"] },
         { "toward": "회현", "recommendedDoors": ["10-4"] }
+      ]
+    },
+    {
+      "stationCode": "0421",
+      "stationName": "동대문",
+      "directions": [
+        { "toward": "4호선 동대문역사문화공원", "recommendedDoors": ["5-1"] },
+        { "toward": "4호선 혜화", "recommendedDoors": ["6-3"] }
       ]
     },
     {
@@ -87,6 +114,21 @@
       "stationName": "오이도",
       "directions": [
         { "toward": "정왕", "recommendedDoors": ["4-3"] }
+      ]
+    },
+    {
+      "stationCode": "0449",
+      "stationName": "한대앞",
+      "directions": [
+        { "toward": "반월", "aliases": ["상록수"], "recommendedDoors": ["6-3"] }
+      ]
+    },
+    {
+      "stationCode": "0455",
+      "stationName": "정왕",
+      "directions": [
+        { "toward": "신길온천", "aliases": ["능길"], "recommendedDoors": ["5-2"] },
+        { "toward": "오이도", "recommendedDoors": ["6-3"] }
       ]
     }
   ],

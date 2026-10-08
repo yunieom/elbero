@@ -76,6 +76,12 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 - 1호선은 아직 경로 엔진 지원 대상이 아니므로 이 문서의 자동 대기 건수에는 포함하지 않는다.
 - 1호선 경로 어댑터를 추가할 때 완료된 검증값을 원본 검증 데이터로 이관한다.
 
+## 8·9호선 준비 상태
+
+- 충돌 없는 API 값은 [8·9호선 안내 데이터 준비 상태](line-8-9-guidance-readiness.md)에 자동 후보로 저장한다.
+- 출처별 값이 다르거나 방향 연결이 불가능한 역만 사용자 확인 대상으로 유지한다.
+- 두 노선 모두 아직 경로 엔진에 연결되지 않았으므로 자동 후보를 사용자 안전 경로로 노출하지 않는다.
+
 ${sections.join('\n\n')}
 `;
 
@@ -91,10 +97,12 @@ console.log(
 
 function needsDirectionVerification(direction) {
   if (direction.sharedFacilityLine) return false;
+  if (direction.verificationStatus === 'source_unavailable') return false;
   return (
     direction.recommendedDoors.length === 0 ||
     direction.accessibilityVerified === false ||
-    (direction.doorGaps ?? []).some(({ gap }) => !gap)
+    (direction.gapVerificationStatus !== 'source_unavailable' &&
+      (direction.doorGaps ?? []).some(({ gap }) => !gap))
   );
 }
 

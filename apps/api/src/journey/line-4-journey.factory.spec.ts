@@ -13,7 +13,7 @@ describe('createLine4JourneyDefinition', () => {
     expect(findTrain(northbound)?.trainSegment?.direction).toBe('진접 방면');
   });
 
-  it('records all 22 surface-exit verification results including Sangnoksu unknown', () => {
+  it('records all 26 surface-exit verification results including Sangnoksu unknown', () => {
     const manualStations = LINE_4_GUIDANCE.stations.filter(
       (station) => station.verificationMethod === 'manual_verification',
     );
@@ -22,11 +22,15 @@ describe('createLine4JourneyDefinition', () => {
         expect.objectContaining({ stationName: '불암산', exitNumbers: ['1', '4'] }),
         expect.objectContaining({ stationName: '상록수', exitNumbers: [] }),
         expect.objectContaining({ stationName: '고잔', exitNumbers: ['1', '2'] }),
+        expect.objectContaining({ stationName: '미아사거리', exitNumbers: ['1'] }),
+        expect.objectContaining({ stationName: '동작', exitNumbers: ['1'] }),
+        expect.objectContaining({ stationName: '금정', exitNumbers: ['2', '4', '7'] }),
+        expect.objectContaining({ stationName: '안산', exitNumbers: ['1', '2'] }),
       ]),
     );
   });
 
-  it('uses the verified directional doors at Onam, Chang-dong, and Myeong-dong', () => {
+  it('uses all user-verified direction-specific doors', () => {
     const cases = [
       ['0406', '진접', ['6-1']],
       ['0406', '별내별가람', ['5-4']],
@@ -34,6 +38,12 @@ describe('createLine4JourneyDefinition', () => {
       ['0412', '쌍문', ['3-2', '8-4']],
       ['0424', '충무로', ['1-1']],
       ['0424', '회현', ['10-4']],
+      ['0405', '오남', ['7-3']],
+      ['0421', '4호선 동대문역사문화공원', ['5-1']],
+      ['0421', '4호선 혜화', ['6-3']],
+      ['0449', '반월', ['6-3']],
+      ['0455', '신길온천', ['5-2']],
+      ['0455', '오이도', ['6-3']],
     ] as const;
 
     for (const [stationCode, toward, doors] of cases) {
@@ -41,6 +51,27 @@ describe('createLine4JourneyDefinition', () => {
       expect(direction?.recommendedDoors).toEqual(doors);
       expect(direction?.warning).toBeNull();
     }
+  });
+
+  it('keeps confirmed source gaps unavailable without asking for them again', () => {
+    expect(findDirection('0406', '진접')).toMatchObject({
+      gapVerificationStatus: 'source_unavailable',
+      recommendedDoors: ['6-1'],
+    });
+    expect(findDirection('0406', '별내별가람')).toMatchObject({
+      gapVerificationStatus: 'source_unavailable',
+      recommendedDoors: ['5-4'],
+    });
+    expect(findDirection('0408', '오남')).toMatchObject({
+      verificationStatus: 'source_unavailable',
+      recommendedDoors: [],
+      accessibilityVerified: false,
+    });
+    expect(findDirection('0408', '불암산')).toMatchObject({
+      verificationStatus: 'source_unavailable',
+      recommendedDoors: [],
+      accessibilityVerified: false,
+    });
   });
 
   it('treats the four manually verified platform-gap stations as safe', () => {
