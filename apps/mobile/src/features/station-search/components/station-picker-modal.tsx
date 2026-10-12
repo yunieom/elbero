@@ -68,20 +68,22 @@ export function StationPickerModal({
       presentationStyle="pageSheet"
       visible={visible}
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView accessibilityViewIsModal style={styles.safeArea}>
         <View style={styles.header}>
-          <View>
-            <Text maxFontSizeMultiplier={2} style={styles.eyebrow}>
+          <Text
+            accessibilityLabel={`${title}. 역과 노선을 함께 선택해요`}
+            accessibilityRole="header"
+            maxFontSizeMultiplier={2}
+            style={styles.headerTitleGroup}
+          >
+            <Text style={styles.eyebrow}>
               역과 노선을 함께 선택해요
             </Text>
-            <Text
-              accessibilityRole="header"
-              maxFontSizeMultiplier={2}
-              style={styles.title}
-            >
+            {`\n`}
+            <Text style={styles.title}>
               {title}
             </Text>
-          </View>
+          </Text>
           <Pressable
             accessibilityLabel="역 선택 닫기"
             accessibilityRole="button"
@@ -277,6 +279,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
     paddingTop: spacing.lg,
     paddingBottom: spacing.md,
+  },
+  headerTitleGroup: {
+    flexShrink: 1,
   },
   eyebrow: {
     color: colors.primary,

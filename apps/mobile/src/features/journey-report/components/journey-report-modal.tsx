@@ -100,7 +100,7 @@ export function JourneyReportModal({
       presentationStyle="pageSheet"
       visible
     >
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView accessibilityViewIsModal style={styles.safeArea}>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : undefined}
           style={styles.flex}
@@ -114,6 +114,7 @@ export function JourneyReportModal({
               안내 정보 제보
             </Text>
             <Pressable
+              accessible
               accessibilityLabel="제보 화면 닫기"
               accessibilityRole="button"
               hitSlop={12}
@@ -188,6 +189,8 @@ export function JourneyReportModal({
                   자세한 설명
                 </Text>
                 <TextInput
+                  accessible
+                  accessibilityHint="두 번 탭하여 제보할 내용을 입력하세요"
                   accessibilityLabel="오류에 대한 자세한 설명"
                   maxFontSizeMultiplier={2}
                   multiline

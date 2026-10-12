@@ -55,7 +55,11 @@ export function GuidanceStepCard({
     : "";
   return (
     <View style={styles.row}>
-      <View style={styles.timeline} accessible={false}>
+      <View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        style={styles.timeline}
+      >
         <View style={styles.numberCircle}>
           <Text maxFontSizeMultiplier={1.6} style={styles.number}>
             {step.order}

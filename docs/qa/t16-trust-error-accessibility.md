@@ -13,12 +13,12 @@
 ## 검증 증거
 
 - 오류 표시 단위 테스트: 미지원, 누락, 상태 미확인, 안전 경로 없음, 네트워크 실패
-- 전체 테스트: API 92건, 모바일 12건 통과
+- 전체 테스트: API 92건, 모바일 19건 통과
 - 모바일 타입 검사 통과
 - Android·iOS 번들 생성 통과
-- Android TalkBack과 큰 글자 실기동 결과: [T21 큰 글자·접근성 QA](./t21-large-text-accessibility.md)
+- iOS VoiceOver, Android TalkBack과 큰 글자 실기동 결과: [T21 큰 글자·접근성 QA](./t21-large-text-accessibility.md)
 
 ## 남은 제한
 
-- 현재 연결된 iOS 기기나 실행 가능한 iOS Simulator가 없어 VoiceOver 실기동은 확인하지 못했다. 코드는 적용했고 iOS 번들은 정상 생성됐다.
+- iOS VoiceOver는 iOS 27 Simulator에서 핵심 화면과 오류 제보 입력까지 통과했다. 연결된 iPhone은 Developer Mode가 꺼져 있어 물리 기기 검증은 별도 확인이 필요하다.
 - 원천 데이터가 없거나 충돌하는 역은 임의 확정하지 않고 `안전 경로 미확인`으로 유지한다. 대상은 [사용자 검증 대기 목록](../research/supported-lines-user-verification-pending.md)에서 관리한다.

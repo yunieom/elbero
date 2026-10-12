@@ -67,7 +67,11 @@ export function JourneyResultScreen({
       <Screen>
         <Header onBack={() => router.back()} />
         <View accessibilityLiveRegion="assertive" style={styles.centerState}>
-          <View style={styles.errorIcon}>
+          <View
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+            style={styles.errorIcon}
+          >
             <Text allowFontScaling={false} style={styles.errorIconText}>
               !
             </Text>
@@ -285,6 +289,7 @@ function Header({ onBack }: { onBack: () => void }) {
   return (
     <View style={styles.header}>
       <Pressable
+        accessible
         accessibilityLabel="역 선택으로 돌아가기"
         accessibilityRole="button"
         hitSlop={12}

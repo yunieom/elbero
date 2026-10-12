@@ -31,8 +31,9 @@ export function JourneyStatusCard({
       style={[styles.card, { backgroundColor: presentation.backgroundColor }]}
     >
       <View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
         style={[styles.icon, { backgroundColor: presentation.color }]}
-        accessible={false}
       >
         <Text style={styles.iconText}>{presentation.icon}</Text>
       </View>

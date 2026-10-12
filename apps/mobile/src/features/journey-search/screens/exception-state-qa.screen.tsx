@@ -134,7 +134,11 @@ export function ExceptionStateQaScreen() {
           />
         ) : (
           <View accessibilityRole="alert" style={styles.errorCard}>
-            <View style={styles.errorIcon} accessible={false}>
+            <View
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+              style={styles.errorIcon}
+            >
               <Text allowFontScaling={false} style={styles.errorIconText}>
                 !
               </Text>

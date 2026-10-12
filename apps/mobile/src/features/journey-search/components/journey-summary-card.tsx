@@ -17,7 +17,7 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
   ].join(". ");
 
   return (
-    <View accessibilityLabel={accessibilityLabel} style={styles.card}>
+    <View accessible accessibilityLabel={accessibilityLabel} style={styles.card}>
       <View style={styles.metrics}>
         <SummaryMetric label="노선" value={summary.lineNames.join(" · ")} />
         <SummaryMetric label="환승" value={`${summary.transferCount}회`} />

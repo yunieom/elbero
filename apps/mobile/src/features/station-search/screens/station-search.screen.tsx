@@ -76,7 +76,11 @@ export function StationSearchScreen() {
   return (
     <Screen>
       <View style={styles.brandRow}>
-        <View style={styles.brandMark}>
+        <View
+          accessibilityElementsHidden
+          importantForAccessibility="no-hide-descendants"
+          style={styles.brandMark}
+        >
           <Text allowFontScaling={false} style={styles.brandMarkText}>
             ↕
           </Text>
@@ -169,7 +173,11 @@ export function StationSearchScreen() {
       </View>
 
       <View style={styles.optionRow}>
-        <View accessibilityElementsHidden style={styles.checkBox}>
+        <View
+          accessibilityElementsHidden
+          importantForAccessibility="no-hide-descendants"
+          style={styles.checkBox}
+        >
           <Text style={styles.checkMark}>✓</Text>
         </View>
         <View style={styles.optionTextArea}>
