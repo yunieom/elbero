@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "line": "8",
+  "verifiedAt": "2026-10-12",
+  "directionalDoors": [
+    {
+      "stationCode": "2812",
+      "stationName": "천호",
+      "directions": [
+        { "toward": "암사", "recommendedDoors": ["2-2"] },
+        { "toward": "강동구청", "recommendedDoors": ["5-4"] }
+      ]
+    },
+    {
+      "stationCode": "2813",
+      "stationName": "강동구청",
+      "directions": [
+        { "toward": "몽촌토성", "recommendedDoors": ["3-3"] }
+      ]
+    },
+    {
+      "stationCode": "2814",
+      "stationName": "몽촌토성",
+      "directions": [
+        { "toward": "천호", "recommendedDoors": ["4-2"] }
+      ]
+    }
+  ]
+}

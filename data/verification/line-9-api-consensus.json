@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "line": "9",
   "sourceCollectedAt": "2026-09-18T03:13:31.764Z",
-  "generatedAt": "2026-10-08T06:23:33.452Z",
+  "generatedAt": "2026-10-12T03:59:27.089Z",
   "routeEngineSupported": false,
   "policy": {
     "autoSurfaceExit": "비어 있지 않은 API 값이 서로 충돌하지 않을 때만 후보로 저장",
@@ -861,17 +861,22 @@
       "status": "platform_direction_mapping_required"
     }
   ],
+  "verifiedDirectionDoors": [],
   "pendingDirectionDoorReview": [
     {
       "stationCode": "0901",
       "stationName": "개화",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "0902",
       "stationName": "김포공항",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -885,12 +890,16 @@
       "stationCode": "0903",
       "stationName": "공항시장",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "0904",
       "stationName": "신방화",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -904,6 +913,8 @@
       "stationCode": "0905",
       "stationName": "마곡나루",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -917,6 +928,8 @@
       "stationCode": "0906",
       "stationName": "양천향교",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -930,12 +943,16 @@
       "stationCode": "0907",
       "stationName": "가양",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "0908",
       "stationName": "증미",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "2-4",
@@ -951,6 +968,8 @@
       "stationCode": "0909",
       "stationName": "등촌",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -964,6 +983,8 @@
       "stationCode": "0910",
       "stationName": "염창",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -977,12 +998,16 @@
       "stationCode": "0911",
       "stationName": "신목동",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "0912",
       "stationName": "선유도",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -996,6 +1021,8 @@
       "stationCode": "0913",
       "stationName": "당산",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1008,6 +1035,8 @@
       "stationCode": "0914",
       "stationName": "국회의사당",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1020,6 +1049,8 @@
       "stationCode": "0915",
       "stationName": "여의도",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1033,12 +1064,16 @@
       "stationCode": "0916",
       "stationName": "샛강",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "0917",
       "stationName": "노량진",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1052,6 +1087,8 @@
       "stationCode": "0918",
       "stationName": "노들",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1065,6 +1102,8 @@
       "stationCode": "0919",
       "stationName": "흑석",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "2-2",
@@ -1081,12 +1120,16 @@
       "stationCode": "0920",
       "stationName": "동작",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "0921",
       "stationName": "구반포",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1100,6 +1143,8 @@
       "stationCode": "0922",
       "stationName": "신반포",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1112,6 +1157,8 @@
       "stationCode": "0923",
       "stationName": "고속터미널",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1125,6 +1172,8 @@
       "stationCode": "0924",
       "stationName": "사평",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
@@ -1138,6 +1187,8 @@
       "stationCode": "0925",
       "stationName": "신논현",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [],
         "stationElevator": [

@@ -10,6 +10,15 @@ for (const lineId of lineIds) {
     readJson(resolve(rawDirectory, 'kric.json')),
     readJson(resolve(`data/research/line-sync/line-${lineId}-latest.json`)),
   ]);
+  const manual = await readOptionalJson(
+    resolve(`data/verification/line-${lineId}-manual-verification.json`),
+  );
+  const manualDirectionByCode = new Map(
+    (manual?.directionalDoors ?? []).map((station) => [
+      normalizeCode(station.stationCode),
+      station,
+    ]),
+  );
   const differenceByCategory = Map.groupBy(
     audit.differences,
     (difference) => difference.category,
@@ -42,6 +51,7 @@ for (const lineId of lineIds) {
   const pendingSurfaceExitConflicts = [];
   const autoAdjacentDoorCandidates = [];
   const pendingDirectionDoorReview = [];
+  const verifiedDirectionDoors = [];
 
   for (const routeStation of raw.route.body) {
     const stationCode = normalizeCode(routeStation.stinCd);
@@ -79,15 +89,38 @@ for (const lineId of lineIds) {
     const hasCarNumberSource =
       (coverageByCode.get(stationCode)?.endpointCounts
         ?.stationElevatorCarNumber ?? 0) > 0;
-    if (hasDoorConflict || !hasCarNumberSource || nearbyCars.length === 0) {
-      pendingDirectionDoorReview.push({
+    const manualDirection = manualDirectionByCode.get(stationCode);
+    const confirmedDirections = (manualDirection?.directions ?? []).map(
+      (direction) => ({
+        toward: direction.toward,
+        recommendedDoors: direction.recommendedDoors,
+      }),
+    );
+    const remainingDirections =
+      confirmedDirections.length === 1 ? ['반대 방향'] : [];
+    if (confirmedDirections.length > 0) {
+      verifiedDirectionDoors.push({
         stationCode,
         stationName,
-        reason: hasDoorConflict
-          ? 'source_value_conflict'
-          : 'station_elevator_car_number_missing',
-        sourceValues: doorDifference?.normalizedValues ?? {},
+        directions: confirmedDirections,
       });
+    }
+    if (hasDoorConflict || !hasCarNumberSource || nearbyCars.length === 0) {
+      if (remainingDirections.length > 0 || confirmedDirections.length === 0) {
+        pendingDirectionDoorReview.push({
+          stationCode,
+          stationName,
+          reason:
+            confirmedDirections.length > 0
+              ? 'partial_direction_verified'
+              : hasDoorConflict
+                ? 'source_value_conflict'
+                : 'station_elevator_car_number_missing',
+          remainingDirections,
+          verifiedDirections: confirmedDirections,
+          sourceValues: doorDifference?.normalizedValues ?? {},
+        });
+      }
     } else {
       autoAdjacentDoorCandidates.push({
         stationCode,
@@ -116,6 +149,7 @@ for (const lineId of lineIds) {
     autoSurfaceExits,
     pendingSurfaceExitConflicts,
     autoAdjacentDoorCandidates,
+    verifiedDirectionDoors,
     pendingDirectionDoorReview,
   };
   results.push(result);
@@ -149,7 +183,15 @@ function renderMarkdown(items) {
     const doorRows = item.pendingDirectionDoorReview
       .map(
         (station) =>
-          `| ${station.stationName} (${station.stationCode}) | ${reasonLabel(station.reason)} | ${formatSourceValues(station.sourceValues)} |`,
+          `| ${station.stationName} (${station.stationCode}) | ${reasonLabel(station.reason)} | ${station.remainingDirections?.join(', ') || '-'} | ${formatSourceValues(station.sourceValues)} |`,
+      )
+      .join('\n');
+    const verifiedDoorRows = item.verifiedDirectionDoors
+      .flatMap((station) =>
+        station.directions.map(
+          (direction) =>
+            `| ${station.stationName} (${station.stationCode}) | ${direction.toward} 방면 | ${direction.recommendedDoors.join(', ')} |`,
+        ),
       )
       .join('\n');
     const gaps = item.gapSummary;
@@ -159,6 +201,7 @@ function renderMarkdown(items) {
 - 자동 저장한 출구 합의 후보: ${item.autoSurfaceExits.length}역
 - 출구 사용자 확인 필요: ${item.pendingSurfaceExitConflicts.length}역
 - 승강장별 차량·문 자동 후보: ${item.autoAdjacentDoorCandidates.length}역
+- 사용자 확인 완료 방향: ${item.verifiedDirectionDoors.reduce((count, station) => count + station.directions.length, 0)}건
 - 방향별 차량·문 사용자 확인 필요: ${item.pendingDirectionDoorReview.length}역
 - 이격거리: green ${gaps.green}, yellow ${gaps.yellow}, red ${gaps.red}, 값 없음 ${gaps.missing}
 
@@ -170,9 +213,15 @@ ${exitRows || '| 없음 | - |'}
 
 ### 방향별 차량·문 확인 필요
 
-| 역 | 이유 | API별 후보 |
+| 역 | 이유 | 남은 방향 | API별 후보 |
+| --- | --- | --- | --- |
+${doorRows || '| 없음 | - | - | - |'}
+
+### 사용자 확인 완료 차량·문
+
+| 역 | 방향 | 차량·문 |
 | --- | --- | --- |
-${doorRows || '| 없음 | - | - |'}`;
+${verifiedDoorRows || '| 없음 | - | - |'}`;
   });
 
   return `# 8·9호선 안내 데이터 준비 상태
@@ -235,6 +284,7 @@ function formatSourceValues(values) {
 }
 
 function reasonLabel(reason) {
+  if (reason === 'partial_direction_verified') return '일부 방향만 확인 완료';
   return reason === 'source_value_conflict'
     ? 'API 값 충돌'
     : '차량·문 API 값 없음';
@@ -272,4 +322,13 @@ async function findLatestRawDirectory(lineId) {
 
 async function readJson(path) {
   return JSON.parse(await readFile(path, 'utf8'));
+}
+
+async function readOptionalJson(path) {
+  try {
+    return await readJson(path);
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
 }

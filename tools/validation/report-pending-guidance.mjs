@@ -69,8 +69,9 @@ for (const lineId of ['8', '9']) {
 const output = `# 지원 노선 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
-- 사용자 검증 입력 완료: 1·2·3호선
-- 현재 경로 엔진 반영 대상: 2·3·4·5·7호선
+- 사용자 검증 입력 완료: 2·3호선
+- 현재 경로 엔진 구현 완료: 2·3·4·5·7호선
+- 1호선 상태: 경로 엔진 지원 대상, 어댑터 연결과 원본 검증 데이터 반영 전
 - 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
 - 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
 
@@ -83,9 +84,9 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 
 ## 1호선 반영 상태
 
-- 사용자 검증은 완료했다.
-- 1호선은 아직 경로 엔진 지원 대상이 아니므로 이 문서의 자동 대기 건수에는 포함하지 않는다.
-- 1호선 경로 어댑터를 추가할 때 완료된 검증값을 원본 검증 데이터로 이관한다.
+- 1호선은 경로 엔진 지원 대상이다.
+- 현재 구현에는 1호선 어댑터가 아직 연결되지 않았다.
+- API별 검증 필요 항목은 [수도권 전철 사용자 검증 대기 목록](metropolitan-user-verification-pending.md)에 기록한다.
 
 ## 8·9호선 준비 상태
 
@@ -167,11 +168,11 @@ function renderExpansionLineSection(readiness) {
     readiness.pendingDirectionDoorReview.length > 0
       ? readiness.pendingDirectionDoorReview
           .map(
-            ({ stationName, stationCode, reason, sourceValues }) =>
-              `| ${stationName} (${stationCode}) | ${reason === 'source_value_conflict' ? 'API 값 충돌' : '차량·문 API 값 없음'} | ${formatSourceValues(sourceValues)} |`,
+            ({ stationName, stationCode, reason, sourceValues, verifiedDirections, remainingDirections }) =>
+              `| ${stationName} (${stationCode}) | ${expansionReason(reason)} | ${formatVerifiedDirections(verifiedDirections)} | ${remainingDirections?.join(', ') || '-'} | ${formatSourceValues(sourceValues)} |`,
           )
           .join('\n')
-      : '| 없음 | - | - |';
+      : '| 없음 | - | - | - | - |';
   const exitRows =
     readiness.pendingSurfaceExitConflicts.length > 0
       ? readiness.pendingSurfaceExitConflicts
@@ -186,8 +187,8 @@ function renderExpansionLineSection(readiness) {
 
 ### 방향별 차량·문 (${readiness.pendingDirectionDoorReview.length}역)
 
-| 역 | 확인 이유 | API별 후보 |
-| --- | --- | --- |
+| 역 | 확인 이유 | 확인 완료 방향 | 남은 방향 | API별 후보 |
+| --- | --- | --- | --- | --- |
 ${directionRows}
 
 ### 지상 엘리베이터 출구 (${readiness.pendingSurfaceExitConflicts.length}역)
@@ -206,6 +207,24 @@ function formatSourceValues(sourceValues = {}) {
         .map(([source, values]) => `${source}: ${values.join(', ')}`)
         .join('<br>')
     : '후보 없음';
+}
+
+function expansionReason(reason) {
+  if (reason === 'partial_direction_verified') return '일부 방향만 확인 완료';
+  return reason === 'source_value_conflict'
+    ? 'API 값 충돌'
+    : '차량·문 API 값 없음';
+}
+
+function formatVerifiedDirections(directions = []) {
+  return directions.length === 0
+    ? '-'
+    : directions
+        .map(
+          (direction) =>
+            `${direction.toward}: ${direction.recommendedDoors.join(', ')}`,
+        )
+        .join('<br>');
 }
 
 async function readOptionalJson(path) {

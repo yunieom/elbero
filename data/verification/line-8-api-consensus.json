@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "line": "8",
   "sourceCollectedAt": "2026-09-18T09:14:31.475Z",
-  "generatedAt": "2026-10-08T06:23:33.440Z",
+  "generatedAt": "2026-10-12T03:59:27.077Z",
   "routeEngineSupported": false,
   "policy": {
     "autoSurfaceExit": "비어 있지 않은 API 값이 서로 충돌하지 않을 때만 후보로 저장",
@@ -627,48 +627,90 @@
       "status": "platform_direction_mapping_required"
     }
   ],
+  "verifiedDirectionDoors": [
+    {
+      "stationCode": "2812",
+      "stationName": "천호",
+      "directions": [
+        {
+          "toward": "암사",
+          "recommendedDoors": [
+            "2-2"
+          ]
+        },
+        {
+          "toward": "강동구청",
+          "recommendedDoors": [
+            "5-4"
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2813",
+      "stationName": "강동구청",
+      "directions": [
+        {
+          "toward": "몽촌토성",
+          "recommendedDoors": [
+            "3-3"
+          ]
+        }
+      ]
+    },
+    {
+      "stationCode": "2814",
+      "stationName": "몽촌토성",
+      "directions": [
+        {
+          "toward": "천호",
+          "recommendedDoors": [
+            "4-2"
+          ]
+        }
+      ]
+    }
+  ],
   "pendingDirectionDoorReview": [
     {
       "stationCode": "2807",
       "stationName": "동구릉",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "2805",
       "stationName": "구리",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
     },
     {
       "stationCode": "2808",
       "stationName": "장자호수공원",
       "reason": "station_elevator_car_number_missing",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {}
-    },
-    {
-      "stationCode": "2812",
-      "stationName": "천호",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationElevatorCarNumber": [
-          "2-1",
-          "5-4"
-        ],
-        "stationElevator": [
-          "2-2",
-          "5-4"
-        ],
-        "SeoulMetroFaciInfo": [
-          "2-2",
-          "5-4"
-        ]
-      }
     },
     {
       "stationCode": "2813",
       "stationName": "강동구청",
-      "reason": "source_value_conflict",
+      "reason": "partial_direction_verified",
+      "remainingDirections": [
+        "반대 방향"
+      ],
+      "verifiedDirections": [
+        {
+          "toward": "몽촌토성",
+          "recommendedDoors": [
+            "3-3"
+          ]
+        }
+      ],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "3-2",
@@ -689,7 +731,18 @@
     {
       "stationCode": "2814",
       "stationName": "몽촌토성",
-      "reason": "source_value_conflict",
+      "reason": "partial_direction_verified",
+      "remainingDirections": [
+        "반대 방향"
+      ],
+      "verifiedDirections": [
+        {
+          "toward": "천호",
+          "recommendedDoors": [
+            "4-2"
+          ]
+        }
+      ],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "3-4",
@@ -707,6 +760,8 @@
       "stationCode": "2816",
       "stationName": "석촌",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "3-4",
@@ -725,6 +780,8 @@
       "stationCode": "2818",
       "stationName": "가락시장",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "1-1",
@@ -748,6 +805,8 @@
       "stationCode": "2821",
       "stationName": "복정",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "3-4"
@@ -765,6 +824,8 @@
       "stationCode": "2828",
       "stationName": "남위례",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "3-4",
@@ -780,6 +841,8 @@
       "stationCode": "2822",
       "stationName": "산성",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "1-1",
@@ -799,6 +862,8 @@
       "stationCode": "2823",
       "stationName": "남한산성입구",
       "reason": "source_value_conflict",
+      "remainingDirections": [],
+      "verifiedDirections": [],
       "sourceValues": {
         "stationElevatorCarNumber": [
           "1-1",

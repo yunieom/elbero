@@ -1,9 +1,10 @@
 # 지원 노선 사용자 검증 대기 목록
 
-- 생성일: 2026-10-08
-- 사용자 검증 입력 완료: 1·2·3호선
-- 현재 경로 엔진 반영 대상: 2·3·4·5·7호선
-- 방향별 차량·문 또는 이격거리 확인 필요: 38역·건
+- 생성일: 2026-10-12
+- 사용자 검증 입력 완료: 2·3호선
+- 현재 경로 엔진 구현 완료: 2·3·4·5·7호선
+- 1호선 상태: 경로 엔진 지원 대상, 어댑터 연결과 원본 검증 데이터 반영 전
+- 방향별 차량·문 또는 이격거리 확인 필요: 37역·건
 - 지상 엘리베이터 출구 확인 필요: 30역
 
 ## 판정 기준
@@ -15,9 +16,9 @@
 
 ## 1호선 반영 상태
 
-- 사용자 검증은 완료했다.
-- 1호선은 아직 경로 엔진 지원 대상이 아니므로 이 문서의 자동 대기 건수에는 포함하지 않는다.
-- 1호선 경로 어댑터를 추가할 때 완료된 검증값을 원본 검증 데이터로 이관한다.
+- 1호선은 경로 엔진 지원 대상이다.
+- 현재 구현에는 1호선 어댑터가 아직 연결되지 않았다.
+- API별 검증 필요 항목은 [수도권 전철 사용자 검증 대기 목록](metropolitan-user-verification-pending.md)에 기록한다.
 
 ## 8·9호선 준비 상태
 
@@ -97,22 +98,21 @@
 
 ## 8호선 · 경로 엔진 연결 전
 
-### 방향별 차량·문 (12역)
+### 방향별 차량·문 (11역)
 
-| 역 | 확인 이유 | API별 후보 |
-| --- | --- | --- |
-| 동구릉 (2807) | 차량·문 API 값 없음 | 후보 없음 |
-| 구리 (2805) | 차량·문 API 값 없음 | 후보 없음 |
-| 장자호수공원 (2808) | 차량·문 API 값 없음 | 후보 없음 |
-| 천호 (2812) | API 값 충돌 | stationElevatorCarNumber: 2-1, 5-4<br>stationElevator: 2-2, 5-4<br>SeoulMetroFaciInfo: 2-2, 5-4 |
-| 강동구청 (2813) | API 값 충돌 | stationElevatorCarNumber: 3-2, 4-2<br>stationElevator: 3-2, 3-3, 4-2<br>SeoulMetroFaciInfo: 3-2, 3-3, 4-2 |
-| 몽촌토성 (2814) | API 값 충돌 | stationElevatorCarNumber: 3-4, 4-1<br>stationElevator: 3-4<br>SeoulMetroFaciInfo: 3-4 |
-| 석촌 (2816) | API 값 충돌 | stationElevatorCarNumber: 3-4, 4-1<br>stationElevator: 3-4, 4-1<br>SeoulMetroFaciInfo: 3-4 |
-| 가락시장 (2818) | API 값 충돌 | stationElevatorCarNumber: 1-1, 2-3, 5-4, 6-4<br>stationElevator: 2-3, 5-4<br>SeoulMetroFaciInfo: 1-1, 2-3, 5-4, 6-4 |
-| 복정 (2821) | API 값 충돌 | stationElevatorCarNumber: 3-4<br>stationElevator: 3-4, 4-1<br>SeoulMetroFaciInfo: 3-4 |
-| 남위례 (2828) | API 값 충돌 | stationElevatorCarNumber: 3-4, 4-1<br>SeoulMetroFaciInfo: 3-4 |
-| 산성 (2822) | API 값 충돌 | stationElevatorCarNumber: 1-1, 6-1<br>stationElevator: 1-3, 6-2<br>SeoulMetroFaciInfo: 1-3, 6-2 |
-| 남한산성입구 (2823) | API 값 충돌 | stationElevatorCarNumber: 1-1, 3-1, 3-2, 6-1<br>stationElevator: 3-4<br>SeoulMetroFaciInfo: 3-4 |
+| 역 | 확인 이유 | 확인 완료 방향 | 남은 방향 | API별 후보 |
+| --- | --- | --- | --- | --- |
+| 동구릉 (2807) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 구리 (2805) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 장자호수공원 (2808) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 강동구청 (2813) | 일부 방향만 확인 완료 | 몽촌토성: 3-3 | 반대 방향 | stationElevatorCarNumber: 3-2, 4-2<br>stationElevator: 3-2, 3-3, 4-2<br>SeoulMetroFaciInfo: 3-2, 3-3, 4-2 |
+| 몽촌토성 (2814) | 일부 방향만 확인 완료 | 천호: 4-2 | 반대 방향 | stationElevatorCarNumber: 3-4, 4-1<br>stationElevator: 3-4<br>SeoulMetroFaciInfo: 3-4 |
+| 석촌 (2816) | API 값 충돌 | - | - | stationElevatorCarNumber: 3-4, 4-1<br>stationElevator: 3-4, 4-1<br>SeoulMetroFaciInfo: 3-4 |
+| 가락시장 (2818) | API 값 충돌 | - | - | stationElevatorCarNumber: 1-1, 2-3, 5-4, 6-4<br>stationElevator: 2-3, 5-4<br>SeoulMetroFaciInfo: 1-1, 2-3, 5-4, 6-4 |
+| 복정 (2821) | API 값 충돌 | - | - | stationElevatorCarNumber: 3-4<br>stationElevator: 3-4, 4-1<br>SeoulMetroFaciInfo: 3-4 |
+| 남위례 (2828) | API 값 충돌 | - | - | stationElevatorCarNumber: 3-4, 4-1<br>SeoulMetroFaciInfo: 3-4 |
+| 산성 (2822) | API 값 충돌 | - | - | stationElevatorCarNumber: 1-1, 6-1<br>stationElevator: 1-3, 6-2<br>SeoulMetroFaciInfo: 1-3, 6-2 |
+| 남한산성입구 (2823) | API 값 충돌 | - | - | stationElevatorCarNumber: 1-1, 3-1, 3-2, 6-1<br>stationElevator: 3-4<br>SeoulMetroFaciInfo: 3-4 |
 
 ### 지상 엘리베이터 출구 (13역)
 
@@ -136,33 +136,33 @@
 
 ### 방향별 차량·문 (25역)
 
-| 역 | 확인 이유 | API별 후보 |
-| --- | --- | --- |
-| 개화 (0901) | 차량·문 API 값 없음 | 후보 없음 |
-| 김포공항 (0902) | 차량·문 API 값 없음 | stationElevator: 1-1, 4-2 |
-| 공항시장 (0903) | 차량·문 API 값 없음 | 후보 없음 |
-| 신방화 (0904) | 차량·문 API 값 없음 | stationElevator: 3-1, 4-4 |
-| 마곡나루 (0905) | 차량·문 API 값 없음 | stationElevator: 3-3, 4-2 |
-| 양천향교 (0906) | 차량·문 API 값 없음 | stationElevator: 3-2, 4-4 |
-| 가양 (0907) | 차량·문 API 값 없음 | 후보 없음 |
-| 증미 (0908) | API 값 충돌 | stationElevatorCarNumber: 2-4, 3-1<br>stationElevator: 3-4 |
-| 등촌 (0909) | 차량·문 API 값 없음 | stationElevator: 1-1, 6-4 |
-| 염창 (0910) | 차량·문 API 값 없음 | stationElevator: 3-4, 4-1 |
-| 신목동 (0911) | 차량·문 API 값 없음 | 후보 없음 |
-| 선유도 (0912) | 차량·문 API 값 없음 | stationElevator: 3-4, 4-1 |
-| 당산 (0913) | 차량·문 API 값 없음 | stationElevator: 6-4 |
-| 국회의사당 (0914) | 차량·문 API 값 없음 | stationElevator: 5-3 |
-| 여의도 (0915) | 차량·문 API 값 없음 | stationElevator: 1-1, 6-4 |
-| 샛강 (0916) | 차량·문 API 값 없음 | 후보 없음 |
-| 노량진 (0917) | 차량·문 API 값 없음 | stationElevator: 3-4, 4-1 |
-| 노들 (0918) | 차량·문 API 값 없음 | stationElevator: 3-2, 4-4 |
-| 흑석 (0919) | API 값 충돌 | stationElevatorCarNumber: 2-2, 3-3<br>stationElevator: 3-3, 4-2 |
-| 동작 (0920) | 차량·문 API 값 없음 | 후보 없음 |
-| 구반포 (0921) | 차량·문 API 값 없음 | stationElevator: 2-1, 5-4 |
-| 신반포 (0922) | 차량·문 API 값 없음 | stationElevator: 3-4 |
-| 고속터미널 (0923) | 차량·문 API 값 없음 | stationElevator: 1-1, 4-4 |
-| 사평 (0924) | 차량·문 API 값 없음 | stationElevator: 4-1, 4-2 |
-| 신논현 (0925) | 차량·문 API 값 없음 | stationElevator: 3-4, 4-1 |
+| 역 | 확인 이유 | 확인 완료 방향 | 남은 방향 | API별 후보 |
+| --- | --- | --- | --- | --- |
+| 개화 (0901) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 김포공항 (0902) | 차량·문 API 값 없음 | - | - | stationElevator: 1-1, 4-2 |
+| 공항시장 (0903) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 신방화 (0904) | 차량·문 API 값 없음 | - | - | stationElevator: 3-1, 4-4 |
+| 마곡나루 (0905) | 차량·문 API 값 없음 | - | - | stationElevator: 3-3, 4-2 |
+| 양천향교 (0906) | 차량·문 API 값 없음 | - | - | stationElevator: 3-2, 4-4 |
+| 가양 (0907) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 증미 (0908) | API 값 충돌 | - | - | stationElevatorCarNumber: 2-4, 3-1<br>stationElevator: 3-4 |
+| 등촌 (0909) | 차량·문 API 값 없음 | - | - | stationElevator: 1-1, 6-4 |
+| 염창 (0910) | 차량·문 API 값 없음 | - | - | stationElevator: 3-4, 4-1 |
+| 신목동 (0911) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 선유도 (0912) | 차량·문 API 값 없음 | - | - | stationElevator: 3-4, 4-1 |
+| 당산 (0913) | 차량·문 API 값 없음 | - | - | stationElevator: 6-4 |
+| 국회의사당 (0914) | 차량·문 API 값 없음 | - | - | stationElevator: 5-3 |
+| 여의도 (0915) | 차량·문 API 값 없음 | - | - | stationElevator: 1-1, 6-4 |
+| 샛강 (0916) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 노량진 (0917) | 차량·문 API 값 없음 | - | - | stationElevator: 3-4, 4-1 |
+| 노들 (0918) | 차량·문 API 값 없음 | - | - | stationElevator: 3-2, 4-4 |
+| 흑석 (0919) | API 값 충돌 | - | - | stationElevatorCarNumber: 2-2, 3-3<br>stationElevator: 3-3, 4-2 |
+| 동작 (0920) | 차량·문 API 값 없음 | - | - | 후보 없음 |
+| 구반포 (0921) | 차량·문 API 값 없음 | - | - | stationElevator: 2-1, 5-4 |
+| 신반포 (0922) | 차량·문 API 값 없음 | - | - | stationElevator: 3-4 |
+| 고속터미널 (0923) | 차량·문 API 값 없음 | - | - | stationElevator: 1-1, 4-4 |
+| 사평 (0924) | 차량·문 API 값 없음 | - | - | stationElevator: 4-1, 4-2 |
+| 신논현 (0925) | 차량·문 API 값 없음 | - | - | stationElevator: 3-4, 4-1 |
 
 ### 지상 엘리베이터 출구 (17역)
 
