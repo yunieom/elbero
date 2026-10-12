@@ -1,5 +1,9 @@
 # T17 오프라인·재실행 여정 복구 결과
 
+- 확인일: 2026-10-12
+- 이슈: [#15 · T17 현재 여정 저장과 복구](https://github.com/yunieom/elbero/issues/15)
+- 판정: 완료 가능
+
 ## 구현 결과
 
 - AsyncStorage에 여정 전체, 출발·도착 코드, 현재 단계, 저장 시각, 상태 확인 시각, 데이터 버전을 저장한다.
@@ -18,10 +22,25 @@
 - 손상 snapshot 폐기 테스트 통과
 - 만료 snapshot의 오프라인 제한 복구 테스트 통과
 - 데이터 버전 변경 시 온라인 새 조회 판정 테스트 통과
-- 전체 테스트: API 92건, 모바일 12건 통과
+- 여정 snapshot 관련 모바일 테스트 5건 통과
+- 모바일 전체 테스트 19건 통과
+- API·모바일·공용 계약 TypeScript 검사 통과
 - Android·iOS 번들 생성 통과
+
+## 구현 근거
+
+- snapshot 모델과 복구 결정: `apps/mobile/src/features/journey-search/model/journey-snapshot.ts`
+- AsyncStorage repository: `apps/mobile/src/features/journey-search/repository/journey-snapshot.repository.ts`
+- 앱 시작 복구: `apps/mobile/src/features/journey-search/hooks/use-saved-journey.ts`
+- 조회·단계 변경 저장: `apps/mobile/src/features/journey-search/hooks/use-journey-plan.ts`
+- 관련 커밋: `030952c`
 
 ## 남은 제한
 
 - 이 저장 데이터는 계정·정밀 위치 이력이 아닌 현재 여정 정보이므로 암호화하지 않는다. 계정이나 위치 이력이 추가되면 별도 보안 검토가 필요하다.
-- 연결된 실제 기기가 없어 OS에서 앱을 강제 종료하고 비행기 모드로 재실행하는 수동 시나리오는 이번 환경에서 실행하지 못했다. 저장·복구 정책과 양 플랫폼 번들은 검증했다.
+- OS 강제 종료·비행기 모드의 실기기 회귀는 T21에서 수행한다. 저장소·복구 정책과 양 플랫폼 번들은 T17 범위에서 검증했으므로 이 제한은 T17 종료를 막지 않는다.
+
+## 다음 작업
+
+- T21에서 iPhone·Android 실기기의 강제 종료, 비행기 모드, 뒤로가기 회귀를 수행한다.
+- 위치 이력·계정 저장이 추가되면 별도 보안 검토를 수행한다.
