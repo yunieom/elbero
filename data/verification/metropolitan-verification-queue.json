@@ -16,6 +16,28 @@
       "stationCount": 102,
       "resolvedSurfaceExits": [
         {
+          "stationCode": "100-2",
+          "stationName": "전곡",
+          "railOperatorCode": "KR",
+          "exitNumbers": [
+            "1",
+            "2"
+          ],
+          "source": "manual_verification",
+          "evidence": "사용자 확인: stinElevatorMovement"
+        },
+        {
+          "stationCode": "100-3",
+          "stationName": "연천",
+          "railOperatorCode": "KR",
+          "exitNumbers": [
+            "2",
+            "3"
+          ],
+          "source": "manual_verification",
+          "evidence": "사용자 확인: stinElevatorMovement"
+        },
+        {
           "stationCode": "0103",
           "stationName": "동두천중앙",
           "railOperatorCode": "KR",
@@ -471,45 +493,7 @@
           "source": "stationMovement_stinElevatorMovement_consensus"
         }
       ],
-      "surfaceExitConflicts": [
-        {
-          "stationCode": "100-2",
-          "stationName": "전곡",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationMovement": [],
-            "stinElevatorMovement": [
-              "1",
-              "3"
-            ],
-            "stationElevator": [
-              "1"
-            ],
-            "SeoulMetroFaciInfo": []
-          }
-        },
-        {
-          "stationCode": "100-3",
-          "stationName": "연천",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationMovement": [],
-            "stinElevatorMovement": [
-              "2",
-              "3",
-              "4"
-            ],
-            "stationElevator": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          }
-        }
-      ],
+      "surfaceExitConflicts": [],
       "directionDoorChecks": [
         {
           "stationCode": "0112",
@@ -3876,29 +3860,7 @@
         }
       ],
       "surfaceExitConflicts": [],
-      "directionDoorChecks": [
-        {
-          "stationCode": "2635",
-          "stationName": "청구",
-          "railOperatorCode": "S1",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "6-1"
-            ],
-            "stationElevator": [
-              "4-1",
-              "5-3"
-            ],
-            "SeoulMetroFaciInfo": [
-              "4-1",
-              "5-3",
-              "6-2"
-            ]
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        }
-      ],
+      "directionDoorChecks": [],
       "gapLinkageChecks": [],
       "gapSummary": {
         "green": 2025,
@@ -4946,46 +4908,7 @@
         }
       ],
       "surfaceExitConflicts": [],
-      "directionDoorChecks": [
-        {
-          "stationCode": "A05",
-          "stationName": "김포공항",
-          "railOperatorCode": "AR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-1",
-              "6-4"
-            ],
-            "stationElevator": [
-              "2-1",
-              "5-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "A10",
-          "stationName": "인천공항1터미널",
-          "railOperatorCode": "AR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-3",
-              "3-1",
-              "6-4",
-              "7-2"
-            ],
-            "stationElevator": [
-              "2-3",
-              "3-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        }
-      ],
+      "directionDoorChecks": [],
       "gapLinkageChecks": [
         {
           "stationCode": "A04",

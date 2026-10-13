@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "line": "6",
   "sourceCollectedAt": "2026-09-18T09:14:16.096Z",
-  "generatedAt": "2026-10-13T07:22:26.019Z",
+  "generatedAt": "2026-10-13T07:32:05.495Z",
   "routeEngineSupported": false,
   "policy": {
     "directionDoor": "사용자 확인값을 우선하고 나머지는 stationElevator 위치 설명에 적힌 인접역 방향과 차량·문을 사용",
@@ -452,6 +452,26 @@
       ]
     },
     {
+      "stationCode": "2635",
+      "stationName": "청구",
+      "directions": [
+        {
+          "toward": "약수",
+          "recommendedDoors": [
+            "6-1"
+          ],
+          "evidence": "사용자 확인: 양방향 동일"
+        },
+        {
+          "toward": "신당",
+          "recommendedDoors": [
+            "6-1"
+          ],
+          "evidence": "사용자 확인: 양방향 동일"
+        }
+      ]
+    },
+    {
       "stationCode": "2636",
       "stationName": "신당",
       "directions": [
@@ -811,17 +831,5 @@
       "evidence": "사용자 확인"
     }
   ],
-  "pendingDirectionDoorReview": [
-    {
-      "stationCode": "2635",
-      "stationName": "청구",
-      "reason": "station_elevator_direction_missing_or_other_line",
-      "remainingDirections": [
-        "약수",
-        "신당"
-      ],
-      "verifiedDirections": [],
-      "sourceValues": {}
-    }
-  ]
+  "pendingDirectionDoorReview": []
 }

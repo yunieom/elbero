@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "line": "1",
+  "verifiedAt": "2026-10-13",
+  "surfaceExits": [
+    {
+      "stationCode": "100-2",
+      "stationName": "전곡",
+      "exitNumbers": ["1", "2"],
+      "evidence": "사용자 확인: stinElevatorMovement"
+    },
+    {
+      "stationCode": "100-3",
+      "stationName": "연천",
+      "exitNumbers": ["2", "3"],
+      "evidence": "사용자 확인: stinElevatorMovement"
+    }
+  ]
+}

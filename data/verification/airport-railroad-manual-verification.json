@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "line": "공항철도",
+  "verifiedAt": "2026-10-13",
+  "directionalDoors": [
+    {
+      "stationCode": "A05",
+      "stationName": "김포공항",
+      "directions": [
+        {
+          "toward": "마곡나루",
+          "terminalDirection": "서울역",
+          "recommendedDoors": ["5-4"],
+          "evidence": "사용자 확인: stationElevator"
+        },
+        {
+          "toward": "계양",
+          "terminalDirection": "인천공항",
+          "recommendedDoors": ["2-1"],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "A10",
+      "stationName": "인천공항1터미널",
+      "directions": [
+        {
+          "toward": "공항화물청사",
+          "terminalDirection": "서울역",
+          "recommendedDoors": ["2-3"],
+          "evidence": "사용자 확인: stationElevator"
+        },
+        {
+          "toward": "인천공항2터미널",
+          "terminalDirection": "인천공항2터미널",
+          "recommendedDoors": ["3-1"],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    }
+  ]
+}

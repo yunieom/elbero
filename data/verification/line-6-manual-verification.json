@@ -134,6 +134,22 @@
       ]
     },
     {
+      "stationCode": "2635",
+      "stationName": "청구",
+      "directions": [
+        {
+          "toward": "약수",
+          "recommendedDoors": ["6-1"],
+          "evidence": "사용자 확인: 양방향 동일"
+        },
+        {
+          "toward": "신당",
+          "recommendedDoors": ["6-1"],
+          "evidence": "사용자 확인: 양방향 동일"
+        }
+      ]
+    },
+    {
       "stationCode": "2648",
       "stationName": "봉화산",
       "directions": [
