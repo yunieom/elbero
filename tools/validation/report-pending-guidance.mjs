@@ -7,6 +7,13 @@ const sections = [];
 let totalDirectionCount = 0;
 let totalExitCount = 0;
 
+const metropolitanQueue = await readOptionalJson(
+  resolve('data/verification/metropolitan-verification-queue.json'),
+);
+const line1Pending = metropolitanQueue?.lines?.find(
+  (line) => line.name === '1호선',
+);
+
 for (const lineId of lineIds) {
   const module = await import(
     `../../apps/api/src/journey/data/line-${lineId}-guidance.generated.ts`
@@ -72,8 +79,8 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 - 사용자 검증 입력 완료: 2·3호선
 - 현재 경로 엔진 구현 완료: 2·3·4·5·7호선
 - 1호선 상태: 경로 엔진 지원 대상, 어댑터 연결과 원본 검증 데이터 반영 전
-- 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
-- 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
+- 현재 구현 노선 및 8·9호선 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
+- 현재 구현 노선 및 8·9호선 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
 
 ## 판정 기준
 
@@ -86,7 +93,12 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 
 - 1호선은 경로 엔진 지원 대상이다.
 - 현재 구현에는 1호선 어댑터가 아직 연결되지 않았다.
-- API별 검증 필요 항목은 [수도권 전철 사용자 검증 대기 목록](metropolitan-user-verification-pending.md)에 기록한다.
+- API 수집 대상: ${line1Pending?.stationCount ?? 0}역
+- 지상 엘리베이터 출구 충돌: ${line1Pending?.surfaceExitConflicts?.length ?? 0}역
+- 방향별 차량·문 확인: ${line1Pending?.directionDoorChecks?.length ?? 0}역
+- 승강장·문·이격거리 연결 확인: ${line1Pending?.gapLinkageChecks?.length ?? 0}역
+- 이격거리 값 없음: ${line1Pending?.gapSummary?.missing ?? 0}건
+- 역별 API 반환 값과 확인할 문은 [수도권 전철 사용자 검증 대기 목록의 1호선 상세](metropolitan-user-verification-pending.md#1호선)에 기록한다. 같은 내용을 이 문서에 중복 작성하지 않는다.
 
 ## 8·9호선 준비 상태
 
