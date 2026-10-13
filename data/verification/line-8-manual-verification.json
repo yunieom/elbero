@@ -1,7 +1,45 @@
 {
   "schemaVersion": 1,
   "line": "8",
-  "verifiedAt": "2026-10-12",
+  "verifiedAt": "2026-10-13",
+  "surfaceExits": [
+    {
+      "stationCode": "2804",
+      "stationName": "별내",
+      "exitNumbers": ["4", "5", "6"],
+      "evidence": "stationMovement와 stinElevatorMovement 일치"
+    },
+    {
+      "stationCode": "2806",
+      "stationName": "다산",
+      "exitNumbers": ["1", "3", "4"],
+      "evidence": "사용자 확인: stinElevatorMovement 값 선택"
+    },
+    {
+      "stationCode": "2807",
+      "stationName": "동구릉",
+      "exitNumbers": ["2", "5"],
+      "evidence": "stationMovement와 stinElevatorMovement 일치"
+    },
+    {
+      "stationCode": "2805",
+      "stationName": "구리",
+      "exitNumbers": ["5"],
+      "evidence": "사용자 확인: 개찰구 통과 후 승강기"
+    },
+    {
+      "stationCode": "2811",
+      "stationName": "암사",
+      "exitNumbers": ["3"],
+      "evidence": "사용자 확인: 3번 출구 뒤편"
+    },
+    {
+      "stationCode": "2815",
+      "stationName": "잠실",
+      "exitNumbers": ["9", "10"],
+      "evidence": "stationMovement와 stinElevatorMovement 일치"
+    }
+  ],
   "directionalDoors": [
     {
       "stationCode": "2812",
@@ -15,14 +53,112 @@
       "stationCode": "2813",
       "stationName": "강동구청",
       "directions": [
-        { "toward": "몽촌토성", "recommendedDoors": ["3-3"] }
+        { "toward": "몽촌토성", "recommendedDoors": ["3-3"] },
+        { "toward": "천호", "recommendedDoors": ["4-2"] }
       ]
     },
     {
       "stationCode": "2814",
       "stationName": "몽촌토성",
       "directions": [
-        { "toward": "천호", "recommendedDoors": ["4-2"] }
+        { "toward": "강동구청", "recommendedDoors": ["3-4"] },
+        { "toward": "잠실", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "2807",
+      "stationName": "동구릉",
+      "directions": [
+        {
+          "toward": "구리",
+          "recommendedDoors": ["4-1"],
+          "evidence": "도면을 보고 예측한 값"
+        },
+        {
+          "toward": "다산",
+          "recommendedDoors": ["3-4"],
+          "evidence": "도면을 보고 예측한 값"
+        }
+      ]
+    },
+    {
+      "stationCode": "2805",
+      "stationName": "구리",
+      "directions": [
+        {
+          "toward": "동구릉",
+          "recommendedDoors": ["3-2"],
+          "evidence": "도면을 보고 예측한 값"
+        },
+        {
+          "toward": "장자호수공원",
+          "recommendedDoors": ["4-4"],
+          "evidence": "도면을 보고 예측한 값"
+        }
+      ]
+    },
+    {
+      "stationCode": "2808",
+      "stationName": "장자호수공원",
+      "directions": [
+        {
+          "toward": "구리",
+          "recommendedDoors": ["4-4"],
+          "evidence": "도면을 보고 예측한 값"
+        },
+        {
+          "toward": "암사역사공원",
+          "recommendedDoors": ["4-4"],
+          "evidence": "도면을 보고 예측한 값"
+        }
+      ]
+    },
+    {
+      "stationCode": "2816",
+      "stationName": "석촌",
+      "directions": [
+        { "toward": "잠실", "recommendedDoors": ["3-4"] },
+        { "toward": "송파", "recommendedDoors": ["4-1"] }
+      ]
+    },
+    {
+      "stationCode": "2818",
+      "stationName": "가락시장",
+      "directions": [
+        { "toward": "송파", "recommendedDoors": ["5-4"] },
+        { "toward": "문정", "recommendedDoors": ["2-3"] }
+      ]
+    },
+    {
+      "stationCode": "2821",
+      "stationName": "복정",
+      "directions": [
+        { "toward": "장지", "recommendedDoors": ["3-4"] },
+        { "toward": "남위례", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "2828",
+      "stationName": "남위례",
+      "directions": [
+        { "toward": "복정", "recommendedDoors": ["3-4"] },
+        { "toward": "산성", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "2822",
+      "stationName": "산성",
+      "directions": [
+        { "toward": "남위례", "recommendedDoors": ["6-2"] },
+        { "toward": "남한산성입구", "recommendedDoors": ["1-3"] }
+      ]
+    },
+    {
+      "stationCode": "2823",
+      "stationName": "남한산성입구",
+      "directions": [
+        { "toward": "산성", "recommendedDoors": ["3-4"] },
+        { "toward": "단대오거리", "recommendedDoors": ["4-1"] }
       ]
     }
   ]

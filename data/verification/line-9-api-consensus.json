@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "line": "9",
   "sourceCollectedAt": "2026-09-18T03:13:31.764Z",
-  "generatedAt": "2026-10-12T03:59:27.089Z",
+  "generatedAt": "2026-10-13T06:20:27.051Z",
   "routeEngineSupported": false,
   "policy": {
-    "autoSurfaceExit": "비어 있지 않은 API 값이 서로 충돌하지 않을 때만 후보로 저장",
+    "autoSurfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장",
     "autoAdjacentDoor": "stationElevatorCarNumber가 있고 다른 API와 값 충돌이 없을 때만 승강장별 후보로 저장",
     "productionUse": "사용자 방향 검증과 경로 엔진 연결 전에는 안전 경로 추천에 사용하지 않음"
   },
@@ -22,7 +22,7 @@
       "exitNumbers": [
         "2"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0902",
@@ -30,7 +30,50 @@
       "exitNumbers": [
         "4"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0903",
+      "stationName": "공항시장",
+      "exitNumbers": [
+        "1"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0904",
+      "stationName": "신방화",
+      "exitNumbers": [
+        "3",
+        "7"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0905",
+      "stationName": "마곡나루",
+      "exitNumbers": [
+        "2"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0906",
+      "stationName": "양천향교",
+      "exitNumbers": [
+        "3",
+        "5"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0907",
+      "stationName": "가양",
+      "exitNumbers": [
+        "4",
+        "8"
+      ],
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0908",
@@ -38,7 +81,7 @@
       "exitNumbers": [
         "1"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0909",
@@ -46,7 +89,16 @@
       "exitNumbers": [
         "5"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0910",
+      "stationName": "염창",
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0911",
@@ -55,7 +107,35 @@
         "1",
         "2"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0912",
+      "stationName": "선유도",
+      "exitNumbers": [
+        "1",
+        "8"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0913",
+      "stationName": "당산",
+      "exitNumbers": [
+        "10",
+        "13"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0914",
+      "stationName": "국회의사당",
+      "exitNumbers": [
+        "2",
+        "5",
+        "6"
+      ],
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0915",
@@ -64,7 +144,73 @@
         "2",
         "3"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0916",
+      "stationName": "샛강",
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0917",
+      "stationName": "노량진",
+      "exitNumbers": [
+        "5",
+        "8",
+        "9"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0918",
+      "stationName": "노들",
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0919",
+      "stationName": "흑석",
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0920",
+      "stationName": "동작",
+      "exitNumbers": [
+        "1",
+        "5",
+        "7"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0921",
+      "stationName": "구반포",
+      "exitNumbers": [
+        "2"
+      ],
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0922",
+      "stationName": "신반포",
+      "exitNumbers": [
+        "1",
+        "4"
+      ],
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0923",
@@ -73,7 +219,7 @@
         "1",
         "8-1"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0924",
@@ -82,7 +228,16 @@
         "1",
         "2"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
+    },
+    {
+      "stationCode": "0925",
+      "stationName": "신논현",
+      "exitNumbers": [
+        "2",
+        "8"
+      ],
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0926",
@@ -91,7 +246,7 @@
         "2",
         "6"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0927",
@@ -100,7 +255,7 @@
         "1",
         "4"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0928",
@@ -109,7 +264,7 @@
         "3",
         "5"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0929",
@@ -118,7 +273,7 @@
         "3",
         "7"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0930",
@@ -126,7 +281,7 @@
       "exitNumbers": [
         "9"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0931",
@@ -134,7 +289,7 @@
       "exitNumbers": [
         "1"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0932",
@@ -145,7 +300,7 @@
         "3",
         "4"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0933",
@@ -154,7 +309,7 @@
         "1",
         "5"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0934",
@@ -165,7 +320,7 @@
         "3",
         "4"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0935",
@@ -174,7 +329,7 @@
         "1",
         "2"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0936",
@@ -182,7 +337,7 @@
       "exitNumbers": [
         "4"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0937",
@@ -191,7 +346,7 @@
         "1",
         "2"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     },
     {
       "stationCode": "0938",
@@ -201,381 +356,10 @@
         "2",
         "3"
       ],
-      "status": "source_consensus_candidate"
+      "status": "movement_api_consensus"
     }
   ],
-  "pendingSurfaceExitConflicts": [
-    {
-      "stationCode": "0903",
-      "stationName": "공항시장",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "1"
-        ],
-        "stinElevatorMovement": [
-          "1"
-        ],
-        "stationElevator": [
-          "1",
-          "2"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0904",
-      "stationName": "신방화",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "3",
-          "7"
-        ],
-        "stinElevatorMovement": [
-          "3",
-          "7"
-        ],
-        "stationElevator": [
-          "3",
-          "7",
-          "8"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0905",
-      "stationName": "마곡나루",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "2"
-        ],
-        "stinElevatorMovement": [
-          "2"
-        ],
-        "stationElevator": [
-          "1",
-          "2"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0906",
-      "stationName": "양천향교",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "3",
-          "5"
-        ],
-        "stinElevatorMovement": [
-          "3",
-          "5"
-        ],
-        "stationElevator": [
-          "3",
-          "4",
-          "5",
-          "6"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0907",
-      "stationName": "가양",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "4",
-          "8"
-        ],
-        "stinElevatorMovement": [
-          "4",
-          "8"
-        ],
-        "stationElevator": [
-          "4",
-          "5",
-          "8",
-          "9"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0910",
-      "stationName": "염창",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "1",
-          "3"
-        ],
-        "stinElevatorMovement": [
-          "1",
-          "3"
-        ],
-        "stationElevator": [
-          "1",
-          "2",
-          "3",
-          "4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0912",
-      "stationName": "선유도",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "1",
-          "8"
-        ],
-        "stinElevatorMovement": [
-          "1",
-          "8"
-        ],
-        "stationElevator": [
-          "1",
-          "2",
-          "7",
-          "8"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0913",
-      "stationName": "당산",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "10",
-          "13"
-        ],
-        "stinElevatorMovement": [
-          "10",
-          "13"
-        ],
-        "stationElevator": [
-          "1",
-          "10",
-          "13"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0914",
-      "stationName": "국회의사당",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "2",
-          "5",
-          "6"
-        ],
-        "stinElevatorMovement": [
-          "2",
-          "5",
-          "6"
-        ],
-        "stationElevator": [
-          "2",
-          "3",
-          "4",
-          "5",
-          "6"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0916",
-      "stationName": "샛강",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "2",
-          "3"
-        ],
-        "stinElevatorMovement": [
-          "2",
-          "3"
-        ],
-        "stationElevator": [
-          "1",
-          "2",
-          "3"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0917",
-      "stationName": "노량진",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "5",
-          "8",
-          "9"
-        ],
-        "stinElevatorMovement": [
-          "5",
-          "8",
-          "9"
-        ],
-        "stationElevator": [
-          "5",
-          "6",
-          "8"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0918",
-      "stationName": "노들",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "1",
-          "2",
-          "3",
-          "5"
-        ],
-        "stinElevatorMovement": [
-          "1",
-          "2",
-          "3",
-          "5"
-        ],
-        "stationElevator": [
-          "1",
-          "3",
-          "4",
-          "5"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0919",
-      "stationName": "흑석",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "2",
-          "3"
-        ],
-        "stinElevatorMovement": [
-          "2",
-          "3"
-        ],
-        "stationElevator": [
-          "1",
-          "2",
-          "3",
-          "4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0920",
-      "stationName": "동작",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "1",
-          "5",
-          "7"
-        ],
-        "stinElevatorMovement": [
-          "1",
-          "5",
-          "7"
-        ],
-        "stationElevator": [
-          "4",
-          "5",
-          "7",
-          "8",
-          "9"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0921",
-      "stationName": "구반포",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "2"
-        ],
-        "stinElevatorMovement": [
-          "2"
-        ],
-        "stationElevator": [
-          "2",
-          "3"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0922",
-      "stationName": "신반포",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "1",
-          "4"
-        ],
-        "stinElevatorMovement": [
-          "1",
-          "4"
-        ],
-        "stationElevator": [
-          "1",
-          "2",
-          "3",
-          "4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    },
-    {
-      "stationCode": "0925",
-      "stationName": "신논현",
-      "reason": "source_value_conflict",
-      "sourceValues": {
-        "stationMovement": [
-          "2",
-          "8"
-        ],
-        "stinElevatorMovement": [
-          "2",
-          "8"
-        ],
-        "stationElevator": [
-          "1",
-          "2",
-          "8",
-          "9"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
-    }
-  ],
+  "pendingSurfaceExitConflicts": [],
   "autoAdjacentDoorCandidates": [
     {
       "stationCode": "0926",

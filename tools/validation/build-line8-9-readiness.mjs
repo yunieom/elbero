@@ -19,6 +19,12 @@ for (const lineId of lineIds) {
       station,
     ]),
   );
+  const manualSurfaceExitByCode = new Map(
+    (manual?.surfaceExits ?? []).map((station) => [
+      normalizeCode(station.stationCode),
+      station,
+    ]),
+  );
   const differenceByCategory = Map.groupBy(
     audit.differences,
     (difference) => difference.category,
@@ -61,13 +67,20 @@ for (const lineId of lineIds) {
     const doorDifference = doorDifferenceByCode.get(stationCode);
     const hasSurfaceConflict =
       surfaceDifference?.differenceKinds.includes('value_difference') ?? false;
-    const surfaceValues = hasSurfaceConflict
-      ? []
-      : firstNonEmptySourceValues(surfaceDifference?.normalizedValues) ??
+    const manualSurfaceExit = manualSurfaceExitByCode.get(stationCode);
+    const movementConsensus = matchingMovementExitValues(
+      surfaceDifference?.normalizedValues,
+    );
+    const surfaceValues =
+      manualSurfaceExit?.exitNumbers ??
+      movementConsensus ??
+      (hasSurfaceConflict
+        ? []
+        : firstNonEmptySourceValues(surfaceDifference?.normalizedValues) ??
         extractMovementExitNumbers(rawStation?.movement?.body ?? []) ??
-        extractElevatorExitNumbers(rawStation?.elevators?.body ?? []);
+        extractElevatorExitNumbers(rawStation?.elevators?.body ?? []));
 
-    if (hasSurfaceConflict || surfaceValues.length === 0) {
+    if (surfaceValues.length === 0) {
       pendingSurfaceExitConflicts.push({
         stationCode,
         stationName,
@@ -79,7 +92,14 @@ for (const lineId of lineIds) {
         stationCode,
         stationName,
         exitNumbers: surfaceValues,
-        status: 'source_consensus_candidate',
+        status: manualSurfaceExit
+          ? 'manual_verification'
+          : movementConsensus
+            ? 'movement_api_consensus'
+            : 'source_consensus_candidate',
+        ...(manualSurfaceExit?.evidence
+          ? { evidence: manualSurfaceExit.evidence }
+          : {}),
       });
     }
 
@@ -94,6 +114,7 @@ for (const lineId of lineIds) {
       (direction) => ({
         toward: direction.toward,
         recommendedDoors: direction.recommendedDoors,
+        ...(direction.evidence ? { evidence: direction.evidence } : {}),
       }),
     );
     const remainingDirections =
@@ -139,7 +160,7 @@ for (const lineId of lineIds) {
     routeEngineSupported: false,
     policy: {
       autoSurfaceExit:
-        '비어 있지 않은 API 값이 서로 충돌하지 않을 때만 후보로 저장',
+        '수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장',
       autoAdjacentDoor:
         'stationElevatorCarNumber가 있고 다른 API와 값 충돌이 없을 때만 승강장별 후보로 저장',
       productionUse:
@@ -190,7 +211,7 @@ function renderMarkdown(items) {
       .flatMap((station) =>
         station.directions.map(
           (direction) =>
-            `| ${station.stationName} (${station.stationCode}) | ${direction.toward} 방면 | ${direction.recommendedDoors.join(', ')} |`,
+            `| ${station.stationName} (${station.stationCode}) | ${direction.toward} 방면 | ${direction.recommendedDoors.join(', ')} | ${direction.evidence ?? '사용자 확인'} |`,
         ),
       )
       .join('\n');
@@ -219,9 +240,9 @@ ${doorRows || '| 없음 | - | - | - |'}
 
 ### 사용자 확인 완료 차량·문
 
-| 역 | 방향 | 차량·문 |
-| --- | --- | --- |
-${verifiedDoorRows || '| 없음 | - | - |'}`;
+| 역 | 방향 | 차량·문 | 근거 |
+| --- | --- | --- | --- |
+${verifiedDoorRows || '| 없음 | - | - | - |'}`;
   });
 
   return `# 8·9호선 안내 데이터 준비 상태
@@ -270,6 +291,18 @@ function firstNonEmptySourceValues(values = {}) {
     if (values[source]?.length > 0) return uniqueSorted(values[source]);
   }
   return null;
+}
+
+function matchingMovementExitValues(values = {}) {
+  const stationMovement = uniqueSorted(values.stationMovement ?? []);
+  const elevatorMovement = uniqueSorted(values.stinElevatorMovement ?? []);
+  if (stationMovement.length === 0 || elevatorMovement.length === 0) {
+    return null;
+  }
+  return stationMovement.length === elevatorMovement.length &&
+    stationMovement.every((value, index) => value === elevatorMovement[index])
+    ? stationMovement
+    : null;
 }
 
 function formatSourceValues(values) {

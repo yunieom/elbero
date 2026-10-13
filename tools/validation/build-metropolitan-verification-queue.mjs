@@ -52,6 +52,12 @@ for (const config of lineConfigs) {
   const manual = await readOptionalJson(
     resolve(`data/verification/${config.stem}-manual-verification.json`),
   );
+  const manualSurfaceExits = new Map(
+    (manual?.surfaceExits ?? []).map((station) => [
+      normalizeCode(station.stationCode),
+      station,
+    ]),
+  );
   const differenceByKey = new Map(
     audit.differences.map((difference) => [
       differenceKey(
@@ -69,13 +75,36 @@ for (const config of lineConfigs) {
     ]),
   );
 
+  const resolvedSurfaceExits = [];
   const surfaceExitConflicts = audit.differences
     .filter(
       (difference) =>
         difference.category === 'surface_exit_number' &&
         difference.differenceKinds.includes('value_difference'),
     )
-    .map(toSourceConflict);
+    .flatMap((difference) => {
+      const stationCode = normalizeCode(difference.stationCode);
+      const manualSurfaceExit = manualSurfaceExits.get(stationCode);
+      const movementConsensus = matchingMovementExitValues(
+        difference.normalizedValues,
+      );
+      const exitNumbers = manualSurfaceExit?.exitNumbers ?? movementConsensus;
+      if (!exitNumbers) return [toSourceConflict(difference)];
+
+      resolvedSurfaceExits.push({
+        stationCode,
+        stationName: difference.stationName,
+        railOperatorCode: difference.railOperatorCode,
+        exitNumbers,
+        source: manualSurfaceExit
+          ? 'manual_verification'
+          : 'stationMovement_stinElevatorMovement_consensus',
+        ...(manualSurfaceExit?.evidence
+          ? { evidence: manualSurfaceExit.evidence }
+          : {}),
+      });
+      return [];
+    });
 
   const doorByStation = new Map();
   for (const difference of audit.differences.filter(
@@ -145,6 +174,7 @@ for (const config of lineConfigs) {
     ...config,
     collectedAt: audit.collectedAt,
     stationCount: audit.scope.stationCount,
+    resolvedSurfaceExits: resolvedSurfaceExits.toSorted(stationSort),
     surfaceExitConflicts: surfaceExitConflicts.toSorted(stationSort),
     directionDoorChecks,
     gapLinkageChecks,
@@ -160,7 +190,7 @@ await writeFile(
       generatedAt,
       policy: {
         surfaceExit:
-          '출처 간 비어 있지 않은 출구 번호 집합이 다를 때만 사용자 확인',
+          '수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 해당 값을 확정하며 나머지 출처 충돌만 사용자 확인',
         directionDoor:
           '차량·문 값 충돌 또는 stationElevatorCarNumber 미제공 역만 사용자 확인',
         platformGap:
@@ -212,6 +242,24 @@ function stationIdentity(station) {
 function normalizeCode(value) {
   const text = String(value);
   return /^\d+$/u.test(text) ? text.padStart(4, '0') : text;
+}
+
+function matchingMovementExitValues(values = {}) {
+  const stationMovement = uniqueSorted(values.stationMovement ?? []);
+  const elevatorMovement = uniqueSorted(values.stinElevatorMovement ?? []);
+  if (stationMovement.length === 0 || elevatorMovement.length === 0) {
+    return null;
+  }
+  return stationMovement.length === elevatorMovement.length &&
+    stationMovement.every((value, index) => value === elevatorMovement[index])
+    ? stationMovement
+    : null;
+}
+
+function uniqueSorted(values) {
+  return [...new Set(values.map(String))].toSorted((left, right) =>
+    left.localeCompare(right, 'ko', { numeric: true }),
+  );
 }
 
 function stationSort(left, right) {
