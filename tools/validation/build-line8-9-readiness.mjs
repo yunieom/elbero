@@ -110,15 +110,40 @@ for (const lineId of lineIds) {
       (coverageByCode.get(stationCode)?.endpointCounts
         ?.stationElevatorCarNumber ?? 0) > 0;
     const manualDirection = manualDirectionByCode.get(stationCode);
-    const confirmedDirections = (manualDirection?.directions ?? []).map(
+    const adjacentDirections = getAdjacentDirections(raw.route.body, stationCode);
+    const groupedNearbyCars = groupDoorsByPlatform(nearbyCars);
+    const stationElevatorDirections =
+      lineId === '9'
+        ? mapLine9StationElevatorDirections(
+            adjacentDirections,
+            doorDifference?.normalizedValues?.stationElevator ?? [],
+          )
+        : [];
+    const platformCandidateDirections =
+      lineId === '9'
+        ? mapLine9PlatformDoorDirections(
+            adjacentDirections,
+            groupedNearbyCars,
+          )
+        : [];
+    const confirmedDirections = (
+      manualDirection?.directions ??
+      (stationElevatorDirections.length > 0
+        ? stationElevatorDirections
+        : platformCandidateDirections)
+    ).map(
       (direction) => ({
         toward: direction.toward,
         recommendedDoors: direction.recommendedDoors,
         ...(direction.evidence ? { evidence: direction.evidence } : {}),
       }),
     );
-    const remainingDirections =
-      confirmedDirections.length === 1 ? ['반대 방향'] : [];
+    const confirmedToward = new Set(
+      confirmedDirections.map((direction) => direction.toward),
+    );
+    const remainingDirections = adjacentDirections
+      .map((direction) => direction.toward)
+      .filter((toward) => !confirmedToward.has(toward));
     if (confirmedDirections.length > 0) {
       verifiedDirectionDoors.push({
         stationCode,
@@ -146,8 +171,11 @@ for (const lineId of lineIds) {
       autoAdjacentDoorCandidates.push({
         stationCode,
         stationName,
-        platforms: groupDoorsByPlatform(nearbyCars),
-        status: 'platform_direction_mapping_required',
+        platforms: groupedNearbyCars,
+        status:
+          platformCandidateDirections.length > 0
+            ? 'platform_direction_mapped'
+            : 'platform_direction_mapping_required',
       });
     }
   }
@@ -163,6 +191,10 @@ for (const lineId of lineIds) {
         '수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장',
       autoAdjacentDoor:
         'stationElevatorCarNumber가 있고 다른 API와 값 충돌이 없을 때만 승강장별 후보로 저장',
+      line9StationElevatorDirection:
+        '9호선 stationElevator 후보는 첫 값을 개화 쪽 인접역 방향, 두 번째 값을 중앙보훈병원 쪽 인접역 방향에 연결하며 단일 값은 양방향에 적용',
+      line9PlatformDirection:
+        '9호선 stationElevatorCarNumber 승강장 후보는 앞 플랫폼을 개화 쪽 인접역 방향, 뒤 플랫폼을 중앙보훈병원 쪽 인접역 방향에 연결',
       productionUse:
         '사용자 방향 검증과 경로 엔진 연결 전에는 안전 경로 추천에 사용하지 않음',
     },
@@ -303,6 +335,63 @@ function matchingMovementExitValues(values = {}) {
     stationMovement.every((value, index) => value === elevatorMovement[index])
     ? stationMovement
     : null;
+}
+
+function getAdjacentDirections(route, stationCode) {
+  const index = route.findIndex(
+    (station) => normalizeCode(station.stinCd) === stationCode,
+  );
+  if (index < 0) return [];
+  return [
+    index > 0
+      ? {
+          toward: normalizeStationName(route[index - 1].stinNm),
+          terminalDirection: '개화',
+        }
+      : null,
+    index < route.length - 1
+      ? {
+          toward: normalizeStationName(route[index + 1].stinNm),
+          terminalDirection: '중앙보훈병원',
+        }
+      : null,
+  ].filter(Boolean);
+}
+
+function mapLine9StationElevatorDirections(adjacentDirections, candidates) {
+  const doors = uniqueSorted(candidates);
+  if (doors.length === 0) return [];
+  return adjacentDirections.map((direction) => ({
+    toward: direction.toward,
+    recommendedDoors: [
+      doors.length === 1
+        ? doors[0]
+        : direction.terminalDirection === '개화'
+          ? doors[0]
+          : doors[1],
+    ],
+    evidence:
+      'stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)',
+  }));
+}
+
+function mapLine9PlatformDoorDirections(adjacentDirections, platforms) {
+  if (platforms.length === 0) return [];
+  return adjacentDirections.flatMap((direction) => {
+    const platform =
+      direction.terminalDirection === '개화'
+        ? platforms[0]
+        : platforms[1] ?? platforms[0];
+    if (!platform || platform.doors.length === 0) return [];
+    return [
+      {
+        toward: direction.toward,
+        recommendedDoors: platform.doors,
+        evidence:
+          'stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)',
+      },
+    ];
+  });
 }
 
 function formatSourceValues(values) {

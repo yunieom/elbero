@@ -52,6 +52,11 @@ for (const config of lineConfigs) {
   const manual = await readOptionalJson(
     resolve(`data/verification/${config.stem}-manual-verification.json`),
   );
+  const readiness = ['line-8', 'line-9'].includes(config.stem)
+    ? await readOptionalJson(
+        resolve(`data/verification/${config.stem}-api-consensus.json`),
+      )
+    : null;
   const manualSurfaceExits = new Map(
     (manual?.surfaceExits ?? []).map((station) => [
       normalizeCode(station.stationCode),
@@ -149,12 +154,27 @@ for (const config of lineConfigs) {
       station.directions,
     ]),
   );
+  const readinessDirections = new Map(
+    (readiness?.verifiedDirectionDoors ?? []).map((station) => [
+      normalizeCode(station.stationCode),
+      station.directions,
+    ]),
+  );
+  const readinessPendingCodes = new Set(
+    (readiness?.pendingDirectionDoorReview ?? []).map((station) =>
+      normalizeCode(station.stationCode),
+    ),
+  );
   const directionDoorChecks = [...doorByStation.values()]
     .map((station) => ({
       ...station,
-      verifiedDirections: manualDirections.get(station.stationCode) ?? [],
+      verifiedDirections:
+        readinessDirections.get(station.stationCode) ??
+        manualDirections.get(station.stationCode) ??
+        [],
     }))
     .filter((station) => {
+      if (readiness) return readinessPendingCodes.has(station.stationCode);
       if (station.verifiedDirections.length < 2) return true;
       return false;
     })

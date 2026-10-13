@@ -2,11 +2,13 @@
   "schemaVersion": 1,
   "line": "9",
   "sourceCollectedAt": "2026-09-18T03:13:31.764Z",
-  "generatedAt": "2026-10-13T06:20:27.051Z",
+  "generatedAt": "2026-10-13T06:50:07.451Z",
   "routeEngineSupported": false,
   "policy": {
     "autoSurfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장",
     "autoAdjacentDoor": "stationElevatorCarNumber가 있고 다른 API와 값 충돌이 없을 때만 승강장별 후보로 저장",
+    "line9StationElevatorDirection": "9호선 stationElevator 후보는 첫 값을 개화 쪽 인접역 방향, 두 번째 값을 중앙보훈병원 쪽 인접역 방향에 연결하며 단일 값은 양방향에 적용",
+    "line9PlatformDirection": "9호선 stationElevatorCarNumber 승강장 후보는 앞 플랫폼을 개화 쪽 인접역 방향, 뒤 플랫폼을 중앙보훈병원 쪽 인접역 방향에 연결",
     "productionUse": "사용자 방향 검증과 경로 엔진 연결 전에는 안전 경로 추천에 사용하지 않음"
   },
   "gapSummary": {
@@ -380,7 +382,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0927",
@@ -405,7 +407,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0928",
@@ -426,7 +428,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0929",
@@ -447,7 +449,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0930",
@@ -472,7 +474,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0931",
@@ -493,7 +495,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0932",
@@ -514,7 +516,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0933",
@@ -537,7 +539,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0934",
@@ -558,7 +560,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0935",
@@ -579,7 +581,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0936",
@@ -600,7 +602,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0937",
@@ -621,7 +623,7 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     },
     {
       "stationCode": "0938",
@@ -642,345 +644,793 @@
           ]
         }
       ],
-      "status": "platform_direction_mapping_required"
+      "status": "platform_direction_mapped"
     }
   ],
-  "verifiedDirectionDoors": [],
-  "pendingDirectionDoorReview": [
+  "verifiedDirectionDoors": [
     {
       "stationCode": "0901",
       "stationName": "개화",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {}
+      "directions": [
+        {
+          "toward": "김포공항",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
     },
     {
       "stationCode": "0902",
       "stationName": "김포공항",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "1-1",
-          "4-2"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "개화",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "공항시장",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0903",
       "stationName": "공항시장",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {}
+      "directions": [
+        {
+          "toward": "김포공항",
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "신방화",
+          "recommendedDoors": [
+            "1-3"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
     },
     {
       "stationCode": "0904",
       "stationName": "신방화",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-1",
-          "4-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "공항시장",
+          "recommendedDoors": [
+            "3-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "마곡나루",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0905",
       "stationName": "마곡나루",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-3",
-          "4-2"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "신방화",
+          "recommendedDoors": [
+            "3-3"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "양천향교",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0906",
       "stationName": "양천향교",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-2",
-          "4-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "마곡나루",
+          "recommendedDoors": [
+            "3-2"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "가양",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0907",
       "stationName": "가양",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {}
+      "directions": [
+        {
+          "toward": "양천향교",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "증미",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
     },
     {
       "stationCode": "0908",
       "stationName": "증미",
-      "reason": "source_value_conflict",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [
-          "2-4",
-          "3-1"
-        ],
-        "stationElevator": [
-          "3-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "가양",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "등촌",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0909",
       "stationName": "등촌",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "1-1",
-          "6-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "증미",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "염창",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0910",
       "stationName": "염창",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-4",
-          "4-1"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "등촌",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "신목동",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0911",
       "stationName": "신목동",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {}
+      "directions": [
+        {
+          "toward": "염창",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "선유도",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
     },
     {
       "stationCode": "0912",
       "stationName": "선유도",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-4",
-          "4-1"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "신목동",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "당산",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0913",
       "stationName": "당산",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "6-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "선유도",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "국회의사당",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0914",
       "stationName": "국회의사당",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "5-3"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "당산",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "여의도",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0915",
       "stationName": "여의도",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "1-1",
-          "6-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "국회의사당",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "샛강",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0916",
       "stationName": "샛강",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {}
+      "directions": [
+        {
+          "toward": "여의도",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "노량진",
+          "recommendedDoors": [
+            "6-4"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
     },
     {
       "stationCode": "0917",
       "stationName": "노량진",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-4",
-          "4-1"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "샛강",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "노들",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0918",
       "stationName": "노들",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-2",
-          "4-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "노량진",
+          "recommendedDoors": [
+            "3-2"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "흑석",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0919",
       "stationName": "흑석",
-      "reason": "source_value_conflict",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [
-          "2-2",
-          "3-3"
-        ],
-        "stationElevator": [
-          "3-3",
-          "4-2"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "노들",
+          "recommendedDoors": [
+            "3-3"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "동작",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0920",
       "stationName": "동작",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {}
+      "directions": [
+        {
+          "toward": "흑석",
+          "recommendedDoors": [
+            "2-1",
+            "6-2"
+          ],
+          "evidence": "사용자 확인; 6-2는 4호선 환승 위치"
+        },
+        {
+          "toward": "구반포",
+          "recommendedDoors": [
+            "1-2",
+            "5-3"
+          ],
+          "evidence": "사용자 확인; 1-2는 4호선 환승 위치"
+        }
+      ]
     },
     {
       "stationCode": "0921",
       "stationName": "구반포",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "2-1",
-          "5-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "동작",
+          "recommendedDoors": [
+            "2-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "신반포",
+          "recommendedDoors": [
+            "5-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0922",
       "stationName": "신반포",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "구반포",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "고속터미널",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0923",
       "stationName": "고속터미널",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "1-1",
-          "4-4"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "신반포",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "사평",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0924",
       "stationName": "사평",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "4-1",
-          "4-2"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "고속터미널",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "신논현",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     },
     {
       "stationCode": "0925",
       "stationName": "신논현",
-      "reason": "station_elevator_car_number_missing",
-      "remainingDirections": [],
-      "verifiedDirections": [],
-      "sourceValues": {
-        "stationElevatorCarNumber": [],
-        "stationElevator": [
-          "3-4",
-          "4-1"
-        ],
-        "SeoulMetroFaciInfo": []
-      }
+      "directions": [
+        {
+          "toward": "사평",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "언주",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "stationElevator 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0926",
+      "stationName": "언주",
+      "directions": [
+        {
+          "toward": "신논현",
+          "recommendedDoors": [
+            "3-3",
+            "3-4"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "선정릉",
+          "recommendedDoors": [
+            "4-1",
+            "4-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0927",
+      "stationName": "선정릉",
+      "directions": [
+        {
+          "toward": "언주",
+          "recommendedDoors": [
+            "2-3",
+            "2-4",
+            "5-2",
+            "5-3"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "삼성중앙",
+          "recommendedDoors": [
+            "2-2",
+            "2-3",
+            "4-4",
+            "5-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0928",
+      "stationName": "삼성중앙",
+      "directions": [
+        {
+          "toward": "선정릉",
+          "recommendedDoors": [
+            "4-1",
+            "4-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "봉은사",
+          "recommendedDoors": [
+            "3-3",
+            "3-4"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0929",
+      "stationName": "봉은사",
+      "directions": [
+        {
+          "toward": "삼성중앙",
+          "recommendedDoors": [
+            "3-4",
+            "4-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "종합운동장",
+          "recommendedDoors": [
+            "3-4",
+            "4-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0930",
+      "stationName": "종합운동장",
+      "directions": [
+        {
+          "toward": "봉은사",
+          "recommendedDoors": [
+            "1-4",
+            "2-1",
+            "4-1",
+            "4-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "삼전",
+          "recommendedDoors": [
+            "3-3",
+            "3-4",
+            "5-4",
+            "6-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0931",
+      "stationName": "삼전",
+      "directions": [
+        {
+          "toward": "종합운동장",
+          "recommendedDoors": [
+            "3-3",
+            "3-4"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "석촌고분",
+          "recommendedDoors": [
+            "4-1",
+            "4-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0932",
+      "stationName": "석촌고분",
+      "directions": [
+        {
+          "toward": "삼전",
+          "recommendedDoors": [
+            "4-1",
+            "4-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "석촌",
+          "recommendedDoors": [
+            "3-3",
+            "3-4"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0933",
+      "stationName": "석촌",
+      "directions": [
+        {
+          "toward": "석촌고분",
+          "recommendedDoors": [
+            "1-3",
+            "4-4",
+            "5-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "송파나루",
+          "recommendedDoors": [
+            "2-4",
+            "3-1",
+            "6-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0934",
+      "stationName": "송파나루",
+      "directions": [
+        {
+          "toward": "석촌",
+          "recommendedDoors": [
+            "3-4",
+            "4-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "한성백제",
+          "recommendedDoors": [
+            "3-4",
+            "4-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0935",
+      "stationName": "한성백제",
+      "directions": [
+        {
+          "toward": "송파나루",
+          "recommendedDoors": [
+            "4-2",
+            "4-3"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "올림픽공원",
+          "recommendedDoors": [
+            "3-2",
+            "3-3"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0936",
+      "stationName": "올림픽공원",
+      "directions": [
+        {
+          "toward": "한성백제",
+          "recommendedDoors": [
+            "2-3",
+            "2-4"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "둔촌오륜",
+          "recommendedDoors": [
+            "5-1",
+            "5-2"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0937",
+      "stationName": "둔촌오륜",
+      "directions": [
+        {
+          "toward": "올림픽공원",
+          "recommendedDoors": [
+            "3-4",
+            "4-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        },
+        {
+          "toward": "중앙보훈병원",
+          "recommendedDoors": [
+            "3-4",
+            "4-1"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
+    },
+    {
+      "stationCode": "0938",
+      "stationName": "중앙보훈병원",
+      "directions": [
+        {
+          "toward": "둔촌오륜",
+          "recommendedDoors": [
+            "3-3",
+            "3-4"
+          ],
+          "evidence": "stationElevatorCarNumber 플랫폼 순서 정책 (앞: 개화 방면, 뒤: 중앙보훈병원 방면)"
+        }
+      ]
     }
-  ]
+  ],
+  "pendingDirectionDoorReview": []
 }

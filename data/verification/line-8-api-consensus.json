@@ -2,11 +2,13 @@
   "schemaVersion": 1,
   "line": "8",
   "sourceCollectedAt": "2026-09-18T09:14:31.475Z",
-  "generatedAt": "2026-10-13T06:20:27.039Z",
+  "generatedAt": "2026-10-13T06:50:07.438Z",
   "routeEngineSupported": false,
   "policy": {
     "autoSurfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장",
     "autoAdjacentDoor": "stationElevatorCarNumber가 있고 다른 API와 값 충돌이 없을 때만 승강장별 후보로 저장",
+    "line9StationElevatorDirection": "9호선 stationElevator 후보는 첫 값을 개화 쪽 인접역 방향, 두 번째 값을 중앙보훈병원 쪽 인접역 방향에 연결하며 단일 값은 양방향에 적용",
+    "line9PlatformDirection": "9호선 stationElevatorCarNumber 승강장 후보는 앞 플랫폼을 개화 쪽 인접역 방향, 뒤 플랫폼을 중앙보훈병원 쪽 인접역 방향에 연결",
     "productionUse": "사용자 방향 검증과 경로 엔진 연결 전에는 안전 경로 추천에 사용하지 않음"
   },
   "gapSummary": {

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "line": "9",
+  "verifiedAt": "2026-10-13",
+  "directionalDoors": [
+    {
+      "stationCode": "0901",
+      "stationName": "개화",
+      "directions": [
+        {
+          "toward": "김포공항",
+          "recommendedDoors": ["6-4"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0903",
+      "stationName": "공항시장",
+      "directions": [
+        {
+          "toward": "김포공항",
+          "recommendedDoors": ["6-2"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "신방화",
+          "recommendedDoors": ["1-3"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0907",
+      "stationName": "가양",
+      "directions": [
+        {
+          "toward": "양천향교",
+          "recommendedDoors": ["1-1"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "증미",
+          "recommendedDoors": ["6-4"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0911",
+      "stationName": "신목동",
+      "directions": [
+        {
+          "toward": "염창",
+          "recommendedDoors": ["4-1"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "선유도",
+          "recommendedDoors": ["4-1"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0916",
+      "stationName": "샛강",
+      "directions": [
+        {
+          "toward": "여의도",
+          "recommendedDoors": ["1-1"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "노량진",
+          "recommendedDoors": ["6-4"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0920",
+      "stationName": "동작",
+      "directions": [
+        {
+          "toward": "흑석",
+          "recommendedDoors": ["2-1", "6-2"],
+          "evidence": "사용자 확인; 6-2는 4호선 환승 위치"
+        },
+        {
+          "toward": "구반포",
+          "recommendedDoors": ["1-2", "5-3"],
+          "evidence": "사용자 확인; 1-2는 4호선 환승 위치"
+        }
+      ]
+    }
+  ]
+}
