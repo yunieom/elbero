@@ -1,6 +1,6 @@
 # 신림선 API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:58:12.242Z
+- 수집 시각: 2026-10-13T23:16:54.678Z
 - 대상: 11개 역
 - 차이가 기록된 역: 11개
 - 차이 항목: 33건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 11 | 0 | 290 |
 | stationElevator | 11 | 0 | 35 |
 | stationElevatorCarNumber | 11 | 0 | 22 |
+| stationStairCarNumber | 0 | 11 | 0 |
 | stPlf | 11 | 0 | 22 |
 | stationPlatformTrainDistance | 11 | 0 | 132 |
 | SeoulMetroFaciInfo | 0 | 11 | 0 |

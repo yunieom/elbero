@@ -1,6 +1,6 @@
 # 수인분당선 API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:57:00.570Z
+- 수집 시각: 2026-10-13T23:17:09.809Z
 - 대상: 63개 역
 - 차이가 기록된 역: 63개
 - 차이 항목: 177건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 63 | 0 | 1866 |
 | stationElevator | 60 | 3 | 222 |
 | stationElevatorCarNumber | 45 | 18 | 103 |
+| stationStairCarNumber | 0 | 63 | 0 |
 | stPlf | 63 | 0 | 130 |
 | stationPlatformTrainDistance | 63 | 0 | 3120 |
 | SeoulMetroFaciInfo | 0 | 63 | 0 |

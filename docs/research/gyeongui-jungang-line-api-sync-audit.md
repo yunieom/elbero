@@ -1,6 +1,6 @@
 # 경의중앙선 API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:57:28.719Z
+- 수집 시각: 2026-10-13T23:17:30.977Z
 - 대상: 58개 역
 - 차이가 기록된 역: 57개
 - 차이 항목: 173건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 58 | 0 | 1901 |
 | stationElevator | 53 | 5 | 207 |
 | stationElevatorCarNumber | 47 | 11 | 134 |
+| stationStairCarNumber | 0 | 58 | 0 |
 | stPlf | 52 | 6 | 150 |
 | stationPlatformTrainDistance | 52 | 6 | 3868 |
 | SeoulMetroFaciInfo | 0 | 58 | 0 |

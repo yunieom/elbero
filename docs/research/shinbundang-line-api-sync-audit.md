@@ -1,6 +1,6 @@
 # 신분당선 API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:55:31.218Z
+- 수집 시각: 2026-10-13T23:15:58.295Z
 - 대상: 16개 역
 - 차이가 기록된 역: 16개
 - 차이 항목: 48건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 16 | 0 | 574 |
 | stationElevator | 16 | 0 | 74 |
 | stationElevatorCarNumber | 15 | 1 | 36 |
+| stationStairCarNumber | 0 | 16 | 0 |
 | stPlf | 16 | 0 | 32 |
 | stationPlatformTrainDistance | 16 | 0 | 768 |
 | SeoulMetroFaciInfo | 0 | 16 | 0 |

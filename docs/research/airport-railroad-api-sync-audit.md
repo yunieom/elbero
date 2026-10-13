@@ -1,6 +1,6 @@
 # 공항철도 API 정보 차이 감사
 
-- 수집 시각: 2026-09-18T09:40:44.587Z
+- 수집 시각: 2026-10-13T23:17:57.017Z
 - 대상: 14개 역
 - 차이가 기록된 역: 14개
 - 차이 항목: 42건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 14 | 0 | 679 |
 | stationElevator | 14 | 0 | 70 |
 | stationElevatorCarNumber | 14 | 0 | 43 |
+| stationStairCarNumber | 0 | 14 | 0 |
 | stPlf | 14 | 0 | 32 |
 | stationPlatformTrainDistance | 14 | 0 | 696 |
 | SeoulMetroFaciInfo | 0 | 14 | 0 |
@@ -104,4 +105,4 @@
 
 ## 지원 노선 확대
 
-동일한 수집기에서 `--line 1`부터 `--line 9` 및 `--line airport`를 실행할 수 있다. 이번 결과는 공항철도만 포함한다.
+동일한 수집기에서 `--line 1`부터 `--line 9` 및 등록된 수도권 노선 식별자를 실행할 수 있다. 이번 결과는 공항철도만 포함한다.

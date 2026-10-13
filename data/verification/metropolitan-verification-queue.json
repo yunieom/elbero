@@ -4733,8 +4733,8 @@
     {
       "name": "공항철도",
       "stem": "airport-railroad",
-      "status": "future_target",
-      "collectedAt": "2026-09-18T09:40:44.587Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:17:57.017Z",
       "stationCount": 14,
       "resolvedSurfaceExits": [
         {
@@ -5631,8 +5631,8 @@
     {
       "name": "신분당선",
       "stem": "shinbundang-line",
-      "status": "future_target",
-      "collectedAt": "2026-09-21T00:55:31.218Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:15:58.295Z",
       "stationCount": 16,
       "resolvedSurfaceExits": [
         {
@@ -6103,8 +6103,8 @@
     {
       "name": "김포골드라인",
       "stem": "gimpo-goldline",
-      "status": "future_target",
-      "collectedAt": "2026-09-21T00:56:29.559Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:16:37.674Z",
       "stationCount": 10,
       "resolvedSurfaceExits": [
         {
@@ -6160,8 +6160,8 @@
     {
       "name": "GTX-A",
       "stem": "gtx-a",
-      "status": "future_target",
-      "collectedAt": "2026-09-21T00:56:48.564Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:17:51.597Z",
       "stationCount": 9,
       "resolvedSurfaceExits": [],
       "surfaceExitConflicts": [
@@ -6331,8 +6331,8 @@
     {
       "name": "수인분당선",
       "stem": "suin-bundang-line",
-      "status": "future_target",
-      "collectedAt": "2026-09-21T00:57:00.570Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:17:09.809Z",
       "stationCount": 63,
       "resolvedSurfaceExits": [
         {
@@ -7281,8 +7281,8 @@
     {
       "name": "경의중앙선",
       "stem": "gyeongui-jungang-line",
-      "status": "future_target",
-      "collectedAt": "2026-09-21T00:57:28.719Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:17:30.977Z",
       "stationCount": 58,
       "resolvedSurfaceExits": [
         {
@@ -8243,8 +8243,8 @@
     {
       "name": "신림선",
       "stem": "sillim-line",
-      "status": "future_target",
-      "collectedAt": "2026-09-21T00:58:12.242Z",
+      "status": "route_engine_target",
+      "collectedAt": "2026-10-13T23:16:54.678Z",
       "stationCount": 11,
       "resolvedSurfaceExits": [],
       "surfaceExitConflicts": [],

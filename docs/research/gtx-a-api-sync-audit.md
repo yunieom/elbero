@@ -1,6 +1,6 @@
 # GTX-A API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:56:48.564Z
+- 수집 시각: 2026-10-13T23:17:51.597Z
 - 대상: 9개 역
 - 차이가 기록된 역: 9개
 - 차이 항목: 17건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 9 | 0 | 405 |
 | stationElevator | 4 | 5 | 15 |
 | stationElevatorCarNumber | 4 | 5 | 16 |
+| stationStairCarNumber | 0 | 9 | 0 |
 | stPlf | 4 | 5 | 8 |
 | stationPlatformTrainDistance | 4 | 5 | 192 |
 | SeoulMetroFaciInfo | 0 | 9 | 0 |

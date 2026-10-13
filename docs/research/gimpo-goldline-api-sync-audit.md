@@ -1,6 +1,6 @@
 # 김포골드라인 API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:56:29.559Z
+- 수집 시각: 2026-10-13T23:16:37.674Z
 - 대상: 10개 역
 - 차이가 기록된 역: 10개
 - 차이 항목: 30건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 10 | 0 | 283 |
 | stationElevator | 10 | 0 | 41 |
 | stationElevatorCarNumber | 10 | 0 | 22 |
+| stationStairCarNumber | 0 | 10 | 0 |
 | stPlf | 10 | 0 | 20 |
 | stationPlatformTrainDistance | 10 | 0 | 80 |
 | SeoulMetroFaciInfo | 0 | 10 | 0 |
