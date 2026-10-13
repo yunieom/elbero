@@ -6103,7 +6103,7 @@
     {
       "name": "김포골드라인",
       "stem": "gimpo-goldline",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "collectedAt": "2026-10-13T23:16:37.674Z",
       "stationCount": 10,
       "resolvedSurfaceExits": [
@@ -8243,7 +8243,7 @@
     {
       "name": "신림선",
       "stem": "sillim-line",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "collectedAt": "2026-10-13T23:16:54.678Z",
       "stationCount": 11,
       "resolvedSurfaceExits": [],

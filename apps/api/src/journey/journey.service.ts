@@ -6,6 +6,7 @@ import { VERIFIED_JOURNEYS } from './data/verified-journeys.data.js';
 import type { JourneyPlanResDto } from './dto/res/journey-plan.res.dto.js';
 import type { Line5StationResDto } from './dto/res/line-5-station.res.dto.js';
 import { JourneyRouteEngine } from './journey-route-engine.service.js';
+import { createGimpoGoldlineJourneyDefinition } from './gimpo-goldline-journey.factory.js';
 import { createInterlineJourneyDefinition } from './interline-journey.factory.js';
 import { createLine2JourneyDefinition } from './line-2-journey.factory.js';
 import { createLine3JourneyDefinition } from './line-3-journey.factory.js';
@@ -15,6 +16,7 @@ import {
   listLine5Stations,
 } from './line-5-journey.factory.js';
 import { createLine7JourneyDefinition } from './line-7-journey.factory.js';
+import { createSillimLineJourneyDefinition } from './sillim-line-journey.factory.js';
 import type { VerifiedJourneyDefinition } from './types/verified-journey.type.js';
 
 @Injectable()
@@ -67,6 +69,14 @@ export class JourneyService {
       createLine4JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine5JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine7JourneyDefinition(originStationCode, destinationStationCode) ??
+      createGimpoGoldlineJourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      ) ??
+      createSillimLineJourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      ) ??
       createInterlineJourneyDefinition(
         originStationCode,
         destinationStationCode,

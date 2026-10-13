@@ -1,4 +1,9 @@
 import {
+  createGimpoGoldlineJourneyDefinition,
+  getGimpoGoldlineDistance,
+  hasGimpoGoldlineStation,
+} from './gimpo-goldline-journey.factory.js';
+import {
   createLine2JourneyDefinition,
   getLine2Distance,
   hasLine2Station,
@@ -24,6 +29,11 @@ import {
   hasLine7Station,
 } from './line-7-journey.factory.js';
 import {
+  createSillimLineJourneyDefinition,
+  getSillimLineDistance,
+  hasSillimLineStation,
+} from './sillim-line-journey.factory.js';
+import {
   JOURNEY_STEP_TYPE,
   type FacilityRequirementGroup,
   type VerifiedJourneyDefinition,
@@ -31,7 +41,7 @@ import {
   type VerifiedRouteCandidate,
 } from './types/verified-journey.type.js';
 
-type SupportedLineId = '2' | '3' | '4' | '5' | '7';
+type SupportedLineId = '2' | '3' | '4' | '5' | '7' | 'G1' | 'L1';
 
 interface LineAdapter {
   lineName: string;
@@ -82,6 +92,18 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     hasStation: hasLine7Station,
     distance: getLine7Distance,
     create: createLine7JourneyDefinition,
+  },
+  G1: {
+    lineName: '김포골드라인',
+    hasStation: hasGimpoGoldlineStation,
+    distance: getGimpoGoldlineDistance,
+    create: createGimpoGoldlineJourneyDefinition,
+  },
+  L1: {
+    lineName: '신림선',
+    hasStation: hasSillimLineStation,
+    distance: getSillimLineDistance,
+    create: createSillimLineJourneyDefinition,
   },
 };
 
@@ -165,6 +187,21 @@ const interchanges: readonly Interchange[] = [
     stationName: '군자',
     stationCodes: { '5': '2545', '7': '2727' },
     accessibilityVerified: true,
+  },
+  {
+    stationName: '김포공항',
+    stationCodes: { '5': '2513', G1: 'G109' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '신림',
+    stationCodes: { '2': '0230', L1: 'S408' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '보라매',
+    stationCodes: { '7': '2744', L1: 'S404' },
+    accessibilityVerified: false,
   },
 ];
 

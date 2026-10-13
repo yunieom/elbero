@@ -21,7 +21,7 @@ const lineConfigs = [
   { name: '인천 2호선', stem: 'incheon-line-2', status: 'future_target' },
   { name: '신분당선', stem: 'shinbundang-line', status: 'route_engine_target' },
   { name: '에버라인', stem: 'everline', status: 'future_target' },
-  { name: '김포골드라인', stem: 'gimpo-goldline', status: 'route_engine_target' },
+  { name: '김포골드라인', stem: 'gimpo-goldline', status: 'verified_supported' },
   { name: 'GTX-A', stem: 'gtx-a', status: 'route_engine_target' },
   {
     name: '인천공항 자기부상철도',
@@ -33,7 +33,7 @@ const lineConfigs = [
   { name: '경의중앙선', stem: 'gyeongui-jungang-line', status: 'route_engine_target' },
   { name: '경강선', stem: 'gyeonggang-line', status: 'future_target' },
   { name: '서해선', stem: 'seohae-line', status: 'future_target' },
-  { name: '신림선', stem: 'sillim-line', status: 'route_engine_target' },
+  { name: '신림선', stem: 'sillim-line', status: 'verified_supported' },
   { name: '우이신설선', stem: 'ui-sinseol-line', status: 'future_target' },
   {
     name: '의정부경전철',
