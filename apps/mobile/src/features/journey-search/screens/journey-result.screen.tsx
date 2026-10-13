@@ -43,11 +43,19 @@ export function JourneyResultScreen({
     retry,
     setCurrentStepOrder,
   } = useJourneyPlan(originStationCode, destinationStationCode);
+  const returnToStationSearch = () => {
+    if (router.canGoBack()) {
+      router.back();
+      return;
+    }
+
+    router.replace("/");
+  };
 
   if (isLoading && !journey) {
     return (
       <Screen>
-        <Header onBack={() => router.back()} />
+        <Header onBack={returnToStationSearch} />
         <View accessibilityLiveRegion="polite" style={styles.centerState}>
           <ActivityIndicator color={colors.primary} size="large" />
           <Text maxFontSizeMultiplier={1.6} style={styles.loadingTitle}>
@@ -65,7 +73,7 @@ export function JourneyResultScreen({
     const presentation = presentJourneyError(error);
     return (
       <Screen>
-        <Header onBack={() => router.back()} />
+        <Header onBack={returnToStationSearch} />
         <View accessibilityLiveRegion="assertive" style={styles.centerState}>
           <View
             accessibilityElementsHidden
@@ -89,7 +97,7 @@ export function JourneyResultScreen({
           <PrimaryButton
             label={presentation.actionLabel}
             onPress={
-              presentation.action === "retry" ? retry : () => router.back()
+              presentation.action === "retry" ? retry : returnToStationSearch
             }
             style={styles.retry}
           />
@@ -113,7 +121,7 @@ export function JourneyResultScreen({
   );
   return (
     <Screen>
-      <Header onBack={() => router.back()} />
+      <Header onBack={returnToStationSearch} />
 
       <View style={styles.routeTitleArea}>
         <View style={styles.lineBadges}>
@@ -270,7 +278,7 @@ export function JourneyResultScreen({
 
       <Pressable
         accessibilityRole="button"
-        onPress={() => router.back()}
+        onPress={returnToStationSearch}
         style={styles.secondaryButton}
       >
         <Text style={styles.secondaryButtonText}>다른 역으로 검색</Text>
