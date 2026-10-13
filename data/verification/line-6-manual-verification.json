@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "line": "6",
+  "verifiedAt": "2026-10-13",
+  "directionalDoors": [
+    {
+      "stationCode": "2611",
+      "stationName": "응암",
+      "directions": [
+        {
+          "toward": "구산",
+          "recommendedDoors": ["5-2"],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2612",
+      "stationName": "역촌",
+      "directions": [
+        {
+          "toward": "불광",
+          "recommendedDoors": ["4-2"],
+          "evidence": "사용자 확인: 불광 방향 단방향 운행"
+        }
+      ]
+    },
+    {
+      "stationCode": "2613",
+      "stationName": "불광",
+      "directions": [
+        {
+          "toward": "독바위",
+          "recommendedDoors": ["2-3", "7-2"],
+          "evidence": "사용자 확인: 독바위 방향 단방향 운행"
+        }
+      ]
+    },
+    {
+      "stationCode": "2614",
+      "stationName": "독바위",
+      "directions": [
+        {
+          "toward": "연신내",
+          "recommendedDoors": ["3-2"],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2616",
+      "stationName": "구산",
+      "directions": [
+        {
+          "toward": "응암",
+          "recommendedDoors": ["8-4"],
+          "evidence": "사용자 확인: 도면을 보고 계산한 값"
+        }
+      ]
+    },
+    {
+      "stationCode": "2617",
+      "stationName": "새절",
+      "directions": [
+        {
+          "toward": "응암",
+          "recommendedDoors": ["4-4"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "증산",
+          "recommendedDoors": ["4-4"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "2618",
+      "stationName": "증산",
+      "directions": [
+        {
+          "toward": "새절",
+          "recommendedDoors": ["5-1"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "디지털미디어시티",
+          "recommendedDoors": ["4-4"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "2619",
+      "stationName": "디지털미디어시티",
+      "directions": [
+        {
+          "toward": "증산",
+          "recommendedDoors": ["3-4"],
+          "evidence": "사용자 확인: stationElevator"
+        },
+        {
+          "toward": "월드컵경기장",
+          "recommendedDoors": ["8-4"],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2620",
+      "stationName": "월드컵경기장",
+      "directions": [
+        {
+          "toward": "디지털미디어시티",
+          "recommendedDoors": ["4-4"],
+          "evidence": "사용자 확인: stationElevator"
+        },
+        {
+          "toward": "마포구청",
+          "recommendedDoors": ["4-4"],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    }
+  ]
+}

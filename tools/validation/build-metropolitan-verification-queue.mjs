@@ -52,7 +52,7 @@ for (const config of lineConfigs) {
   const manual = await readOptionalJson(
     resolve(`data/verification/${config.stem}-manual-verification.json`),
   );
-  const readiness = ['line-8', 'line-9'].includes(config.stem)
+  const readiness = ['line-6', 'line-8', 'line-9'].includes(config.stem)
     ? await readOptionalJson(
         resolve(`data/verification/${config.stem}-api-consensus.json`),
       )

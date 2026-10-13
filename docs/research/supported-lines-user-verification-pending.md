@@ -24,7 +24,7 @@
 | 3호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
 | 4호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 1 | 0 |
 | 5호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
-| 6호선 | 경로 엔진 지원 대상 | 2026-09-18 | 0 | 30 | 6 | 0 |
+| 6호선 | 경로 엔진 지원 대상 | 2026-09-18 | 0 | 2 | 6 | 0 |
 | 7호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
 | 8호선 | 경로 엔진 지원 대상 | 2026-09-18 | 0 | 0 | 0 | 144 |
 | 9호선 | 경로 엔진 지원 대상 | 2026-09-18 | 0 | 0 | 0 | 0 |
@@ -240,40 +240,12 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (30역)
+### 방향별 차량·문 확인 (2역)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
-| 응암 (2611, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-1, 5-4<br>stationElevator: 5-2<br>SeoulMetroFaciInfo: 4-2, 5-2 |
-| 역촌 (2612, S1) | stationElevatorCarNumber 누락 | - | stationElevator: 4-2<br>SeoulMetroFaciInfo: 4-2 |
-| 불광 (2613, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-1, 5-1<br>stationElevator: 2-3, 7-2<br>SeoulMetroFaciInfo: 4-1, 5-2 |
-| 독바위 (2614, S1) | API 값 충돌 | - | stationElevatorCarNumber: 3-1<br>stationElevator: 3-2<br>SeoulMetroFaciInfo: 3-2 |
-| 연신내 (2615, S1) | API 값 충돌 | - | stationElevatorCarNumber: 6-1<br>stationElevator: 6-2<br>SeoulMetroFaciInfo: 6-2 |
-| 구산 (2616, S1) | stationElevatorCarNumber 누락 | - | SeoulMetroFaciInfo: 5-4 |
-| 새절(신사) (2617, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-4<br>stationElevator: 5-4<br>SeoulMetroFaciInfo: 1-1, 4-4 |
-| 증산(명지대앞) (2618, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-4, 5-1<br>stationElevator: 4-3, 5-1<br>SeoulMetroFaciInfo: 4-3, 5-1 |
-| 디지털미디어시티 (2619, S1) | API 값 충돌 | - | stationElevatorCarNumber: 1-1, 8-4<br>stationElevator: 3-4, 8-4<br>SeoulMetroFaciInfo: 1-1, 8-4 |
-| 월드컵경기장(성산) (2620, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-4, 5-1<br>stationElevator: 4-4<br>SeoulMetroFaciInfo: 4-4 |
-| 마포구청 (2621, S1) | API 값 충돌 | - | stationElevatorCarNumber: 1-2, 8-2<br>stationElevator: 1-1, 8-4<br>SeoulMetroFaciInfo: 1-1, 8-4 |
-| 망원 (2622, S1) | API 값 충돌 | - | stationElevatorCarNumber: 5-1, 5-2<br>stationElevator: 5-1<br>SeoulMetroFaciInfo: 5-1 |
-| 합정 (2623, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-2, 5-2<br>stationElevator: 4-2, 6-2<br>SeoulMetroFaciInfo: 4-2, 5-1 |
-| 광흥창(서강) (2625, S1) | API 값 충돌 | - | stationElevatorCarNumber: 1-1, 8-4<br>stationElevator: 1-2, 8-3<br>SeoulMetroFaciInfo: 1-2, 8-3 |
-| 공덕 (2627, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-4<br>stationElevator: 4-4<br>SeoulMetroFaciInfo: 1-1, 4-4, 8-4 |
-| 효창공원앞 (2628, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-1, 5-4<br>stationElevator: 4-2, 5-3<br>SeoulMetroFaciInfo: 4-2, 5-3 |
-| 삼각지 (2629, S1) | API 값 충돌 | - | stationElevatorCarNumber: 1-1, 8-4<br>stationElevator: 1-1, 8-4<br>SeoulMetroFaciInfo: 1-1, 4-4, 6-1, 8-4 |
-| 녹사평(용산구청) (2630, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-3, 5-2<br>stationElevator: 4-3, 5-1<br>SeoulMetroFaciInfo: 4-3, 5-1 |
-| 이태원 (2631, S1) | API 값 충돌 | - | stationElevatorCarNumber: 3-2, 6-3<br>stationElevator: 3-1, 6-3<br>SeoulMetroFaciInfo: 3-1, 6-3 |
 | 청구 (2635, S1) | API 값 충돌 | - | stationElevatorCarNumber: 6-1<br>stationElevator: 4-1, 5-3<br>SeoulMetroFaciInfo: 4-1, 5-3, 6-2 |
-| 동묘앞 (2637, S1) | API 값 충돌 | - | stationElevatorCarNumber: 3-4, 8-4<br>stationElevator: 1-1, 4-2, 5-3, 8-4<br>SeoulMetroFaciInfo: 1-1, 3-3, 6-2, 8-4 |
-| 창신 (2638, S1) | API 값 충돌 | - | stationElevatorCarNumber: 3-4, 6-1<br>stationElevator: 4-2, 5-3<br>SeoulMetroFaciInfo: 4-2, 5-3 |
-| 보문 (2639, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-4<br>stationElevator: 4-4, 5-1<br>SeoulMetroFaciInfo: 4-4, 5-1 |
-| 고려대(종암) (2641, S1) | API 값 충돌 | - | stationElevatorCarNumber: 3-2, 6-1<br>stationElevator: 3-2, 6-2<br>SeoulMetroFaciInfo: 3-2, 6-2 |
-| 상월곡(한국과학기술연구원) (2643, S1) | stationElevatorCarNumber 누락 | - | stationElevator: 1-4, 8-4<br>SeoulMetroFaciInfo: 1-4, 8-4 |
-| 돌곶이 (2644, S1) | stationElevatorCarNumber 누락 | - | stationElevator: 4-4<br>SeoulMetroFaciInfo: 4-4 |
-| 태릉입구 (2646, S1) | API 값 충돌 | - | stationElevatorCarNumber: 3-4, 5-4<br>stationElevator: 3-4, 5-3<br>SeoulMetroFaciInfo: 3-4, 5-3 |
-| 화랑대(서울여대입구) (2647, S1) | API 값 충돌 | - | stationElevatorCarNumber: 4-2, 5-4<br>stationElevator: 4-1, 5-4<br>SeoulMetroFaciInfo: 4-1, 5-4 |
-| 봉화산(서울의료원) (2648, S1) | stationElevatorCarNumber 누락 | - | SeoulMetroFaciInfo: 1-2, 8-3 |
-| 신내 (2649, S1) | stationElevatorCarNumber 누락 | - | 후보 없음 |
+| 봉화산(서울의료원) (2648, S1) | stationElevatorCarNumber 누락; 나머지 방향 확인 필요 | 신내: 8-3 | SeoulMetroFaciInfo: 1-2, 8-3 |
 
 ### 승강장·문·이격거리 연결 확인 (6역)
 

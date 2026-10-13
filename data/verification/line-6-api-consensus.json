@@ -1,0 +1,753 @@
+{
+  "schemaVersion": 1,
+  "line": "6",
+  "sourceCollectedAt": "2026-09-18T09:14:16.096Z",
+  "generatedAt": "2026-10-13T07:10:35.601Z",
+  "routeEngineSupported": false,
+  "policy": {
+    "directionDoor": "사용자 확인값을 우선하고 나머지는 stationElevator 위치 설명에 적힌 인접역 방향과 차량·문을 사용",
+    "loop": "응암순환 구간은 일반 선형 노선 순서를 적용하지 않고 사용자 확인 단방향을 사용",
+    "mismatch": "다른 호선 방향을 반환하거나 인접역 방향이 누락된 경우 사용자 확인 대상으로 유지"
+  },
+  "verifiedDirectionDoors": [
+    {
+      "stationCode": "2611",
+      "stationName": "응암",
+      "directions": [
+        {
+          "toward": "구산",
+          "recommendedDoors": [
+            "5-2"
+          ],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2612",
+      "stationName": "역촌",
+      "directions": [
+        {
+          "toward": "불광",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "사용자 확인: 불광 방향 단방향 운행"
+        }
+      ]
+    },
+    {
+      "stationCode": "2613",
+      "stationName": "불광",
+      "directions": [
+        {
+          "toward": "독바위",
+          "recommendedDoors": [
+            "2-3",
+            "7-2"
+          ],
+          "evidence": "사용자 확인: 독바위 방향 단방향 운행"
+        }
+      ]
+    },
+    {
+      "stationCode": "2614",
+      "stationName": "독바위",
+      "directions": [
+        {
+          "toward": "연신내",
+          "recommendedDoors": [
+            "3-2"
+          ],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2615",
+      "stationName": "연신내",
+      "directions": [
+        {
+          "toward": "구산",
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2616",
+      "stationName": "구산",
+      "directions": [
+        {
+          "toward": "응암",
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "evidence": "사용자 확인: 도면을 보고 계산한 값"
+        }
+      ]
+    },
+    {
+      "stationCode": "2617",
+      "stationName": "새절",
+      "directions": [
+        {
+          "toward": "응암",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "증산",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "2618",
+      "stationName": "증산",
+      "directions": [
+        {
+          "toward": "새절",
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "디지털미디어시티",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "2619",
+      "stationName": "디지털미디어시티",
+      "directions": [
+        {
+          "toward": "증산",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "사용자 확인: stationElevator"
+        },
+        {
+          "toward": "월드컵경기장",
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2620",
+      "stationName": "월드컵경기장",
+      "directions": [
+        {
+          "toward": "디지털미디어시티",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "사용자 확인: stationElevator"
+        },
+        {
+          "toward": "마포구청",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2621",
+      "stationName": "마포구청",
+      "directions": [
+        {
+          "toward": "월드컵경기장",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "망원",
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2622",
+      "stationName": "망원",
+      "directions": [
+        {
+          "toward": "마포구청",
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "합정",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2623",
+      "stationName": "합정",
+      "directions": [
+        {
+          "toward": "망원",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "상수",
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2624",
+      "stationName": "상수",
+      "directions": [
+        {
+          "toward": "합정",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "광흥창",
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2625",
+      "stationName": "광흥창",
+      "directions": [
+        {
+          "toward": "상수",
+          "recommendedDoors": [
+            "1-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "대흥",
+          "recommendedDoors": [
+            "8-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2626",
+      "stationName": "대흥",
+      "directions": [
+        {
+          "toward": "광흥창",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "공덕",
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2627",
+      "stationName": "공덕",
+      "directions": [
+        {
+          "toward": "대흥",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "효창공원앞",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2628",
+      "stationName": "효창공원앞",
+      "directions": [
+        {
+          "toward": "공덕",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "삼각지",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2629",
+      "stationName": "삼각지",
+      "directions": [
+        {
+          "toward": "효창공원앞",
+          "recommendedDoors": [
+            "1-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "녹사평",
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2630",
+      "stationName": "녹사평",
+      "directions": [
+        {
+          "toward": "삼각지",
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "이태원",
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2631",
+      "stationName": "이태원",
+      "directions": [
+        {
+          "toward": "녹사평",
+          "recommendedDoors": [
+            "3-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "한강진",
+          "recommendedDoors": [
+            "6-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2632",
+      "stationName": "한강진",
+      "directions": [
+        {
+          "toward": "이태원",
+          "recommendedDoors": [
+            "5-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "버티고개",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2633",
+      "stationName": "버티고개",
+      "directions": [
+        {
+          "toward": "한강진",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "약수",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2634",
+      "stationName": "약수",
+      "directions": [
+        {
+          "toward": "버티고개",
+          "recommendedDoors": [
+            "5-1",
+            "6-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "청구",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2636",
+      "stationName": "신당",
+      "directions": [
+        {
+          "toward": "청구",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "동묘앞",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2637",
+      "stationName": "동묘앞",
+      "directions": [
+        {
+          "toward": "신당",
+          "recommendedDoors": [
+            "5-3",
+            "8-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "창신",
+          "recommendedDoors": [
+            "1-1",
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2638",
+      "stationName": "창신",
+      "directions": [
+        {
+          "toward": "동묘앞",
+          "recommendedDoors": [
+            "4-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "보문",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2639",
+      "stationName": "보문",
+      "directions": [
+        {
+          "toward": "창신",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "안암",
+          "recommendedDoors": [
+            "5-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2640",
+      "stationName": "안암",
+      "directions": [
+        {
+          "toward": "보문",
+          "recommendedDoors": [
+            "5-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "고려대",
+          "recommendedDoors": [
+            "4-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2641",
+      "stationName": "고려대",
+      "directions": [
+        {
+          "toward": "안암",
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "월곡",
+          "recommendedDoors": [
+            "3-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2642",
+      "stationName": "월곡",
+      "directions": [
+        {
+          "toward": "고려대",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "상월곡",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2643",
+      "stationName": "상월곡",
+      "directions": [
+        {
+          "toward": "돌곶이",
+          "recommendedDoors": [
+            "8-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "월곡",
+          "recommendedDoors": [
+            "1-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2644",
+      "stationName": "돌곶이",
+      "directions": [
+        {
+          "toward": "상월곡",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "석계",
+          "recommendedDoors": [
+            "4-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2645",
+      "stationName": "석계",
+      "directions": [
+        {
+          "toward": "돌곶이",
+          "recommendedDoors": [
+            "3-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "태릉입구",
+          "recommendedDoors": [
+            "6-2"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2646",
+      "stationName": "태릉입구",
+      "directions": [
+        {
+          "toward": "석계",
+          "recommendedDoors": [
+            "5-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "화랑대",
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2647",
+      "stationName": "화랑대",
+      "directions": [
+        {
+          "toward": "태릉입구",
+          "recommendedDoors": [
+            "5-4"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        },
+        {
+          "toward": "봉화산",
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2648",
+      "stationName": "봉화산",
+      "directions": [
+        {
+          "toward": "신내",
+          "recommendedDoors": [
+            "8-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    },
+    {
+      "stationCode": "2649",
+      "stationName": "신내",
+      "directions": [
+        {
+          "toward": "봉화산",
+          "recommendedDoors": [
+            "8-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ]
+    }
+  ],
+  "pendingDirectionDoorReview": [
+    {
+      "stationCode": "2635",
+      "stationName": "청구",
+      "reason": "station_elevator_direction_missing_or_other_line",
+      "remainingDirections": [
+        "약수",
+        "신당"
+      ],
+      "verifiedDirections": [],
+      "sourceValues": {}
+    },
+    {
+      "stationCode": "2648",
+      "stationName": "봉화산",
+      "reason": "station_elevator_direction_missing_or_other_line",
+      "remainingDirections": [
+        "화랑대"
+      ],
+      "verifiedDirections": [
+        {
+          "toward": "신내",
+          "recommendedDoors": [
+            "8-3"
+          ],
+          "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
+        }
+      ],
+      "sourceValues": {}
+    }
+  ]
+}
