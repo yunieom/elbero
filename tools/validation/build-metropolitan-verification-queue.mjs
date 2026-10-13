@@ -150,7 +150,9 @@ for (const config of lineConfigs) {
 
   const manualDirections = new Map(
     (manual?.directionalDoors ?? []).map((station) => [
-      normalizeCode(station.stationCode),
+      station.railOperatorCode
+        ? stationIdentity(station)
+        : normalizeCode(station.stationCode),
       station.directions,
     ]),
   );
@@ -175,6 +177,7 @@ for (const config of lineConfigs) {
       ...station,
       verifiedDirections:
         readinessDirections.get(station.stationCode) ??
+        manualDirections.get(stationIdentity(station)) ??
         manualDirections.get(station.stationCode) ??
         [],
     }))

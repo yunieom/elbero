@@ -6,14 +6,217 @@
     {
       "stationCode": "100-2",
       "stationName": "전곡",
+      "railOperatorCode": "KR",
       "exitNumbers": ["1", "2"],
       "evidence": "사용자 확인: stinElevatorMovement"
     },
     {
       "stationCode": "100-3",
       "stationName": "연천",
+      "railOperatorCode": "KR",
       "exitNumbers": ["2", "3"],
       "evidence": "사용자 확인: stinElevatorMovement"
+    }
+  ],
+  "directionalDoors": [
+    {
+      "stationCode": "0113",
+      "stationName": "도봉산",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "망월사",
+          "recommendedDoors": ["9-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "도봉",
+          "recommendedDoors": ["2-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0114",
+      "stationName": "도봉",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "도봉산",
+          "recommendedDoors": ["2-1", "9-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "방학",
+          "recommendedDoors": ["4-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0115",
+      "stationName": "방학",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "도봉",
+          "recommendedDoors": ["2-1", "9-4"],
+          "evidence": "KRIC stationElevator 상행 승강장 재수집 2026-10-13"
+        },
+        {
+          "toward": "창동",
+          "recommendedDoors": ["2-1", "9-4"],
+          "evidence": "KRIC stationElevator 하행 승강장 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0144",
+      "stationName": "오류동",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "개봉",
+          "recommendedDoors": ["5-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "온수",
+          "recommendedDoors": ["6-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0147",
+      "stationName": "소사",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "역곡",
+          "recommendedDoors": ["6-3"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "부천",
+          "recommendedDoors": ["5-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0150",
+      "stationName": "서울역",
+      "railOperatorCode": "S1",
+      "directions": [
+        {
+          "toward": "시청",
+          "recommendedDoors": ["5-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13; 남영 방면은 응답 없음"
+        }
+      ]
+    },
+    {
+      "stationCode": "0153",
+      "stationName": "종로3가",
+      "railOperatorCode": "S1",
+      "directions": [
+        {
+          "toward": "종로5가",
+          "recommendedDoors": ["5-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "종각",
+          "recommendedDoors": ["6-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0155",
+      "stationName": "동대문",
+      "railOperatorCode": "S1",
+      "directions": [
+        {
+          "toward": "동묘앞",
+          "recommendedDoors": ["10-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "종로5가",
+          "recommendedDoors": ["2-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "0159",
+      "stationName": "동묘앞",
+      "railOperatorCode": "S1",
+      "directions": [
+        {
+          "toward": "신설동",
+          "recommendedDoors": ["6-2", "10-3"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13; 비정상 형식 4-8 제외"
+        },
+        {
+          "toward": "동대문",
+          "recommendedDoors": ["1-2", "7-3"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "P153",
+      "stationName": "성균관대",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "화서",
+          "recommendedDoors": ["4-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "의왕",
+          "recommendedDoors": ["7-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "P156",
+      "stationName": "세류",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "수원",
+          "recommendedDoors": ["5-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "병점",
+          "recommendedDoors": ["5-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
+    },
+    {
+      "stationCode": "P159",
+      "stationName": "오산대",
+      "railOperatorCode": "KR",
+      "directions": [
+        {
+          "toward": "세마",
+          "recommendedDoors": ["7-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "오산",
+          "recommendedDoors": ["4-3"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        }
+      ]
     }
   ]
 }

@@ -19,7 +19,7 @@
 
 | 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 이격거리 값 없음 |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
-| 1호선 | 경로 엔진 지원 대상 | 2026-09-18 | 0 | 24 | 29 | 40 |
+| 1호선 | 경로 엔진 지원 대상 | 2026-10-13 | 0 | 13 | 29 | 40 |
 | 2호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
 | 3호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
 | 4호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 1 | 0 |
@@ -51,7 +51,7 @@
 - 현재 구현에는 1호선 어댑터가 아직 연결되지 않았다.
 - API 수집 대상: 102역
 - 지상 엘리베이터 출구 충돌: 0역
-- 방향별 차량·문 확인: 24역
+- 방향별 차량·문 확인: 13역
 - 승강장·문·이격거리 연결 확인: 29역
 - 이격거리 값 없음: 40건
 
@@ -61,14 +61,11 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (24역)
+### 방향별 차량·문 확인 (13역)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
 | 망월사 (0112, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 도봉산 (0113, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 도봉 (0114, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 방학 (0115, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 창동 (0116, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 광운대 (0119, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 외대앞 (0122, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
@@ -77,18 +74,10 @@
 | 신길 (0138, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 구로 (0141, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 구일 (0142, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 오류동 (0144, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 소사 (0147, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 석수 (P145, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 성균관대 (P153, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 화서 (P154, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 세류 (P156, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 오산대 (P159, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
 | 탕정 (P173, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 서울역 (0150, S1) | API 값 충돌 | - | stationElevatorCarNumber: 5-1, 7-1<br>stationElevator: 5-1<br>SeoulMetroFaciInfo: 5-1, 6-4 |
-| 종로3가 (0153, S1) | API 값 충돌 | - | stationElevatorCarNumber: 5-1, 6-4<br>stationElevator: 5-1, 6-4<br>SeoulMetroFaciInfo: 4-4, 5-1, 6-4 |
-| 동대문 (0155, S1) | API 값 충돌 | - | stationElevatorCarNumber: 2-2, 10-4<br>stationElevator: 2-1, 10-4<br>SeoulMetroFaciInfo: 2-1, 10-4 |
-| 동묘앞 (0159, S1) | API 값 충돌 | - | stationElevatorCarNumber: 1-2, 4-3, 6-1, 6-4, 7-2, 10-3<br>stationElevator: 1-2, 4-8, 7-3, 10-3<br>SeoulMetroFaciInfo: 1-2, 4-3, 4-8, 6-2, 7-3, 10-3 |
+| 서울역 (0150, S1) | API 값 충돌; 나머지 방향 확인 필요 | 시청: 5-1 | stationElevatorCarNumber: 5-1, 7-1<br>stationElevator: 5-1<br>SeoulMetroFaciInfo: 5-1, 6-4 |
 
 ### 승강장·문·이격거리 연결 확인 (29역)
 

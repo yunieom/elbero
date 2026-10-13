@@ -12,7 +12,7 @@
       "name": "1호선",
       "stem": "line-1",
       "status": "route_engine_target",
-      "collectedAt": "2026-09-18T09:13:36.285Z",
+      "collectedAt": "2026-10-13T07:38:57.636Z",
       "stationCount": 102,
       "resolvedSurfaceExits": [
         {
@@ -504,30 +504,6 @@
           "verifiedDirections": []
         },
         {
-          "stationCode": "0113",
-          "stationName": "도봉산",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0114",
-          "stationName": "도봉",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0115",
-          "stationName": "방학",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
           "stationCode": "0116",
           "stationName": "창동",
           "railOperatorCode": "KR",
@@ -592,22 +568,6 @@
           "verifiedDirections": []
         },
         {
-          "stationCode": "0144",
-          "stationName": "오류동",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0147",
-          "stationName": "소사",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
           "stationCode": "P145",
           "stationName": "석수",
           "railOperatorCode": "KR",
@@ -616,32 +576,8 @@
           "verifiedDirections": []
         },
         {
-          "stationCode": "P153",
-          "stationName": "성균관대",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
           "stationCode": "P154",
           "stationName": "화서",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "P156",
-          "stationName": "세류",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "P159",
-          "stationName": "오산대",
           "railOperatorCode": "KR",
           "reason": "primary_api_missing",
           "sourceValues": {},
@@ -673,81 +609,15 @@
             ]
           },
           "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0153",
-          "stationName": "종로3가",
-          "railOperatorCode": "S1",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "5-1",
-              "6-4"
-            ],
-            "stationElevator": [
-              "5-1",
-              "6-4"
-            ],
-            "SeoulMetroFaciInfo": [
-              "4-4",
-              "5-1",
-              "6-4"
-            ]
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0155",
-          "stationName": "동대문",
-          "railOperatorCode": "S1",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-2",
-              "10-4"
-            ],
-            "stationElevator": [
-              "2-1",
-              "10-4"
-            ],
-            "SeoulMetroFaciInfo": [
-              "2-1",
-              "10-4"
-            ]
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0159",
-          "stationName": "동묘앞",
-          "railOperatorCode": "S1",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "1-2",
-              "4-3",
-              "6-1",
-              "6-4",
-              "7-2",
-              "10-3"
-            ],
-            "stationElevator": [
-              "1-2",
-              "4-8",
-              "7-3",
-              "10-3"
-            ],
-            "SeoulMetroFaciInfo": [
-              "1-2",
-              "4-3",
-              "4-8",
-              "6-2",
-              "7-3",
-              "10-3"
-            ]
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
+          "verifiedDirections": [
+            {
+              "toward": "시청",
+              "recommendedDoors": [
+                "5-1"
+              ],
+              "evidence": "KRIC stationElevator 재수집 2026-10-13; 남영 방면은 응답 없음"
+            }
+          ]
         }
       ],
       "gapLinkageChecks": [
