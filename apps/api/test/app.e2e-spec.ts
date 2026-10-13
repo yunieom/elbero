@@ -141,6 +141,23 @@ describe('AppController (e2e)', () => {
     });
   });
 
+  it('/journeys/plan accepts alphanumeric station codes', async () => {
+    const response = await request(app.getHttpServer())
+      .get('/journeys/plan')
+      .query({ originStationCode: 'K309', destinationStationCode: '0342' })
+      .expect(200);
+
+    expect(response.body).toMatchObject({
+      ok: true,
+      data: {
+        journeyId: 'line-3-K309-to-0342',
+        origin: { stationCode: 'K309', stationName: '대화' },
+        destination: { stationCode: '0342', stationName: '오금' },
+      },
+      meta: { dataVersion: expect.any(String) },
+    });
+  });
+
   it('/journeys/plan rejects an unsupported journey', async () => {
     const response = await request(app.getHttpServer())
       .get('/journeys/plan')
