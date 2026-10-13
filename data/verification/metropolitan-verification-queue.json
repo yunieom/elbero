@@ -3897,69 +3897,9 @@
           },
           "reason": "source_value_conflict",
           "verifiedDirections": []
-        },
-        {
-          "stationCode": "2648",
-          "stationName": "봉화산(서울의료원)",
-          "railOperatorCode": "S1",
-          "reason": "primary_api_missing",
-          "sourceValues": {
-            "stationElevatorCarNumber": [],
-            "stationElevator": [],
-            "SeoulMetroFaciInfo": [
-              "1-2",
-              "8-3"
-            ]
-          },
-          "verifiedDirections": [
-            {
-              "toward": "신내",
-              "recommendedDoors": [
-                "8-3"
-              ],
-              "evidence": "stationElevator 위치 설명의 인접역 방향·차량·문"
-            }
-          ]
         }
       ],
-      "gapLinkageChecks": [
-        {
-          "stationCode": "2611",
-          "stationName": "응암",
-          "railOperatorCode": "S1",
-          "issue": "승강장·차량·문·이격거리 연결 불가"
-        },
-        {
-          "stationCode": "2612",
-          "stationName": "역촌",
-          "railOperatorCode": "S1",
-          "issue": "승강장·차량·문·이격거리 연결 불가"
-        },
-        {
-          "stationCode": "2613",
-          "stationName": "불광",
-          "railOperatorCode": "S1",
-          "issue": "권장 문 이격거리 없음: 2:4-1, 2:5-1"
-        },
-        {
-          "stationCode": "2614",
-          "stationName": "독바위",
-          "railOperatorCode": "S1",
-          "issue": "권장 문 이격거리 없음: 2:3-1"
-        },
-        {
-          "stationCode": "2615",
-          "stationName": "연신내",
-          "railOperatorCode": "S1",
-          "issue": "승강장·차량·문·이격거리 연결 불가"
-        },
-        {
-          "stationCode": "2616",
-          "stationName": "구산",
-          "railOperatorCode": "S1",
-          "issue": "승강장·차량·문·이격거리 연결 불가"
-        }
-      ],
+      "gapLinkageChecks": [],
       "gapSummary": {
         "green": 2025,
         "yellow": 226,

@@ -77,8 +77,11 @@ const result = {
       '응암순환 구간은 일반 선형 노선 순서를 적용하지 않고 사용자 확인 단방향을 사용',
     mismatch:
       '다른 호선 방향을 반환하거나 인접역 방향이 누락된 경우 사용자 확인 대상으로 유지',
+    gapOverride:
+      '사용자 확인 위험등급을 저장하고 red 문은 추천에서 제외하며 인접한 green 또는 yellow 문을 사용',
   },
   verifiedDirectionDoors,
+  verifiedGapOverrides: manual.gapOverrides ?? [],
   pendingDirectionDoorReview,
 };
 

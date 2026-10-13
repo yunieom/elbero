@@ -165,6 +165,11 @@ for (const config of lineConfigs) {
       normalizeCode(station.stationCode),
     ),
   );
+  const manualGapOverrideCodes = new Set(
+    (manual?.gapOverrides ?? []).map((station) =>
+      normalizeCode(station.stationCode),
+    ),
+  );
   const directionDoorChecks = [...doorByStation.values()]
     .map((station) => ({
       ...station,
@@ -181,7 +186,11 @@ for (const config of lineConfigs) {
     .toSorted(stationSort);
 
   const gapLinkageChecks = audit.differences
-    .filter((difference) => difference.category === 'platform_gap_linkage')
+    .filter(
+      (difference) =>
+        difference.category === 'platform_gap_linkage' &&
+        !manualGapOverrideCodes.has(normalizeCode(difference.stationCode)),
+    )
     .map((difference) => ({
       stationCode: normalizeCode(difference.stationCode),
       stationName: difference.stationName,

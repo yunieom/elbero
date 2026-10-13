@@ -9,8 +9,8 @@
       "directions": [
         {
           "toward": "구산",
-          "recommendedDoors": ["5-2"],
-          "evidence": "사용자 확인: stationElevator"
+          "recommendedDoors": ["4-2"],
+          "evidence": "사용자 확인: 4-1은 red이므로 인접한 yellow 문 4-2로 안내"
         }
       ]
     },
@@ -44,6 +44,17 @@
           "toward": "연신내",
           "recommendedDoors": ["3-2"],
           "evidence": "사용자 확인: stationElevator"
+        }
+      ]
+    },
+    {
+      "stationCode": "2615",
+      "stationName": "연신내",
+      "directions": [
+        {
+          "toward": "구산",
+          "recommendedDoors": ["6-1"],
+          "evidence": "사용자 확인: 6-2는 red이므로 인접한 yellow 문 6-1로 안내"
         }
       ]
     },
@@ -121,6 +132,70 @@
           "evidence": "사용자 확인: stationElevator"
         }
       ]
+    },
+    {
+      "stationCode": "2648",
+      "stationName": "봉화산",
+      "directions": [
+        {
+          "toward": "화랑대",
+          "recommendedDoors": ["1-2"],
+          "evidence": "사용자 확인"
+        },
+        {
+          "toward": "신내",
+          "recommendedDoors": ["8-3"],
+          "evidence": "사용자 확인"
+        }
+      ]
+    }
+  ],
+  "gapOverrides": [
+    {
+      "stationCode": "2611",
+      "stationName": "응암",
+      "doors": [
+        { "door": "4-1", "riskLevel": "red" },
+        { "door": "4-2", "riskLevel": "yellow" },
+        { "door": "3-4", "riskLevel": "yellow" }
+      ],
+      "evidence": "사용자 확인"
+    },
+    {
+      "stationCode": "2612",
+      "stationName": "역촌",
+      "doors": [{ "door": "4-2", "riskLevel": "green" }],
+      "evidence": "사용자 확인"
+    },
+    {
+      "stationCode": "2613",
+      "stationName": "불광",
+      "doors": [
+        { "door": "2-3", "riskLevel": "green" },
+        { "door": "7-2", "riskLevel": "yellow" }
+      ],
+      "evidence": "사용자 확인"
+    },
+    {
+      "stationCode": "2614",
+      "stationName": "독바위",
+      "doors": [{ "door": "3-2", "riskLevel": "green" }],
+      "evidence": "사용자 확인"
+    },
+    {
+      "stationCode": "2615",
+      "stationName": "연신내",
+      "doors": [
+        { "door": "6-2", "riskLevel": "red" },
+        { "door": "6-1", "riskLevel": "yellow" }
+      ],
+      "evidence": "사용자 확인"
+    },
+    {
+      "stationCode": "2616",
+      "stationName": "구산",
+      "doors": [{ "door": "8-4", "riskLevel": "yellow" }],
+      "evidence": "사용자 확인"
     }
   ]
 }
