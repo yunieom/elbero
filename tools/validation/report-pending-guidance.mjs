@@ -13,6 +13,16 @@ const metropolitanQueue = await readOptionalJson(
 const line1Pending = metropolitanQueue?.lines?.find(
   (line) => line.name === '1호선',
 );
+const metropolitanSummary = renderMetropolitanSummary(
+  metropolitanQueue?.lines ?? [],
+);
+const metropolitanExpansionSections = (metropolitanQueue?.lines ?? [])
+  .filter(
+    (line) =>
+      line.status !== 'verified_supported' &&
+      !['1호선', '8호선', '9호선'].includes(line.name),
+  )
+  .map(renderMetropolitanLineSection);
 
 for (const lineId of lineIds) {
   const module = await import(
@@ -73,7 +83,7 @@ for (const lineId of ['8', '9']) {
   expansionSections.push(renderExpansionLineSection(readiness));
 }
 
-const output = `# 지원 노선 사용자 검증 대기 목록
+const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
 - 사용자 검증 입력 완료: 2·3호선
@@ -89,6 +99,12 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 - 지상 엘리베이터 출구 번호가 없더라도 다른 호선 이용으로 확정한 역은 제외한다.
 - 이 문서는 생성 데이터에서 자동 산출한다. 같은 감사를 반복하지 말고 \`npm run verification:pending-guidance\`로 갱신한다.
 
+## 전체 노선 요약
+
+| 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 이격거리 값 없음 |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+${metropolitanSummary}
+
 ## 1호선 반영 상태
 
 - 1호선은 경로 엔진 지원 대상이다.
@@ -98,7 +114,8 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 - 방향별 차량·문 확인: ${line1Pending?.directionDoorChecks?.length ?? 0}역
 - 승강장·문·이격거리 연결 확인: ${line1Pending?.gapLinkageChecks?.length ?? 0}역
 - 이격거리 값 없음: ${line1Pending?.gapSummary?.missing ?? 0}건
-- 역별 API 반환 값과 확인할 문은 [수도권 전철 사용자 검증 대기 목록의 1호선 상세](metropolitan-user-verification-pending.md#1호선)에 기록한다. 같은 내용을 이 문서에 중복 작성하지 않는다.
+
+${renderMetropolitanTables(line1Pending)}
 
 ## 8·9호선 준비 상태
 
@@ -109,6 +126,8 @@ const output = `# 지원 노선 사용자 검증 대기 목록
 ${sections.join('\n\n')}
 
 ${expansionSections.join('\n\n')}
+
+${metropolitanExpansionSections.join('\n\n')}
 `;
 
 await writeFile(
@@ -208,6 +227,110 @@ ${directionRows}
 | 역 | API별 값 |
 | --- | --- |
 ${exitRows}`;
+}
+
+function renderMetropolitanSummary(lines) {
+  return lines
+    .map((line) => {
+      const counts = metropolitanPendingCounts(line);
+      return `| ${line.name} | ${metropolitanStatusLabel(line.status)} | ${String(line.collectedAt).slice(0, 10)} | ${counts.surface} | ${counts.door} | ${counts.gap} | ${line.status === 'verified_supported' ? 0 : line.gapSummary.missing} |`;
+    })
+    .join('\n');
+}
+
+function renderMetropolitanLineSection(line) {
+  return `## ${line.name} · ${metropolitanStatusDescription(line.status)}
+
+- API 수집: ${line.collectedAt}
+- 대상 역: ${line.stationCount}개
+
+${renderMetropolitanTables(line)}`;
+}
+
+function renderMetropolitanTables(line) {
+  if (!line) return '원본 검증 큐가 없어 상세 목록을 생성하지 못했습니다.';
+
+  const exitRows = line.surfaceExitConflicts.length
+    ? line.surfaceExitConflicts
+        .map(
+          (station) =>
+            `| ${metropolitanStationLabel(station)} | ${formatSourceValues(station.sourceValues)} |`,
+        )
+        .join('\n')
+    : '| 없음 | - |';
+  const doorRows = line.directionDoorChecks.length
+    ? line.directionDoorChecks
+        .map(
+          (station) =>
+            `| ${metropolitanStationLabel(station)} | ${metropolitanDoorReason(station)} | ${formatVerifiedDirections(station.verifiedDirections)} | ${formatSourceValues(station.sourceValues)} |`,
+        )
+        .join('\n')
+    : '| 없음 | - | - | - |';
+  const gapRows = line.gapLinkageChecks.length
+    ? line.gapLinkageChecks
+        .map(
+          (station) =>
+            `| ${metropolitanStationLabel(station)} | ${station.issue} |`,
+        )
+        .join('\n')
+    : '| 없음 | - |';
+
+  return `### 지상 엘리베이터 출구 충돌 (${line.surfaceExitConflicts.length}역)
+
+| 역 | API별 값 |
+| --- | --- |
+${exitRows}
+
+### 방향별 차량·문 확인 (${line.directionDoorChecks.length}역)
+
+| 역 | 이유 | 이미 확인한 방향 | API별 후보 |
+| --- | --- | --- | --- |
+${doorRows}
+
+### 승강장·문·이격거리 연결 확인 (${line.gapLinkageChecks.length}역)
+
+| 역 | 확인할 내용 |
+| --- | --- |
+${gapRows}`;
+}
+
+function metropolitanStationLabel(station) {
+  return `${station.stationName} (${station.stationCode}${station.railOperatorCode ? `, ${station.railOperatorCode}` : ''})`;
+}
+
+function metropolitanDoorReason(station) {
+  const reason =
+    station.reason === 'source_value_conflict'
+      ? 'API 값 충돌'
+      : station.reason === 'source_value_conflict_and_primary_missing'
+        ? 'API 값 충돌 + 기준 API 누락'
+        : 'stationElevatorCarNumber 누락';
+  return station.verifiedDirections.length > 0
+    ? `${reason}; 나머지 방향 확인 필요`
+    : reason;
+}
+
+function metropolitanStatusLabel(status) {
+  if (status === 'verified_supported') return '반영 완료';
+  if (status === 'route_engine_target') return '경로 엔진 지원 대상';
+  return '후속 지원 대상';
+}
+
+function metropolitanStatusDescription(status) {
+  return status === 'route_engine_target'
+    ? '경로 엔진 연결 전'
+    : '수도권 확대 지원 전';
+}
+
+function metropolitanPendingCounts(line) {
+  if (line.status !== 'verified_supported') {
+    return {
+      surface: line.surfaceExitConflicts.length,
+      door: line.directionDoorChecks.length,
+      gap: line.gapLinkageChecks.length,
+    };
+  }
+  return line.remaining ?? { surface: 0, door: 0, gap: 0 };
 }
 
 function formatSourceValues(sourceValues = {}) {

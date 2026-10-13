@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12",
+  "generatedAt": "2026-10-13",
   "policy": {
     "surfaceExit": "출처 간 비어 있지 않은 출구 번호 집합이 다를 때만 사용자 확인",
     "directionDoor": "차량·문 값 충돌 또는 stationElevatorCarNumber 미제공 역만 사용자 확인",
