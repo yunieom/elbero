@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-10-20",
   "policy": {
     "surfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 해당 값을 확정하며 나머지 출처 충돌만 사용자 확인",
     "directionDoor": "차량·문 값 충돌 또는 stationElevatorCarNumber 미제공 역만 사용자 확인",
@@ -12,7 +12,7 @@
       "name": "1호선",
       "stem": "line-1",
       "status": "route_engine_target",
-      "collectedAt": "2026-10-13T07:38:57.636Z",
+      "collectedAt": "2026-10-20T06:28:40.513Z",
       "stationCount": 102,
       "resolvedSurfaceExits": [
         {
@@ -494,204 +494,13 @@
         }
       ],
       "surfaceExitConflicts": [],
-      "directionDoorChecks": [
-        {
-          "stationCode": "0112",
-          "stationName": "망월사",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0116",
-          "stationName": "창동",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0119",
-          "stationName": "광운대",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0122",
-          "stationName": "외대앞",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0134",
-          "stationName": "남영",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0136",
-          "stationName": "노량진",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0138",
-          "stationName": "신길",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0141",
-          "stationName": "구로",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0142",
-          "stationName": "구일",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "P145",
-          "stationName": "석수",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "P154",
-          "stationName": "화서",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "P173",
-          "stationName": "탕정",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "0150",
-          "stationName": "서울역",
-          "railOperatorCode": "S1",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "5-1",
-              "7-1"
-            ],
-            "stationElevator": [
-              "5-1"
-            ],
-            "SeoulMetroFaciInfo": [
-              "5-1",
-              "6-4"
-            ]
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": [
-            {
-              "toward": "시청",
-              "recommendedDoors": [
-                "5-1"
-              ],
-              "evidence": "KRIC stationElevator 재수집 2026-10-13; 남영 방면은 응답 없음"
-            }
-          ]
-        }
-      ],
+      "directionDoorChecks": [],
       "gapLinkageChecks": [
-        {
-          "stationCode": "0101",
-          "stationName": "동두천",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-4, 4:6-4"
-        },
-        {
-          "stationCode": "0107",
-          "stationName": "양주",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-2"
-        },
-        {
-          "stationCode": "0135",
-          "stationName": "용산",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:7-2, 4:4-3"
-        },
-        {
-          "stationCode": "0137",
-          "stationName": "대방",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-1, 4:5-4"
-        },
-        {
-          "stationCode": "0139",
-          "stationName": "영등포",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:4-1, 3:7-1, 4:4-1, 4:6-4, 5:4-1, 5:6-4"
-        },
-        {
-          "stationCode": "0140",
-          "stationName": "신도림",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:7-2, 3:8-4, 3:9-1, 3:10-1, 4:3-1, 4:4-2, 4:4-4, 4:6-1"
-        },
-        {
-          "stationCode": "0143",
-          "stationName": "개봉",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-2, 4:6-2"
-        },
         {
           "stationCode": "0145",
           "stationName": "온수",
           "railOperatorCode": "KR",
           "issue": "권장 문 이격거리 없음: 3:7-3, 4:7-3"
-        },
-        {
-          "stationCode": "0146",
-          "stationName": "역곡",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:4-4, 4:4-4"
-        },
-        {
-          "stationCode": "0148",
-          "stationName": "부천",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:3-4, 3:9-3, 4:3-4, 4:9-3"
-        },
-        {
-          "stationCode": "0150",
-          "stationName": "송내",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:7-3, 4:7-3"
-        },
-        {
-          "stationCode": "0152",
-          "stationName": "부평",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:1-1, 4:1-1"
         },
         {
           "stationCode": "0153",
@@ -700,52 +509,16 @@
           "issue": "권장 문 이격거리 없음: 3:6-3, 4:6-3"
         },
         {
-          "stationCode": "0154",
-          "stationName": "동암",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:4-1, 4:4-1"
-        },
-        {
           "stationCode": "0155",
           "stationName": "간석",
           "railOperatorCode": "KR",
           "issue": "권장 문 이격거리 없음: 3:5-1, 4:5-1"
         },
         {
-          "stationCode": "0156",
-          "stationName": "주안",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-2, 3:9-4, 4:6-2, 4:9-4"
-        },
-        {
-          "stationCode": "0158",
-          "stationName": "제물포",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:4-2, 4:4-2"
-        },
-        {
-          "stationCode": "0160",
-          "stationName": "동인천",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-1, 4:6-1"
-        },
-        {
           "stationCode": "P144-1",
           "stationName": "광명",
           "railOperatorCode": "KR",
           "issue": "권장 문 이격거리 없음: 1:1-4, 2:4-4"
-        },
-        {
-          "stationCode": "P147",
-          "stationName": "안양",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:7-2, 4:7-2"
-        },
-        {
-          "stationCode": "P150",
-          "stationName": "군포",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:2-3, 4:2-3"
         },
         {
           "stationCode": "P155",
@@ -757,7 +530,7 @@
           "stationCode": "P157",
           "stationName": "병점",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-3, 4:6-3"
+          "issue": "권장 문 이격거리 없음: 4:6-3"
         },
         {
           "stationCode": "P160",
@@ -784,12 +557,6 @@
           "issue": "권장 문 이격거리 없음: 3:8-1, 4:8-1"
         },
         {
-          "stationCode": "P168",
-          "stationName": "두정",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:2-1, 4:2-1"
-        },
-        {
           "stationCode": "P172",
           "stationName": "아산",
           "railOperatorCode": "KR",
@@ -797,9 +564,9 @@
         }
       ],
       "gapSummary": {
-        "green": 4171,
-        "yellow": 3205,
-        "red": 584,
+        "green": 4948,
+        "yellow": 3723,
+        "red": 689,
         "missing": 40
       }
     },

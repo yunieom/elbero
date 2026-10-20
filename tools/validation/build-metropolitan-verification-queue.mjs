@@ -156,6 +156,13 @@ for (const config of lineConfigs) {
       station.directions,
     ]),
   );
+  const reviewedDirectionStations = new Set(
+    (manual?.directionalDoorReviews ?? []).map((station) =>
+      station.railOperatorCode
+        ? stationIdentity(station)
+        : normalizeCode(station.stationCode),
+    ),
+  );
   const readinessDirections = new Map(
     (readiness?.verifiedDirectionDoors ?? []).map((station) => [
       normalizeCode(station.stationCode),
@@ -183,6 +190,12 @@ for (const config of lineConfigs) {
     }))
     .filter((station) => {
       if (readiness) return readinessPendingCodes.has(station.stationCode);
+      if (
+        reviewedDirectionStations.has(stationIdentity(station)) ||
+        reviewedDirectionStations.has(station.stationCode)
+      ) {
+        return false;
+      }
       if (station.verifiedDirections.length < 2) return true;
       return false;
     })

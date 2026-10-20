@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "line": "1",
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-20",
   "surfaceExits": [
     {
       "stationCode": "100-2",
@@ -112,7 +112,12 @@
         {
           "toward": "시청",
           "recommendedDoors": ["5-1"],
-          "evidence": "KRIC stationElevator 재수집 2026-10-13; 남영 방면은 응답 없음"
+          "evidence": "KRIC stationElevator 재수집 2026-10-13"
+        },
+        {
+          "toward": "남영",
+          "recommendedDoors": ["7-1"],
+          "evidence": "사용자 확인 2026-10-20"
         }
       ]
     },
@@ -217,6 +222,142 @@
           "evidence": "KRIC stationElevator 재수집 2026-10-13"
         }
       ]
+    }
+  ],
+  "directionalDoorReviews": [
+    {
+      "stationCode": "0112",
+      "stationName": "망월사",
+      "railOperatorCode": "KR",
+      "resolution": "estimated_position",
+      "recommendedDoors": ["5-1"],
+      "guidance": "KRIC 차량·문 정보가 없어 5-1을 추정값으로만 사용하고 안전 경로 미확인으로 표시한다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0116",
+      "stationName": "창동",
+      "railOperatorCode": "KR",
+      "resolution": "no_platform_elevator",
+      "guidance": "승강장과 대합실 사이 엘리베이터가 없어 엘리베이터 안전 경로를 추천하지 않는다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0119",
+      "stationName": "광운대",
+      "railOperatorCode": "KR",
+      "resolution": "direction_limited_access",
+      "guidance": "월계 방면은 1·2번 출입구에서 직접 접근할 수 있다. 석계·상봉 방면과 3번 출입구 경로는 승강장까지 에스컬레이터를 거쳐야 하므로 엘리베이터 안전 경로로 추천하지 않는다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0122",
+      "stationName": "외대앞",
+      "railOperatorCode": "KR",
+      "resolution": "no_platform_elevator",
+      "guidance": "개찰구까지 엘리베이터가 있으나 승강장으로 직접 연결되는 엘리베이터가 없어 엘리베이터 안전 경로를 추천하지 않는다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0134",
+      "stationName": "남영",
+      "railOperatorCode": "KR",
+      "resolution": "no_platform_elevator",
+      "guidance": "1층 대합실과 승강장을 연결하는 엘리베이터가 없어 엘리베이터 안전 경로를 추천하지 않는다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0136",
+      "stationName": "노량진",
+      "railOperatorCode": "KR",
+      "resolution": "position_unverified",
+      "guidance": "대방·용산 방면과 상·하행 급행 승강장의 엘리베이터가 서로 다르지만 정확한 차량·문 위치는 확인되지 않았다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0138",
+      "stationName": "신길",
+      "railOperatorCode": "KR",
+      "resolution": "partially_verified",
+      "directions": [
+        { "service": "상행 일반", "recommendedDoors": ["8-1"] },
+        { "service": "하행 일반", "recommendedDoors": ["3-4"] },
+        { "service": "하행 급행", "recommendedDoors": ["3-1"] }
+      ],
+      "guidance": "상행 급행 승강장의 엘리베이터 차량·문은 미확인으로 표시한다.",
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "0141",
+      "stationName": "구로",
+      "railOperatorCode": "KR",
+      "resolution": "position_unverified",
+      "guidance": "3층 대합실·환승육교에서 각 1층 승강장으로 이동하는 엘리베이터는 있으나 정확한 차량·문 위치는 미확인이다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0142",
+      "stationName": "구일",
+      "railOperatorCode": "KR",
+      "resolution": "platform_verified_position_unverified",
+      "guidance": "구로 방면 1번 홈은 1호기, 중선 2·3번 홈은 2호기, 인천 방면 4번 홈은 3호기를 사용한다. 정확한 차량·문 위치는 미확인이다.",
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "P145",
+      "stationName": "석수",
+      "railOperatorCode": "KR",
+      "resolution": "no_platform_elevator",
+      "guidance": "서울·청량리 및 천안·신창 양방향 모두 대합실과 승강장을 연결하는 엘리베이터가 확인되지 않아 안전 경로를 추천하지 않는다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "P154",
+      "stationName": "화서",
+      "railOperatorCode": "KR",
+      "resolution": "step_free_position_unverified",
+      "guidance": "수원 방면은 3·4번 출입구, 성균관대 방면은 5·6번 출입구에서 직접 접근할 수 있고 반대편은 2층 엘리베이터를 경유한다. 정확한 차량·문 위치는 미확인이다.",
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "P173",
+      "stationName": "탕정",
+      "railOperatorCode": "KR",
+      "resolution": "estimated_position",
+      "recommendedDoors": ["5-4"],
+      "guidance": "KRIC 차량·문 정보가 없어 5-4를 추정값으로만 사용하고 안전 경로 미확인으로 표시한다.",
+      "evidence": "사용자 검토 2026-10-20"
+    },
+    {
+      "stationCode": "0150",
+      "stationName": "서울역",
+      "railOperatorCode": "S1",
+      "resolution": "verified",
+      "directions": [
+        { "toward": "시청", "recommendedDoors": ["5-1"] },
+        { "toward": "남영", "recommendedDoors": ["7-1"] }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
+    }
+  ],
+  "gapOverrides": [
+    {
+      "stationCode": "0101",
+      "stationName": "동두천",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["3", "4"],
+      "recommendedDoors": ["6-4"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-20; KRIC는 3·4번 플랫폼 이격거리 행을 반환하지 않음"
+    },
+    {
+      "stationCode": "0107",
+      "stationName": "양주",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["3"],
+      "recommendedDoors": ["6-2"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-20; KRIC 재호출 값은 11cm(yellow)로 출처 충돌"
     }
   ]
 }

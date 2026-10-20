@@ -13,6 +13,9 @@ const metropolitanQueue = await readOptionalJson(
 const line1Pending = metropolitanQueue?.lines?.find(
   (line) => line.name === '1호선',
 );
+const line1Manual = await readOptionalJson(
+  resolve('data/verification/line-1-manual-verification.json'),
+);
 const metropolitanSummary = renderMetropolitanSummary(
   metropolitanQueue?.lines ?? [],
 );
@@ -86,7 +89,7 @@ for (const lineId of ['8', '9']) {
 const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
-- 사용자 검증 입력 완료: 2·3호선
+- 사용자 검증 입력 완료: 1·2·3호선
 - 현재 경로 엔진 구현 완료: 2·3·4·5·7호선·김포골드라인·신림선
 - 1호선 상태: 경로 엔진 지원 대상, 어댑터 연결과 원본 검증 데이터 반영 전
 - 현재 구현 노선 및 8·9호선 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
@@ -111,10 +114,13 @@ ${metropolitanSummary}
 - 1호선은 경로 엔진 지원 대상이다.
 - 현재 구현에는 1호선 어댑터가 아직 연결되지 않았다.
 - API 수집 대상: ${line1Pending?.stationCount ?? 0}역
+- 사용자 방향별 차량·문 검토 반영: ${line1Manual?.directionalDoorReviews?.length ?? 0}역
+- 사용자 이격거리 확인값 반영: ${line1Manual?.gapOverrides?.length ?? 0}역
 - 지상 엘리베이터 출구 충돌: ${line1Pending?.surfaceExitConflicts?.length ?? 0}역
 - 방향별 차량·문 확인: ${line1Pending?.directionDoorChecks?.length ?? 0}역
 - 승강장·문·이격거리 연결 확인: ${line1Pending?.gapLinkageChecks?.length ?? 0}역
 - 이격거리 값 없음: ${line1Pending?.gapSummary?.missing ?? 0}건
+- 검토 완료값 원본: [1호선 사용자 검증 데이터](../../data/verification/line-1-manual-verification.json)
 
 ${renderMetropolitanTables(line1Pending)}
 

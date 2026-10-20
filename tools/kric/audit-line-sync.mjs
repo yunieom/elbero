@@ -510,25 +510,34 @@ const stationPayloads = await mapLimit(stations, REQUEST_CONCURRENCY, async (sta
   };
 });
 
-const gapTasks = stations.flatMap((station) =>
-  (platformsByStation.get(stationIdentity(station)) ?? []).map((platform) => ({
-    station,
-    platform,
-  })),
+const stationPayloadsByStation = new Map(
+  stationPayloads.map((payload) => [stationIdentity(payload.station), payload]),
 );
-const gapPayloads = await mapLimit(gapTasks, REQUEST_CONCURRENCY, async ({ station, platform }) => ({
+const gapTasks = stations.flatMap((station) => {
+  const stationKey = stationIdentity(station);
+  const platformNumbers = unique([
+    ...(platformsByStation.get(stationKey) ?? []).map((platform) =>
+      String(platform.plfNo),
+    ),
+    ...body(stationPayloadsByStation.get(stationKey)?.nearbyCars).map((row) =>
+      String(row.plfNo),
+    ),
+  ]);
+  return platformNumbers.map((platformNumber) => ({ station, platformNumber }));
+});
+const gapPayloads = await mapLimit(gapTasks, REQUEST_CONCURRENCY, async ({ station, platformNumber }) => ({
   stationKey: stationIdentity(station),
   stationCode: normalizeStationCode(station.stinCd),
-  platformNumber: String(platform.plfNo),
+  platformNumber,
   payload: await fetchKric(
     '/vulnerableUserInfo/stationPlatformTrainDistance',
     {
       railOprIsttCd: station.railOprIsttCd,
       lnCd: station.lnCd,
       stinCd: station.stinCd,
-      plfNo: platform.plfNo,
+      plfNo: platformNumber,
     },
-    `${station.stinCd}-platform-${platform.plfNo}-gap`,
+    `${station.stinCd}-platform-${platformNumber}-gap`,
   ),
 }));
 const gapsByStation = Map.groupBy(gapPayloads, (item) => item.stationKey);
@@ -695,11 +704,7 @@ for (const item of stationPayloads) {
           String(gap.carEtrcNo) === String(car.carEtrcNo),
       ),
   );
-  if (
-    !areSetsEqual(platformNumbers, gapPlatformNumbers) ||
-    carPlatformNumbers.some((platform) => !platformNumbers.includes(platform)) ||
-    adjacentCarsMissingGap.length > 0
-  ) {
+  if (adjacentCarsMissingGap.length > 0) {
     differences.push({
       stationCode,
       stationName: station.stinNm,
