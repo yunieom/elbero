@@ -111,42 +111,26 @@ for (const config of lineConfigs) {
       return [];
     });
 
-  const doorByStation = new Map();
-  for (const difference of audit.differences.filter(
-    (item) =>
-      item.category === 'elevator_adjacent_car_door' &&
-      item.differenceKinds.includes('value_difference'),
-  )) {
-    doorByStation.set(stationIdentity(difference), {
-      ...toSourceConflict(difference),
-      reason: 'source_value_conflict',
-    });
-  }
-  for (const station of audit.coverage.filter(
-    (item) => (item.endpointCounts?.stationElevatorCarNumber ?? 0) === 0,
-  )) {
-    const stationCode = normalizeCode(station.stationCode);
-    const stationId = stationIdentity(station);
-    const difference =
-      differenceByKey.get(
-        differenceKey(
-          'elevator_adjacent_car_door',
-          stationCode,
-          station.railOperatorCode,
-        ),
-      ) ??
-      differenceByCategoryAndCode.get(
-        `elevator_adjacent_car_door:${stationCode}`,
-      );
-    const existing = doorByStation.get(stationId);
-    doorByStation.set(stationId, {
-      stationCode,
-      stationName: station.stationName,
-      railOperatorCode: station.railOperatorCode ?? difference?.railOperatorCode,
-      reason: existing ? 'source_value_conflict_and_primary_missing' : 'primary_api_missing',
-      sourceValues: existing?.sourceValues ?? difference?.normalizedValues ?? {},
-    });
-  }
+  const doorByStation = audit.preferredDoorGuidance
+    ? new Map(
+        audit.preferredDoorGuidance
+          .filter((station) => !station.source)
+          .map((station) => [
+            stationIdentity(station),
+            {
+              stationCode: normalizeCode(station.stationCode),
+              stationName: station.stationName,
+              railOperatorCode: station.railOperatorCode,
+              reason: 'both_door_apis_missing',
+              sourceValues: {},
+            },
+          ]),
+      )
+    : buildLegacyDoorCheckMap({
+        audit,
+        differenceByKey,
+        differenceByCategoryAndCode,
+      });
 
   const manualDirections = new Map(
     (manual?.directionalDoors ?? []).map((station) => [
@@ -174,11 +158,7 @@ for (const config of lineConfigs) {
       normalizeCode(station.stationCode),
     ),
   );
-  const manualGapOverrideCodes = new Set(
-    (manual?.gapOverrides ?? []).map((station) =>
-      normalizeCode(station.stationCode),
-    ),
-  );
+  const manualGapOverrides = manual?.gapOverrides ?? [];
   const directionDoorChecks = [...doorByStation.values()]
     .map((station) => ({
       ...station,
@@ -201,19 +181,25 @@ for (const config of lineConfigs) {
     })
     .toSorted(stationSort);
 
-  const gapLinkageChecks = audit.differences
-    .filter(
-      (difference) =>
-        difference.category === 'platform_gap_linkage' &&
-        !manualGapOverrideCodes.has(normalizeCode(difference.stationCode)),
-    )
-    .map((difference) => ({
-      stationCode: normalizeCode(difference.stationCode),
-      stationName: difference.stationName,
-      railOperatorCode: difference.railOperatorCode,
-      issue: gapIssue(difference.normalizedValues),
-    }))
-    .toSorted(stationSort);
+  const gapLinkageChecks = audit.preferredDoorGuidance
+    ? buildPreferredGapChecks(audit.preferredDoorGuidance, manualGapOverrides)
+    : audit.differences
+        .filter(
+          (difference) =>
+            difference.category === 'platform_gap_linkage' &&
+            !manualGapOverrides.some(
+              (override) =>
+                normalizeCode(override.stationCode) ===
+                normalizeCode(difference.stationCode),
+            ),
+        )
+        .map((difference) => ({
+          stationCode: normalizeCode(difference.stationCode),
+          stationName: difference.stationName,
+          railOperatorCode: difference.railOperatorCode,
+          issue: gapIssue(difference.normalizedValues),
+        }))
+        .toSorted(stationSort);
 
   results.push({
     ...config,
@@ -273,6 +259,93 @@ function gapIssue(values = {}) {
     return '이격거리 API 행 없음';
   }
   return '승강장·차량·문·이격거리 연결 불가';
+}
+
+function buildLegacyDoorCheckMap({
+  audit,
+  differenceByKey,
+  differenceByCategoryAndCode,
+}) {
+  const doorByStation = new Map();
+  for (const difference of audit.differences.filter(
+    (item) =>
+      item.category === 'elevator_adjacent_car_door' &&
+      item.differenceKinds.includes('value_difference'),
+  )) {
+    doorByStation.set(stationIdentity(difference), {
+      ...toSourceConflict(difference),
+      reason: 'source_value_conflict',
+    });
+  }
+  for (const station of audit.coverage.filter(
+    (item) => (item.endpointCounts?.stationElevatorCarNumber ?? 0) === 0,
+  )) {
+    const stationCode = normalizeCode(station.stationCode);
+    const stationId = stationIdentity(station);
+    const difference =
+      differenceByKey.get(
+        differenceKey(
+          'elevator_adjacent_car_door',
+          stationCode,
+          station.railOperatorCode,
+        ),
+      ) ??
+      differenceByCategoryAndCode.get(
+        `elevator_adjacent_car_door:${stationCode}`,
+      );
+    const existing = doorByStation.get(stationId);
+    doorByStation.set(stationId, {
+      stationCode,
+      stationName: station.stationName,
+      railOperatorCode: station.railOperatorCode ?? difference?.railOperatorCode,
+      reason: existing
+        ? 'source_value_conflict_and_primary_missing'
+        : 'primary_api_missing',
+      sourceValues: existing?.sourceValues ?? difference?.normalizedValues ?? {},
+    });
+  }
+  return doorByStation;
+}
+
+function buildPreferredGapChecks(guidance, manualOverrides) {
+  return guidance
+    .flatMap((station) => {
+      const unresolved = station.candidates.filter((candidate) => {
+        if (candidate.gapStatus === 'linked') return false;
+        return !manualOverrides.some(
+          (override) =>
+            normalizeCode(override.stationCode) ===
+              normalizeCode(station.stationCode) &&
+            (override.recommendedDoors ?? []).includes(candidate.door) &&
+            (candidate.inferredPlatformNumbers.length === 0 ||
+              candidate.inferredPlatformNumbers.some((platform) =>
+                (override.platformNumbers ?? []).includes(platform),
+              )),
+        );
+      });
+      if (unresolved.length === 0) return [];
+      return [
+        {
+          stationCode: normalizeCode(station.stationCode),
+          stationName: station.stationName,
+          railOperatorCode: station.railOperatorCode,
+          issue: unresolved
+            .map((candidate) => {
+              const platform =
+                candidate.inferredPlatformNumbers.join(',') || '방향 승강장 미확인';
+              const status =
+                candidate.gapStatus === 'platform_ambiguous'
+                  ? '방향별 이격거리 확인 필요'
+                  : candidate.gapStatus === 'value_missing'
+                    ? '이격거리 값 없음'
+                    : '이격거리 레코드 없음';
+              return `${station.source} ${platform}:${candidate.door} ${status}`;
+            })
+            .join('; '),
+        },
+      ];
+    })
+    .toSorted(stationSort);
 }
 
 

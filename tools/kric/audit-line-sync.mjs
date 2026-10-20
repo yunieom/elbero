@@ -328,11 +328,30 @@ function extractCarDoors(values) {
   for (const value of values) {
     const text = String(value ?? '');
     if (/출(?:입구|구)/.test(text)) continue;
-    for (const match of text.matchAll(/(?:^|[^\d])(\d{1,2})\s*-\s*(\d)(?=$|[^\d])/g)) {
+    for (const match of text.matchAll(/(?:^|[^\d])(\d{1,2})\s*-\s*([1-4])(?=$|[^\d])/g)) {
       matches.push(`${Number(match[1])}-${Number(match[2])}`);
     }
   }
   return unique(matches);
+}
+
+function extractCarDoorMentions(value) {
+  const text = String(value ?? '');
+  if (/출(?:입구|구)/.test(text)) return [];
+  return [...text.matchAll(/(?:^|[^\d])(\d{1,2})\s*-\s*([1-4])(?=$|[^\d])/g)].map(
+    (match) => ({
+      door: `${Number(match[1])}-${Number(match[2])}`,
+      location: text,
+    }),
+  );
+}
+
+function isCandidateForRequestedLine(location) {
+  if (!/^\d+$/.test(String(line))) return true;
+  const mentionedLines = [...String(location ?? '').matchAll(/(\d+)호선/g)].map(
+    (match) => match[1],
+  );
+  return mentionedLines.length === 0 || mentionedLines.includes(String(line));
 }
 
 function toKricFloor(groundName, floor) {
@@ -553,6 +572,7 @@ const lineSeoulRows = seoulSnapshot.rows.filter(
 
 const differences = [];
 const coverage = [];
+const preferredDoorGuidance = [];
 const gapSummary = { green: 0, yellow: 0, red: 0, missing: 0 };
 
 for (const item of stationPayloads) {
@@ -657,9 +677,10 @@ for (const item of stationPayloads) {
     });
   }
 
-  const elevatorInternalRows = elevatorRows.filter(
-    (row) => !surfaceKricRows([row]).length,
-  );
+  // Ground-level platforms are common on Line 1. A platform elevator can therefore
+  // have a ground-to-ground floor pair and must not be discarded as a surface-only
+  // elevator. Exit text is excluded by extractCarDoors instead.
+  const elevatorInternalRows = elevatorRows;
   const seoulInternalRows = seoulRows.filter(
     (row) => !surfaceSeoulRows([row]).length,
   );
@@ -727,6 +748,89 @@ for (const item of stationPayloads) {
       },
     });
   }
+
+
+  const rawStationElevatorCandidates = elevatorRows.flatMap((row) =>
+    extractCarDoorMentions(row.dtlLoc)
+      .filter((candidate) => isCandidateForRequestedLine(candidate.location))
+      .map((candidate) => ({
+        ...candidate,
+        platformNumber: null,
+      })),
+  );
+  const directStationElevatorCandidates = rawStationElevatorCandidates.filter(
+    (candidate) => !/환승통로/.test(candidate.location),
+  );
+  const stationElevatorCandidates =
+    directStationElevatorCandidates.length > 0
+      ? directStationElevatorCandidates
+      : rawStationElevatorCandidates;
+  const stationElevatorCarNumberCandidates = nearbyCarRows.map((row) => ({
+    door: `${row.carOrdr}-${row.carEtrcNo}`,
+    location: null,
+    platformNumber: String(row.plfNo),
+  }));
+  const preferredSource =
+    stationElevatorCandidates.length > 0
+      ? 'stationElevator'
+      : stationElevatorCarNumberCandidates.length > 0
+        ? 'stationElevatorCarNumber'
+        : null;
+  const selectedCandidates = uniqueDoorCandidates(
+    preferredSource === 'stationElevator'
+      ? stationElevatorCandidates
+      : stationElevatorCarNumberCandidates,
+  );
+  const selectedWithGaps = selectedCandidates.map((candidate) => {
+    const inferredPlatforms = candidate.platformNumber
+      ? [candidate.platformNumber]
+      : inferCandidatePlatforms({
+          candidate,
+          station,
+          stations,
+          stationPlatforms,
+          nearbyCarRows,
+        });
+    const matchingGaps = gapRows
+      .filter(
+        (gap) =>
+          `${gap.carOrdr}-${gap.carEtrcNo}` === candidate.door &&
+          (inferredPlatforms.length === 0 ||
+            inferredPlatforms.includes(String(gap.plfNo))),
+      )
+      .map((gap) => ({
+        platformNumber: String(gap.plfNo),
+        distanceCm: gap.sfDst,
+        level:
+          typeof gap.sfDst === 'number' && gap.sfDst >= 0
+            ? classifyGap(gap.sfDst)
+            : null,
+      }));
+    return {
+      ...candidate,
+      inferredPlatformNumbers: inferredPlatforms,
+      gaps: matchingGaps,
+      gapStatus:
+        matchingGaps.length === 0
+          ? 'missing'
+          : matchingGaps.every((gap) => gap.distanceCm === null)
+            ? 'value_missing'
+            : inferredPlatforms.length === 0 &&
+                new Set(
+                  matchingGaps.map((gap) => `${gap.distanceCm}:${gap.level}`),
+                ).size > 1
+              ? 'platform_ambiguous'
+              : 'linked',
+    };
+  });
+  preferredDoorGuidance.push({
+    stationCode,
+    stationName: station.stinNm,
+    stationKey,
+    railOperatorCode: station.railOprIsttCd,
+    source: preferredSource,
+    candidates: selectedWithGaps,
+  });
 
   for (const row of gapRows) {
     if (typeof row.sfDst !== 'number' || row.sfDst < 0) {
@@ -837,8 +941,19 @@ const report = {
     endpointCoverage,
     gapRecordCount: Object.values(gapSummary).reduce((sum, count) => sum + count, 0),
     gapSummary,
+    preferredDoorSourceCounts: {
+      stationElevator: preferredDoorGuidance.filter(
+        (station) => station.source === 'stationElevator',
+      ).length,
+      stationElevatorCarNumber: preferredDoorGuidance.filter(
+        (station) => station.source === 'stationElevatorCarNumber',
+      ).length,
+      unavailable: preferredDoorGuidance.filter((station) => !station.source)
+        .length,
+    },
   },
   coverage,
+  preferredDoorGuidance,
   differences,
 };
 
@@ -937,6 +1052,17 @@ const markdown = [
   '',
   `전체 ${report.summary.gapRecordCount}건: green ${gapSummary.green}, yellow ${gapSummary.yellow}, red ${gapSummary.red}, 값 없음 ${gapSummary.missing}.`,
   '',
+  '## 권장 차량·문 선택 우선순위',
+  '',
+  '- `stationElevator`에 차량·문이 있으면 이 값을 우선한다.',
+  '- `stationElevator`에 차량·문이 없을 때만 `stationElevatorCarNumber`를 사용한다.',
+  '- 두 API 모두 차량·문이 없을 때만 사용자 확인 대상으로 남긴다.',
+  '',
+  `- stationElevator 선택: ${report.summary.preferredDoorSourceCounts.stationElevator}역`,
+  `- stationElevatorCarNumber 대체: ${report.summary.preferredDoorSourceCounts.stationElevatorCarNumber}역`,
+  `- 두 API 모두 없음: ${report.summary.preferredDoorSourceCounts.unavailable}역`,
+  '',
+  ...renderPreferredDoorGapTables(preferredDoorGuidance),
 ];
 
 for (const [category, items] of Map.groupBy(
@@ -975,3 +1101,115 @@ console.log(
 console.log(`보고서: ${path.relative(repositoryRoot, reportPath)}`);
 console.log(`문서: ${path.relative(repositoryRoot, markdownPath)}`);
 console.log(`원본: ${path.relative(repositoryRoot, rawDirectory)}`);
+
+function uniqueDoorCandidates(candidates) {
+  return [
+    ...new Map(
+      candidates.map((candidate) => [
+        `${candidate.platformNumber ?? ''}:${candidate.door}:${candidate.location ?? ''}`,
+        candidate,
+      ]),
+    ).values(),
+  ];
+}
+
+function inferCandidatePlatforms({
+  candidate,
+  station,
+  stations,
+  stationPlatforms,
+  nearbyCarRows,
+}) {
+  const location = compactStationName(candidate.location);
+  const namedTarget = stations
+    .filter((item) => stationIdentity(item) !== stationIdentity(station))
+    .toSorted((left, right) => right.stinNm.length - left.stinNm.length)
+    .find((item) => location.includes(compactStationName(item.stinNm)));
+  let upDownCode = null;
+  if (namedTarget) {
+    if (namedTarget.stinConsOrdr < station.stinConsOrdr) upDownCode = '1';
+    if (namedTarget.stinConsOrdr > station.stinConsOrdr) upDownCode = '2';
+  }
+  if (!upDownCode && /상행/.test(location)) upDownCode = '1';
+  if (!upDownCode && /하행/.test(location)) upDownCode = '2';
+  if (upDownCode) {
+    const directionPlatforms = unique(
+      stationPlatforms
+        .filter((platform) => String(platform.updnDvCd) === upDownCode)
+        .map((platform) => String(platform.plfNo)),
+    );
+    if (directionPlatforms.length > 0) return directionPlatforms;
+  }
+
+  return unique(
+    nearbyCarRows
+      .filter(
+        (row) => `${row.carOrdr}-${row.carEtrcNo}` === candidate.door,
+      )
+      .map((row) => String(row.plfNo)),
+  );
+}
+
+function renderPreferredDoorGapTables(guidance) {
+  const unavailable = guidance.filter((station) => !station.source);
+  const available = guidance.filter((station) => station.source);
+  const unresolvedGaps = guidance.flatMap((station) =>
+    station.candidates
+      .filter((candidate) => candidate.gapStatus !== 'linked')
+      .map((candidate) => ({ station, candidate })),
+  );
+  return [
+    `### 우선순위로 선택한 권장 문·이격거리 (${available.length}역)`,
+    '',
+    '| 역 | 우선 API | 권장 문·승강장·이격거리 |',
+    '| --- | --- | --- |',
+    ...available.map((station) => {
+      const candidates = station.candidates
+        .map((candidate) => {
+          const position = candidate.location
+            ? candidate.location
+            : `${candidate.inferredPlatformNumbers.join(', ')}번 승강장`;
+          const gaps =
+            candidate.gaps.length > 0
+              ? candidate.gaps
+                  .map(
+                    (gap) =>
+                      `${gap.platformNumber}번 승강장 ${gap.distanceCm ?? '값 없음'}cm${gap.level ? ` ${gap.level}` : ''}`,
+                  )
+                  .join(', ')
+              : '이격거리 없음';
+          return `${position} · ${candidate.door} → ${gaps}`;
+        })
+        .join('<br>');
+      return `| ${station.stationName} (${station.stationCode}, ${station.railOperatorCode}) | ${station.source} | ${candidates} |`;
+    }),
+    '',
+    `### 두 API 모두 차량·문이 없는 역 (${unavailable.length}역)`,
+    '',
+    '| 역 | 상태 |',
+    '| --- | --- |',
+    ...(unavailable.length > 0
+      ? unavailable.map(
+          (station) =>
+            `| ${station.stationName} (${station.stationCode}, ${station.railOperatorCode}) | stationElevator·stationElevatorCarNumber 모두 없음 |`,
+        )
+      : ['| 없음 | - |']),
+    '',
+    `### 권장 문 이격거리 연결 확인 (${unresolvedGaps.length}건)`,
+    '',
+    '| 역 | 우선 API | 권장 문 | 승강장 | 상태 |',
+    '| --- | --- | --- | --- | --- |',
+    ...(unresolvedGaps.length > 0
+      ? unresolvedGaps.map(({ station, candidate }) => {
+          const status =
+            candidate.gapStatus === 'missing'
+              ? '이격거리 레코드 없음'
+              : candidate.gapStatus === 'value_missing'
+                ? '이격거리 값 없음'
+                : '복수 승강장의 이격거리가 달라 방향 연결 필요';
+          return `| ${station.stationName} (${station.stationCode}, ${station.railOperatorCode}) | ${station.source} | ${candidate.door} | ${candidate.inferredPlatformNumbers.join(', ') || '미확인'} | ${status} |`;
+        })
+      : ['| 없음 | - | - | - | - |']),
+    '',
+  ];
+}

@@ -12,7 +12,7 @@
       "name": "1호선",
       "stem": "line-1",
       "status": "route_engine_target",
-      "collectedAt": "2026-10-20T06:28:40.513Z",
+      "collectedAt": "2026-10-20T06:51:25.780Z",
       "stationCount": 102,
       "resolvedSurfaceExits": [
         {
@@ -497,70 +497,52 @@
       "directionDoorChecks": [],
       "gapLinkageChecks": [
         {
-          "stationCode": "0145",
-          "stationName": "온수",
+          "stationCode": "0100",
+          "stationName": "소요산",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:7-3, 4:7-3"
+          "issue": "stationElevator 방향 승강장 미확인:3-4 방향별 이격거리 확인 필요"
         },
         {
-          "stationCode": "0153",
-          "stationName": "백운",
+          "stationCode": "0101",
+          "stationName": "동두천",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:6-3, 4:6-3"
+          "issue": "stationElevator 방향 승강장 미확인:6-3 방향별 이격거리 확인 필요; stationElevator 방향 승강장 미확인:5-3 방향별 이격거리 확인 필요"
         },
         {
-          "stationCode": "0155",
-          "stationName": "간석",
+          "stationCode": "0138",
+          "stationName": "신길",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:5-1, 4:5-1"
+          "issue": "stationElevator 방향 승강장 미확인:3-1 방향별 이격거리 확인 필요; stationElevator 방향 승강장 미확인:3-4 방향별 이격거리 확인 필요; stationElevator 방향 승강장 미확인:8-1 방향별 이격거리 확인 필요"
+        },
+        {
+          "stationCode": "0161",
+          "stationName": "인천",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 방향 승강장 미확인:2-1 방향별 이격거리 확인 필요"
         },
         {
           "stationCode": "P144-1",
           "stationName": "광명",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 1:1-4, 2:4-4"
-        },
-        {
-          "stationCode": "P155",
-          "stationName": "수원",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 8:6-4, 9:7-2"
-        },
-        {
-          "stationCode": "P157",
-          "stationName": "병점",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 4:6-3"
-        },
-        {
-          "stationCode": "P160",
-          "stationName": "오산",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 7:1-1, 8:1-1"
+          "issue": "stationElevatorCarNumber 1:1-4 이격거리 레코드 없음; stationElevatorCarNumber 2:4-4 이격거리 레코드 없음"
         },
         {
           "stationCode": "P165",
           "stationName": "평택",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 7:6-3, 8:6-3"
-        },
-        {
-          "stationCode": "P166",
-          "stationName": "성환",
-          "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 6:7-3, 8:7-3"
+          "issue": "stationElevatorCarNumber 7:6-3 이격거리 레코드 없음; stationElevatorCarNumber 8:6-3 이격거리 레코드 없음"
         },
         {
           "stationCode": "P167",
           "stationName": "직산",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:8-1, 4:8-1"
+          "issue": "stationElevatorCarNumber 3:8-1 이격거리 레코드 없음; stationElevatorCarNumber 4:8-1 이격거리 레코드 없음"
         },
         {
           "stationCode": "P172",
           "stationName": "아산",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:4-4, 4:6-4"
+          "issue": "stationElevatorCarNumber 3:4-4 이격거리 레코드 없음; stationElevatorCarNumber 4:6-4 이격거리 레코드 없음"
         }
       ],
       "gapSummary": {

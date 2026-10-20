@@ -307,7 +307,9 @@ function metropolitanStationLabel(station) {
 
 function metropolitanDoorReason(station) {
   const reason =
-    station.reason === 'source_value_conflict'
+    station.reason === 'both_door_apis_missing'
+      ? 'stationElevator·stationElevatorCarNumber 모두 누락'
+      : station.reason === 'source_value_conflict'
       ? 'API 값 충돌'
       : station.reason === 'source_value_conflict_and_primary_missing'
         ? 'API 값 충돌 + 기준 API 누락'
