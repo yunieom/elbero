@@ -2,17 +2,20 @@
   "expo": {
     "name": "엘베로",
     "slug": "elbero",
+    "description": "엘리베이터 중심 지하철 길찾기",
     "scheme": "elbero",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.elbero.mobile"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.elbero.mobile",
+      "buildNumber": "1"
     },
     "android": {
       "package": "com.elbero.mobile",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -25,8 +28,6 @@
       "favicon": "./assets/favicon.png",
       "output": "single"
     },
-    "plugins": [
-      "expo-router"
-    ]
+    "plugins": ["expo-router"]
   }
 }

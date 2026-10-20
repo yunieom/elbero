@@ -88,3 +88,19 @@ npm run research:line-sync -- --line suin-bundang
 
 - [기술 스택과 기술 결정](docs/architecture/technology-stack.md)
 - [모바일 앱 아키텍처 및 코딩 컨벤션](docs/conventions/mobile-app-convention.md)
+
+## 출시 준비
+
+- [출시 관문과 현장 검증 범위](docs/release/t23-launch-gate.md)
+- [양 스토어 등록 자료](docs/release/t24-store-listing.md)
+- [개인정보 처리방침 초안](docs/release/privacy-policy.md)
+- [지원 안내](docs/release/support.md)
+- [최종 빌드·릴리스 운영 절차](docs/release/t25-release-runbook.md)
+
+정적 설정과 비밀 파일 추적 여부는 다음 명령으로 확인합니다.
+
+```bash
+npm run release:check:static
+```
+
+실제 출시 검사에는 HTTPS 운영 API 주소와 오류 제보 이메일을 환경변수로 전달합니다.
