@@ -12,10 +12,10 @@ const lineConfigs = [
     remaining: { surface: 0, door: 0, gap: 1 },
   },
   { name: '5호선', stem: 'line-5', status: 'verified_supported' },
-  { name: '6호선', stem: 'line-6', status: 'route_engine_target' },
+  { name: '6호선', stem: 'line-6', status: 'verified_supported' },
   { name: '7호선', stem: 'line-7', status: 'verified_supported' },
-  { name: '8호선', stem: 'line-8', status: 'route_engine_target' },
-  { name: '9호선', stem: 'line-9', status: 'route_engine_target' },
+  { name: '8호선', stem: 'line-8', status: 'verified_supported' },
+  { name: '9호선', stem: 'line-9', status: 'verified_supported' },
   {
     name: '공항철도',
     stem: 'airport-railroad',

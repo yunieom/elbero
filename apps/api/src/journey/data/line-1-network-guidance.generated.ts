@@ -408,7 +408,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR100-3",
       "stationName": "연천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -437,7 +440,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR100-2",
       "stationName": "전곡",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -505,7 +511,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR100-1",
       "stationName": "청산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -555,7 +564,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0100",
       "stationName": "소요산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -605,7 +616,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0101",
       "stationName": "동두천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -673,7 +687,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0102",
       "stationName": "보산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -741,7 +758,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0103",
       "stationName": "동두천중앙",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -809,7 +831,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0104",
       "stationName": "지행",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -913,7 +938,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0105",
       "stationName": "덕정",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -963,7 +990,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0106",
       "stationName": "덕계",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1031,7 +1061,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0107",
       "stationName": "양주",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1099,7 +1132,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0108",
       "stationName": "녹양",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1167,7 +1203,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0109",
       "stationName": "가능",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1217,7 +1257,13 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0110",
       "stationName": "의정부",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "3",
+        "4",
+        "6",
+        "7"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1321,7 +1367,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0111",
       "stationName": "회룡",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1389,7 +1440,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0112",
       "stationName": "망월사",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1417,7 +1471,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0113",
       "stationName": "도봉산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1467,7 +1524,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0114",
       "stationName": "도봉",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1526,7 +1587,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0115",
       "stationName": "방학",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1594,7 +1659,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0116",
       "stationName": "창동",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1622,7 +1690,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0117",
       "stationName": "녹천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1690,7 +1763,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0118",
       "stationName": "월계",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1758,7 +1836,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0119",
       "stationName": "광운대",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1786,7 +1868,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0120",
       "stationName": "석계",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1854,7 +1938,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0121",
       "stationName": "신이문",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1904,7 +1993,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0122",
       "stationName": "외대앞",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "5"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1932,7 +2024,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0123",
       "stationName": "회기",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -1982,7 +2077,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10158",
       "stationName": "청량리(서울시립대입구)",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2118,7 +2215,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10156",
       "stationName": "신설동",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "3",
+        "5"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2186,7 +2286,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10159",
       "stationName": "동묘앞",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2254,7 +2357,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10155",
       "stationName": "동대문",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "6"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2304,7 +2410,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10154",
       "stationName": "종로5가",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "8"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2372,7 +2480,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10153",
       "stationName": "종로3가",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2-1",
+        "12"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2490,7 +2601,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10151",
       "stationName": "시청",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2558,7 +2672,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "S10150",
       "stationName": "서울역",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2608,7 +2727,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0134",
       "stationName": "남영",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2636,7 +2757,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0135",
       "stationName": "용산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2704,7 +2829,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0136",
       "stationName": "노량진",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "6",
+        "8",
+        "9"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2732,7 +2861,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0137",
       "stationName": "대방",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "5",
+        "6"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2800,7 +2932,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0138",
       "stationName": "신길",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -2886,7 +3020,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0139",
       "stationName": "영등포",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3008,7 +3145,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0140",
       "stationName": "신도림",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3076,7 +3215,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0141",
       "stationName": "구로",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3114,7 +3256,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0142",
       "stationName": "구일",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3142,7 +3287,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP142",
       "stationName": "가산디지털단지",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "7"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3201,7 +3349,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0143",
       "stationName": "개봉",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3251,7 +3402,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP143",
       "stationName": "독산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3355,7 +3509,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP144",
       "stationName": "금천구청",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3453,7 +3609,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0144",
       "stationName": "오류동",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3503,7 +3662,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0145",
       "stationName": "온수",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "8"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3571,7 +3733,12 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP144-1",
       "stationName": "광명",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "5",
+        "6"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3601,7 +3768,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP145",
       "stationName": "석수",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3629,7 +3799,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0146",
       "stationName": "역곡",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3697,7 +3870,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP146",
       "stationName": "관악",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3747,7 +3923,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0147",
       "stationName": "소사",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3797,7 +3976,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP147",
       "stationName": "안양",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3865,7 +4047,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0148",
       "stationName": "부천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -3969,7 +4154,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP148",
       "stationName": "명학",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4037,7 +4225,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP149",
       "stationName": "금정",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "5",
+        "8"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4141,7 +4333,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0149",
       "stationName": "중동",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4209,7 +4404,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP150",
       "stationName": "군포",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4277,7 +4474,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0150",
       "stationName": "송내",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4345,7 +4545,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0151",
       "stationName": "부개",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4413,7 +4616,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP151",
       "stationName": "당정",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4463,7 +4669,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP152",
       "stationName": "의왕",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4531,7 +4740,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0152",
       "stationName": "부평",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4599,7 +4811,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP153",
       "stationName": "성균관대",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "3",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4649,7 +4864,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0153",
       "stationName": "백운",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4717,7 +4935,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP154",
       "stationName": "화서",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "4",
+        "6"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4745,7 +4966,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0154",
       "stationName": "동암",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4813,7 +5037,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0155",
       "stationName": "간석",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4863,7 +5090,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP155",
       "stationName": "수원",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "5",
+        "7",
+        "10"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4931,7 +5162,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP156",
       "stationName": "세류",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -4981,7 +5214,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0156",
       "stationName": "주안",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "4",
+        "5"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5085,7 +5322,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP157",
       "stationName": "병점",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5183,7 +5423,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0157",
       "stationName": "도화",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "2",
+        "4"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5251,7 +5494,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0158",
       "stationName": "제물포",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5319,7 +5565,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP158",
       "stationName": "세마",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5387,7 +5636,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP157-1",
       "stationName": "서동탄",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5416,7 +5668,11 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0159",
       "stationName": "도원",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5484,7 +5740,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP159",
       "stationName": "오산대",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5534,7 +5793,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP160",
       "stationName": "오산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5638,7 +5900,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0160",
       "stationName": "동인천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5706,7 +5970,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KR0161",
       "stationName": "인천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5735,7 +6002,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP161",
       "stationName": "진위",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5785,7 +6055,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP162",
       "stationName": "송탄",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "3",
+        "6"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5853,7 +6126,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP163",
       "stationName": "서정리",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "3"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5921,7 +6197,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP164",
       "stationName": "평택지제",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -5989,7 +6268,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP165",
       "stationName": "평택",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6057,7 +6339,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP166",
       "stationName": "성환",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6125,7 +6410,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP167",
       "stationName": "직산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6193,7 +6481,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP168",
       "stationName": "두정",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6297,7 +6588,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP169",
       "stationName": "천안",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6365,7 +6659,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP170",
       "stationName": "봉명",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6433,7 +6730,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP171",
       "stationName": "쌍용(나사렛대)",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6501,7 +6801,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP172",
       "stationName": "아산",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6587,7 +6890,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP173",
       "stationName": "탕정",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6615,7 +6921,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP174",
       "stationName": "배방",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6683,7 +6992,9 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP176",
       "stationName": "온양온천",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {
@@ -6751,7 +7062,10 @@ export const LINE_1_NETWORK_GUIDANCE = {
     {
       "stationCode": "KRP177",
       "stationName": "신창(순천향대)",
-      "exitNumbers": [],
+      "exitNumbers": [
+        "1",
+        "2"
+      ],
       "verificationMethod": "kric_movement_consensus",
       "directions": [
         {

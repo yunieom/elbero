@@ -39,10 +39,25 @@ import {
   hasLine5Station,
 } from './line-5-journey.factory.js';
 import {
+  createLine6JourneyDefinition,
+  getLine6Distance,
+  hasLine6Station,
+} from './line-6-journey.factory.js';
+import {
   createLine7JourneyDefinition,
   getLine7Distance,
   hasLine7Station,
 } from './line-7-journey.factory.js';
+import {
+  createLine8JourneyDefinition,
+  getLine8Distance,
+  hasLine8Station,
+} from './line-8-journey.factory.js';
+import {
+  createLine9JourneyDefinition,
+  getLine9Distance,
+  hasLine9Station,
+} from './line-9-journey.factory.js';
 import {
   createSillimLineJourneyDefinition,
   getSillimLineDistance,
@@ -57,7 +72,19 @@ import {
 } from './types/verified-journey.type.js';
 
 type SupportedLineId =
-  '1' | '2' | '3' | '4' | '5' | '7' | 'A1' | 'E1' | 'G1' | 'L1';
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | 'A1'
+  | 'E1'
+  | 'G1'
+  | 'L1';
 
 interface LineAdapter {
   lineName: string;
@@ -109,11 +136,29 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     distance: getLine5Distance,
     create: createLine5JourneyDefinition,
   },
+  '6': {
+    lineName: '6호선',
+    hasStation: hasLine6Station,
+    distance: getLine6Distance,
+    create: createLine6JourneyDefinition,
+  },
   '7': {
     lineName: '7호선',
     hasStation: hasLine7Station,
     distance: getLine7Distance,
     create: createLine7JourneyDefinition,
+  },
+  '8': {
+    lineName: '8호선',
+    hasStation: hasLine8Station,
+    distance: getLine8Distance,
+    create: createLine8JourneyDefinition,
+  },
+  '9': {
+    lineName: '9호선',
+    hasStation: hasLine9Station,
+    distance: getLine9Distance,
+    create: createLine9JourneyDefinition,
   },
   A1: {
     lineName: '공항철도',
@@ -142,6 +187,111 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
 };
 
 const interchanges: readonly Interchange[] = [
+  {
+    stationName: '동묘앞',
+    stationCodes: { '1': 'S10159', '6': '2637' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '석계',
+    stationCodes: { '1': 'KR0120', '6': '2645' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '합정',
+    stationCodes: { '2': '0238', '6': '2623' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '신당',
+    stationCodes: { '2': '0206', '6': '2636' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '불광',
+    stationCodes: { '3': '0312', '6': '2613' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '약수',
+    stationCodes: { '3': '0323', '6': '2634' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '삼각지',
+    stationCodes: { '4': '0428', '6': '2629' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '청구',
+    stationCodes: { '5': '2538', '6': '2635' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '태릉입구',
+    stationCodes: { '6': '2646', '7': '2719' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '디지털미디어시티',
+    stationCodes: { '6': '2619', A1: 'A04' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '잠실',
+    stationCodes: { '2': '0216', '8': '2815' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '가락시장',
+    stationCodes: { '3': '0340', '8': '2818' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '천호',
+    stationCodes: { '5': '2548', '8': '2812' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '석촌',
+    stationCodes: { '8': '2816', '9': '0933' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '당산',
+    stationCodes: { '2': '0237', '9': '0913' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '종합운동장',
+    stationCodes: { '2': '0218', '9': '0930' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '동작',
+    stationCodes: { '4': '0431', '9': '0920' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '여의도',
+    stationCodes: { '5': '2527', '9': '0915' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '올림픽공원',
+    stationCodes: { '5': '2556', '9': '0936' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '마곡나루',
+    stationCodes: { '9': '0905', A1: 'A042' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '샛강',
+    stationCodes: { '9': '0916', L1: 'S401' },
+    accessibilityVerified: false,
+  },
   {
     stationName: '서울역',
     stationCodes: { '1': 'S10150', '4': '0426', A1: 'A01' },
@@ -199,7 +349,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '공덕',
-    stationCodes: { '5': '2530', A1: 'A02' },
+    stationCodes: { '5': '2530', '6': '2627', A1: 'A02' },
     accessibilityVerified: false,
   },
   {
@@ -249,7 +399,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '고속터미널',
-    stationCodes: { '3': '0329', '7': '2736' },
+    stationCodes: { '3': '0329', '7': '2736', '9': '0923' },
     accessibilityVerified: false,
   },
   {
@@ -284,7 +434,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '김포공항',
-    stationCodes: { '5': '2513', A1: 'A05', G1: 'G109' },
+    stationCodes: { '5': '2513', '9': '0902', A1: 'A05', G1: 'G109' },
     accessibilityVerified: false,
   },
   {
@@ -354,7 +504,14 @@ export function createInterlineJourneyDefinition(
     );
     return result ? [result] : [];
   });
-  if (built.length === 0) return null;
+  if (built.length === 0) {
+    return createMultiTransferJourneyDefinition(
+      originStationCode,
+      destinationStationCode,
+      originLine,
+      destinationLine,
+    );
+  }
 
   return {
     id: `interline-${originLine}-${destinationLine}-${originStationCode}-to-${destinationStationCode}`,
@@ -369,6 +526,235 @@ export function createInterlineJourneyDefinition(
       .at(-1)!,
     candidates: built.map((item) => item.candidate),
   };
+}
+
+interface LineTransition {
+  interchange: Interchange;
+  fromLine: SupportedLineId;
+  toLine: SupportedLineId;
+  fromCode: string;
+  toCode: string;
+}
+
+function createMultiTransferJourneyDefinition(
+  originStationCode: string,
+  destinationStationCode: string,
+  originLine: SupportedLineId,
+  destinationLine: SupportedLineId,
+): VerifiedJourneyDefinition | null {
+  const transitions = findMultiLineRoute(
+    originStationCode,
+    destinationStationCode,
+    originLine,
+    destinationLine,
+  );
+  if (!transitions) return null;
+
+  const segments: Array<{
+    line: SupportedLineId;
+    originCode: string;
+    destinationCode: string;
+    transferAfter?: LineTransition;
+  }> = [];
+  let currentLine = originLine;
+  let currentCode = originStationCode;
+  for (const transition of transitions) {
+    segments.push({
+      line: currentLine,
+      originCode: currentCode,
+      destinationCode: transition.fromCode,
+      transferAfter: transition,
+    });
+    currentLine = transition.toLine;
+    currentCode = transition.toCode;
+  }
+  segments.push({
+    line: destinationLine,
+    originCode: currentCode,
+    destinationCode: destinationStationCode,
+  });
+
+  const legs = segments.flatMap((segment) => {
+    if (segment.originCode === segment.destinationCode) return [];
+    const definition = adapters[segment.line].create(
+      segment.originCode,
+      segment.destinationCode,
+    );
+    return definition ? [{ segment, definition }] : [];
+  });
+  if (legs.length === 0) return null;
+
+  const transferNames = new Set(
+    transitions.map((transition) => transition.interchange.stationName),
+  );
+  const facilityGroups = legs.flatMap(({ definition }) =>
+    definition.candidates[0].facilityGroups.filter(
+      (group) =>
+        ![...transferNames].some(
+          (name) => group.label.includes(name) && group.label.includes('지상'),
+        ),
+    ),
+  );
+  const transferGroupIds = new Map<string, string>();
+  for (const transition of transitions) {
+    if (transition.interchange.accessibilityVerified) continue;
+    const group = createUnverifiedTransferGroup(
+      transition.interchange,
+      transition.fromCode,
+      transition.fromLine,
+      transition.toLine,
+    );
+    facilityGroups.push(group);
+    transferGroupIds.set(transitionKey(transition), group.id);
+  }
+  const steps: VerifiedJourneyStep[] = [];
+  legs.forEach(({ segment, definition }, index) => {
+    const candidateSteps = definition.candidates[0].steps;
+    const isFirst = index === 0;
+    const isLast = index === legs.length - 1;
+    const selected = isFirst
+      ? isLast
+        ? candidateSteps
+        : throughLastTrain(candidateSteps)
+      : isLast
+        ? fromFirstTrain(candidateSteps)
+        : throughLastTrain(fromFirstTrain(candidateSteps));
+    if (!isFirst) {
+      const transfer = transitions.find(
+        (item) =>
+          item.toLine === segment.line && item.toCode === segment.originCode,
+      );
+      if (transfer) {
+        const transferGroupId = transferGroupIds.get(transitionKey(transfer));
+        steps.push({
+          order: 0,
+          type: JOURNEY_STEP_TYPE.TRANSFER,
+          stationName: transfer.interchange.stationName,
+          instruction: `${transfer.interchange.stationName}에서 ${adapters[segment.line].lineName} 열차로 갈아타세요. 승강장 엘리베이터와 환승 표지를 이용하세요.`,
+          ...(transferGroupId ? { facilityGroupId: transferGroupId } : {}),
+          evidence: transfer.interchange.accessibilityVerified
+            ? '검증된 환승역 연결값'
+            : '지원 노선 환승 그래프 · 방향별 엘리베이터 환승 이동동선 미확인',
+        });
+      }
+    }
+    steps.push(...selected);
+  });
+
+  const firstDefinition = legs[0].definition;
+  const lastDefinition = legs.at(-1)!.definition;
+  return {
+    id: `interline-multi-${originLine}-${destinationLine}-${originStationCode}-to-${destinationStationCode}`,
+    originStationCode,
+    originStationName: firstDefinition.originStationName,
+    destinationStationCode,
+    destinationStationName: lastDefinition.destinationStationName,
+    dataVersion: [
+      ...new Set(legs.map(({ definition }) => definition.dataVersion)),
+    ].join('+'),
+    verifiedAt: legs
+      .map(({ definition }) => definition.verifiedAt)
+      .toSorted()
+      .at(-1)!,
+    candidates: [
+      {
+        id: `multi-transfer-${transitions.map((item) => slug(item.interchange.stationName)).join('-')}`,
+        label: `${transitions.map((item) => item.interchange.stationName).join('·')} 환승`,
+        priority: 1,
+        transferStation: transitions
+          .map((item) => item.interchange.stationName)
+          .join('·'),
+        lines: [
+          adapters[originLine].lineName,
+          ...transitions.map((item) => adapters[item.toLine].lineName),
+        ],
+        facilityGroups,
+        steps: renumber(steps),
+      },
+    ],
+  };
+}
+
+function transitionKey(transition: LineTransition) {
+  return `${transition.fromLine}:${transition.fromCode}:${transition.toLine}:${transition.toCode}`;
+}
+
+function findMultiLineRoute(
+  originStationCode: string,
+  destinationStationCode: string,
+  originLine: SupportedLineId,
+  destinationLine: SupportedLineId,
+) {
+  const queue: Array<{
+    line: SupportedLineId;
+    stationCode: string;
+    cost: number;
+    transitions: LineTransition[];
+  }> = [
+    {
+      line: originLine,
+      stationCode: originStationCode,
+      cost: 0,
+      transitions: [],
+    },
+  ];
+  const bestByState = new Map<string, number>();
+  let best: { cost: number; transitions: LineTransition[] } | null = null;
+
+  while (queue.length > 0) {
+    queue.sort((left, right) => left.cost - right.cost);
+    const state = queue.shift()!;
+    if (best && state.cost >= best.cost) continue;
+    const key = `${state.line}:${state.stationCode}`;
+    if ((bestByState.get(key) ?? Number.POSITIVE_INFINITY) <= state.cost)
+      continue;
+    bestByState.set(key, state.cost);
+
+    if (state.line === destinationLine) {
+      const finalDistance = adapters[state.line].distance(
+        state.stationCode,
+        destinationStationCode,
+      );
+      if (finalDistance !== null) {
+        const cost = state.cost + finalDistance;
+        if (!best || cost < best.cost)
+          best = { cost, transitions: state.transitions };
+      }
+    }
+
+    for (const interchange of interchanges) {
+      const fromCode = interchange.stationCodes[state.line];
+      if (!fromCode) continue;
+      const travelDistance = adapters[state.line].distance(
+        state.stationCode,
+        fromCode,
+      );
+      if (travelDistance === null) continue;
+      for (const [toLine, toCode] of Object.entries(
+        interchange.stationCodes,
+      ) as Array<[SupportedLineId, string]>) {
+        if (toLine === state.line) continue;
+        if (state.transitions.some((item) => item.fromLine === toLine))
+          continue;
+        queue.push({
+          line: toLine,
+          stationCode: toCode,
+          cost: state.cost + travelDistance + 2,
+          transitions: [
+            ...state.transitions,
+            {
+              interchange,
+              fromLine: state.line,
+              toLine,
+              fromCode,
+              toCode,
+            },
+          ],
+        });
+      }
+    }
+  }
+  return best?.transitions ?? null;
 }
 
 function buildCandidate(

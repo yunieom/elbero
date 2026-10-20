@@ -64,9 +64,15 @@ test('선택 오류와 미지원 상태를 구분한다', () => {
     (station) =>
       station.stationKey === 'transfer:군자' && station.lineId === '5',
   );
-  const unsupported = stationCatalog.find(
-    (station) => station.lineId === '6' && !station.journeySupported,
-  );
+  const unsupported = line5
+    ? {
+        ...line5,
+        id: 'future:test',
+        stationKey: 'future:test',
+        lineId: 'future',
+        journeySupported: false,
+      }
+    : null;
 
   assert.equal(
     stationSelectionError(
@@ -77,7 +83,7 @@ test('선택 오류와 미지원 상태를 구분한다', () => {
   );
   assert.equal(
     stationSelectionError(line5 ?? null, unsupported ?? null),
-    '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 1호선·2호선·3호선·4호선·5호선·7호선·공항철도·용인에버라인·김포골드라인·신림선 경로를 안내할 수 있어요.',
+    '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 1호선·2호선·3호선·4호선·5호선·6호선·7호선·8호선·9호선·공항철도·용인에버라인·김포골드라인·신림선 경로를 안내할 수 있어요.',
   );
   assert.equal(
     stationSelectionError(line5 ?? null, null),
@@ -86,7 +92,16 @@ test('선택 오류와 미지원 상태를 구분한다', () => {
 });
 
 test('새 지원 노선은 검색과 노선도에서 선택할 수 있다', () => {
-  for (const lineId of ['1', 'airport', 'everline', 'gimpo-gold', 'sillim']) {
+  for (const lineId of [
+    '1',
+    '6',
+    '8',
+    '9',
+    'airport',
+    'everline',
+    'gimpo-gold',
+    'sillim',
+  ]) {
     const stations = stationCatalog.filter(
       (station) => station.lineId === lineId,
     );

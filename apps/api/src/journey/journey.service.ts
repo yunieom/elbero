@@ -18,7 +18,10 @@ import {
   createLine5JourneyDefinition,
   listLine5Stations,
 } from './line-5-journey.factory.js';
+import { createLine6JourneyDefinition } from './line-6-journey.factory.js';
 import { createLine7JourneyDefinition } from './line-7-journey.factory.js';
+import { createLine8JourneyDefinition } from './line-8-journey.factory.js';
+import { createLine9JourneyDefinition } from './line-9-journey.factory.js';
 import { createSillimLineJourneyDefinition } from './sillim-line-journey.factory.js';
 import type { VerifiedJourneyDefinition } from './types/verified-journey.type.js';
 
@@ -72,7 +75,10 @@ export class JourneyService {
       createLine3JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine4JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine5JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine6JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine7JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine8JourneyDefinition(originStationCode, destinationStationCode) ??
+      createLine9JourneyDefinition(originStationCode, destinationStationCode) ??
       createGimpoGoldlineJourneyDefinition(
         originStationCode,
         destinationStationCode,

@@ -3323,7 +3323,7 @@
     {
       "name": "6호선",
       "stem": "line-6",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "collectedAt": "2026-09-18T09:14:16.096Z",
       "stationCount": 39,
       "resolvedSurfaceExits": [
@@ -4113,7 +4113,7 @@
     {
       "name": "8호선",
       "stem": "line-8",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "collectedAt": "2026-09-18T09:14:31.475Z",
       "stationCount": 24,
       "resolvedSurfaceExits": [
@@ -4268,7 +4268,7 @@
     {
       "name": "9호선",
       "stem": "line-9",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "collectedAt": "2026-09-18T03:13:31.764Z",
       "stationCount": 38,
       "resolvedSurfaceExits": [

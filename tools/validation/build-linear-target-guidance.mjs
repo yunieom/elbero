@@ -25,6 +25,28 @@ const configs = [
     preferredDoorPriority: true,
   },
   {
+    stem: "line-6",
+    constantName: "LINE_6_LOOP_GUIDANCE",
+    output: "apps/api/src/journey/data/line-6-loop-guidance.generated.ts",
+    lineName: "6호선",
+    loop: "line-6",
+    preferredDoorPriority: true,
+  },
+  {
+    stem: "line-8",
+    constantName: "LINE_8_GUIDANCE",
+    output: "apps/api/src/journey/data/line-8-guidance.generated.ts",
+    lineName: "8호선",
+    preferredDoorPriority: true,
+  },
+  {
+    stem: "line-9",
+    constantName: "LINE_9_GUIDANCE",
+    output: "apps/api/src/journey/data/line-9-guidance.generated.ts",
+    lineName: "9호선",
+    preferredDoorPriority: true,
+  },
+  {
     stem: "gimpo-goldline",
     constantName: "GIMPO_GOLDLINE_GUIDANCE",
     output: "apps/api/src/journey/data/gimpo-goldline-guidance.generated.ts",
@@ -72,6 +94,12 @@ for (const config of configs) {
       station,
     ]),
   );
+  const manualSurfaceExitsByIdentity = new Map(
+    (manual?.surfaceExits ?? []).map((station) => [
+      `${station.railOperatorCode ?? ""}:${normalizeCode(station.stationCode)}`,
+      station,
+    ]),
+  );
   const exitDifferenceByIdentity = new Map(
     audit.differences
       .filter((difference) => difference.category === "surface_exit_number")
@@ -89,7 +117,13 @@ for (const config of configs) {
   );
   const paths =
     config.network === "line-1" ? buildLine1Paths(route, codeByIdentity) : null;
-  const neighborsByCode = paths ? buildNeighbors(paths) : null;
+  const loopLayout =
+    config.loop === "line-6" ? buildLine6Layout(route, codeByIdentity) : null;
+  const neighborsByCode = paths
+    ? buildNeighbors(paths)
+    : loopLayout
+      ? buildLine6Neighbors(loopLayout)
+      : null;
   const stations = route.map((routeStation, index) => {
     const identity = stationIdentity(routeStation);
     const stationCode = codeByIdentity.get(identity);
@@ -97,9 +131,14 @@ for (const config of configs) {
     const stationPlatforms = platformsByIdentity.get(identity) ?? [];
     const stationGaps = gapsByIdentity.get(identity) ?? [];
     const exitDifference = exitDifferenceByIdentity.get(
-      `${routeStation.railOprIsttCd}:${stationCode}`,
+      `${routeStation.railOprIsttCd}:${normalizeCode(routeStation.stinCd)}`,
     );
-    const exitNumbers = selectExitNumbers(exitDifference?.normalizedValues);
+    const manualSurfaceExit =
+      manualSurfaceExitsByIdentity.get(identity) ??
+      manualSurfaceExitsByIdentity.get(`:${normalizeCode(routeStation.stinCd)}`);
+    const exitNumbers =
+      manualSurfaceExit?.exitNumbers ??
+      selectExitNumbers(exitDifference?.normalizedValues);
     const adjacentStations = neighborsByCode
       ? [...(neighborsByCode.get(stationCode) ?? [])]
           .map((code) =>
@@ -128,6 +167,7 @@ for (const config of configs) {
         config,
         route,
         paths,
+        loopLayout,
         codeByIdentity,
         stationCode,
         adjacentCode: codeByIdentity.get(stationIdentity(adjacentStation)),
@@ -167,6 +207,7 @@ for (const config of configs) {
     ),
     terminals: [firstTerminal.stinNm, lastTerminal.stinNm],
     ...(paths ? { paths } : {}),
+    ...(loopLayout ? { loopLayout } : {}),
     stations,
   };
   await writeFile(
@@ -499,15 +540,56 @@ function buildNeighbors(paths) {
   return result;
 }
 
+function buildLine6Layout(route, codeByIdentity) {
+  const codeByName = new Map(
+    route.map((station) => [
+      station.stinNm,
+      codeByIdentity.get(stationIdentity(station)),
+    ]),
+  );
+  return {
+    mainStationCodes: [
+      codeByName.get("응암"),
+      ...route
+        .filter((station) => station.stinConsOrdr >= 7)
+        .map((station) => codeByIdentity.get(stationIdentity(station))),
+    ],
+    loopStationCodes: ["응암", "역촌", "불광", "독바위", "연신내", "구산"].map(
+      (name) => codeByName.get(name),
+    ),
+  };
+}
+
+function buildLine6Neighbors(layout) {
+  const result = buildNeighbors([
+    { stationCodes: layout.mainStationCodes },
+    { stationCodes: layout.loopStationCodes },
+  ]);
+  const loopStart = layout.loopStationCodes[0];
+  const loopEnd = layout.loopStationCodes.at(-1);
+  result.get(loopStart)?.add(loopEnd);
+  result.get(loopEnd)?.add(loopStart);
+  return result;
+}
+
 function selectTerminalForNeighbor({
   config,
   route,
   paths,
+  loopLayout,
   codeByIdentity,
   stationCode,
   adjacentCode,
   fallback,
 }) {
+  if (loopLayout) {
+    const stationIndex = loopLayout.mainStationCodes.indexOf(stationCode);
+    const adjacentIndex = loopLayout.mainStationCodes.indexOf(adjacentCode);
+    if (stationIndex !== -1 && adjacentIndex !== -1) {
+      return adjacentIndex < stationIndex ? route[0] : route.at(-1);
+    }
+    return route[0];
+  }
   if (!paths) {
     const stationIndex = route.findIndex(
       (station) => codeByIdentity.get(stationIdentity(station)) === stationCode,
