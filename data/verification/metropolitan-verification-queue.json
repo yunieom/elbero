@@ -11,7 +11,7 @@
     {
       "name": "1호선",
       "stem": "line-1",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "collectedAt": "2026-10-20T06:51:25.780Z",
       "stationCount": 102,
       "resolvedSurfaceExits": [
@@ -4433,7 +4433,13 @@
     {
       "name": "공항철도",
       "stem": "airport-railroad",
-      "status": "route_engine_target",
+      "status": "verified_supported",
+      "includeInDetails": true,
+      "remaining": {
+        "surface": 0,
+        "door": 0,
+        "gap": 1
+      },
       "collectedAt": "2026-10-20T07:30:35.048Z",
       "stationCount": 14,
       "resolvedSurfaceExits": [
@@ -5645,7 +5651,7 @@
     {
       "name": "에버라인",
       "stem": "everline",
-      "status": "future_target",
+      "status": "verified_supported",
       "collectedAt": "2026-10-20T07:30:33.745Z",
       "stationCount": 15,
       "resolvedSurfaceExits": [

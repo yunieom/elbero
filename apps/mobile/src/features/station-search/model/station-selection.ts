@@ -10,11 +10,16 @@ export interface SelectableStation {
 export type StationPickerMode = 'search' | 'map';
 
 export const supportedJourneyLineNames = [
+  '1호선',
   '2호선',
   '3호선',
   '4호선',
   '5호선',
   '7호선',
+  '공항철도',
+  '용인에버라인',
+  '김포골드라인',
+  '신림선',
 ] as const;
 
 export function filterSelectableStations<T extends SelectableStation>(

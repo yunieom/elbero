@@ -229,13 +229,49 @@ describe('JourneyService', () => {
       boardingPosition: { carNumber: 2, doorNumber: 1 },
     });
   });
+
+  it.each([
+    ['1호선', 'KR0110', 'KR0161', 'line-1-KR0110-to-KR0161'],
+    ['공항철도', 'A01', 'A11', 'airport-railroad-A01-to-A11'],
+    ['용인에버라인', 'Y110', 'Y124', 'everline-Y110-to-Y124'],
+  ])(
+    '%s 경로를 API 서비스에서 반환한다',
+    async (lineName, origin, destination, journeyId) => {
+      getSnapshot.mockResolvedValue({
+        checkedAt: '2026-10-20T00:00:00.000Z',
+        expiresAt: Date.now() + 60_000,
+        rows: [],
+      });
+
+      const result = expectSuccess(await service.plan(origin, destination));
+
+      expect(result.journeyId).toBe(journeyId);
+      expect(result.candidates[0].lines).toEqual([lineName]);
+    },
+  );
+
+  it('1호선과 공항철도의 환승 경로를 API 서비스에서 반환한다', async () => {
+    getSnapshot.mockResolvedValue({
+      checkedAt: '2026-10-20T00:00:00.000Z',
+      expiresAt: Date.now() + 60_000,
+      rows: [],
+    });
+
+    const result = expectSuccess(await service.plan('KR0110', 'A11'));
+
+    expect(result.journeyId).toBe('interline-1-A1-KR0110-to-A11');
+    expect(result.candidates[0]).toMatchObject({
+      transferStation: '서울역',
+      lines: ['1호선', '공항철도'],
+    });
+  });
 });
 
 function expectSuccess(
   result: JourneyContractResult<JourneyPlanResDto>,
 ): JourneyPlanResDto {
+  if (!result.ok) throw new Error(JSON.stringify(result, null, 2));
   expect(result.ok).toBe(true);
-  if (!result.ok) throw new Error(result.error.message);
   expect(result.meta.dataVersion).toBe(result.data.dataVersion);
   return result.data;
 }

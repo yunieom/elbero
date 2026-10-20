@@ -22,7 +22,7 @@ const metropolitanSummary = renderMetropolitanSummary(
 const metropolitanExpansionSections = (metropolitanQueue?.lines ?? [])
   .filter(
     (line) =>
-      line.status !== 'verified_supported' &&
+      (line.status !== 'verified_supported' || line.includeInDetails) &&
       !['1호선', '8호선', '9호선'].includes(line.name),
   )
   .map(renderMetropolitanLineSection);
@@ -36,7 +36,10 @@ for (const lineId of lineIds) {
     resolve(`data/verification/line-${lineId}-manual-verification.json`),
   );
   const manualExits = new Map(
-    (manual?.surfaceExits ?? []).map((station) => [station.stationCode, station]),
+    (manual?.surfaceExits ?? []).map((station) => [
+      station.stationCode,
+      station,
+    ]),
   );
 
   const directions = data.stations.flatMap((station) =>
@@ -90,8 +93,8 @@ const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목
 
 - 생성일: ${checkedAt}
 - 사용자 검증 입력 완료: 1·2·3호선
-- 현재 경로 엔진 구현 완료: 2·3·4·5·7호선·김포골드라인·신림선
-- 1호선 상태: 경로 엔진 지원 대상, 어댑터 연결과 원본 검증 데이터 반영 전
+- 현재 경로 엔진 구현 완료: 1·2·3·4·5·7호선·공항철도·용인에버라인·김포골드라인·신림선
+- 1호선 상태: 분기형 경로 어댑터와 운영기관별 고유 역 코드 연결 완료
 - 현재 구현 노선 및 8·9호선 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
 - 현재 구현 노선 및 8·9호선 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
 
@@ -105,14 +108,14 @@ const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목
 
 ## 전체 노선 요약
 
-| 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 이격거리 값 없음 |
+| 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 이격거리 값 없음 역 |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
 ${metropolitanSummary}
 
 ## 1호선 반영 상태
 
-- 1호선은 경로 엔진 지원 대상이다.
-- 현재 구현에는 1호선 어댑터가 아직 연결되지 않았다.
+- 1호선은 경로 엔진과 모바일 역 검색에 연결되어 있다.
+- 인천·신창·광명·서동탄 분기는 별도 운행 경로로 계산하며 필요한 경우 구로·금천구청·병점에서 같은 1호선 계통 환승을 안내한다.
 - API 수집 대상: ${line1Pending?.stationCount ?? 0}역
 - 사용자 방향별 차량·문 검토 반영: ${line1Manual?.directionalDoorReviews?.length ?? 0}역
 - 사용자 이격거리 확인값 반영: ${line1Manual?.gapOverrides?.length ?? 0}역
@@ -206,7 +209,14 @@ function renderExpansionLineSection(readiness) {
     readiness.pendingDirectionDoorReview.length > 0
       ? readiness.pendingDirectionDoorReview
           .map(
-            ({ stationName, stationCode, reason, sourceValues, verifiedDirections, remainingDirections }) =>
+            ({
+              stationName,
+              stationCode,
+              reason,
+              sourceValues,
+              verifiedDirections,
+              remainingDirections,
+            }) =>
               `| ${stationName} (${stationCode}) | ${expansionReason(reason)} | ${formatVerifiedDirections(verifiedDirections)} | ${remainingDirections?.join(', ') || '-'} | ${formatSourceValues(sourceValues)} |`,
           )
           .join('\n')
@@ -240,13 +250,16 @@ function renderMetropolitanSummary(lines) {
   return lines
     .map((line) => {
       const counts = metropolitanPendingCounts(line);
-      return `| ${line.name} | ${metropolitanStatusLabel(line.status)} | ${String(line.collectedAt).slice(0, 10)} | ${counts.surface} | ${counts.door} | ${counts.gap} | ${line.status === 'verified_supported' ? 0 : line.gapSummary.missing} |`;
+      const missingGapStations = line.gapLinkageChecks.filter((station) =>
+        station.issue.includes('이격거리 값 없음'),
+      ).length;
+      return `| ${line.name} | ${metropolitanStatusLabel(line.status)} | ${String(line.collectedAt).slice(0, 10)} | ${counts.surface} | ${counts.door} | ${counts.gap} | ${missingGapStations} |`;
     })
     .join('\n');
 }
 
 function renderMetropolitanLineSection(line) {
-  return `## ${line.name} · ${metropolitanStatusDescription(line.status)}
+  return `## ${line.name} · ${line.status === 'verified_supported' ? '지원 중 · 알려진 데이터 공백' : metropolitanStatusDescription(line.status)}
 
 - API 수집: ${line.collectedAt}
 - 대상 역: ${line.stationCount}개
@@ -310,10 +323,10 @@ function metropolitanDoorReason(station) {
     station.reason === 'both_door_apis_missing'
       ? 'stationElevator·stationElevatorCarNumber 모두 누락'
       : station.reason === 'source_value_conflict'
-      ? 'API 값 충돌'
-      : station.reason === 'source_value_conflict_and_primary_missing'
-        ? 'API 값 충돌 + 기준 API 누락'
-        : 'stationElevatorCarNumber 누락';
+        ? 'API 값 충돌'
+        : station.reason === 'source_value_conflict_and_primary_missing'
+          ? 'API 값 충돌 + 기준 API 누락'
+          : 'stationElevatorCarNumber 누락';
   return station.verifiedDirections.length > 0
     ? `${reason}; 나머지 방향 확인 필요`
     : reason;

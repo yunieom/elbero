@@ -1,4 +1,14 @@
 import {
+  createAirportRailroadJourneyDefinition,
+  getAirportRailroadDistance,
+  hasAirportRailroadStation,
+} from './airport-railroad-journey.factory.js';
+import {
+  createEverlineJourneyDefinition,
+  getEverlineDistance,
+  hasEverlineStation,
+} from './everline-journey.factory.js';
+import {
   createGimpoGoldlineJourneyDefinition,
   getGimpoGoldlineDistance,
   hasGimpoGoldlineStation,
@@ -8,6 +18,11 @@ import {
   getLine2Distance,
   hasLine2Station,
 } from './line-2-journey.factory.js';
+import {
+  createLine1JourneyDefinition,
+  getLine1Distance,
+  hasLine1Station,
+} from './line-1-journey.factory.js';
 import {
   createLine3JourneyDefinition,
   getLine3Distance,
@@ -41,7 +56,8 @@ import {
   type VerifiedRouteCandidate,
 } from './types/verified-journey.type.js';
 
-type SupportedLineId = '2' | '3' | '4' | '5' | '7' | 'G1' | 'L1';
+type SupportedLineId =
+  '1' | '2' | '3' | '4' | '5' | '7' | 'A1' | 'E1' | 'G1' | 'L1';
 
 interface LineAdapter {
   lineName: string;
@@ -63,6 +79,12 @@ interface Interchange {
 }
 
 const adapters: Record<SupportedLineId, LineAdapter> = {
+  '1': {
+    lineName: '1호선',
+    hasStation: hasLine1Station,
+    distance: getLine1Distance,
+    create: createLine1JourneyDefinition,
+  },
   '2': {
     lineName: '2호선',
     hasStation: hasLine2Station,
@@ -93,6 +115,18 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     distance: getLine7Distance,
     create: createLine7JourneyDefinition,
   },
+  A1: {
+    lineName: '공항철도',
+    hasStation: hasAirportRailroadStation,
+    distance: getAirportRailroadDistance,
+    create: createAirportRailroadJourneyDefinition,
+  },
+  E1: {
+    lineName: '용인에버라인',
+    hasStation: hasEverlineStation,
+    distance: getEverlineDistance,
+    create: createEverlineJourneyDefinition,
+  },
   G1: {
     lineName: '김포골드라인',
     hasStation: hasGimpoGoldlineStation,
@@ -108,6 +142,66 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
 };
 
 const interchanges: readonly Interchange[] = [
+  {
+    stationName: '서울역',
+    stationCodes: { '1': 'S10150', '4': '0426', A1: 'A01' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '시청',
+    stationCodes: { '1': 'S10151', '2': '0201' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '신설동',
+    stationCodes: { '1': 'S10156', '2': '0246' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '동대문',
+    stationCodes: { '1': 'S10155', '4': '0421' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '창동',
+    stationCodes: { '1': 'KR0116', '4': '0412' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '도봉산',
+    stationCodes: { '1': 'KR0113', '7': '2714' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '신길',
+    stationCodes: { '1': 'KR0138', '5': '2526' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '신도림',
+    stationCodes: { '1': 'KR0140', '2': '0234' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '온수',
+    stationCodes: { '1': 'KR0145', '7': '2752' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '가산디지털단지',
+    stationCodes: { '1': 'KRP142', '7': '2748' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '홍대입구',
+    stationCodes: { '2': '0239', A1: 'A03' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '공덕',
+    stationCodes: { '5': '2530', A1: 'A02' },
+    accessibilityVerified: false,
+  },
   {
     stationName: '동대문역사문화공원',
     stationCodes: { '2': '0205', '4': '0422', '5': '2537' },
@@ -145,7 +239,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '종로3가',
-    stationCodes: { '3': '0319', '5': '2535' },
+    stationCodes: { '1': 'S10153', '3': '0319', '5': '2535' },
     accessibilityVerified: false,
   },
   {
@@ -190,7 +284,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '김포공항',
-    stationCodes: { '5': '2513', G1: 'G109' },
+    stationCodes: { '5': '2513', A1: 'A05', G1: 'G109' },
     accessibilityVerified: false,
   },
   {

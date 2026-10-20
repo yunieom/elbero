@@ -7,8 +7,11 @@ import type { JourneyPlanResDto } from './dto/res/journey-plan.res.dto.js';
 import type { Line5StationResDto } from './dto/res/line-5-station.res.dto.js';
 import { JourneyRouteEngine } from './journey-route-engine.service.js';
 import { createGimpoGoldlineJourneyDefinition } from './gimpo-goldline-journey.factory.js';
+import { createAirportRailroadJourneyDefinition } from './airport-railroad-journey.factory.js';
+import { createEverlineJourneyDefinition } from './everline-journey.factory.js';
 import { createInterlineJourneyDefinition } from './interline-journey.factory.js';
 import { createLine2JourneyDefinition } from './line-2-journey.factory.js';
+import { createLine1JourneyDefinition } from './line-1-journey.factory.js';
 import { createLine3JourneyDefinition } from './line-3-journey.factory.js';
 import { createLine4JourneyDefinition } from './line-4-journey.factory.js';
 import {
@@ -36,8 +39,8 @@ export class JourneyService {
   ): Promise<JourneyContractResult<JourneyPlanResDto>> {
     const requestId = randomUUID();
     const definition = this.findDefinition(
-      originStationCode.padStart(4, '0'),
-      destinationStationCode.padStart(4, '0'),
+      normalizeStationCode(originStationCode),
+      normalizeStationCode(destinationStationCode),
     );
 
     if (!definition) return this.routeEngine.plan(null, null, requestId);
@@ -64,6 +67,7 @@ export class JourneyService {
           journey.originStationCode === originStationCode &&
           journey.destinationStationCode === destinationStationCode,
       ) ??
+      createLine1JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine2JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine3JourneyDefinition(originStationCode, destinationStationCode) ??
       createLine4JourneyDefinition(originStationCode, destinationStationCode) ??
@@ -77,12 +81,26 @@ export class JourneyService {
         originStationCode,
         destinationStationCode,
       ) ??
+      createAirportRailroadJourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      ) ??
+      createEverlineJourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      ) ??
       createInterlineJourneyDefinition(
         originStationCode,
         destinationStationCode,
       )
     );
   }
+}
+
+function normalizeStationCode(stationCode: string): string {
+  return /^\d{3}$/u.test(stationCode)
+    ? stationCode.padStart(4, '0')
+    : stationCode;
 }
 
 function isTimeoutError(error: unknown): boolean {

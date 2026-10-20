@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const lineConfigs = [
-  { name: '1호선', stem: 'line-1', status: 'route_engine_target' },
+  { name: '1호선', stem: 'line-1', status: 'verified_supported' },
   { name: '2호선', stem: 'line-2', status: 'verified_supported' },
   { name: '3호선', stem: 'line-3', status: 'verified_supported' },
   {
@@ -16,21 +16,39 @@ const lineConfigs = [
   { name: '7호선', stem: 'line-7', status: 'verified_supported' },
   { name: '8호선', stem: 'line-8', status: 'route_engine_target' },
   { name: '9호선', stem: 'line-9', status: 'route_engine_target' },
-  { name: '공항철도', stem: 'airport-railroad', status: 'route_engine_target' },
+  {
+    name: '공항철도',
+    stem: 'airport-railroad',
+    status: 'verified_supported',
+    includeInDetails: true,
+    remaining: { surface: 0, door: 0, gap: 1 },
+  },
   { name: '인천 1호선', stem: 'incheon-line-1', status: 'future_target' },
   { name: '인천 2호선', stem: 'incheon-line-2', status: 'future_target' },
   { name: '신분당선', stem: 'shinbundang-line', status: 'route_engine_target' },
-  { name: '에버라인', stem: 'everline', status: 'future_target' },
-  { name: '김포골드라인', stem: 'gimpo-goldline', status: 'verified_supported' },
+  { name: '에버라인', stem: 'everline', status: 'verified_supported' },
+  {
+    name: '김포골드라인',
+    stem: 'gimpo-goldline',
+    status: 'verified_supported',
+  },
   { name: 'GTX-A', stem: 'gtx-a', status: 'route_engine_target' },
   {
     name: '인천공항 자기부상철도',
     stem: 'airport-maglev',
     status: 'future_target',
   },
-  { name: '수인분당선', stem: 'suin-bundang-line', status: 'route_engine_target' },
+  {
+    name: '수인분당선',
+    stem: 'suin-bundang-line',
+    status: 'route_engine_target',
+  },
   { name: '경춘선', stem: 'gyeongchun-line', status: 'future_target' },
-  { name: '경의중앙선', stem: 'gyeongui-jungang-line', status: 'route_engine_target' },
+  {
+    name: '경의중앙선',
+    stem: 'gyeongui-jungang-line',
+    status: 'route_engine_target',
+  },
   { name: '경강선', stem: 'gyeonggang-line', status: 'future_target' },
   { name: '서해선', stem: 'seohae-line', status: 'future_target' },
   { name: '신림선', stem: 'sillim-line', status: 'verified_supported' },
@@ -237,7 +255,9 @@ await writeFile(
   'utf8',
 );
 
-const detailed = results.filter((result) => result.status !== 'verified_supported');
+const detailed = results.filter(
+  (result) => result.status !== 'verified_supported' || result.includeInDetails,
+);
 console.log(
   `수도권 검증 큐 생성: ${results.length}개 노선, 상세 ${detailed.length}개 노선, 출구 ${sum(detailed, 'surfaceExitConflicts')}역, 차량·문 ${sum(detailed, 'directionDoorChecks')}역, 이격거리 ${sum(detailed, 'gapLinkageChecks')}역`,
 );
@@ -297,11 +317,13 @@ function buildLegacyDoorCheckMap({
     doorByStation.set(stationId, {
       stationCode,
       stationName: station.stationName,
-      railOperatorCode: station.railOperatorCode ?? difference?.railOperatorCode,
+      railOperatorCode:
+        station.railOperatorCode ?? difference?.railOperatorCode,
       reason: existing
         ? 'source_value_conflict_and_primary_missing'
         : 'primary_api_missing',
-      sourceValues: existing?.sourceValues ?? difference?.normalizedValues ?? {},
+      sourceValues:
+        existing?.sourceValues ?? difference?.normalizedValues ?? {},
     });
   }
   return doorByStation;
@@ -333,7 +355,8 @@ function buildPreferredGapChecks(guidance, manualOverrides) {
           issue: unresolved
             .map((candidate) => {
               const platform =
-                candidate.inferredPlatformNumbers.join(',') || '방향 승강장 미확인';
+                candidate.inferredPlatformNumbers.join(',') ||
+                '방향 승강장 미확인';
               const status =
                 candidate.gapStatus === 'platform_ambiguous'
                   ? '방향별 이격거리 확인 필요'
@@ -348,7 +371,6 @@ function buildPreferredGapChecks(guidance, manualOverrides) {
     })
     .toSorted(stationSort);
 }
-
 
 function differenceKey(category, stationCode, railOperatorCode) {
   return `${category}:${railOperatorCode ?? ''}:${normalizeCode(stationCode)}`;

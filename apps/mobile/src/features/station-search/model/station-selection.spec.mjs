@@ -57,22 +57,48 @@ test('환승역은 같은 역 키에 여러 노선을 연결한다', () => {
 test('선택 오류와 미지원 상태를 구분한다', () => {
   const line5 = stationCatalog.find((station) => station.id === '5:2543');
   const samePhysicalStation = stationCatalog.find(
-    (station) => station.stationKey === 'transfer:군자' && station.lineId === '7',
+    (station) =>
+      station.stationKey === 'transfer:군자' && station.lineId === '7',
   );
   const samePhysicalStationOtherLine = stationCatalog.find(
-    (station) => station.stationKey === 'transfer:군자' && station.lineId === '5',
+    (station) =>
+      station.stationKey === 'transfer:군자' && station.lineId === '5',
   );
   const unsupported = stationCatalog.find(
-    (station) => station.lineId === '1' && !station.journeySupported,
+    (station) => station.lineId === '6' && !station.journeySupported,
   );
 
   assert.equal(
-    stationSelectionError(samePhysicalStation ?? null, samePhysicalStationOtherLine ?? null),
+    stationSelectionError(
+      samePhysicalStation ?? null,
+      samePhysicalStationOtherLine ?? null,
+    ),
     '출발역과 도착역은 서로 달라야 합니다.',
   );
   assert.equal(
     stationSelectionError(line5 ?? null, unsupported ?? null),
-    '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 2호선·3호선·4호선·5호선·7호선 경로를 안내할 수 있어요.',
+    '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 1호선·2호선·3호선·4호선·5호선·7호선·공항철도·용인에버라인·김포골드라인·신림선 경로를 안내할 수 있어요.',
   );
-  assert.equal(stationSelectionError(line5 ?? null, null), '출발역과 도착역을 모두 선택해 주세요.');
+  assert.equal(
+    stationSelectionError(line5 ?? null, null),
+    '출발역과 도착역을 모두 선택해 주세요.',
+  );
+});
+
+test('새 지원 노선은 검색과 노선도에서 선택할 수 있다', () => {
+  for (const lineId of ['1', 'airport', 'everline', 'gimpo-gold', 'sillim']) {
+    const stations = stationCatalog.filter(
+      (station) => station.lineId === lineId,
+    );
+    assert.ok(stations.length > 0);
+    assert.ok(stations.every((station) => station.journeySupported));
+  }
+  assert.equal(
+    new Set(
+      stationCatalog
+        .filter((station) => station.lineId === '1')
+        .map((station) => station.id),
+    ).size,
+    stationCatalog.filter((station) => station.lineId === '1').length,
+  );
 });

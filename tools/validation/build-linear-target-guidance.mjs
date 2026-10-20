@@ -3,6 +3,28 @@ import { resolve } from "node:path";
 
 const configs = [
   {
+    stem: "line-1",
+    constantName: "LINE_1_NETWORK_GUIDANCE",
+    output: "apps/api/src/journey/data/line-1-network-guidance.generated.ts",
+    lineName: "1호선",
+    network: "line-1",
+    preferredDoorPriority: true,
+  },
+  {
+    stem: "airport-railroad",
+    constantName: "AIRPORT_RAILROAD_GUIDANCE",
+    output: "apps/api/src/journey/data/airport-railroad-guidance.generated.ts",
+    lineName: "공항철도",
+    preferredDoorPriority: true,
+  },
+  {
+    stem: "everline",
+    constantName: "EVERLINE_GUIDANCE",
+    output: "apps/api/src/journey/data/everline-guidance.generated.ts",
+    lineName: "용인에버라인",
+    preferredDoorPriority: true,
+  },
+  {
     stem: "gimpo-goldline",
     constantName: "GIMPO_GOLDLINE_GUIDANCE",
     output: "apps/api/src/journey/data/gimpo-goldline-guidance.generated.ts",
@@ -20,6 +42,9 @@ for (const config of configs) {
     readJson(resolve(rawDirectory, "kric.json")),
     readJson(resolve(`data/research/line-sync/${config.stem}-latest.json`)),
   ]);
+  const manual = await readOptionalJson(
+    resolve(`data/verification/${config.stem}-manual-verification.json`),
+  );
   const route = raw.route.body;
   const firstTerminal = route[0];
   const lastTerminal = route.at(-1);
@@ -29,6 +54,24 @@ for (const config of configs) {
   const platforms = raw.platforms.flatMap((payload) => payload.body ?? []);
   const platformsByIdentity = Map.groupBy(platforms, stationIdentity);
   const gapsByIdentity = Map.groupBy(raw.gaps, (gap) => gap.stationKey);
+  const preferredByIdentity = new Map(
+    (audit.preferredDoorGuidance ?? []).map((station) => [
+      station.stationKey,
+      station,
+    ]),
+  );
+  const manualDirectionsByIdentity = new Map(
+    (manual?.directionalDoors ?? []).map((station) => [
+      `${station.railOperatorCode ?? ""}:${normalizeCode(station.stationCode)}`,
+      station.directions,
+    ]),
+  );
+  const gapOverridesByIdentity = new Map(
+    (manual?.gapOverrides ?? []).map((station) => [
+      `${station.railOperatorCode ?? ""}:${normalizeCode(station.stationCode)}`,
+      station,
+    ]),
+  );
   const exitDifferenceByIdentity = new Map(
     audit.differences
       .filter((difference) => difference.category === "surface_exit_number")
@@ -38,9 +81,18 @@ for (const config of configs) {
       ]),
   );
 
+  const codeByIdentity = new Map(
+    route.map((station) => [
+      stationIdentity(station),
+      publicStationCode(config, station),
+    ]),
+  );
+  const paths =
+    config.network === "line-1" ? buildLine1Paths(route, codeByIdentity) : null;
+  const neighborsByCode = paths ? buildNeighbors(paths) : null;
   const stations = route.map((routeStation, index) => {
     const identity = stationIdentity(routeStation);
-    const stationCode = normalizeCode(routeStation.stinCd);
+    const stationCode = codeByIdentity.get(identity);
     const rawStation = rawByIdentity.get(identity);
     const stationPlatforms = platformsByIdentity.get(identity) ?? [];
     const stationGaps = gapsByIdentity.get(identity) ?? [];
@@ -48,28 +100,55 @@ for (const config of configs) {
       `${routeStation.railOprIsttCd}:${stationCode}`,
     );
     const exitNumbers = selectExitNumbers(exitDifference?.normalizedValues);
-    const directions = [
-      index > 0
-        ? buildDirection({
-            toward: route[index - 1].stinNm,
-            terminalName: firstTerminal.stinNm,
-            terminalCode: firstTerminal.stinCd,
-            stationPlatforms,
-            nearbyCars: rawStation?.nearbyCars?.body ?? [],
-            stationGaps,
-          })
-        : null,
-      index < route.length - 1
-        ? buildDirection({
-            toward: route[index + 1].stinNm,
-            terminalName: lastTerminal.stinNm,
-            terminalCode: lastTerminal.stinCd,
-            stationPlatforms,
-            nearbyCars: rawStation?.nearbyCars?.body ?? [],
-            stationGaps,
-          })
-        : null,
-    ].filter(Boolean);
+    const adjacentStations = neighborsByCode
+      ? [...(neighborsByCode.get(stationCode) ?? [])]
+          .map((code) =>
+            route.find(
+              (station) =>
+                codeByIdentity.get(stationIdentity(station)) === code,
+            ),
+          )
+          .filter(Boolean)
+      : [
+          index > 0 ? route[index - 1] : null,
+          index < route.length - 1 ? route[index + 1] : null,
+        ].filter(Boolean);
+    const manualDirections =
+      manualDirectionsByIdentity.get(identity) ??
+      manualDirectionsByIdentity.get(
+        `:${normalizeCode(routeStation.stinCd)}`,
+      ) ??
+      [];
+    const preferred = preferredByIdentity.get(identity);
+    const gapOverride =
+      gapOverridesByIdentity.get(identity) ??
+      gapOverridesByIdentity.get(`:${normalizeCode(routeStation.stinCd)}`);
+    const directions = adjacentStations.map((adjacentStation) => {
+      const terminal = selectTerminalForNeighbor({
+        config,
+        route,
+        paths,
+        codeByIdentity,
+        stationCode,
+        adjacentCode: codeByIdentity.get(stationIdentity(adjacentStation)),
+        fallback: adjacentStation,
+      });
+      return buildDirection({
+        toward: adjacentStation.stinNm,
+        terminalName: terminal.stinNm,
+        terminalCode: terminal.stinCd,
+        stationPlatforms,
+        nearbyCars: rawStation?.nearbyCars?.body ?? [],
+        stationGaps,
+        preferred: config.preferredDoorPriority ? preferred : null,
+        manualDirection: manualDirections.find(
+          (direction) =>
+            normalizeName(direction.toward) ===
+            normalizeName(adjacentStation.stinNm),
+        ),
+        gapOverride,
+      });
+    });
 
     return {
       stationCode,
@@ -83,8 +162,11 @@ for (const config of configs) {
   const output = {
     dataVersion: rawDirectory.split("/").at(-1),
     verifiedAt: String(audit.collectedAt).slice(0, 10),
-    topology: route.map((station) => normalizeCode(station.stinCd)),
+    topology: route.map((station) =>
+      codeByIdentity.get(stationIdentity(station)),
+    ),
     terminals: [firstTerminal.stinNm, lastTerminal.stinNm],
+    ...(paths ? { paths } : {}),
     stations,
   };
   await writeFile(
@@ -104,19 +186,36 @@ function buildDirection({
   stationPlatforms,
   nearbyCars,
   stationGaps,
+  preferred,
+  manualDirection,
+  gapOverride,
 }) {
   const platform = stationPlatforms.find(
     (item) => String(item.runDirTmnStinCd) === String(terminalCode),
   );
   const platformNumber = platform ? String(platform.plfNo) : null;
+  const preferredCandidates = (preferred?.candidates ?? []).filter(
+    (candidate) =>
+      !platformNumber ||
+      candidate.inferredPlatformNumbers.length === 0 ||
+      candidate.inferredPlatformNumbers.includes(platformNumber),
+  );
   const recommendedDoors = uniqueSorted(
-    nearbyCars
-      .filter((row) => !platformNumber || String(row.plfNo) === platformNumber)
-      .map((row) => `${row.carOrdr}-${row.carEtrcNo}`),
+    manualDirection?.recommendedDoors ??
+      (preferredCandidates.length > 0
+        ? preferredCandidates.map((candidate) => candidate.door)
+        : nearbyCars
+            .filter(
+              (row) => !platformNumber || String(row.plfNo) === platformNumber,
+            )
+            .map((row) => `${row.carOrdr}-${row.carEtrcNo}`)),
   );
   const doorGaps = recommendedDoors.map((door) => ({
     door,
-    gap: findGap(stationGaps, platformNumber, door),
+    gap:
+      findPreferredGap(preferredCandidates, platformNumber, door) ??
+      findOverrideGap(gapOverride, platformNumber, door) ??
+      findGap(stationGaps, platformNumber, door),
   }));
   return {
     toward,
@@ -133,7 +232,55 @@ function buildDirection({
         : doorGaps.some(({ gap }) => !gap)
           ? "승강장 이격거리 미확인"
           : null,
-    source: "stationElevatorCarNumber+stationPlatformTrainDistance",
+    source: manualDirection
+      ? "manual_verification"
+      : preferred?.source
+        ? `${preferred.source}+stationPlatformTrainDistance`
+        : "stationElevatorCarNumber+stationPlatformTrainDistance",
+  };
+}
+
+function findPreferredGap(candidates, platformNumber, door) {
+  const candidate = candidates.find((item) => item.door === door);
+  if (!candidate) return null;
+  const gap =
+    candidate.gaps.find(
+      (item) => !platformNumber || item.platformNumber === platformNumber,
+    ) ?? (candidate.gaps.length === 1 ? candidate.gaps[0] : null);
+  return gap?.distanceCm == null
+    ? null
+    : {
+        distanceCm: gap.distanceCm,
+        level: gap.level,
+        label:
+          gap.level === "green"
+            ? "안전"
+            : gap.level === "yellow"
+              ? "유의"
+              : "추천하지 않음",
+      };
+}
+
+function findOverrideGap(override, platformNumber, door) {
+  if (!override || !(override.recommendedDoors ?? []).includes(door))
+    return null;
+  const direction = (override.directions ?? []).find(
+    (item) =>
+      (!platformNumber || String(item.platformNumber) === platformNumber) &&
+      (item.recommendedDoors ?? []).includes(door),
+  );
+  const level = direction?.level ?? override.level;
+  if (!level) return null;
+  const distanceCm = level === "green" ? 10 : level === "yellow" ? 15 : 16;
+  return {
+    distanceCm,
+    level,
+    label:
+      level === "green"
+        ? "안전"
+        : level === "yellow"
+          ? "유의"
+          : "추천하지 않음",
   };
 }
 
@@ -185,6 +332,217 @@ function normalizeCode(value) {
   return /^\d+$/u.test(text) ? text.padStart(4, "0") : text;
 }
 
+function publicStationCode(config, station) {
+  const stationCode = normalizeCode(station.stinCd);
+  return config.network === "line-1"
+    ? `${station.railOprIsttCd}${stationCode}`
+    : stationCode;
+}
+
+function buildLine1Paths(route, codeByIdentity) {
+  const byName = new Map(
+    route.map((station) => [
+      station.stinNm,
+      codeByIdentity.get(stationIdentity(station)),
+    ]),
+  );
+  const names = (values) =>
+    values.map((name) => {
+      const code = byName.get(name);
+      if (!code)
+        throw new Error(`1호선 경로에서 ${name} 역을 찾을 수 없습니다.`);
+      return code;
+    });
+  const common = names([
+    "연천",
+    "전곡",
+    "청산",
+    "소요산",
+    "동두천",
+    "보산",
+    "동두천중앙",
+    "지행",
+    "덕정",
+    "덕계",
+    "양주",
+    "녹양",
+    "가능",
+    "의정부",
+    "회룡",
+    "망월사",
+    "도봉산",
+    "도봉",
+    "방학",
+    "창동",
+    "녹천",
+    "월계",
+    "광운대",
+    "석계",
+    "신이문",
+    "외대앞",
+    "회기",
+    "청량리(서울시립대입구)",
+    "제기동",
+    "신설동",
+    "동묘앞",
+    "동대문",
+    "종로5가",
+    "종로3가",
+    "종각",
+    "시청",
+    "서울역",
+    "남영",
+    "용산",
+    "노량진",
+    "대방",
+    "신길",
+    "영등포",
+    "신도림",
+    "구로",
+  ]);
+  const incheon = names([
+    "구일",
+    "개봉",
+    "오류동",
+    "온수",
+    "역곡",
+    "소사",
+    "부천",
+    "중동",
+    "송내",
+    "부개",
+    "부평",
+    "백운",
+    "동암",
+    "간석",
+    "주안",
+    "도화",
+    "제물포",
+    "도원",
+    "동인천",
+    "인천",
+  ]);
+  const sinchang = names([
+    "가산디지털단지",
+    "독산",
+    "금천구청",
+    "석수",
+    "관악",
+    "안양",
+    "명학",
+    "금정",
+    "군포",
+    "당정",
+    "의왕",
+    "성균관대",
+    "화서",
+    "수원",
+    "세류",
+    "병점",
+    "세마",
+    "오산대",
+    "오산",
+    "진위",
+    "송탄",
+    "서정리",
+    "평택지제",
+    "평택",
+    "성환",
+    "직산",
+    "두정",
+    "천안",
+    "봉명",
+    "쌍용(나사렛대)",
+    "아산",
+    "탕정",
+    "배방",
+    "온양온천",
+    "신창(순천향대)",
+  ]);
+  const throughGeumcheon = [...common, ...sinchang.slice(0, 3)];
+  const throughByeongjeom = [...common, ...sinchang.slice(0, 16)];
+  return [
+    {
+      id: "incheon",
+      terminals: ["연천", "인천"],
+      stationCodes: [...common, ...incheon],
+    },
+    {
+      id: "sinchang",
+      terminals: ["연천", "신창(순천향대)"],
+      stationCodes: [...common, ...sinchang],
+    },
+    {
+      id: "gwangmyeong",
+      terminals: ["연천", "광명"],
+      stationCodes: [...throughGeumcheon, byName.get("광명")],
+    },
+    {
+      id: "seodongtan",
+      terminals: ["연천", "서동탄"],
+      stationCodes: [...throughByeongjeom, byName.get("서동탄")],
+    },
+  ];
+}
+
+function buildNeighbors(paths) {
+  const result = new Map();
+  for (const path of paths) {
+    path.stationCodes.forEach((code, index) => {
+      const neighbors = result.get(code) ?? new Set();
+      if (index > 0) neighbors.add(path.stationCodes[index - 1]);
+      if (index < path.stationCodes.length - 1)
+        neighbors.add(path.stationCodes[index + 1]);
+      result.set(code, neighbors);
+    });
+  }
+  return result;
+}
+
+function selectTerminalForNeighbor({
+  config,
+  route,
+  paths,
+  codeByIdentity,
+  stationCode,
+  adjacentCode,
+  fallback,
+}) {
+  if (!paths) {
+    const stationIndex = route.findIndex(
+      (station) => codeByIdentity.get(stationIdentity(station)) === stationCode,
+    );
+    const adjacentIndex = route.findIndex(
+      (station) =>
+        codeByIdentity.get(stationIdentity(station)) === adjacentCode,
+    );
+    return adjacentIndex < stationIndex ? route[0] : route.at(-1);
+  }
+  const path = paths.find((candidate) => {
+    const index = candidate.stationCodes.indexOf(stationCode);
+    return (
+      index !== -1 &&
+      [
+        candidate.stationCodes[index - 1],
+        candidate.stationCodes[index + 1],
+      ].includes(adjacentCode)
+    );
+  });
+  if (!path) return fallback;
+  const index = path.stationCodes.indexOf(stationCode);
+  const terminalName =
+    adjacentCode === path.stationCodes[index - 1]
+      ? path.terminals[0]
+      : path.terminals[1];
+  return route.find((station) => station.stinNm === terminalName) ?? fallback;
+}
+
+function normalizeName(value) {
+  return String(value ?? "")
+    .replace(/\s+/gu, "")
+    .replace(/역$/u, "");
+}
+
 function uniqueSorted(values) {
   return [...new Set(values.map(String))].toSorted((left, right) =>
     left.localeCompare(right, "ko", { numeric: true }),
@@ -204,4 +562,13 @@ async function findLatestRawDirectory(stem) {
 
 async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
+}
+
+async function readOptionalJson(path) {
+  try {
+    return await readJson(path);
+  } catch (error) {
+    if (error?.code === "ENOENT") return null;
+    throw error;
+  }
 }

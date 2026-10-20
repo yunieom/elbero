@@ -5,1024 +5,1024 @@ import type { Station } from './station.types';
 
 export const stationCatalog: Station[] = [
   {
-    "id": "1:100-3",
-    "stationKey": "1:100-3",
+    "id": "1:KR100-3",
+    "stationKey": "1:KR100-3",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "100-3",
+    "stationCode": "KR100-3",
     "stationName": "연천",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:100-2",
-    "stationKey": "1:100-2",
+    "id": "1:KR100-2",
+    "stationKey": "1:KR100-2",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "100-2",
+    "stationCode": "KR100-2",
     "stationName": "전곡",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:100-1",
-    "stationKey": "1:100-1",
+    "id": "1:KR100-1",
+    "stationKey": "1:KR100-1",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "100-1",
+    "stationCode": "KR100-1",
     "stationName": "청산",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0100",
-    "stationKey": "1:0100",
+    "id": "1:KR0100",
+    "stationKey": "1:KR0100",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0100",
+    "stationCode": "KR0100",
     "stationName": "소요산",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0101",
-    "stationKey": "1:0101",
+    "id": "1:KR0101",
+    "stationKey": "1:KR0101",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0101",
+    "stationCode": "KR0101",
     "stationName": "동두천",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0102",
-    "stationKey": "1:0102",
+    "id": "1:KR0102",
+    "stationKey": "1:KR0102",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0102",
+    "stationCode": "KR0102",
     "stationName": "보산",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0103",
-    "stationKey": "1:0103",
+    "id": "1:KR0103",
+    "stationKey": "1:KR0103",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0103",
+    "stationCode": "KR0103",
     "stationName": "동두천중앙",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0104",
-    "stationKey": "1:0104",
+    "id": "1:KR0104",
+    "stationKey": "1:KR0104",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0104",
+    "stationCode": "KR0104",
     "stationName": "지행",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0105",
-    "stationKey": "1:0105",
+    "id": "1:KR0105",
+    "stationKey": "1:KR0105",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0105",
+    "stationCode": "KR0105",
     "stationName": "덕정",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0106",
-    "stationKey": "1:0106",
+    "id": "1:KR0106",
+    "stationKey": "1:KR0106",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0106",
+    "stationCode": "KR0106",
     "stationName": "덕계",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0107",
-    "stationKey": "1:0107",
+    "id": "1:KR0107",
+    "stationKey": "1:KR0107",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0107",
+    "stationCode": "KR0107",
     "stationName": "양주",
     "lineOrder": 11,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0108",
-    "stationKey": "1:0108",
+    "id": "1:KR0108",
+    "stationKey": "1:KR0108",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0108",
+    "stationCode": "KR0108",
     "stationName": "녹양",
     "lineOrder": 12,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0109",
-    "stationKey": "1:0109",
+    "id": "1:KR0109",
+    "stationKey": "1:KR0109",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0109",
+    "stationCode": "KR0109",
     "stationName": "가능",
     "lineOrder": 13,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0110",
-    "stationKey": "1:0110",
+    "id": "1:KR0110",
+    "stationKey": "1:KR0110",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0110",
+    "stationCode": "KR0110",
     "stationName": "의정부",
     "lineOrder": 14,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0111",
+    "id": "1:KR0111",
     "stationKey": "transfer:회룡",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0111",
+    "stationCode": "KR0111",
     "stationName": "회룡",
     "lineOrder": 15,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0112",
-    "stationKey": "1:0112",
+    "id": "1:KR0112",
+    "stationKey": "1:KR0112",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0112",
+    "stationCode": "KR0112",
     "stationName": "망월사",
     "lineOrder": 16,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0113",
+    "id": "1:KR0113",
     "stationKey": "transfer:도봉산",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0113",
+    "stationCode": "KR0113",
     "stationName": "도봉산",
     "lineOrder": 17,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0114",
-    "stationKey": "1:0114",
+    "id": "1:KR0114",
+    "stationKey": "1:KR0114",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0114",
+    "stationCode": "KR0114",
     "stationName": "도봉",
     "lineOrder": 18,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0115",
-    "stationKey": "1:0115",
+    "id": "1:KR0115",
+    "stationKey": "1:KR0115",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0115",
+    "stationCode": "KR0115",
     "stationName": "방학",
     "lineOrder": 19,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0116",
+    "id": "1:KR0116",
     "stationKey": "transfer:창동",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0116",
+    "stationCode": "KR0116",
     "stationName": "창동",
     "lineOrder": 20,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0117",
-    "stationKey": "1:0117",
+    "id": "1:KR0117",
+    "stationKey": "1:KR0117",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0117",
+    "stationCode": "KR0117",
     "stationName": "녹천",
     "lineOrder": 21,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0118",
-    "stationKey": "1:0118",
+    "id": "1:KR0118",
+    "stationKey": "1:KR0118",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0118",
+    "stationCode": "KR0118",
     "stationName": "월계",
     "lineOrder": 22,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0119",
+    "id": "1:KR0119",
     "stationKey": "transfer:광운대",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0119",
+    "stationCode": "KR0119",
     "stationName": "광운대",
     "lineOrder": 23,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0120",
+    "id": "1:KR0120",
     "stationKey": "transfer:석계",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0120",
+    "stationCode": "KR0120",
     "stationName": "석계",
     "lineOrder": 24,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0121",
-    "stationKey": "1:0121",
+    "id": "1:KR0121",
+    "stationKey": "1:KR0121",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0121",
+    "stationCode": "KR0121",
     "stationName": "신이문",
     "lineOrder": 25,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0122",
-    "stationKey": "1:0122",
+    "id": "1:KR0122",
+    "stationKey": "1:KR0122",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0122",
+    "stationCode": "KR0122",
     "stationName": "외대앞",
     "lineOrder": 26,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0123",
+    "id": "1:KR0123",
     "stationKey": "transfer:회기",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0123",
+    "stationCode": "KR0123",
     "stationName": "회기",
     "lineOrder": 27,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0158",
+    "id": "1:S10158",
     "stationKey": "transfer:청량리",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0158",
+    "stationCode": "S10158",
     "stationName": "청량리(서울시립대입구)",
     "lineOrder": 28,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0157",
-    "stationKey": "1:0157",
+    "id": "1:S10157",
+    "stationKey": "1:S10157",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0157",
+    "stationCode": "S10157",
     "stationName": "제기동",
     "lineOrder": 29,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0156",
+    "id": "1:S10156",
     "stationKey": "transfer:신설동",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0156",
+    "stationCode": "S10156",
     "stationName": "신설동",
     "lineOrder": 30,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0159",
+    "id": "1:S10159",
     "stationKey": "transfer:동묘앞",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0159",
+    "stationCode": "S10159",
     "stationName": "동묘앞",
     "lineOrder": 31,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0155",
+    "id": "1:S10155",
     "stationKey": "transfer:동대문",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0155",
+    "stationCode": "S10155",
     "stationName": "동대문",
     "lineOrder": 32,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0154",
-    "stationKey": "1:0154",
+    "id": "1:S10154",
+    "stationKey": "1:S10154",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0154",
+    "stationCode": "S10154",
     "stationName": "종로5가",
     "lineOrder": 33,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0153",
+    "id": "1:S10153",
     "stationKey": "transfer:종로3가",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0153",
+    "stationCode": "S10153",
     "stationName": "종로3가",
     "lineOrder": 34,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0152",
-    "stationKey": "1:0152",
+    "id": "1:S10152",
+    "stationKey": "1:S10152",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0152",
+    "stationCode": "S10152",
     "stationName": "종각",
     "lineOrder": 35,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0151",
+    "id": "1:S10151",
     "stationKey": "transfer:시청",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0151",
+    "stationCode": "S10151",
     "stationName": "시청",
     "lineOrder": 36,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0150",
+    "id": "1:S10150",
     "stationKey": "transfer:서울",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0150",
+    "stationCode": "S10150",
     "stationName": "서울역",
     "lineOrder": 37,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0134",
-    "stationKey": "1:0134",
+    "id": "1:KR0134",
+    "stationKey": "1:KR0134",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0134",
+    "stationCode": "KR0134",
     "stationName": "남영",
     "lineOrder": 38,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0135",
+    "id": "1:KR0135",
     "stationKey": "transfer:용산",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0135",
+    "stationCode": "KR0135",
     "stationName": "용산",
     "lineOrder": 39,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0136",
+    "id": "1:KR0136",
     "stationKey": "transfer:노량진",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0136",
+    "stationCode": "KR0136",
     "stationName": "노량진",
     "lineOrder": 40,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0137",
+    "id": "1:KR0137",
     "stationKey": "transfer:대방",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0137",
+    "stationCode": "KR0137",
     "stationName": "대방",
     "lineOrder": 41,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0138",
+    "id": "1:KR0138",
     "stationKey": "transfer:신길",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0138",
+    "stationCode": "KR0138",
     "stationName": "신길",
     "lineOrder": 42,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0139",
-    "stationKey": "1:0139",
+    "id": "1:KR0139",
+    "stationKey": "1:KR0139",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0139",
+    "stationCode": "KR0139",
     "stationName": "영등포",
     "lineOrder": 43,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0140",
+    "id": "1:KR0140",
     "stationKey": "transfer:신도림",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0140",
+    "stationCode": "KR0140",
     "stationName": "신도림",
     "lineOrder": 44,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0141",
-    "stationKey": "1:0141",
+    "id": "1:KR0141",
+    "stationKey": "1:KR0141",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0141",
+    "stationCode": "KR0141",
     "stationName": "구로",
     "lineOrder": 45,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0142",
-    "stationKey": "1:0142",
+    "id": "1:KR0142",
+    "stationKey": "1:KR0142",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0142",
+    "stationCode": "KR0142",
     "stationName": "구일",
     "lineOrder": 46,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P142",
+    "id": "1:KRP142",
     "stationKey": "transfer:가산디지털단지",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P142",
+    "stationCode": "KRP142",
     "stationName": "가산디지털단지",
     "lineOrder": 46,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0143",
-    "stationKey": "1:0143",
+    "id": "1:KR0143",
+    "stationKey": "1:KR0143",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0143",
+    "stationCode": "KR0143",
     "stationName": "개봉",
     "lineOrder": 47,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P143",
-    "stationKey": "1:P143",
+    "id": "1:KRP143",
+    "stationKey": "1:KRP143",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P143",
+    "stationCode": "KRP143",
     "stationName": "독산",
     "lineOrder": 47,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P144",
-    "stationKey": "1:P144",
+    "id": "1:KRP144",
+    "stationKey": "1:KRP144",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P144",
+    "stationCode": "KRP144",
     "stationName": "금천구청",
     "lineOrder": 48,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0144",
-    "stationKey": "1:0144",
+    "id": "1:KR0144",
+    "stationKey": "1:KR0144",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0144",
+    "stationCode": "KR0144",
     "stationName": "오류동",
     "lineOrder": 48,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0145",
+    "id": "1:KR0145",
     "stationKey": "transfer:온수",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0145",
+    "stationCode": "KR0145",
     "stationName": "온수",
     "lineOrder": 49,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P144-1",
-    "stationKey": "1:P144-1",
+    "id": "1:KRP144-1",
+    "stationKey": "1:KRP144-1",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P144-1",
+    "stationCode": "KRP144-1",
     "stationName": "광명",
     "lineOrder": 49,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P145",
-    "stationKey": "1:P145",
+    "id": "1:KRP145",
+    "stationKey": "1:KRP145",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P145",
+    "stationCode": "KRP145",
     "stationName": "석수",
     "lineOrder": 49,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0146",
-    "stationKey": "1:0146",
+    "id": "1:KR0146",
+    "stationKey": "1:KR0146",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0146",
+    "stationCode": "KR0146",
     "stationName": "역곡",
     "lineOrder": 50,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P146",
-    "stationKey": "1:P146",
+    "id": "1:KRP146",
+    "stationKey": "1:KRP146",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P146",
+    "stationCode": "KRP146",
     "stationName": "관악",
     "lineOrder": 50,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0147",
+    "id": "1:KR0147",
     "stationKey": "transfer:소사",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0147",
+    "stationCode": "KR0147",
     "stationName": "소사",
     "lineOrder": 51,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P147",
-    "stationKey": "1:P147",
+    "id": "1:KRP147",
+    "stationKey": "1:KRP147",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P147",
+    "stationCode": "KRP147",
     "stationName": "안양",
     "lineOrder": 51,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0148",
-    "stationKey": "1:0148",
+    "id": "1:KR0148",
+    "stationKey": "1:KR0148",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0148",
+    "stationCode": "KR0148",
     "stationName": "부천",
     "lineOrder": 52,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P148",
-    "stationKey": "1:P148",
+    "id": "1:KRP148",
+    "stationKey": "1:KRP148",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P148",
+    "stationCode": "KRP148",
     "stationName": "명학",
     "lineOrder": 52,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P149",
+    "id": "1:KRP149",
     "stationKey": "transfer:금정",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P149",
+    "stationCode": "KRP149",
     "stationName": "금정",
     "lineOrder": 53,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0149",
-    "stationKey": "1:0149",
+    "id": "1:KR0149",
+    "stationKey": "1:KR0149",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0149",
+    "stationCode": "KR0149",
     "stationName": "중동",
     "lineOrder": 53,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P150",
-    "stationKey": "1:P150",
+    "id": "1:KRP150",
+    "stationKey": "1:KRP150",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P150",
+    "stationCode": "KRP150",
     "stationName": "군포",
     "lineOrder": 54,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0150",
-    "stationKey": "1:0150",
+    "id": "1:KR0150",
+    "stationKey": "1:KR0150",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0150",
+    "stationCode": "KR0150",
     "stationName": "송내",
     "lineOrder": 54,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0151",
-    "stationKey": "1:0151",
+    "id": "1:KR0151",
+    "stationKey": "1:KR0151",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0151",
+    "stationCode": "KR0151",
     "stationName": "부개",
     "lineOrder": 55,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P151",
-    "stationKey": "1:P151",
+    "id": "1:KRP151",
+    "stationKey": "1:KRP151",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P151",
+    "stationCode": "KRP151",
     "stationName": "당정",
     "lineOrder": 55,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P152",
-    "stationKey": "1:P152",
+    "id": "1:KRP152",
+    "stationKey": "1:KRP152",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P152",
+    "stationCode": "KRP152",
     "stationName": "의왕",
     "lineOrder": 56,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0152",
+    "id": "1:KR0152",
     "stationKey": "transfer:부평",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0152",
+    "stationCode": "KR0152",
     "stationName": "부평",
     "lineOrder": 56,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P153",
-    "stationKey": "1:P153",
+    "id": "1:KRP153",
+    "stationKey": "1:KRP153",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P153",
+    "stationCode": "KRP153",
     "stationName": "성균관대",
     "lineOrder": 57,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0153",
-    "stationKey": "1:0153",
+    "id": "1:KR0153",
+    "stationKey": "1:KR0153",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0153",
+    "stationCode": "KR0153",
     "stationName": "백운",
     "lineOrder": 57,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P154",
-    "stationKey": "1:P154",
+    "id": "1:KRP154",
+    "stationKey": "1:KRP154",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P154",
+    "stationCode": "KRP154",
     "stationName": "화서",
     "lineOrder": 58,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0154",
-    "stationKey": "1:0154",
+    "id": "1:KR0154",
+    "stationKey": "1:KR0154",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0154",
+    "stationCode": "KR0154",
     "stationName": "동암",
     "lineOrder": 58,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0155",
-    "stationKey": "1:0155",
+    "id": "1:KR0155",
+    "stationKey": "1:KR0155",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0155",
+    "stationCode": "KR0155",
     "stationName": "간석",
     "lineOrder": 59,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P155",
+    "id": "1:KRP155",
     "stationKey": "transfer:수원",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P155",
+    "stationCode": "KRP155",
     "stationName": "수원",
     "lineOrder": 59,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P156",
-    "stationKey": "1:P156",
+    "id": "1:KRP156",
+    "stationKey": "1:KRP156",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P156",
+    "stationCode": "KRP156",
     "stationName": "세류",
     "lineOrder": 60,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0156",
+    "id": "1:KR0156",
     "stationKey": "transfer:주안",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0156",
+    "stationCode": "KR0156",
     "stationName": "주안",
     "lineOrder": 60,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P157",
-    "stationKey": "1:P157",
+    "id": "1:KRP157",
+    "stationKey": "1:KRP157",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P157",
+    "stationCode": "KRP157",
     "stationName": "병점",
     "lineOrder": 61,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0157",
-    "stationKey": "1:0157",
+    "id": "1:KR0157",
+    "stationKey": "1:KR0157",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0157",
+    "stationCode": "KR0157",
     "stationName": "도화",
     "lineOrder": 61,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0158",
-    "stationKey": "1:0158",
+    "id": "1:KR0158",
+    "stationKey": "1:KR0158",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0158",
+    "stationCode": "KR0158",
     "stationName": "제물포",
     "lineOrder": 62,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P158",
-    "stationKey": "1:P158",
+    "id": "1:KRP158",
+    "stationKey": "1:KRP158",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P158",
+    "stationCode": "KRP158",
     "stationName": "세마",
     "lineOrder": 62,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P157-1",
-    "stationKey": "1:P157-1",
+    "id": "1:KRP157-1",
+    "stationKey": "1:KRP157-1",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P157-1",
+    "stationCode": "KRP157-1",
     "stationName": "서동탄",
     "lineOrder": 62,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0159",
-    "stationKey": "1:0159",
+    "id": "1:KR0159",
+    "stationKey": "1:KR0159",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0159",
+    "stationCode": "KR0159",
     "stationName": "도원",
     "lineOrder": 63,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P159",
-    "stationKey": "1:P159",
+    "id": "1:KRP159",
+    "stationKey": "1:KRP159",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P159",
+    "stationCode": "KRP159",
     "stationName": "오산대",
     "lineOrder": 63,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P160",
-    "stationKey": "1:P160",
+    "id": "1:KRP160",
+    "stationKey": "1:KRP160",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P160",
+    "stationCode": "KRP160",
     "stationName": "오산",
     "lineOrder": 64,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0160",
-    "stationKey": "1:0160",
+    "id": "1:KR0160",
+    "stationKey": "1:KR0160",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0160",
+    "stationCode": "KR0160",
     "stationName": "동인천",
     "lineOrder": 64,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:0161",
+    "id": "1:KR0161",
     "stationKey": "transfer:인천",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "0161",
+    "stationCode": "KR0161",
     "stationName": "인천",
     "lineOrder": 65,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P161",
-    "stationKey": "1:P161",
+    "id": "1:KRP161",
+    "stationKey": "1:KRP161",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P161",
+    "stationCode": "KRP161",
     "stationName": "진위",
     "lineOrder": 65,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P162",
-    "stationKey": "1:P162",
+    "id": "1:KRP162",
+    "stationKey": "1:KRP162",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P162",
+    "stationCode": "KRP162",
     "stationName": "송탄",
     "lineOrder": 66,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P163",
-    "stationKey": "1:P163",
+    "id": "1:KRP163",
+    "stationKey": "1:KRP163",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P163",
+    "stationCode": "KRP163",
     "stationName": "서정리",
     "lineOrder": 67,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P164",
-    "stationKey": "1:P164",
+    "id": "1:KRP164",
+    "stationKey": "1:KRP164",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P164",
+    "stationCode": "KRP164",
     "stationName": "평택지제",
     "lineOrder": 68,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P165",
-    "stationKey": "1:P165",
+    "id": "1:KRP165",
+    "stationKey": "1:KRP165",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P165",
+    "stationCode": "KRP165",
     "stationName": "평택",
     "lineOrder": 69,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P166",
-    "stationKey": "1:P166",
+    "id": "1:KRP166",
+    "stationKey": "1:KRP166",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P166",
+    "stationCode": "KRP166",
     "stationName": "성환",
     "lineOrder": 70,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P167",
-    "stationKey": "1:P167",
+    "id": "1:KRP167",
+    "stationKey": "1:KRP167",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P167",
+    "stationCode": "KRP167",
     "stationName": "직산",
     "lineOrder": 71,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P168",
-    "stationKey": "1:P168",
+    "id": "1:KRP168",
+    "stationKey": "1:KRP168",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P168",
+    "stationCode": "KRP168",
     "stationName": "두정",
     "lineOrder": 72,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P169",
-    "stationKey": "1:P169",
+    "id": "1:KRP169",
+    "stationKey": "1:KRP169",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P169",
+    "stationCode": "KRP169",
     "stationName": "천안",
     "lineOrder": 73,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P170",
-    "stationKey": "1:P170",
+    "id": "1:KRP170",
+    "stationKey": "1:KRP170",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P170",
+    "stationCode": "KRP170",
     "stationName": "봉명",
     "lineOrder": 74,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P171",
-    "stationKey": "1:P171",
+    "id": "1:KRP171",
+    "stationKey": "1:KRP171",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P171",
+    "stationCode": "KRP171",
     "stationName": "쌍용(나사렛대)",
     "lineOrder": 75,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P172",
-    "stationKey": "1:P172",
+    "id": "1:KRP172",
+    "stationKey": "1:KRP172",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P172",
+    "stationCode": "KRP172",
     "stationName": "아산",
     "lineOrder": 76,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P173",
-    "stationKey": "1:P173",
+    "id": "1:KRP173",
+    "stationKey": "1:KRP173",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P173",
+    "stationCode": "KRP173",
     "stationName": "탕정",
     "lineOrder": 77,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P174",
-    "stationKey": "1:P174",
+    "id": "1:KRP174",
+    "stationKey": "1:KRP174",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P174",
+    "stationCode": "KRP174",
     "stationName": "배방",
     "lineOrder": 78,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P176",
-    "stationKey": "1:P176",
+    "id": "1:KRP176",
+    "stationKey": "1:KRP176",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P176",
+    "stationCode": "KRP176",
     "stationName": "온양온천",
     "lineOrder": 79,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
-    "id": "1:P177",
-    "stationKey": "1:P177",
+    "id": "1:KRP177",
+    "stationKey": "1:KRP177",
     "lineId": "1",
     "lineName": "1호선",
-    "stationCode": "P177",
+    "stationCode": "KRP177",
     "stationName": "신창(순천향대)",
     "lineOrder": 80,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "2:0201",
@@ -5172,7 +5172,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A01",
     "stationName": "서울역",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A02",
@@ -5182,7 +5182,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A02",
     "stationName": "공덕",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A03",
@@ -5192,7 +5192,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A03",
     "stationName": "홍대입구",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A04",
@@ -5202,7 +5202,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A04",
     "stationName": "디지털미디어시티",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A042",
@@ -5212,7 +5212,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A042",
     "stationName": "마곡나루",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A05",
@@ -5222,7 +5222,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A05",
     "stationName": "김포공항",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A06",
@@ -5232,7 +5232,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A06",
     "stationName": "계양",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A07",
@@ -5242,7 +5242,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A07",
     "stationName": "검암",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A071",
@@ -5252,7 +5252,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A071",
     "stationName": "청라국제도시",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A072",
@@ -5262,7 +5262,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A072",
     "stationName": "영종",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A08",
@@ -5272,7 +5272,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A08",
     "stationName": "운서",
     "lineOrder": 11,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A09",
@@ -5282,7 +5282,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A09",
     "stationName": "공항화물청사",
     "lineOrder": 12,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A10",
@@ -5292,7 +5292,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A10",
     "stationName": "인천공항1터미널",
     "lineOrder": 13,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport:A11",
@@ -5302,7 +5302,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "A11",
     "stationName": "인천공항2터미널",
     "lineOrder": 14,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "suin-bundang:K209",
@@ -7412,7 +7412,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S401",
     "stationName": "샛강",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S402",
@@ -7422,7 +7422,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S402",
     "stationName": "대방",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S403",
@@ -7432,7 +7432,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S403",
     "stationName": "서울지방병무청",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S404",
@@ -7442,7 +7442,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S404",
     "stationName": "보라매",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S405",
@@ -7452,7 +7452,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S405",
     "stationName": "보라매공원",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S406",
@@ -7462,7 +7462,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S406",
     "stationName": "보라매병원",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S407",
@@ -7472,7 +7472,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S407",
     "stationName": "당곡",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S408",
@@ -7482,7 +7482,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S408",
     "stationName": "신림",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S409",
@@ -7492,7 +7492,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S409",
     "stationName": "서원",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S410",
@@ -7502,7 +7502,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S410",
     "stationName": "서울대벤처타운",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "sillim:S411",
@@ -7512,7 +7512,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "S411",
     "stationName": "관악산(서울대)",
     "lineOrder": 11,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G100",
@@ -7522,7 +7522,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G100",
     "stationName": "양촌",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G101",
@@ -7532,7 +7532,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G101",
     "stationName": "구래",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G102",
@@ -7542,7 +7542,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G102",
     "stationName": "마산",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G103",
@@ -7552,7 +7552,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G103",
     "stationName": "장기",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G104",
@@ -7562,7 +7562,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G104",
     "stationName": "운양",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G105",
@@ -7572,7 +7572,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G105",
     "stationName": "걸포북변",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G106",
@@ -7582,7 +7582,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G106",
     "stationName": "사우(김포시청)",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G107",
@@ -7592,7 +7592,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G107",
     "stationName": "풍무",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G108",
@@ -7602,7 +7602,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G108",
     "stationName": "고촌",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gimpo-gold:G109",
@@ -7612,7 +7612,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "G109",
     "stationName": "김포공항",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y110",
@@ -7622,7 +7622,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y110",
     "stationName": "기흥(백남준아트센터)",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y111",
@@ -7632,7 +7632,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y111",
     "stationName": "강남대",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y112",
@@ -7642,7 +7642,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y112",
     "stationName": "지석",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y113",
@@ -7652,7 +7652,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y113",
     "stationName": "어정",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y114",
@@ -7662,7 +7662,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y114",
     "stationName": "동백",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y115",
@@ -7672,7 +7672,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y115",
     "stationName": "초당",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y116",
@@ -7682,7 +7682,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y116",
     "stationName": "삼가",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y117",
@@ -7692,7 +7692,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y117",
     "stationName": "시청.용인대",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y118",
@@ -7702,7 +7702,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y118",
     "stationName": "명지대",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y119",
@@ -7712,7 +7712,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y119",
     "stationName": "김량장",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y120",
@@ -7722,7 +7722,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y120",
     "stationName": "용인중앙시장(용인예술과학대)",
     "lineOrder": 11,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y121",
@@ -7732,7 +7732,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y121",
     "stationName": "고진",
     "lineOrder": 12,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y122",
@@ -7742,7 +7742,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y122",
     "stationName": "보평",
     "lineOrder": 13,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y123",
@@ -7752,7 +7752,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y123",
     "stationName": "둔전",
     "lineOrder": 14,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "everline:Y124",
@@ -7762,7 +7762,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "Y124",
     "stationName": "전대.에버랜드",
     "lineOrder": 15,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "uijeongbu:0110",
