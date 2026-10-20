@@ -49,8 +49,16 @@
       "recommendedDoors": ["4-4", "5-1", "5-2"],
       "level": "green",
       "directions": [
-        { "platformNumber": "3", "recommendedDoors": ["4-4", "5-1"], "level": "green" },
-        { "platformNumber": "4", "recommendedDoors": ["4-4", "5-2"], "level": "green" }
+        {
+          "platformNumber": "3",
+          "recommendedDoors": ["4-4", "5-1"],
+          "level": "green"
+        },
+        {
+          "platformNumber": "4",
+          "recommendedDoors": ["4-4", "5-2"],
+          "level": "green"
+        }
       ],
       "evidence": "사용자 확인 2026-10-20"
     },
@@ -62,10 +70,32 @@
       "recommendedDoors": ["2-3", "3-1"],
       "level": "green",
       "directions": [
-        { "platformNumber": "1", "toward": "서울역", "recommendedDoors": ["2-3"], "level": "green" },
-        { "platformNumber": "2", "toward": "인천공항2터미널", "recommendedDoors": ["3-1"], "level": "green" }
+        {
+          "platformNumber": "1",
+          "toward": "서울역",
+          "recommendedDoors": ["2-3"],
+          "level": "green"
+        },
+        {
+          "platformNumber": "2",
+          "toward": "인천공항2터미널",
+          "recommendedDoors": ["3-1"],
+          "level": "green"
+        }
       ],
       "evidence": "사용자 확인 2026-10-20"
+    }
+  ],
+  "knownSourceGaps": [
+    {
+      "stationCode": "A11",
+      "stationName": "인천공항2터미널",
+      "railOperatorCode": "AR",
+      "platformNumbers": ["1"],
+      "recommendedDoors": ["3-2", "4-2"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-20"
     }
   ]
 }

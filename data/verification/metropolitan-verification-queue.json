@@ -496,6 +496,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 4948,
         "yellow": 3723,
@@ -1015,6 +1016,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 2958,
         "yellow": 697,
@@ -1652,6 +1654,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 2531,
         "yellow": 871,
@@ -2330,6 +2333,7 @@
           "issue": "권장 문 이격거리 없음: 3:4-3, 4:4-3"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 3115,
         "yellow": 570,
@@ -3308,6 +3312,7 @@
           "issue": "권장 문 이격거리 없음: 1:5-5"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 3164,
         "yellow": 322,
@@ -3432,6 +3437,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 2025,
         "yellow": 226,
@@ -4096,6 +4102,7 @@
           "issue": "승강장·차량·문·이격거리 연결 불가"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 3075,
         "yellow": 253,
@@ -4250,6 +4257,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 935,
         "yellow": 70,
@@ -4423,6 +4431,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 1815,
         "yellow": 9,
@@ -4438,7 +4447,7 @@
       "remaining": {
         "surface": 0,
         "door": 0,
-        "gap": 1
+        "gap": 0
       },
       "collectedAt": "2026-10-20T07:30:35.048Z",
       "stationCount": 14,
@@ -4485,12 +4494,22 @@
       ],
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
-      "gapLinkageChecks": [
+      "gapLinkageChecks": [],
+      "knownSourceGaps": [
         {
           "stationCode": "A11",
           "stationName": "인천공항2터미널",
           "railOperatorCode": "AR",
-          "issue": "stationElevator 1:3-2 이격거리 값 없음; stationElevator 1:4-2 이격거리 값 없음"
+          "platformNumbers": [
+            "1"
+          ],
+          "recommendedDoors": [
+            "3-2",
+            "4-2"
+          ],
+          "field": "platformGap",
+          "status": "source_unavailable",
+          "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-20"
         }
       ],
       "gapSummary": {
@@ -5000,6 +5019,7 @@
           "issue": "이격거리 API 행 없음"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 1909,
         "yellow": 11,
@@ -5321,6 +5341,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 324,
         "yellow": 0,
@@ -5641,6 +5662,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 768,
         "yellow": 0,
@@ -5780,6 +5802,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 58,
         "yellow": 0,
@@ -5837,6 +5860,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 80,
         "yellow": 0,
@@ -5931,6 +5955,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 192,
         "yellow": 0,
@@ -6008,6 +6033,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 0,
         "yellow": 0,
@@ -6863,6 +6889,7 @@
           "issue": "권장 문 이격거리 없음: 3:5-2, 4:5-2"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 2206,
         "yellow": 90,
@@ -6958,6 +6985,7 @@
           "issue": "권장 문 이격거리 없음: 3:4-2, 4:5-2"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 1476,
         "yellow": 420,
@@ -7410,6 +7438,7 @@
           "issue": "권장 문 이격거리 없음: 1:4-4, 2:1-1"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 2418,
         "yellow": 1319,
@@ -7593,6 +7622,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 352,
         "yellow": 0,
@@ -7920,6 +7950,7 @@
           "issue": "권장 문 이격거리 없음: 1:3-4, 2:3-4"
         }
       ],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 336,
         "yellow": 0,
@@ -7937,6 +7968,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 128,
         "yellow": 4,
@@ -8162,6 +8194,7 @@
         }
       ],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 104,
         "yellow": 0,
@@ -8179,6 +8212,7 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "knownSourceGaps": [],
       "gapSummary": {
         "green": 180,
         "yellow": 0,

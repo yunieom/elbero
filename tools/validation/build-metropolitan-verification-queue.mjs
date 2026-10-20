@@ -21,7 +21,7 @@ const lineConfigs = [
     stem: 'airport-railroad',
     status: 'verified_supported',
     includeInDetails: true,
-    remaining: { surface: 0, door: 0, gap: 1 },
+    remaining: { surface: 0, door: 0, gap: 0 },
   },
   { name: '인천 1호선', stem: 'incheon-line-1', status: 'future_target' },
   { name: '인천 2호선', stem: 'incheon-line-2', status: 'future_target' },
@@ -177,6 +177,8 @@ for (const config of lineConfigs) {
     ),
   );
   const manualGapOverrides = manual?.gapOverrides ?? [];
+  const knownSourceGaps = manual?.knownSourceGaps ?? [];
+  const resolvedGapRecords = [...manualGapOverrides, ...knownSourceGaps];
   const directionDoorChecks = [...doorByStation.values()]
     .map((station) => ({
       ...station,
@@ -200,12 +202,12 @@ for (const config of lineConfigs) {
     .toSorted(stationSort);
 
   const gapLinkageChecks = audit.preferredDoorGuidance
-    ? buildPreferredGapChecks(audit.preferredDoorGuidance, manualGapOverrides)
+    ? buildPreferredGapChecks(audit.preferredDoorGuidance, resolvedGapRecords)
     : audit.differences
         .filter(
           (difference) =>
             difference.category === 'platform_gap_linkage' &&
-            !manualGapOverrides.some(
+            !resolvedGapRecords.some(
               (override) =>
                 normalizeCode(override.stationCode) ===
                 normalizeCode(difference.stationCode),
@@ -227,6 +229,7 @@ for (const config of lineConfigs) {
     surfaceExitConflicts: surfaceExitConflicts.toSorted(stationSort),
     directionDoorChecks,
     gapLinkageChecks,
+    knownSourceGaps,
     gapSummary: audit.summary.gapSummary,
   });
 }

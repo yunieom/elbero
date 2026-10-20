@@ -108,7 +108,7 @@ const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목
 
 ## 전체 노선 요약
 
-| 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 이격거리 값 없음 역 |
+| 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 원천 미제공 역 |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
 ${metropolitanSummary}
 
@@ -250,10 +250,13 @@ function renderMetropolitanSummary(lines) {
   return lines
     .map((line) => {
       const counts = metropolitanPendingCounts(line);
-      const missingGapStations = line.gapLinkageChecks.filter((station) =>
-        station.issue.includes('이격거리 값 없음'),
-      ).length;
-      return `| ${line.name} | ${metropolitanStatusLabel(line.status)} | ${String(line.collectedAt).slice(0, 10)} | ${counts.surface} | ${counts.door} | ${counts.gap} | ${missingGapStations} |`;
+      const knownSourceGapStations = new Set(
+        (line.knownSourceGaps ?? []).map(
+          (station) =>
+            `${station.railOperatorCode ?? ''}:${station.stationCode}`,
+        ),
+      ).size;
+      return `| ${line.name} | ${metropolitanStatusLabel(line.status)} | ${String(line.collectedAt).slice(0, 10)} | ${counts.surface} | ${counts.door} | ${counts.gap} | ${knownSourceGapStations} |`;
     })
     .join('\n');
 }
@@ -311,7 +314,24 @@ ${doorRows}
 
 | 역 | 확인할 내용 |
 | --- | --- |
-${gapRows}`;
+${gapRows}${renderKnownSourceGaps(line)}`;
+}
+
+function renderKnownSourceGaps(line) {
+  const rows = line.knownSourceGaps ?? [];
+  if (rows.length === 0) return '';
+  return `
+
+### 원천 API 미제공 (${rows.length}역)
+
+| 역 | 미제공 정보 | 처리 |
+| --- | --- | --- |
+${rows
+  .map(
+    (station) =>
+      `| ${metropolitanStationLabel(station)} | 승강장 ${station.platformNumbers?.join(', ') ?? '-'} · ${station.recommendedDoors?.join(', ') ?? '-'} 문 이격거리 | 수치·안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내 |`,
+  )
+  .join('\n')}`;
 }
 
 function metropolitanStationLabel(station) {
