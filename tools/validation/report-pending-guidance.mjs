@@ -75,7 +75,9 @@ for (const lineId of lineIds) {
 
   totalDirectionCount += directions.length;
   totalExitCount += exits.length;
-  sections.push(renderLineSection(lineId, directions, exits));
+  sections.push(
+    renderLineSection(lineId, directions, exits, manual?.knownSourceGaps ?? []),
+  );
 }
 
 const expansionSections = [];
@@ -169,7 +171,7 @@ function directionIssue(direction) {
   return direction.warning ?? '안전 경로 검증 미완료';
 }
 
-function renderLineSection(lineId, directions, exits) {
+function renderLineSection(lineId, directions, exits, knownSourceGaps) {
   const directionRows =
     directions.length > 0
       ? directions
@@ -189,6 +191,22 @@ function renderLineSection(lineId, directions, exits) {
           .join('\n')
       : '| 없음 | - |';
 
+  const sourceGapSection =
+    knownSourceGaps.length === 0
+      ? ''
+      : `
+
+### KRIC 원천 이격거리 미제공 (${knownSourceGaps.length}역)
+
+| 역 | 방향·문 | 처리 |
+| --- | --- | --- |
+${knownSourceGaps
+  .map(
+    (station) =>
+      `| ${station.stationName} (${station.stationCode}) | ${station.recommendedDoors.join(', ')} | 수치와 안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내 |`,
+  )
+  .join('\n')}`;
+
   return `## ${lineId}호선
 
 ### 방향별 차량·문·이격거리 (${directions.length}건)
@@ -201,7 +219,7 @@ ${directionRows}
 
 | 역 | 확인할 내용 |
 | --- | --- |
-${exitRows}`;
+${exitRows}${sourceGapSection}`;
 }
 
 function renderExpansionLineSection(readiness) {

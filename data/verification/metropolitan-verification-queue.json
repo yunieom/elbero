@@ -1669,7 +1669,7 @@
       "remaining": {
         "surface": 0,
         "door": 0,
-        "gap": 1
+        "gap": 0
       },
       "collectedAt": "2026-10-01T02:18:04.291Z",
       "stationCount": 51,
@@ -1975,7 +1975,8 @@
               "toward": "오남",
               "recommendedDoors": [
                 "7-3"
-              ]
+              ],
+              "gapVerificationStatus": "source_unavailable"
             }
           ]
         },
@@ -2333,7 +2334,22 @@
           "issue": "권장 문 이격거리 없음: 3:4-3, 4:4-3"
         }
       ],
-      "knownSourceGaps": [],
+      "knownSourceGaps": [
+        {
+          "stationCode": "0405",
+          "stationName": "진접",
+          "railOperatorCode": "NU",
+          "platformNumbers": [
+            "2"
+          ],
+          "recommendedDoors": [
+            "7-3"
+          ],
+          "field": "platformGap",
+          "status": "source_unavailable",
+          "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-20"
+        }
+      ],
       "gapSummary": {
         "green": 3115,
         "yellow": 570,

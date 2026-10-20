@@ -42,7 +42,7 @@
       "stationCode": "0405",
       "stationName": "진접",
       "directions": [
-        { "toward": "오남", "recommendedDoors": ["7-3"] }
+        { "toward": "오남", "recommendedDoors": ["7-3"], "gapVerificationStatus": "source_unavailable" }
       ]
     },
     {
@@ -132,5 +132,17 @@
       ]
     }
   ],
-  "allPlatformsSafeStations": ["0444", "0448", "0453", "0456"]
+  "allPlatformsSafeStations": ["0444", "0448", "0453", "0456"],
+  "knownSourceGaps": [
+    {
+      "stationCode": "0405",
+      "stationName": "진접",
+      "railOperatorCode": "NU",
+      "platformNumbers": ["2"],
+      "recommendedDoors": ["7-3"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-20"
+    }
+  ]
 }

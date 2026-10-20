@@ -9,7 +9,7 @@ const lineConfigs = [
     name: '4호선',
     stem: 'line-4',
     status: 'verified_supported',
-    remaining: { surface: 0, door: 0, gap: 1 },
+    remaining: { surface: 0, door: 0, gap: 0 },
   },
   { name: '5호선', stem: 'line-5', status: 'verified_supported' },
   { name: '6호선', stem: 'line-6', status: 'verified_supported' },

@@ -113,6 +113,7 @@ export const LINE_4_GUIDANCE = {
           "toward": "오남",
           "aliases": [],
           "service": null,
+          "gapVerificationStatus": "source_unavailable",
           "platformNumber": "2",
           "recommendedDoors": [
             "7-3"
