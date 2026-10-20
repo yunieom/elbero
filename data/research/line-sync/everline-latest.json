@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-09-21T00:56:08.448Z",
+  "collectedAt": "2026-10-20T07:30:33.745Z",
   "scope": {
     "line": "에버라인",
     "lineCode": "E1",
@@ -28,6 +28,7 @@
     "stinElevatorMovement": "/trafficWeekInfo/stinElevatorMovement",
     "stationElevator": "/convenientInfo/stationElevator",
     "stationElevatorCarNumber": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "stationStairCarNumber": "/vulnerableUserInfo/stationStairCarNumber",
     "stationPlatformTrainDistance": "/vulnerableUserInfo/stationPlatformTrainDistance",
     "stPlf": "/convenientInfo/stPlf",
     "SeoulMetroFaciInfo": "서울교통공사 승강기 가동현황 API"
@@ -67,6 +68,11 @@
         "stationsWithoutRows": 0,
         "rowCount": 32
       },
+      "stationStairCarNumber": {
+        "stationsWithRows": 0,
+        "stationsWithoutRows": 15,
+        "rowCount": 0
+      },
       "stPlf": {
         "stationsWithRows": 15,
         "stationsWithoutRows": 0,
@@ -89,6 +95,11 @@
       "yellow": 0,
       "red": 0,
       "missing": 0
+    },
+    "preferredDoorSourceCounts": {
+      "stationElevator": 0,
+      "stationElevatorCarNumber": 15,
+      "unavailable": 0
     }
   },
   "coverage": [
@@ -102,6 +113,7 @@
         "stinElevatorMovement": 20,
         "stationElevator": 5,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -117,6 +129,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -132,6 +145,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -147,6 +161,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -162,6 +177,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -177,6 +193,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 2,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -192,6 +209,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -207,6 +225,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -222,6 +241,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -237,6 +257,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -252,6 +273,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -267,6 +289,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -282,6 +305,7 @@
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -297,6 +321,7 @@
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 4,
         "SeoulMetroFaciInfo": 0
@@ -312,10 +337,642 @@
         "stinElevatorMovement": 12,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 2,
         "SeoulMetroFaciInfo": 0
       }
+    }
+  ],
+  "preferredDoorGuidance": [
+    {
+      "stationCode": "Y110",
+      "stationName": "기흥(백남준아트센터)",
+      "stationKey": "EV:Y110",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "3",
+          "inferredPlatformNumbers": [
+            "3"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "4",
+          "inferredPlatformNumbers": [
+            "4"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y111",
+      "stationName": "강남대",
+      "stationKey": "EV:Y111",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y112",
+      "stationName": "지석",
+      "stationKey": "EV:Y112",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y113",
+      "stationName": "어정",
+      "stationKey": "EV:Y113",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y114",
+      "stationName": "동백",
+      "stationKey": "EV:Y114",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y115",
+      "stationName": "초당",
+      "stationKey": "EV:Y115",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y116",
+      "stationName": "삼가",
+      "stationKey": "EV:Y116",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y117",
+      "stationName": "시청.용인대",
+      "stationKey": "EV:Y117",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y118",
+      "stationName": "명지대",
+      "stationKey": "EV:Y118",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y119",
+      "stationName": "김량장",
+      "stationKey": "EV:Y119",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y120",
+      "stationName": "용인중앙시장(용인예술과학대)",
+      "stationKey": "EV:Y120",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y121",
+      "stationName": "고진",
+      "stationKey": "EV:Y121",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y122",
+      "stationName": "보평",
+      "stationKey": "EV:Y122",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y123",
+      "stationName": "둔전",
+      "stationKey": "EV:Y123",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "Y124",
+      "stationName": "전대.에버랜드",
+      "stationKey": "EV:Y124",
+      "railOperatorCode": "EV",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        }
+      ]
     }
   ],
   "differences": [
@@ -636,7 +1293,73 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "exitNo": null,
+            "dtlLoc": "(2F)8번출입구표내는곳근처(3F)종점상행승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "exitNo": null,
+            "dtlLoc": "(2F)9번출입구환승표내는곳근처(3F)강남대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "exitNo": null,
+            "dtlLoc": "(2F)8번출입구환승표내는곳근처(3F)종점상행승강장(3F)강남대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "exitNo": "8",
+            "dtlLoc": "(1F)8번출구계단옆(3F)9번출구표내는곳앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "exitNo": null,
+            "dtlLoc": "(B1)수인분당선기흥역환승통로경계앞(3F)9번출구표내는곳앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -749,24 +1472,6 @@
             "railOprIsttCd": "EV",
             "lnCd": "E1",
             "stinCd": "Y110",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 1,
-            "sfDst": 5.2
-          },
-          {
-            "railOprIsttCd": "EV",
-            "lnCd": "E1",
-            "stinCd": "Y110",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 2,
-            "sfDst": 6.5
-          },
-          {
-            "railOprIsttCd": "EV",
-            "lnCd": "E1",
-            "stinCd": "Y110",
             "plfNo": 1,
             "carOrdr": 1,
             "carEtrcNo": 1,
@@ -780,6 +1485,24 @@
             "carOrdr": 1,
             "carEtrcNo": 2,
             "sfDst": 5.4
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 1,
+            "sfDst": 5.2
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y110",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 2,
+            "sfDst": 6.5
           }
         ]
       }
@@ -1269,7 +1992,60 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y111",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(1F)기흥역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y111",
+            "exitNo": null,
+            "dtlLoc": "(2F)3번출입구표내는곳근처(1F)지석역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y111",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y111",
+            "exitNo": "3",
+            "dtlLoc": "(1F)3번출입구옆(2F)3번출입구통로앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -1760,7 +2536,60 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y112",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)강남대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y112",
+            "exitNo": null,
+            "dtlLoc": "(2F)3번출입구표내는곳근처(3F)어정역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y112",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y112",
+            "exitNo": "3",
+            "dtlLoc": "(1F)2번/3번출입구사이(2F)3번/4번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -2079,7 +2908,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y113",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)지석역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y113",
+            "exitNo": null,
+            "dtlLoc": "(2F)2번출입구표내는곳근처(3F)동백역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y113",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구옆(2F)1번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -2399,7 +3268,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y114",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)어정역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y114",
+            "exitNo": null,
+            "dtlLoc": "(2F)3번출입구표내는곳근처(3F)초당역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y114",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -2691,7 +3600,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y115",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)동백역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y115",
+            "exitNo": null,
+            "dtlLoc": "(2F)2번출입구표내는곳근처(3F)삼가역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -3010,7 +3946,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y116",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)초당역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 4,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y116",
+            "exitNo": null,
+            "dtlLoc": "(2F)3번출입구표내는곳근처(3F)시청∙용인대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 4,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y116",
+            "exitNo": "3",
+            "dtlLoc": "(1F)3번출입구옆(2F)3번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -3327,7 +4303,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y117",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)삼가역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y117",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)명지대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y117",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구옆(2F)1번출입구대합실옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -3646,7 +4662,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y118",
+            "exitNo": null,
+            "dtlLoc": "(2F)2번출입구표내는곳근처(3F)시청∙용인대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y118",
+            "exitNo": null,
+            "dtlLoc": "(2F)2번출입구표내는곳근처(3F)김량장역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y118",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -3965,7 +5021,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y119",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)명지대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y119",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)운동장∙송담대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y119",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -4285,7 +5381,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y120",
+            "exitNo": null,
+            "dtlLoc": "(2F)2번출입구표내는곳근처(3F)김량장역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y120",
+            "exitNo": null,
+            "dtlLoc": "(2F)3번출입구표내는곳근처(3F)고진역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y120",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -4602,7 +5738,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y121",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)운동장∙송담대역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y121",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)보평역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y121",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구옆(2F)1번출입구대합실옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5092,7 +6268,60 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y122",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)고진역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y122",
+            "exitNo": null,
+            "dtlLoc": "(2F)3번출입구표내는곳근처(3F)둔전역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y122",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구옆(2F)1번출입구대합실통로앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y122",
+            "exitNo": "2",
+            "dtlLoc": "(1F)2번출입구옆(2F)2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5411,7 +6640,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y123",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)보평역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y123",
+            "exitNo": null,
+            "dtlLoc": "(2F)1번출입구표내는곳근처(3F)전대∙에버랜드역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y123",
+            "exitNo": "1",
+            "dtlLoc": "(1F)2번출입구옆(2F)2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5759,7 +7028,60 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y124",
+            "exitNo": null,
+            "dtlLoc": "(2F)2번출입구표내는곳근처(1F)둔전역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y124",
+            "exitNo": null,
+            "dtlLoc": "(2F)4출입구표내는곳근처(1F)종점하행승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y124",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "EV",
+            "lnCd": "E1",
+            "stinCd": "Y124",
+            "exitNo": "3",
+            "dtlLoc": "(1F)3번/4번출입구사이(2F)3번/4번출입구대합실통로앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 900
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },

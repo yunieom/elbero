@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "line": "공항철도",
-  "verifiedAt": "2026-10-13",
+  "verifiedAt": "2026-10-20",
   "directionalDoors": [
     {
       "stationCode": "A05",
@@ -38,6 +38,34 @@
           "evidence": "사용자 확인: stationElevator"
         }
       ]
+    }
+  ],
+  "gapOverrides": [
+    {
+      "stationCode": "A04",
+      "stationName": "디지털미디어시티",
+      "railOperatorCode": "AR",
+      "platformNumbers": ["3", "4"],
+      "recommendedDoors": ["4-4", "5-1", "5-2"],
+      "level": "green",
+      "directions": [
+        { "platformNumber": "3", "recommendedDoors": ["4-4", "5-1"], "level": "green" },
+        { "platformNumber": "4", "recommendedDoors": ["4-4", "5-2"], "level": "green" }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "A10",
+      "stationName": "인천공항1터미널",
+      "railOperatorCode": "AR",
+      "platformNumbers": ["1", "2"],
+      "recommendedDoors": ["2-3", "3-1"],
+      "level": "green",
+      "directions": [
+        { "platformNumber": "1", "toward": "서울역", "recommendedDoors": ["2-3"], "level": "green" },
+        { "platformNumber": "2", "toward": "인천공항2터미널", "recommendedDoors": ["3-1"], "level": "green" }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
     }
   ]
 }

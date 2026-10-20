@@ -317,7 +317,8 @@ function buildPreferredGapChecks(guidance, manualOverrides) {
             normalizeCode(override.stationCode) ===
               normalizeCode(station.stationCode) &&
             (override.recommendedDoors ?? []).includes(candidate.door) &&
-            (candidate.inferredPlatformNumbers.length === 0 ||
+            ((override.platformNumbers ?? []).length === 0 ||
+              candidate.inferredPlatformNumbers.length === 0 ||
               candidate.inferredPlatformNumbers.some((platform) =>
                 (override.platformNumbers ?? []).includes(platform),
               )),

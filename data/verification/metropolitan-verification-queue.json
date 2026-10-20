@@ -495,56 +495,7 @@
       ],
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
-      "gapLinkageChecks": [
-        {
-          "stationCode": "0100",
-          "stationName": "소요산",
-          "railOperatorCode": "KR",
-          "issue": "stationElevator 방향 승강장 미확인:3-4 방향별 이격거리 확인 필요"
-        },
-        {
-          "stationCode": "0101",
-          "stationName": "동두천",
-          "railOperatorCode": "KR",
-          "issue": "stationElevator 방향 승강장 미확인:6-3 방향별 이격거리 확인 필요; stationElevator 방향 승강장 미확인:5-3 방향별 이격거리 확인 필요"
-        },
-        {
-          "stationCode": "0138",
-          "stationName": "신길",
-          "railOperatorCode": "KR",
-          "issue": "stationElevator 방향 승강장 미확인:3-1 방향별 이격거리 확인 필요; stationElevator 방향 승강장 미확인:3-4 방향별 이격거리 확인 필요; stationElevator 방향 승강장 미확인:8-1 방향별 이격거리 확인 필요"
-        },
-        {
-          "stationCode": "0161",
-          "stationName": "인천",
-          "railOperatorCode": "KR",
-          "issue": "stationElevator 방향 승강장 미확인:2-1 방향별 이격거리 확인 필요"
-        },
-        {
-          "stationCode": "P144-1",
-          "stationName": "광명",
-          "railOperatorCode": "KR",
-          "issue": "stationElevatorCarNumber 1:1-4 이격거리 레코드 없음; stationElevatorCarNumber 2:4-4 이격거리 레코드 없음"
-        },
-        {
-          "stationCode": "P165",
-          "stationName": "평택",
-          "railOperatorCode": "KR",
-          "issue": "stationElevatorCarNumber 7:6-3 이격거리 레코드 없음; stationElevatorCarNumber 8:6-3 이격거리 레코드 없음"
-        },
-        {
-          "stationCode": "P167",
-          "stationName": "직산",
-          "railOperatorCode": "KR",
-          "issue": "stationElevatorCarNumber 3:8-1 이격거리 레코드 없음; stationElevatorCarNumber 4:8-1 이격거리 레코드 없음"
-        },
-        {
-          "stationCode": "P172",
-          "stationName": "아산",
-          "railOperatorCode": "KR",
-          "issue": "stationElevatorCarNumber 3:4-4 이격거리 레코드 없음; stationElevatorCarNumber 4:6-4 이격거리 레코드 없음"
-        }
-      ],
+      "gapLinkageChecks": [],
       "gapSummary": {
         "green": 4948,
         "yellow": 3723,
@@ -4483,7 +4434,7 @@
       "name": "공항철도",
       "stem": "airport-railroad",
       "status": "route_engine_target",
-      "collectedAt": "2026-10-13T23:17:57.017Z",
+      "collectedAt": "2026-10-20T07:30:35.048Z",
       "stationCount": 14,
       "resolvedSurfaceExits": [
         {
@@ -4530,16 +4481,10 @@
       "directionDoorChecks": [],
       "gapLinkageChecks": [
         {
-          "stationCode": "A04",
-          "stationName": "디지털미디어시티",
+          "stationCode": "A11",
+          "stationName": "인천공항2터미널",
           "railOperatorCode": "AR",
-          "issue": "권장 문 이격거리 없음: 3:4-3, 3:5-1, 4:4-4, 4:5-2"
-        },
-        {
-          "stationCode": "A10",
-          "stationName": "인천공항1터미널",
-          "railOperatorCode": "AR",
-          "issue": "권장 문 이격거리 없음: 2:7-2"
+          "issue": "stationElevator 1:3-2 이격거리 값 없음; stationElevator 1:4-2 이격거리 값 없음"
         }
       ],
       "gapSummary": {
@@ -5701,7 +5646,7 @@
       "name": "에버라인",
       "stem": "everline",
       "status": "future_target",
-      "collectedAt": "2026-09-21T00:56:08.448Z",
+      "collectedAt": "2026-10-20T07:30:33.745Z",
       "stationCount": 15,
       "resolvedSurfaceExits": [
         {
@@ -5828,20 +5773,7 @@
       ],
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
-      "gapLinkageChecks": [
-        {
-          "stationCode": "Y110",
-          "stationName": "기흥(백남준아트센터)",
-          "railOperatorCode": "EV",
-          "issue": "권장 문 이격거리 없음: 3:1-2, 4:1-1"
-        },
-        {
-          "stationCode": "Y124",
-          "stationName": "전대.에버랜드",
-          "railOperatorCode": "EV",
-          "issue": "권장 문 이격거리 없음: 2:1-1"
-        }
-      ],
+      "gapLinkageChecks": [],
       "gapSummary": {
         "green": 58,
         "yellow": 0,

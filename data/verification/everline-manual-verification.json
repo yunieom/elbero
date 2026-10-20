@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "line": "에버라인",
+  "verifiedAt": "2026-10-20",
+  "gapOverrides": [
+    {
+      "stationCode": "Y110",
+      "stationName": "기흥(백남준아트센터)",
+      "railOperatorCode": "EV",
+      "platformNumbers": ["3", "4"],
+      "recommendedDoors": ["1-2", "1-1"],
+      "level": "green",
+      "directions": [
+        { "platformNumber": "3", "recommendedDoors": ["1-2"], "level": "green" },
+        { "platformNumber": "4", "recommendedDoors": ["1-1"], "level": "green" }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "Y124",
+      "stationName": "전대.에버랜드",
+      "railOperatorCode": "EV",
+      "platformNumbers": ["2"],
+      "recommendedDoors": ["1-1"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-20"
+    }
+  ]
+}

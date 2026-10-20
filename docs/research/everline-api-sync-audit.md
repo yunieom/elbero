@@ -1,6 +1,6 @@
 # 에버라인 API 정보 차이 감사
 
-- 수집 시각: 2026-09-21T00:56:08.448Z
+- 수집 시각: 2026-10-20T07:30:33.745Z
 - 대상: 15개 역
 - 차이가 기록된 역: 15개
 - 차이 항목: 47건
@@ -24,6 +24,7 @@
 | stinElevatorMovement | 15 | 0 | 224 |
 | stationElevator | 15 | 0 | 50 |
 | stationElevatorCarNumber | 15 | 0 | 32 |
+| stationStairCarNumber | 0 | 15 | 0 |
 | stPlf | 15 | 0 | 30 |
 | stationPlatformTrainDistance | 15 | 0 | 58 |
 | SeoulMetroFaciInfo | 0 | 15 | 0 |
@@ -39,6 +40,50 @@
 | 15cm 초과 | `red` | 추천하지 않음 |
 
 전체 58건: green 58, yellow 0, red 0, 값 없음 0.
+
+## 권장 차량·문 선택 우선순위
+
+- `stationElevator`에 차량·문이 있으면 이 값을 우선한다.
+- `stationElevator`에 차량·문이 없을 때만 `stationElevatorCarNumber`를 사용한다.
+- 두 API 모두 차량·문이 없을 때만 사용자 확인 대상으로 남긴다.
+
+- stationElevator 선택: 0역
+- stationElevatorCarNumber 대체: 15역
+- 두 API 모두 없음: 0역
+
+### 우선순위로 선택한 권장 문·이격거리 (15역)
+
+| 역 | 우선 API | 권장 문·승강장·이격거리 |
+| --- | --- | --- |
+| 기흥(백남준아트센터) (Y110, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 6.4cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.5cm green<br>3번 승강장 · 1-2 → 이격거리 없음<br>4번 승강장 · 1-1 → 이격거리 없음 |
+| 강남대 (Y111, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 7.4cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.6cm green |
+| 지석 (Y112, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5.6cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.1cm green |
+| 어정 (Y113, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 6.1cm green<br>2번 승강장 · 1-2 → 2번 승강장 5.6cm green |
+| 동백 (Y114, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5.7cm green<br>2번 승강장 · 1-2 → 2번 승강장 5.2cm green |
+| 초당 (Y115, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 6.7cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.3cm green |
+| 삼가 (Y116, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 7.2cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.8cm green |
+| 시청.용인대 (Y117, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5.3cm green<br>2번 승강장 · 1-2 → 2번 승강장 5.9cm green |
+| 명지대 (Y118, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5.7cm green<br>2번 승강장 · 1-2 → 2번 승강장 5.3cm green |
+| 김량장 (Y119, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 6.8cm green<br>2번 승강장 · 1-2 → 2번 승강장 7cm green |
+| 용인중앙시장(용인예술과학대) (Y120, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5.2cm green<br>2번 승강장 · 1-2 → 2번 승강장 5.1cm green |
+| 고진 (Y121, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 7.4cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.4cm green |
+| 보평 (Y122, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 7.6cm green<br>2번 승강장 · 1-2 → 2번 승강장 6.8cm green |
+| 둔전 (Y123, EV) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5.7cm green<br>2번 승강장 · 1-2 → 2번 승강장 5.4cm green |
+| 전대.에버랜드 (Y124, EV) | stationElevatorCarNumber | 1번 승강장 · 1-2 → 1번 승강장 6.2cm green<br>2번 승강장 · 1-1 → 이격거리 없음 |
+
+### 두 API 모두 차량·문이 없는 역 (0역)
+
+| 역 | 상태 |
+| --- | --- |
+| 없음 | - |
+
+### 권장 문 이격거리 연결 확인 (3건)
+
+| 역 | 우선 API | 권장 문 | 승강장 | 상태 |
+| --- | --- | --- | --- | --- |
+| 기흥(백남준아트센터) (Y110, EV) | stationElevatorCarNumber | 1-2 | 3 | 이격거리 레코드 없음 |
+| 기흥(백남준아트센터) (Y110, EV) | stationElevatorCarNumber | 1-1 | 4 | 이격거리 레코드 없음 |
+| 전대.에버랜드 (Y124, EV) | stationElevatorCarNumber | 1-1 | 2 | 이격거리 레코드 없음 |
 
 ## 지상 엘리베이터 출구 번호 (15역)
 

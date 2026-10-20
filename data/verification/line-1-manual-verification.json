@@ -278,13 +278,35 @@
       "stationCode": "0138",
       "stationName": "신길",
       "railOperatorCode": "KR",
-      "resolution": "partially_verified",
+      "resolution": "verified",
       "directions": [
-        { "service": "상행 일반", "recommendedDoors": ["8-1"] },
-        { "service": "하행 일반", "recommendedDoors": ["3-4"] },
-        { "service": "하행 급행", "recommendedDoors": ["3-1"] }
+        {
+          "service": "영등포·동인천 방면 급행",
+          "platformNumber": "1",
+          "recommendedDoors": ["3-1"],
+          "gapLevel": "red"
+        },
+        {
+          "service": "대방·용산 방면 급행",
+          "platformNumber": "2",
+          "recommendedDoors": ["8-2"],
+          "gapLevel": "yellow",
+          "status": "additional_verification_required"
+        },
+        {
+          "service": "영등포·인천·신창 방면 일반",
+          "platformNumber": "3",
+          "recommendedDoors": ["3-4"],
+          "gapLevel": "red"
+        },
+        {
+          "service": "대방·서울역·연천 방면 일반",
+          "platformNumber": "4",
+          "recommendedDoors": ["8-1"],
+          "gapLevel": "yellow"
+        }
       ],
-      "guidance": "상행 급행 승강장의 엘리베이터 차량·문은 미확인으로 표시한다.",
+      "guidance": "급행·일반과 방향별 권장 문을 분리하고, red는 추천에서 제외한다.",
       "evidence": "사용자 확인 2026-10-20"
     },
     {
@@ -342,13 +364,28 @@
   ],
   "gapOverrides": [
     {
+      "stationCode": "0100",
+      "stationName": "소요산",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["3-4"],
+      "directions": [
+        { "toward": "청산", "level": "green" },
+        { "toward": "동두천", "level": null, "status": "source_unavailable" }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
       "stationCode": "0101",
       "stationName": "동두천",
       "railOperatorCode": "KR",
-      "platformNumbers": ["3", "4"],
-      "recommendedDoors": ["6-4"],
+      "platformNumbers": [],
+      "recommendedDoors": ["6-3", "5-3"],
       "level": "green",
-      "evidence": "사용자 확인 2026-10-20; KRIC는 3·4번 플랫폼 이격거리 행을 반환하지 않음"
+      "directions": [
+        { "toward": "보산", "recommendedDoors": ["6-3"], "level": "green" },
+        { "toward": "소요산", "recommendedDoors": ["5-3"], "level": "green" }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
     },
     {
       "stationCode": "0107",
@@ -358,6 +395,77 @@
       "recommendedDoors": ["6-2"],
       "level": "green",
       "evidence": "사용자 확인 2026-10-20; KRIC 재호출 값은 11cm(yellow)로 출처 충돌"
+    },
+    {
+      "stationCode": "0138",
+      "stationName": "신길",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1", "2", "3", "4"],
+      "recommendedDoors": ["3-1", "8-2", "3-4", "8-1"],
+      "level": "mixed",
+      "evidence": "사용자 확인 2026-10-20; 방향별 등급은 directionalDoorReviews에 기록"
+    },
+    {
+      "stationCode": "0161",
+      "stationName": "인천",
+      "railOperatorCode": "KR",
+      "platformNumbers": [],
+      "recommendedDoors": ["2-1"],
+      "level": "yellow",
+      "directions": [{ "toward": "동인천·서울", "level": "yellow" }],
+      "evidence": "사용자 KRIC 확인 2026-10-20"
+    },
+    {
+      "stationCode": "P144-1",
+      "stationName": "광명",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1", "2"],
+      "recommendedDoors": ["1-4", "4-4"],
+      "level": null,
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-20; KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "P165",
+      "stationName": "평택",
+      "railOperatorCode": "KR",
+      "platformNumbers": [],
+      "recommendedDoors": ["6-3", "5-3"],
+      "level": "mixed",
+      "directions": [
+        { "toward": "평택지제", "recommendedDoors": ["6-3"], "level": "yellow" },
+        {
+          "toward": "성환",
+          "recommendedDoors": ["6-3"],
+          "level": "red",
+          "alternativeDoors": ["5-3"],
+          "alternativeLevel": "yellow"
+        }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "P167",
+      "stationName": "직산",
+      "railOperatorCode": "KR",
+      "platformNumbers": [],
+      "recommendedDoors": ["8-1", "3-4"],
+      "level": "mixed",
+      "directions": [
+        { "toward": "성환", "recommendedDoors": ["8-1"], "level": "green" },
+        { "toward": "두정", "recommendedDoors": ["3-4"], "level": "yellow" }
+      ],
+      "evidence": "사용자 확인 2026-10-20"
+    },
+    {
+      "stationCode": "P172",
+      "stationName": "아산",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["3", "4"],
+      "recommendedDoors": ["4-4", "6-4"],
+      "level": "yellow",
+      "status": "direction_mapping_unavailable",
+      "evidence": "사용자 확인 2026-10-20; 방향별 매핑은 KRIC에서 확인 불가"
     }
   ]
 }

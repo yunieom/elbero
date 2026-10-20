@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-10-13T23:17:57.017Z",
+  "collectedAt": "2026-10-20T07:30:35.048Z",
   "scope": {
     "line": "공항철도",
     "lineCode": "A1",
@@ -44,7 +44,7 @@
     },
     "differenceKindCounts": {
       "coverage_gap": 40,
-      "value_difference": 6,
+      "value_difference": 7,
       "linkage_gap": 2
     },
     "endpointCoverage": {
@@ -95,6 +95,11 @@
       "yellow": 0,
       "red": 0,
       "missing": 60
+    },
+    "preferredDoorSourceCounts": {
+      "stationElevator": 11,
+      "stationElevatorCarNumber": 3,
+      "unavailable": 0
     }
   },
   "coverage": [
@@ -321,6 +326,657 @@
         "stationPlatformTrainDistance": 60,
         "SeoulMetroFaciInfo": 0
       }
+    }
+  ],
+  "preferredDoorGuidance": [
+    {
+      "stationCode": "A01",
+      "stationName": "서울역",
+      "stationKey": "AR:A01",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-1",
+          "location": "(B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-1옆",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "3"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "3",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": "(B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-2옆",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "3"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "3",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": "(B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-1옆",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1",
+            "3"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.5,
+              "level": "green"
+            },
+            {
+              "platformNumber": "3",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-3",
+          "location": "(B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-3옆",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1",
+            "3"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A02",
+      "stationName": "공덕",
+      "stationKey": "AR:A02",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-1",
+          "location": "(B3)운임구역대합실화장실옆(B5)홍대방향승강장4-1출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "(B3)운임구역대합실화장실맞은편(B5)서울방향승강장3-4출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A03",
+      "stationName": "홍대입구",
+      "stationKey": "AR:A03",
+      "railOperatorCode": "AR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A04",
+      "stationName": "디지털미디어시티",
+      "stationKey": "AR:A04",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-4",
+          "location": "(B1)에스컬레이터10호기/11호기근처(B3)마곡나루역방향승강장4-4출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1",
+            "3"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-2",
+          "location": "(B1)에스컬레이터9호기근처(B3)홍대입구역방향승강장5-2출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2",
+            "4"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-1",
+          "location": "(B1)에스컬레이터13호기/14호기근처(B3)마곡나루역방향승강장5-1출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1",
+            "3"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-3",
+          "location": "(B1)에스컬레이터12호기근처(B3)홍대입구역방향승강장4-3출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2",
+            "4"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A042",
+      "stationName": "마곡나루",
+      "stationKey": "AR:A042",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "1-4",
+          "location": "(B1)GS25앞(B3)DMC방향승강장1-4출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-1",
+          "location": "(B1)표내는곳내계단옆(B3)김포공항방향승강장3-1출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-4",
+          "location": "(B1)표내는곳내계단옆(B3)DMC방향승강장5-4출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A05",
+      "stationName": "김포공항",
+      "stationKey": "AR:A05",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "5-4",
+          "location": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-1",
+          "location": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A06",
+      "stationName": "계양",
+      "stationKey": "AR:A06",
+      "railOperatorCode": "AR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "6-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A07",
+      "stationName": "검암",
+      "stationKey": "AR:A07",
+      "railOperatorCode": "AR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A071",
+      "stationName": "청라국제도시",
+      "stationKey": "AR:A071",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": "(1F)검암역방향승강장3-4출입문앞(2F)환승통로무빙워크근처",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A072",
+      "stationName": "영종",
+      "stationKey": "AR:A072",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-2",
+          "location": "(2F)서울역방향승강장4-2출입문앞(3F)서울역방향에스컬레이터앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": "(2F)인천국제공항역방향승강장3-3출입문앞(3F)인천국제공항역방향에스컬레이터앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A08",
+      "stationName": "운서",
+      "stationKey": "AR:A08",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "5-2",
+          "location": "(1F)서쪽표내는곳근처,운임구역화장실옆(2F)영종역방향승강장5-2출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-3",
+          "location": "(1F)서쪽표내는곳근처(2F)공항화물청사역방향승강장4-3출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A09",
+      "stationName": "공항화물청사",
+      "stationKey": "AR:A09",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "5-1",
+          "location": "(지하2층)운서역방향5-1출입문앞/(지하1층)P/A화장실옆",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "(지하2층)인천공항1터미널방향4-4출입문앞/(지하2층)P/A화장실맞은편",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A10",
+      "stationName": "인천공항1터미널",
+      "stationKey": "AR:A10",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "2-3",
+          "location": "(B4)서울역방향승강장2-3출입문앞(B1)일반열차표내는곳진입후왼편",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-1",
+          "location": "(B4)인천공항2터미널방향승강장3-1출입문앞(B1)직통열차표내는곳진입후오른편",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "A11",
+      "stationName": "인천공항2터미널",
+      "stationKey": "AR:A11",
+      "railOperatorCode": "AR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장3-2출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": null,
+              "level": null
+            }
+          ],
+          "gapStatus": "value_missing"
+        },
+        {
+          "door": "4-2",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장4-2출입문앞",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": null,
+              "level": null
+            }
+          ],
+          "gapStatus": "value_missing"
+        }
+      ]
     }
   ],
   "differences": [
@@ -686,6 +1342,32 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A01",
+            "exitNo": "15",
+            "dtlLoc": "(2F)한국철도공사출입구(1F)15번출입구(MB)MB주차장(B1)공항철도7·8·9·10회의실앞(B2)직통열차표내는곳(B3)일반열차표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A01",
+            "exitNo": "15",
+            "dtlLoc": "(2F)한국철도공사출입구(1F)15번출구(MB)MB주차장(B1)공항철도7·8·9·10회의실앞(B2)직통열차표내는곳(B3)일반열차표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
           {
             "railOprIsttCd": "AR",
             "lnCd": "A1",
@@ -1137,6 +1819,32 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A02",
+            "exitNo": "10",
+            "dtlLoc": "(1F)10번출구근처(B2)경의선대합실(B3)비운임구역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A02",
+            "exitNo": "10",
+            "dtlLoc": "(1F)10번출구근처(B2)경의선대합실(B3)비운임구역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
           {
             "railOprIsttCd": "AR",
             "lnCd": "A1",
@@ -1666,6 +2374,19 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A03",
+            "exitNo": "4",
+            "dtlLoc": "1층4번출구애경백화점앞지하2층3,4번개찰구앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
           {
             "railOprIsttCd": "AR",
             "lnCd": "A1",
@@ -2319,6 +3040,32 @@
             "railOprIsttCd": "AR",
             "lnCd": "A1",
             "stinCd": "A04",
+            "exitNo": "9",
+            "dtlLoc": "(1F)8번/9번출입구사이엘리베이터,9번출입구근처(B1)8번/9번출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A04",
+            "exitNo": "7",
+            "dtlLoc": "(1F)7번출입구뒤엘리베이터,7번출입구근처(B1)7번출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A04",
             "exitNo": null,
             "dtlLoc": "(B1)에스컬레이터10호기/11호기근처(B3)마곡나루역방향승강장4-4출입문앞",
             "grndDvNmFr": "지하",
@@ -2363,6 +3110,19 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 3,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A04",
+            "exitNo": "7",
+            "dtlLoc": "(1F)7번출입구앞주차장엘리베이터,7번출입구근처(MB)기계실옆,2번/3번출입구방향(B1)무빙워크18호기앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 17,
             "rglnWgt": 1150
@@ -3565,6 +4325,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 24,
             "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A042",
+            "exitNo": "3,4",
+            "dtlLoc": "(B1)LG아트센터연결통로(B3)3번/4번출입구사이엘리베이터",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A042",
+            "exitNo": "5",
+            "dtlLoc": "(B1)출입구연결통로진입부(B3)5번출입구근처",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -3920,6 +4706,19 @@
             "railOprIsttCd": "AR",
             "lnCd": "A1",
             "stinCd": "A05",
+            "exitNo": "4",
+            "dtlLoc": "(1F)4번출구방향(B1)F/A고객화장실앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A05",
             "exitNo": null,
             "dtlLoc": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
             "grndDvNmFr": "지하",
@@ -3965,6 +4764,19 @@
             "runStinFlorFr": 3,
             "grndDvNmTo": "지하",
             "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A05",
+            "exitNo": null,
+            "dtlLoc": "(1F)4번출구방향(B1)공조기계실앞(B2)전기실방향(B3)서울역방향승강장맨앞(B4)인천공항방향승강장맨뒤",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
           }
@@ -4238,7 +5050,34 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A06",
+            "exitNo": "1",
+            "dtlLoc": "(1F)대합실1번출입구게이트근처(2F)김포공항역방향승강장1-3출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A06",
+            "exitNo": "1",
+            "dtlLoc": "(1F)대합실1번출입구게이트근처(2F)검암역방향승강장6-2출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -4560,7 +5399,60 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A07",
+            "exitNo": "1",
+            "dtlLoc": "(1F)여자화장실옆(2F)서울역방향구KTX승강장(공사중)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A07",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출구자동개집표기옆(2F)인천공항역방향구KTX승강장(공사중)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A07",
+            "exitNo": "1",
+            "dtlLoc": "(1F)여자화장실옆(2F)서울역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A07",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출구자동개집표기옆(2F)인천공항역방향승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5039,6 +5931,7 @@
       "railOperatorCode": "AR",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -5046,7 +5939,9 @@
           "3-4",
           "4-1"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "3-4"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -5072,7 +5967,34 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A071",
+            "exitNo": null,
+            "dtlLoc": "(1F)표내는곳정면(2F)환승통로무빙워크앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A071",
+            "exitNo": null,
+            "dtlLoc": "(1F)검암역방향승강장3-4출입문앞(2F)환승통로무빙워크근처",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5534,7 +6456,10 @@
           "3-3",
           "4-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "3-3",
+          "4-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -5560,7 +6485,60 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A072",
+            "exitNo": null,
+            "dtlLoc": "(2F)서울역방향승강장4-2출입문앞(3F)서울역방향에스컬레이터앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A072",
+            "exitNo": null,
+            "dtlLoc": "(2F)인천국제공항역방향승강장3-3출입문앞(3F)인천국제공항역방향에스컬레이터앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A072",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구근처(2F)본관기능실앞(3F)대합실1번출입구통로옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A072",
+            "exitNo": "2",
+            "dtlLoc": "(1F)2번출입구근처(3F)2번출입구계단옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5929,7 +6907,10 @@
           "4-3",
           "5-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-3",
+          "5-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -5955,7 +6936,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A08",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서쪽표내는곳근처,운임구역화장실옆(2F)영종역방향승강장5-2출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A08",
+            "exitNo": "2",
+            "dtlLoc": "(1F)서쪽표내는곳근처(2F)공항화물청사역방향승강장4-3출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -6277,6 +7285,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "AR",
+            "lnCd": "A1",
+            "stinCd": "A09",
+            "exitNo": "1,2",
+            "dtlLoc": "(지하1층)주출입구방향/(1층)1번/2번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 16,
+            "rglnWgt": 1100
           }
         ],
         "SeoulMetroFaciInfo": []
