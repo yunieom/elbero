@@ -6522,7 +6522,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D004",
     "stationName": "신사",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D005",
@@ -6532,7 +6532,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D005",
     "stationName": "논현",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D006",
@@ -6542,7 +6542,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D006",
     "stationName": "신논현",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D007",
@@ -6552,7 +6552,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D007",
     "stationName": "강남",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D008",
@@ -6562,7 +6562,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D008",
     "stationName": "양재(서초구청)",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D009",
@@ -6572,7 +6572,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D009",
     "stationName": "양재시민의숲(매헌)",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D010",
@@ -6582,7 +6582,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D010",
     "stationName": "청계산입구",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D011",
@@ -6592,7 +6592,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D011",
     "stationName": "판교(판교테크노밸리)",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D012",
@@ -6602,7 +6602,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D012",
     "stationName": "정자",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D013",
@@ -6612,7 +6612,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D013",
     "stationName": "미금(분당서울대병원)",
     "lineOrder": 10,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D014",
@@ -6622,7 +6622,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D014",
     "stationName": "동천",
     "lineOrder": 11,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D015",
@@ -6632,7 +6632,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D015",
     "stationName": "수지구청",
     "lineOrder": 12,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D016",
@@ -6642,7 +6642,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D016",
     "stationName": "성복",
     "lineOrder": 13,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D017",
@@ -6652,7 +6652,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D017",
     "stationName": "상현",
     "lineOrder": 14,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D018",
@@ -6662,7 +6662,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D018",
     "stationName": "광교중앙(아주대)",
     "lineOrder": 15,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "shinbundang:D019",
@@ -6672,7 +6672,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "D019",
     "stationName": "광교(경기대)",
     "lineOrder": 16,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "incheon-1:0107",
@@ -7922,7 +7922,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X108",
     "stationName": "수서",
     "lineOrder": 1,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X109",
@@ -7932,7 +7932,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X109",
     "stationName": "성남",
     "lineOrder": 2,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X110",
@@ -7942,7 +7942,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X110",
     "stationName": "구성",
     "lineOrder": 3,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X111",
@@ -7952,7 +7952,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X111",
     "stationName": "동탄",
     "lineOrder": 4,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X106",
@@ -7962,7 +7962,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X106",
     "stationName": "서울역",
     "lineOrder": 5,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X105",
@@ -7972,7 +7972,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X105",
     "stationName": "연신내",
     "lineOrder": 6,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X103",
@@ -7982,7 +7982,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X103",
     "stationName": "대곡",
     "lineOrder": 7,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X102",
@@ -7992,7 +7992,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X102",
     "stationName": "킨텍스",
     "lineOrder": 8,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "gtx-a:X101",
@@ -8002,7 +8002,7 @@ export const stationCatalog: Station[] = [
     "stationCode": "X101",
     "stationName": "운정중앙",
     "lineOrder": 9,
-    "journeySupported": false
+    "journeySupported": true
   },
   {
     "id": "airport-maglev:0101",

@@ -94,8 +94,8 @@ for (const lineId of ['8', '9']) {
 const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
-- 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선
-- 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선
+- 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
+- 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 1호선 상태: 분기형 경로 어댑터와 운영기관별 고유 역 코드 연결 완료
 - 현재 구현 노선의 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
 - 현재 구현 노선의 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
@@ -134,6 +134,13 @@ ${renderMetropolitanTables(line1Pending)}
 - 6호선은 응암순환 단방향과 응암↔신내 본선 경로를 분리해 경로 엔진과 앱에 연결했다.
 - 8·9호선은 사용자 확인값과 API 합의값을 경로 엔진과 앱에 연결했다.
 - 원천 이격거리 값이 없는 경우에는 안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내한다.
+
+## 신분당선·GTX-A 반영 상태
+
+- 신분당선 16개 역은 직통 경로와 기존 지원 노선 환승을 경로 엔진과 앱에 연결했다.
+- GTX-A는 운정중앙–서울역과 수서–동탄을 서로 분리된 운행 구간으로 연결했다. 두 구간 사이의 미개통 연결은 경로로 생성하지 않는다.
+- GTX-A에서 차량·문 원천값이 없는 역은 빠른 승하차 위치를 추정하지 않고 위치 미확인으로 안내한다.
+- 검토 완료값 원본: [신분당선](../../data/verification/shinbundang-line-manual-verification.json), [GTX-A](../../data/verification/gtx-a-manual-verification.json)
 
 ${sections.join('\n\n')}
 
@@ -265,8 +272,20 @@ ${exitRows}`;
 }
 
 function renderMetropolitanSummary(lines) {
+  const statusOrder = {
+    verified_supported: 0,
+    route_engine_target: 1,
+    future_target: 2,
+  };
   return lines
-    .map((line) => {
+    .map((line, index) => ({ line, index }))
+    .toSorted(
+      (left, right) =>
+        (statusOrder[left.line.status] ?? 99) -
+          (statusOrder[right.line.status] ?? 99) ||
+        left.index - right.index,
+    )
+    .map(({ line }) => {
       const counts = metropolitanPendingCounts(line);
       const knownSourceGapStations = new Set(
         (line.knownSourceGaps ?? []).map(

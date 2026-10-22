@@ -11,6 +11,10 @@ import { createLine1JourneyDefinition } from './line-1-journey.factory.js';
 import { createLine6JourneyDefinition } from './line-6-journey.factory.js';
 import { createLine8JourneyDefinition } from './line-8-journey.factory.js';
 import { createLine9JourneyDefinition } from './line-9-journey.factory.js';
+import { SHINBUNDANG_LINE_GUIDANCE } from './data/shinbundang-line-guidance.generated.js';
+import { GTX_A_GUIDANCE } from './data/gtx-a-guidance.generated.js';
+import { createShinbundangLineJourneyDefinition } from './shinbundang-line-journey.factory.js';
+import { createGtxAJourneyDefinition } from './gtx-a-journey.factory.js';
 
 describe('1호선·공항철도·용인에버라인 경로', () => {
   it.each([
@@ -22,6 +26,11 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
     ['용인에버라인', EVERLINE_GUIDANCE, createEverlineJourneyDefinition],
     ['8호선', LINE_8_GUIDANCE, createLine8JourneyDefinition],
     ['9호선', LINE_9_GUIDANCE, createLine9JourneyDefinition],
+    [
+      '신분당선',
+      SHINBUNDANG_LINE_GUIDANCE,
+      createShinbundangLineJourneyDefinition,
+    ],
   ] as const)(
     '%s의 모든 서로 다른 역 조합을 생성한다',
     (lineName, data, create) => {
@@ -35,6 +44,21 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
       }
     },
   );
+
+  it('GTX-A는 현재 연결된 두 운행 구간 안에서만 경로를 생성한다', () => {
+    for (const path of GTX_A_GUIDANCE.paths) {
+      for (const origin of path.stationCodes) {
+        for (const destination of path.stationCodes) {
+          if (origin === destination) continue;
+          expect(createGtxAJourneyDefinition(origin, destination)).not.toBeNull();
+        }
+      }
+    }
+
+    expect(createGtxAJourneyDefinition('X101', 'X106')).not.toBeNull();
+    expect(createGtxAJourneyDefinition('X108', 'X111')).not.toBeNull();
+    expect(createGtxAJourneyDefinition('X106', 'X108')).toBeNull();
+  });
 
   it('1호선의 모든 역 조합과 분기 환승을 생성한다', () => {
     for (const origin of LINE_1_NETWORK_GUIDANCE.topology) {
@@ -95,6 +119,9 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
     ['2611', 'A11', '디지털미디어시티', ['6호선', '공항철도']],
     ['2804', '0938', '석촌', ['8호선', '9호선']],
     ['0901', 'S411', '샛강', ['9호선', '신림선']],
+    ['D019', '0221', '강남', ['신분당선', '2호선']],
+    ['X101', '2611', '연신내', ['GTX-A', '6호선']],
+    ['X111', '0328', '수서', ['GTX-A', '3호선']],
   ] as const)(
     '%s에서 %s까지 %s 환승 경로를 생성한다',
     (origin, destination, transferStation, lines) => {
@@ -134,6 +161,9 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
       'A06',
       'G100',
       'S411',
+      'D019',
+      'X101',
+      'X111',
     ];
 
     for (const origin of representatives) {

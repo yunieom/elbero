@@ -83,7 +83,7 @@ test('선택 오류와 미지원 상태를 구분한다', () => {
   );
   assert.equal(
     stationSelectionError(line5 ?? null, unsupported ?? null),
-    '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 1호선·2호선·3호선·4호선·5호선·6호선·7호선·8호선·9호선·공항철도·용인에버라인·김포골드라인·신림선 경로를 안내할 수 있어요.',
+    '선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 1호선·2호선·3호선·4호선·5호선·6호선·7호선·8호선·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A 경로를 안내할 수 있어요.',
   );
   assert.equal(
     stationSelectionError(line5 ?? null, null),
@@ -101,6 +101,8 @@ test('새 지원 노선은 검색과 노선도에서 선택할 수 있다', () =
     'everline',
     'gimpo-gold',
     'sillim',
+    'shinbundang',
+    'gtx-a',
   ]) {
     const stations = stationCatalog.filter(
       (station) => station.lineId === lineId,

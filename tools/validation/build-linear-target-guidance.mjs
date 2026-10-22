@@ -56,6 +56,22 @@ const configs = [
     constantName: "SILLIM_LINE_GUIDANCE",
     output: "apps/api/src/journey/data/sillim-line-guidance.generated.ts",
   },
+  {
+    stem: "shinbundang-line",
+    constantName: "SHINBUNDANG_LINE_GUIDANCE",
+    output:
+      "apps/api/src/journey/data/shinbundang-line-guidance.generated.ts",
+    lineName: "신분당선",
+    rawMovementExits: true,
+  },
+  {
+    stem: "gtx-a",
+    constantName: "GTX_A_GUIDANCE",
+    output: "apps/api/src/journey/data/gtx-a-guidance.generated.ts",
+    lineName: "GTX-A",
+    network: "gtx-a",
+    rawMovementExits: true,
+  },
 ];
 
 for (const config of configs) {
@@ -116,7 +132,11 @@ for (const config of configs) {
     ]),
   );
   const paths =
-    config.network === "line-1" ? buildLine1Paths(route, codeByIdentity) : null;
+    config.network === "line-1"
+      ? buildLine1Paths(route, codeByIdentity)
+      : config.network === "gtx-a"
+        ? buildGtxAPaths(route, codeByIdentity)
+        : null;
   const loopLayout =
     config.loop === "line-6" ? buildLine6Layout(route, codeByIdentity) : null;
   const neighborsByCode = paths
@@ -138,7 +158,19 @@ for (const config of configs) {
       manualSurfaceExitsByIdentity.get(`:${normalizeCode(routeStation.stinCd)}`);
     const exitNumbers =
       manualSurfaceExit?.exitNumbers ??
-      selectExitNumbers(exitDifference?.normalizedValues);
+      selectExitNumbers(
+        exitDifference?.normalizedValues ??
+          (config.rawMovementExits
+            ? {
+                stationMovement: extractMovementExitNumbers(
+                  rawStation?.movement?.body ?? [],
+                ),
+                stinElevatorMovement: extractElevatorMovementExitNumbers(
+                  rawStation?.elevatorMovement?.body ?? [],
+                ),
+              }
+            : undefined),
+      );
     const adjacentStations = neighborsByCode
       ? [...(neighborsByCode.get(stationCode) ?? [])]
           .map((code) =>
@@ -364,6 +396,30 @@ function selectExitNumbers(values = {}) {
   );
 }
 
+function extractMovementExitNumbers(rows) {
+  return extractExitNumbers(
+    rows.flatMap((row) => [row.stMovePath, row.edMovePath, row.mvContDtl]),
+  );
+}
+
+function extractElevatorMovementExitNumbers(rows) {
+  return extractExitNumbers(
+    rows
+      .filter((row) => row.mvPathDvCd === "1")
+      .map((row) => row.mvContDtl),
+  );
+}
+
+function extractExitNumbers(values) {
+  return uniqueSorted(
+    values.flatMap((value) =>
+      [...String(value ?? "").matchAll(/(\d+(?:-\d+)?)\s*번\s*출(?:입구|구)/gu)].map(
+        (match) => match[1],
+      ),
+    ),
+  );
+}
+
 function stationIdentity(station) {
   return `${station.railOprIsttCd}:${normalizeCode(station.stinCd)}`;
 }
@@ -523,6 +579,28 @@ function buildLine1Paths(route, codeByIdentity) {
       terminals: ["연천", "서동탄"],
       stationCodes: [...throughByeongjeom, byName.get("서동탄")],
     },
+  ];
+}
+
+function buildGtxAPaths(route, codeByIdentity) {
+  const codeByName = new Map(
+    route.map((station) => [
+      station.stinNm,
+      codeByIdentity.get(stationIdentity(station)),
+    ]),
+  );
+  const path = (id, names) => ({
+    id,
+    terminals: [names[0], names.at(-1)],
+    stationCodes: names.map((name) => {
+      const code = codeByName.get(name);
+      if (!code) throw new Error(`GTX-A 경로에서 ${name} 역을 찾을 수 없습니다.`);
+      return code;
+    }),
+  });
+  return [
+    path("suseo-dongtan", ["수서", "성남", "구성", "동탄"]),
+    path("seoul-unjeong", ["서울역", "연신내", "대곡", "킨텍스", "운정중앙"]),
   ];
 }
 

@@ -64,6 +64,16 @@ import {
   hasSillimLineStation,
 } from './sillim-line-journey.factory.js';
 import {
+  createShinbundangLineJourneyDefinition,
+  getShinbundangLineDistance,
+  hasShinbundangLineStation,
+} from './shinbundang-line-journey.factory.js';
+import {
+  createGtxAJourneyDefinition,
+  getGtxADistance,
+  hasGtxAStation,
+} from './gtx-a-journey.factory.js';
+import {
   JOURNEY_STEP_TYPE,
   type FacilityRequirementGroup,
   type VerifiedJourneyDefinition,
@@ -84,7 +94,9 @@ type SupportedLineId =
   | 'A1'
   | 'E1'
   | 'G1'
-  | 'L1';
+  | 'L1'
+  | 'D1'
+  | 'A';
 
 interface LineAdapter {
   lineName: string;
@@ -183,6 +195,18 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     hasStation: hasSillimLineStation,
     distance: getSillimLineDistance,
     create: createSillimLineJourneyDefinition,
+  },
+  D1: {
+    lineName: '신분당선',
+    hasStation: hasShinbundangLineStation,
+    distance: getShinbundangLineDistance,
+    create: createShinbundangLineJourneyDefinition,
+  },
+  A: {
+    lineName: 'GTX-A',
+    hasStation: hasGtxAStation,
+    distance: getGtxADistance,
+    create: createGtxAJourneyDefinition,
   },
 };
 
@@ -294,7 +318,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '서울역',
-    stationCodes: { '1': 'S10150', '4': '0426', A1: 'A01' },
+    stationCodes: { '1': 'S10150', '4': '0426', A1: 'A01', A: 'X106' },
     accessibilityVerified: false,
   },
   {
@@ -447,6 +471,46 @@ const interchanges: readonly Interchange[] = [
     stationCodes: { '7': '2744', L1: 'S404' },
     accessibilityVerified: false,
   },
+  {
+    stationName: '신사',
+    stationCodes: { '3': '0327', D1: 'D004' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '논현',
+    stationCodes: { '7': '2734', D1: 'D005' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '신논현',
+    stationCodes: { '9': '0925', D1: 'D006' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '강남',
+    stationCodes: { '2': '0222', D1: 'D007' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '양재',
+    stationCodes: { '3': '0332', D1: 'D008' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '연신내',
+    stationCodes: { '3': '0311', '6': '2615', A: 'X105' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '대곡',
+    stationCodes: { '3': 'K314', A: 'X103' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '수서',
+    stationCodes: { '3': '0339', A: 'X108' },
+    accessibilityVerified: false,
+  },
 ];
 
 export function createInterlineJourneyDefinition(
@@ -455,7 +519,14 @@ export function createInterlineJourneyDefinition(
 ): VerifiedJourneyDefinition | null {
   const originLine = findLine(originStationCode);
   const destinationLine = findLine(destinationStationCode);
-  if (!originLine || !destinationLine || originLine === destinationLine) {
+  if (!originLine || !destinationLine) {
+    return null;
+  }
+  if (
+    originLine === destinationLine &&
+    adapters[originLine].distance(originStationCode, destinationStationCode) !==
+      null
+  ) {
     return null;
   }
 
@@ -734,8 +805,6 @@ function findMultiLineRoute(
         interchange.stationCodes,
       ) as Array<[SupportedLineId, string]>) {
         if (toLine === state.line) continue;
-        if (state.transitions.some((item) => item.fromLine === toLine))
-          continue;
         queue.push({
           line: toLine,
           stationCode: toCode,

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "line": "D1",
+  "verifiedAt": "2026-10-22",
+  "directionalDoors": [
+    {
+      "stationCode": "D005",
+      "stationName": "논현",
+      "directions": [
+        { "toward": "신사", "recommendedDoors": ["1-2", "4-2"] },
+        { "toward": "신논현", "recommendedDoors": ["3-3", "6-3"] }
+      ]
+    },
+    {
+      "stationCode": "D007",
+      "stationName": "강남",
+      "directions": [
+        { "toward": "신논현", "recommendedDoors": ["2-1"] },
+        { "toward": "양재(서초구청)", "recommendedDoors": ["5-2"] }
+      ]
+    },
+    {
+      "stationCode": "D008",
+      "stationName": "양재(서초구청)",
+      "directions": [
+        { "toward": "강남", "recommendedDoors": ["2-1"] },
+        { "toward": "양재시민의숲(매헌)", "recommendedDoors": ["5-4"] }
+      ]
+    },
+    {
+      "stationCode": "D009",
+      "stationName": "양재시민의숲(매헌)",
+      "directions": [
+        { "toward": "양재(서초구청)", "recommendedDoors": ["2-4"] },
+        { "toward": "청계산입구", "recommendedDoors": ["5-1"] }
+      ]
+    },
+    {
+      "stationCode": "D010",
+      "stationName": "청계산입구",
+      "directions": [
+        { "toward": "양재시민의숲(매헌)", "recommendedDoors": ["4-4"] },
+        { "toward": "판교(판교테크노밸리)", "recommendedDoors": ["3-1"] }
+      ]
+    },
+    {
+      "stationCode": "D011",
+      "stationName": "판교(판교테크노밸리)",
+      "directions": [
+        { "toward": "청계산입구", "recommendedDoors": ["2-1"] },
+        { "toward": "정자", "recommendedDoors": ["5-4"] }
+      ]
+    },
+    {
+      "stationCode": "D012",
+      "stationName": "정자",
+      "directions": [
+        { "toward": "판교(판교테크노밸리)", "recommendedDoors": ["3-4"] },
+        { "toward": "미금(분당서울대병원)", "recommendedDoors": ["4-1"] }
+      ]
+    },
+    {
+      "stationCode": "D013",
+      "stationName": "미금(분당서울대병원)",
+      "directions": [
+        { "toward": "정자", "recommendedDoors": ["3-2"] },
+        { "toward": "동천", "recommendedDoors": ["4-4"] }
+      ]
+    },
+    {
+      "stationCode": "D014",
+      "stationName": "동천",
+      "directions": [
+        { "toward": "미금(분당서울대병원)", "recommendedDoors": ["3-4"] },
+        { "toward": "수지구청", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "D015",
+      "stationName": "수지구청",
+      "directions": [
+        { "toward": "동천", "recommendedDoors": ["3-4"] },
+        { "toward": "성복", "recommendedDoors": ["3-4"] }
+      ]
+    },
+    {
+      "stationCode": "D017",
+      "stationName": "상현",
+      "directions": [
+        { "toward": "성복", "recommendedDoors": ["3-4"] },
+        { "toward": "광교중앙(아주대)", "recommendedDoors": ["3-4"] }
+      ]
+    }
+  ]
+}

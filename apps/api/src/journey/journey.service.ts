@@ -23,6 +23,8 @@ import { createLine7JourneyDefinition } from './line-7-journey.factory.js';
 import { createLine8JourneyDefinition } from './line-8-journey.factory.js';
 import { createLine9JourneyDefinition } from './line-9-journey.factory.js';
 import { createSillimLineJourneyDefinition } from './sillim-line-journey.factory.js';
+import { createShinbundangLineJourneyDefinition } from './shinbundang-line-journey.factory.js';
+import { createGtxAJourneyDefinition } from './gtx-a-journey.factory.js';
 import type { VerifiedJourneyDefinition } from './types/verified-journey.type.js';
 
 @Injectable()
@@ -92,6 +94,14 @@ export class JourneyService {
         destinationStationCode,
       ) ??
       createEverlineJourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      ) ??
+      createShinbundangLineJourneyDefinition(
+        originStationCode,
+        destinationStationCode,
+      ) ??
+      createGtxAJourneyDefinition(
         originStationCode,
         destinationStationCode,
       ) ??

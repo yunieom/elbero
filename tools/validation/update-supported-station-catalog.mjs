@@ -18,6 +18,8 @@ const supportedLineIds = new Set([
   'everline',
   'gimpo-gold',
   'sillim',
+  'shinbundang',
+  'gtx-a',
 ]);
 
 const [catalogSource, line1Source] = await Promise.all([

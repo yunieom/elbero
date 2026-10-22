@@ -25,14 +25,14 @@ const lineConfigs = [
   },
   { name: '인천 1호선', stem: 'incheon-line-1', status: 'future_target' },
   { name: '인천 2호선', stem: 'incheon-line-2', status: 'future_target' },
-  { name: '신분당선', stem: 'shinbundang-line', status: 'route_engine_target' },
+  { name: '신분당선', stem: 'shinbundang-line', status: 'verified_supported' },
   { name: '에버라인', stem: 'everline', status: 'verified_supported' },
   {
     name: '김포골드라인',
     stem: 'gimpo-goldline',
     status: 'verified_supported',
   },
-  { name: 'GTX-A', stem: 'gtx-a', status: 'route_engine_target' },
+  { name: 'GTX-A', stem: 'gtx-a', status: 'verified_supported' },
   {
     name: '인천공항 자기부상철도',
     stem: 'airport-maglev',

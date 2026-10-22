@@ -23,6 +23,8 @@ export const supportedJourneyLineNames = [
   '용인에버라인',
   '김포골드라인',
   '신림선',
+  '신분당선',
+  'GTX-A',
 ] as const;
 
 export function filterSelectableStations<T extends SelectableStation>(

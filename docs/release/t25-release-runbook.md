@@ -10,8 +10,8 @@
 | iOS buildNumber | `1`부터 시작 |
 | Android Package | `com.elbero.mobile` |
 | Android versionCode | `1`부터 시작 |
-| 지원 노선 | 13개 |
-| 모바일 역 카탈로그 | 508역 |
+| 지원 노선 | 15개 |
+| 모바일 역 카탈로그 | 533역 |
 | EAS 버전 관리 | local, production 자동 증가 |
 
 ## 1. 운영 API 준비

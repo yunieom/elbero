@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "line": "A",
+  "verifiedAt": "2026-10-22",
+  "surfaceExits": [
+    {
+      "stationCode": "X108",
+      "stationName": "수서",
+      "exitNumbers": ["5-1", "5-2", "7"],
+      "evidence": "사용자 확인: stinElevatorMovement 값 선택"
+    },
+    {
+      "stationCode": "X111",
+      "railOperatorCode": "SR",
+      "stationName": "동탄",
+      "exitNumbers": ["1", "2"],
+      "evidence": "사용자 확인: stinElevatorMovement 값 선택"
+    }
+  ]
+}
