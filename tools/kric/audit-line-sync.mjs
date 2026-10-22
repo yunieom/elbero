@@ -878,6 +878,27 @@ const differenceKindCounts = Object.fromEntries(
     (kind) => kind,
   ).entries()].map(([kind, items]) => [kind, items.length]),
 );
+const missingGapStations = stationPayloads
+  .map(({ station }) => {
+    const stationKey = stationIdentity(station);
+    const missingRows = (gapsByStation.get(stationKey) ?? [])
+      .flatMap((gap) => body(gap.payload))
+      .filter((row) => typeof row.sfDst !== 'number' || row.sfDst < 0);
+    const missingByPlatform = Object.fromEntries(
+      [...Map.groupBy(missingRows, (row) => String(row.plfNo)).entries()].map(
+        ([platformNumber, rows]) => [platformNumber, rows.length],
+      ),
+    );
+    return {
+      stationCode: normalizeStationCode(station.stinCd),
+      stationName: station.stinNm,
+      stationKey,
+      railOperatorCode: station.railOprIsttCd,
+      missingRecordCount: missingRows.length,
+      missingByPlatform,
+    };
+  })
+  .filter((station) => station.missingRecordCount > 0);
 const endpointNames = Object.keys(coverage[0]?.endpointCounts ?? {});
 const endpointCoverage = Object.fromEntries(
   endpointNames.map((endpoint) => {
@@ -941,6 +962,8 @@ const report = {
     endpointCoverage,
     gapRecordCount: Object.values(gapSummary).reduce((sum, count) => sum + count, 0),
     gapSummary,
+    missingGapStationCount: missingGapStations.length,
+    missingGapStations,
     preferredDoorSourceCounts: {
       stationElevator: preferredDoorGuidance.filter(
         (station) => station.source === 'stationElevator',
@@ -1050,7 +1073,19 @@ const markdown = [
   '| 10cm 초과~15cm 이하 | `yellow` | 유의 |',
   '| 15cm 초과 | `red` | 추천하지 않음 |',
   '',
-  `전체 ${report.summary.gapRecordCount}건: green ${gapSummary.green}, yellow ${gapSummary.yellow}, red ${gapSummary.red}, 값 없음 ${gapSummary.missing}.`,
+  `전체 ${report.summary.gapRecordCount}개 문별 레코드: green ${gapSummary.green}, yellow ${gapSummary.yellow}, red ${gapSummary.red}, 값 없음 ${gapSummary.missing}.`,
+  `값 없음 ${gapSummary.missing}건은 ${missingGapStations.length}개 역에 해당하며 역 개수가 아니다.`,
+  '',
+  '| 값이 없는 역 | 운영기관 | 승강장별 값 없는 문 레코드 | 합계 |',
+  '| --- | --- | --- | ---: |',
+  ...(missingGapStations.length > 0
+    ? missingGapStations.map(
+        (station) =>
+          `| ${station.stationName} (${station.stationCode}) | ${station.railOperatorCode} | ${Object.entries(station.missingByPlatform)
+            .map(([platformNumber, count]) => `${platformNumber}번 승강장 ${count}건`)
+            .join(', ')} | ${station.missingRecordCount} |`,
+      )
+    : ['| 없음 | - | - | 0 |']),
   '',
   '## 권장 차량·문 선택 우선순위',
   '',

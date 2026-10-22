@@ -199,6 +199,7 @@ for (const lineId of lineIds) {
         '사용자 방향 검증과 경로 엔진 연결 전에는 안전 경로 추천에 사용하지 않음',
     },
     gapSummary: audit.summary.gapSummary,
+    missingGapStations: audit.summary.missingGapStations ?? [],
     autoSurfaceExits,
     pendingSurfaceExitConflicts,
     autoAdjacentDoorCandidates,
@@ -248,6 +249,9 @@ function renderMarkdown(items) {
       )
       .join('\n');
     const gaps = item.gapSummary;
+    const missingGapStationNames = item.missingGapStations
+      .map((station) => station.stationName)
+      .join(', ');
     return `## ${item.line}호선
 
 - 경로 엔진 연결: 아직 지원하지 않음
@@ -256,7 +260,8 @@ function renderMarkdown(items) {
 - 승강장별 차량·문 자동 후보: ${item.autoAdjacentDoorCandidates.length}역
 - 사용자 확인 완료 방향: ${item.verifiedDirectionDoors.reduce((count, station) => count + station.directions.length, 0)}건
 - 방향별 차량·문 사용자 확인 필요: ${item.pendingDirectionDoorReview.length}역
-- 이격거리: green ${gaps.green}, yellow ${gaps.yellow}, red ${gaps.red}, 값 없음 ${gaps.missing}
+- 이격거리 문별 레코드: green ${gaps.green}, yellow ${gaps.yellow}, red ${gaps.red}, 값 없음 ${gaps.missing}
+- 값 없는 역: ${item.missingGapStations.length}역${missingGapStationNames ? ` (${missingGapStationNames})` : ''}
 
 ### 지상 엘리베이터 출구 확인 필요
 

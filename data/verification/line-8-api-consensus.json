@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "line": "8",
-  "sourceCollectedAt": "2026-09-18T09:14:31.475Z",
-  "generatedAt": "2026-10-13T06:50:07.438Z",
+  "sourceCollectedAt": "2026-10-22T12:16:48.811Z",
+  "generatedAt": "2026-10-22T12:17:01.472Z",
   "routeEngineSupported": false,
   "policy": {
     "autoSurfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장",
@@ -17,6 +17,41 @@
     "red": 3,
     "missing": 144
   },
+  "missingGapStations": [
+    {
+      "stationCode": "2807",
+      "stationName": "동구릉",
+      "stationKey": "GU:2807",
+      "railOperatorCode": "GU",
+      "missingRecordCount": 48,
+      "missingByPlatform": {
+        "1": 24,
+        "2": 24
+      }
+    },
+    {
+      "stationCode": "2805",
+      "stationName": "구리",
+      "stationKey": "GU:2805",
+      "railOperatorCode": "GU",
+      "missingRecordCount": 48,
+      "missingByPlatform": {
+        "1": 24,
+        "2": 24
+      }
+    },
+    {
+      "stationCode": "2808",
+      "stationName": "장자호수공원",
+      "stationKey": "GU:2808",
+      "railOperatorCode": "GU",
+      "missingRecordCount": 48,
+      "missingByPlatform": {
+        "1": 24,
+        "2": 24
+      }
+    }
+  ],
   "autoSurfaceExits": [
     {
       "stationCode": "2804",

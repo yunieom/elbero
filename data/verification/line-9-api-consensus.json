@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "line": "9",
   "sourceCollectedAt": "2026-09-18T03:13:31.764Z",
-  "generatedAt": "2026-10-13T06:50:07.451Z",
+  "generatedAt": "2026-10-22T12:17:01.485Z",
   "routeEngineSupported": false,
   "policy": {
     "autoSurfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 다른 시설 API와 충돌해도 해당 이동경로 값을 후보로 저장",
@@ -17,6 +17,7 @@
     "red": 0,
     "missing": 0
   },
+  "missingGapStations": [],
   "autoSurfaceExits": [
     {
       "stationCode": "0901",
