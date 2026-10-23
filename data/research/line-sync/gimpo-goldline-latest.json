@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-10-13T23:16:37.674Z",
+  "collectedAt": "2026-10-23T02:17:03.525Z",
   "scope": {
     "line": "김포골드라인",
     "lineCode": "G1",
@@ -93,6 +93,13 @@
       "yellow": 0,
       "red": 0,
       "missing": 0
+    },
+    "missingGapStationCount": 0,
+    "missingGapStations": [],
+    "preferredDoorSourceCounts": {
+      "stationElevator": 0,
+      "stationElevatorCarNumber": 10,
+      "unavailable": 0
     }
   },
   "coverage": [
@@ -255,6 +262,450 @@
         "stationPlatformTrainDistance": 8,
         "SeoulMetroFaciInfo": 0
       }
+    }
+  ],
+  "preferredDoorGuidance": [
+    {
+      "stationCode": "G100",
+      "stationName": "양촌",
+      "stationKey": "GM:G100",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G101",
+      "stationName": "구래",
+      "stationKey": "GM:G101",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G102",
+      "stationName": "마산",
+      "stationKey": "GM:G102",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G103",
+      "stationName": "장기",
+      "stationKey": "GM:G103",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G104",
+      "stationName": "운양",
+      "stationKey": "GM:G104",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G105",
+      "stationName": "걸포북변",
+      "stationKey": "GM:G105",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G106",
+      "stationName": "사우(김포시청)",
+      "stationKey": "GM:G106",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G107",
+      "stationName": "풍무",
+      "stationKey": "GM:G107",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G108",
+      "stationName": "고촌",
+      "stationKey": "GM:G108",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "G109",
+      "stationName": "김포공항",
+      "stationKey": "GM:G109",
+      "railOperatorCode": "GM",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
     }
   ],
   "differences": [
@@ -566,7 +1017,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G100",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구표내는곳옆(B1)연결통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G100",
+            "exitNo": "2",
+            "dtlLoc": "(1F)표내는곳앞(B1)2번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -982,7 +1460,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G101",
+            "exitNo": "1",
+            "dtlLoc": "(1F)구래역1번출구앞(B2)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G101",
+            "exitNo": "2",
+            "dtlLoc": "(1F)구래역2번출구앞(B2)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -1791,6 +2296,58 @@
             "railOprIsttCd": "GM",
             "lnCd": "G1",
             "stinCd": "G102",
+            "exitNo": "1",
+            "dtlLoc": "(1F)마산역1번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G102",
+            "exitNo": "2",
+            "dtlLoc": "(1F)마산역2번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G102",
+            "exitNo": "3",
+            "dtlLoc": "(1F)마산역3번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G102",
+            "exitNo": "4",
+            "dtlLoc": "(1F)마산역4번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G102",
             "exitNo": null,
             "dtlLoc": "(B1)대합실표내는곳(B2)승강장",
             "grndDvNmFr": "지하",
@@ -2281,6 +2838,32 @@
             "railOprIsttCd": "GM",
             "lnCd": "G1",
             "stinCd": "G103",
+            "exitNo": "1",
+            "dtlLoc": "(1F)장기역1번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G103",
+            "exitNo": "5",
+            "dtlLoc": "(1F)장기역5번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G103",
             "exitNo": null,
             "dtlLoc": "(B1)대합실표내는곳(B3)승강장",
             "grndDvNmFr": "지하",
@@ -2767,6 +3350,32 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G104",
+            "exitNo": "2",
+            "dtlLoc": "(1F)운양역2번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G104",
+            "exitNo": "4",
+            "dtlLoc": "(1F)운양역4번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
           {
             "railOprIsttCd": "GM",
             "lnCd": "G1",
@@ -3282,6 +3891,32 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G105",
+            "exitNo": "1",
+            "dtlLoc": "(1F)걸포북변역1번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G105",
+            "exitNo": "2",
+            "dtlLoc": "(1F)걸포북변역2번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
           {
             "railOprIsttCd": "GM",
             "lnCd": "G1",
@@ -3827,6 +4462,32 @@
             "railOprIsttCd": "GM",
             "lnCd": "G1",
             "stinCd": "G106",
+            "exitNo": "2",
+            "dtlLoc": "(1)사우역2번출구앞(B2)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G106",
+            "exitNo": "3",
+            "dtlLoc": "(1)사우역3번출구앞(B2)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G106",
             "exitNo": null,
             "dtlLoc": "(B2)대합실표내는곳(B5)승강장",
             "grndDvNmFr": "지하",
@@ -4341,6 +5002,32 @@
             "railOprIsttCd": "GM",
             "lnCd": "G1",
             "stinCd": "G107",
+            "exitNo": "1",
+            "dtlLoc": "(1F)풍무역1번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G107",
+            "exitNo": "2",
+            "dtlLoc": "(1F)풍무역2번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G107",
             "exitNo": null,
             "dtlLoc": "(B1)대합실표내는곳(B4)승강장",
             "grndDvNmFr": "지하",
@@ -4851,7 +5538,60 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G108",
+            "exitNo": "1",
+            "dtlLoc": "(1F)고촌역1번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G108",
+            "exitNo": "2",
+            "dtlLoc": "(1F)고촌역2번출구앞(B1)대합실표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G108",
+            "exitNo": null,
+            "dtlLoc": "(B1)대합실표내는곳(B4)승강장",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G108",
+            "exitNo": null,
+            "dtlLoc": "(B1)대합실표내는곳(B4)승강장",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 4,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -5073,6 +5813,19 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "GM",
+            "lnCd": "G1",
+            "stinCd": "G109",
+            "exitNo": "1",
+            "dtlLoc": "(1F)김포공항역지상1번출입구(B2)역무실앞표내는곳",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
           {
             "railOprIsttCd": "GM",
             "lnCd": "G1",

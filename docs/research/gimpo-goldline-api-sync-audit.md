@@ -1,6 +1,6 @@
 # 김포골드라인 API 정보 차이 감사
 
-- 수집 시각: 2026-10-13T23:16:37.674Z
+- 수집 시각: 2026-10-23T02:17:03.525Z
 - 대상: 10개 역
 - 차이가 기록된 역: 10개
 - 차이 항목: 30건
@@ -39,7 +39,49 @@
 | 10cm 초과~15cm 이하 | `yellow` | 유의 |
 | 15cm 초과 | `red` | 추천하지 않음 |
 
-전체 80건: green 80, yellow 0, red 0, 값 없음 0.
+전체 80개 문별 레코드: green 80, yellow 0, red 0, 값 없음 0.
+값 없음 0건은 0개 역에 해당하며 역 개수가 아니다.
+
+| 값이 없는 역 | 운영기관 | 승강장별 값 없는 문 레코드 | 합계 |
+| --- | --- | --- | ---: |
+| 없음 | - | - | 0 |
+
+## 권장 차량·문 선택 우선순위
+
+- `stationElevator`에 차량·문이 있으면 이 값을 우선한다.
+- `stationElevator`에 차량·문이 없을 때만 `stationElevatorCarNumber`를 사용한다.
+- 두 API 모두 차량·문이 없을 때만 사용자 확인 대상으로 남긴다.
+
+- stationElevator 선택: 0역
+- stationElevatorCarNumber 대체: 10역
+- 두 API 모두 없음: 0역
+
+### 우선순위로 선택한 권장 문·이격거리 (10역)
+
+| 역 | 우선 API | 권장 문·승강장·이격거리 |
+| --- | --- | --- |
+| 양촌 (G100, GM) | stationElevatorCarNumber | 1번 승강장 · 1-2 → 1번 승강장 5cm green<br>2번 승강장 · 1-2 → 2번 승강장 5cm green |
+| 구래 (G101, GM) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5cm green<br>1번 승강장 · 2-2 → 1번 승강장 5cm green<br>2번 승강장 · 1-1 → 2번 승강장 5cm green<br>2번 승강장 · 2-2 → 2번 승강장 5cm green |
+| 마산 (G102, GM) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5cm green<br>2번 승강장 · 2-2 → 2번 승강장 5cm green |
+| 장기 (G103, GM) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5cm green<br>2번 승강장 · 2-2 → 2번 승강장 5cm green |
+| 운양 (G104, GM) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 5cm green<br>2번 승강장 · 2-2 → 2번 승강장 5cm green |
+| 걸포북변 (G105, GM) | stationElevatorCarNumber | 1번 승강장 · 2-2 → 1번 승강장 5cm green<br>2번 승강장 · 1-1 → 2번 승강장 5cm green |
+| 사우(김포시청) (G106, GM) | stationElevatorCarNumber | 1번 승강장 · 2-2 → 1번 승강장 5cm green<br>2번 승강장 · 1-1 → 2번 승강장 5cm green |
+| 풍무 (G107, GM) | stationElevatorCarNumber | 1번 승강장 · 2-1 → 1번 승강장 5cm green<br>2번 승강장 · 2-1 → 2번 승강장 5cm green |
+| 고촌 (G108, GM) | stationElevatorCarNumber | 1번 승강장 · 2-1 → 1번 승강장 5cm green<br>2번 승강장 · 1-2 → 2번 승강장 5cm green |
+| 김포공항 (G109, GM) | stationElevatorCarNumber | 1번 승강장 · 2-2 → 1번 승강장 5cm green<br>2번 승강장 · 1-1 → 2번 승강장 5cm green |
+
+### 두 API 모두 차량·문이 없는 역 (0역)
+
+| 역 | 상태 |
+| --- | --- |
+| 없음 | - |
+
+### 권장 문 이격거리 연결 확인 (0건)
+
+| 역 | 우선 API | 권장 문 | 승강장 | 상태 |
+| --- | --- | --- | --- | --- |
+| 없음 | - | - | - | - |
 
 ## 지상 엘리베이터 출구 번호 (10역)
 

@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-10-13T23:16:54.678Z",
+  "collectedAt": "2026-10-23T02:16:47.183Z",
   "scope": {
     "line": "신림선",
     "lineCode": "L1",
@@ -92,6 +92,13 @@
       "yellow": 4,
       "red": 0,
       "missing": 0
+    },
+    "missingGapStationCount": 0,
+    "missingGapStations": [],
+    "preferredDoorSourceCounts": {
+      "stationElevator": 0,
+      "stationElevatorCarNumber": 11,
+      "unavailable": 0
     }
   },
   "coverage": [
@@ -270,6 +277,459 @@
         "stationPlatformTrainDistance": 12,
         "SeoulMetroFaciInfo": 0
       }
+    }
+  ],
+  "preferredDoorGuidance": [
+    {
+      "stationCode": "S401",
+      "stationName": "샛강",
+      "stationKey": "SL:S401",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 2.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S402",
+      "stationName": "대방",
+      "stationKey": "SL:S402",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 2.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S403",
+      "stationName": "서울지방병무청",
+      "stationKey": "SL:S403",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 2.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S404",
+      "stationName": "보라매",
+      "stationKey": "SL:S404",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S405",
+      "stationName": "보라매공원",
+      "stationKey": "SL:S405",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S406",
+      "stationName": "보라매병원",
+      "stationKey": "SL:S406",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S407",
+      "stationName": "당곡",
+      "stationKey": "SL:S407",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 3.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 4.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S408",
+      "stationName": "신림",
+      "stationKey": "SL:S408",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10.3,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 2.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S409",
+      "stationName": "서원",
+      "stationKey": "SL:S409",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 4.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S410",
+      "stationName": "서울대벤처타운",
+      "stationKey": "SL:S410",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 2.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 4.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "S411",
+      "stationName": "관악산(서울대)",
+      "stationKey": "SL:S411",
+      "railOperatorCode": "SL",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 2.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
     }
   ],
   "differences": [
@@ -882,7 +1342,60 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": null,
+            "dtlLoc": "(2F)대방역1호선환승통로(1F)대방역대합실",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구좌측(B3)대방지하차도중앙",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구옆(B3)대방역승강장하선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S402",
+            "exitNo": "6",
+            "dtlLoc": "(1F)대방역6번출구옆(B3)대방역승강장상선",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -1345,6 +1858,32 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서울지방병무청역1번출구앞(B2)서울지방병무청역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S403",
+            "exitNo": "2",
+            "dtlLoc": "(1F)서울지방병무청역2번출구앞(B1)서울지방병무청역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
           {
             "railOprIsttCd": "SL",
             "lnCd": "L1",
@@ -2153,6 +2692,32 @@
             "railOprIsttCd": "SL",
             "lnCd": "L1",
             "stinCd": "S405",
+            "exitNo": "1",
+            "dtlLoc": "(1F)보라매공원역1번출구앞(B1)보라매공원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
+            "exitNo": "2",
+            "dtlLoc": "(1F)보라매공원역2번출구앞(B1)보라매공원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S405",
             "exitNo": null,
             "dtlLoc": "(B1)보라매공원역대합실(B2)보라매공원역승강장하선",
             "grndDvNmFr": "지하",
@@ -2642,6 +3207,32 @@
             "railOprIsttCd": "SL",
             "lnCd": "L1",
             "stinCd": "S406",
+            "exitNo": "1",
+            "dtlLoc": "(1F)보라매병원역1번출구앞(B1)보라매병원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
+            "exitNo": "2",
+            "dtlLoc": "(1F)보라매병원역2번출구앞(B1)보라매병원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S406",
             "exitNo": null,
             "dtlLoc": "(B1)보라매병원역대합실(B2)보라매병원역승강장하선",
             "grndDvNmFr": "지하",
@@ -3127,6 +3718,32 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": "1",
+            "dtlLoc": "(1F)당곡역1번출구앞(B1)당곡역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S407",
+            "exitNo": "2",
+            "dtlLoc": "(1F)당곡역2번출구앞(B1)당곡역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
           {
             "railOprIsttCd": "SL",
             "lnCd": "L1",
@@ -3855,6 +4472,19 @@
             "railOprIsttCd": "SL",
             "lnCd": "L1",
             "stinCd": "S409",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서원역1번출구앞(B1)서원역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 27,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S409",
             "exitNo": null,
             "dtlLoc": "(B1)서원역대합실(B2)서원역승강장상선",
             "grndDvNmFr": "지하",
@@ -4173,6 +4803,19 @@
             "railOprIsttCd": "SL",
             "lnCd": "L1",
             "stinCd": "S410",
+            "exitNo": "1",
+            "dtlLoc": "(1F)서울대벤처타운역1번출구앞(B1)서울대벤처타운역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S410",
             "exitNo": null,
             "dtlLoc": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장상선",
             "grndDvNmFr": "지하",
@@ -4416,6 +5059,19 @@
           }
         ],
         "stationElevator": [
+          {
+            "railOprIsttCd": "SL",
+            "lnCd": "L1",
+            "stinCd": "S411",
+            "exitNo": "1",
+            "dtlLoc": "(1F)관악산역1번출구앞(B1)관악산역대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1800
+          },
           {
             "railOprIsttCd": "SL",
             "lnCd": "L1",

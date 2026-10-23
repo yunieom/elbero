@@ -1,6 +1,6 @@
 # 신림선 API 정보 차이 감사
 
-- 수집 시각: 2026-10-13T23:16:54.678Z
+- 수집 시각: 2026-10-23T02:16:47.183Z
 - 대상: 11개 역
 - 차이가 기록된 역: 11개
 - 차이 항목: 33건
@@ -39,7 +39,50 @@
 | 10cm 초과~15cm 이하 | `yellow` | 유의 |
 | 15cm 초과 | `red` | 추천하지 않음 |
 
-전체 132건: green 128, yellow 4, red 0, 값 없음 0.
+전체 132개 문별 레코드: green 128, yellow 4, red 0, 값 없음 0.
+값 없음 0건은 0개 역에 해당하며 역 개수가 아니다.
+
+| 값이 없는 역 | 운영기관 | 승강장별 값 없는 문 레코드 | 합계 |
+| --- | --- | --- | ---: |
+| 없음 | - | - | 0 |
+
+## 권장 차량·문 선택 우선순위
+
+- `stationElevator`에 차량·문이 있으면 이 값을 우선한다.
+- `stationElevator`에 차량·문이 없을 때만 `stationElevatorCarNumber`를 사용한다.
+- 두 API 모두 차량·문이 없을 때만 사용자 확인 대상으로 남긴다.
+
+- stationElevator 선택: 0역
+- stationElevatorCarNumber 대체: 11역
+- 두 API 모두 없음: 0역
+
+### 우선순위로 선택한 권장 문·이격거리 (11역)
+
+| 역 | 우선 API | 권장 문·승강장·이격거리 |
+| --- | --- | --- |
+| 샛강 (S401, SL) | stationElevatorCarNumber | 1번 승강장 · 3-2 → 1번 승강장 5.8cm green<br>2번 승강장 · 1-1 → 2번 승강장 2.1cm green |
+| 대방 (S402, SL) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 2.7cm green<br>2번 승강장 · 3-2 → 2번 승강장 5.6cm green |
+| 서울지방병무청 (S403, SL) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 2.9cm green<br>2번 승강장 · 3-1 → 2번 승강장 5.8cm green |
+| 보라매 (S404, SL) | stationElevatorCarNumber | 1번 승강장 · 3-2 → 1번 승강장 5.9cm green<br>2번 승강장 · 1-1 → 2번 승강장 5.9cm green |
+| 보라매공원 (S405, SL) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 6.6cm green<br>2번 승강장 · 3-2 → 2번 승강장 4cm green |
+| 보라매병원 (S406, SL) | stationElevatorCarNumber | 1번 승강장 · 3-2 → 1번 승강장 6.1cm green<br>2번 승강장 · 1-1 → 2번 승강장 6.1cm green |
+| 당곡 (S407, SL) | stationElevatorCarNumber | 1번 승강장 · 3-2 → 1번 승강장 3.2cm green<br>2번 승강장 · 1-1 → 2번 승강장 4.3cm green |
+| 신림 (S408, SL) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 10.3cm yellow<br>2번 승강장 · 3-2 → 2번 승강장 2.8cm green |
+| 서원 (S409, SL) | stationElevatorCarNumber | 1번 승강장 · 1-1 → 1번 승강장 3cm green<br>2번 승강장 · 3-2 → 2번 승강장 4.3cm green |
+| 서울대벤처타운 (S410, SL) | stationElevatorCarNumber | 1번 승강장 · 3-2 → 1번 승강장 2.8cm green<br>2번 승강장 · 1-1 → 2번 승강장 4.3cm green |
+| 관악산(서울대) (S411, SL) | stationElevatorCarNumber | 1번 승강장 · 3-2 → 1번 승강장 2.1cm green<br>2번 승강장 · 1-1 → 2번 승강장 5.8cm green |
+
+### 두 API 모두 차량·문이 없는 역 (0역)
+
+| 역 | 상태 |
+| --- | --- |
+| 없음 | - |
+
+### 권장 문 이격거리 연결 확인 (0건)
+
+| 역 | 우선 API | 권장 문 | 승강장 | 상태 |
+| --- | --- | --- | --- | --- |
+| 없음 | - | - | - | - |
 
 ## 지상 엘리베이터 출구 번호 (11역)
 

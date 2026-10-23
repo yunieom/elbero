@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-10-20T07:30:35.048Z",
+  "collectedAt": "2026-10-23T02:16:05.535Z",
   "scope": {
     "line": "공항철도",
     "lineCode": "A1",
@@ -96,6 +96,21 @@
       "red": 0,
       "missing": 60
     },
+    "missingGapStationCount": 1,
+    "missingGapStations": [
+      {
+        "stationCode": "A11",
+        "stationName": "인천공항2터미널",
+        "stationKey": "AR:A11",
+        "railOperatorCode": "AR",
+        "missingRecordCount": 60,
+        "missingByPlatform": {
+          "1": 24,
+          "2": 24,
+          "3": 12
+        }
+      }
+    ],
     "preferredDoorSourceCounts": {
       "stationElevator": 11,
       "stationElevatorCarNumber": 3,
@@ -339,6 +354,7 @@
         {
           "door": "3-1",
           "location": "(B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-1옆",
+          "directionLabel": null,
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "3"
@@ -355,6 +371,7 @@
         {
           "door": "3-2",
           "location": "(B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-2옆",
+          "directionLabel": null,
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "3"
@@ -371,6 +388,7 @@
         {
           "door": "4-1",
           "location": "(B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-1옆",
+          "directionLabel": "일반열차공덕",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1",
@@ -393,6 +411,7 @@
         {
           "door": "4-3",
           "location": "(B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-3옆",
+          "directionLabel": "일반열차공덕",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1",
@@ -419,6 +438,7 @@
         {
           "door": "4-1",
           "location": "(B3)운임구역대합실화장실옆(B5)홍대방향승강장4-1출입문앞",
+          "directionLabel": "홍대",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -435,6 +455,7 @@
         {
           "door": "3-4",
           "location": "(B3)운임구역대합실화장실맞은편(B5)서울방향승강장3-4출입문앞",
+          "directionLabel": "서울",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -501,6 +522,7 @@
         {
           "door": "4-4",
           "location": "(B1)에스컬레이터10호기/11호기근처(B3)마곡나루역방향승강장4-4출입문앞",
+          "directionLabel": "마곡나루",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1",
@@ -518,6 +540,7 @@
         {
           "door": "5-2",
           "location": "(B1)에스컬레이터9호기근처(B3)홍대입구역방향승강장5-2출입문앞",
+          "directionLabel": "홍대입구",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2",
@@ -535,6 +558,7 @@
         {
           "door": "5-1",
           "location": "(B1)에스컬레이터13호기/14호기근처(B3)마곡나루역방향승강장5-1출입문앞",
+          "directionLabel": "마곡나루",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1",
@@ -552,6 +576,7 @@
         {
           "door": "4-3",
           "location": "(B1)에스컬레이터12호기근처(B3)홍대입구역방향승강장4-3출입문앞",
+          "directionLabel": "홍대입구",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2",
@@ -578,6 +603,7 @@
         {
           "door": "1-4",
           "location": "(B1)GS25앞(B3)DMC방향승강장1-4출입문앞",
+          "directionLabel": null,
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -594,6 +620,7 @@
         {
           "door": "3-1",
           "location": "(B1)표내는곳내계단옆(B3)김포공항방향승강장3-1출입문앞",
+          "directionLabel": "김포공항",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -610,6 +637,7 @@
         {
           "door": "5-4",
           "location": "(B1)표내는곳내계단옆(B3)DMC방향승강장5-4출입문앞",
+          "directionLabel": null,
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -635,6 +663,7 @@
         {
           "door": "5-4",
           "location": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "directionLabel": "서울",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -651,6 +680,7 @@
         {
           "door": "2-1",
           "location": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "directionLabel": "인천공항",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -758,6 +788,7 @@
         {
           "door": "3-4",
           "location": "(1F)검암역방향승강장3-4출입문앞(2F)환승통로무빙워크근처",
+          "directionLabel": "검암",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -783,6 +814,7 @@
         {
           "door": "4-2",
           "location": "(2F)서울역방향승강장4-2출입문앞(3F)서울역방향에스컬레이터앞",
+          "directionLabel": "서울",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -799,6 +831,7 @@
         {
           "door": "3-3",
           "location": "(2F)인천국제공항역방향승강장3-3출입문앞(3F)인천국제공항역방향에스컬레이터앞",
+          "directionLabel": "인천국제공항",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -824,6 +857,7 @@
         {
           "door": "5-2",
           "location": "(1F)서쪽표내는곳근처,운임구역화장실옆(2F)영종역방향승강장5-2출입문앞",
+          "directionLabel": "영종",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -840,6 +874,7 @@
         {
           "door": "4-3",
           "location": "(1F)서쪽표내는곳근처(2F)공항화물청사역방향승강장4-3출입문앞",
+          "directionLabel": "공항화물청사",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -865,6 +900,7 @@
         {
           "door": "5-1",
           "location": "(지하2층)운서역방향5-1출입문앞/(지하1층)P/A화장실옆",
+          "directionLabel": "운서",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -881,6 +917,7 @@
         {
           "door": "4-4",
           "location": "(지하2층)인천공항1터미널방향4-4출입문앞/(지하2층)P/A화장실맞은편",
+          "directionLabel": "터미널",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -906,6 +943,7 @@
         {
           "door": "2-3",
           "location": "(B4)서울역방향승강장2-3출입문앞(B1)일반열차표내는곳진입후왼편",
+          "directionLabel": "서울",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -922,6 +960,7 @@
         {
           "door": "3-1",
           "location": "(B4)인천공항2터미널방향승강장3-1출입문앞(B1)직통열차표내는곳진입후오른편",
+          "directionLabel": "터미널",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "2"
@@ -947,6 +986,7 @@
         {
           "door": "3-2",
           "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장3-2출입문앞",
+          "directionLabel": "터미널",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"
@@ -963,6 +1003,7 @@
         {
           "door": "4-2",
           "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장4-2출입문앞",
+          "directionLabel": "터미널",
           "platformNumber": null,
           "inferredPlatformNumbers": [
             "1"

@@ -53,11 +53,15 @@ const configs = [
     stem: "gimpo-goldline",
     constantName: "GIMPO_GOLDLINE_GUIDANCE",
     output: "apps/api/src/journey/data/gimpo-goldline-guidance.generated.ts",
+    lineName: "김포골드라인",
+    preferredDoorPriority: true,
   },
   {
     stem: "sillim-line",
     constantName: "SILLIM_LINE_GUIDANCE",
     output: "apps/api/src/journey/data/sillim-line-guidance.generated.ts",
+    lineName: "신림선",
+    preferredDoorPriority: true,
   },
   {
     stem: "shinbundang-line",
