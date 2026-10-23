@@ -1,12 +1,13 @@
 {
-  "collectedAt": "2026-09-18T03:13:31.764Z",
+  "collectedAt": "2026-10-23T02:06:30.215Z",
   "scope": {
     "line": "9호선",
+    "lineCode": "9",
     "railOperatorCodes": [
       "S9"
     ],
     "stationCount": 38,
-    "goal": "서울 지하철 1~9호선 지원을 위한 노선별 API 동기화 감사"
+    "goal": "수도권 도시철도 지원을 위한 노선별 API 동기화 감사"
   },
   "comparisonPolicy": {
     "adjudication": "어떤 API가 맞는지 판정하지 않는다.",
@@ -27,20 +28,21 @@
     "stinElevatorMovement": "/trafficWeekInfo/stinElevatorMovement",
     "stationElevator": "/convenientInfo/stationElevator",
     "stationElevatorCarNumber": "/vulnerableUserInfo/stationElevatorCarNumber",
+    "stationStairCarNumber": "/vulnerableUserInfo/stationStairCarNumber",
     "stationPlatformTrainDistance": "/vulnerableUserInfo/stationPlatformTrainDistance",
     "stPlf": "/convenientInfo/stPlf",
     "SeoulMetroFaciInfo": "서울교통공사 승강기 가동현황 API"
   },
   "summary": {
     "affectedStationCount": 38,
-    "differenceCount": 95,
+    "differenceCount": 96,
     "categoryCounts": {
       "surface_exit_number": 38,
       "elevator_operating_floor": 25,
-      "elevator_adjacent_car_door": 32
+      "elevator_adjacent_car_door": 33
     },
     "differenceKindCounts": {
-      "coverage_gap": 95,
+      "coverage_gap": 96,
       "value_difference": 19
     },
     "endpointCoverage": {
@@ -64,6 +66,11 @@
         "stationsWithoutRows": 23,
         "rowCount": 66
       },
+      "stationStairCarNumber": {
+        "stationsWithRows": 0,
+        "stationsWithoutRows": 38,
+        "rowCount": 0
+      },
       "stPlf": {
         "stationsWithRows": 38,
         "stationsWithoutRows": 0,
@@ -86,508 +93,2564 @@
       "yellow": 9,
       "red": 0,
       "missing": 0
+    },
+    "missingGapStationCount": 0,
+    "missingGapStations": [],
+    "preferredDoorSourceCounts": {
+      "stationElevator": 18,
+      "stationElevatorCarNumber": 13,
+      "unavailable": 7
     }
   },
   "coverage": [
     {
+      "stationKey": "S9:0901",
       "stationCode": "0901",
       "stationName": "개화",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 5,
         "stinElevatorMovement": 5,
         "stationElevator": 2,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0902",
       "stationCode": "0902",
       "stationName": "김포공항",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 62,
         "stationElevator": 3,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0903",
       "stationCode": "0903",
       "stationName": "공항시장",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 10,
         "stinElevatorMovement": 10,
         "stationElevator": 3,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0904",
       "stationCode": "0904",
       "stationName": "신방화",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 16,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0905",
       "stationCode": "0905",
       "stationName": "마곡나루",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 60,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0906",
       "stationCode": "0906",
       "stationName": "양천향교",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 20,
         "stinElevatorMovement": 20,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0907",
       "stationCode": "0907",
       "stationName": "가양",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 20,
         "stinElevatorMovement": 20,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0908",
       "stationCode": "0908",
       "stationName": "증미",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 10,
         "stinElevatorMovement": 10,
         "stationElevator": 3,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0909",
       "stationCode": "0909",
       "stationName": "등촌",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 10,
         "stinElevatorMovement": 10,
         "stationElevator": 3,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0910",
       "stationCode": "0910",
       "stationName": "염창",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 20,
         "stinElevatorMovement": 20,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0911",
       "stationCode": "0911",
       "stationName": "신목동",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 16,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0912",
       "stationCode": "0912",
       "stationName": "선유도",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 16,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0913",
       "stationCode": "0913",
       "stationName": "당산",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 44,
         "stationElevator": 5,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0914",
       "stationCode": "0914",
       "stationName": "국회의사당",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 30,
         "stinElevatorMovement": 30,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0915",
       "stationCode": "0915",
       "stationName": "여의도",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 36,
         "stationElevator": 2,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0916",
       "stationCode": "0916",
       "stationName": "샛강",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 46,
         "stationElevator": 5,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0917",
       "stationCode": "0917",
       "stationName": "노량진",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 26,
         "stinElevatorMovement": 42,
         "stationElevator": 8,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0918",
       "stationCode": "0918",
       "stationName": "노들",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 40,
         "stinElevatorMovement": 40,
         "stationElevator": 6,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0919",
       "stationCode": "0919",
       "stationName": "흑석(중앙대입구)",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 2,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0920",
       "stationCode": "0920",
       "stationName": "동작(현충원)",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 44,
         "stinElevatorMovement": 76,
         "stationElevator": 7,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0921",
       "stationCode": "0921",
       "stationName": "구반포",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
         "stationElevator": 3,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0922",
       "stationCode": "0922",
       "stationName": "신반포",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0923",
       "stationCode": "0923",
       "stationName": "고속터미널",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 28,
         "stinElevatorMovement": 100,
         "stationElevator": 5,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0924",
       "stationCode": "0924",
       "stationName": "사평",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0925",
       "stationCode": "0925",
       "stationName": "신논현",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 4,
         "stationElevatorCarNumber": 0,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0926",
       "stationCode": "0926",
       "stationName": "언주",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0927",
       "stationCode": "0927",
       "stationName": "선정릉",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 48,
         "stationElevator": 0,
         "stationElevatorCarNumber": 8,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0928",
       "stationCode": "0928",
       "stationName": "삼성중앙",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0929",
       "stationCode": "0929",
       "stationName": "봉은사",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0930",
       "stationCode": "0930",
       "stationName": "종합운동장",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 44,
         "stationElevator": 0,
         "stationElevatorCarNumber": 8,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0931",
       "stationCode": "0931",
       "stationName": "삼전",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 12,
         "stinElevatorMovement": 12,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0932",
       "stationCode": "0932",
       "stationName": "석촌고분",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 48,
         "stinElevatorMovement": 48,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0933",
       "stationCode": "0933",
       "stationName": "석촌",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 32,
         "stinElevatorMovement": 52,
         "stationElevator": 0,
         "stationElevatorCarNumber": 6,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0934",
       "stationCode": "0934",
       "stationName": "송파나루",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 48,
         "stinElevatorMovement": 48,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0935",
       "stationCode": "0935",
       "stationName": "한성백제",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0936",
       "stationCode": "0936",
       "stationName": "올림픽공원(한국체대)",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 16,
         "stinElevatorMovement": 48,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0937",
       "stationCode": "0937",
       "stationName": "둔촌오륜",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 24,
         "stinElevatorMovement": 24,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     },
     {
+      "stationKey": "S9:0938",
       "stationCode": "0938",
       "stationName": "중앙보훈병원",
+      "railOperatorCode": "S9",
       "endpointCounts": {
         "stationMovement": 18,
         "stinElevatorMovement": 18,
         "stationElevator": 0,
         "stationElevatorCarNumber": 4,
+        "stationStairCarNumber": 0,
         "stPlf": 2,
         "stationPlatformTrainDistance": 48,
         "SeoulMetroFaciInfo": 0
       }
     }
   ],
+  "preferredDoorGuidance": [
+    {
+      "stationCode": "0901",
+      "stationName": "개화",
+      "stationKey": "S9:0901",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-4",
+          "location": "(1F)하선승강장6-4근처(2F)안전관리실옆",
+          "directionLabel": "하선",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0902",
+      "stationName": "김포공항",
+      "stationKey": "S9:0902",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-2",
+          "location": "(B1)안전관리실옆(B3)상부본선승강장4-2지점",
+          "directionLabel": null,
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.5,
+              "level": "green"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "platform_ambiguous"
+        },
+        {
+          "door": "1-1",
+          "location": "(B1)안전관리실앞(B4)하선승강장1-1지점",
+          "directionLabel": "하선",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.4,
+              "level": "green"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0903",
+      "stationName": "공항시장",
+      "stationKey": "S9:0903",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0904",
+      "stationName": "신방화",
+      "stationKey": "S9:0904",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-1",
+          "location": "(B1)개화역방향개찰구앞(B2)개화역방향승강장3-1출입문앞",
+          "directionLabel": "개화",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "(B1)중앙보훈병원역방향개찰구앞(B2)중앙보훈병원역방향승강장4-4출입문앞",
+          "directionLabel": "중앙보훈병원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0905",
+      "stationName": "마곡나루",
+      "stationKey": "S9:0905",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": "(B1)대합실,표내는곳방향(B2)신방화역방향승강장3-3출입문앞",
+          "directionLabel": "신방화",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": "(B1)대합실,표내는곳방향(B2)양천향교역방향승강장4-2출입문앞",
+          "directionLabel": "양천향교",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0906",
+      "stationName": "양천향교",
+      "stationKey": "S9:0906",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": "(B1)표내는곳내마곡나루역방향(B2)마곡나루역방향승강장3-2출입문근처",
+          "directionLabel": "마곡나루",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "(B1)표내는곳내가양역방향(B2)가양역방향승강장4-4출입문근처",
+          "directionLabel": "가양",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0907",
+      "stationName": "가양",
+      "stationKey": "S9:0907",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0908",
+      "stationName": "증미",
+      "stationKey": "S9:0908",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": "(B1)표내는곳내계단옆,가양역방향(B2)증미역방향승강장3-4출입문근처",
+          "directionLabel": "증미",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "(B1)표내는곳내계단옆,등촌역방향(B2)염창역방향승강장3-4출입문근처",
+          "directionLabel": "염창",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0909",
+      "stationName": "등촌",
+      "stationKey": "S9:0909",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": "(B1)표내는곳내계단옆,증미역방향(B2)증미역방향승강장1-1출입문근처",
+          "directionLabel": "증미",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-4",
+          "location": "(B1)표내는곳내계단옆,염창역방향(B2)염창역방향승강장6-4출입문근처",
+          "directionLabel": "염창",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0910",
+      "stationName": "염창",
+      "stationKey": "S9:0910",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": "(B2)등촌역방향승강장3-4/4-1사이",
+          "directionLabel": "등촌",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": "(B2)등촌역방향승강장3-4/4-1사이",
+          "directionLabel": "등촌",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "(B2)신목동역방향승강장3-4/4-1사이",
+          "directionLabel": "신목동",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": "(B2)신목동역방향승강장3-4/4-1사이",
+          "directionLabel": "신목동",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0911",
+      "stationName": "신목동",
+      "stationKey": "S9:0911",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0912",
+      "stationName": "선유도",
+      "stationKey": "S9:0912",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-1",
+          "location": "(B2)표내는곳내부편의점맞은편방향(B3)당산역방면승강장4-1출입문방향",
+          "directionLabel": "당산",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "(B2)표내는곳내부안전관리실우측(B3)신목동역방면승강장3-4출입문방향",
+          "directionLabel": "신목동",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 4.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0913",
+      "stationName": "당산",
+      "stationKey": "S9:0913",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-4",
+          "location": "(B1)편의점방향표내는곳내부(B2)대합실환승통로중앙(에스컬레이터14호기좌측)(B3)국회의사당역방면승강장6-4방향비승차구역",
+          "directionLabel": "국회의사당",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0914",
+      "stationName": "국회의사당",
+      "stationKey": "S9:0914",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "5-3",
+          "location": "(B2)편의점방향표내는곳내부화장실방향(B3)당산역방향승강장5-3출입문앞",
+          "directionLabel": "당산",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0915",
+      "stationName": "여의도",
+      "stationKey": "S9:0915",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "1-1",
+          "location": "(B1)편의점방면게이트통과후개화방면(B2)국회의사당역방향승강장1-1출입문옆",
+          "directionLabel": "국회의사당",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-4",
+          "location": "(B1)편의점방면게이트통과후중앙보훈병원방면(B2)샛강역방향승강장6-4출입문옆",
+          "directionLabel": "샛강",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0916",
+      "stationName": "샛강",
+      "stationKey": "S9:0916",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0917",
+      "stationName": "노량진",
+      "stationKey": "S9:0917",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0918",
+      "stationName": "노들",
+      "stationKey": "S9:0918",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": "(B2)노량진역방향승강장3-2출입문앞(B1)표내는곳내측대합실노량진역승강장방향",
+          "directionLabel": "노량진",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "(B2)흑석역방향승강장4-4출입문앞(B1)표내는곳내측대합실흑석역승강장방향",
+          "directionLabel": "흑석",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0919",
+      "stationName": "흑석(중앙대입구)",
+      "stationKey": "S9:0919",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": "(B1)표내는곳방향(B2)노들역방향승강장3-3출입문앞",
+          "directionLabel": "노들",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": "(B1)표내는곳방향(B2)동작역방향승강장4-2출입문앞",
+          "directionLabel": "동작",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0920",
+      "stationName": "동작(현충원)",
+      "stationKey": "S9:0920",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0921",
+      "stationName": "구반포",
+      "stationKey": "S9:0921",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "2-1",
+          "location": "(B1)표내는곳방향(B2)동작역방향승강장2-1출입문앞",
+          "directionLabel": "동작",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-4",
+          "location": "(B1)표내는곳방향(B2)고속터미널역방향승강장5-4출입문앞",
+          "directionLabel": "고속터미널",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0922",
+      "stationName": "신반포",
+      "stationKey": "S9:0922",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": "(B1)표내는곳방향(B2)구반포방향승강장3-4출입문앞",
+          "directionLabel": "구반포",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "(B1)표내는곳방향(B2)고속터미널방향승강장3-4출입문앞",
+          "directionLabel": "고속터미널",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0923",
+      "stationName": "고속터미널",
+      "stationKey": "S9:0923",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-4",
+          "location": "(B2)9호선안전관리실뒤(B4)전기실옆(B5)신반포역방향승강장4-4출입문앞",
+          "directionLabel": "신반포",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-1",
+          "location": "(B2)표내는곳화장실옆(B4)공연장앞(B5)사평역방면승강장1-1출입문앞",
+          "directionLabel": "사평",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0924",
+      "stationName": "사평",
+      "stationKey": "S9:0924",
+      "railOperatorCode": "S9",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-2",
+          "location": "(B1)표내는곳방향(B2)고속터미널역방향중층연결통로(B3)고속터미널역방향승강장4-2출입문앞",
+          "directionLabel": "고속터미널",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": "(B1)표내는곳방향(B2)신논현역방향중층연결통로(B3)신논현역방향승강장4-1출입문앞",
+          "directionLabel": "신논현",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0925",
+      "stationName": "신논현",
+      "stationKey": "S9:0925",
+      "railOperatorCode": "S9",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0926",
+      "stationName": "언주",
+      "stationKey": "S9:0926",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0927",
+      "stationName": "선정릉",
+      "stationKey": "S9:0927",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0928",
+      "stationName": "삼성중앙",
+      "stationKey": "S9:0928",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10.5,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10.5,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0929",
+      "stationName": "봉은사",
+      "stationKey": "S9:0929",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0930",
+      "stationName": "종합운동장",
+      "stationKey": "S9:0930",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0931",
+      "stationName": "삼전",
+      "stationKey": "S9:0931",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0932",
+      "stationName": "석촌고분",
+      "stationKey": "S9:0932",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0933",
+      "stationName": "석촌",
+      "stationKey": "S9:0933",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "1-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0934",
+      "stationName": "송파나루",
+      "stationKey": "S9:0934",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0935",
+      "stationName": "한성백제",
+      "stationKey": "S9:0935",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.1,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0936",
+      "stationName": "올림픽공원(한국체대)",
+      "stationKey": "S9:0936",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "2-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "2-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0937",
+      "stationName": "둔촌오륜",
+      "stationKey": "S9:0937",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0938",
+      "stationName": "중앙보훈병원",
+      "stationKey": "S9:0938",
+      "railOperatorCode": "S9",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-1",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    }
+  ],
   "differences": [
     {
       "stationCode": "0901",
       "stationName": "개화",
+      "stationKey": "S9:0901",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -704,6 +2767,8 @@
     {
       "stationCode": "0901",
       "stationName": "개화",
+      "stationKey": "S9:0901",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -747,8 +2812,59 @@
       }
     },
     {
+      "stationCode": "0901",
+      "stationName": "개화",
+      "stationKey": "S9:0901",
+      "railOperatorCode": "S9",
+      "category": "elevator_adjacent_car_door",
+      "differenceKinds": [
+        "coverage_gap"
+      ],
+      "normalizedValues": {
+        "stationElevatorCarNumber": [],
+        "stationElevator": [
+          "6-4"
+        ],
+        "SeoulMetroFaciInfo": []
+      },
+      "apiResponses": {
+        "stationElevatorCarNumber": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0901",
+            "exitNo": null,
+            "dtlLoc": "(1F)하선승강장6-4근처(2F)안전관리실옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0901",
+            "exitNo": "2",
+            "dtlLoc": "(1F)2번출구옆(2F)편의점앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
+        "SeoulMetroFaciInfo": []
+      }
+    },
+    {
       "stationCode": "0902",
       "stationName": "김포공항",
+      "stationKey": "S9:0902",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -917,6 +3033,8 @@
     {
       "stationCode": "0902",
       "stationName": "김포공항",
+      "stationKey": "S9:0902",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -976,6 +3094,8 @@
     {
       "stationCode": "0902",
       "stationName": "김포공항",
+      "stationKey": "S9:0902",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -1037,6 +3157,8 @@
     {
       "stationCode": "0903",
       "stationName": "공항시장",
+      "stationKey": "S9:0903",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -1203,6 +3325,8 @@
     {
       "stationCode": "0903",
       "stationName": "공항시장",
+      "stationKey": "S9:0903",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -1262,6 +3386,8 @@
     {
       "stationCode": "0904",
       "stationName": "신방화",
+      "stationKey": "S9:0904",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -1526,6 +3652,8 @@
     {
       "stationCode": "0904",
       "stationName": "신방화",
+      "stationKey": "S9:0904",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -1598,6 +3726,8 @@
     {
       "stationCode": "0904",
       "stationName": "신방화",
+      "stationKey": "S9:0904",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -1638,6 +3768,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0904",
+            "exitNo": "7,8",
+            "dtlLoc": "(1F)7번/8번출입구사이(B1)7/8번출입구방향대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0904",
+            "exitNo": "3",
+            "dtlLoc": "(1F)3번출입구옆(B1)3번출입구방향대합실",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -1646,6 +3802,8 @@
     {
       "stationCode": "0905",
       "stationName": "마곡나루",
+      "stationKey": "S9:0905",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -1987,6 +4145,8 @@
     {
       "stationCode": "0905",
       "stationName": "마곡나루",
+      "stationKey": "S9:0905",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -2059,6 +4219,8 @@
     {
       "stationCode": "0905",
       "stationName": "마곡나루",
+      "stationKey": "S9:0905",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -2099,6 +4261,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0905",
+            "exitNo": "1,2",
+            "dtlLoc": "(1F)1번/2번출입구사이(B1)대합실,1번/2번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0905",
+            "exitNo": null,
+            "dtlLoc": "(1F)마곡중앙광장E/S출입구뒷편(B2)대합실,표내는곳방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -2107,6 +4295,8 @@
     {
       "stationCode": "0906",
       "stationName": "양천향교",
+      "stationKey": "S9:0906",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -2412,6 +4602,8 @@
     {
       "stationCode": "0906",
       "stationName": "양천향교",
+      "stationKey": "S9:0906",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -2484,6 +4676,8 @@
     {
       "stationCode": "0906",
       "stationName": "양천향교",
+      "stationKey": "S9:0906",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -2524,6 +4718,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0906",
+            "exitNo": "3,4",
+            "dtlLoc": "(1F)3,4번출입구사이(B2)대합실.3,4번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0906",
+            "exitNo": "5,6",
+            "dtlLoc": "(1F)5,6번출입구사이(B2)대합실.5,6번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -2532,6 +4752,8 @@
     {
       "stationCode": "0907",
       "stationName": "가양",
+      "stationKey": "S9:0907",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -2837,6 +5059,8 @@
     {
       "stationCode": "0907",
       "stationName": "가양",
+      "stationKey": "S9:0907",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -2909,6 +5133,8 @@
     {
       "stationCode": "0908",
       "stationName": "증미",
+      "stationKey": "S9:0908",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -3073,6 +5299,8 @@
     {
       "stationCode": "0908",
       "stationName": "증미",
+      "stationKey": "S9:0908",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -3132,6 +5360,8 @@
     {
       "stationCode": "0908",
       "stationName": "증미",
+      "stationKey": "S9:0908",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "value_difference",
@@ -3196,6 +5426,19 @@
             "runStinFlorTo": 2,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0908",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구옆(B1)대합실옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -3204,6 +5447,8 @@
     {
       "stationCode": "0909",
       "stationName": "등촌",
+      "stationKey": "S9:0909",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -3368,6 +5613,8 @@
     {
       "stationCode": "0909",
       "stationName": "등촌",
+      "stationKey": "S9:0909",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -3427,6 +5674,8 @@
     {
       "stationCode": "0909",
       "stationName": "등촌",
+      "stationKey": "S9:0909",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -3467,6 +5716,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0909",
+            "exitNo": "5",
+            "dtlLoc": "(1F)5번출입구옆(B1)화장실근처",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -3475,6 +5737,8 @@
     {
       "stationCode": "0910",
       "stationName": "염창",
+      "stationKey": "S9:0910",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -3780,6 +6044,8 @@
     {
       "stationCode": "0910",
       "stationName": "염창",
+      "stationKey": "S9:0910",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -3852,6 +6118,8 @@
     {
       "stationCode": "0910",
       "stationName": "염창",
+      "stationKey": "S9:0910",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -3892,6 +6160,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0910",
+            "exitNo": "1,2",
+            "dtlLoc": "(B1)1번/2번출입구사이(1F)1번/2번출입구사이",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0910",
+            "exitNo": "3,4",
+            "dtlLoc": "(B1)3번/4번출입구사이(1F)3번/4번출입구사이",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -3900,6 +6194,8 @@
     {
       "stationCode": "0911",
       "stationName": "신목동",
+      "stationKey": "S9:0911",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -4162,6 +6458,8 @@
     {
       "stationCode": "0911",
       "stationName": "신목동",
+      "stationKey": "S9:0911",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -4234,6 +6532,8 @@
     {
       "stationCode": "0912",
       "stationName": "선유도",
+      "stationKey": "S9:0912",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -4499,6 +6799,8 @@
     {
       "stationCode": "0912",
       "stationName": "선유도",
+      "stationKey": "S9:0912",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -4571,6 +6873,8 @@
     {
       "stationCode": "0912",
       "stationName": "선유도",
+      "stationKey": "S9:0912",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -4611,6 +6915,32 @@
             "runStinFlorTo": 2,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0912",
+            "exitNo": "1,2",
+            "dtlLoc": "(1F)1,2번출입구사이(B1)2번출입구옆(B2)E/S7호기옆중앙통로왼쪽방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0912",
+            "exitNo": "7,8",
+            "dtlLoc": "(1F)7,8번출입구사이(B1)7번출입구옆(B2)E/S7호기옆중앙통로오른쪽방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -4619,6 +6949,8 @@
     {
       "stationCode": "0913",
       "stationName": "당산",
+      "stationKey": "S9:0913",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -4909,6 +7241,8 @@
     {
       "stationCode": "0913",
       "stationName": "당산",
+      "stationKey": "S9:0913",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -4995,6 +7329,8 @@
     {
       "stationCode": "0913",
       "stationName": "당산",
+      "stationKey": "S9:0913",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -5021,6 +7357,58 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0913",
+            "exitNo": null,
+            "dtlLoc": "(3F)2호선외선(영등포구청역)승강장(B2)2호선환승외선(영등포구청역)방향에스컬레이터옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0913",
+            "exitNo": null,
+            "dtlLoc": "(3F)2호선내선(합정역방향)승강장(B2)2호선환승내선(합정역방향)에스컬레이터옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0913",
+            "exitNo": "10",
+            "dtlLoc": "(1F)10번출입구옆(B1)10번출입구통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0913",
+            "exitNo": "1,13",
+            "dtlLoc": "(1F)1번,13번출입구사이(B1)13번출입구통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -5029,6 +7417,8 @@
     {
       "stationCode": "0914",
       "stationName": "국회의사당",
+      "stationKey": "S9:0914",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -5472,6 +7862,8 @@
     {
       "stationCode": "0914",
       "stationName": "국회의사당",
+      "stationKey": "S9:0914",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -5544,6 +7936,8 @@
     {
       "stationCode": "0914",
       "stationName": "국회의사당",
+      "stationKey": "S9:0914",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -5570,6 +7964,45 @@
             "runStinFlorTo": 2,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0914",
+            "exitNo": "2,3",
+            "dtlLoc": "(1F)2번,3번출입구사이(B2)2번,3번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0914",
+            "exitNo": "4,5",
+            "dtlLoc": "(1F)4번,5번출입구사이(B2)4번,5번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0914",
+            "exitNo": "6",
+            "dtlLoc": "(1F)6번출입구옆(B2)6번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -5578,6 +8011,8 @@
     {
       "stationCode": "0915",
       "stationName": "여의도",
+      "stationKey": "S9:0915",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -5810,6 +8245,8 @@
     {
       "stationCode": "0915",
       "stationName": "여의도",
+      "stationKey": "S9:0915",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -5855,6 +8292,8 @@
     {
       "stationCode": "0915",
       "stationName": "여의도",
+      "stationKey": "S9:0915",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -5903,6 +8342,8 @@
     {
       "stationCode": "0916",
       "stationName": "샛강",
+      "stationKey": "S9:0916",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -6324,6 +8765,8 @@
     {
       "stationCode": "0916",
       "stationName": "샛강",
+      "stationKey": "S9:0916",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -6410,6 +8853,8 @@
     {
       "stationCode": "0917",
       "stationName": "노량진",
+      "stationKey": "S9:0917",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -6850,6 +9295,8 @@
     {
       "stationCode": "0917",
       "stationName": "노량진",
+      "stationKey": "S9:0917",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -6974,6 +9421,8 @@
     {
       "stationCode": "0917",
       "stationName": "노량진",
+      "stationKey": "S9:0917",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -6982,7 +9431,10 @@
         "stationElevatorCarNumber": [],
         "stationElevator": [
           "3-4",
-          "4-1"
+          "4-1",
+          "4-4",
+          "6-4",
+          "7-1"
         ],
         "SeoulMetroFaciInfo": []
       },
@@ -7014,6 +9466,84 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "917",
+            "exitNo": "8",
+            "dtlLoc": "(1F)8번출입구옆(B1)9호선표내는곳방향,8번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "917",
+            "exitNo": "5",
+            "dtlLoc": "(1F)5번~6번출입구사이(B1)9호선표내는곳방향,5번~6번출입구방향,화장실방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "917",
+            "exitNo": null,
+            "dtlLoc": "(1F)1호선동인천특급,급행승강장(1번홈)4-4출입문앞(B1)9호선-1호선환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "917",
+            "exitNo": null,
+            "dtlLoc": "(1F)1호선용산특급,급행승강장(2번홈)6-4출입문앞(B1)9호선,1호선환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "917",
+            "exitNo": null,
+            "dtlLoc": "(1F)1호선대방역방향승강장(4번홈)4-4출입문앞(B1)9호선,1호선환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "917",
+            "exitNo": null,
+            "dtlLoc": "(1F)1호선용산역방향승강장(5번홈)7-1출입문앞(B1)9호선,1호선환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -7022,6 +9552,8 @@
     {
       "stationCode": "0918",
       "stationName": "노들",
+      "stationKey": "S9:0918",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -7601,6 +10133,8 @@
     {
       "stationCode": "0918",
       "stationName": "노들",
+      "stationKey": "S9:0918",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -7701,6 +10235,8 @@
     {
       "stationCode": "0918",
       "stationName": "노들",
+      "stationKey": "S9:0918",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -7741,6 +10277,58 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0918",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1,5번출입구사이중간지점(B1)1번출구방향국민은행ATM기옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0918",
+            "exitNo": "4",
+            "dtlLoc": "(중층)3,4번출입구연결통로(B1)3,4번출구방향,에스컬레이터9,10호기옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 0.5,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0918",
+            "exitNo": "3",
+            "dtlLoc": "(1F)3번출입구뒤(중층)3번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 0.5,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0918",
+            "exitNo": "5",
+            "dtlLoc": "(1F)5번출입구뒤(B1)5번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -7749,6 +10337,8 @@
     {
       "stationCode": "0919",
       "stationName": "흑석(중앙대입구)",
+      "stationKey": "S9:0919",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -8094,6 +10684,8 @@
     {
       "stationCode": "0919",
       "stationName": "흑석(중앙대입구)",
+      "stationKey": "S9:0919",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -8166,6 +10758,8 @@
     {
       "stationCode": "0919",
       "stationName": "흑석(중앙대입구)",
+      "stationKey": "S9:0919",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "value_difference",
@@ -8231,6 +10825,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0919",
+            "exitNo": "1,2",
+            "dtlLoc": "(1F)1,2번출입구사이(B1)표내는곳방향,2번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0919",
+            "exitNo": "3,4",
+            "dtlLoc": "(1F)3,4번출입구사이(B1)표내는곳방향,3,4번출입구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -8239,6 +10859,8 @@
     {
       "stationCode": "0920",
       "stationName": "동작(현충원)",
+      "stationKey": "S9:0920",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -8844,6 +11466,8 @@
     {
       "stationCode": "0920",
       "stationName": "동작(현충원)",
+      "stationKey": "S9:0920",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -8956,6 +11580,8 @@
     {
       "stationCode": "0921",
       "stationName": "구반포",
+      "stationKey": "S9:0921",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -9142,6 +11768,8 @@
     {
       "stationCode": "0921",
       "stationName": "구반포",
+      "stationKey": "S9:0921",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -9201,6 +11829,8 @@
     {
       "stationCode": "0921",
       "stationName": "구반포",
+      "stationKey": "S9:0921",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -9241,6 +11871,19 @@
             "runStinFlorTo": 2,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0921",
+            "exitNo": "2,3",
+            "dtlLoc": "(1F)2번~3번출입구사이(B1)기능실1출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -9249,6 +11892,8 @@
     {
       "stationCode": "0922",
       "stationName": "신반포",
+      "stationKey": "S9:0922",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -9594,6 +12239,8 @@
     {
       "stationCode": "0922",
       "stationName": "신반포",
+      "stationKey": "S9:0922",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -9666,6 +12313,8 @@
     {
       "stationCode": "0922",
       "stationName": "신반포",
+      "stationKey": "S9:0922",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -9705,6 +12354,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0922",
+            "exitNo": "1,2",
+            "dtlLoc": "(1F)1번,2번출입구사이(B1)1번,2번출구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0922",
+            "exitNo": "3,4",
+            "dtlLoc": "(1F)3번,4번출입구사이(B1)3번출구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -9713,6 +12388,8 @@
     {
       "stationCode": "0923",
       "stationName": "고속터미널",
+      "stationKey": "S9:0923",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -10095,6 +12772,8 @@
     {
       "stationCode": "0923",
       "stationName": "고속터미널",
+      "stationKey": "S9:0923",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -10181,6 +12860,8 @@
     {
       "stationCode": "0923",
       "stationName": "고속터미널",
+      "stationKey": "S9:0923",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -10226,6 +12907,32 @@
             "railOprIsttCd": "S9",
             "lnCd": "9",
             "stinCd": "0923",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구뒤반포지구대앞(B1)1번출구방향(B2)표내는곳옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0923",
+            "exitNo": "8-1",
+            "dtlLoc": "(1F)8-1번출입구뒤(B1)8-1번출구(B1)옆(B2)PS실출입문옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0923",
             "exitNo": null,
             "dtlLoc": "지하상가및지하1층대합실간",
             "grndDvNmFr": "지하",
@@ -10242,6 +12949,8 @@
     {
       "stationCode": "0924",
       "stationName": "사평",
+      "stationKey": "S9:0924",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -10584,6 +13293,8 @@
     {
       "stationCode": "0924",
       "stationName": "사평",
+      "stationKey": "S9:0924",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -10656,6 +13367,8 @@
     {
       "stationCode": "0924",
       "stationName": "사평",
+      "stationKey": "S9:0924",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -10696,6 +13409,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0924",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구사평로방향(M1)1번출입구옆(B1)1번출구방향,화장실방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0924",
+            "exitNo": "2",
+            "dtlLoc": "(1F)2번출입구앞(B1)2번출구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -10704,6 +13443,8 @@
     {
       "stationCode": "0925",
       "stationName": "신논현",
+      "stationKey": "S9:0925",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "value_difference",
@@ -11049,6 +13790,8 @@
     {
       "stationCode": "0925",
       "stationName": "신논현",
+      "stationKey": "S9:0925",
+      "railOperatorCode": "S9",
       "category": "elevator_operating_floor",
       "differenceKinds": [
         "coverage_gap"
@@ -11121,6 +13864,8 @@
     {
       "stationCode": "0925",
       "stationName": "신논현",
+      "stationKey": "S9:0925",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -11161,6 +13906,32 @@
             "runStinFlorTo": 2,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0925",
+            "exitNo": "1,2",
+            "dtlLoc": "(1F)1,2번출입구사이사평역방향(B2)2번출구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S9",
+            "lnCd": "9",
+            "stinCd": "0925",
+            "exitNo": "8,9",
+            "dtlLoc": "(1F)8,9번출입구사이교보타워앞(B2)8번출구방향",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -11169,6 +13940,8 @@
     {
       "stationCode": "0926",
       "stationName": "언주",
+      "stationKey": "S9:0926",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -11481,6 +14254,8 @@
     {
       "stationCode": "0926",
       "stationName": "언주",
+      "stationKey": "S9:0926",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -11545,6 +14320,8 @@
     {
       "stationCode": "0927",
       "stationName": "선정릉",
+      "stationKey": "S9:0927",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -11857,6 +14634,8 @@
     {
       "stationCode": "0927",
       "stationName": "선정릉",
+      "stationKey": "S9:0927",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -11964,6 +14743,8 @@
     {
       "stationCode": "0928",
       "stationName": "삼성중앙",
+      "stationKey": "S9:0928",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -12276,6 +15057,8 @@
     {
       "stationCode": "0928",
       "stationName": "삼성중앙",
+      "stationKey": "S9:0928",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -12340,6 +15123,8 @@
     {
       "stationCode": "0929",
       "stationName": "봉은사",
+      "stationKey": "S9:0929",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -12652,6 +15437,8 @@
     {
       "stationCode": "0929",
       "stationName": "봉은사",
+      "stationKey": "S9:0929",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -12714,6 +15501,8 @@
     {
       "stationCode": "0930",
       "stationName": "종합운동장",
+      "stationKey": "S9:0930",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -12882,6 +15671,8 @@
     {
       "stationCode": "0930",
       "stationName": "종합운동장",
+      "stationKey": "S9:0930",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -12990,6 +15781,8 @@
     {
       "stationCode": "0931",
       "stationName": "삼전",
+      "stationKey": "S9:0931",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -13158,6 +15951,8 @@
     {
       "stationCode": "0931",
       "stationName": "삼전",
+      "stationKey": "S9:0931",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -13222,6 +16017,8 @@
     {
       "stationCode": "0932",
       "stationName": "석촌고분",
+      "stationKey": "S9:0932",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -13822,6 +16619,8 @@
     {
       "stationCode": "0932",
       "stationName": "석촌고분",
+      "stationKey": "S9:0932",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -13886,6 +16685,8 @@
     {
       "stationCode": "0933",
       "stationName": "석촌",
+      "stationKey": "S9:0933",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -14278,6 +17079,8 @@
     {
       "stationCode": "0933",
       "stationName": "석촌",
+      "stationKey": "S9:0933",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -14364,6 +17167,8 @@
     {
       "stationCode": "0934",
       "stationName": "송파나루",
+      "stationKey": "S9:0934",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -14964,6 +17769,8 @@
     {
       "stationCode": "0934",
       "stationName": "송파나루",
+      "stationKey": "S9:0934",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -15026,6 +17833,8 @@
     {
       "stationCode": "0935",
       "stationName": "한성백제",
+      "stationKey": "S9:0935",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -15338,6 +18147,8 @@
     {
       "stationCode": "0935",
       "stationName": "한성백제",
+      "stationKey": "S9:0935",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -15402,6 +18213,8 @@
     {
       "stationCode": "0936",
       "stationName": "올림픽공원(한국체대)",
+      "stationKey": "S9:0936",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -15610,6 +18423,8 @@
     {
       "stationCode": "0936",
       "stationName": "올림픽공원(한국체대)",
+      "stationKey": "S9:0936",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -15674,6 +18489,8 @@
     {
       "stationCode": "0937",
       "stationName": "둔촌오륜",
+      "stationKey": "S9:0937",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -15986,6 +18803,8 @@
     {
       "stationCode": "0937",
       "stationName": "둔촌오륜",
+      "stationKey": "S9:0937",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"
@@ -16048,6 +18867,8 @@
     {
       "stationCode": "0938",
       "stationName": "중앙보훈병원",
+      "stationKey": "S9:0938",
+      "railOperatorCode": "S9",
       "category": "surface_exit_number",
       "differenceKinds": [
         "coverage_gap"
@@ -16291,6 +19112,8 @@
     {
       "stationCode": "0938",
       "stationName": "중앙보훈병원",
+      "stationKey": "S9:0938",
+      "railOperatorCode": "S9",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
         "coverage_gap"

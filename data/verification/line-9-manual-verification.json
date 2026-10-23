@@ -15,6 +15,22 @@
       ]
     },
     {
+      "stationCode": "0902",
+      "stationName": "김포공항",
+      "directions": [
+        {
+          "toward": "개화",
+          "recommendedDoors": ["1-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23: 하선 승강장"
+        },
+        {
+          "toward": "공항시장",
+          "recommendedDoors": ["4-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23: 상선 승강장"
+        }
+      ]
+    },
+    {
       "stationCode": "0903",
       "stationName": "공항시장",
       "directions": [
@@ -27,6 +43,86 @@
           "toward": "신방화",
           "recommendedDoors": ["1-3"],
           "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0904",
+      "stationName": "신방화",
+      "directions": [
+        {
+          "toward": "공항시장",
+          "recommendedDoors": ["3-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "마곡나루",
+          "recommendedDoors": ["4-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0905",
+      "stationName": "마곡나루",
+      "directions": [
+        {
+          "toward": "신방화",
+          "recommendedDoors": ["3-3"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "양천향교",
+          "recommendedDoors": ["4-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0906",
+      "stationName": "양천향교",
+      "directions": [
+        {
+          "toward": "마곡나루",
+          "recommendedDoors": ["3-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "가양",
+          "recommendedDoors": ["4-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0909",
+      "stationName": "등촌",
+      "directions": [
+        {
+          "toward": "증미",
+          "recommendedDoors": ["1-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "염창",
+          "recommendedDoors": ["6-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0910",
+      "stationName": "염창",
+      "directions": [
+        {
+          "toward": "등촌",
+          "recommendedDoors": ["3-4", "4-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "신목동",
+          "recommendedDoors": ["3-4", "4-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
         }
       ]
     },
@@ -47,6 +143,60 @@
       ]
     },
     {
+      "stationCode": "0912",
+      "stationName": "선유도",
+      "directions": [
+        {
+          "toward": "신목동",
+          "recommendedDoors": ["3-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "당산",
+          "recommendedDoors": ["4-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0913",
+      "stationName": "당산",
+      "directions": [
+        {
+          "toward": "국회의사당",
+          "recommendedDoors": ["6-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0914",
+      "stationName": "국회의사당",
+      "directions": [
+        {
+          "toward": "당산",
+          "recommendedDoors": ["5-3"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0915",
+      "stationName": "여의도",
+      "directions": [
+        {
+          "toward": "국회의사당",
+          "recommendedDoors": ["1-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "샛강",
+          "recommendedDoors": ["6-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
       "stationCode": "0911",
       "stationName": "신목동",
       "directions": [
@@ -59,6 +209,22 @@
           "toward": "선유도",
           "recommendedDoors": ["4-1"],
           "evidence": "사용자 확인"
+        }
+      ]
+    },
+    {
+      "stationCode": "0918",
+      "stationName": "노들",
+      "directions": [
+        {
+          "toward": "노량진",
+          "recommendedDoors": ["3-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "흑석",
+          "recommendedDoors": ["4-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
         }
       ]
     },
@@ -91,6 +257,70 @@
           "toward": "구반포",
           "recommendedDoors": ["1-2", "5-3"],
           "evidence": "사용자 확인; 1-2는 4호선 환승 위치"
+        }
+      ]
+    },
+    {
+      "stationCode": "0921",
+      "stationName": "구반포",
+      "directions": [
+        {
+          "toward": "동작",
+          "recommendedDoors": ["2-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "신반포",
+          "recommendedDoors": ["5-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0922",
+      "stationName": "신반포",
+      "directions": [
+        {
+          "toward": "구반포",
+          "recommendedDoors": ["3-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "고속터미널",
+          "recommendedDoors": ["3-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0923",
+      "stationName": "고속터미널",
+      "directions": [
+        {
+          "toward": "신반포",
+          "recommendedDoors": ["4-4"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "사평",
+          "recommendedDoors": ["1-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        }
+      ]
+    },
+    {
+      "stationCode": "0924",
+      "stationName": "사평",
+      "directions": [
+        {
+          "toward": "고속터미널",
+          "recommendedDoors": ["4-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
+        },
+        {
+          "toward": "신논현",
+          "recommendedDoors": ["4-1"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
         }
       ]
     }

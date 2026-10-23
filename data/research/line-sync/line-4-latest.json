@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-10-01T02:18:04.291Z",
+  "collectedAt": "2026-10-23T02:05:57.165Z",
   "scope": {
     "line": "4호선",
     "lineCode": "4",
@@ -37,16 +37,16 @@
   },
   "summary": {
     "affectedStationCount": 49,
-    "differenceCount": 118,
+    "differenceCount": 117,
     "categoryCounts": {
       "surface_exit_number": 40,
       "elevator_operating_floor": 30,
-      "elevator_adjacent_car_door": 44,
+      "elevator_adjacent_car_door": 43,
       "platform_gap_linkage": 4
     },
     "differenceKindCounts": {
-      "coverage_gap": 81,
-      "value_difference": 48,
+      "coverage_gap": 78,
+      "value_difference": 55,
       "linkage_gap": 4
     },
     "endpointCoverage": {
@@ -97,6 +97,13 @@
       "yellow": 570,
       "red": 155,
       "missing": 0
+    },
+    "missingGapStationCount": 0,
+    "missingGapStations": [],
+    "preferredDoorSourceCounts": {
+      "stationElevator": 42,
+      "stationElevatorCarNumber": 6,
+      "unavailable": 3
     }
   },
   "coverage": [
@@ -917,6 +924,2070 @@
       }
     }
   ],
+  "preferredDoorGuidance": [
+    {
+      "stationCode": "0405",
+      "stationName": "진접",
+      "stationKey": "NU:0405",
+      "railOperatorCode": "NU",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0406",
+      "stationName": "오남",
+      "stationKey": "NU:0406",
+      "railOperatorCode": "NU",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-1",
+          "location": "(B1)표내는곳내상선에스컬레이터7,8호기앞(B2)진접역방향승강장6-1출입문앞",
+          "directionLabel": "진접",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [],
+          "gapStatus": "missing"
+        },
+        {
+          "door": "5-4",
+          "location": "(B1)표내는곳내하선에스컬레이터9,10호기앞(B2)별내별가람역방향승강장5-4출입문앞",
+          "directionLabel": "별내별가람",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [],
+          "gapStatus": "missing"
+        }
+      ]
+    },
+    {
+      "stationCode": "0408",
+      "stationName": "별내별가람",
+      "stationKey": "NU:0408",
+      "railOperatorCode": "NU",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0409",
+      "stationName": "불암산(당고개)",
+      "stationKey": "S1:0409",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-1",
+          "location": "별내별가람방면6-1",
+          "directionLabel": "별내별가람",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-4",
+          "location": "상계방면5-4",
+          "directionLabel": "상계",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0410",
+      "stationName": "상계",
+      "stationKey": "S1:0410",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "2-4",
+          "location": "당고개방면2-4",
+          "directionLabel": "당고개",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9,
+              "level": "green"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-4",
+          "location": "노원역방면8-4",
+          "directionLabel": "노원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 12,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0411",
+      "stationName": "노원",
+      "stationKey": "S1:0411",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-4",
+          "location": "상계방면8-4",
+          "directionLabel": "상계",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0412",
+      "stationName": "창동",
+      "stationKey": "S1:0412",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "2-4",
+          "location": "노원방면2-4",
+          "directionLabel": "노원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-2",
+          "location": "노원방면8-2",
+          "directionLabel": "노원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-4",
+          "location": "쌍문방면8-4",
+          "directionLabel": "쌍문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 11,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": "쌍문방면3-2",
+          "directionLabel": "쌍문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-1",
+          "location": "쌍문방면6-1(1호선소요산방면)",
+          "directionLabel": "쌍문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-1",
+          "location": "쌍문방면6-1(1호선인천방면)",
+          "directionLabel": "쌍문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0413",
+      "stationName": "쌍문",
+      "stationKey": "S1:0413",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-2",
+          "location": "창동방면8-2",
+          "directionLabel": "창동",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "수유방면3-4",
+          "directionLabel": "수유",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0414",
+      "stationName": "수유(강북구청)",
+      "stationKey": "S1:0414",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-1",
+          "location": "쌍문방면7-1",
+          "directionLabel": "쌍문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 11,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "미아방면4-4",
+          "directionLabel": "미아",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0415",
+      "stationName": "미아",
+      "stationKey": "S1:0415",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-2",
+          "location": "수유방면8-2",
+          "directionLabel": "수유",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 11,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "미아사거리방면3-4",
+          "directionLabel": "미아사거리",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 11,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0416",
+      "stationName": "미아사거리",
+      "stationKey": "S1:0416",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-1",
+          "location": "미아방면3-1",
+          "directionLabel": "미아",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-3",
+          "location": "길음방면8-3",
+          "directionLabel": "길음",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0417",
+      "stationName": "길음",
+      "stationKey": "S1:0417",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-1",
+          "location": "미아사거리방면6-1",
+          "directionLabel": "미아사거리",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0418",
+      "stationName": "성신여대입구(돈암)",
+      "stationKey": "S1:0418",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-2",
+          "location": "길음방면8-2",
+          "directionLabel": "길음",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 20,
+              "level": "red"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "한성대입구방면3-4",
+          "directionLabel": "한성대입구",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10.5,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0419",
+      "stationName": "한성대입구(삼선교)",
+      "stationKey": "S1:0419",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-1",
+          "location": "성신여대입구방면6-1",
+          "directionLabel": "성신여대입구",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0420",
+      "stationName": "혜화",
+      "stationKey": "S1:0420",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-4",
+          "location": "한성대입구방면7-4",
+          "directionLabel": "한성대입구",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 2.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "동대문방면3-4",
+          "directionLabel": "동대문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0421",
+      "stationName": "동대문",
+      "stationKey": "S1:0421",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-3",
+          "location": "혜화방면6-3",
+          "directionLabel": "혜화",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0422",
+      "stationName": "동대문역사문화공원",
+      "stationKey": "S1:0422",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-4",
+          "location": "동대문방면4-4",
+          "directionLabel": "동대문",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0423",
+      "stationName": "충무로",
+      "stationKey": "S1:0423",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-1",
+          "location": "동대문역사문화공원방면8-1",
+          "directionLabel": "동대문역사문화공원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 15,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": "명동방면3-3",
+          "directionLabel": "명동",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 10,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0424",
+      "stationName": "명동",
+      "stationKey": "S1:0424",
+      "railOperatorCode": "S1",
+      "source": null,
+      "candidates": []
+    },
+    {
+      "stationCode": "0425",
+      "stationName": "회현(남대문시장)",
+      "stationKey": "S1:0425",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "10-1",
+          "location": "명동방면10-1",
+          "directionLabel": "명동",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0426",
+      "stationName": "서울역",
+      "stationKey": "S1:0426",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "9-1",
+          "location": "회현방면9-1",
+          "directionLabel": "회현",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0427",
+      "stationName": "숙대입구(갈월)",
+      "stationKey": "S1:0427",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-1",
+          "location": "서울역방면8-1",
+          "directionLabel": "서울",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": "삼각지방면3-3",
+          "directionLabel": "삼각지",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0428",
+      "stationName": "삼각지",
+      "stationKey": "S1:0428",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-3",
+          "location": "숙대입구방면4-3",
+          "directionLabel": "숙대입구",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "7-2",
+          "location": "신용산방면7-2",
+          "directionLabel": "신용산",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0429",
+      "stationName": "신용산",
+      "stationKey": "S1:0429",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-2",
+          "location": "삼각지방면8-2",
+          "directionLabel": "삼각지",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-2",
+          "location": "이촌방면3-2",
+          "directionLabel": "이촌",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0430",
+      "stationName": "이촌(국립중앙박물관)",
+      "stationKey": "S1:0430",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-1",
+          "location": "신용산방면8-1",
+          "directionLabel": "신용산",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": "동작방면3-3",
+          "directionLabel": "동작",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0431",
+      "stationName": "동작(현충원)",
+      "stationKey": "S1:0431",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-4",
+          "location": "이촌방면7-4",
+          "directionLabel": "이촌",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "총신대입구방면4-4",
+          "directionLabel": "총신대입구",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 17.5,
+              "level": "red"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0432",
+      "stationName": "총신대입구(이수)",
+      "stationKey": "S1:0432",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-3",
+          "location": "동작방면7-3",
+          "directionLabel": "동작",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-3",
+          "location": "사당방면8-3",
+          "directionLabel": "사당",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 12,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0433",
+      "stationName": "사당",
+      "stationKey": "S1:0433",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "9-2",
+          "location": "총신대입구방면9-2",
+          "directionLabel": "총신대입구",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0434",
+      "stationName": "남태령",
+      "stationKey": "S1:0434",
+      "railOperatorCode": "S1",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": "사당방면3-3",
+          "directionLabel": "사당",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10.4,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0435",
+      "stationName": "선바위",
+      "stationKey": "KR:0435",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-1",
+          "location": "(B2)남태령방향승강장3-1출입문앞",
+          "directionLabel": "남태령",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-3",
+          "location": "(B1)경마공원방향승강장8-3출입문앞",
+          "directionLabel": "경마공원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 14,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0436",
+      "stationName": "경마공원",
+      "stationKey": "KR:0436",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-1",
+          "location": "(B2)당고개방향승강장4-1",
+          "directionLabel": "당고개",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 12,
+              "level": "yellow"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 11,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "platform_ambiguous"
+        },
+        {
+          "door": "8-1",
+          "location": "(B2)오이도방향승강장8-1",
+          "directionLabel": "오이도",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 11,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0437",
+      "stationName": "대공원",
+      "stationKey": "KR:0437",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "3-3",
+          "location": "(B2)경마공원역방향승강장3-3출입문앞",
+          "directionLabel": "경마공원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "7-3",
+          "location": "(B2)과천역방향승강장7-3출입문앞",
+          "directionLabel": "과천",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0438",
+      "stationName": "과천",
+      "stationKey": "KR:0438",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-3",
+          "location": "(B2)대공원역방향승강장4-3출입문앞",
+          "directionLabel": "대공원",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 12.4,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "7-2",
+          "location": "(B2)정부청사역방향승강장7-2출입문앞",
+          "directionLabel": "정부청사",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 11.5,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0439",
+      "stationName": "정부과천청사",
+      "stationKey": "KR:0439",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-4",
+          "location": "(B1)남쪽맞이방(B2)상7-4",
+          "directionLabel": null,
+          "platformNumber": null,
+          "inferredPlatformNumbers": [],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.6,
+              "level": "green"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 9.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "platform_ambiguous"
+        },
+        {
+          "door": "4-1",
+          "location": "(B1)남쪽맞이방(B2)하4-1",
+          "directionLabel": null,
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.4,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0440",
+      "stationName": "인덕원",
+      "stationKey": "KR:0440",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-2",
+          "location": "(B2)평촌역방향승강장8-2출입문앞",
+          "directionLabel": "평촌",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 4.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-4",
+          "location": "(B2)과천정부청사역방향승강장3-4출입문앞",
+          "directionLabel": "과천정부청사",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 4.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0441",
+      "stationName": "평촌",
+      "stationKey": "KR:0441",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-4",
+          "location": "(B3)당고개방향4-4출입문앞",
+          "directionLabel": "당고개",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "7-1",
+          "location": "(B3)오이도방향7-1출입문앞",
+          "directionLabel": "오이도",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 4.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0442",
+      "stationName": "범계",
+      "stationKey": "KR:0442",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "8-1",
+          "location": "(B2)평촌방향승강장8-1출입문앞",
+          "directionLabel": "평촌",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "9-2",
+          "location": "(B2)금정방향승강장9-2출입문앞",
+          "directionLabel": "금정",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0443",
+      "stationName": "금정",
+      "stationKey": "KR:0443",
+      "railOperatorCode": "KR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "3-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 8.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "10-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 10.2,
+              "level": "yellow"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "1-4",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6.7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "8-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0444",
+      "stationName": "산본",
+      "stationKey": "KR:0444",
+      "railOperatorCode": "KR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "6-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-2",
+          "location": null,
+          "platformNumber": "3",
+          "inferredPlatformNumbers": [
+            "3"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        },
+        {
+          "door": "5-2",
+          "location": null,
+          "platformNumber": "4",
+          "inferredPlatformNumbers": [
+            "4"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        }
+      ]
+    },
+    {
+      "stationCode": "0445",
+      "stationName": "수리산",
+      "stationKey": "KR:0445",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-1",
+          "location": "(1층)산본역방향승강장7-1출입문앞>(2층)표내는곳내계단옆",
+          "directionLabel": "산본",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-4",
+          "location": "(1층)대야미역방향승강장4-4출입문앞>(2층)표내는곳내계단옆",
+          "directionLabel": "대야미",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 3,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0446",
+      "stationName": "대야미",
+      "stationKey": "KR:0446",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-2",
+          "location": "(2층),수리산역,당고개방향승강장,6-2,출입문앞",
+          "directionLabel": "당고개",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 9.8,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-4",
+          "location": "(2층),반월역,오이도방향승강장,5-4,출입문앞",
+          "directionLabel": "오이도",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 8.2,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0447",
+      "stationName": "반월",
+      "stationKey": "KR:0447",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-3",
+          "location": "(B1)대야미역방향승강장지하연결통로(1F)대야미역방향승강장7-3출입문앞",
+          "directionLabel": "대야미",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": "(B1)상록수역방향승강장지하연결통로(1F)상록수역방향승강장4-2출입문앞",
+          "directionLabel": "상록수",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0448",
+      "stationName": "상록수",
+      "stationKey": "KR:0448",
+      "railOperatorCode": "KR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "3",
+          "inferredPlatformNumbers": [
+            "3"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        },
+        {
+          "door": "4-2",
+          "location": null,
+          "platformNumber": "4",
+          "inferredPlatformNumbers": [
+            "4"
+          ],
+          "gaps": [],
+          "gapStatus": "missing"
+        }
+      ]
+    },
+    {
+      "stationCode": "0449",
+      "stationName": "한대앞",
+      "stationKey": "KR:0449",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "6-3",
+          "location": "(1층)상록수역방향승강장6-3",
+          "directionLabel": "상록수",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-2",
+          "location": "(1층)중앙역방향승강장5-2",
+          "directionLabel": "중앙",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0450",
+      "stationName": "중앙",
+      "stationKey": "KR:0450",
+      "railOperatorCode": "KR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "4-3",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "7-2",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5.6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0451",
+      "stationName": "고잔",
+      "stationKey": "KR:0451",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "5-3",
+          "location": "(2F)중앙역방향5-3출입문앞(1F)고객맞이방화장실옆",
+          "directionLabel": "중앙",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-2",
+          "location": "(2F)초지역방향6-2출입문앞(1F)고객맞이방화장실옆",
+          "directionLabel": "초지",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0452",
+      "stationName": "초지",
+      "stationKey": "KR:0452",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "5-4",
+          "location": "(2F)고잔역방향승강장5-4출입문앞(1F)맞이방통로고잔역방향(기존계단철거)",
+          "directionLabel": "고잔",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "5-4",
+          "location": "(2F)안산역방향승강장5-4출입문앞(1F)맞이방통로고잔역방향(기존계단철거)",
+          "directionLabel": "안산",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0453",
+      "stationName": "안산",
+      "stationKey": "KR:0453",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "7-2",
+          "location": "(1층)초지역방향승강장7-2출입문앞(2층)자유통로상행표내는곳내",
+          "directionLabel": "초지",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "4-3",
+          "location": "(1층)신길온천역방향승강장4-3출입문앞(2층)자유통로하행표내는곳내",
+          "directionLabel": "신길온천",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0454",
+      "stationName": "능길",
+      "stationKey": "KR:0454",
+      "railOperatorCode": "KR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "7-1",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "3-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0455",
+      "stationName": "정왕",
+      "stationKey": "KR:0455",
+      "railOperatorCode": "KR",
+      "source": "stationElevatorCarNumber",
+      "candidates": [
+        {
+          "door": "5-2",
+          "location": null,
+          "platformNumber": "1",
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "6-3",
+          "location": null,
+          "platformNumber": "2",
+          "inferredPlatformNumbers": [
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "2",
+              "distanceCm": 5,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    },
+    {
+      "stationCode": "0456",
+      "stationName": "오이도",
+      "stationKey": "KR:0456",
+      "railOperatorCode": "KR",
+      "source": "stationElevator",
+      "candidates": [
+        {
+          "door": "4-3",
+          "location": "(1층)정왕역방향승강장4-3출입문앞(3층)맞이방",
+          "directionLabel": "정왕",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        },
+        {
+          "door": "7-2",
+          "location": "(1층)달월역방향승강장7-2출입문앞(3층)맞이방",
+          "directionLabel": "달월",
+          "platformNumber": null,
+          "inferredPlatformNumbers": [
+            "1",
+            "2"
+          ],
+          "gaps": [
+            {
+              "platformNumber": "1",
+              "distanceCm": 7,
+              "level": "green"
+            },
+            {
+              "platformNumber": "2",
+              "distanceCm": 6,
+              "level": "green"
+            }
+          ],
+          "gapStatus": "linked"
+        }
+      ]
+    }
+  ],
   "differences": [
     {
       "stationCode": "0405",
@@ -1658,6 +3729,32 @@
       "apiResponses": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
+          {
+            "railOprIsttCd": "NU",
+            "lnCd": "4",
+            "stinCd": "406",
+            "exitNo": "2",
+            "dtlLoc": "(1F)2번출입구근처(B1)대합실출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
+          {
+            "railOprIsttCd": "NU",
+            "lnCd": "4",
+            "stinCd": "406",
+            "exitNo": "3",
+            "dtlLoc": "(1F)3번출입구근처(B1)에스컬레이터5,6호기옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 20,
+            "rglnWgt": 1350
+          },
           {
             "railOprIsttCd": "NU",
             "lnCd": "4",
@@ -2686,72 +4783,6 @@
       }
     },
     {
-      "stationCode": "0409",
-      "stationName": "불암산(당고개)",
-      "stationKey": "S1:0409",
-      "railOperatorCode": "S1",
-      "category": "elevator_adjacent_car_door",
-      "differenceKinds": [
-        "coverage_gap"
-      ],
-      "normalizedValues": {
-        "stationElevatorCarNumber": [
-          "5-4",
-          "6-1"
-        ],
-        "stationElevator": [],
-        "SeoulMetroFaciInfo": [
-          "5-4",
-          "6-1"
-        ]
-      },
-      "apiResponses": {
-        "stationElevatorCarNumber": [
-          {
-            "railOprIsttCd": "S1",
-            "lnCd": "4",
-            "stinCd": "409",
-            "plfNo": 1,
-            "trnClsfCd": "A0",
-            "trnClsfNm": "일반열차",
-            "carOrdr": 6,
-            "carEtrcNo": 1
-          },
-          {
-            "railOprIsttCd": "S1",
-            "lnCd": "4",
-            "stinCd": "409",
-            "plfNo": 2,
-            "trnClsfCd": "A0",
-            "trnClsfNm": "일반열차",
-            "carOrdr": 5,
-            "carEtrcNo": 4
-          }
-        ],
-        "stationElevator": [],
-        "SeoulMetroFaciInfo": [
-          {
-            "STN_CD": "0409",
-            "STN_NM": "불암산",
-            "ELVTR_NM": "승강기)엘리베이터-당고개 1-4번 출구측 외부#1",
-            "OPR_SEC": "2F-3F",
-            "INSTL_PSTN": "별내별가람 방면6-1",
-            "USE_YN": "사용가능",
-            "ELVTR_SE": "EV"
-          },
-          {
-            "STN_CD": "0409",
-            "STN_NM": "불암산",
-            "ELVTR_NM": "승강기)엘리베이터-당고개 상행 6-1 내부#1",
-            "OPR_SEC": "2F-3F",
-            "INSTL_PSTN": "상계 방면5-4",
-            "USE_YN": "사용가능",
-            "ELVTR_SE": "EV"
-          }
-        ]
-      }
-    },
-    {
       "stationCode": "0410",
       "stationName": "상계",
       "stationKey": "S1:0410",
@@ -3241,6 +5272,7 @@
       "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -3248,7 +5280,10 @@
           "3-1",
           "8-4"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "2-4",
+          "8-4"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -3274,7 +5309,47 @@
             "carEtrcNo": 4
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "410",
+            "exitNo": "1,2",
+            "dtlLoc": "대합실(1,2번출구사이)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "410",
+            "exitNo": null,
+            "dtlLoc": "당고개방면2-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 11,
+            "rglnWgt": 825
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "410",
+            "exitNo": null,
+            "dtlLoc": "노원역방면8-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 11,
+            "rglnWgt": 825
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -3378,15 +5453,16 @@
       "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
-        "value_difference",
-        "coverage_gap"
+        "value_difference"
       ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "3-1",
           "8-4"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "8-4"
+        ],
         "SeoulMetroFaciInfo": [
           "8-4"
         ]
@@ -3414,7 +5490,47 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "411",
+            "exitNo": null,
+            "dtlLoc": "상계방면8-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "411",
+            "exitNo": "2",
+            "dtlLoc": "2번출구측",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "411",
+            "exitNo": "9",
+            "dtlLoc": "9번출구측",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": [
           {
             "STN_CD": "0411",
@@ -3435,11 +5551,18 @@
       "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
         "stationElevatorCarNumber": [],
-        "stationElevator": [],
+        "stationElevator": [
+          "2-4",
+          "3-2",
+          "6-1",
+          "8-2",
+          "8-4"
+        ],
         "SeoulMetroFaciInfo": [
           "2-4",
           "3-2",
@@ -3450,7 +5573,112 @@
       },
       "apiResponses": {
         "stationElevatorCarNumber": [],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": null,
+            "dtlLoc": "노원방면2-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": null,
+            "dtlLoc": "노원방면8-2",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": null,
+            "dtlLoc": "쌍문방면8-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": null,
+            "dtlLoc": "쌍문방면3-2",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": null,
+            "dtlLoc": "쌍문방면6-1(1호선소요산방면)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 21,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": null,
+            "dtlLoc": "쌍문방면6-1(1호선인천방면)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 21,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": "1",
+            "dtlLoc": "1번출구측",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "412",
+            "exitNo": "2",
+            "dtlLoc": "2번출구측",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": [
           {
             "STN_CD": "0412",
@@ -3564,6 +5792,19 @@
             "grndDvNmTo": "지하",
             "runStinFlorTo": 1,
             "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "413",
+            "exitNo": "1",
+            "dtlLoc": "1번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
             "rglnWgt": 1000
           }
         ],
@@ -4061,6 +6302,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 11,
             "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "415",
+            "exitNo": "1,2",
+            "dtlLoc": "1,2번출구사이",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -4680,6 +6934,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 13,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "417",
+            "exitNo": "5",
+            "dtlLoc": "5번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "417",
+            "exitNo": "4",
+            "dtlLoc": "4번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -4764,6 +7044,32 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 2,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 11,
+            "rglnWgt": 750
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "418",
+            "exitNo": "2",
+            "dtlLoc": "2번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "418",
+            "exitNo": "3",
+            "dtlLoc": "3번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 11,
             "rglnWgt": 750
@@ -5217,6 +7523,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "419",
+            "exitNo": "3,4",
+            "dtlLoc": "3,4번출구사이",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "419",
+            "exitNo": "5",
+            "dtlLoc": "5번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -5452,6 +7784,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "421",
+            "exitNo": "9",
+            "dtlLoc": "9번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -5461,7 +7806,7 @@
             "ELVTR_NM": "승강기)엘리베이터-동대문(4) 섬식(상) 6-3 내부#1",
             "OPR_SEC": "B4-B1",
             "INSTL_PSTN": "혜화 방면6-3,동대문역사문화공원 방면5-2",
-            "USE_YN": "보수중",
+            "USE_YN": "사용가능",
             "ELVTR_SE": "EV"
           }
         ]
@@ -5935,6 +8280,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 13,
             "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "422",
+            "exitNo": "4",
+            "dtlLoc": "4번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -6038,6 +8396,19 @@
             "runStinFlorTo": 2,
             "rglnPsno": 13,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "423",
+            "exitNo": "7",
+            "dtlLoc": "7번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 8,
+            "rglnWgt": 600
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -6091,6 +8462,19 @@
       "apiResponses": {
         "stationElevatorCarNumber": [],
         "stationElevator": [
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "424",
+            "exitNo": "1",
+            "dtlLoc": "1번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
           {
             "railOprIsttCd": "S1",
             "lnCd": "4",
@@ -6445,6 +8829,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "425",
+            "exitNo": "1",
+            "dtlLoc": "3,4,5번출구중심",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -6518,6 +8915,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 13,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "426",
+            "exitNo": "12",
+            "dtlLoc": "12번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 900
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -6602,6 +9012,19 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 2,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "427",
+            "exitNo": "10",
+            "dtlLoc": "10번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
@@ -7771,6 +10194,45 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "430",
+            "exitNo": "1",
+            "dtlLoc": "1번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "430",
+            "exitNo": "2",
+            "dtlLoc": "2번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 17,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "430",
+            "exitNo": "1",
+            "dtlLoc": "환승통로",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 21,
+            "rglnWgt": 1600
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -8223,15 +10685,17 @@
       "railOperatorCode": "S1",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
-        "value_difference",
-        "coverage_gap"
+        "value_difference"
       ],
       "normalizedValues": {
         "stationElevatorCarNumber": [
           "4-4",
           "7-4"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-4",
+          "7-4"
+        ],
         "SeoulMetroFaciInfo": [
           "7-4"
         ]
@@ -8259,7 +10723,34 @@
             "carEtrcNo": 4
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "431",
+            "exitNo": null,
+            "dtlLoc": "이촌방면7-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 10,
+            "rglnWgt": 750
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "431",
+            "exitNo": null,
+            "dtlLoc": "총신대입구방면4-4",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 11,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": [
           {
             "STN_CD": "0431",
@@ -8342,6 +10833,32 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 2,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "432",
+            "exitNo": "1",
+            "dtlLoc": "1번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "432",
+            "exitNo": "14",
+            "dtlLoc": "14번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
@@ -8830,6 +11347,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": 13,
             "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "433",
+            "exitNo": "9,10",
+            "dtlLoc": "9,10번출구사이",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -9165,6 +11695,32 @@
             "runStinFlorTo": 2,
             "rglnPsno": 11,
             "rglnWgt": 750
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "434",
+            "exitNo": "1",
+            "dtlLoc": "1번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "S1",
+            "lnCd": "4",
+            "stinCd": "434",
+            "exitNo": "2",
+            "dtlLoc": "2번출구측",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": [
@@ -9493,6 +12049,19 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 2,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "435",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출구뒤",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
@@ -9989,6 +12558,32 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "436",
+            "exitNo": "5",
+            "dtlLoc": "(B1)5번출입구방향옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "436",
+            "exitNo": "2",
+            "dtlLoc": "(B1)2번출입구방향옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -10453,6 +13048,19 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 2,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "437",
+            "exitNo": "1",
+            "dtlLoc": "(B1)북쪽맞이방1번출구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
@@ -11091,7 +13699,10 @@
           "4-3",
           "7-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-3",
+          "7-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -11117,7 +13728,73 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "438",
+            "exitNo": null,
+            "dtlLoc": "(B2)대공원역방향승강장4-3출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "438",
+            "exitNo": null,
+            "dtlLoc": "(B2)정부청사역방향승강장7-2출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "438",
+            "exitNo": "2",
+            "dtlLoc": "(1F)2번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "438",
+            "exitNo": "5",
+            "dtlLoc": "(1F)5번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "438",
+            "exitNo": "7",
+            "dtlLoc": "(1F)7번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -11742,7 +14419,8 @@
           "7-3"
         ],
         "stationElevator": [
-          "4-1"
+          "4-1",
+          "7-4"
         ],
         "SeoulMetroFaciInfo": []
       },
@@ -11774,6 +14452,19 @@
             "railOprIsttCd": "KR",
             "lnCd": "4",
             "stinCd": "439",
+            "exitNo": "7-4",
+            "dtlLoc": "(B1)남쪽맞이방(B2)상7-4",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 2,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "439",
             "exitNo": null,
             "dtlLoc": "(B1)남쪽맞이방(B2)하4-1",
             "grndDvNmFr": "지하",
@@ -11782,6 +14473,45 @@
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "439",
+            "exitNo": "1",
+            "dtlLoc": "1,2번출입구중앙",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "439",
+            "exitNo": "5",
+            "dtlLoc": "5번출입구",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "439",
+            "exitNo": "8",
+            "dtlLoc": "8번출입구",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1150
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -12282,6 +15012,19 @@
             "railOprIsttCd": "KR",
             "lnCd": "4",
             "stinCd": "440",
+            "exitNo": "3",
+            "dtlLoc": "(1F)2번/3번출입구사이엘리베이터,3번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "440",
             "exitNo": null,
             "dtlLoc": "(B1)4번/5번출입구방향",
             "grndDvNmFr": "지하",
@@ -12290,6 +15033,19 @@
             "runStinFlorTo": 1,
             "rglnPsno": null,
             "rglnWgt": 900
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "440",
+            "exitNo": "4",
+            "dtlLoc": "(1F)4번/5번출입구사이엘리베이터,4번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           },
           {
             "railOprIsttCd": "KR",
@@ -12624,6 +15380,19 @@
             "runStinFlorTo": 2,
             "rglnPsno": 15,
             "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "441",
+            "exitNo": "1",
+            "dtlLoc": "(1F)1번출입구광장분수대옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
           }
         ],
         "SeoulMetroFaciInfo": []
@@ -12942,6 +15711,19 @@
             "grndDvNmFr": "지하",
             "runStinFlorFr": 2,
             "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "442",
+            "exitNo": "6",
+            "dtlLoc": "6번출입구옆",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
             "runStinFlorTo": 1,
             "rglnPsno": 15,
             "rglnWgt": 1000
@@ -13584,7 +16366,21 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "443",
+            "exitNo": null,
+            "dtlLoc": "(2F)북부역사이동통로(1F)구안산선승강장",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -14129,7 +16925,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "exitNo": "1,2,3",
+            "dtlLoc": "(1F)1번출구,2번출구사이중앙(2F)3번,4번출구사이십자통로(3F)이디아카페왼쪽",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 24,
+            "rglnWgt": 1600
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "exitNo": null,
+            "dtlLoc": "(3F)동쪽표내는곳내부상행에스컬레이터앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 4,
+            "rglnPsno": null,
+            "rglnWgt": 450
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "exitNo": null,
+            "dtlLoc": "(3F)동쪽표내는곳내부하행에스컬레이터앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 3,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 4,
+            "rglnPsno": null,
+            "rglnWgt": 450
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -14238,366 +17074,6 @@
           }
         ],
         "stationPlatformTrainDistance": [
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 3,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 3,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 3,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 2,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 1,
-            "sfDst": 8
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 2,
-            "sfDst": 8
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 3,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "444",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
           {
             "railOprIsttCd": "KR",
             "lnCd": "4",
@@ -14957,6 +17433,366 @@
             "carOrdr": 10,
             "carEtrcNo": 4,
             "sfDst": 8
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 3,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 3,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 3,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 2,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 1,
+            "sfDst": 8
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 2,
+            "sfDst": 8
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 3,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "444",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 4,
+            "sfDst": 5
           }
         ]
       }
@@ -15463,7 +18299,10 @@
           "4-4",
           "7-1"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-4",
+          "7-1"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -15489,7 +18328,60 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "445",
+            "exitNo": null,
+            "dtlLoc": "(1층)산본역방향승강장7-1출입문앞>(2층)표내는곳내계단옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "445",
+            "exitNo": null,
+            "dtlLoc": "(1층)대야미역방향승강장4-4출입문앞>(2층)표내는곳내계단옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "445",
+            "exitNo": "2",
+            "dtlLoc": "(1층)2번출입구앞>(2층)맞이방",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "445",
+            "exitNo": "1",
+            "dtlLoc": "(1층)1번출입구앞>(2층)맞이방",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -15811,6 +18703,7 @@
       "railOperatorCode": "KR",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -15818,7 +18711,10 @@
           "5-2",
           "6-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "5-4",
+          "6-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -15844,7 +18740,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "446",
+            "exitNo": "2",
+            "dtlLoc": "(2층),수리산역,당고개방향승강장,6-2,출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "446",
+            "exitNo": "1",
+            "dtlLoc": "(2층),반월역,오이도방향승강장,5-4,출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -16147,6 +19070,7 @@
       "railOperatorCode": "KR",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -16154,7 +19078,10 @@
           "4-2",
           "7-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-2",
+          "7-3"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -16180,7 +19107,47 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "447",
+            "exitNo": null,
+            "dtlLoc": "(B1)대야미역방향승강장지하연결통로(1F)대야미역방향승강장7-3출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "447",
+            "exitNo": null,
+            "dtlLoc": "(B1)상록수역방향승강장지하연결통로(1F)상록수역방향승강장4-2출입문앞",
+            "grndDvNmFr": "지하",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "447",
+            "exitNo": "1",
+            "dtlLoc": "(B1)당고개/오이도방향승강장지하연결통로(1F)1번출입구방향",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지하",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -16843,7 +19810,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "exitNo": "2",
+            "dtlLoc": "(1층)표내는곳내반월방향계단옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "exitNo": "1",
+            "dtlLoc": "(1층)표내는곳내한대앞방향계단옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -16952,366 +19946,6 @@
           }
         ],
         "stationPlatformTrainDistance": [
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 3,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 2,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "448",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
           {
             "railOprIsttCd": "KR",
             "lnCd": "4",
@@ -17668,6 +20302,366 @@
             "lnCd": "4",
             "stinCd": "448",
             "plfNo": 1,
+            "carOrdr": 10,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 3,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 2,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "448",
+            "plfNo": 2,
             "carOrdr": 10,
             "carEtrcNo": 4,
             "sfDst": 5
@@ -18249,6 +21243,7 @@
       "railOperatorCode": "KR",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -18256,7 +21251,10 @@
           "5-3",
           "6-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "5-2",
+          "6-3"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -18282,7 +21280,47 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "449",
+            "exitNo": null,
+            "dtlLoc": "(1층)상록수역방향승강장6-3",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "449",
+            "exitNo": null,
+            "dtlLoc": "(1층)중앙역방향승강장5-2",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "449",
+            "exitNo": "2",
+            "dtlLoc": "(2층)2번출입구방향",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -18677,7 +21715,34 @@
             "carEtrcNo": 2
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "450",
+            "exitNo": "1",
+            "dtlLoc": "(1층)1번출입구옆(2층)한대앞역방향승강장4-3출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "450",
+            "exitNo": "2",
+            "dtlLoc": "(1층)2번출입구옆(2층)고잔역방향승강장7-2출입문앞",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -19039,6 +22104,7 @@
       "railOperatorCode": "KR",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -19046,7 +22112,10 @@
           "5-1",
           "6-4"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "5-3",
+          "6-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -19072,7 +22141,34 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "451",
+            "exitNo": "1",
+            "dtlLoc": "(2F)중앙역방향5-3출입문앞(1F)고객맞이방화장실옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "451",
+            "exitNo": "1",
+            "dtlLoc": "(2F)초지역방향6-2출입문앞(1F)고객맞이방화장실옆",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -19309,6 +22405,7 @@
       "railOperatorCode": "KR",
       "category": "elevator_adjacent_car_door",
       "differenceKinds": [
+        "value_difference",
         "coverage_gap"
       ],
       "normalizedValues": {
@@ -19316,7 +22413,9 @@
           "4-2",
           "5-1"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "5-4"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -19342,7 +22441,34 @@
             "carEtrcNo": 1
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "452",
+            "exitNo": "1",
+            "dtlLoc": "(2F)고잔역방향승강장5-4출입문앞(1F)맞이방통로고잔역방향(기존계단철거)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1150
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "452",
+            "exitNo": "1",
+            "dtlLoc": "(2F)안산역방향승강장5-4출입문앞(1F)맞이방통로고잔역방향(기존계단철거)",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1150
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -19668,7 +22794,10 @@
           "4-3",
           "7-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-3",
+          "7-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -19714,7 +22843,34 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "exitNo": null,
+            "dtlLoc": "(1층)초지역방향승강장7-2출입문앞(2층)자유통로상행표내는곳내",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "exitNo": null,
+            "dtlLoc": "(1층)신길온천역방향승강장4-3출입문앞(2층)자유통로하행표내는곳내",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -19823,366 +22979,6 @@
           }
         ],
         "stationPlatformTrainDistance": [
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 2,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 2,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 1,
-            "sfDst": 8
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 3,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 1,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 3,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "453",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
           {
             "railOprIsttCd": "KR",
             "lnCd": "4",
@@ -20542,6 +23338,366 @@
             "carOrdr": 10,
             "carEtrcNo": 4,
             "sfDst": 3
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 2,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 2,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 1,
+            "sfDst": 8
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 3,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 1,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 3,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "453",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 4,
+            "sfDst": 5
           }
         ]
       }
@@ -21073,7 +24229,60 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "454",
+            "exitNo": "1",
+            "dtlLoc": "(1층)1번출구계단하부와자전거거치대사이(2층)자유통로1번출구상단입구",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "454",
+            "exitNo": "2",
+            "dtlLoc": "(1층)2번출구계단하부와자전거거치대사이(2층)자유통로2번출구상단입구",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "454",
+            "exitNo": "1",
+            "dtlLoc": "(1층)오이도역방향승강장8-1출입문앞(2층)대합실1번출구방향",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "454",
+            "exitNo": "2",
+            "dtlLoc": "(1층)안산역방향승강장3-4출입문앞(2층)대합실2번출구방향",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 1,
+            "rglnPsno": 15,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -21468,7 +24677,34 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "455",
+            "exitNo": "2",
+            "dtlLoc": "(1F)개집표구진입후당고개,수원방향E/S근처",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "455",
+            "exitNo": "1",
+            "dtlLoc": "(1F)개집표구진입후오이도,인천방향E/S근처",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 2,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -21809,7 +25045,10 @@
           "4-3",
           "7-2"
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          "4-3",
+          "7-2"
+        ],
         "SeoulMetroFaciInfo": []
       },
       "apiResponses": {
@@ -21855,7 +25094,60 @@
             "carEtrcNo": 3
           }
         ],
-        "stationElevator": [],
+        "stationElevator": [
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "exitNo": "2",
+            "dtlLoc": "(1층)2번출입구옆(3층)맞이방",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "exitNo": "3",
+            "dtlLoc": "(1층)3번출입구옆(3층)맞이방",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 10,
+            "rglnWgt": 750
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "exitNo": null,
+            "dtlLoc": "(1층)정왕역방향승강장4-3출입문앞(3층)맞이방",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "exitNo": null,
+            "dtlLoc": "(1층)달월역방향승강장7-2출입문앞(3층)맞이방",
+            "grndDvNmFr": "지상",
+            "runStinFlorFr": 1,
+            "grndDvNmTo": "지상",
+            "runStinFlorTo": 3,
+            "rglnPsno": 13,
+            "rglnWgt": 1000
+          }
+        ],
         "SeoulMetroFaciInfo": []
       }
     },
@@ -21968,366 +25260,6 @@
             "railOprIsttCd": "KR",
             "lnCd": "4",
             "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 2,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 3,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 1,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 2,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 2,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 3,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 2,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 3,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 4,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 2,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 3,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 5,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 1,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 6,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 7,
-            "carEtrcNo": 4,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 2,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 3,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 8,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 1,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 2,
-            "sfDst": 4
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 3,
-            "sfDst": 7
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 9,
-            "carEtrcNo": 4,
-            "sfDst": 5
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 1,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 2,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 3,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
-            "plfNo": 2,
-            "carOrdr": 10,
-            "carEtrcNo": 4,
-            "sfDst": 6
-          },
-          {
-            "railOprIsttCd": "KR",
-            "lnCd": "4",
-            "stinCd": "456",
             "plfNo": 1,
             "carOrdr": 1,
             "carEtrcNo": 1,
@@ -22683,6 +25615,366 @@
             "carOrdr": 10,
             "carEtrcNo": 4,
             "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 2,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 3,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 1,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 2,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 2,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 3,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 2,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 3,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 4,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 2,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 3,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 5,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 1,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 6,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 7,
+            "carEtrcNo": 4,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 2,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 3,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 8,
+            "carEtrcNo": 4,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 1,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 2,
+            "sfDst": 4
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 3,
+            "sfDst": 7
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 9,
+            "carEtrcNo": 4,
+            "sfDst": 5
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 1,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 2,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 3,
+            "sfDst": 6
+          },
+          {
+            "railOprIsttCd": "KR",
+            "lnCd": "4",
+            "stinCd": "456",
+            "plfNo": 2,
+            "carOrdr": 10,
+            "carEtrcNo": 4,
+            "sfDst": 6
           }
         ]
       }

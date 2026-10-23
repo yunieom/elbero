@@ -9,6 +9,7 @@ const configs = [
     lineName: "1호선",
     network: "line-1",
     preferredDoorPriority: true,
+    expectedRawStationCount: 102,
   },
   {
     stem: "airport-railroad",
@@ -31,6 +32,7 @@ const configs = [
     lineName: "6호선",
     loop: "line-6",
     preferredDoorPriority: true,
+    expectedRawStationCount: 39,
   },
   {
     stem: "line-8",
@@ -45,6 +47,7 @@ const configs = [
     output: "apps/api/src/journey/data/line-9-guidance.generated.ts",
     lineName: "9호선",
     preferredDoorPriority: true,
+    expectedRawStationCount: 38,
   },
   {
     stem: "gimpo-goldline",
@@ -59,8 +62,7 @@ const configs = [
   {
     stem: "shinbundang-line",
     constantName: "SHINBUNDANG_LINE_GUIDANCE",
-    output:
-      "apps/api/src/journey/data/shinbundang-line-guidance.generated.ts",
+    output: "apps/api/src/journey/data/shinbundang-line-guidance.generated.ts",
     lineName: "신분당선",
     rawMovementExits: true,
   },
@@ -74,8 +76,23 @@ const configs = [
   },
 ];
 
-for (const config of configs) {
-  const rawDirectory = await findLatestRawDirectory(config.stem);
+const requestedStems = new Set(process.argv.slice(2));
+const selectedConfigs =
+  requestedStems.size === 0
+    ? configs
+    : configs.filter((config) => requestedStems.has(config.stem));
+
+if (requestedStems.size > 0 && selectedConfigs.length !== requestedStems.size) {
+  const known = new Set(configs.map((config) => config.stem));
+  const unknown = [...requestedStems].filter((stem) => !known.has(stem));
+  throw new Error(`지원하지 않는 생성 대상: ${unknown.join(", ")}`);
+}
+
+for (const config of selectedConfigs) {
+  const rawDirectory = await findLatestRawDirectory(
+    config.stem,
+    config.expectedRawStationCount,
+  );
   const [raw, audit] = await Promise.all([
     readJson(resolve(rawDirectory, "kric.json")),
     readJson(resolve(`data/research/line-sync/${config.stem}-latest.json`)),
@@ -155,7 +172,9 @@ for (const config of configs) {
     );
     const manualSurfaceExit =
       manualSurfaceExitsByIdentity.get(identity) ??
-      manualSurfaceExitsByIdentity.get(`:${normalizeCode(routeStation.stinCd)}`);
+      manualSurfaceExitsByIdentity.get(
+        `:${normalizeCode(routeStation.stinCd)}`,
+      );
     const exitNumbers =
       manualSurfaceExit?.exitNumbers ??
       selectExitNumbers(
@@ -404,18 +423,18 @@ function extractMovementExitNumbers(rows) {
 
 function extractElevatorMovementExitNumbers(rows) {
   return extractExitNumbers(
-    rows
-      .filter((row) => row.mvPathDvCd === "1")
-      .map((row) => row.mvContDtl),
+    rows.filter((row) => row.mvPathDvCd === "1").map((row) => row.mvContDtl),
   );
 }
 
 function extractExitNumbers(values) {
   return uniqueSorted(
     values.flatMap((value) =>
-      [...String(value ?? "").matchAll(/(\d+(?:-\d+)?)\s*번\s*출(?:입구|구)/gu)].map(
-        (match) => match[1],
-      ),
+      [
+        ...String(value ?? "").matchAll(
+          /(\d+(?:-\d+)?)\s*번\s*출(?:입구|구)/gu,
+        ),
+      ].map((match) => match[1]),
     ),
   );
 }
@@ -594,7 +613,8 @@ function buildGtxAPaths(route, codeByIdentity) {
     terminals: [names[0], names.at(-1)],
     stationCodes: names.map((name) => {
       const code = codeByName.get(name);
-      if (!code) throw new Error(`GTX-A 경로에서 ${name} 역을 찾을 수 없습니다.`);
+      if (!code)
+        throw new Error(`GTX-A 경로에서 ${name} 역을 찾을 수 없습니다.`);
       return code;
     }),
   });
@@ -639,14 +659,17 @@ function buildLine6Layout(route, codeByIdentity) {
 }
 
 function buildLine6Neighbors(layout) {
-  const result = buildNeighbors([
-    { stationCodes: layout.mainStationCodes },
-    { stationCodes: layout.loopStationCodes },
-  ]);
-  const loopStart = layout.loopStationCodes[0];
-  const loopEnd = layout.loopStationCodes.at(-1);
-  result.get(loopStart)?.add(loopEnd);
-  result.get(loopEnd)?.add(loopStart);
+  const result = buildNeighbors([{ stationCodes: layout.mainStationCodes }]);
+  for (const code of layout.loopStationCodes) {
+    if (!result.has(code)) result.set(code, new Set());
+  }
+  layout.loopStationCodes.forEach((code, index) => {
+    result
+      .get(code)
+      .add(
+        layout.loopStationCodes[(index + 1) % layout.loopStationCodes.length],
+      );
+  });
   return result;
 }
 
@@ -699,6 +722,7 @@ function selectTerminalForNeighbor({
 
 function normalizeName(value) {
   return String(value ?? "")
+    .replace(/\([^)]*\)/gu, "")
     .replace(/\s+/gu, "")
     .replace(/역$/u, "");
 }
@@ -709,14 +733,30 @@ function uniqueSorted(values) {
   );
 }
 
-async function findLatestRawDirectory(stem) {
+async function findLatestRawDirectory(stem, expectedStationCount) {
   const root = resolve("data/research/line-sync/raw");
-  const directory = (await readdir(root, { withFileTypes: true }))
+  const directories = (await readdir(root, { withFileTypes: true }))
     .filter((entry) => entry.isDirectory() && entry.name.startsWith(`${stem}-`))
     .map((entry) => entry.name)
     .toSorted()
-    .at(-1);
-  if (!directory) throw new Error(`${stem} 원천 수집 데이터가 없습니다.`);
+    .toReversed();
+  let directory = expectedStationCount ? undefined : directories[0];
+  if (expectedStationCount) {
+    for (const candidate of directories) {
+      const raw = await readJson(resolve(root, candidate, "kric.json"));
+      if ((raw.route?.body?.length ?? 0) >= expectedStationCount) {
+        directory = candidate;
+        break;
+      }
+    }
+  }
+  if (!directory) {
+    throw new Error(
+      expectedStationCount
+        ? `${stem} ${expectedStationCount}역을 포함한 원천 수집 데이터가 없습니다.`
+        : `${stem} 원천 수집 데이터가 없습니다.`,
+    );
+  }
   return resolve(root, directory);
 }
 

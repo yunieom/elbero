@@ -7,6 +7,77 @@ const sections = [];
 let totalDirectionCount = 0;
 let totalExitCount = 0;
 
+const runtimeGuidanceModules = [
+  [
+    '1',
+    '../../apps/api/src/journey/data/line-1-network-guidance.generated.ts',
+    'LINE_1_NETWORK_GUIDANCE',
+  ],
+  [
+    '2',
+    '../../apps/api/src/journey/data/line-2-guidance.generated.ts',
+    'LINE_2_GUIDANCE',
+  ],
+  [
+    '3',
+    '../../apps/api/src/journey/data/line-3-guidance.generated.ts',
+    'LINE_3_GUIDANCE',
+  ],
+  [
+    '4',
+    '../../apps/api/src/journey/data/line-4-guidance.generated.ts',
+    'LINE_4_GUIDANCE',
+  ],
+  [
+    '5',
+    '../../apps/api/src/journey/data/line-5-guidance.generated.ts',
+    'LINE_5_GUIDANCE',
+  ],
+  [
+    '6',
+    '../../apps/api/src/journey/data/line-6-loop-guidance.generated.ts',
+    'LINE_6_LOOP_GUIDANCE',
+  ],
+  [
+    '7',
+    '../../apps/api/src/journey/data/line-7-guidance.generated.ts',
+    'LINE_7_GUIDANCE',
+  ],
+  [
+    '8',
+    '../../apps/api/src/journey/data/line-8-guidance.generated.ts',
+    'LINE_8_GUIDANCE',
+  ],
+  [
+    '9',
+    '../../apps/api/src/journey/data/line-9-guidance.generated.ts',
+    'LINE_9_GUIDANCE',
+  ],
+];
+const runtimeDoorGaps = [];
+for (const [lineId, modulePath, exportName] of runtimeGuidanceModules) {
+  const guidance = (await import(modulePath))[exportName];
+  for (const station of guidance.stations) {
+    for (const direction of station.directions ?? []) {
+      if ((direction.recommendedDoors ?? []).length > 0) continue;
+      runtimeDoorGaps.push({
+        lineId,
+        stationCode: station.stationCode,
+        stationName: station.stationName,
+        toward: direction.toward,
+        reason: direction.sharedFacilityLine
+          ? `${direction.sharedFacilityLine}호선 공용 시설이며 방향별 차량·문 원천값 없음`
+          : 'stationElevator·stationElevatorCarNumber 재조회 후보 없음',
+      });
+    }
+  }
+}
+const runtimeDoorGapStations = new Set(
+  runtimeDoorGaps.map(
+    (item) => `${item.lineId}:${item.stationCode}:${item.stationName}`,
+  ),
+).size;
+
 const metropolitanQueue = await readOptionalJson(
   resolve('data/verification/metropolitan-verification-queue.json'),
 );
@@ -44,7 +115,11 @@ for (const lineId of lineIds) {
 
   const directions = data.stations.flatMap((station) =>
     station.directions
-      .filter((direction) => needsDirectionVerification(direction))
+      .filter(
+        (direction) =>
+          direction.recommendedDoors.length === 0 ||
+          needsDirectionVerification(direction),
+      )
       .map((direction) => ({
         stationCode: station.stationCode,
         stationName: station.stationName,
@@ -80,24 +155,13 @@ for (const lineId of lineIds) {
   );
 }
 
-const expansionSections = [];
-for (const lineId of ['8', '9']) {
-  const readiness = await readOptionalJson(
-    resolve(`data/verification/line-${lineId}-api-consensus.json`),
-  );
-  if (!readiness) continue;
-  totalDirectionCount += readiness.pendingDirectionDoorReview.length;
-  totalExitCount += readiness.pendingSurfaceExitConflicts.length;
-  expansionSections.push(renderExpansionLineSection(readiness));
-}
-
 const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
 - 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 1호선 상태: 분기형 경로 어댑터와 운영기관별 고유 역 코드 연결 완료
-- 현재 구현 노선의 방향별 차량·문 또는 이격거리 확인 필요: ${totalDirectionCount}역·건
+- 1~9호선 방향별 차량·문 재확인 필요: ${runtimeDoorGapStations}역·${runtimeDoorGaps.length}방향
 - 현재 구현 노선의 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
 
 ## 판정 기준
@@ -107,6 +171,14 @@ const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목
 - 방향별 차량·문이 없거나, 선택한 문과 이격거리 레코드가 연결되지 않거나, 안전 경로 검증 상태가 거짓인 경우만 기록한다.
 - 지상 엘리베이터 출구 번호가 없더라도 다른 호선 이용으로 확정한 역은 제외한다.
 - 이 문서는 생성 데이터에서 자동 산출한다. 같은 감사를 반복하지 말고 \`npm run verification:pending-guidance\`로 갱신한다.
+
+## 1~9호선 방향별 차량·문 재확인
+
+최신 KRIC \`stationElevator\`를 우선하고, 값이 없을 때 \`stationElevatorCarNumber\`까지 연결한 뒤에도 남은 항목이다.
+
+| 노선 | 역 | 진행 방향 | 남은 이유 |
+| --- | --- | --- | --- |
+${renderRuntimeDoorGaps(runtimeDoorGaps)}
 
 ## 전체 노선 요약
 
@@ -122,12 +194,12 @@ ${metropolitanSummary}
 - 사용자 방향별 차량·문 검토 반영: ${line1Manual?.directionalDoorReviews?.length ?? 0}역
 - 사용자 이격거리 확인값 반영: ${line1Manual?.gapOverrides?.length ?? 0}역
 - 지상 엘리베이터 출구 충돌: ${line1Pending?.surfaceExitConflicts?.length ?? 0}역
-- 방향별 차량·문 확인: ${line1Pending?.directionDoorChecks?.length ?? 0}역
+- 방향별 차량·문 확인: ${runtimeDoorGaps.filter((item) => item.lineId === '1').length}방향
 - 승강장·문·이격거리 연결 확인: ${line1Pending?.gapLinkageChecks?.length ?? 0}역
 - 이격거리 값 없음: ${line1Pending?.gapSummary?.missing ?? 0}건
 - 검토 완료값 원본: [1호선 사용자 검증 데이터](../../data/verification/line-1-manual-verification.json)
 
-${renderMetropolitanTables(line1Pending)}
+${renderMetropolitanTables(line1Pending, runtimeDoorChecksForLine('1'))}
 
 ## 6·8·9호선 반영 상태
 
@@ -143,8 +215,6 @@ ${renderMetropolitanTables(line1Pending)}
 - 검토 완료값 원본: [신분당선](../../data/verification/shinbundang-line-manual-verification.json), [GTX-A](../../data/verification/gtx-a-manual-verification.json)
 
 ${sections.join('\n\n')}
-
-${expansionSections.join('\n\n')}
 
 ${metropolitanExpansionSections.join('\n\n')}
 `;
@@ -168,6 +238,16 @@ function needsDirectionVerification(direction) {
     (direction.gapVerificationStatus !== 'source_unavailable' &&
       (direction.doorGaps ?? []).some(({ gap }) => !gap))
   );
+}
+
+function renderRuntimeDoorGaps(items) {
+  if (items.length === 0) return '| 없음 | - | - | - |';
+  return items
+    .map(
+      (item) =>
+        `| ${item.lineId}호선 | ${item.stationName} (${item.stationCode}) | ${item.toward} 방향 | ${item.reason} |`,
+    )
+    .join('\n');
 }
 
 function directionIssue(direction) {
@@ -282,11 +362,18 @@ function renderMetropolitanSummary(lines) {
     .toSorted(
       (left, right) =>
         (statusOrder[left.line.status] ?? 99) -
-          (statusOrder[right.line.status] ?? 99) ||
-        left.index - right.index,
+          (statusOrder[right.line.status] ?? 99) || left.index - right.index,
     )
     .map(({ line }) => {
       const counts = metropolitanPendingCounts(line);
+      const lineId = line.name.match(/^(\d+)호선$/u)?.[1];
+      if (lineId && Number(lineId) >= 1 && Number(lineId) <= 9) {
+        counts.door = new Set(
+          runtimeDoorGaps
+            .filter((item) => item.lineId === lineId)
+            .map((item) => `${item.stationCode}:${item.stationName}`),
+        ).size;
+      }
       const knownSourceGapStations = new Set(
         (line.knownSourceGaps ?? []).map(
           (station) =>
@@ -298,6 +385,18 @@ function renderMetropolitanSummary(lines) {
     .join('\n');
 }
 
+function runtimeDoorChecksForLine(lineId) {
+  return runtimeDoorGaps
+    .filter((item) => item.lineId === lineId)
+    .map((item) => ({
+      stationCode: item.stationCode,
+      stationName: `${item.stationName} → ${item.toward}`,
+      reason: 'both_door_apis_missing',
+      verifiedDirections: [],
+      sourceValues: {},
+    }));
+}
+
 function renderMetropolitanLineSection(line) {
   return `## ${line.name} · ${line.status === 'verified_supported' ? '지원 중 · 알려진 데이터 공백' : metropolitanStatusDescription(line.status)}
 
@@ -307,8 +406,10 @@ function renderMetropolitanLineSection(line) {
 ${renderMetropolitanTables(line)}`;
 }
 
-function renderMetropolitanTables(line) {
+function renderMetropolitanTables(line, directionDoorOverride) {
   if (!line) return '원본 검증 큐가 없어 상세 목록을 생성하지 못했습니다.';
+
+  const directionDoorChecks = directionDoorOverride ?? line.directionDoorChecks;
 
   const exitRows = line.surfaceExitConflicts.length
     ? line.surfaceExitConflicts
@@ -318,8 +419,8 @@ function renderMetropolitanTables(line) {
         )
         .join('\n')
     : '| 없음 | - |';
-  const doorRows = line.directionDoorChecks.length
-    ? line.directionDoorChecks
+  const doorRows = directionDoorChecks.length
+    ? directionDoorChecks
         .map(
           (station) =>
             `| ${metropolitanStationLabel(station)} | ${metropolitanDoorReason(station)} | ${formatVerifiedDirections(station.verifiedDirections)} | ${formatSourceValues(station.sourceValues)} |`,
@@ -341,7 +442,7 @@ function renderMetropolitanTables(line) {
 | --- | --- |
 ${exitRows}
 
-### 방향별 차량·문 확인 (${line.directionDoorChecks.length}역)
+### 방향별 차량·문 확인 (${directionDoorChecks.length}방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -365,11 +466,10 @@ function renderStationElevatorDetails(line) {
         .map(
           (station) =>
             `| ${metropolitanStationLabel(station)} | ${station.candidates
-              .map(
-                (candidate) =>
-                  candidate.directionLabel
-                    ? `${candidate.directionLabel} 방향 · ${candidate.door}`
-                    : `${candidate.location ?? '방향 미표기'} · ${candidate.door}`,
+              .map((candidate) =>
+                candidate.directionLabel
+                  ? `${candidate.directionLabel} 방향 · ${candidate.door}`
+                  : `${candidate.location ?? '방향 미표기'} · ${candidate.door}`,
               )
               .join('<br>')} |`,
         )

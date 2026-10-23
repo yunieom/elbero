@@ -8,6 +8,11 @@
       "stationName": "응암",
       "directions": [
         {
+          "toward": "새절",
+          "recommendedDoors": ["5-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23: 구산에서 진입해 새절 방면으로 이어지는 승강장"
+        },
+        {
           "toward": "구산",
           "recommendedDoors": ["4-2"],
           "evidence": "사용자 확인: 4-1은 red이므로 인접한 yellow 문 4-2로 안내"
@@ -146,6 +151,17 @@
           "toward": "신당",
           "recommendedDoors": ["6-1"],
           "evidence": "사용자 확인: 양방향 동일"
+        }
+      ]
+    },
+    {
+      "stationCode": "2637",
+      "stationName": "동묘앞",
+      "directions": [
+        {
+          "toward": "창신",
+          "recommendedDoors": ["1-1", "4-2"],
+          "evidence": "KRIC stationElevator 재수집 2026-10-23"
         }
       ]
     },

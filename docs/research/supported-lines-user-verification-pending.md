@@ -4,7 +4,7 @@
 - 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 1호선 상태: 분기형 경로 어댑터와 운영기관별 고유 역 코드 연결 완료
-- 현재 구현 노선의 방향별 차량·문 또는 이격거리 확인 필요: 0역·건
+- 1~9호선 방향별 차량·문 재확인 필요: 15역·30방향
 - 현재 구현 노선의 지상 엘리베이터 출구 확인 필요: 0역
 
 ## 판정 기준
@@ -15,19 +15,56 @@
 - 지상 엘리베이터 출구 번호가 없더라도 다른 호선 이용으로 확정한 역은 제외한다.
 - 이 문서는 생성 데이터에서 자동 산출한다. 같은 감사를 반복하지 말고 `npm run verification:pending-guidance`로 갱신한다.
 
+## 1~9호선 방향별 차량·문 재확인
+
+최신 KRIC `stationElevator`를 우선하고, 값이 없을 때 `stationElevatorCarNumber`까지 연결한 뒤에도 남은 항목이다.
+
+| 노선 | 역 | 진행 방향 | 남은 이유 |
+| --- | --- | --- | --- |
+| 1호선 | 망월사 (KR0112) | 회룡 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 망월사 (KR0112) | 도봉산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 창동 (KR0116) | 방학 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 창동 (KR0116) | 녹천 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 광운대 (KR0119) | 월계 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 광운대 (KR0119) | 석계 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 외대앞 (KR0122) | 신이문 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 외대앞 (KR0122) | 회기 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 남영 (KR0134) | 서울역 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 남영 (KR0134) | 용산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 노량진 (KR0136) | 용산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 노량진 (KR0136) | 대방 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 구로 (KR0141) | 신도림 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 구로 (KR0141) | 구일 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 구로 (KR0141) | 가산디지털단지 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 구일 (KR0142) | 구로 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 구일 (KR0142) | 개봉 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 석수 (KRP145) | 금천구청 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 석수 (KRP145) | 관악 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 화서 (KRP154) | 성균관대 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 화서 (KRP154) | 수원 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 탕정 (KRP173) | 아산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 탕정 (KRP173) | 배방 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 2호선 | 까치산 (234-4) | 신정네거리 방향 | 5호선 공용 시설이며 방향별 차량·문 원천값 없음 |
+| 4호선 | 별내별가람 (0408) | 오남 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 4호선 | 별내별가람 (0408) | 불암산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 9호선 | 노량진 (0917) | 샛강 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 9호선 | 노량진 (0917) | 노들 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 9호선 | 신논현 (0925) | 사평 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 9호선 | 신논현 (0925) | 언주 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+
 ## 전체 노선 요약
 
 | 노선 | 상태 | API 수집일 | 출구 충돌 | 차량·문 확인 | 이격거리 연결 | 원천 미제공 역 |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
-| 1호선 | 반영 완료 | 2026-10-20 | 0 | 0 | 0 | 0 |
-| 2호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
+| 1호선 | 반영 완료 | 2026-10-20 | 0 | 11 | 0 | 0 |
+| 2호선 | 반영 완료 | 2026-10-01 | 0 | 1 | 0 | 0 |
 | 3호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
-| 4호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 1 |
+| 4호선 | 반영 완료 | 2026-10-01 | 0 | 1 | 0 | 1 |
 | 5호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
 | 6호선 | 반영 완료 | 2026-09-18 | 0 | 0 | 0 | 0 |
 | 7호선 | 반영 완료 | 2026-10-01 | 0 | 0 | 0 | 0 |
 | 8호선 | 반영 완료 | 2026-10-22 | 0 | 0 | 0 | 0 |
-| 9호선 | 반영 완료 | 2026-09-18 | 0 | 0 | 0 | 0 |
+| 9호선 | 반영 완료 | 2026-09-18 | 0 | 2 | 0 | 0 |
 | 공항철도 | 반영 완료 | 2026-10-20 | 0 | 0 | 0 | 1 |
 | 신분당선 | 반영 완료 | 2026-10-13 | 0 | 0 | 0 | 0 |
 | 에버라인 | 반영 완료 | 2026-10-20 | 0 | 0 | 0 | 0 |
@@ -53,7 +90,7 @@
 - 사용자 방향별 차량·문 검토 반영: 13역
 - 사용자 이격거리 확인값 반영: 9역
 - 지상 엘리베이터 출구 충돌: 0역
-- 방향별 차량·문 확인: 0역
+- 방향별 차량·문 확인: 23방향
 - 승강장·문·이격거리 연결 확인: 0역
 - 이격거리 값 없음: 40건
 - 검토 완료값 원본: [1호선 사용자 검증 데이터](../../data/verification/line-1-manual-verification.json)
@@ -64,11 +101,33 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (0역)
+### 방향별 차량·문 확인 (23방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
-| 없음 | - | - | - |
+| 망월사 → 회룡 (KR0112) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 망월사 → 도봉산 (KR0112) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 창동 → 방학 (KR0116) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 창동 → 녹천 (KR0116) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 광운대 → 월계 (KR0119) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 광운대 → 석계 (KR0119) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 외대앞 → 신이문 (KR0122) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 외대앞 → 회기 (KR0122) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 남영 → 서울역 (KR0134) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 남영 → 용산 (KR0134) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 노량진 → 용산 (KR0136) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 노량진 → 대방 (KR0136) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 구로 → 신도림 (KR0141) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 구로 → 구일 (KR0141) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 구로 → 가산디지털단지 (KR0141) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 구일 → 구로 (KR0142) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 구일 → 개봉 (KR0142) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 석수 → 금천구청 (KRP145) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 석수 → 관악 (KRP145) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 화서 → 성균관대 (KRP154) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 화서 → 수원 (KRP154) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 탕정 → 아산 (KRP173) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 탕정 → 배방 (KRP173) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
 
 ### 승강장·문·이격거리 연결 확인 (0역)
 
@@ -91,11 +150,11 @@
 
 ## 2호선
 
-### 방향별 차량·문·이격거리 (0건)
+### 방향별 차량·문·이격거리 (1건)
 
 | 역 | 진행 방향 | 확인할 내용 |
 | --- | --- | --- |
-| 없음 | - | - |
+| 까치산 (234-4) | 신정네거리 방향 | 차량·문 없음 |
 
 ### 지상 엘리베이터 출구 (0역)
 
@@ -119,11 +178,12 @@
 
 ## 4호선
 
-### 방향별 차량·문·이격거리 (0건)
+### 방향별 차량·문·이격거리 (2건)
 
 | 역 | 진행 방향 | 확인할 내용 |
 | --- | --- | --- |
-| 없음 | - | - |
+| 별내별가람 (0408) | 오남 방향 | 차량·문 없음 |
+| 별내별가람 (0408) | 불암산 방향 | 차량·문 없음 |
 
 ### 지상 엘리베이터 출구 (0역)
 
@@ -165,34 +225,6 @@
 | --- | --- |
 | 없음 | - |
 
-## 8호선 · 경로 엔진 연결 전
-
-### 방향별 차량·문 (0역)
-
-| 역 | 확인 이유 | 확인 완료 방향 | 남은 방향 | API별 후보 |
-| --- | --- | --- | --- | --- |
-| 없음 | - | - | - | - |
-
-### 지상 엘리베이터 출구 (0역)
-
-| 역 | API별 값 |
-| --- | --- |
-| 없음 | - |
-
-## 9호선 · 경로 엔진 연결 전
-
-### 방향별 차량·문 (0역)
-
-| 역 | 확인 이유 | 확인 완료 방향 | 남은 방향 | API별 후보 |
-| --- | --- | --- | --- | --- |
-| 없음 | - | - | - | - |
-
-### 지상 엘리베이터 출구 (0역)
-
-| 역 | API별 값 |
-| --- | --- |
-| 없음 | - |
-
 ## 공항철도 · 지원 중 · 알려진 데이터 공백
 
 - API 수집: 2026-10-20T07:30:35.048Z
@@ -204,7 +236,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (0역)
+### 방향별 차량·문 확인 (0방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -233,7 +265,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (20역)
+### 방향별 차량·문 확인 (20방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -278,7 +310,7 @@
 | 만수 (0224, IC) | stationMovement: 2, 3, 4<br>stinElevatorMovement: 2, 3<br>stationElevator: 1, 4 |
 | 남동구청 (0225, IC) | stationMovement: 1, 3, 4<br>stinElevatorMovement: 1, 3<br>stationElevator: 1, 3 |
 
-### 방향별 차량·문 확인 (10역)
+### 방향별 차량·문 확인 (10방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -310,7 +342,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (6역)
+### 방향별 차량·문 확인 (6방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -338,7 +370,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (8역)
+### 방향별 차량·문 확인 (8방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -465,7 +497,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (1역)
+### 방향별 차량·문 확인 (1방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -493,7 +525,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (15역)
+### 방향별 차량·문 확인 (15방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -544,7 +576,7 @@
 | --- | --- |
 | 판교(판교테크노밸리) (K409, KR) | stationMovement: 1, 2, 3<br>stinElevatorMovement: 2, 3 |
 
-### 방향별 차량·문 확인 (12역)
+### 방향별 차량·문 확인 (12방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -578,7 +610,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (13역)
+### 방향별 차량·문 확인 (13방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -624,7 +656,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (13역)
+### 방향별 차량·문 확인 (13방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
@@ -659,7 +691,7 @@
 | --- | --- |
 | 없음 | - |
 
-### 방향별 차량·문 확인 (0역)
+### 방향별 차량·문 확인 (0방향)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
