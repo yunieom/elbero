@@ -351,7 +351,68 @@ ${doorRows}
 
 | 역 | 확인할 내용 |
 | --- | --- |
-${gapRows}${renderKnownSourceGaps(line)}`;
+${gapRows}${renderStationElevatorDetails(line)}${renderKnownSourceGaps(line)}`;
+}
+
+function renderStationElevatorDetails(line) {
+  const guidance = line.stationElevatorGuidance ?? [];
+  const missing = line.stationElevatorMissing ?? [];
+  const partial = line.stationElevatorPartial ?? [];
+  if (guidance.length === 0 && missing.length === 0 && partial.length === 0)
+    return '';
+  const guidanceRows = guidance.length
+    ? guidance
+        .map(
+          (station) =>
+            `| ${metropolitanStationLabel(station)} | ${station.candidates
+              .map(
+                (candidate) =>
+                  candidate.directionLabel
+                    ? `${candidate.directionLabel} 방향 · ${candidate.door}`
+                    : `${candidate.location ?? '방향 미표기'} · ${candidate.door}`,
+              )
+              .join('<br>')} |`,
+        )
+        .join('\n')
+    : '| 없음 | - |';
+  const missingRows = missing.length
+    ? missing
+        .map((station) => {
+          const fallback =
+            station.fallbackSource === 'stationElevatorCarNumber'
+              ? `stationElevatorCarNumber 대체값 ${station.fallbackDoors.join(', ')}`
+              : 'stationElevatorCarNumber도 없음';
+          return `| ${metropolitanStationLabel(station)} | ${fallback} |`;
+        })
+        .join('\n')
+    : '| 없음 | - |';
+  const partialRows = partial.length
+    ? partial
+        .map(
+          (station) =>
+            `| ${metropolitanStationLabel(station)} | ${station.missingDirections.join(', ')} 방향 |`,
+        )
+        .join('\n')
+    : '| 없음 | - |';
+  return `
+
+### stationElevator 방향별 차량·문 (${guidance.length}역)
+
+| 역 | stationElevator 원본 방향·차량·문 |
+| --- | --- |
+${guidanceRows}
+
+### stationElevator 차량·문 미제공 (${missing.length}역)
+
+| 역 | 대체 가능 여부 |
+| --- | --- |
+${missingRows}
+
+### stationElevator 일부 방향 미제공 (${partial.length}역)
+
+| 역 | 없는 방향 |
+| --- | --- |
+${partialRows}`;
 }
 
 function renderKnownSourceGaps(line) {
@@ -366,7 +427,7 @@ function renderKnownSourceGaps(line) {
 ${rows
   .map(
     (station) =>
-      `| ${metropolitanStationLabel(station)} | 승강장 ${station.platformNumbers?.join(', ') ?? '-'} · ${station.recommendedDoors?.join(', ') ?? '-'} 문 이격거리 | 수치·안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내 |`,
+      `| ${metropolitanStationLabel(station)} | 승강장 ${station.platformNumbers?.join(', ') ?? '-'} · ${station.recommendedDoors?.join(', ') ?? '-'} 문 이격거리 | 수치·안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내${station.evidence ? ` · 근거: ${station.evidence}` : ''} |`,
   )
   .join('\n')}`;
 }

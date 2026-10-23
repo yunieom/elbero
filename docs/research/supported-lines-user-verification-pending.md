@@ -1,6 +1,6 @@
 # 지원 노선 및 수도권 전철 사용자 검증 대기 목록
 
-- 생성일: 2026-10-22
+- 생성일: 2026-10-23
 - 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
 - 1호선 상태: 분기형 경로 어댑터와 운영기관별 고유 역 코드 연결 완료
@@ -34,7 +34,7 @@
 | 김포골드라인 | 반영 완료 | 2026-10-13 | 0 | 0 | 0 | 0 |
 | GTX-A | 반영 완료 | 2026-10-13 | 0 | 0 | 0 | 0 |
 | 신림선 | 반영 완료 | 2026-10-13 | 0 | 0 | 0 | 0 |
-| 수인분당선 | 경로 엔진 지원 대상 | 2026-10-13 | 2 | 35 | 6 | 0 |
+| 수인분당선 | 경로 엔진 지원 대상 | 2026-10-23 | 0 | 8 | 18 | 0 |
 | 경의중앙선 | 경로 엔진 지원 대상 | 2026-10-13 | 0 | 15 | 15 | 0 |
 | 인천 1호선 | 후속 지원 대상 | 2026-09-20 | 0 | 20 | 3 | 0 |
 | 인천 2호선 | 후속 지원 대상 | 2026-09-21 | 2 | 10 | 0 | 0 |
@@ -220,7 +220,7 @@
 
 | 역 | 미제공 정보 | 처리 |
 | --- | --- | --- |
-| 인천공항2터미널 (A11, AR) | 승강장 1 · 3-2, 4-2 문 이격거리 | 수치·안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내 |
+| 인천공항2터미널 (A11, AR) | 승강장 1 · 3-2, 4-2 문 이격거리 | 수치·안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내 · 근거: KRIC 승강장 이격거리 값 미제공 확인 2026-10-20 |
 
 ## 인천 1호선 · 수도권 확대 지원 전
 
@@ -329,66 +329,130 @@
 
 ## 수인분당선 · 경로 엔진 연결 전
 
-- API 수집: 2026-10-13T23:17:09.809Z
+- API 수집: 2026-10-23T02:01:15.498Z
 - 대상 역: 63개
 
-### 지상 엘리베이터 출구 충돌 (2역)
+### 지상 엘리베이터 출구 충돌 (0역)
 
 | 역 | API별 값 |
 | --- | --- |
-| 정자 (K230, KR) | stationMovement: 2, 3, 4<br>stinElevatorMovement: 2, 4<br>stationElevator: 2, 4 |
-| 고색 (K246, KR) | stinElevatorMovement: 3<br>stationElevator: 3, 4 |
+| 없음 | - |
 
-### 방향별 차량·문 확인 (35역)
+### 방향별 차량·문 확인 (8역)
 
 | 역 | 이유 | 이미 확인한 방향 | API별 후보 |
 | --- | --- | --- | --- |
-| 청량리 (K209, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 강남구청 (K213, KR) | API 값 충돌 | - | stationElevatorCarNumber: 1-2, 2-2, 3-1, 4-4, 5-3, 6-3<br>stationElevator: 1-2, 6-2 |
-| 선릉 (K215, KR) | stationElevatorCarNumber 누락 | - | stationElevator: 1-2, 2-4, 3-4, 5-1, 6-3, 8-1 |
-| 한티 (K216, KR) | API 값 충돌 | - | stationElevatorCarNumber: 3-2, 4-3<br>stationElevator: 3-3, 4-3 |
-| 도곡 (K217, KR) | API 값 충돌 | - | stationElevatorCarNumber: 2-4, 3-1, 6-4<br>stationElevator: 2-4, 3-1 |
-| 개포동 (K219, KR) | API 값 충돌 | - | stationElevatorCarNumber: 5-1<br>stationElevator: 4-4 |
-| 대모산입구 (K220, KR) | API 값 충돌 | - | stationElevatorCarNumber: 4-4, 5-1<br>stationElevator: 4-4 |
-| 가천대 (K223, KR) | API 값 충돌 | - | stationElevatorCarNumber: 2-4, 6-4<br>stationElevator: 2-4, 7-2 |
-| 태평 (K224, KR) | API 값 충돌 | - | stationElevatorCarNumber: 1-1<br>stationElevator: 2-3, 6-4 |
-| 이매(성남아트센터) (K227, KR) | API 값 충돌 | - | stationElevatorCarNumber: 2-1, 5-3<br>stationElevator: 3-1, 6-4 |
-| 서현 (K228, KR) | API 값 충돌 | - | stationElevatorCarNumber: 3-1, 6-4<br>stationElevator: 3-2, 6-4 |
-| 미금(분당서울대병원) (K231, KR) | API 값 충돌 | - | stationElevatorCarNumber: 3-2, 4-3<br>stationElevator: 2-1, 5-4 |
-| 청명 (K239, KR) | API 값 충돌 | - | stationElevatorCarNumber: 4-2, 5-3<br>stationElevator: 1-3, 8-1 |
-| 영통(경희대) (K240, KR) | API 값 충돌 | - | stationElevatorCarNumber: 2-1, 2-2<br>stationElevator: 3-2, 6-2 |
-| 망포 (K241, KR) | API 값 충돌 | - | stationElevatorCarNumber: 2-4, 5-1<br>stationElevator: 1-3, 8-1 |
-| 매탄권선 (K242, KR) | API 값 충돌 | - | stationElevatorCarNumber: 4-1, 5-2<br>stationElevator: 2-2, 7-2 |
-| 수원시청(경기도문화의전당) (K243, KR) | API 값 충돌 | - | stationElevatorCarNumber: 3-3, 6-1<br>stationElevator: 3-4, 6-1 |
-| 매교 (K244, KR) | API 값 충돌 | - | stationElevatorCarNumber: 2-1, 6-4<br>stationElevator: 2-1, 7-4 |
-| 수원 (K245, KR) | API 값 충돌 | - | stationElevatorCarNumber: 1-4, 2-1, 7-4<br>stationElevator: 1-4, 7-4 |
-| 고색 (K246, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 오목천 (K247, KR) | stationElevatorCarNumber 누락 | - | stationElevator: 4-3, 5-2 |
-| 어천 (K248, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 야목 (K249, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 사리 (K250, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 한대앞 (K251, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 중앙 (K252, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 고잔 (K253, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 초지 (K254, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 안산 (K255, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 능길 (K256, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 정왕 (K257, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 인하대 (K269, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 숭의(인하대병원) (K270, KR) | stationElevatorCarNumber 누락 | - | stationElevator: 2-4, 7-1 |
-| 신포 (K271, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
-| 인천 (K272, KR) | stationElevatorCarNumber 누락 | - | 후보 없음 |
+| 청량리 (K209, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 고색 (K246, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 중앙 (K252, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 초지 (K254, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 능길 (K256, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 정왕 (K257, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 인하대 (K269, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
+| 인천 (K272, KR) | stationElevator·stationElevatorCarNumber 모두 누락 | - | 후보 없음 |
 
-### 승강장·문·이격거리 연결 확인 (6역)
+### 승강장·문·이격거리 연결 확인 (18역)
 
 | 역 | 확인할 내용 |
 | --- | --- |
-| 압구정로데오 (K212, KR) | 권장 문 이격거리 없음: 1:7-2 |
-| 죽전(단국대) (K233, KR) | 권장 문 이격거리 없음: 3:3-1, 4:3-1 |
-| 기흥(백남준아트센터) (K237, KR) | 권장 문 이격거리 없음: 3:3-2, 4:3-2 |
-| 수원 (K245, KR) | 권장 문 이격거리 없음: 1:7-4, 2:7-4 |
-| 오이도 (K258, KR) | 권장 문 이격거리 없음: 1:7-2, 2:7-2, 3:4-3, 4:4-3 |
-| 월곶 (K260, KR) | 권장 문 이격거리 없음: 3:5-2, 4:5-2 |
+| 압구정로데오 (K212, KR) | stationElevator 1:7-2 이격거리 레코드 없음 |
+| 가천대 (K223, KR) | stationElevator 1:7-2 이격거리 레코드 없음 |
+| 기흥(백남준아트센터) (K237, KR) | stationElevatorCarNumber 3:3-2 이격거리 레코드 없음; stationElevatorCarNumber 4:3-2 이격거리 레코드 없음 |
+| 청명 (K239, KR) | stationElevator 1:8-1 이격거리 레코드 없음 |
+| 망포 (K241, KR) | stationElevator 1,2:8-1 이격거리 레코드 없음 |
+| 매탄권선 (K242, KR) | stationElevator 2:7-2 이격거리 레코드 없음 |
+| 매교 (K244, KR) | stationElevator 2:7-4 이격거리 레코드 없음 |
+| 수원 (K245, KR) | stationElevator 1:7-4 이격거리 레코드 없음; stationElevator 2:7-4 이격거리 레코드 없음 |
+| 오목천 (K247, KR) | stationElevator 2:5-2 이격거리 값 없음; stationElevator 1:4-3 이격거리 값 없음 |
+| 어천 (K248, KR) | stationElevator 2:6-1 이격거리 값 없음; stationElevator 1:3-4 이격거리 값 없음 |
+| 야목 (K249, KR) | stationElevator 2:5-1 이격거리 값 없음; stationElevator 1:4-4 이격거리 값 없음 |
+| 사리 (K250, KR) | stationElevator 2:4-3 이격거리 값 없음; stationElevator 1:5-2 이격거리 값 없음 |
+| 한대앞 (K251, KR) | stationElevator 방향 승강장 미확인:6-3 이격거리 값 없음; stationElevator 1:5-2 이격거리 값 없음 |
+| 고잔 (K253, KR) | stationElevator 2:5-3 이격거리 값 없음; stationElevator 1:6-2 이격거리 값 없음 |
+| 안산 (K255, KR) | stationElevator 2:7-2 이격거리 레코드 없음; stationElevator 1:4-3 이격거리 값 없음 |
+| 오이도 (K258, KR) | stationElevator 2:4-3 이격거리 값 없음; stationElevator 1:7-2 이격거리 레코드 없음 |
+| 숭의(인하대병원) (K270, KR) | stationElevator 1:2-4 이격거리 값 없음; stationElevator 2:7-1 이격거리 레코드 없음 |
+| 신포 (K271, KR) | stationElevator 1:3-2 이격거리 값 없음; stationElevator 2:6-3 이격거리 값 없음 |
+
+### stationElevator 방향별 차량·문 (43역)
+
+| 역 | stationElevator 원본 방향·차량·문 |
+| --- | --- |
+| 왕십리 (K210, KR) | 서울숲 방향 · 2-2 |
+| 압구정로데오 (K212, KR) | 강남구청 방향 · 7-2<br>서울숲 방향 · 2-2 |
+| 강남구청 (K213, KR) | 선정릉 방향 · 1-2<br>압구정로데오 방향 · 6-2 |
+| 선정릉 (K214, KR) | 선릉 방향 · 4-4<br>강남구청 방향 · 5-1 |
+| 선릉 (K215, KR) | 한티 방향 · 2-4<br>한티 방향 · 1-2<br>선정릉 방향 · 5-1<br>선정릉 방향 · 6-3 |
+| 한티 (K216, KR) | 도곡 방향 · 3-3<br>선릉 방향 · 4-3 |
+| 도곡 (K217, KR) | 구룡 방향 · 2-4<br>구룡 방향 · 3-1<br>한티 방향 · 3-1<br>한티 방향 · 2-4 |
+| 구룡 (K218, KR) | 도곡 방향 · 4-3<br>개포동 방향 · 5-1 |
+| 개포동 (K219, KR) | 구룡 방향 · 4-4 |
+| 대모산입구 (K220, KR) | 개포동 방향 · 4-4<br>수서 방향 · 4-4 |
+| 가천대 (K223, KR) | 태평 방향 · 7-2<br>복정 방향 · 2-4 |
+| 태평 (K224, KR) | 가천대 방향 · 2-3<br>모란 방향 · 6-4 |
+| 야탑 (K226, KR) | 인천 방향 · 5-4<br>청량리 방향 · 2-1 |
+| 이매(성남아트센터) (K227, KR) | 서현 방향 · 6-4<br>야탑 방향 · 3-1 |
+| 서현 (K228, KR) | 수내 방향 · 6-4<br>이매 방향 · 3-2 |
+| 정자 (K230, KR) | 미금 방향 · 2-1<br>수내 방향 · 6-4 |
+| 미금(분당서울대병원) (K231, KR) | 오리 방향 · 5-4<br>정자 방향 · 2-1 |
+| 오리 (K232, KR) | 왕십리 방향 · 2-2<br>인천 방향 · 5-4 |
+| 죽전(단국대) (K233, KR) | 보정 방향 · 4-4<br>오리 방향 · 3-1 |
+| 구성 (K235, KR) | 신갈 방향 · 4-2<br>보정 방향 · 5-2 |
+| 신갈 (K236, KR) | 기흥 방향 · 3-2<br>구성 방향 · 6-3 |
+| 청명 (K239, KR) | 하선 방향 · 8-1<br>상선 방향 · 1-3 |
+| 영통(경희대) (K240, KR) | 망포 방향 · 3-2<br>청명 방향 · 6-2 |
+| 망포 (K241, KR) | 매탄권선 방향 · 8-1<br>영통 방향 · 1-3 |
+| 매탄권선 (K242, KR) | 수원시청 방향 · 2-2<br>망포 방향 · 7-2 |
+| 수원시청(경기도문화의전당) (K243, KR) | 수원 방향 · 6-1<br>왕십리 방향 · 3-4 |
+| 매교 (K244, KR) | 수원시청 방향 · 7-4<br>수원 방향 · 2-1 |
+| 수원 (K245, KR) | 고색 방향 · 7-4<br>매교 방향 · 7-4<br>고색 방향 · 1-4<br>매교 방향 · 1-4 |
+| 오목천 (K247, KR) | 상행 방향 · 5-2<br>하행 방향 · 4-3 |
+| 어천 (K248, KR) | 수원 방향 · 6-1<br>인천 방향 · 3-4 |
+| 야목 (K249, KR) | 어천 방향 · 5-1<br>사리 방향 · 4-4 |
+| 사리 (K250, KR) | 야목 방향 · 4-3<br>한대앞 방향 · 5-2 |
+| 한대앞 (K251, KR) | 상록수 방향 · 6-3<br>중앙 방향 · 5-2 |
+| 고잔 (K253, KR) | 중앙 방향 · 5-3<br>초지 방향 · 6-2 |
+| 안산 (K255, KR) | 초지 방향 · 7-2<br>신길온천 방향 · 4-3 |
+| 오이도 (K258, KR) | 정왕 방향 · 4-3<br>달월 방향 · 7-2 |
+| 달월 (K259, KR) | 오이도 방향 · 5-1<br>월곶 방향 · 4-4 |
+| 월곶 (K260, KR) | 인천 방향 · 4-2<br>오이도 방향 · 5-3 |
+| 호구포 (K263, KR) | 인천논현 방향 · 5-1<br>남동인더스파크 방향 · 4-4 |
+| 연수 (K266, KR) | 원인재 방향 · 4-1<br>송도 방향 · 5-4 |
+| 송도 (K267, KR) | 연수 방향 · 4-4<br>인하대 방향 · 5-1 |
+| 숭의(인하대병원) (K270, KR) | 신포 방향 · 2-4<br>인하대 방향 · 7-1 |
+| 신포 (K271, KR) | 인천 방향 · 3-2<br>숭의 방향 · 6-3 |
+
+### stationElevator 차량·문 미제공 (20역)
+
+| 역 | 대체 가능 여부 |
+| --- | --- |
+| 청량리 (K209, KR) | stationElevatorCarNumber도 없음 |
+| 서울숲 (K211, KR) | stationElevatorCarNumber 대체값 3-4 |
+| 수서 (K221, KR) | stationElevatorCarNumber 대체값 1-4, 6-4 |
+| 복정(동서울대학) (K222, KR) | stationElevatorCarNumber 대체값 4-4 |
+| 모란 (K225, KR) | stationElevatorCarNumber 대체값 2-1, 5-4 |
+| 수내(한국잡월드) (K229, KR) | stationElevatorCarNumber 대체값 2-4, 6-4 |
+| 보정 (K234, KR) | stationElevatorCarNumber 대체값 5-3, 6-3 |
+| 기흥(백남준아트센터) (K237, KR) | stationElevatorCarNumber 대체값 3-2, 6-2 |
+| 상갈(루터대학교) (K238, KR) | stationElevatorCarNumber 대체값 3-1, 3-2 |
+| 고색 (K246, KR) | stationElevatorCarNumber도 없음 |
+| 중앙 (K252, KR) | stationElevatorCarNumber도 없음 |
+| 초지 (K254, KR) | stationElevatorCarNumber도 없음 |
+| 능길 (K256, KR) | stationElevatorCarNumber도 없음 |
+| 정왕 (K257, KR) | stationElevatorCarNumber도 없음 |
+| 소래포구 (K261, KR) | stationElevatorCarNumber 대체값 2-2, 5-3 |
+| 인천논현 (K262, KR) | stationElevatorCarNumber 대체값 2-4, 5-1 |
+| 남동인더스파크 (K264, KR) | stationElevatorCarNumber 대체값 2-4, 3-3 |
+| 원인재 (K265, KR) | stationElevatorCarNumber 대체값 1-4 |
+| 인하대 (K269, KR) | stationElevatorCarNumber도 없음 |
+| 인천 (K272, KR) | stationElevatorCarNumber도 없음 |
+
+### stationElevator 일부 방향 미제공 (2역)
+
+| 역 | 없는 방향 |
+| --- | --- |
+| 왕십리 (K210, KR) | 청량리 방향 |
+| 개포동 (K219, KR) | 대모산입구 방향 |
 
 ## 경춘선 · 수도권 확대 지원 전
 

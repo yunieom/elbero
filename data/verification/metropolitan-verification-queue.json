@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22",
+  "generatedAt": "2026-10-23",
   "policy": {
     "surfaceExit": "수동 확인값을 우선하고, stationMovement와 stinElevatorMovement가 일치하면 해당 값을 확정하며 나머지 출처 충돌만 사용자 확인",
     "directionDoor": "차량·문 값 충돌 또는 stationElevatorCarNumber 미제공 역만 사용자 확인",
@@ -496,6 +496,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 4948,
@@ -1016,6 +1019,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 2958,
@@ -1654,6 +1660,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 2531,
@@ -2334,6 +2343,9 @@
           "issue": "권장 문 이격거리 없음: 3:4-3, 4:4-3"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [
         {
           "stationCode": "0405",
@@ -3328,6 +3340,9 @@
           "issue": "권장 문 이격거리 없음: 1:5-5"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 3164,
@@ -3453,6 +3468,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 2025,
@@ -4118,6 +4136,9 @@
           "issue": "승강장·차량·문·이격거리 연결 불가"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 3075,
@@ -4273,6 +4294,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 935,
@@ -4447,6 +4471,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 1815,
@@ -4511,6 +4538,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [
         {
           "stationCode": "A11",
@@ -5035,6 +5065,9 @@
           "issue": "이격거리 API 행 없음"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 1909,
@@ -5357,6 +5390,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 324,
@@ -5480,6 +5516,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 768,
@@ -5620,6 +5659,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 58,
@@ -5678,6 +5720,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 80,
@@ -5761,6 +5806,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 192,
@@ -5839,6 +5887,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 0,
@@ -5851,7 +5902,8 @@
       "name": "수인분당선",
       "stem": "suin-bundang-line",
       "status": "route_engine_target",
-      "collectedAt": "2026-10-13T23:17:09.809Z",
+      "includeStationElevatorDetails": true,
+      "collectedAt": "2026-10-23T02:01:15.498Z",
       "stationCount": 63,
       "resolvedSurfaceExits": [
         {
@@ -5944,6 +5996,17 @@
             "3"
           ],
           "source": "stationMovement_stinElevatorMovement_consensus"
+        },
+        {
+          "stationCode": "K230",
+          "stationName": "정자",
+          "railOperatorCode": "KR",
+          "exitNumbers": [
+            "2",
+            "4"
+          ],
+          "source": "manual_verification",
+          "evidence": "사용자 확인: stinElevatorMovement"
         },
         {
           "stationCode": "K231",
@@ -6059,6 +6122,16 @@
           "source": "stationMovement_stinElevatorMovement_consensus"
         },
         {
+          "stationCode": "K246",
+          "stationName": "고색",
+          "railOperatorCode": "KR",
+          "exitNumbers": [
+            "3"
+          ],
+          "source": "manual_verification",
+          "evidence": "사용자 확인: stinElevatorMovement"
+        },
+        {
           "stationCode": "K247",
           "stationName": "오목천",
           "railOperatorCode": "KR",
@@ -6139,433 +6212,21 @@
           "source": "stationMovement_stinElevatorMovement_consensus"
         }
       ],
-      "surfaceExitConflicts": [
-        {
-          "stationCode": "K230",
-          "stationName": "정자",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationMovement": [
-              "2",
-              "3",
-              "4"
-            ],
-            "stinElevatorMovement": [
-              "2",
-              "4"
-            ],
-            "stationElevator": [
-              "2",
-              "4"
-            ],
-            "SeoulMetroFaciInfo": []
-          }
-        },
-        {
-          "stationCode": "K246",
-          "stationName": "고색",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationMovement": [],
-            "stinElevatorMovement": [
-              "3"
-            ],
-            "stationElevator": [
-              "3",
-              "4"
-            ],
-            "SeoulMetroFaciInfo": []
-          }
-        }
-      ],
+      "surfaceExitConflicts": [],
       "directionDoorChecks": [
         {
           "stationCode": "K209",
           "stationName": "청량리",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K213",
-          "stationName": "강남구청",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "1-2",
-              "2-2",
-              "3-1",
-              "4-4",
-              "5-3",
-              "6-3"
-            ],
-            "stationElevator": [
-              "1-2",
-              "6-2"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K215",
-          "stationName": "선릉",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {
-            "stationElevatorCarNumber": [],
-            "stationElevator": [
-              "1-2",
-              "2-4",
-              "3-4",
-              "5-1",
-              "6-3",
-              "8-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K216",
-          "stationName": "한티",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "3-2",
-              "4-3"
-            ],
-            "stationElevator": [
-              "3-3",
-              "4-3"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K217",
-          "stationName": "도곡",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-4",
-              "3-1",
-              "6-4"
-            ],
-            "stationElevator": [
-              "2-4",
-              "3-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K219",
-          "stationName": "개포동",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "5-1"
-            ],
-            "stationElevator": [
-              "4-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K220",
-          "stationName": "대모산입구",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "4-4",
-              "5-1"
-            ],
-            "stationElevator": [
-              "4-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K223",
-          "stationName": "가천대",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-4",
-              "6-4"
-            ],
-            "stationElevator": [
-              "2-4",
-              "7-2"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K224",
-          "stationName": "태평",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "1-1"
-            ],
-            "stationElevator": [
-              "2-3",
-              "6-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K227",
-          "stationName": "이매(성남아트센터)",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-1",
-              "5-3"
-            ],
-            "stationElevator": [
-              "3-1",
-              "6-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K228",
-          "stationName": "서현",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "3-1",
-              "6-4"
-            ],
-            "stationElevator": [
-              "3-2",
-              "6-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K231",
-          "stationName": "미금(분당서울대병원)",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "3-2",
-              "4-3"
-            ],
-            "stationElevator": [
-              "2-1",
-              "5-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K239",
-          "stationName": "청명",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "4-2",
-              "5-3"
-            ],
-            "stationElevator": [
-              "1-3",
-              "8-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K240",
-          "stationName": "영통(경희대)",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-1",
-              "2-2"
-            ],
-            "stationElevator": [
-              "3-2",
-              "6-2"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K241",
-          "stationName": "망포",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-4",
-              "5-1"
-            ],
-            "stationElevator": [
-              "1-3",
-              "8-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K242",
-          "stationName": "매탄권선",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "4-1",
-              "5-2"
-            ],
-            "stationElevator": [
-              "2-2",
-              "7-2"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K243",
-          "stationName": "수원시청(경기도문화의전당)",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "3-3",
-              "6-1"
-            ],
-            "stationElevator": [
-              "3-4",
-              "6-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K244",
-          "stationName": "매교",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "2-1",
-              "6-4"
-            ],
-            "stationElevator": [
-              "2-1",
-              "7-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K245",
-          "stationName": "수원",
-          "railOperatorCode": "KR",
-          "sourceValues": {
-            "stationElevatorCarNumber": [
-              "1-4",
-              "2-1",
-              "7-4"
-            ],
-            "stationElevator": [
-              "1-4",
-              "7-4"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "reason": "source_value_conflict",
           "verifiedDirections": []
         },
         {
           "stationCode": "K246",
           "stationName": "고색",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K247",
-          "stationName": "오목천",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {
-            "stationElevatorCarNumber": [],
-            "stationElevator": [
-              "4-3",
-              "5-2"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K248",
-          "stationName": "어천",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K249",
-          "stationName": "야목",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K250",
-          "stationName": "사리",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K251",
-          "stationName": "한대앞",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         },
@@ -6573,15 +6234,7 @@
           "stationCode": "K252",
           "stationName": "중앙",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K253",
-          "stationName": "고잔",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         },
@@ -6589,15 +6242,7 @@
           "stationCode": "K254",
           "stationName": "초지",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K255",
-          "stationName": "안산",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         },
@@ -6605,7 +6250,7 @@
           "stationCode": "K256",
           "stationName": "능길",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         },
@@ -6613,7 +6258,7 @@
           "stationCode": "K257",
           "stationName": "정왕",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         },
@@ -6621,30 +6266,7 @@
           "stationCode": "K269",
           "stationName": "인하대",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {},
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K270",
-          "stationName": "숭의(인하대병원)",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
-          "sourceValues": {
-            "stationElevatorCarNumber": [],
-            "stationElevator": [
-              "2-4",
-              "7-1"
-            ],
-            "SeoulMetroFaciInfo": []
-          },
-          "verifiedDirections": []
-        },
-        {
-          "stationCode": "K271",
-          "stationName": "신포",
-          "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         },
@@ -6652,7 +6274,7 @@
           "stationCode": "K272",
           "stationName": "인천",
           "railOperatorCode": "KR",
-          "reason": "primary_api_missing",
+          "reason": "both_door_apis_missing",
           "sourceValues": {},
           "verifiedDirections": []
         }
@@ -6662,37 +6284,1055 @@
           "stationCode": "K212",
           "stationName": "압구정로데오",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 1:7-2"
+          "issue": "stationElevator 1:7-2 이격거리 레코드 없음"
         },
         {
-          "stationCode": "K233",
-          "stationName": "죽전(단국대)",
+          "stationCode": "K223",
+          "stationName": "가천대",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:3-1, 4:3-1"
+          "issue": "stationElevator 1:7-2 이격거리 레코드 없음"
         },
         {
           "stationCode": "K237",
           "stationName": "기흥(백남준아트센터)",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:3-2, 4:3-2"
+          "issue": "stationElevatorCarNumber 3:3-2 이격거리 레코드 없음; stationElevatorCarNumber 4:3-2 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K239",
+          "stationName": "청명",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 1:8-1 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K241",
+          "stationName": "망포",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 1,2:8-1 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K242",
+          "stationName": "매탄권선",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:7-2 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K244",
+          "stationName": "매교",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:7-4 이격거리 레코드 없음"
         },
         {
           "stationCode": "K245",
           "stationName": "수원",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 1:7-4, 2:7-4"
+          "issue": "stationElevator 1:7-4 이격거리 레코드 없음; stationElevator 2:7-4 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K247",
+          "stationName": "오목천",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:5-2 이격거리 값 없음; stationElevator 1:4-3 이격거리 값 없음"
+        },
+        {
+          "stationCode": "K248",
+          "stationName": "어천",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:6-1 이격거리 값 없음; stationElevator 1:3-4 이격거리 값 없음"
+        },
+        {
+          "stationCode": "K249",
+          "stationName": "야목",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:5-1 이격거리 값 없음; stationElevator 1:4-4 이격거리 값 없음"
+        },
+        {
+          "stationCode": "K250",
+          "stationName": "사리",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:4-3 이격거리 값 없음; stationElevator 1:5-2 이격거리 값 없음"
+        },
+        {
+          "stationCode": "K251",
+          "stationName": "한대앞",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 방향 승강장 미확인:6-3 이격거리 값 없음; stationElevator 1:5-2 이격거리 값 없음"
+        },
+        {
+          "stationCode": "K253",
+          "stationName": "고잔",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:5-3 이격거리 값 없음; stationElevator 1:6-2 이격거리 값 없음"
+        },
+        {
+          "stationCode": "K255",
+          "stationName": "안산",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 2:7-2 이격거리 레코드 없음; stationElevator 1:4-3 이격거리 값 없음"
         },
         {
           "stationCode": "K258",
           "stationName": "오이도",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 1:7-2, 2:7-2, 3:4-3, 4:4-3"
+          "issue": "stationElevator 2:4-3 이격거리 값 없음; stationElevator 1:7-2 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K270",
+          "stationName": "숭의(인하대병원)",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 1:2-4 이격거리 값 없음; stationElevator 2:7-1 이격거리 레코드 없음"
+        },
+        {
+          "stationCode": "K271",
+          "stationName": "신포",
+          "railOperatorCode": "KR",
+          "issue": "stationElevator 1:3-2 이격거리 값 없음; stationElevator 2:6-3 이격거리 값 없음"
+        }
+      ],
+      "stationElevatorGuidance": [
+        {
+          "stationCode": "K210",
+          "stationName": "왕십리",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-2",
+              "directionLabel": "서울숲",
+              "location": "(1F)서울숲방향승강장2-2출입문앞/(2F)맞이방"
+            }
+          ]
+        },
+        {
+          "stationCode": "K212",
+          "stationName": "압구정로데오",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "7-2",
+              "directionLabel": "강남구청",
+              "location": "(B5)강남구청역방향승강장7-2출입문앞"
+            },
+            {
+              "door": "2-2",
+              "directionLabel": "서울숲",
+              "location": "(B5)서울숲역방향승강장2-2출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K213",
+          "stationName": "강남구청",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "1-2",
+              "directionLabel": "선정릉",
+              "location": "(B5)선정릉방향승강장1-2출입문앞"
+            },
+            {
+              "door": "6-2",
+              "directionLabel": "압구정로데오",
+              "location": "(B5)압구정로데오방향승강장6-2출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K214",
+          "stationName": "선정릉",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-4",
+              "directionLabel": "선릉",
+              "location": "(B5)선릉역방향승강장4-4출입문앞"
+            },
+            {
+              "door": "5-1",
+              "directionLabel": "강남구청",
+              "location": "(B5)강남구청역방향승강장5-1출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K215",
+          "stationName": "선릉",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-4",
+              "directionLabel": "한티",
+              "location": "(B3)분당선한티역방향승강장2-4출입문앞(B2)2호선역삼역방향승강장8-1출입문앞"
+            },
+            {
+              "door": "1-2",
+              "directionLabel": "한티",
+              "location": "(B3)분당선한티역방향승강장1-2출입문앞(B2)2호선삼성역방향승강장3-4출입문앞(B1)2호선표내는곳내앞"
+            },
+            {
+              "door": "5-1",
+              "directionLabel": "선정릉",
+              "location": "(B3)분당선선정릉역방향승강장5-1출입문앞(B2)2호선삼성역방향출입문8-1앞(B1)2호선표내는곳앞"
+            },
+            {
+              "door": "6-3",
+              "directionLabel": "선정릉",
+              "location": "(B3)분당선선정릉역방향승강장6-3출입문앞(B2)2호선역삼역방향승강장3-4출입문앞(B1)2호선표내는곳앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K216",
+          "stationName": "한티",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "3-3",
+              "directionLabel": "도곡",
+              "location": "(B4)도곡역방면승강장3-3"
+            },
+            {
+              "door": "4-3",
+              "directionLabel": "선릉",
+              "location": "(B4)선릉역방면승강장4-3"
+            }
+          ]
+        },
+        {
+          "stationCode": "K217",
+          "stationName": "도곡",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-4",
+              "directionLabel": "구룡",
+              "location": "(B6)구룡방면2-4뒤쪽,B6(구룡방면3-1뒤),B4(3호선환승통로ES18옆)"
+            },
+            {
+              "door": "3-1",
+              "directionLabel": "구룡",
+              "location": "(B6)구룡방면2-4뒤쪽,B6(구룡방면3-1뒤),B4(3호선환승통로ES18옆)"
+            },
+            {
+              "door": "3-1",
+              "directionLabel": "한티",
+              "location": "(B6)한티방면3-1,B6(한티방면2-4),B4(3호선환승통로ES15옆)"
+            },
+            {
+              "door": "2-4",
+              "directionLabel": "한티",
+              "location": "(B6)한티방면3-1,B6(한티방면2-4),B4(3호선환승통로ES15옆)"
+            }
+          ]
+        },
+        {
+          "stationCode": "K218",
+          "stationName": "구룡",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-3",
+              "directionLabel": "도곡",
+              "location": "(B6F)도곡역방향승강장4-3출입문앞"
+            },
+            {
+              "door": "5-1",
+              "directionLabel": "개포동",
+              "location": "(B6F)개포동역방향승강장5-1출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K219",
+          "stationName": "개포동",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-4",
+              "directionLabel": "구룡",
+              "location": "(B1)맞이방(B4)구룡역방향승강장4-4출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K220",
+          "stationName": "대모산입구",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-4",
+              "directionLabel": "개포동",
+              "location": "B2층맞이방상선,B5층개포동역방향승강장4-4출입문앞"
+            },
+            {
+              "door": "4-4",
+              "directionLabel": "수서",
+              "location": "B2층맞이방하선,B5층수서역방향승강장4-4출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K223",
+          "stationName": "가천대",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "7-2",
+              "directionLabel": "태평",
+              "location": "(B2)태평역방향승강장7-2"
+            },
+            {
+              "door": "2-4",
+              "directionLabel": "복정",
+              "location": "(B2)복정역방향승강장2-4"
+            }
+          ]
+        },
+        {
+          "stationCode": "K224",
+          "stationName": "태평",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-3",
+              "directionLabel": "가천대",
+              "location": "(B1)맞이방북쪽게이트안(B2)가천대역방향승강장2-3출입문앞"
+            },
+            {
+              "door": "6-4",
+              "directionLabel": "모란",
+              "location": "(B1)맞이방북쪽게이트안(B2)모란역방향승강장6-4뒤편"
+            }
+          ]
+        },
+        {
+          "stationCode": "K226",
+          "stationName": "야탑",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-4",
+              "directionLabel": "인천",
+              "location": "(B1,B2)죽전,고색,인천방면게이트안↔하선승강장(5-4)"
+            },
+            {
+              "door": "2-1",
+              "directionLabel": "청량리",
+              "location": "(B1,B2)왕십리,청량리방면게이트안↔상선승강장(2-1)"
+            }
+          ]
+        },
+        {
+          "stationCode": "K227",
+          "stationName": "이매(성남아트센터)",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "6-4",
+              "directionLabel": "서현",
+              "location": "(B2)서현역방향,하행승강장6-4출입문앞,(B1)대합실북쪽"
+            },
+            {
+              "door": "3-1",
+              "directionLabel": "야탑",
+              "location": "(B2)야탑역방향,상행승강장3-1출입문앞,(B1)대합실북쪽"
+            }
+          ]
+        },
+        {
+          "stationCode": "K228",
+          "stationName": "서현",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "6-4",
+              "directionLabel": "수내",
+              "location": "(B1)표내는곳내계단옆(B2)수내역방향승강장6-4출입문앞"
+            },
+            {
+              "door": "3-2",
+              "directionLabel": "이매",
+              "location": "(B1)표내는곳내계단옆(B2)이매역방향승강장3-2출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K230",
+          "stationName": "정자",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-1",
+              "directionLabel": "미금",
+              "location": "(B1)미금방향(하행)맞이방남쪽표내는곳앞(B2)미금방면(하행)승강장2-1위치"
+            },
+            {
+              "door": "6-4",
+              "directionLabel": "수내",
+              "location": "(B1)수내방향(상행)맞이방남쪽표내는곳앞(B2)수내방면(상행)승강장6-4위치"
+            }
+          ]
+        },
+        {
+          "stationCode": "K231",
+          "stationName": "미금(분당서울대병원)",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-4",
+              "directionLabel": "오리",
+              "location": "(B1)맞이방북쪽표내는곳내계단옆(B2)오리방향승강장5-4출입문앞"
+            },
+            {
+              "door": "2-1",
+              "directionLabel": "정자",
+              "location": "(B1)맞이방북쪽표내는곳내계단옆(B2)정자방향승강장2-1출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K232",
+          "stationName": "오리",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-2",
+              "directionLabel": "왕십리",
+              "location": "(B1)남쯕게이트옆(B2)(하행)왕십리방향승강장2-2"
+            },
+            {
+              "door": "5-4",
+              "directionLabel": "인천",
+              "location": "(B1)남쯕게이트옆(B2)(상행)인천방향승강장5-4"
+            }
+          ]
+        },
+        {
+          "stationCode": "K233",
+          "stationName": "죽전(단국대)",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-4",
+              "directionLabel": "보정",
+              "location": "(2F)보정역방향승강장4-4출입문앞(1F)맞이방"
+            },
+            {
+              "door": "3-1",
+              "directionLabel": "오리",
+              "location": "(2F)오리역방향승강장3-1출입문앞(1F)맞이방"
+            }
+          ]
+        },
+        {
+          "stationCode": "K235",
+          "stationName": "구성",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-2",
+              "directionLabel": "신갈",
+              "location": "(B3)신갈역방향승강장4-2/(B1)개찰구옆"
+            },
+            {
+              "door": "5-2",
+              "directionLabel": "보정",
+              "location": "(B3)보정역방향승강장5-2/(B1)개찰구옆"
+            }
+          ]
+        },
+        {
+          "stationCode": "K236",
+          "stationName": "신갈",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "3-2",
+              "directionLabel": "기흥",
+              "location": "(B1)게이트내하행방면승강장(B4)기흥역방향승강장3-2출입문앞"
+            },
+            {
+              "door": "6-3",
+              "directionLabel": "구성",
+              "location": "(B1)게이트내상행방면승강장(B4)구성역방향승강장6-3출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K239",
+          "stationName": "청명",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "8-1",
+              "directionLabel": "하선",
+              "location": "(B1)북쪽하행게이트안쪽(B2)하선타는곳8-1맞은편"
+            },
+            {
+              "door": "1-3",
+              "directionLabel": "상선",
+              "location": "(B1)북쪽상행게이트안쪽(B2)상선타는곳1-3맞은편"
+            }
+          ]
+        },
+        {
+          "stationCode": "K240",
+          "stationName": "영통(경희대)",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "3-2",
+              "directionLabel": "망포",
+              "location": "(B1)우측승강장내부,망포역방향(B2)망포역방향승강장3-2출입문앞"
+            },
+            {
+              "door": "6-2",
+              "directionLabel": "청명",
+              "location": "(B1)우측승강장내부,청명역방향(B2)청명역방향승강장6-2출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K241",
+          "stationName": "망포",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "8-1",
+              "directionLabel": "매탄권선",
+              "location": "(B1)맞이방게이트앞(B2)매탄권선역방향승강장8-1(미승차구간)출입문앞"
+            },
+            {
+              "door": "1-3",
+              "directionLabel": "영통",
+              "location": "(B1)맞이방게이트앞(B2)영통역방향승강장1-3출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K242",
+          "stationName": "매탄권선",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-2",
+              "directionLabel": "수원시청",
+              "location": "(B2)남쪽표내는곳내에스컬레이터뒤(B3)수원시청역방향승강장2-2출입문앞"
+            },
+            {
+              "door": "7-2",
+              "directionLabel": "망포",
+              "location": "(B2)남쪽표내는곳내에스컬레이터뒤(B3)망포역방향승강장7-2출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K243",
+          "stationName": "수원시청(경기도문화의전당)",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "6-1",
+              "directionLabel": "수원",
+              "location": "(B1)수원방면표내는곳안(B2)수원방면승강장6-1출입문앞"
+            },
+            {
+              "door": "3-4",
+              "directionLabel": "왕십리",
+              "location": "(B1)왕십리방면표내는곳안(B2)왕십리방면승강장3-4출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K244",
+          "stationName": "매교",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "7-4",
+              "directionLabel": "수원시청",
+              "location": "(B2)남쪽표내는곳앞,(B3)수원시청역방향7-4출입문앞"
+            },
+            {
+              "door": "2-1",
+              "directionLabel": "수원",
+              "location": "(B2)남쪽표내는곳앞,(B3)수원역방향2-1출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K245",
+          "stationName": "수원",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "7-4",
+              "directionLabel": "고색",
+              "location": "(B3)동편개찰구내고색역방향승강장쪽(B4)고색역방향승강장7-4출입문앞"
+            },
+            {
+              "door": "7-4",
+              "directionLabel": "매교",
+              "location": "(B1)환승센터매교역방향엘리베이터(B4)매교역방향승강장7-4출입문앞"
+            },
+            {
+              "door": "1-4",
+              "directionLabel": "고색",
+              "location": "(B1)환승센터고색역방향엘리베이터(B4)고색역방향승강장1-4출입문앞"
+            },
+            {
+              "door": "1-4",
+              "directionLabel": "매교",
+              "location": "(B3)동편개찰구내매교역방향승강장쪽(B4)매교역방향승강장1-4출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K247",
+          "stationName": "오목천",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-2",
+              "directionLabel": "상행",
+              "location": "(B1)맞이방상행승강장방향(B3)상행승강장5-2"
+            },
+            {
+              "door": "4-3",
+              "directionLabel": "하행",
+              "location": "(B1)맞이방하행승강장방향(B3)하행승강장4-3"
+            }
+          ]
+        },
+        {
+          "stationCode": "K248",
+          "stationName": "어천",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "6-1",
+              "directionLabel": "수원",
+              "location": "(1층)수원방향타는곳(2층)수원방향승강장6-1출입문앞"
+            },
+            {
+              "door": "3-4",
+              "directionLabel": "인천",
+              "location": "(1층)인천방향타는곳(2층)인천방향승강장3-4출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K249",
+          "stationName": "야목",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-1",
+              "directionLabel": "어천",
+              "location": "(1F)어천역방향5-1출입문앞(2F)콘코스어천역방향에스컬레이터앞"
+            },
+            {
+              "door": "4-4",
+              "directionLabel": "사리",
+              "location": "(1F)사리역방향4-4출입문앞(2F)콘코스사리역방향에스컬레이터앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K250",
+          "stationName": "사리",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-3",
+              "directionLabel": "야목",
+              "location": "야목역방향4-3출입문앞"
+            },
+            {
+              "door": "5-2",
+              "directionLabel": "한대앞",
+              "location": "한대앞역방향5-2출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K251",
+          "stationName": "한대앞",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "6-3",
+              "directionLabel": "상록수",
+              "location": "(1층)상록수역방향승강장6-3"
+            },
+            {
+              "door": "5-2",
+              "directionLabel": "중앙",
+              "location": "(1층)중앙역방향승강장5-2"
+            }
+          ]
+        },
+        {
+          "stationCode": "K253",
+          "stationName": "고잔",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-3",
+              "directionLabel": "중앙",
+              "location": "(2F)중앙역방향5-3출입문앞(1F)고객맞이방화장실옆"
+            },
+            {
+              "door": "6-2",
+              "directionLabel": "초지",
+              "location": "(2F)초지역방향6-2출입문앞(1F)고객맞이방화장실옆"
+            }
+          ]
+        },
+        {
+          "stationCode": "K255",
+          "stationName": "안산",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "7-2",
+              "directionLabel": "초지",
+              "location": "(1층)초지역방향승강장7-2출입문앞(2층)자유통로상행표내는곳내"
+            },
+            {
+              "door": "4-3",
+              "directionLabel": "신길온천",
+              "location": "(1층)신길온천역방향승강장4-3출입문앞(2층)자유통로하행표내는곳내"
+            }
+          ]
+        },
+        {
+          "stationCode": "K258",
+          "stationName": "오이도",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-3",
+              "directionLabel": "정왕",
+              "location": "(1층)정왕역방향승강장4-3출입문앞(3층)맞이방"
+            },
+            {
+              "door": "7-2",
+              "directionLabel": "달월",
+              "location": "(1층)달월역방향승강장7-2출입문앞(3층)맞이방"
+            }
+          ]
+        },
+        {
+          "stationCode": "K259",
+          "stationName": "달월",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-1",
+              "directionLabel": "오이도",
+              "location": "1F(이동통로오이도역방향계단옆)2F(오이도역방향승강장5-1출입문앞)"
+            },
+            {
+              "door": "4-4",
+              "directionLabel": "월곶",
+              "location": "1F(이동통로월곶역방향계단옆)2F(월곶역방향승강장4-4출입문앞)"
+            }
+          ]
         },
         {
           "stationCode": "K260",
           "stationName": "월곶",
           "railOperatorCode": "KR",
-          "issue": "권장 문 이격거리 없음: 3:5-2, 4:5-2"
+          "candidates": [
+            {
+              "door": "4-2",
+              "directionLabel": "인천",
+              "location": "(1F)남쪽표내는곳옆,인천방향(2F)인천방향4-2출입문앞"
+            },
+            {
+              "door": "5-3",
+              "directionLabel": "오이도",
+              "location": "(1F)남쪽표내는곳옆,오이도방향(2F)오이도방향5-3출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K263",
+          "stationName": "호구포",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "5-1",
+              "directionLabel": "인천논현",
+              "location": "(1F)맞이방표내는곳안쪽인천논현역방향에스컬레이터옆(2F)인천논현역방향승강장출입문5-1앞"
+            },
+            {
+              "door": "4-4",
+              "directionLabel": "남동인더스파크",
+              "location": "(1F)맞이방표내는곳안쪽남동인더스파크역방향에스컬레이터옆(2F)남동인더스파크역방향승강장출입문4-4앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K266",
+          "stationName": "연수",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-1",
+              "directionLabel": "원인재",
+              "location": "(3F)상행승강장계단,에스컬레이터사이(1F)원인재방향,상행승강장4-1"
+            },
+            {
+              "door": "5-4",
+              "directionLabel": "송도",
+              "location": "(3F)하행승강장계단,에스컬레이터사이(2F)송도방향,하행승강장5-4"
+            }
+          ]
+        },
+        {
+          "stationCode": "K267",
+          "stationName": "송도",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "4-4",
+              "directionLabel": "연수",
+              "location": "(1F)연수역방향승강장4-4출입문앞(2F)맞이방"
+            },
+            {
+              "door": "5-1",
+              "directionLabel": "인하대",
+              "location": "(1F)인하대역방향승강장5-1출입문앞(2F)맞이방"
+            }
+          ]
+        },
+        {
+          "stationCode": "K270",
+          "stationName": "숭의(인하대병원)",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "2-4",
+              "directionLabel": "신포",
+              "location": "(B1)좌측게이트안/하행에스컬레이터,계단사이(B2)신포역방향2-4출입문앞"
+            },
+            {
+              "door": "7-1",
+              "directionLabel": "인하대",
+              "location": "(B1)좌측게이트안/상행에스컬레이터.계단사이(B2)인하대역7-1출입문앞"
+            }
+          ]
+        },
+        {
+          "stationCode": "K271",
+          "stationName": "신포",
+          "railOperatorCode": "KR",
+          "candidates": [
+            {
+              "door": "3-2",
+              "directionLabel": "인천",
+              "location": "(B2)인천역방향승강장3-2출입문앞"
+            },
+            {
+              "door": "6-3",
+              "directionLabel": "숭의",
+              "location": "(B2)숭의역방향승강장6-3출입문앞"
+            }
+          ]
+        }
+      ],
+      "stationElevatorMissing": [
+        {
+          "stationCode": "K209",
+          "stationName": "청량리",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K211",
+          "stationName": "서울숲",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "3-4"
+          ]
+        },
+        {
+          "stationCode": "K221",
+          "stationName": "수서",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "1-4",
+            "6-4"
+          ]
+        },
+        {
+          "stationCode": "K222",
+          "stationName": "복정(동서울대학)",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "4-4"
+          ]
+        },
+        {
+          "stationCode": "K225",
+          "stationName": "모란",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "2-1",
+            "5-4"
+          ]
+        },
+        {
+          "stationCode": "K229",
+          "stationName": "수내(한국잡월드)",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "2-4",
+            "6-4"
+          ]
+        },
+        {
+          "stationCode": "K234",
+          "stationName": "보정",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "5-3",
+            "6-3"
+          ]
+        },
+        {
+          "stationCode": "K237",
+          "stationName": "기흥(백남준아트센터)",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "3-2",
+            "6-2"
+          ]
+        },
+        {
+          "stationCode": "K238",
+          "stationName": "상갈(루터대학교)",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "3-1",
+            "3-2"
+          ]
+        },
+        {
+          "stationCode": "K246",
+          "stationName": "고색",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K252",
+          "stationName": "중앙",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K254",
+          "stationName": "초지",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K256",
+          "stationName": "능길",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K257",
+          "stationName": "정왕",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K261",
+          "stationName": "소래포구",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "2-2",
+            "5-3"
+          ]
+        },
+        {
+          "stationCode": "K262",
+          "stationName": "인천논현",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "2-4",
+            "5-1"
+          ]
+        },
+        {
+          "stationCode": "K264",
+          "stationName": "남동인더스파크",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "2-4",
+            "3-3"
+          ]
+        },
+        {
+          "stationCode": "K265",
+          "stationName": "원인재",
+          "railOperatorCode": "KR",
+          "fallbackSource": "stationElevatorCarNumber",
+          "fallbackDoors": [
+            "1-4"
+          ]
+        },
+        {
+          "stationCode": "K269",
+          "stationName": "인하대",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        },
+        {
+          "stationCode": "K272",
+          "stationName": "인천",
+          "railOperatorCode": "KR",
+          "fallbackSource": null,
+          "fallbackDoors": []
+        }
+      ],
+      "stationElevatorPartial": [
+        {
+          "stationCode": "K210",
+          "stationName": "왕십리",
+          "railOperatorCode": "KR",
+          "missingDirections": [
+            "청량리"
+          ]
+        },
+        {
+          "stationCode": "K219",
+          "stationName": "개포동",
+          "railOperatorCode": "KR",
+          "missingDirections": [
+            "대모산입구"
+          ]
         }
       ],
       "knownSourceGaps": [],
@@ -6791,6 +7431,9 @@
           "issue": "권장 문 이격거리 없음: 3:4-2, 4:5-2"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 1476,
@@ -7244,6 +7887,9 @@
           "issue": "권장 문 이격거리 없음: 1:4-4, 2:1-1"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 2418,
@@ -7428,6 +8074,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 352,
@@ -7756,6 +8405,9 @@
           "issue": "권장 문 이격거리 없음: 1:3-4, 2:3-4"
         }
       ],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 336,
@@ -7774,6 +8426,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 128,
@@ -8000,6 +8655,9 @@
         }
       ],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 104,
@@ -8018,6 +8676,9 @@
       "surfaceExitConflicts": [],
       "directionDoorChecks": [],
       "gapLinkageChecks": [],
+      "stationElevatorGuidance": [],
+      "stationElevatorMissing": [],
+      "stationElevatorPartial": [],
       "knownSourceGaps": [],
       "gapSummary": {
         "green": 180,

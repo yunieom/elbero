@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "line": "수인분당선",
+  "verifiedAt": "2026-10-23",
+  "surfaceExits": [
+    {
+      "stationCode": "K230",
+      "stationName": "정자",
+      "railOperatorCode": "KR",
+      "exitNumbers": ["2", "4"],
+      "evidence": "사용자 확인: stinElevatorMovement"
+    },
+    {
+      "stationCode": "K246",
+      "stationName": "고색",
+      "railOperatorCode": "KR",
+      "exitNumbers": ["3"],
+      "evidence": "사용자 확인: stinElevatorMovement"
+    }
+  ]
+}

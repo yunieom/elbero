@@ -342,16 +342,48 @@ function extractCarDoorMentions(value) {
     (match) => ({
       door: `${Number(match[1])}-${Number(match[2])}`,
       location: text,
+      directionLabel: extractDirectionLabel(text, match.index ?? 0),
+      matchIndex: match.index ?? 0,
     }),
   );
 }
 
-function isCandidateForRequestedLine(location) {
-  if (!/^\d+$/.test(String(line))) return true;
-  const mentionedLines = [...String(location ?? '').matchAll(/(\d+)호선/g)].map(
-    (match) => match[1],
-  );
-  return mentionedLines.length === 0 || mentionedLines.includes(String(line));
+function extractDirectionLabel(text, doorIndex) {
+  const precedingText = text.slice(0, doorIndex + 1);
+  const directionMatches = [
+    ...precedingText.matchAll(/([가-힣]+?)(?:역)?(?:방향|방면)/gu),
+  ];
+  const direction = directionMatches.at(-1)?.[1]
+    ?.replace(/^분당선/u, '')
+    .replace(/^층/u, '')
+    .replace(/역$/u, '');
+  if (direction) {
+    const operation = direction.match(/(상행|하행|상선|하선)/u)?.[1];
+    return operation ?? direction;
+  }
+  const stationMatches = [
+    ...precedingText.matchAll(/([가-힣]+)역(?=$|[^가-힣])/gu),
+  ];
+  const station = stationMatches.at(-1)?.[1];
+  if (station) return station;
+  const operationMatches = [
+    ...precedingText.matchAll(/(상행|하행|상선|하선)/gu),
+  ];
+  return operationMatches.at(-1)?.[1] ?? null;
+}
+
+function isCandidateForRequestedLine(candidate) {
+  const location = String(candidate.location ?? '');
+  const precedingText = location.slice(0, candidate.matchIndex);
+  const lineMentions = [
+    ...precedingText.matchAll(/(\d+)호선|수인(?:[·.]?분당선)?|분당선/g),
+  ];
+  const nearestMention = lineMentions.at(-1)?.[0];
+  if (!nearestMention) return true;
+  if (/^\d+호선$/u.test(nearestMention)) {
+    return /^\d+$/u.test(String(line)) && nearestMention === `${line}호선`;
+  }
+  return line === 'K1';
 }
 
 function toKricFloor(groundName, floor) {
@@ -752,8 +784,8 @@ for (const item of stationPayloads) {
 
   const rawStationElevatorCandidates = elevatorRows.flatMap((row) =>
     extractCarDoorMentions(row.dtlLoc)
-      .filter((candidate) => isCandidateForRequestedLine(candidate.location))
-      .map((candidate) => ({
+      .filter((candidate) => isCandidateForRequestedLine(candidate))
+      .map(({ matchIndex: _matchIndex, ...candidate }) => ({
         ...candidate,
         platformNumber: null,
       })),

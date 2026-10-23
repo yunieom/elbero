@@ -42,6 +42,7 @@ const lineConfigs = [
     name: '수인분당선',
     stem: 'suin-bundang-line',
     status: 'route_engine_target',
+    includeStationElevatorDetails: true,
   },
   { name: '경춘선', stem: 'gyeongchun-line', status: 'future_target' },
   {
@@ -221,6 +222,70 @@ for (const config of lineConfigs) {
         }))
         .toSorted(stationSort);
 
+  const stationElevatorGuidance = config.includeStationElevatorDetails
+    ? (audit.preferredDoorGuidance ?? [])
+        .filter((station) => station.source === 'stationElevator')
+        .map((station) => ({
+          stationCode: normalizeCode(station.stationCode),
+          stationName: station.stationName,
+          railOperatorCode: station.railOperatorCode,
+          candidates: station.candidates.map((candidate) => ({
+            door: candidate.door,
+            directionLabel: candidate.directionLabel,
+            location: candidate.location,
+          })),
+        }))
+        .toSorted(stationSort)
+    : [];
+  const stationElevatorMissing = config.includeStationElevatorDetails
+    ? (audit.preferredDoorGuidance ?? [])
+        .filter((station) => station.source !== 'stationElevator')
+        .map((station) => ({
+          stationCode: normalizeCode(station.stationCode),
+          stationName: station.stationName,
+          railOperatorCode: station.railOperatorCode,
+          fallbackSource: station.source,
+          fallbackDoors: uniqueSorted(
+            station.candidates.map((candidate) => candidate.door),
+          ),
+        }))
+        .toSorted(stationSort)
+    : [];
+  const stationElevatorPartial = config.includeStationElevatorDetails
+    ? (audit.preferredDoorGuidance ?? [])
+        .flatMap((station, index, stations) => {
+          if (station.source !== 'stationElevator') return [];
+          const expectedDirectionCount =
+            index === 0 || index === stations.length - 1 ? 1 : 2;
+          const directionLabels = uniqueSorted(
+            station.candidates
+              .map((candidate) => candidate.directionLabel)
+              .filter(Boolean),
+          );
+          if (directionLabels.length >= expectedDirectionCount) return [];
+          const adjacentStations = [stations[index - 1], stations[index + 1]]
+            .filter(Boolean)
+            .map((adjacent) => adjacent.stationName);
+          const missingDirections = adjacentStations.filter(
+            (adjacent) =>
+              !directionLabels.some((label) =>
+                normalizeStationName(adjacent).includes(
+                  normalizeStationName(label),
+                ),
+              ),
+          );
+          return [
+            {
+              stationCode: normalizeCode(station.stationCode),
+              stationName: station.stationName,
+              railOperatorCode: station.railOperatorCode,
+              missingDirections,
+            },
+          ];
+        })
+        .toSorted(stationSort)
+    : [];
+
   results.push({
     ...config,
     collectedAt: audit.collectedAt,
@@ -229,6 +294,9 @@ for (const config of lineConfigs) {
     surfaceExitConflicts: surfaceExitConflicts.toSorted(stationSort),
     directionDoorChecks,
     gapLinkageChecks,
+    stationElevatorGuidance,
+    stationElevatorMissing,
+    stationElevatorPartial,
     knownSourceGaps,
     gapSummary: audit.summary.gapSummary,
   });
@@ -404,6 +472,13 @@ function uniqueSorted(values) {
   return [...new Set(values.map(String))].toSorted((left, right) =>
     left.localeCompare(right, 'ko', { numeric: true }),
   );
+}
+
+function normalizeStationName(value) {
+  return String(value)
+    .replace(/\([^)]*\)/gu, '')
+    .replace(/역$/u, '')
+    .replaceAll(' ', '');
 }
 
 function stationSort(left, right) {
