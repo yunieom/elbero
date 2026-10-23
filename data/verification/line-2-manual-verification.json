@@ -150,6 +150,14 @@
       "exitNumbers": ["10", "12"]
     }
   ],
+  "directionalDoorReviews": [
+    {
+      "stationCode": "234-4",
+      "stationName": "까치산",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: 5호선 공용 시설이며 KRIC 방향별 차량·문 정보 없음"
+    }
+  ],
   "directionalDoors": [
     {
       "stationCode": "0201",
@@ -340,7 +348,9 @@
         {
           "toward": "신정네거리",
           "recommendedDoors": [],
-          "sharedFacilityLine": "5"
+          "sharedFacilityLine": "5",
+          "verificationStatus": "source_unavailable",
+          "evidence": "사용자 확인 2026-10-23: KRIC 방향별 차량·문 정보 없음"
         }
       ]
     },

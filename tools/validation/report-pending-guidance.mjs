@@ -60,6 +60,8 @@ for (const [lineId, modulePath, exportName] of runtimeGuidanceModules) {
   for (const station of guidance.stations) {
     for (const direction of station.directions ?? []) {
       if ((direction.recommendedDoors ?? []).length > 0) continue;
+      if (direction.verificationStatus === 'source_unavailable') continue;
+      if (direction.sharedFacilityLine) continue;
       runtimeDoorGaps.push({
         lineId,
         stationCode: station.stationCode,
@@ -115,11 +117,7 @@ for (const lineId of lineIds) {
 
   const directions = data.stations.flatMap((station) =>
     station.directions
-      .filter(
-        (direction) =>
-          direction.recommendedDoors.length === 0 ||
-          needsDirectionVerification(direction),
-      )
+      .filter((direction) => needsDirectionVerification(direction))
       .map((direction) => ({
         stationCode: station.stationCode,
         stationName: station.stationName,
@@ -478,10 +476,15 @@ function renderStationElevatorDetails(line) {
   const missingRows = missing.length
     ? missing
         .map((station) => {
+          const verified = formatVerifiedDirections(station.verifiedDirections);
           const fallback =
-            station.fallbackSource === 'stationElevatorCarNumber'
-              ? `stationElevatorCarNumber 대체값 ${station.fallbackDoors.join(', ')}`
-              : 'stationElevatorCarNumber도 없음';
+            station.reviewStatus === 'source_unavailable'
+              ? `사용자 확인 완료: KRIC 차량·문 정보 없음${station.reviewEvidence ? ` · ${station.reviewEvidence}` : ''}`
+              : station.fallbackSource === 'stationElevatorCarNumber'
+                ? `stationElevatorCarNumber 대체값 ${station.fallbackDoors.join(', ')}${verified === '-' ? '' : ` · 사용자 확정 ${verified}`}`
+                : verified === '-'
+                  ? 'stationElevatorCarNumber도 없음'
+                  : `API 후보 없음 · 사용자 확정 ${verified}`;
           return `| ${metropolitanStationLabel(station)} | ${fallback} |`;
         })
         .join('\n')

@@ -16,6 +16,420 @@
       "railOperatorCode": "KR",
       "exitNumbers": ["3"],
       "evidence": "사용자 확인: stinElevatorMovement"
+    },
+    {
+      "stationCode": "K222",
+      "stationName": "복정(동서울대학)",
+      "railOperatorCode": "KR",
+      "exitNumbers": [],
+      "status": "no_surface_elevator",
+      "evidence": "사용자 확인 2026-10-23: 출구에서 역사로 진입하는 엘리베이터 없음"
+    }
+  ],
+  "directionalDoors": [
+    {
+      "stationCode": "K210",
+      "stationName": "왕십리",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "청량리", "recommendedDoors": ["2-2"] },
+        { "toward": "서울숲", "recommendedDoors": ["6-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K211",
+      "stationName": "서울숲",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "왕십리", "recommendedDoors": ["3-4"] },
+        { "toward": "압구정로데오", "recommendedDoors": ["3-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K219",
+      "stationName": "개포동",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "대모산입구", "recommendedDoors": ["5-1"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K221",
+      "stationName": "수서",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "대모산입구", "recommendedDoors": ["6-4"] },
+        { "toward": "복정", "recommendedDoors": ["1-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K222",
+      "stationName": "복정(동서울대학)",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "가천대", "recommendedDoors": ["4-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K225",
+      "stationName": "모란",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "태평", "recommendedDoors": ["2-1"] },
+        { "toward": "야탑", "recommendedDoors": ["5-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K229",
+      "stationName": "수내(한국잡월드)",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "서현", "recommendedDoors": ["6-4"] },
+        { "toward": "정자", "recommendedDoors": ["2-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K234",
+      "stationName": "보정",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "죽전", "recommendedDoors": ["1-3"] },
+        { "toward": "구성", "recommendedDoors": ["6-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K237",
+      "stationName": "기흥(백남준아트센터)",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "신갈", "recommendedDoors": ["6-2"] },
+        { "toward": "상갈", "recommendedDoors": ["6-2"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K238",
+      "stationName": "상갈(루터대학교)",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "기흥", "recommendedDoors": ["6-2"] },
+        { "toward": "청명", "recommendedDoors": ["3-2"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K242",
+      "stationName": "매탄권선",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "수원시청", "recommendedDoors": ["2-2"] },
+        {
+          "toward": "망포",
+          "recommendedDoors": ["6-1", "6-2", "6-3", "6-4"]
+        }
+      ],
+      "evidence": "사용자 확인 2026-10-23: 6량 편성 기준, 6-4는 yellow"
+    },
+    {
+      "stationCode": "K252",
+      "stationName": "중앙",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "한대앞", "recommendedDoors": ["4-3"] },
+        { "toward": "고잔", "recommendedDoors": ["7-2"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K256",
+      "stationName": "능길(신길온천)",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "안산", "recommendedDoors": ["3-4"] },
+        {
+          "toward": "정왕",
+          "terminalDirection": "오이도",
+          "recommendedDoors": ["6-4", "8-1"]
+        }
+      ],
+      "evidence": "사용자 확인 2026-10-23: 오이도 방면 8-1, 6량 편성에는 6-4 병기"
+    },
+    {
+      "stationCode": "K261",
+      "stationName": "소래포구",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "월곶", "recommendedDoors": ["2-2"] },
+        { "toward": "인천논현", "recommendedDoors": ["5-3"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K262",
+      "stationName": "인천논현",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "소래포구", "recommendedDoors": ["5-1"] },
+        { "toward": "호구포", "recommendedDoors": ["2-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K264",
+      "stationName": "남동인더스파크",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "호구포", "recommendedDoors": ["2-4"] },
+        { "toward": "원인재", "recommendedDoors": ["3-3"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K265",
+      "stationName": "원인재",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "남동인더스파크", "recommendedDoors": ["1-4"] },
+        { "toward": "연수", "recommendedDoors": ["1-4"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: stationElevatorCarNumber 사용"
+    },
+    {
+      "stationCode": "K272",
+      "stationName": "인천",
+      "railOperatorCode": "KR",
+      "directions": [
+        { "toward": "신포", "recommendedDoors": ["2-1"] }
+      ],
+      "evidence": "사용자 확인 2026-10-23: 1·2번 승강장 동일"
+    }
+  ],
+  "directionalDoorReviews": [
+    {
+      "stationCode": "K209",
+      "stationName": "청량리",
+      "railOperatorCode": "KR",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: 승강기는 있으나 KRIC 차량·문 정보 없음"
+    },
+    {
+      "stationCode": "K246",
+      "stationName": "고색",
+      "railOperatorCode": "KR",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: 승강기는 있으나 KRIC 차량·문 정보 없음"
+    },
+    {
+      "stationCode": "K254",
+      "stationName": "초지",
+      "railOperatorCode": "KR",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: 승강기는 있으나 KRIC 차량·문 정보 없음"
+    },
+    {
+      "stationCode": "K257",
+      "stationName": "정왕",
+      "railOperatorCode": "KR",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: 승강기는 있으나 KRIC 차량·문 정보 없음"
+    },
+    {
+      "stationCode": "K269",
+      "stationName": "인하대",
+      "railOperatorCode": "KR",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: 승강기는 있으나 KRIC 차량·문 정보 없음"
+    }
+  ],
+  "gapOverrides": [
+    {
+      "stationCode": "K212",
+      "stationName": "압구정로데오",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1"],
+      "recommendedDoors": ["7-2"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23: 전 플랫폼 green"
+    },
+    {
+      "stationCode": "K223",
+      "stationName": "가천대",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1"],
+      "recommendedDoors": ["7-2"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23: 전 플랫폼 green"
+    },
+    {
+      "stationCode": "K237",
+      "stationName": "기흥(백남준아트센터)",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["3", "4"],
+      "recommendedDoors": ["3-2"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23"
+    },
+    {
+      "stationCode": "K239",
+      "stationName": "청명",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1"],
+      "recommendedDoors": ["8-1"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23: 전 플랫폼 green"
+    },
+    {
+      "stationCode": "K241",
+      "stationName": "망포",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1", "2"],
+      "recommendedDoors": ["8-1"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23: 전 플랫폼 green"
+    },
+    {
+      "stationCode": "K242",
+      "stationName": "매탄권선",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1", "2"],
+      "recommendedDoors": ["2-2", "6-1", "6-2", "6-3", "6-4"],
+      "replacesSourceCandidates": true,
+      "directions": [
+        {
+          "platformNumber": "1",
+          "recommendedDoors": ["2-2"],
+          "level": "green"
+        },
+        {
+          "platformNumber": "2",
+          "recommendedDoors": ["6-1", "6-2", "6-3"],
+          "level": "green"
+        },
+        {
+          "platformNumber": "2",
+          "recommendedDoors": ["6-4"],
+          "level": "yellow"
+        }
+      ],
+      "evidence": "사용자 확인 2026-10-23: 7-2는 6량 편성 범위 밖"
+    },
+    {
+      "stationCode": "K244",
+      "stationName": "매교",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["2"],
+      "recommendedDoors": ["7-4"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23: 전 플랫폼 green"
+    },
+    {
+      "stationCode": "K245",
+      "stationName": "수원",
+      "railOperatorCode": "KR",
+      "platformNumbers": ["1", "2"],
+      "recommendedDoors": ["7-4"],
+      "level": "green",
+      "evidence": "사용자 확인 2026-10-23: 전 플랫폼 green"
+    }
+  ],
+  "knownSourceGaps": [
+    {
+      "stationCode": "K247",
+      "stationName": "오목천",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["5-2", "4-3"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K248",
+      "stationName": "어천",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["6-1", "3-4"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K249",
+      "stationName": "야목",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["5-1", "4-4"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K250",
+      "stationName": "사리",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["4-3", "5-2"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K251",
+      "stationName": "한대앞",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["6-3", "5-2"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K253",
+      "stationName": "고잔",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["5-3", "6-2"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K255",
+      "stationName": "안산",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["7-2", "4-3"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K258",
+      "stationName": "오이도",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["4-3", "7-2"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K270",
+      "stationName": "숭의(인하대병원)",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["2-4", "7-1"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
+    },
+    {
+      "stationCode": "K271",
+      "stationName": "신포",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["3-2", "6-3"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "사용자 확인 2026-10-23: KRIC 이격거리 정보 없음"
     }
   ]
 }

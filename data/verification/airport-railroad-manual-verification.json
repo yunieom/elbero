@@ -95,7 +95,7 @@
       "recommendedDoors": ["3-2", "4-2"],
       "field": "platformGap",
       "status": "source_unavailable",
-      "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-20"
+      "evidence": "사용자 재확인 2026-10-23: KRIC 승강장 이격거리 값 미제공"
     }
   ]
 }

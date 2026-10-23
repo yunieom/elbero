@@ -245,6 +245,22 @@
       ]
     },
     {
+      "stationCode": "0917",
+      "stationName": "노량진",
+      "directions": [
+        {
+          "toward": "샛강",
+          "recommendedDoors": ["4-1"],
+          "evidence": "사용자 확인 2026-10-23"
+        },
+        {
+          "toward": "노들",
+          "recommendedDoors": ["3-4"],
+          "evidence": "사용자 확인 2026-10-23"
+        }
+      ]
+    },
+    {
       "stationCode": "0920",
       "stationName": "동작",
       "directions": [
@@ -323,6 +339,33 @@
           "evidence": "KRIC stationElevator 재수집 2026-10-23"
         }
       ]
+    },
+    {
+      "stationCode": "0925",
+      "stationName": "신논현",
+      "directions": [
+        {
+          "toward": "사평",
+          "recommendedDoors": ["3-4"],
+          "evidence": "사용자 확인 2026-10-23"
+        },
+        {
+          "toward": "언주",
+          "recommendedDoors": ["4-1"],
+          "evidence": "사용자 확인 2026-10-23"
+        }
+      ]
+    }
+  ],
+  "gapOverrides": [
+    {
+      "stationCode": "0902",
+      "stationName": "김포공항",
+      "railOperatorCode": "S9",
+      "platformNumbers": ["1", "2"],
+      "recommendedDoors": ["1-1", "4-2"],
+      "level": "green",
+      "evidence": "KRIC 승강장 이격거리 연결 확인 2026-10-23"
     }
   ]
 }

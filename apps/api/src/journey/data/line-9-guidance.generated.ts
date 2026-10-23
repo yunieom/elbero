@@ -901,21 +901,43 @@ export const LINE_9_GUIDANCE = {
           "toward": "샛강",
           "terminalName": "개화",
           "platformNumber": "2",
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "stationElevatorCarNumber+stationPlatformTrainDistance"
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "doorGaps": [
+            {
+              "door": "4-1",
+              "gap": {
+                "distanceCm": 5.6,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         },
         {
           "toward": "노들",
           "terminalName": "중앙보훈병원",
           "platformNumber": "1",
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "stationElevatorCarNumber+stationPlatformTrainDistance"
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "doorGaps": [
+            {
+              "door": "3-4",
+              "gap": {
+                "distanceCm": 5.1,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         }
       ]
     },
@@ -1323,21 +1345,43 @@ export const LINE_9_GUIDANCE = {
           "toward": "사평",
           "terminalName": "개화",
           "platformNumber": "2",
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "stationElevatorCarNumber+stationPlatformTrainDistance"
+          "recommendedDoors": [
+            "3-4"
+          ],
+          "doorGaps": [
+            {
+              "door": "3-4",
+              "gap": {
+                "distanceCm": 4.5,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         },
         {
           "toward": "언주",
           "terminalName": "중앙보훈병원",
           "platformNumber": "1",
-          "recommendedDoors": [],
-          "doorGaps": [],
-          "accessibilityVerified": false,
-          "warning": "방향별 승강기 인접 차량·문 미확인",
-          "source": "stationElevatorCarNumber+stationPlatformTrainDistance"
+          "recommendedDoors": [
+            "4-1"
+          ],
+          "doorGaps": [
+            {
+              "door": "4-1",
+              "gap": {
+                "distanceCm": 5,
+                "level": "green",
+                "label": "안전"
+              }
+            }
+          ],
+          "accessibilityVerified": true,
+          "warning": null,
+          "source": "manual_verification"
         }
       ]
     },

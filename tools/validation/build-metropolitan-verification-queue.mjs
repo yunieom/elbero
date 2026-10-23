@@ -166,6 +166,14 @@ for (const config of lineConfigs) {
         : normalizeCode(station.stationCode),
     ),
   );
+  const directionReviewByStation = new Map(
+    (manual?.directionalDoorReviews ?? []).map((station) => [
+      station.railOperatorCode
+        ? stationIdentity(station)
+        : normalizeCode(station.stationCode),
+      station,
+    ]),
+  );
   const readinessDirections = new Map(
     (readiness?.verifiedDirectionDoors ?? []).map((station) => [
       normalizeCode(station.stationCode),
@@ -180,6 +188,12 @@ for (const config of lineConfigs) {
   const manualGapOverrides = manual?.gapOverrides ?? [];
   const knownSourceGaps = manual?.knownSourceGaps ?? [];
   const resolvedGapRecords = [...manualGapOverrides, ...knownSourceGaps];
+  const expectedDirectionCounts = new Map(
+    (audit.preferredDoorGuidance ?? []).map((station, index, stations) => [
+      stationIdentity(station),
+      index === 0 || index === stations.length - 1 ? 1 : 2,
+    ]),
+  );
   const directionDoorChecks = [...doorByStation.values()]
     .map((station) => ({
       ...station,
@@ -197,7 +211,10 @@ for (const config of lineConfigs) {
       ) {
         return false;
       }
-      if (station.verifiedDirections.length < 2) return true;
+      const expectedDirectionCount =
+        expectedDirectionCounts.get(stationIdentity(station)) ?? 2;
+      if (station.verifiedDirections.length < expectedDirectionCount)
+        return true;
       return false;
     })
     .toSorted(stationSort);
@@ -240,15 +257,28 @@ for (const config of lineConfigs) {
   const stationElevatorMissing = config.includeStationElevatorDetails
     ? (audit.preferredDoorGuidance ?? [])
         .filter((station) => station.source !== 'stationElevator')
-        .map((station) => ({
-          stationCode: normalizeCode(station.stationCode),
-          stationName: station.stationName,
-          railOperatorCode: station.railOperatorCode,
-          fallbackSource: station.source,
-          fallbackDoors: uniqueSorted(
-            station.candidates.map((candidate) => candidate.door),
-          ),
-        }))
+        .map((station) => {
+          const stationCode = normalizeCode(station.stationCode);
+          const review =
+            directionReviewByStation.get(stationIdentity(station)) ??
+            directionReviewByStation.get(stationCode);
+          const verifiedDirections =
+            manualDirections.get(stationIdentity(station)) ??
+            manualDirections.get(stationCode) ??
+            [];
+          return {
+            stationCode,
+            stationName: station.stationName,
+            railOperatorCode: station.railOperatorCode,
+            fallbackSource: station.source,
+            fallbackDoors: uniqueSorted(
+              station.candidates.map((candidate) => candidate.door),
+            ),
+            verifiedDirections,
+            ...(review?.status ? { reviewStatus: review.status } : {}),
+            ...(review?.evidence ? { reviewEvidence: review.evidence } : {}),
+          };
+        })
         .toSorted(stationSort)
     : [];
   const stationElevatorPartial = config.includeStationElevatorDetails
@@ -257,10 +287,17 @@ for (const config of lineConfigs) {
           if (station.source !== 'stationElevator') return [];
           const expectedDirectionCount =
             index === 0 || index === stations.length - 1 ? 1 : 2;
+          const confirmedDirections =
+            manualDirections.get(stationIdentity(station)) ??
+            manualDirections.get(normalizeCode(station.stationCode)) ??
+            [];
           const directionLabels = uniqueSorted(
-            station.candidates
-              .map((candidate) => candidate.directionLabel)
-              .filter(Boolean),
+            [
+              ...station.candidates.map(
+                (candidate) => candidate.directionLabel,
+              ),
+              ...confirmedDirections.map((direction) => direction.toward),
+            ].filter(Boolean),
           );
           if (directionLabels.length >= expectedDirectionCount) return [];
           const adjacentStations = [stations[index - 1], stations[index + 1]]
@@ -403,6 +440,13 @@ function buildLegacyDoorCheckMap({
 function buildPreferredGapChecks(guidance, manualOverrides) {
   return guidance
     .flatMap((station) => {
+      const sourceReplacement = manualOverrides.some(
+        (override) =>
+          normalizeCode(override.stationCode) ===
+            normalizeCode(station.stationCode) &&
+          override.replacesSourceCandidates === true,
+      );
+      if (sourceReplacement) return [];
       const unresolved = station.candidates.filter((candidate) => {
         if (candidate.gapStatus === 'linked') return false;
         return !manualOverrides.some(

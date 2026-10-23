@@ -56,6 +56,7 @@
     {
       "stationCode": "0408",
       "stationName": "별내별가람",
+      "evidence": "사용자 확인 2026-10-23: 승강기는 있으나 KRIC 차량·문 정보 없음",
       "directions": [
         { "toward": "오남", "recommendedDoors": [], "verificationStatus": "source_unavailable" },
         { "toward": "불암산", "recommendedDoors": [], "verificationStatus": "source_unavailable" }
@@ -133,7 +134,57 @@
     }
   ],
   "allPlatformsSafeStations": ["0444", "0448", "0453", "0456"],
+  "gapOverrides": [
+    {
+      "stationCode": "0436",
+      "stationName": "경마공원",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["3-4", "8-1"],
+      "replacesSourceCandidates": true,
+      "directions": [
+        { "platformNumber": "1", "recommendedDoors": ["3-4"], "level": "green" },
+        { "platformNumber": "2", "recommendedDoors": ["8-1"], "level": "yellow" }
+      ],
+      "evidence": "경로 엔진 연결값과 KRIC 이격거리 확인 2026-10-23"
+    },
+    {
+      "stationCode": "0439",
+      "stationName": "정부과천청사",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["7-3", "4-1"],
+      "replacesSourceCandidates": true,
+      "level": "green",
+      "evidence": "경로 엔진 연결값과 KRIC 이격거리 확인 2026-10-23"
+    },
+    {
+      "stationCode": "0444",
+      "stationName": "산본",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["6-3", "5-2"],
+      "replacesSourceCandidates": true,
+      "level": "green",
+      "evidence": "사용자 확인: 모든 플랫폼 10cm 이하"
+    },
+    {
+      "stationCode": "0448",
+      "stationName": "상록수",
+      "railOperatorCode": "KR",
+      "recommendedDoors": ["4-2"],
+      "replacesSourceCandidates": true,
+      "level": "green",
+      "evidence": "사용자 확인: 모든 플랫폼 10cm 이하"
+    }
+  ],
   "knownSourceGaps": [
+    {
+      "stationCode": "0406",
+      "stationName": "오남",
+      "railOperatorCode": "NU",
+      "recommendedDoors": ["6-1", "5-4"],
+      "field": "platformGap",
+      "status": "source_unavailable",
+      "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-23"
+    },
     {
       "stationCode": "0405",
       "stationName": "진접",
@@ -142,7 +193,7 @@
       "recommendedDoors": ["7-3"],
       "field": "platformGap",
       "status": "source_unavailable",
-      "evidence": "KRIC 승강장 이격거리 값 미제공 확인 2026-10-20"
+      "evidence": "사용자 재확인 2026-10-23: KRIC 승강장 이격거리 값 미제공"
     }
   ]
 }
