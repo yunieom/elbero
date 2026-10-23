@@ -41,7 +41,7 @@ const lineConfigs = [
   {
     name: '수인분당선',
     stem: 'suin-bundang-line',
-    status: 'route_engine_target',
+    status: 'verified_supported',
     includeStationElevatorDetails: true,
   },
   { name: '경춘선', stem: 'gyeongchun-line', status: 'future_target' },

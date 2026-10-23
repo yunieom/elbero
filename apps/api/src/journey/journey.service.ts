@@ -24,6 +24,7 @@ import { createLine8JourneyDefinition } from './line-8-journey.factory.js';
 import { createLine9JourneyDefinition } from './line-9-journey.factory.js';
 import { createSillimLineJourneyDefinition } from './sillim-line-journey.factory.js';
 import { createShinbundangLineJourneyDefinition } from './shinbundang-line-journey.factory.js';
+import { createSuinBundangLineJourneyDefinition } from './suin-bundang-line-journey.factory.js';
 import { createGtxAJourneyDefinition } from './gtx-a-journey.factory.js';
 import type { VerifiedJourneyDefinition } from './types/verified-journey.type.js';
 
@@ -101,10 +102,11 @@ export class JourneyService {
         originStationCode,
         destinationStationCode,
       ) ??
-      createGtxAJourneyDefinition(
+      createSuinBundangLineJourneyDefinition(
         originStationCode,
         destinationStationCode,
       ) ??
+      createGtxAJourneyDefinition(originStationCode, destinationStationCode) ??
       createInterlineJourneyDefinition(
         originStationCode,
         destinationStationCode,

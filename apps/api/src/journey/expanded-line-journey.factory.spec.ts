@@ -15,6 +15,8 @@ import { SHINBUNDANG_LINE_GUIDANCE } from './data/shinbundang-line-guidance.gene
 import { GTX_A_GUIDANCE } from './data/gtx-a-guidance.generated.js';
 import { createShinbundangLineJourneyDefinition } from './shinbundang-line-journey.factory.js';
 import { createGtxAJourneyDefinition } from './gtx-a-journey.factory.js';
+import { SUIN_BUNDANG_LINE_GUIDANCE } from './data/suin-bundang-line-guidance.generated.js';
+import { createSuinBundangLineJourneyDefinition } from './suin-bundang-line-journey.factory.js';
 
 describe('1호선·공항철도·용인에버라인 경로', () => {
   it.each([
@@ -30,6 +32,11 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
       '신분당선',
       SHINBUNDANG_LINE_GUIDANCE,
       createShinbundangLineJourneyDefinition,
+    ],
+    [
+      '수인분당선',
+      SUIN_BUNDANG_LINE_GUIDANCE,
+      createSuinBundangLineJourneyDefinition,
     ],
   ] as const)(
     '%s의 모든 서로 다른 역 조합을 생성한다',
@@ -50,7 +57,9 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
       for (const origin of path.stationCodes) {
         for (const destination of path.stationCodes) {
           if (origin === destination) continue;
-          expect(createGtxAJourneyDefinition(origin, destination)).not.toBeNull();
+          expect(
+            createGtxAJourneyDefinition(origin, destination),
+          ).not.toBeNull();
         }
       }
     }
@@ -122,6 +131,9 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
     ['D019', '0221', '강남', ['신분당선', '2호선']],
     ['X101', '2611', '연신내', ['GTX-A', '6호선']],
     ['X111', '0328', '수서', ['GTX-A', '3호선']],
+    ['K209', '2543', '왕십리', ['수인분당선', '5호선']],
+    ['K271', 'KR0110', '인천', ['수인분당선', '1호선']],
+    ['Y124', 'K209', '기흥', ['용인에버라인', '수인분당선']],
   ] as const)(
     '%s에서 %s까지 %s 환승 경로를 생성한다',
     (origin, destination, transferStation, lines) => {
@@ -147,7 +159,7 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
     expect(transfers.every((step) => step.facilityGroupId)).toBe(true);
   });
 
-  it('에버라인을 제외한 지원 노선 사이를 모두 연결한다', () => {
+  it('지원 노선 사이를 모두 연결한다', () => {
     const representatives = [
       'KR0110',
       '0222',
@@ -164,6 +176,8 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
       'D019',
       'X101',
       'X111',
+      'K272',
+      'Y124',
     ];
 
     for (const origin of representatives) {

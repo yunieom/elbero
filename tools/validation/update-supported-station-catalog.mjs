@@ -20,6 +20,7 @@ const supportedLineIds = new Set([
   'sillim',
   'shinbundang',
   'gtx-a',
+  'suin-bundang',
 ]);
 
 const [catalogSource, line1Source] = await Promise.all([

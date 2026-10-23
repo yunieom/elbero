@@ -74,6 +74,11 @@ import {
   hasGtxAStation,
 } from './gtx-a-journey.factory.js';
 import {
+  createSuinBundangLineJourneyDefinition,
+  getSuinBundangLineDistance,
+  hasSuinBundangLineStation,
+} from './suin-bundang-line-journey.factory.js';
+import {
   JOURNEY_STEP_TYPE,
   type FacilityRequirementGroup,
   type VerifiedJourneyDefinition,
@@ -96,6 +101,7 @@ type SupportedLineId =
   | 'G1'
   | 'L1'
   | 'D1'
+  | 'K'
   | 'A';
 
 interface LineAdapter {
@@ -201,6 +207,12 @@ const adapters: Record<SupportedLineId, LineAdapter> = {
     hasStation: hasShinbundangLineStation,
     distance: getShinbundangLineDistance,
     create: createShinbundangLineJourneyDefinition,
+  },
+  K: {
+    lineName: '수인분당선',
+    hasStation: hasSuinBundangLineStation,
+    distance: getSuinBundangLineDistance,
+    create: createSuinBundangLineJourneyDefinition,
   },
   A: {
     lineName: 'GTX-A',
@@ -438,7 +450,7 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '왕십리',
-    stationCodes: { '2': '0208', '5': '2541' },
+    stationCodes: { '2': '0208', '5': '2541', K: 'K210' },
     accessibilityVerified: false,
   },
   {
@@ -508,7 +520,77 @@ const interchanges: readonly Interchange[] = [
   },
   {
     stationName: '수서',
-    stationCodes: { '3': '0339', A: 'X108' },
+    stationCodes: { '3': '0339', K: 'K221', A: 'X108' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '청량리',
+    stationCodes: { '1': 'S10158', K: 'K209' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '강남구청',
+    stationCodes: { '7': '2730', K: 'K213' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '선정릉',
+    stationCodes: { '9': '0927', K: 'K214' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '선릉',
+    stationCodes: { '2': '0220', K: 'K215' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '도곡',
+    stationCodes: { '3': '0334', K: 'K217' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '복정',
+    stationCodes: { '8': '2821', K: 'K222' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '모란',
+    stationCodes: { '8': '2827', K: 'K225' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '정자',
+    stationCodes: { D1: 'D012', K: 'K230' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '기흥',
+    stationCodes: { E1: 'Y110', K: 'K237' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '수원',
+    stationCodes: { '1': 'KRP155', K: 'K245' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '한대앞',
+    stationCodes: { '4': '0449', K: 'K251' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '초지',
+    stationCodes: { '4': '0452', K: 'K254' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '오이도',
+    stationCodes: { '4': '0456', K: 'K258' },
+    accessibilityVerified: false,
+  },
+  {
+    stationName: '인천',
+    stationCodes: { '1': 'KR0161', K: 'K272' },
     accessibilityVerified: false,
   },
 ];

@@ -5178,7 +5178,7 @@
     {
       "name": "수인분당선",
       "stem": "suin-bundang-line",
-      "status": "route_engine_target",
+      "status": "verified_supported",
       "includeStationElevatorDetails": true,
       "collectedAt": "2026-10-23T02:01:15.498Z",
       "stationCount": 63,

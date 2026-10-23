@@ -156,8 +156,8 @@ for (const lineId of lineIds) {
 const output = `# 지원 노선 및 수도권 전철 사용자 검증 대기 목록
 
 - 생성일: ${checkedAt}
-- 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
-- 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·GTX-A
+- 사용자 검증값 반영 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·수인분당선·GTX-A
+- 현재 경로 엔진 구현 완료: 1·2·3·4·5·6·7·8·9호선·공항철도·용인에버라인·김포골드라인·신림선·신분당선·수인분당선·GTX-A
 - 1호선 상태: 분기형 경로 어댑터와 운영기관별 고유 역 코드 연결 완료
 - 1~9호선 방향별 차량·문 재확인 필요: ${runtimeDoorGapStations}역·${runtimeDoorGaps.length}방향
 - 현재 구현 노선의 지상 엘리베이터 출구 확인 필요: ${totalExitCount}역
@@ -211,6 +211,13 @@ ${renderMetropolitanTables(line1Pending, runtimeDoorChecksForLine('1'))}
 - GTX-A는 운정중앙–서울역과 수서–동탄을 서로 분리된 운행 구간으로 연결했다. 두 구간 사이의 미개통 연결은 경로로 생성하지 않는다.
 - GTX-A에서 차량·문 원천값이 없는 역은 빠른 승하차 위치를 추정하지 않고 위치 미확인으로 안내한다.
 - 검토 완료값 원본: [신분당선](../../data/verification/shinbundang-line-manual-verification.json), [GTX-A](../../data/verification/gtx-a-manual-verification.json)
+
+## 수인분당선 반영 상태
+
+- 청량리~인천 63개 역의 직통 경로를 경로 엔진과 앱에 연결했다.
+- 기존 지원 노선과 만나는 16개 환승역을 환승 그래프에 연결했으며, 기흥역에서 용인에버라인도 이어진다.
+- 원천 이격거리 미제공 10역은 안전 등급을 추정하지 않고 승강장 간격 미확인으로 안내한다.
+- 검토 완료값 원본: [수인분당선](../../data/verification/suin-bundang-line-manual-verification.json)
 
 ${sections.join('\n\n')}
 

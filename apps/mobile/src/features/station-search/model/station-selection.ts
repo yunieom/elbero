@@ -24,6 +24,7 @@ export const supportedJourneyLineNames = [
   '김포골드라인',
   '신림선',
   '신분당선',
+  '수인분당선',
   'GTX-A',
 ] as const;
 

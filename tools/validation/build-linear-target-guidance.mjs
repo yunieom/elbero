@@ -71,6 +71,14 @@ const configs = [
     rawMovementExits: true,
   },
   {
+    stem: "suin-bundang-line",
+    constantName: "SUIN_BUNDANG_LINE_GUIDANCE",
+    output: "apps/api/src/journey/data/suin-bundang-line-guidance.generated.ts",
+    lineName: "수인분당선",
+    preferredDoorPriority: true,
+    expectedRawStationCount: 63,
+  },
+  {
     stem: "gtx-a",
     constantName: "GTX_A_GUIDANCE",
     output: "apps/api/src/journey/data/gtx-a-guidance.generated.ts",
