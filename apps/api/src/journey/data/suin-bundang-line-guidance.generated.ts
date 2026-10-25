@@ -79,6 +79,7 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "왕십리",
@@ -102,6 +103,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "13"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K210-1",
+          "name": "KRIC (1F)서울숲방향승강장2-2출입문앞/(2F)맞이방",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)서울숲방향승강장2-2출입문앞/(2F)맞이방",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K210-2",
+          "name": "KRIC (1F)서울숲방향승강장6-4출입문앞/(B2)환승통로",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)서울숲방향승강장6-4출입문앞/(B2)환승통로",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "청량리",
@@ -155,6 +172,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K211-1",
+          "name": "KRIC (1F)세블일레븐앞(B1)고객맞이방",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)세블일레븐앞(B1)고객맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K211-2",
+          "name": "KRIC (1F)언더스탠드에비뉴앞(B1)고객맞이방",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)언더스탠드에비뉴앞(B1)고객맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K211-3",
+          "name": "KRIC (B1)고객맞이방(B4)하행승강장",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)고객맞이방(B4)하행승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K211-4",
+          "name": "KRIC (B1)고객맞이방(B4)상행승강장",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)고객맞이방(B4)상행승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "왕십리",
@@ -208,6 +255,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K212-1",
+          "name": "KRIC (1F)1번/2번출입구사이엘리베이터",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K212-2",
+          "name": "KRIC (1F)7번출입구근처",
+          "operatingSection": null,
+          "location": "(1F)7번출입구근처",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K212-3",
+          "name": "KRIC (B5)강남구청역방향승강장7-2출입문앞",
+          "operatingSection": "B5↔B1",
+          "location": "(B5)강남구청역방향승강장7-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K212-4",
+          "name": "KRIC (B5)서울숲역방향승강장2-2출입문앞",
+          "operatingSection": "B5↔B4",
+          "location": "(B5)서울숲역방향승강장2-2출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "서울숲",
@@ -281,6 +358,78 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K213-1",
+          "name": "KRIC (1F)1번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)1번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K213-2",
+          "name": "KRIC (1F)2번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)2번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K213-3",
+          "name": "KRIC (1F)3번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)3번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K213-4",
+          "name": "KRIC (1F)4번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)4번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K213-5",
+          "name": "KRIC (B5)선정릉방향승강장1-2출입문앞",
+          "operatingSection": "B5↔B1",
+          "location": "(B5)선정릉방향승강장1-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K213-6",
+          "name": "KRIC (B5)압구정로데오방향승강장6-2출입문앞",
+          "operatingSection": "B5↔B1",
+          "location": "(B5)압구정로데오방향승강장6-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K213-7",
+          "name": "KRIC (B5)선정릉방향승강장이동통로앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B5)선정릉방향승강장이동통로앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K213-8",
+          "name": "KRIC (B5)선정릉방향승강장이동통로앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B5)선정릉방향승강장이동통로앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K213-9",
+          "name": "KRIC (B5)압구정로데오방향승강장이동통로앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B5)압구정로데오방향승강장이동통로앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K213-10",
+          "name": "KRIC (B5)압구정로데오방향승강장이동통로앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B5)압구정로데오방향승강장이동통로앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "압구정로데오",
@@ -352,6 +501,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K214-1",
+          "name": "KRIC (1F)1번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)1번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K214-2",
+          "name": "KRIC (1F)4번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)4번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K214-3",
+          "name": "KRIC (B5)선릉역방향승강장4-4출입문앞",
+          "operatingSection": "B5↔B1",
+          "location": "(B5)선릉역방향승강장4-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K214-4",
+          "name": "KRIC (B5)강남구청역방향승강장5-1출입문앞",
+          "operatingSection": "B5↔B1",
+          "location": "(B5)강남구청역방향승강장5-1출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "강남구청",
@@ -424,6 +603,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "10"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K215-1",
+          "name": "KRIC (B3)분당선한티역방향승강장2-4출입문앞(B2)2호선역삼역방향승강장8-1출입문앞",
+          "operatingSection": "B3↔B2",
+          "location": "(B3)분당선한티역방향승강장2-4출입문앞(B2)2호선역삼역방향승강장8-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K215-2",
+          "name": "KRIC (B3)분당선한티역방향승강장1-2출입문앞(B2)2호선삼성역방향승강장3-4출입문앞(B1)2호선표내는곳내앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)분당선한티역방향승강장1-2출입문앞(B2)2호선삼성역방향승강장3-4출입문앞(B1)2호선표내는곳내앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K215-3",
+          "name": "KRIC (B3)분당선선정릉역방향승강장5-1출입문앞(B2)2호선삼성역방향출입문8-1앞(B1)2호선표내는곳앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)분당선선정릉역방향승강장5-1출입문앞(B2)2호선삼성역방향출입문8-1앞(B1)2호선표내는곳앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K215-4",
+          "name": "KRIC (B3)분당선선정릉역방향승강장6-3출입문앞(B2)2호선역삼역방향승강장3-4출입문앞(B1)2호선표내는곳앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)분당선선정릉역방향승강장6-3출입문앞(B2)2호선역삼역방향승강장3-4출입문앞(B1)2호선표내는곳앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "선정릉",
@@ -531,6 +740,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K216-1",
+          "name": "KRIC (B1)EL2호기옆장애인게이트바깥쪽",
+          "operatingSection": null,
+          "location": "(B1)EL2호기옆장애인게이트바깥쪽",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K216-2",
+          "name": "KRIC (B4)도곡역방면승강장3-3",
+          "operatingSection": "B4↔B1",
+          "location": "(B4)도곡역방면승강장3-3",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K216-3",
+          "name": "KRIC (B4)선릉역방면승강장4-3",
+          "operatingSection": "B4↔B1",
+          "location": "(B4)선릉역방면승강장4-3",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K216-4",
+          "name": "KRIC (B1)1~4번출입구방향구내영업장리빙도쿄좌측",
+          "operatingSection": null,
+          "location": "(B1)1~4번출입구방향구내영업장리빙도쿄좌측",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "선릉",
@@ -601,6 +840,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K217-1",
+          "name": "KRIC (1F)3번출입구옆,B4(3호선환승통로셔터옆),B2(3호선E/S옆),B1(3번출구옆),1F(구룡방면횡단보도",
+          "operatingSection": null,
+          "location": "(1F)3번출입구옆,B4(3호선환승통로셔터옆),B2(3호선E/S옆),B1(3번출구옆),1F(구룡방면횡단보도",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K217-2",
+          "name": "KRIC (B2)3호선매봉방향ES옆,B4(3호선매봉방향환승통로),B2(3호선매봉방향E/S옆)",
+          "operatingSection": "B4↔B2",
+          "location": "(B2)3호선매봉방향ES옆,B4(3호선매봉방향환승통로),B2(3호선매봉방향E/S옆)",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K217-3",
+          "name": "KRIC (B6)구룡방면2-4뒤쪽,B6(구룡방면3-1뒤),B4(3호선환승통로ES18옆)",
+          "operatingSection": "B6↔B4",
+          "location": "(B6)구룡방면2-4뒤쪽,B6(구룡방면3-1뒤),B4(3호선환승통로ES18옆)",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K217-4",
+          "name": "KRIC (B6)한티방면3-1,B6(한티방면2-4),B4(3호선환승통로ES15옆)",
+          "operatingSection": "B6↔B4",
+          "location": "(B6)한티방면3-1,B6(한티방면2-4),B4(3호선환승통로ES15옆)",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "한티",
@@ -672,6 +941,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K218-1",
+          "name": "KRIC (1F)4번출입구엘리베이터",
+          "operatingSection": null,
+          "location": "(1F)4번출입구엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K218-2",
+          "name": "KRIC (B6F)도곡역방향승강장4-3출입문앞",
+          "operatingSection": null,
+          "location": "(B6F)도곡역방향승강장4-3출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K218-3",
+          "name": "KRIC (B6F)개포동역방향승강장5-1출입문앞",
+          "operatingSection": null,
+          "location": "(B6F)개포동역방향승강장5-1출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "도곡",
@@ -743,6 +1035,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K219-1",
+          "name": "KRIC (1F)1,2번출입구사이(B1)1,2번출입구방면",
+          "operatingSection": null,
+          "location": "(1F)1,2번출입구사이(B1)1,2번출입구방면",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K219-2",
+          "name": "KRIC (B1)맞이방(B4)구룡역방향승강장4-4출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)맞이방(B4)구룡역방향승강장4-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K219-3",
+          "name": "KRIC (1F)4번출입구방면(B1)맞이방(B4)대모산입구역방향승강장5-1출입문앞",
+          "operatingSection": null,
+          "location": "(1F)4번출입구방면(B1)맞이방(B4)대모산입구역방향승강장5-1출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "구룡",
@@ -796,6 +1111,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K220-1",
+          "name": "KRIC B2층맞이방,지상5번출입구옆",
+          "operatingSection": null,
+          "location": "B2층맞이방,지상5번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K220-2",
+          "name": "KRIC B2층맞이방상선,B5층개포동역방향승강장4-4출입문앞",
+          "operatingSection": "B5↔B2",
+          "location": "B2층맞이방상선,B5층개포동역방향승강장4-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K220-3",
+          "name": "KRIC B2층맞이방하선,B5층수서역방향승강장4-4출입문앞",
+          "operatingSection": "B5↔B2",
+          "location": "B2층맞이방하선,B5층수서역방향승강장4-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K220-4",
+          "name": "KRIC B2층맞이방,지상4번출입구옆",
+          "operatingSection": null,
+          "location": "B2층맞이방,지상4번출입구옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "개포동",
@@ -849,6 +1194,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K221-1",
+          "name": "KRIC 위치 미상",
+          "operatingSection": "1F↔B1",
+          "location": "위치 미상",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K221-2",
+          "name": "KRIC 위치 미상",
+          "operatingSection": "1F↔B1",
+          "location": "위치 미상",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "대모산입구",
@@ -899,6 +1260,7 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
       "stationName": "복정(동서울대학)",
       "exitNumbers": [],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "수서",
@@ -952,6 +1314,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K223-1",
+          "name": "KRIC (B1)2번출입구방향E/S옆",
+          "operatingSection": null,
+          "location": "(B1)2번출입구방향E/S옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K223-2",
+          "name": "KRIC (B1)4/5번출구옆",
+          "operatingSection": null,
+          "location": "(B1)4/5번출구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K223-3",
+          "name": "KRIC (B2)태평역방향승강장7-2",
+          "operatingSection": "B2↔B1",
+          "location": "(B2)태평역방향승강장7-2",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K223-4",
+          "name": "KRIC (B2)복정역방향승강장2-4",
+          "operatingSection": "B2↔B1",
+          "location": "(B2)복정역방향승강장2-4",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "복정(동서울대학)",
@@ -1022,6 +1414,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K224-1",
+          "name": "KRIC (F1)5번출구앞(B1)맞이방역무실옆",
+          "operatingSection": null,
+          "location": "(F1)5번출구앞(B1)맞이방역무실옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K224-2",
+          "name": "KRIC (B1)맞이방북쪽게이트안(B2)가천대역방향승강장2-3출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)맞이방북쪽게이트안(B2)가천대역방향승강장2-3출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K224-3",
+          "name": "KRIC (B1)맞이방북쪽게이트안(B2)모란역방향승강장6-4뒤편",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)맞이방북쪽게이트안(B2)모란역방향승강장6-4뒤편",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K224-4",
+          "name": "KRIC (F1)6번출구앞(B1)맞이방북쪽게이트외부",
+          "operatingSection": null,
+          "location": "(F1)6번출구앞(B1)맞이방북쪽게이트외부",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "가천대",
@@ -1092,6 +1514,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "11"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K225-1",
+          "name": "KRIC (B2)야탑역방향5-4출입문앞,(B1)1번/2번출입구방향",
+          "operatingSection": "B2↔B1",
+          "location": "(B2)야탑역방향5-4출입문앞,(B1)1번/2번출입구방향",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K225-2",
+          "name": "KRIC (B2)태평역방향2-1출입문앞,(B1)7번/8번출입구방향",
+          "operatingSection": "B2↔B1",
+          "location": "(B2)태평역방향2-1출입문앞,(B1)7번/8번출입구방향",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "태평",
@@ -1145,6 +1583,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K226-1",
+          "name": "KRIC (B1,지상)야탑역맞이방및1,2번출구중간",
+          "operatingSection": null,
+          "location": "(B1,지상)야탑역맞이방및1,2번출구중간",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K226-2",
+          "name": "KRIC (B1,지상)야탑역맞이방및3,4번출구중간",
+          "operatingSection": null,
+          "location": "(B1,지상)야탑역맞이방및3,4번출구중간",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K226-3",
+          "name": "KRIC (B1,B2)죽전,고색,인천방면게이트안↔하선승강장(5-4)",
+          "operatingSection": "B1↔B2",
+          "location": "(B1,B2)죽전,고색,인천방면게이트안↔하선승강장(5-4)",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K226-4",
+          "name": "KRIC (B1,B2)왕십리,청량리방면게이트안↔상선승강장(2-1)",
+          "operatingSection": "B1↔B2",
+          "location": "(B1,B2)왕십리,청량리방면게이트안↔상선승강장(2-1)",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "모란",
@@ -1218,6 +1686,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "9"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K227-1",
+          "name": "KRIC (B1)서현방향대합실,(1F)3번출구광장주차장근처",
+          "operatingSection": null,
+          "location": "(B1)서현방향대합실,(1F)3번출구광장주차장근처",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K227-2",
+          "name": "KRIC (B1)야탑방향연결통로끝,(1F)9번출입구옆",
+          "operatingSection": null,
+          "location": "(B1)야탑방향연결통로끝,(1F)9번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K227-3",
+          "name": "KRIC (B2)서현역방향,하행승강장6-4출입문앞,(B1)대합실북쪽",
+          "operatingSection": "B2↔B1",
+          "location": "(B2)서현역방향,하행승강장6-4출입문앞,(B1)대합실북쪽",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K227-4",
+          "name": "KRIC (B2)야탑역방향,상행승강장3-1출입문앞,(B1)대합실북쪽",
+          "operatingSection": "B2↔B1",
+          "location": "(B2)야탑역방향,상행승강장3-1출입문앞,(B1)대합실북쪽",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "야탑",
@@ -1289,6 +1787,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K228-1",
+          "name": "KRIC (1F)1번출입구근처(B1)표내는곳내역무실근처",
+          "operatingSection": null,
+          "location": "(1F)1번출입구근처(B1)표내는곳내역무실근처",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K228-2",
+          "name": "KRIC (B1)표내는곳내계단옆(B2)수내역방향승강장6-4출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)표내는곳내계단옆(B2)수내역방향승강장6-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K228-3",
+          "name": "KRIC (B1)표내는곳내계단옆(B2)이매역방향승강장3-2출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)표내는곳내계단옆(B2)이매역방향승강장3-2출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "이매(성남아트센터)",
@@ -1359,6 +1880,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K229-1",
+          "name": "KRIC (F1)1번출입구",
+          "operatingSection": null,
+          "location": "(F1)1번출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K229-2",
+          "name": "KRIC (B1)북쪽개집표구안쪽정자방면",
+          "operatingSection": null,
+          "location": "(B1)북쪽개집표구안쪽정자방면",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K229-3",
+          "name": "KRIC (B1)북쪽개집표구안쪽서현방면",
+          "operatingSection": null,
+          "location": "(B1)북쪽개집표구안쪽서현방면",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "서현",
@@ -1412,6 +1956,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K230-1",
+          "name": "KRIC (1F)2번출입구앞(B1)맞이방미금방향역무실옆통로",
+          "operatingSection": "B1↔1F",
+          "location": "(1F)2번출입구앞(B1)맞이방미금방향역무실옆통로",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K230-2",
+          "name": "KRIC (1F)4번출입구옆(B1)맞이방3번/4번출입구중층에스컬레이터옆",
+          "operatingSection": "B1↔1F",
+          "location": "(1F)4번출입구옆(B1)맞이방3번/4번출입구중층에스컬레이터옆",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K230-3",
+          "name": "KRIC (B1)미금방향(하행)맞이방남쪽표내는곳앞(B2)미금방면(하행)승강장2-1위치",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)미금방향(하행)맞이방남쪽표내는곳앞(B2)미금방면(하행)승강장2-1위치",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K230-4",
+          "name": "KRIC (B1)수내방향(상행)맞이방남쪽표내는곳앞(B2)수내방면(상행)승강장6-4위치",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)수내방향(상행)맞이방남쪽표내는곳앞(B2)수내방면(상행)승강장6-4위치",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "수내(한국잡월드)",
@@ -1483,6 +2057,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K231-1",
+          "name": "KRIC (1F)4번출입구앞(B1)역무실근처",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)4번출입구앞(B1)역무실근처",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K231-2",
+          "name": "KRIC (B1)맞이방북쪽표내는곳내계단옆(B2)오리방향승강장5-4출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)맞이방북쪽표내는곳내계단옆(B2)오리방향승강장5-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K231-3",
+          "name": "KRIC (B1)맞이방북쪽표내는곳내계단옆(B2)정자방향승강장2-1출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)맞이방북쪽표내는곳내계단옆(B2)정자방향승강장2-1출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "정자",
@@ -1553,6 +2150,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K232-1",
+          "name": "KRIC (1F)6번출입구옆(B1)고객맞이방편의점옆",
+          "operatingSection": null,
+          "location": "(1F)6번출입구옆(B1)고객맞이방편의점옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K232-2",
+          "name": "KRIC (B1)남쯕게이트옆(B2)(하행)왕십리방향승강장2-2",
+          "operatingSection": null,
+          "location": "(B1)남쯕게이트옆(B2)(하행)왕십리방향승강장2-2",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K232-3",
+          "name": "KRIC (B1)남쯕게이트옆(B2)(상행)인천방향승강장5-4",
+          "operatingSection": null,
+          "location": "(B1)남쯕게이트옆(B2)(상행)인천방향승강장5-4",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "미금(분당서울대병원)",
@@ -1625,6 +2245,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K233-1",
+          "name": "KRIC (2F)보정역방향승강장4-4출입문앞(1F)맞이방",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)보정역방향승강장4-4출입문앞(1F)맞이방",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K233-2",
+          "name": "KRIC (2F)오리역방향승강장3-1출입문앞(1F)맞이방",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)오리역방향승강장3-1출입문앞(1F)맞이방",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K233-3",
+          "name": "KRIC (1F)맞이방발매기옆,1번출입구방향(B1)지하주차장",
+          "operatingSection": "B1↔2F",
+          "location": "(1F)맞이방발매기옆,1번출입구방향(B1)지하주차장",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "오리",
@@ -1696,6 +2339,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K234-1",
+          "name": "KRIC (B1)1번/4번출입구통로1번출입구방향(1F)1번출입구뒤편",
+          "operatingSection": null,
+          "location": "(B1)1번/4번출입구통로1번출입구방향(1F)1번출입구뒤편",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K234-2",
+          "name": "KRIC (B1)4번출입구앞(1F)4번출입구뒤편",
+          "operatingSection": null,
+          "location": "(B1)4번출입구앞(1F)4번출입구뒤편",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K234-3",
+          "name": "KRIC (B3)구성역방향(하행)승강장7-4출입문앞,(B1)1번/4번출입구방향표내는곳안쪽우측",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)구성역방향(하행)승강장7-4출입문앞,(B1)1번/4번출입구방향표내는곳안쪽우측",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K234-4",
+          "name": "KRIC (B3)죽전역방향(상행)승강장1-4출입문앞,(B1)1번/4번출입구방향표내는곳안쪽좌측",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)죽전역방향(상행)승강장1-4출입문앞,(B1)1번/4번출입구방향표내는곳안쪽좌측",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "죽전(단국대)",
@@ -1749,6 +2422,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K235-1",
+          "name": "KRIC (B1)고객맞이방2번출입구방향",
+          "operatingSection": null,
+          "location": "(B1)고객맞이방2번출입구방향",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K235-2",
+          "name": "KRIC (B1)고객맞이방3번출입구방향",
+          "operatingSection": null,
+          "location": "(B1)고객맞이방3번출입구방향",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K235-3",
+          "name": "KRIC (B3)신갈역방향승강장4-2/(B1)개찰구옆",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)신갈역방향승강장4-2/(B1)개찰구옆",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K235-4",
+          "name": "KRIC (B3)보정역방향승강장5-2/(B1)개찰구옆",
+          "operatingSection": "B3↔B1",
+          "location": "(B3)보정역방향승강장5-2/(B1)개찰구옆",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "보정",
@@ -1820,6 +2523,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K236-1",
+          "name": "KRIC (1F)1번/2번출입구사이(B1)2번출입구옆",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(B1)2번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K236-2",
+          "name": "KRIC (1F)3번/4번출입구사이(B1)3번출입구옆",
+          "operatingSection": null,
+          "location": "(1F)3번/4번출입구사이(B1)3번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K236-3",
+          "name": "KRIC (B1)게이트내하행방면승강장(B4)기흥역방향승강장3-2출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)게이트내하행방면승강장(B4)기흥역방향승강장3-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K236-4",
+          "name": "KRIC (B1)게이트내상행방면승강장(B4)구성역방향승강장6-3출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)게이트내상행방면승강장(B4)구성역방향승강장6-3출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "구성",
@@ -1893,6 +2626,64 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K237-1",
+          "name": "KRIC 1,2번출구중간위치",
+          "operatingSection": null,
+          "location": "1,2번출구중간위치",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K237-2",
+          "name": "KRIC 3,4번출구중간위치",
+          "operatingSection": "1F↔B1",
+          "location": "3,4번출구중간위치",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K237-3",
+          "name": "KRIC 5번출구",
+          "operatingSection": "1F↔B1",
+          "location": "5번출구",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K237-4",
+          "name": "KRIC 6,7번출구중간위치",
+          "operatingSection": "1F↔B1",
+          "location": "6,7번출구중간위치",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K237-5",
+          "name": "KRIC 북쪽맞이방",
+          "operatingSection": "B2↔B1",
+          "location": "북쪽맞이방",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K237-6",
+          "name": "KRIC 남쪽맞이방",
+          "operatingSection": "B2↔B1",
+          "location": "남쪽맞이방",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K237-7",
+          "name": "KRIC 하선승강장",
+          "operatingSection": "B3↔B1",
+          "location": "하선승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K237-8",
+          "name": "KRIC 상선승강장",
+          "operatingSection": "B3↔B1",
+          "location": "상선승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "신갈",
@@ -1946,6 +2737,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K238-1",
+          "name": "KRIC (1F)1번/2번출입구사이(B1)1번/2번출입구연결통로(B2)표내는곳외부,역무실옆",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)1번/2번출입구사이(B1)1번/2번출입구연결통로(B2)표내는곳외부,역무실옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K238-2",
+          "name": "KRIC (1F)3번/4번출입구사이(B1)3번/4번출입구연결통로(B2)표내는곳외부,발매기실1옆",
+          "operatingSection": null,
+          "location": "(1F)3번/4번출입구사이(B1)3번/4번출입구연결통로(B2)표내는곳외부,발매기실1옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K238-3",
+          "name": "KRIC (B3)청명역방향승강장3-2출입문앞(B2)표내는곳내계단앞,2번출입구방향",
+          "operatingSection": "B3↔B2",
+          "location": "(B3)청명역방향승강장3-2출입문앞(B2)표내는곳내계단앞,2번출입구방향",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K238-4",
+          "name": "KRIC (B3)기흥역방향승강장6-2출입문앞(B2)표내는곳내계단앞,3번출입구방향",
+          "operatingSection": "B3↔B2",
+          "location": "(B3)기흥역방향승강장6-2출입문앞(B2)표내는곳내계단앞,3번출입구방향",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "기흥(백남준아트센터)",
@@ -2000,6 +2821,43 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K239-1",
+          "name": "KRIC (1F)2번출입구옆(B1)2번출구하부E/S옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)2번출입구옆(B1)2번출구하부E/S옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K239-2",
+          "name": "KRIC (1F)3번출입구옆(B1)3번출구하부E/S옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)3번출입구옆(B1)3번출구하부E/S옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K239-3",
+          "name": "KRIC (1F)4번출입구옆(B1)4번출구하부E/S옆",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)4번출입구옆(B1)4번출구하부E/S옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K239-4",
+          "name": "KRIC (B1)북쪽하행게이트안쪽(B2)하선타는곳8-1맞은편",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)북쪽하행게이트안쪽(B2)하선타는곳8-1맞은편",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K239-5",
+          "name": "KRIC (B1)북쪽상행게이트안쪽(B2)상선타는곳1-3맞은편",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)북쪽상행게이트안쪽(B2)상선타는곳1-3맞은편",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "상갈(루터대학교)",
@@ -2071,6 +2929,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K240-1",
+          "name": "KRIC (B1)1번/2번출입구방향(1F)1번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(B1)1번/2번출입구방향(1F)1번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K240-2",
+          "name": "KRIC (B1)5번/6번출입구방향(1F)5번출입구옆",
+          "operatingSection": "1F↔B1",
+          "location": "(B1)5번/6번출입구방향(1F)5번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K240-3",
+          "name": "KRIC (B1)우측승강장내부,망포역방향(B2)망포역방향승강장3-2출입문앞",
+          "operatingSection": "B1↔B2",
+          "location": "(B1)우측승강장내부,망포역방향(B2)망포역방향승강장3-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K240-4",
+          "name": "KRIC (B1)우측승강장내부,청명역방향(B2)청명역방향승강장6-2출입문앞",
+          "operatingSection": "B1↔B2",
+          "location": "(B1)우측승강장내부,청명역방향(B2)청명역방향승강장6-2출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "청명",
@@ -2142,6 +3030,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K241-1",
+          "name": "KRIC (1F)1번출입구옆(B1)1번출입구출입문앞",
+          "operatingSection": null,
+          "location": "(1F)1번출입구옆(B1)1번출입구출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K241-2",
+          "name": "KRIC (1F)8번출입구옆(B1)8번출입구방향통로중간",
+          "operatingSection": null,
+          "location": "(1F)8번출입구옆(B1)8번출입구방향통로중간",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K241-3",
+          "name": "KRIC (B1)맞이방게이트앞(B2)매탄권선역방향승강장8-1(미승차구간)출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)맞이방게이트앞(B2)매탄권선역방향승강장8-1(미승차구간)출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K241-4",
+          "name": "KRIC (B1)맞이방게이트앞(B2)영통역방향승강장1-3출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)맞이방게이트앞(B2)영통역방향승강장1-3출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "영통(경희대)",
@@ -2213,6 +3131,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K242-1",
+          "name": "KRIC (1F)1번/2번출입구사이엘리베이터,1번출입구옆(B2)맞이방",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)1번/2번출입구사이엘리베이터,1번출입구옆(B2)맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K242-2",
+          "name": "KRIC (1F)4번/5번출입구사이엘리베이터,4번출입구옆(B2)맞이방",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)4번/5번출입구사이엘리베이터,4번출입구옆(B2)맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K242-3",
+          "name": "KRIC (B2)남쪽표내는곳내에스컬레이터뒤(B3)수원시청역방향승강장2-2출입문앞",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)남쪽표내는곳내에스컬레이터뒤(B3)수원시청역방향승강장2-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K242-4",
+          "name": "KRIC (B2)남쪽표내는곳내에스컬레이터뒤(B3)망포역방향승강장7-2출입문앞",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)남쪽표내는곳내에스컬레이터뒤(B3)망포역방향승강장7-2출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "망포",
@@ -2293,6 +3241,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K243-1",
+          "name": "KRIC (1F)3,4번출입구사이(B1)3,4출입구사이",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)3,4번출입구사이(B1)3,4출입구사이",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K243-2",
+          "name": "KRIC (1F)7,8번출입구사이(B1)7,8출입구사이",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)7,8번출입구사이(B1)7,8출입구사이",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K243-3",
+          "name": "KRIC (B1)수원방면표내는곳안(B2)수원방면승강장6-1출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)수원방면표내는곳안(B2)수원방면승강장6-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K243-4",
+          "name": "KRIC (B1)왕십리방면표내는곳안(B2)왕십리방면승강장3-4출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)왕십리방면표내는곳안(B2)왕십리방면승강장3-4출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "매탄권선",
@@ -2364,6 +3342,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K244-1",
+          "name": "KRIC (1F)7번/8번출입구사이",
+          "operatingSection": null,
+          "location": "(1F)7번/8번출입구사이",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K244-2",
+          "name": "KRIC (1F)3번/4번출입구사이",
+          "operatingSection": null,
+          "location": "(1F)3번/4번출입구사이",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K244-3",
+          "name": "KRIC (B2)남쪽표내는곳앞,(B3)수원시청역방향7-4출입문앞",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)남쪽표내는곳앞,(B3)수원시청역방향7-4출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K244-4",
+          "name": "KRIC (B2)남쪽표내는곳앞,(B3)수원역방향2-1출입문앞",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)남쪽표내는곳앞,(B3)수원역방향2-1출입문앞",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "수원시청(경기도문화의전당)",
@@ -2436,6 +3444,57 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "10"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K245-1",
+          "name": "KRIC (B3)동편개찰구내고색역방향승강장쪽(B4)고색역방향승강장7-4출입문앞",
+          "operatingSection": "B4↔B3",
+          "location": "(B3)동편개찰구내고색역방향승강장쪽(B4)고색역방향승강장7-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K245-2",
+          "name": "KRIC (B1)동편맞이방(B3)동편장애인개찰구앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)동편맞이방(B3)동편장애인개찰구앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K245-3",
+          "name": "KRIC (1층)9번/10번출입구사이엘리베이터(B1)9번/10번출입구사이엘리베이터",
+          "operatingSection": "1F↔B1",
+          "location": "(1층)9번/10번출입구사이엘리베이터(B1)9번/10번출입구사이엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K245-4",
+          "name": "KRIC (1층)7번/8번출입구사이엘리베이터(B1)7번/8번출입구사이엘리베이터",
+          "operatingSection": null,
+          "location": "(1층)7번/8번출입구사이엘리베이터(B1)7번/8번출입구사이엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K245-5",
+          "name": "KRIC (B1)환승센터매교역방향엘리베이터(B4)매교역방향승강장7-4출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)환승센터매교역방향엘리베이터(B4)매교역방향승강장7-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K245-6",
+          "name": "KRIC (B1)환승센터고색역방향엘리베이터(B4)고색역방향승강장1-4출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)환승센터고색역방향엘리베이터(B4)고색역방향승강장1-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K245-7",
+          "name": "KRIC (B3)동편개찰구내매교역방향승강장쪽(B4)매교역방향승강장1-4출입문앞",
+          "operatingSection": "B4↔B3",
+          "location": "(B3)동편개찰구내매교역방향승강장쪽(B4)매교역방향승강장1-4출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "매교",
@@ -2506,6 +3565,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K246-1",
+          "name": "KRIC (B1)개집표구내오목천역방향",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)개집표구내오목천역방향",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K246-2",
+          "name": "KRIC (B1)개집표구내수원역방향",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)개집표구내수원역방향",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K246-3",
+          "name": "KRIC (B1)맞이방3번출입구방향",
+          "operatingSection": "1F↔B1",
+          "location": "(B1)맞이방3번출입구방향",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K246-4",
+          "name": "KRIC (B1)맞이방4번출입구방향",
+          "operatingSection": null,
+          "location": "(B1)맞이방4번출입구방향",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "수원",
@@ -2536,6 +3625,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K247-1",
+          "name": "KRIC (B1)맞이방상행승강장방향(B3)상행승강장5-2",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)맞이방상행승강장방향(B3)상행승강장5-2",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K247-2",
+          "name": "KRIC (B1)맞이방하행승강장방향(B3)하행승강장4-3",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)맞이방하행승강장방향(B3)하행승강장4-3",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K247-3",
+          "name": "KRIC (B1)맞이방수유방옆(1F)1-2번출입구사이",
+          "operatingSection": "1F↔B1",
+          "location": "(B1)맞이방수유방옆(1F)1-2번출입구사이",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K247-4",
+          "name": "KRIC (B2)환승주차장,환승통로(B1)환승주차장(1F)3번출구옆",
+          "operatingSection": null,
+          "location": "(B2)환승주차장,환승통로(B1)환승주차장(1F)3번출구옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "고색",
@@ -2590,6 +3709,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K248-1",
+          "name": "KRIC (1층)수원방향타는곳(2층)수원방향승강장6-1출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1층)수원방향타는곳(2층)수원방향승강장6-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K248-2",
+          "name": "KRIC (1층)인천방향타는곳(2층)인천방향승강장3-4출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1층)인천방향타는곳(2층)인천방향승강장3-4출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "오목천",
@@ -2644,6 +3779,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K249-1",
+          "name": "KRIC (1F)어천역방향5-1출입문앞(2F)콘코스어천역방향에스컬레이터앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)어천역방향5-1출입문앞(2F)콘코스어천역방향에스컬레이터앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K249-2",
+          "name": "KRIC (1F)사리역방향4-4출입문앞(2F)콘코스사리역방향에스컬레이터앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)사리역방향4-4출입문앞(2F)콘코스사리역방향에스컬레이터앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K249-3",
+          "name": "KRIC (1F)1번출입구버스정류장옆(2F)1번출구옆",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)1번출입구버스정류장옆(2F)1번출구옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "어천",
@@ -2699,6 +3857,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K250-1",
+          "name": "KRIC 야목역방향4-3출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "야목역방향4-3출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K250-2",
+          "name": "KRIC 한대앞역방향5-2출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "한대앞역방향5-2출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K250-3",
+          "name": "KRIC 1번출입구",
+          "operatingSection": null,
+          "location": "1번출입구",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K250-4",
+          "name": "KRIC 2번출입구",
+          "operatingSection": null,
+          "location": "2번출입구",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "야목",
@@ -2755,6 +3943,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K251-1",
+          "name": "KRIC (1층)상록수역방향승강장6-3",
+          "operatingSection": "1F↔2F",
+          "location": "(1층)상록수역방향승강장6-3",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K251-2",
+          "name": "KRIC (1층)중앙역방향승강장5-2",
+          "operatingSection": "1F↔2F",
+          "location": "(1층)중앙역방향승강장5-2",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K251-3",
+          "name": "KRIC (2층)2번출입구방향",
+          "operatingSection": null,
+          "location": "(2층)2번출입구방향",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "사리",
@@ -2810,6 +4021,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K252-1",
+          "name": "KRIC (1층)1번출입구옆(2층)한대앞역방향승강장4-3출입문앞",
+          "operatingSection": null,
+          "location": "(1층)1번출입구옆(2층)한대앞역방향승강장4-3출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K252-2",
+          "name": "KRIC (1층)2번출입구옆(2층)고잔역방향승강장7-2출입문앞",
+          "operatingSection": null,
+          "location": "(1층)2번출입구옆(2층)고잔역방향승강장7-2출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "한대앞",
@@ -2855,6 +4082,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K253-1",
+          "name": "KRIC (2F)중앙역방향5-3출입문앞(1F)고객맞이방화장실옆",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)중앙역방향5-3출입문앞(1F)고객맞이방화장실옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K253-2",
+          "name": "KRIC (2F)초지역방향6-2출입문앞(1F)고객맞이방화장실옆",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)초지역방향6-2출입문앞(1F)고객맞이방화장실옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "중앙",
@@ -2909,6 +4152,7 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "고잔",
@@ -2940,6 +4184,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K255-1",
+          "name": "KRIC (1층)초지역방향승강장7-2출입문앞(2층)자유통로상행표내는곳내",
+          "operatingSection": "1F↔2F",
+          "location": "(1층)초지역방향승강장7-2출입문앞(2층)자유통로상행표내는곳내",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K255-2",
+          "name": "KRIC (1층)신길온천역방향승강장4-3출입문앞(2층)자유통로하행표내는곳내",
+          "operatingSection": "1F↔2F",
+          "location": "(1층)신길온천역방향승강장4-3출입문앞(2층)자유통로하행표내는곳내",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "초지",
@@ -2995,6 +4255,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K256-1",
+          "name": "KRIC (1층)1번출구계단하부와자전거거치대사이(2층)자유통로1번출구상단입구",
+          "operatingSection": null,
+          "location": "(1층)1번출구계단하부와자전거거치대사이(2층)자유통로1번출구상단입구",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K256-2",
+          "name": "KRIC (1층)2번출구계단하부와자전거거치대사이(2층)자유통로2번출구상단입구",
+          "operatingSection": null,
+          "location": "(1층)2번출구계단하부와자전거거치대사이(2층)자유통로2번출구상단입구",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K256-3",
+          "name": "KRIC (1층)오이도역방향승강장8-1출입문앞(2층)대합실1번출구방향",
+          "operatingSection": null,
+          "location": "(1층)오이도역방향승강장8-1출입문앞(2층)대합실1번출구방향",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K256-4",
+          "name": "KRIC (1층)안산역방향승강장3-4출입문앞(2층)대합실2번출구방향",
+          "operatingSection": null,
+          "location": "(1층)안산역방향승강장3-4출입문앞(2층)대합실2번출구방향",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "안산",
@@ -3045,6 +4335,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K257-1",
+          "name": "KRIC (1F)개집표구진입후당고개,수원방향E/S근처",
+          "operatingSection": null,
+          "location": "(1F)개집표구진입후당고개,수원방향E/S근처",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K257-2",
+          "name": "KRIC (1F)개집표구진입후오이도,인천방향E/S근처",
+          "operatingSection": null,
+          "location": "(1F)개집표구진입후오이도,인천방향E/S근처",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "능길",
@@ -3076,6 +4382,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K258-1",
+          "name": "KRIC (1층)2번출입구옆(3층)맞이방",
+          "operatingSection": null,
+          "location": "(1층)2번출입구옆(3층)맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K258-2",
+          "name": "KRIC (1층)3번출입구옆(3층)맞이방",
+          "operatingSection": null,
+          "location": "(1층)3번출입구옆(3층)맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K258-3",
+          "name": "KRIC (1층)정왕역방향승강장4-3출입문앞(3층)맞이방",
+          "operatingSection": "1F↔3F",
+          "location": "(1층)정왕역방향승강장4-3출입문앞(3층)맞이방",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K258-4",
+          "name": "KRIC (1층)달월역방향승강장7-2출입문앞(3층)맞이방",
+          "operatingSection": "1F↔3F",
+          "location": "(1층)달월역방향승강장7-2출입문앞(3층)맞이방",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "정왕",
@@ -3131,6 +4467,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K259-1",
+          "name": "KRIC 1F(이동통로오이도역방향계단옆)2F(오이도역방향승강장5-1출입문앞)",
+          "operatingSection": "1F↔B2",
+          "location": "1F(이동통로오이도역방향계단옆)2F(오이도역방향승강장5-1출입문앞)",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K259-2",
+          "name": "KRIC 1F(이동통로월곶역방향계단옆)2F(월곶역방향승강장4-4출입문앞)",
+          "operatingSection": "1F↔B2",
+          "location": "1F(이동통로월곶역방향계단옆)2F(월곶역방향승강장4-4출입문앞)",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "오이도",
@@ -3201,6 +4553,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K260-1",
+          "name": "KRIC (1F)남쪽표내는곳옆,인천방향(2F)인천방향4-2출입문앞",
+          "operatingSection": null,
+          "location": "(1F)남쪽표내는곳옆,인천방향(2F)인천방향4-2출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K260-2",
+          "name": "KRIC (1F)남쪽표내는곳옆,오이도방향(2F)오이도방향5-3출입문앞",
+          "operatingSection": null,
+          "location": "(1F)남쪽표내는곳옆,오이도방향(2F)오이도방향5-3출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "달월",
@@ -3272,6 +4640,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K261-1",
+          "name": "KRIC (1F)북측",
+          "operatingSection": null,
+          "location": "(1F)북측",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K261-2",
+          "name": "KRIC (1F)남측",
+          "operatingSection": null,
+          "location": "(1F)남측",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "월곶",
@@ -3325,6 +4709,43 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K262-1",
+          "name": "KRIC (2F)맞이방북쪽표내는곳내오이도방향에스컬레이터앞엘리베이터",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)맞이방북쪽표내는곳내오이도방향에스컬레이터앞엘리베이터",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K262-2",
+          "name": "KRIC (2F)맞이방북쪽표내는곳내인천방향에스컬레이터앞엘리베이터",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)맞이방북쪽표내는곳내인천방향에스컬레이터앞엘리베이터",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K262-3",
+          "name": "KRIC (1F)3번출입구앞엘리베이터",
+          "operatingSection": null,
+          "location": "(1F)3번출입구앞엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K262-4",
+          "name": "KRIC (1F)2번출입구앞엘리베이터",
+          "operatingSection": null,
+          "location": "(1F)2번출입구앞엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K262-5",
+          "name": "KRIC (1F)3번출입구앞엘리베이터",
+          "operatingSection": null,
+          "location": "(1F)3번출입구앞엘리베이터",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "소래포구",
@@ -3378,6 +4799,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K263-1",
+          "name": "KRIC (1F)맞이방표내는곳안쪽인천논현역방향에스컬레이터옆(2F)인천논현역방향승강장출입문5-1앞",
+          "operatingSection": null,
+          "location": "(1F)맞이방표내는곳안쪽인천논현역방향에스컬레이터옆(2F)인천논현역방향승강장출입문5-1앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K263-2",
+          "name": "KRIC (1F)맞이방표내는곳안쪽남동인더스파크역방향에스컬레이터옆(2F)남동인더스파크역방향승강장출입문4-4앞",
+          "operatingSection": null,
+          "location": "(1F)맞이방표내는곳안쪽남동인더스파크역방향에스컬레이터옆(2F)남동인더스파크역방향승강장출입문4-4앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "인천논현",
@@ -3449,6 +4886,22 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K264-1",
+          "name": "KRIC (1F)개찰구내원인재역방향계단맞은편",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)개찰구내원인재역방향계단맞은편",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K264-2",
+          "name": "KRIC (1F)개찰구내호구포역방향계단맞은편",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)개찰구내호구포역방향계단맞은편",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "호구포",
@@ -3502,6 +4955,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K265-1",
+          "name": "KRIC (1F)게이트안상행승강장방향",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)게이트안상행승강장방향",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K265-2",
+          "name": "KRIC (1F)게이트안하행승강장방향",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)게이트안하행승강장방향",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K265-3",
+          "name": "KRIC (B1)환승통로계단옆",
+          "operatingSection": "B1↔1F",
+          "location": "(B1)환승통로계단옆",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "남동인더스파크",
@@ -3555,6 +5031,64 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K266-1",
+          "name": "KRIC (3F)상행승강장계단,에스컬레이터사이(1F)원인재방향,상행승강장4-1",
+          "operatingSection": "1F↔3F",
+          "location": "(3F)상행승강장계단,에스컬레이터사이(1F)원인재방향,상행승강장4-1",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K266-2",
+          "name": "KRIC (3F)하행승강장계단,에스컬레이터사이(2F)송도방향,하행승강장5-4",
+          "operatingSection": "1F↔3F",
+          "location": "(3F)하행승강장계단,에스컬레이터사이(2F)송도방향,하행승강장5-4",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K266-3",
+          "name": "KRIC (3F)2번출입구나가는곳왼쪽(2F)2번출구타는곳,계단옆",
+          "operatingSection": null,
+          "location": "(3F)2번출입구나가는곳왼쪽(2F)2번출구타는곳,계단옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K266-4",
+          "name": "KRIC (3F)1번출입구나가는곳오른쪽(1F)1번출구,역광장,자전거보관소옆",
+          "operatingSection": null,
+          "location": "(3F)1번출입구나가는곳오른쪽(1F)1번출구,역광장,자전거보관소옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K266-5",
+          "name": "KRIC (3F)표내는곳내왼쪽(1F)원인재역방향상행승강장북쪽끝단",
+          "operatingSection": "1F↔3F",
+          "location": "(3F)표내는곳내왼쪽(1F)원인재역방향상행승강장북쪽끝단",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K266-6",
+          "name": "KRIC (3F)표내는곳내오른쪽(1F)송도역방향하행승강장북쪽끝단",
+          "operatingSection": "1F↔3F",
+          "location": "(3F)표내는곳내오른쪽(1F)송도역방향하행승강장북쪽끝단",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-KR-K266-7",
+          "name": "KRIC (3F)3번출입구나가는곳왼쪽(1F)3번출입구공용주차장옆",
+          "operatingSection": null,
+          "location": "(3F)3번출입구나가는곳왼쪽(1F)3번출입구공용주차장옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K266-8",
+          "name": "KRIC (3F)4번출입구나가는곳왼쪽(1F)4번출입구공용주차장옆",
+          "operatingSection": null,
+          "location": "(3F)4번출입구나가는곳왼쪽(1F)4번출입구공용주차장옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "원인재",
@@ -3625,6 +5159,29 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K267-1",
+          "name": "KRIC (1F)연수역방향승강장4-4출입문앞(2F)맞이방",
+          "operatingSection": null,
+          "location": "(1F)연수역방향승강장4-4출입문앞(2F)맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K267-2",
+          "name": "KRIC (1F)인하대역방향승강장5-1출입문앞(2F)맞이방",
+          "operatingSection": null,
+          "location": "(1F)인하대역방향승강장5-1출입문앞(2F)맞이방",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K267-3",
+          "name": "KRIC (1F)1번출입구옆엘리베이터(2F)맞이방",
+          "operatingSection": null,
+          "location": "(1F)1번출입구옆엘리베이터(2F)맞이방",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "연수",
@@ -3696,6 +5253,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K269-1",
+          "name": "KRIC 1번,2번출구사이엘리베이터",
+          "operatingSection": null,
+          "location": "1번,2번출구사이엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K269-2",
+          "name": "KRIC 6번,7번사이엘리베이터",
+          "operatingSection": null,
+          "location": "6번,7번사이엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K269-3",
+          "name": "KRIC 우측게이트옆인천행타는곳",
+          "operatingSection": "B2↔B1",
+          "location": "우측게이트옆인천행타는곳",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K269-4",
+          "name": "KRIC 우측게이트옆송도방면타는곳",
+          "operatingSection": "B2↔B1",
+          "location": "우측게이트옆송도방면타는곳",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "송도",
@@ -3727,6 +5314,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K270-1",
+          "name": "KRIC (1F)2번출입구뒤(B1)2번출입구옆",
+          "operatingSection": null,
+          "location": "(1F)2번출입구뒤(B1)2번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K270-2",
+          "name": "KRIC (1F)3번출입구뒤(B1)3번출입구옆",
+          "operatingSection": null,
+          "location": "(1F)3번출입구뒤(B1)3번출입구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K270-3",
+          "name": "KRIC (B1)좌측게이트안/하행에스컬레이터,계단사이(B2)신포역방향2-4출입문앞",
+          "operatingSection": "B1↔B2",
+          "location": "(B1)좌측게이트안/하행에스컬레이터,계단사이(B2)신포역방향2-4출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-KR-K270-4",
+          "name": "KRIC (B1)좌측게이트안/상행에스컬레이터.계단사이(B2)인하대역7-1출입문앞",
+          "operatingSection": "B1↔B2",
+          "location": "(B1)좌측게이트안/상행에스컬레이터.계단사이(B2)인하대역7-1출입문앞",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "인하대",
@@ -3782,6 +5399,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K271-1",
+          "name": "KRIC (1F)4번출입구옆(B1)고객맞이방옆",
+          "operatingSection": null,
+          "location": "(1F)4번출입구옆(B1)고객맞이방옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K271-2",
+          "name": "KRIC (1F)2번출입구옆(B1)2번출입구에스컬레이터앞",
+          "operatingSection": null,
+          "location": "(1F)2번출입구옆(B1)2번출입구에스컬레이터앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K271-3",
+          "name": "KRIC (B2)인천역방향승강장3-2출입문앞",
+          "operatingSection": null,
+          "location": "(B2)인천역방향승강장3-2출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K271-4",
+          "name": "KRIC (B2)숭의역방향승강장6-3출입문앞",
+          "operatingSection": null,
+          "location": "(B2)숭의역방향승강장6-3출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "숭의(인하대병원)",
@@ -3837,6 +5484,36 @@ export const SUIN_BUNDANG_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-KR-K272-1",
+          "name": "KRIC (B1)지하1층철도경찰사무실앞복도끝좌측(1F)1번출구에서수인분당선환승통로끝",
+          "operatingSection": null,
+          "location": "(B1)지하1층철도경찰사무실앞복도끝좌측(1F)1번출구에서수인분당선환승통로끝",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K272-2",
+          "name": "KRIC (B1)지하1층맞이방에서3번출구복도끝(1F)3번출구옆",
+          "operatingSection": null,
+          "location": "(B1)지하1층맞이방에서3번출구복도끝(1F)3번출구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K272-3",
+          "name": "KRIC (B1)환승통로끝좌측(1F)1호선1,2번승강장2-1",
+          "operatingSection": null,
+          "location": "(B1)환승통로끝좌측(1F)1호선1,2번승강장2-1",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-KR-K272-4",
+          "name": "KRIC (B1)지하1층철도경찰사무실앞(B2)지하2층중앙계단앞(B3)지하3층분리수거장앞",
+          "operatingSection": null,
+          "location": "(B1)지하1층철도경찰사무실앞(B2)지하2층중앙계단앞(B3)지하3층분리수거장앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "신포",

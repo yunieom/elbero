@@ -258,6 +258,7 @@ for (const config of selectedConfigs) {
       stationName: routeStation.stinNm,
       exitNumbers,
       verificationMethod: "kric_movement_consensus",
+      elevators: buildElevators(routeStation, stationCode, rawStation),
       directions,
     };
   });
@@ -449,6 +450,95 @@ function extractExitNumbers(values) {
       ].map((match) => match[1]),
     ),
   );
+}
+
+function buildElevators(routeStation, stationCode, rawStation) {
+  const movementGroups = Map.groupBy(
+    rawStation?.elevatorMovement?.body ?? [],
+    (row) => row.mvPathMgNo,
+  );
+  return (rawStation?.elevators?.body ?? []).map((elevator, index) => {
+    const kind = elevator.exitNo
+      ? "surface"
+      : String(elevator.dtlLoc ?? "").includes("승강장")
+        ? "platform"
+        : "other";
+    return {
+      id: `kric-${routeStation.railOprIsttCd}-${stationCode}-${index + 1}`,
+      name: `KRIC ${formatElevatorLocation(elevator.dtlLoc)}`,
+      operatingSection: findMovementSection(
+        elevator,
+        kind,
+        movementGroups,
+      ),
+      location: formatElevatorLocation(elevator.dtlLoc),
+      kind,
+    };
+  });
+}
+
+function findMovementSection(elevator, kind, movementGroups) {
+  if (kind === "platform") {
+    const from = formatFloor(elevator.grndDvNmFr, elevator.runStinFlorFr);
+    const to = formatFloor(elevator.grndDvNmTo, elevator.runStinFlorTo);
+    if (from && to && from !== to) return `${from}↔${to}`;
+  }
+  const location = normalizeName(elevator.dtlLoc);
+  const exitKeys = String(elevator.exitNo ?? "")
+    .split(/[,/]/u)
+    .map((value) => value.trim())
+    .filter(Boolean)
+    .map((value) => `${value}번`);
+  const directionKey =
+    String(elevator.dtlLoc ?? "").match(/([가-힣A-Za-z0-9]+)\s*방면/u)?.[1] ??
+    null;
+  const candidates = [...movementGroups.values()].filter((rows) => {
+    const text = normalizeName(rows.map((row) => row.mvContDtl).join(" "));
+    if (kind === "surface") {
+      return exitKeys.some((exitKey) => text.includes(exitKey));
+    }
+    if (kind === "platform" && directionKey) {
+      return text.includes(normalizeName(directionKey));
+    }
+    return location && text.includes(location);
+  });
+  const floors = uniqueSorted(
+    candidates.flatMap((rows) =>
+      rows.flatMap((row) => extractFloorLabels(row.mvContDtl)),
+    ),
+  ).toSorted((left, right) => floorDistance(left) - floorDistance(right));
+  if (floors.length >= 2) {
+    const sectionFloors =
+      kind === "surface" ? floors.slice(0, 2) : floors.slice(-2);
+    return `${sectionFloors[0]}↔${sectionFloors[1]}`;
+  }
+  if (kind === "surface") return null;
+  const from = formatFloor(elevator.grndDvNmFr, elevator.runStinFlorFr);
+  const to = formatFloor(elevator.grndDvNmTo, elevator.runStinFlorTo);
+  return from && to && from !== to ? `${from}↔${to}` : null;
+}
+
+function formatFloor(groundType, floor) {
+  const value = Number(floor);
+  if (!Number.isFinite(value)) return null;
+  return String(groundType ?? "").includes("지하") ? `B${value}` : `${value}F`;
+}
+
+function formatElevatorLocation(value) {
+  return String(value ?? "").trim() || "위치 미상";
+}
+
+function extractFloorLabels(value) {
+  return [
+    ...String(value ?? "").matchAll(/\b(?:BM\d+(?:\.\d+)?|B\d+(?:\.\d+)?|\d+(?:\.\d+)?F)\b/gu),
+  ].map((match) => match[0]);
+}
+
+function floorDistance(floor) {
+  if (floor.startsWith("BM")) return Number(floor.slice(2)) - 0.5;
+  if (floor.startsWith("B")) return Number(floor.slice(1));
+  if (floor.endsWith("F")) return Math.abs(Number(floor.slice(0, -1)) - 1);
+  return Number.POSITIVE_INFINITY;
 }
 
 function stationIdentity(station) {

@@ -16,6 +16,7 @@ interface GuidanceStepCardProps {
   step: JourneyStep;
   isLast: boolean;
   isCurrent?: boolean;
+  positionLabel?: "빠른환승" | "빠른하차";
   onReport?: () => void;
 }
 
@@ -23,6 +24,7 @@ export function GuidanceStepCard({
   step,
   isLast,
   isCurrent = false,
+  positionLabel = "빠른하차",
   onReport,
 }: GuidanceStepCardProps) {
   const gap = step.platformGap;
@@ -70,7 +72,7 @@ export function GuidanceStepCard({
       <View style={[styles.card, isCurrent && styles.currentCard]}>
         <View
           accessible
-          accessibilityLabel={`${isCurrent ? "현재 단계, " : ""}${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, 빠른환승 ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
+          accessibilityLabel={`${isCurrent ? "현재 단계, " : ""}${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, ${positionLabel} ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
         >
           <View style={styles.cardHeader}>
             {isCurrent ? (
@@ -88,8 +90,8 @@ export function GuidanceStepCard({
             <View style={styles.trainDetails}>
               <Text style={styles.quickTransfer}>
                 {boardingPosition
-                  ? `빠른환승 ${boardingPosition}`
-                  : "빠른환승 위치 미확인"}
+                  ? `${positionLabel} ${boardingPosition}`
+                  : `${positionLabel} 위치 미확인`}
               </Text>
               <Text style={styles.trainDirection}>
                 {toTerminalDirection(train.direction, train.lineName)}

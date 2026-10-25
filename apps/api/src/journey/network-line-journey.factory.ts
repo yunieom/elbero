@@ -22,7 +22,16 @@ interface NetworkStation {
   stationCode: string;
   stationName: string;
   exitNumbers: readonly string[];
+  elevators: readonly NetworkElevator[];
   directions: readonly NetworkDirection[];
+}
+
+interface NetworkElevator {
+  id: string;
+  name: string;
+  operatingSection: string | null;
+  location: string;
+  kind: 'surface' | 'platform' | 'other';
 }
 
 interface NetworkPath {
@@ -92,24 +101,35 @@ export function createNetworkLineAdapter(config: NetworkLineConfig) {
     const destination = stationByCode.get(destinationStationCode);
     if (!segments || !origin || !destination) return null;
 
+    const evidence = 'KRIC 이동경로·승강기 인접 차량 문·승강장 이격거리';
+    const firstDirection = segmentDirection(segments[0], stationByCode);
+    const destinationDirection = arrivalPlatformDirection(
+      segments.at(-1)!,
+      stationByCode,
+    );
     const facilityGroups = [
-      unknownGroup(config.id, 'origin-surface', origin, '출발역 지상 진입'),
-      unknownGroup(config.id, 'origin-platform', origin, '출발 승강장 이동'),
-      unknownGroup(
+      surfaceGroup(config.id, 'origin-surface', origin, '출발역 지상 진입'),
+      platformGroup(
+        config.id,
+        'origin-platform',
+        origin,
+        firstDirection,
+        '출발 승강장 이동',
+      ),
+      platformGroup(
         config.id,
         'destination-platform',
         destination,
+        destinationDirection,
         '도착 승강장 하차',
       ),
-      unknownGroup(
+      surfaceGroup(
         config.id,
         'destination-surface',
         destination,
         '도착역 지상 퇴장',
       ),
     ];
-    const evidence = 'KRIC 이동경로·승강기 인접 차량 문·승강장 이격거리';
-    const firstDirection = segmentDirection(segments[0], stationByCode);
     const trainSteps = segments.flatMap((segment, index) => {
       const train = trainStep(
         config.lineName,
@@ -394,6 +414,77 @@ function unknownGroup(
       },
     ],
   };
+}
+
+function surfaceGroup(
+  lineId: string,
+  prefix: string,
+  station: NetworkStation,
+  role: string,
+) {
+  const elevators = station.elevators.filter(
+    (elevator) => elevator.kind === 'surface',
+  );
+  return elevators.length > 0
+    ? knownGroup(lineId, prefix, station, elevators, role)
+    : unknownGroup(lineId, prefix, station, role);
+}
+
+function platformGroup(
+  lineId: string,
+  prefix: string,
+  station: NetworkStation,
+  direction: NetworkDirection | undefined,
+  role: string,
+) {
+  const directionalElevators = direction
+    ? station.elevators.filter(
+        (elevator) =>
+          elevator.kind === 'platform' &&
+          (normalize(elevator.location).includes(normalize(direction.toward)) ||
+            direction.recommendedDoors.some((door) =>
+              normalize(elevator.location).includes(normalize(door)),
+            )),
+      )
+    : [];
+  const selectedDoor = selectDoor(direction)?.door;
+  const doorElevators = selectedDoor
+    ? directionalElevators.filter((elevator) =>
+        normalize(elevator.location).includes(normalize(selectedDoor)),
+      )
+    : [];
+  const elevators =
+    doorElevators.length > 0 ? doorElevators : directionalElevators;
+  return elevators.length > 0
+    ? knownGroup(lineId, prefix, station, elevators, role)
+    : unknownGroup(lineId, prefix, station, role);
+}
+
+function knownGroup(
+  lineId: string,
+  prefix: string,
+  station: NetworkStation,
+  elevators: readonly NetworkElevator[],
+  role: string,
+): FacilityRequirementGroup {
+  return {
+    id: `${lineId}-${prefix}-${station.stationCode}`,
+    label: `${station.stationName} ${role}`,
+    policy: 'any',
+    facilities: elevators.map((elevator) => ({
+      id: elevator.id,
+      stationCode: station.stationCode,
+      stationName: station.stationName,
+      role,
+      sourceFacilityName: elevator.name,
+      expectedOperatingSection: elevator.operatingSection,
+      expectedLocation: elevator.location,
+    })),
+  };
+}
+
+function normalize(value: string) {
+  return value.replace(/방면|방향|행|역|[\s()]/gu, '');
 }
 
 function doorPosition(door: string) {

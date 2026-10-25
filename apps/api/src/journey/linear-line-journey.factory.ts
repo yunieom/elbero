@@ -27,7 +27,16 @@ interface LinearStation {
   stationName: string;
   exitNumbers: readonly string[];
   verificationMethod: string;
+  elevators: readonly LinearElevator[];
   directions: readonly LinearDirection[];
+}
+
+interface LinearElevator {
+  id: string;
+  name: string;
+  operatingSection: string | null;
+  location: string;
+  kind: 'surface' | 'platform' | 'other';
 }
 
 interface LinearGuidance {
@@ -80,25 +89,27 @@ export function createLinearLineAdapter(config: LinearLineConfig) {
     const destinationDirection = findDirection(destination, terminalName);
     const boarding = selectDoor(destinationDirection);
     const facilityGroups = [
-      createUnknownGroup(
+      createSurfaceGroup(
         config.id,
         'origin-surface',
         origin,
         '출발역 지상 진입',
       ),
-      createUnknownGroup(
+      createPlatformGroup(
         config.id,
         'origin-platform',
         origin,
+        originDirection,
         '출발 승강장 이동',
       ),
-      createUnknownGroup(
+      createPlatformGroup(
         config.id,
         'destination-platform',
         destination,
+        destinationDirection,
         '도착 승강장 하차',
       ),
-      createUnknownGroup(
+      createSurfaceGroup(
         config.id,
         'destination-surface',
         destination,
@@ -259,6 +270,77 @@ function createUnknownGroup(
       },
     ],
   };
+}
+
+function createSurfaceGroup(
+  lineId: string,
+  prefix: string,
+  station: LinearStation,
+  role: string,
+): FacilityRequirementGroup {
+  const elevators = station.elevators.filter(
+    (elevator) => elevator.kind === 'surface',
+  );
+  return elevators.length > 0
+    ? createKnownGroup(lineId, prefix, station, elevators, role)
+    : createUnknownGroup(lineId, prefix, station, role);
+}
+
+function createPlatformGroup(
+  lineId: string,
+  prefix: string,
+  station: LinearStation,
+  direction: LinearDirection | undefined,
+  role: string,
+): FacilityRequirementGroup {
+  const directionalElevators = direction
+    ? station.elevators.filter(
+        (elevator) =>
+          elevator.kind === 'platform' &&
+          (normalize(elevator.location).includes(normalize(direction.toward)) ||
+            direction.recommendedDoors.some((door) =>
+              normalize(elevator.location).includes(normalize(door)),
+            )),
+      )
+    : [];
+  const selectedDoor = selectDoor(direction)?.door;
+  const doorElevators = selectedDoor
+    ? directionalElevators.filter((elevator) =>
+        normalize(elevator.location).includes(normalize(selectedDoor)),
+      )
+    : [];
+  const elevators =
+    doorElevators.length > 0 ? doorElevators : directionalElevators;
+  return elevators.length > 0
+    ? createKnownGroup(lineId, prefix, station, elevators, role)
+    : createUnknownGroup(lineId, prefix, station, role);
+}
+
+function createKnownGroup(
+  lineId: string,
+  prefix: string,
+  station: LinearStation,
+  elevators: readonly LinearElevator[],
+  role: string,
+): FacilityRequirementGroup {
+  return {
+    id: `${lineId}-${prefix}-${station.stationCode}`,
+    label: `${station.stationName} ${role}`,
+    policy: 'any',
+    facilities: elevators.map((elevator) => ({
+      id: elevator.id,
+      stationCode: station.stationCode,
+      stationName: station.stationName,
+      role,
+      sourceFacilityName: elevator.name,
+      expectedOperatingSection: elevator.operatingSection,
+      expectedLocation: elevator.location,
+    })),
+  };
+}
+
+function normalize(value: string) {
+  return value.replace(/방면|방향|행|역|[\s()]/gu, '');
 }
 
 function doorPosition(door: string) {

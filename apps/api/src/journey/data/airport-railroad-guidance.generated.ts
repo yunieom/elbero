@@ -30,6 +30,78 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "15"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A01-1",
+          "name": "KRIC (2F)한국철도공사출입구(1F)15번출입구(MB)MB주차장(B1)공항철도7·8·9·10회의실앞(B2)직통열차표내는곳(B3)일반열차표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(2F)한국철도공사출입구(1F)15번출입구(MB)MB주차장(B1)공항철도7·8·9·10회의실앞(B2)직통열차표내는곳(B3)일반열차표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A01-2",
+          "name": "KRIC (2F)한국철도공사출입구(1F)15번출구(MB)MB주차장(B1)공항철도7·8·9·10회의실앞(B2)직통열차표내는곳(B3)일반열차표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(2F)한국철도공사출입구(1F)15번출구(MB)MB주차장(B1)공항철도7·8·9·10회의실앞(B2)직통열차표내는곳(B3)일반열차표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A01-3",
+          "name": "KRIC (B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-1옆",
+          "operatingSection": "B7↔B2",
+          "location": "(B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-1옆",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A01-4",
+          "name": "KRIC (B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-2옆",
+          "operatingSection": "B7↔B2",
+          "location": "(B2)직통열차표내는곳내부(B3)운행하지않는층(B6)운행하지않는층(B7)직통열차승강장3-2옆",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A01-5",
+          "name": "KRIC (B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-1옆",
+          "operatingSection": "B7↔B3",
+          "location": "(B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-1옆",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A01-6",
+          "name": "KRIC (B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-3옆",
+          "operatingSection": "B7↔B3",
+          "location": "(B3)일반열차표내는곳내부(B6)운행하지않는층(B7)일반열차공덕역방향승강장4-3옆",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A01-7",
+          "name": "KRIC (B1)전철배전반실방향(B2)도심공항터미널비상구내부(B3)일반열차대합실방향(B4)신호·통신기계실,협력사사무실방향(B5/B6)공조기계실방향",
+          "operatingSection": "B6↔B1",
+          "location": "(B1)전철배전반실방향(B2)도심공항터미널비상구내부(B3)일반열차대합실방향(B4)신호·통신기계실,협력사사무실방향(B5/B6)공조기계실방향",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A01-8",
+          "name": "KRIC (B2)환승통로4호선방향(B3)환승통로진입부E/S옆",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)환승통로4호선방향(B3)환승통로진입부E/S옆",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A01-9",
+          "name": "KRIC (B1)1호선표내는곳방향(B2)환승통로1호선방향",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)1호선표내는곳방향(B2)환승통로1호선방향",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A01-10",
+          "name": "KRIC (B1)4호선표내는곳방향(B2)환승통로4호선방향",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)4호선표내는곳방향(B2)환승통로4호선방향",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "공덕",
@@ -70,6 +142,50 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "10"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A02-1",
+          "name": "KRIC (1F)10번출구근처(B2)경의선대합실(B3)비운임구역대합실",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)10번출구근처(B2)경의선대합실(B3)비운임구역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A02-2",
+          "name": "KRIC (1F)10번출구근처(B2)경의선대합실(B3)비운임구역대합실",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)10번출구근처(B2)경의선대합실(B3)비운임구역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A02-3",
+          "name": "KRIC (B3)운임구역대합실화장실옆(B5)홍대방향승강장4-1출입문앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B3)운임구역대합실화장실옆(B5)홍대방향승강장4-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A02-4",
+          "name": "KRIC (B3)운임구역대합실화장실옆(B5)홍대방향승강장4-1출입문앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B3)운임구역대합실화장실옆(B5)홍대방향승강장4-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A02-5",
+          "name": "KRIC (B3)운임구역대합실화장실맞은편(B5)서울방향승강장3-4출입문앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B3)운임구역대합실화장실맞은편(B5)서울방향승강장3-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A02-6",
+          "name": "KRIC (B3)운임구역대합실화장실맞은편(B5)서울방향승강장3-4출입문앞",
+          "operatingSection": "B5↔B3",
+          "location": "(B3)운임구역대합실화장실맞은편(B5)서울방향승강장3-4출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "서울역",
@@ -123,6 +239,50 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A03-1",
+          "name": "KRIC 1층4번출구애경백화점앞지하2층3,4번개찰구앞",
+          "operatingSection": "1F↔B1",
+          "location": "1층4번출구애경백화점앞지하2층3,4번개찰구앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A03-2",
+          "name": "KRIC B27번출구대합실인천공항방면B4인천공항방면4-3출입문앞",
+          "operatingSection": "B4↔B2",
+          "location": "B27번출구대합실인천공항방면B4인천공항방면4-3출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A03-3",
+          "name": "KRIC B27번출구대합실인천공항방면B4인천공항방면4-2출입문앞",
+          "operatingSection": "B4↔B2",
+          "location": "B27번출구대합실인천공항방면B4인천공항방면4-2출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A03-4",
+          "name": "KRIC B27번출구대합실서울역방면B4서울역방면3-3출입문앞",
+          "operatingSection": "B4↔B2",
+          "location": "B27번출구대합실서울역방면B4서울역방면3-3출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A03-5",
+          "name": "KRIC B27번출구대합실서울역방면B4서울역방면3-2출입문앞",
+          "operatingSection": "B4↔B2",
+          "location": "B27번출구대합실서울역방면B4서울역방면3-2출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A03-6",
+          "name": "KRIC B15번출구통로e/v9호기제세동기앞B2환승통로E/S26호기옆",
+          "operatingSection": "B2↔B1",
+          "location": "B15번출구통로e/v9호기제세동기앞B2환승통로E/S26호기옆",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "공덕",
@@ -176,6 +336,57 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "9"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A04-1",
+          "name": "KRIC (1F)8번/9번출입구사이엘리베이터,9번출입구근처(B1)8번/9번출입문앞",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)8번/9번출입구사이엘리베이터,9번출입구근처(B1)8번/9번출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A04-2",
+          "name": "KRIC (1F)7번출입구뒤엘리베이터,7번출입구근처(B1)7번출입문앞",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)7번출입구뒤엘리베이터,7번출입구근처(B1)7번출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A04-3",
+          "name": "KRIC (B1)에스컬레이터10호기/11호기근처(B3)마곡나루역방향승강장4-4출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)에스컬레이터10호기/11호기근처(B3)마곡나루역방향승강장4-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A04-4",
+          "name": "KRIC (B1)에스컬레이터9호기근처(B3)홍대입구역방향승강장5-2출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)에스컬레이터9호기근처(B3)홍대입구역방향승강장5-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A04-5",
+          "name": "KRIC (B1)에스컬레이터13호기/14호기근처(B3)마곡나루역방향승강장5-1출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)에스컬레이터13호기/14호기근처(B3)마곡나루역방향승강장5-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A04-6",
+          "name": "KRIC (B1)에스컬레이터12호기근처(B3)홍대입구역방향승강장4-3출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)에스컬레이터12호기근처(B3)홍대입구역방향승강장4-3출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A04-7",
+          "name": "KRIC (1F)7번출입구앞주차장엘리베이터,7번출입구근처(MB)기계실옆,2번/3번출입구방향(B1)무빙워크18호기앞",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)7번출입구앞주차장엘리베이터,7번출입구근처(MB)기계실옆,2번/3번출입구방향(B1)무빙워크18호기앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "홍대입구",
@@ -247,6 +458,57 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A042-1",
+          "name": "KRIC (B19호선)9호선대합실끝(B1공항철도)공항철도환승통로",
+          "operatingSection": "B2↔B1",
+          "location": "(B19호선)9호선대합실끝(B1공항철도)공항철도환승통로",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A042-2",
+          "name": "KRIC (B1)GS25앞(B3)DMC방향승강장1-4출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)GS25앞(B3)DMC방향승강장1-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A042-3",
+          "name": "KRIC (B1)GS25앞(B3)김포공항방향승강장뒤쪽비운임구역",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)GS25앞(B3)김포공항방향승강장뒤쪽비운임구역",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A042-4",
+          "name": "KRIC (B1)표내는곳내계단옆(B3)김포공항방향승강장3-1출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)표내는곳내계단옆(B3)김포공항방향승강장3-1출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A042-5",
+          "name": "KRIC (B1)표내는곳내계단옆(B3)DMC방향승강장5-4출입문앞",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)표내는곳내계단옆(B3)DMC방향승강장5-4출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A042-6",
+          "name": "KRIC (B1)LG아트센터연결통로(B3)3번/4번출입구사이엘리베이터",
+          "operatingSection": "1F↔B1",
+          "location": "(B1)LG아트센터연결통로(B3)3번/4번출입구사이엘리베이터",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A042-7",
+          "name": "KRIC (B1)출입구연결통로진입부(B3)5번출입구근처",
+          "operatingSection": "1F↔B1",
+          "location": "(B1)출입구연결통로진입부(B3)5번출입구근처",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "디지털미디어시티",
@@ -308,6 +570,50 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A05-1",
+          "name": "KRIC (1F)4번출구방향(B1)F/A고객화장실앞",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)4번출구방향(B1)F/A고객화장실앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A05-2",
+          "name": "KRIC (B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A05-3",
+          "name": "KRIC (B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)표내는곳앞(B2)김포선,서해선방향(B3)서울역방향5-4출입문앞(B4)인천공항방향2-1출입문앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A05-4",
+          "name": "KRIC (B2)5호선마천방면승강장방향(B3)9호선환승게이트방향",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)5호선마천방면승강장방향(B3)9호선환승게이트방향",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A05-5",
+          "name": "KRIC (B2)5호선마천방면승강장방향(B3)9호선미사용승강장방향",
+          "operatingSection": "B3↔B2",
+          "location": "(B2)5호선마천방면승강장방향(B3)9호선미사용승강장방향",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A05-6",
+          "name": "KRIC (1F)4번출구방향(B1)공조기계실앞(B2)전기실방향(B3)서울역방향승강장맨앞(B4)인천공항방향승강장맨뒤",
+          "operatingSection": "B4↔1F",
+          "location": "(1F)4번출구방향(B1)공조기계실앞(B2)전기실방향(B3)서울역방향승강장맨앞(B4)인천공항방향승강장맨뒤",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "마곡나루",
@@ -360,6 +666,22 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A06-1",
+          "name": "KRIC (1F)대합실1번출입구게이트근처(2F)김포공항역방향승강장1-3출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)대합실1번출입구게이트근처(2F)김포공항역방향승강장1-3출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A06-2",
+          "name": "KRIC (1F)대합실1번출입구게이트근처(2F)검암역방향승강장6-2출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)대합실1번출입구게이트근처(2F)검암역방향승강장6-2출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "김포공항",
@@ -412,6 +734,36 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A07-1",
+          "name": "KRIC (1F)여자화장실옆(2F)서울역방향구KTX승강장(공사중)",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)여자화장실옆(2F)서울역방향구KTX승강장(공사중)",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A07-2",
+          "name": "KRIC (1F)1번출구자동개집표기옆(2F)인천공항역방향구KTX승강장(공사중)",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)1번출구자동개집표기옆(2F)인천공항역방향구KTX승강장(공사중)",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A07-3",
+          "name": "KRIC (1F)여자화장실옆(2F)서울역방향승강장",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)여자화장실옆(2F)서울역방향승강장",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A07-4",
+          "name": "KRIC (1F)1번출구자동개집표기옆(2F)인천공항역방향승강장",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)1번출구자동개집표기옆(2F)인천공항역방향승강장",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "계양",
@@ -465,6 +817,22 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A071-1",
+          "name": "KRIC (1F)표내는곳정면(2F)환승통로무빙워크앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)표내는곳정면(2F)환승통로무빙워크앞",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A071-2",
+          "name": "KRIC (1F)검암역방향승강장3-4출입문앞(2F)환승통로무빙워크근처",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)검암역방향승강장3-4출입문앞(2F)환승통로무빙워크근처",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "검암",
@@ -518,6 +886,36 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A072-1",
+          "name": "KRIC (2F)서울역방향승강장4-2출입문앞(3F)서울역방향에스컬레이터앞",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)서울역방향승강장4-2출입문앞(3F)서울역방향에스컬레이터앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A072-2",
+          "name": "KRIC (2F)인천국제공항역방향승강장3-3출입문앞(3F)인천국제공항역방향에스컬레이터앞",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)인천국제공항역방향승강장3-3출입문앞(3F)인천국제공항역방향에스컬레이터앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A072-3",
+          "name": "KRIC (1F)1번출입구근처(2F)본관기능실앞(3F)대합실1번출입구통로옆",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)1번출입구근처(2F)본관기능실앞(3F)대합실1번출입구통로옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A072-4",
+          "name": "KRIC (1F)2번출입구근처(3F)2번출입구계단옆",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)2번출입구근처(3F)2번출입구계단옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "청라국제도시",
@@ -571,6 +969,22 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A08-1",
+          "name": "KRIC (1F)서쪽표내는곳근처,운임구역화장실옆(2F)영종역방향승강장5-2출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)서쪽표내는곳근처,운임구역화장실옆(2F)영종역방향승강장5-2출입문앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-AR-A08-2",
+          "name": "KRIC (1F)서쪽표내는곳근처(2F)공항화물청사역방향승강장4-3출입문앞",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)서쪽표내는곳근처(2F)공항화물청사역방향승강장4-3출입문앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "영종",
@@ -623,6 +1037,29 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A09-1",
+          "name": "KRIC (지하2층)운서역방향5-1출입문앞/(지하1층)P/A화장실옆",
+          "operatingSection": "B2↔B1",
+          "location": "(지하2층)운서역방향5-1출입문앞/(지하1층)P/A화장실옆",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A09-2",
+          "name": "KRIC (지하2층)인천공항1터미널방향4-4출입문앞/(지하2층)P/A화장실맞은편",
+          "operatingSection": "B2↔B1",
+          "location": "(지하2층)인천공항1터미널방향4-4출입문앞/(지하2층)P/A화장실맞은편",
+          "kind": "other"
+        },
+        {
+          "id": "kric-AR-A09-3",
+          "name": "KRIC (지하1층)주출입구방향/(1층)1번/2번출입구방향",
+          "operatingSection": "1F↔B1",
+          "location": "(지하1층)주출입구방향/(1층)1번/2번출입구방향",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "운서",
@@ -673,6 +1110,36 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
       "stationName": "인천공항1터미널",
       "exitNumbers": [],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A10-1",
+          "name": "KRIC (B4)서울역방향승강장2-3출입문앞(B1)일반열차표내는곳진입후왼편",
+          "operatingSection": "B4↔B1",
+          "location": "(B4)서울역방향승강장2-3출입문앞(B1)일반열차표내는곳진입후왼편",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A10-2",
+          "name": "KRIC (B4)인천공항2터미널방향승강장3-1출입문앞(B1)직통열차표내는곳진입후오른편",
+          "operatingSection": "B4↔B1",
+          "location": "(B4)인천공항2터미널방향승강장3-1출입문앞(B1)직통열차표내는곳진입후오른편",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A10-3",
+          "name": "KRIC (B4)서울역방향승강장고속13호차출입문앞(B1)동편KTX대합실진입후오른편",
+          "operatingSection": "B4↔B1",
+          "location": "(B4)서울역방향승강장고속13호차출입문앞(B1)동편KTX대합실진입후오른편",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A10-4",
+          "name": "KRIC (B4)서울역방향승강장고속9호차출입문앞(B1)서편KTX대합실진입후왼편",
+          "operatingSection": "B4↔B1",
+          "location": "(B4)서울역방향승강장고속9호차출입문앞(B1)서편KTX대합실진입후왼편",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "공항화물청사",
@@ -723,6 +1190,57 @@ export const AIRPORT_RAILROAD_GUIDANCE = {
       "stationName": "인천공항2터미널",
       "exitNumbers": [],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-AR-A11-1",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장10호차출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장10호차출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A11-2",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장9호차출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장9호차출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A11-3",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장3-2출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장3-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A11-4",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장4-2출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장4-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A11-5",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장3-2출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장3-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A11-6",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장4-2출입문앞",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장4-2출입문앞",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-AR-A11-7",
+          "name": "KRIC (B1)제2여객터미널(B3)인천공항1터미널역방향승강장BHS시설물내부",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)제2여객터미널(B3)인천공항1터미널역방향승강장BHS시설물내부",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "인천공항1터미널",

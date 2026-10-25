@@ -205,6 +205,11 @@ export function JourneyResultScreen({
             isLast={index === route.steps.length - 1}
             key={step.id}
             onReport={() => setReportStep(step)}
+            positionLabel={
+              route.steps[index + 1]?.type === "transfer"
+                ? "빠른환승"
+                : "빠른하차"
+            }
             step={step}
           />
         ))}

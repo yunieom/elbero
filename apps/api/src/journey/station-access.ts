@@ -211,7 +211,9 @@ function findGateFloor(
 function findDirection(instruction: string, label?: string) {
   const text = `${instruction} ${label ?? ''}`;
   return (
-    text.match(/([가-힣A-Za-z0-9·]+(?:·[가-힣A-Za-z0-9]+)* 방면)/)?.[1] ?? null
+    text.match(
+      /([가-힣A-Za-z0-9·]+(?:·[가-힣A-Za-z0-9]+)* (?:방면|방향))/,
+    )?.[1] ?? null
   );
 }
 

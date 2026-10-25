@@ -56,6 +56,64 @@ export const GTX_A_GUIDANCE = {
         "7"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GX-X108-1",
+          "name": "KRIC 지하1층GTX-A역무실앞~지하3층환승통로",
+          "operatingSection": "3F↔B1",
+          "location": "지하1층GTX-A역무실앞~지하3층환승통로",
+          "kind": "other"
+        },
+        {
+          "id": "kric-GX-X108-2",
+          "name": "KRIC 지하3층대합실~지하1층대합실",
+          "operatingSection": "3F↔B1",
+          "location": "지하3층대합실~지하1층대합실",
+          "kind": "other"
+        },
+        {
+          "id": "kric-GX-X108-3",
+          "name": "KRIC 지하1층대합실~지상1층5-1번출구옆",
+          "operatingSection": "1F↔B1",
+          "location": "지하1층대합실~지상1층5-1번출구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GX-X108-4",
+          "name": "KRIC 지하1층대합실~지상1층5-2번출구옆",
+          "operatingSection": "1F↔B1",
+          "location": "지하1층대합실~지상1층5-2번출구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GX-X108-5",
+          "name": "KRIC 지하4층상선승강장1-1,성남방향8-3앞~지하3층대합실",
+          "operatingSection": "4F↔B2",
+          "location": "지하4층상선승강장1-1,성남방향8-3앞~지하3층대합실",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GX-X108-6",
+          "name": "KRIC 지하4층성남방향승강장6-1앞~지하3층대합실",
+          "operatingSection": "4F↔B3",
+          "location": "지하4층성남방향승강장6-1앞~지하3층대합실",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GX-X108-7",
+          "name": "KRIC 지하4층상선승강장7-3앞,성남방향2-1앞~지하3층대합실",
+          "operatingSection": "4F↔B3",
+          "location": "지하4층상선승강장7-3앞,성남방향2-1앞~지하3층대합실",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GX-X108-8",
+          "name": "KRIC 지하1층대합실~지상1층5-3출입구옆",
+          "operatingSection": null,
+          "location": "지하1층대합실~지상1층5-3출입구옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "성남",
@@ -134,6 +192,15 @@ export const GTX_A_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GX-X109-1",
+          "name": "KRIC 지하5층수서방면승강장8-3출입문앞",
+          "operatingSection": "5F↔B4",
+          "location": "지하5층수서방면승강장8-3출입문앞",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "수서",
@@ -195,6 +262,36 @@ export const GTX_A_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GX-X110-1",
+          "name": "KRIC 지상1층구성역4번출구옆",
+          "operatingSection": null,
+          "location": "지상1층구성역4번출구옆",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GX-X110-2",
+          "name": "KRIC 지하3층동탄방향표내는곳옆",
+          "operatingSection": "B4↔B3",
+          "location": "지하3층동탄방향표내는곳옆",
+          "kind": "other"
+        },
+        {
+          "id": "kric-GX-X110-3",
+          "name": "KRIC 지하3층성남방향표내는곳옆",
+          "operatingSection": "B4↔B3",
+          "location": "지하3층성남방향표내는곳옆",
+          "kind": "other"
+        },
+        {
+          "id": "kric-GX-X110-4",
+          "name": "KRIC 지하2층4번출구옆,고객안전센터옆",
+          "operatingSection": "B2↔B3",
+          "location": "지하2층4번출구옆,고객안전센터옆",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "성남",
@@ -257,6 +354,22 @@ export const GTX_A_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SR-X111-1",
+          "name": "KRIC 지하5층상행선승강장게이트옆",
+          "operatingSection": "B5↔B6",
+          "location": "지하5층상행선승강장게이트옆",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SR-X111-2",
+          "name": "KRIC 지하5층하행선승강장게이트옆",
+          "operatingSection": "B5↔B6",
+          "location": "지하5층하행선승강장게이트옆",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "구성",
@@ -316,6 +429,7 @@ export const GTX_A_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "연신내",
@@ -336,6 +450,7 @@ export const GTX_A_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "서울역",
@@ -366,6 +481,7 @@ export const GTX_A_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "연신내",
@@ -397,6 +513,7 @@ export const GTX_A_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "대곡",
@@ -428,6 +545,7 @@ export const GTX_A_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [],
       "directions": [
         {
           "toward": "킨텍스",

@@ -28,6 +28,22 @@ export const SILLIM_LINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S401-1",
+          "name": "KRIC (B1)샛강역대합실중앙(B4)샛강역승강장하선",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)샛강역대합실중앙(B4)샛강역승강장하선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S401-2",
+          "name": "KRIC (B1)샛강역대합실중앙(B4)샛강역승강장상선",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)샛강역대합실중앙(B4)샛강역승강장상선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "대방",
@@ -59,6 +75,36 @@ export const SILLIM_LINE_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S402-1",
+          "name": "KRIC (2F)대방역1호선환승통로(1F)대방역대합실",
+          "operatingSection": "1F↔2F",
+          "location": "(2F)대방역1호선환승통로(1F)대방역대합실",
+          "kind": "other"
+        },
+        {
+          "id": "kric-SL-S402-2",
+          "name": "KRIC (1F)대방역6번출구좌측(B3)대방지하차도중앙",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)대방역6번출구좌측(B3)대방지하차도중앙",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S402-3",
+          "name": "KRIC (1F)대방역6번출구옆(B3)대방역승강장하선",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)대방역6번출구옆(B3)대방역승강장하선",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S402-4",
+          "name": "KRIC (1F)대방역6번출구옆(B3)대방역승강장상선",
+          "operatingSection": "1F↔2F",
+          "location": "(1F)대방역6번출구옆(B3)대방역승강장상선",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "샛강",
@@ -112,6 +158,36 @@ export const SILLIM_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S403-1",
+          "name": "KRIC (1F)서울지방병무청역1번출구앞(B2)서울지방병무청역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)서울지방병무청역1번출구앞(B2)서울지방병무청역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S403-2",
+          "name": "KRIC (1F)서울지방병무청역2번출구앞(B1)서울지방병무청역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)서울지방병무청역2번출구앞(B1)서울지방병무청역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S403-3",
+          "name": "KRIC (B1)서울지방병무청역대합실(B2)서울지방병무청역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)서울지방병무청역대합실(B2)서울지방병무청역승강장하선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S403-4",
+          "name": "KRIC (B1)서울지방병무청역대합실(B2)서울지방병무청역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)서울지방병무청역대합실(B2)서울지방병무청역승강장상선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "대방",
@@ -164,6 +240,29 @@ export const SILLIM_LINE_GUIDANCE = {
         "6"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S404-1",
+          "name": "KRIC (B1)보라매역대합실(B2)보라매역7호선환승통로",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)보라매역대합실(B2)보라매역7호선환승통로",
+          "kind": "other"
+        },
+        {
+          "id": "kric-SL-S404-2",
+          "name": "KRIC (B1)보라매역대합실(B3)보라매역승강장상선",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)보라매역대합실(B3)보라매역승강장상선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S404-3",
+          "name": "KRIC (B1)보라매역대합실(B3)보라매역승강장하선",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)보라매역대합실(B3)보라매역승강장하선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "서울지방병무청",
@@ -217,6 +316,36 @@ export const SILLIM_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S405-1",
+          "name": "KRIC (1F)보라매공원역1번출구앞(B1)보라매공원역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)보라매공원역1번출구앞(B1)보라매공원역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S405-2",
+          "name": "KRIC (1F)보라매공원역2번출구앞(B1)보라매공원역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)보라매공원역2번출구앞(B1)보라매공원역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S405-3",
+          "name": "KRIC (B1)보라매공원역대합실(B2)보라매공원역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)보라매공원역대합실(B2)보라매공원역승강장하선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S405-4",
+          "name": "KRIC (B1)보라매공원역대합실(B2)보라매공원역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)보라매공원역대합실(B2)보라매공원역승강장상선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "보라매",
@@ -270,6 +399,36 @@ export const SILLIM_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S406-1",
+          "name": "KRIC (1F)보라매병원역1번출구앞(B1)보라매병원역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)보라매병원역1번출구앞(B1)보라매병원역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S406-2",
+          "name": "KRIC (1F)보라매병원역2번출구앞(B1)보라매병원역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)보라매병원역2번출구앞(B1)보라매병원역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S406-3",
+          "name": "KRIC (B1)보라매병원역대합실(B2)보라매병원역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)보라매병원역대합실(B2)보라매병원역승강장하선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S406-4",
+          "name": "KRIC (B1)보라매병원역대합실(B2)보라매병원역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)보라매병원역대합실(B2)보라매병원역승강장상선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "보라매공원",
@@ -323,6 +482,36 @@ export const SILLIM_LINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S407-1",
+          "name": "KRIC (1F)당곡역1번출구앞(B1)당곡역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)당곡역1번출구앞(B1)당곡역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S407-2",
+          "name": "KRIC (1F)당곡역2번출구앞(B1)당곡역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)당곡역2번출구앞(B1)당곡역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S407-3",
+          "name": "KRIC (B1)당곡역대합실(B2)당곡역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)당곡역대합실(B2)당곡역승강장하선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S407-4",
+          "name": "KRIC (B1)당곡역대합실(B2)당곡역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)당곡역대합실(B2)당곡역승강장상선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "보라매병원",
@@ -376,6 +565,15 @@ export const SILLIM_LINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S408-1",
+          "name": "KRIC (B1)신림역대합실(B3)신림역승강장상하선(섬식)",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)신림역대합실(B3)신림역승강장상하선(섬식)",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "당곡",
@@ -428,6 +626,29 @@ export const SILLIM_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S409-1",
+          "name": "KRIC (1F)서원역1번출구앞(B1)서원역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)서원역1번출구앞(B1)서원역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S409-2",
+          "name": "KRIC (B1)서원역대합실(B2)서원역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)서원역대합실(B2)서원역승강장상선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S409-3",
+          "name": "KRIC (B1)서원역대합실(B2)서원역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)서원역대합실(B2)서원역승강장하선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "신림",
@@ -480,6 +701,29 @@ export const SILLIM_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S410-1",
+          "name": "KRIC (1F)서울대벤처타운역1번출구앞(B1)서울대벤처타운역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)서울대벤처타운역1번출구앞(B1)서울대벤처타운역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S410-2",
+          "name": "KRIC (B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장상선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S410-3",
+          "name": "KRIC (B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)서울대벤처타운역대합실(B2)서울대벤처타운역승강장하선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "서원",
@@ -532,6 +776,29 @@ export const SILLIM_LINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-SL-S411-1",
+          "name": "KRIC (1F)관악산역1번출구앞(B1)관악산역대합실",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)관악산역1번출구앞(B1)관악산역대합실",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-SL-S411-2",
+          "name": "KRIC (B1)관악산역대합실(B2)관악산역승강장상선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)관악산역대합실(B2)관악산역승강장상선",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-SL-S411-3",
+          "name": "KRIC (B1)관악산역대합실(B2)관악산역승강장하선",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)관악산역대합실(B2)관악산역승강장하선",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "서울대벤처타운",

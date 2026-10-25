@@ -31,6 +31,43 @@ export const EVERLINE_GUIDANCE = {
         "8"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y110-1",
+          "name": "KRIC (2F)8번출입구표내는곳근처(3F)종점상행승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)8번출입구표내는곳근처(3F)종점상행승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y110-2",
+          "name": "KRIC (2F)9번출입구환승표내는곳근처(3F)강남대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)9번출입구환승표내는곳근처(3F)강남대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y110-3",
+          "name": "KRIC (2F)8번출입구환승표내는곳근처(3F)종점상행승강장(3F)강남대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)8번출입구환승표내는곳근처(3F)종점상행승강장(3F)강남대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y110-4",
+          "name": "KRIC (1F)8번출구계단옆(3F)9번출구표내는곳앞",
+          "operatingSection": null,
+          "location": "(1F)8번출구계단옆(3F)9번출구표내는곳앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-EV-Y110-5",
+          "name": "KRIC (B1)수인분당선기흥역환승통로경계앞(3F)9번출구표내는곳앞",
+          "operatingSection": "B1↔2F",
+          "location": "(B1)수인분당선기흥역환승통로경계앞(3F)9번출구표내는곳앞",
+          "kind": "other"
+        }
+      ],
       "directions": [
         {
           "toward": "강남대",
@@ -63,6 +100,36 @@ export const EVERLINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y111-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(1F)기흥역방향승강장",
+          "operatingSection": "2F↔1F",
+          "location": "(2F)1번출입구표내는곳근처(1F)기흥역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y111-2",
+          "name": "KRIC (2F)3번출입구표내는곳근처(1F)지석역방향승강장",
+          "operatingSection": "2F↔1F",
+          "location": "(2F)3번출입구표내는곳근처(1F)지석역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y111-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-EV-Y111-4",
+          "name": "KRIC (1F)3번출입구옆(2F)3번출입구통로앞",
+          "operatingSection": null,
+          "location": "(1F)3번출입구옆(2F)3번출입구통로앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "기흥(백남준아트센터)",
@@ -116,6 +183,36 @@ export const EVERLINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y112-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)강남대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)강남대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y112-2",
+          "name": "KRIC (2F)3번출입구표내는곳근처(3F)어정역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)3번출입구표내는곳근처(3F)어정역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y112-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-EV-Y112-4",
+          "name": "KRIC (1F)2번/3번출입구사이(2F)3번/4번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)2번/3번출입구사이(2F)3번/4번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "강남대",
@@ -168,6 +265,29 @@ export const EVERLINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y113-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)지석역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)지석역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y113-2",
+          "name": "KRIC (2F)2번출입구표내는곳근처(3F)동백역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)2번출입구표내는곳근처(3F)동백역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y113-3",
+          "name": "KRIC (1F)1번출입구옆(2F)1번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번출입구옆(2F)1번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "지석",
@@ -220,6 +340,29 @@ export const EVERLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y114-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)어정역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)어정역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y114-2",
+          "name": "KRIC (2F)3번출입구표내는곳근처(3F)초당역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)3번출입구표내는곳근처(3F)초당역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y114-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "어정",
@@ -272,6 +415,22 @@ export const EVERLINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y115-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)동백역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)동백역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y115-2",
+          "name": "KRIC (2F)2번출입구표내는곳근처(3F)삼가역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)2번출입구표내는곳근처(3F)삼가역방향승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "동백",
@@ -324,6 +483,29 @@ export const EVERLINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y116-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)초당역방향승강장",
+          "operatingSection": "2F↔4F",
+          "location": "(2F)1번출입구표내는곳근처(3F)초당역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y116-2",
+          "name": "KRIC (2F)3번출입구표내는곳근처(3F)시청∙용인대역방향승강장",
+          "operatingSection": "2F↔4F",
+          "location": "(2F)3번출입구표내는곳근처(3F)시청∙용인대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y116-3",
+          "name": "KRIC (1F)3번출입구옆(2F)3번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)3번출입구옆(2F)3번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "초당",
@@ -376,6 +558,29 @@ export const EVERLINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y117-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)삼가역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)삼가역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y117-2",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)명지대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)명지대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y117-3",
+          "name": "KRIC (1F)1번출입구옆(2F)1번출입구대합실옆",
+          "operatingSection": null,
+          "location": "(1F)1번출입구옆(2F)1번출입구대합실옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "삼가",
@@ -428,6 +633,29 @@ export const EVERLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y118-1",
+          "name": "KRIC (2F)2번출입구표내는곳근처(3F)시청∙용인대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)2번출입구표내는곳근처(3F)시청∙용인대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y118-2",
+          "name": "KRIC (2F)2번출입구표내는곳근처(3F)김량장역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)2번출입구표내는곳근처(3F)김량장역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y118-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "시청.용인대",
@@ -480,6 +708,29 @@ export const EVERLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y119-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)명지대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)명지대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y119-2",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)운동장∙송담대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)운동장∙송담대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y119-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "명지대",
@@ -532,6 +783,29 @@ export const EVERLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y120-1",
+          "name": "KRIC (2F)2번출입구표내는곳근처(3F)김량장역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)2번출입구표내는곳근처(3F)김량장역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y120-2",
+          "name": "KRIC (2F)3번출입구표내는곳근처(3F)고진역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)3번출입구표내는곳근처(3F)고진역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y120-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "김량장",
@@ -584,6 +858,29 @@ export const EVERLINE_GUIDANCE = {
         "1"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y121-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)운동장∙송담대역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)운동장∙송담대역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y121-2",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)보평역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)보평역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y121-3",
+          "name": "KRIC (1F)1번출입구옆(2F)1번출입구대합실옆",
+          "operatingSection": null,
+          "location": "(1F)1번출입구옆(2F)1번출입구대합실옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "용인중앙시장(용인예술과학대)",
@@ -637,6 +934,36 @@ export const EVERLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y122-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)고진역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)고진역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y122-2",
+          "name": "KRIC (2F)3번출입구표내는곳근처(3F)둔전역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)3번출입구표내는곳근처(3F)둔전역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y122-3",
+          "name": "KRIC (1F)1번출입구옆(2F)1번출입구대합실통로앞",
+          "operatingSection": null,
+          "location": "(1F)1번출입구옆(2F)1번출입구대합실통로앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-EV-Y122-4",
+          "name": "KRIC (1F)2번출입구옆(2F)2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)2번출입구옆(2F)2번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "고진",
@@ -689,6 +1016,29 @@ export const EVERLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y123-1",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)보평역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)보평역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y123-2",
+          "name": "KRIC (2F)1번출입구표내는곳근처(3F)전대∙에버랜드역방향승강장",
+          "operatingSection": "2F↔3F",
+          "location": "(2F)1번출입구표내는곳근처(3F)전대∙에버랜드역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y123-3",
+          "name": "KRIC (1F)2번출입구옆(2F)2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)2번출입구옆(2F)2번출입구대합실앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "보평",
@@ -742,6 +1092,36 @@ export const EVERLINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-EV-Y124-1",
+          "name": "KRIC (2F)2번출입구표내는곳근처(1F)둔전역방향승강장",
+          "operatingSection": "2F↔1F",
+          "location": "(2F)2번출입구표내는곳근처(1F)둔전역방향승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y124-2",
+          "name": "KRIC (2F)4출입구표내는곳근처(1F)종점하행승강장",
+          "operatingSection": "2F↔1F",
+          "location": "(2F)4출입구표내는곳근처(1F)종점하행승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-EV-Y124-3",
+          "name": "KRIC (1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "operatingSection": null,
+          "location": "(1F)1번/2번출입구사이(2F)1번/2번출입구대합실앞",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-EV-Y124-4",
+          "name": "KRIC (1F)3번/4번출입구사이(2F)3번/4번출입구대합실통로앞",
+          "operatingSection": null,
+          "location": "(1F)3번/4번출입구사이(2F)3번/4번출입구대합실통로앞",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "둔전",

@@ -69,6 +69,31 @@ describe('1호선·공항철도·용인에버라인 경로', () => {
     expect(createGtxAJourneyDefinition('X106', 'X108')).toBeNull();
   });
 
+  it('KRIC 승강기 층·위치를 신분당선 진입 안내에 연결한다', () => {
+    const definition = createShinbundangLineJourneyDefinition('D006', 'D007');
+    const groups = definition?.candidates[0].facilityGroups ?? [];
+    const originSurface = groups.find((group) =>
+      group.id.includes('origin-surface'),
+    );
+    const originPlatform = groups.find((group) =>
+      group.id.includes('origin-platform'),
+    );
+
+    expect(
+      originSurface?.facilities.map(
+        (facility) => facility.expectedOperatingSection,
+      ),
+    ).toContain('1F↔B3');
+    expect(
+      originPlatform?.facilities.map(
+        (facility) => facility.expectedOperatingSection,
+      ),
+    ).toEqual(['B5↔B3']);
+    expect(originPlatform?.facilities[0].expectedLocation).toContain(
+      '강남방면',
+    );
+  });
+
   it('1호선의 모든 역 조합과 분기 환승을 생성한다', () => {
     for (const origin of LINE_1_NETWORK_GUIDANCE.topology) {
       for (const destination of LINE_1_NETWORK_GUIDANCE.topology) {

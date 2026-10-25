@@ -11,13 +11,17 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
     `환승 ${summary.transferCount}회`,
     `엘리베이터 ${summary.elevatorCount}회`,
     ...trainSegments.map(
-      (segment) =>
-        `${segment.originStationName}에서 ${segment.destinationStationName}, ${formatPosition(segment.boardingPosition)}`,
+      (segment, index) =>
+        `${segment.originStationName}에서 ${segment.destinationStationName}, ${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} ${formatPosition(segment.boardingPosition)}`,
     ),
   ].join(". ");
 
   return (
-    <View accessible accessibilityLabel={accessibilityLabel} style={styles.card}>
+    <View
+      accessible
+      accessibilityLabel={accessibilityLabel}
+      style={styles.card}
+    >
       <View style={styles.metrics}>
         <SummaryMetric label="노선" value={summary.lineNames.join(" · ")} />
         <SummaryMetric label="환승" value={`${summary.transferCount}회`} />
@@ -33,7 +37,7 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
           )
           .join(" · ")}
       </Text>
-      {trainSegments.map((segment) => (
+      {trainSegments.map((segment, index) => (
         <View
           key={`${segment.order}-${segment.lineName}`}
           style={styles.segment}
@@ -44,8 +48,8 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
           </Text>
           <Text style={styles.segmentPosition}>
             {segment.positionBasis === "destination_elevator"
-              ? `빠른환승 ${formatPosition(segment.boardingPosition)}`
-              : "빠른환승 위치 미확인"}
+              ? `${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} ${formatPosition(segment.boardingPosition)}`
+              : `${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} 위치 미확인`}
           </Text>
         </View>
       ))}

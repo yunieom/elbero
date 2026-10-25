@@ -18,6 +18,13 @@ interface LoopStation {
   stationName: string;
   exitNumbers: readonly string[];
   verificationMethod: string;
+  elevators: ReadonlyArray<{
+    id: string;
+    name: string;
+    operatingSection: string | null;
+    location: string;
+    kind: 'surface' | 'platform' | 'other';
+  }>;
   directions: readonly LoopDirection[];
 }
 

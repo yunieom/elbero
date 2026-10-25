@@ -27,6 +27,22 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G100-1",
+          "name": "KRIC (1F)1번출입구표내는곳옆(B1)연결통로",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)1번출입구표내는곳옆(B1)연결통로",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G100-2",
+          "name": "KRIC (1F)표내는곳앞(B1)2번출입구옆",
+          "operatingSection": null,
+          "location": "(1F)표내는곳앞(B1)2번출입구옆",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "구래",
@@ -59,6 +75,22 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G101-1",
+          "name": "KRIC (1F)구래역1번출구앞(B2)대합실표내는곳",
+          "operatingSection": "1F↔B2",
+          "location": "(1F)구래역1번출구앞(B2)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G101-2",
+          "name": "KRIC (1F)구래역2번출구앞(B2)대합실표내는곳",
+          "operatingSection": null,
+          "location": "(1F)구래역2번출구앞(B2)대합실표내는곳",
+          "kind": "surface"
+        }
+      ],
       "directions": [
         {
           "toward": "양촌",
@@ -132,6 +164,50 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "4"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G102-1",
+          "name": "KRIC (1F)마산역1번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)마산역1번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G102-2",
+          "name": "KRIC (1F)마산역2번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)마산역2번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G102-3",
+          "name": "KRIC (1F)마산역3번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)마산역3번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G102-4",
+          "name": "KRIC (1F)마산역4번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)마산역4번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G102-5",
+          "name": "KRIC (B1)대합실표내는곳(B2)승강장",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)대합실표내는곳(B2)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G102-6",
+          "name": "KRIC (B1)대합실표내는곳(B2)승강장",
+          "operatingSection": "B2↔B1",
+          "location": "(B1)대합실표내는곳(B2)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "구래",
@@ -185,6 +261,36 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "5"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G103-1",
+          "name": "KRIC (1F)장기역1번출구앞(B1)대합실표내는곳",
+          "operatingSection": null,
+          "location": "(1F)장기역1번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G103-2",
+          "name": "KRIC (1F)장기역5번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)장기역5번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G103-3",
+          "name": "KRIC (B1)대합실표내는곳(B3)승강장",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)대합실표내는곳(B3)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G103-4",
+          "name": "KRIC (B1)대합실표내는곳(B3)승강장",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)대합실표내는곳(B3)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "마산",
@@ -238,6 +344,36 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G104-1",
+          "name": "KRIC (1F)운양역2번출구앞(B1)대합실표내는곳",
+          "operatingSection": null,
+          "location": "(1F)운양역2번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G104-2",
+          "name": "KRIC (1F)운양역4번출구앞(B1)대합실표내는곳",
+          "operatingSection": null,
+          "location": "(1F)운양역4번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G104-3",
+          "name": "KRIC (B1)대합실표내는곳(B3)승강장",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)대합실표내는곳(B3)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G104-4",
+          "name": "KRIC (B1)대합실표내는곳(B3)승강장",
+          "operatingSection": "B3↔B1",
+          "location": "(B1)대합실표내는곳(B3)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "장기",
@@ -291,6 +427,50 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G105-1",
+          "name": "KRIC (1F)걸포북변역1번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)걸포북변역1번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G105-2",
+          "name": "KRIC (1F)걸포북변역2번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)걸포북변역2번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G105-3",
+          "name": "KRIC (B1)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B1",
+          "location": "(B1)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G105-4",
+          "name": "KRIC (B1)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B1",
+          "location": "(B1)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G105-5",
+          "name": "KRIC (B1)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B1",
+          "location": "(B1)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G105-6",
+          "name": "KRIC (B1)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B1",
+          "location": "(B1)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "운양",
@@ -344,6 +524,50 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G106-1",
+          "name": "KRIC (1)사우역2번출구앞(B2)대합실표내는곳",
+          "operatingSection": "1F↔B2",
+          "location": "(1)사우역2번출구앞(B2)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G106-2",
+          "name": "KRIC (1)사우역3번출구앞(B2)대합실표내는곳",
+          "operatingSection": "1F↔B2",
+          "location": "(1)사우역3번출구앞(B2)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G106-3",
+          "name": "KRIC (B2)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B2",
+          "location": "(B2)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G106-4",
+          "name": "KRIC (B2)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B2",
+          "location": "(B2)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G106-5",
+          "name": "KRIC (B2)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B2",
+          "location": "(B2)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G106-6",
+          "name": "KRIC (B2)대합실표내는곳(B5)승강장",
+          "operatingSection": "B5↔B2",
+          "location": "(B2)대합실표내는곳(B5)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "걸포북변",
@@ -397,6 +621,36 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G107-1",
+          "name": "KRIC (1F)풍무역1번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)풍무역1번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G107-2",
+          "name": "KRIC (1F)풍무역2번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)풍무역2번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G107-3",
+          "name": "KRIC (B1)대합실표내는곳(B4)승강장",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)대합실표내는곳(B4)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G107-4",
+          "name": "KRIC (B1)대합실표내는곳(B4)승강장",
+          "operatingSection": "B4↔B1",
+          "location": "(B1)대합실표내는곳(B4)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "사우(김포시청)",
@@ -450,6 +704,36 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "2"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G108-1",
+          "name": "KRIC (1F)고촌역1번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)고촌역1번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G108-2",
+          "name": "KRIC (1F)고촌역2번출구앞(B1)대합실표내는곳",
+          "operatingSection": "1F↔B1",
+          "location": "(1F)고촌역2번출구앞(B1)대합실표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G108-3",
+          "name": "KRIC (B1)대합실표내는곳(B4)승강장",
+          "operatingSection": "B4↔1F",
+          "location": "(B1)대합실표내는곳(B4)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G108-4",
+          "name": "KRIC (B1)대합실표내는곳(B4)승강장",
+          "operatingSection": "B4↔1F",
+          "location": "(B1)대합실표내는곳(B4)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "풍무",
@@ -502,6 +786,29 @@ export const GIMPO_GOLDLINE_GUIDANCE = {
         "3"
       ],
       "verificationMethod": "kric_movement_consensus",
+      "elevators": [
+        {
+          "id": "kric-GM-G109-1",
+          "name": "KRIC (1F)김포공항역지상1번출입구(B2)역무실앞표내는곳",
+          "operatingSection": null,
+          "location": "(1F)김포공항역지상1번출입구(B2)역무실앞표내는곳",
+          "kind": "surface"
+        },
+        {
+          "id": "kric-GM-G109-2",
+          "name": "KRIC (B2)대합실(B4)승강장",
+          "operatingSection": "B4↔B2",
+          "location": "(B2)대합실(B4)승강장",
+          "kind": "platform"
+        },
+        {
+          "id": "kric-GM-G109-3",
+          "name": "KRIC (B2)대합실(B4)승강장",
+          "operatingSection": "B4↔B2",
+          "location": "(B2)대합실(B4)승강장",
+          "kind": "platform"
+        }
+      ],
       "directions": [
         {
           "toward": "고촌",
