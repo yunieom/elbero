@@ -1,0 +1,64 @@
+name: elbero
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    volumes:
+      - ./apps/api/.env:/app/.env:ro
+    ports:
+      - "${API_PORT:-3000}:3000"
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/mobile/Dockerfile
+      target: web
+      args:
+        EXPO_PUBLIC_API_URL: /api
+        EXPO_PUBLIC_REPORT_EMAIL: ${EXPO_PUBLIC_REPORT_EMAIL:-}
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "${WEB_PORT:-4318}:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  metro:
+    profiles: ["native"]
+    build:
+      context: .
+      dockerfile: apps/mobile/Dockerfile
+      target: metro
+    environment:
+      EXPO_PUBLIC_API_URL: http://${MAC_MINI_HOST:-127.0.0.1}:${API_PORT:-3000}
+      EXPO_PUBLIC_REPORT_EMAIL: ${EXPO_PUBLIC_REPORT_EMAIL:-}
+      REACT_NATIVE_PACKAGER_HOSTNAME: ${MAC_MINI_HOST:-127.0.0.1}
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "${METRO_PORT:-8081}:8081"
+    restart: unless-stopped

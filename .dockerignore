@@ -1,0 +1,12 @@
+node_modules
+.git
+.expo
+coverage
+**/dist
+**/web-build
+**/.env
+**/.env.*
+!**/.env.example
+data/research/t02/raw
+data/research/line-sync/raw
+*.log

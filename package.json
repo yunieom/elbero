@@ -9,6 +9,10 @@
   "scripts": {
     "dev:mobile": "npm run start --workspace @elbero/mobile",
     "dev:api": "npm run start:dev --workspace @elbero/api",
+    "deploy:up": "docker compose --env-file .env.compose --profile native up -d --build",
+    "deploy:status": "docker compose --env-file .env.compose --profile native ps",
+    "deploy:logs": "docker compose --env-file .env.compose --profile native logs -f --tail=200",
+    "deploy:down": "docker compose --env-file .env.compose --profile native down",
     "research:t02": "node tools/kric/fetch-t02-samples.mjs",
     "research:line-sync": "node tools/kric/audit-line-sync.mjs",
     "verification:line-5": "node tools/kric/update-line5-accessibility-guidance.mjs",
