@@ -67,22 +67,23 @@ export class JourneyRouteEngine {
     const hasUnknown = evaluatedCandidates.some(
       (candidate) => candidate.status === ELEVATOR_STATUS.UNKNOWN,
     );
-
-    if (!recommendedCandidate && !hasUnknown) {
-      return this.failure(
-        JOURNEY_ERROR_CODE.NO_ACCESSIBLE_ROUTE,
-        '현재 운행 중인 필수 승강기로 완성되는 안전 경로가 없습니다.',
-        requestId,
-        definition.dataVersion,
-        { candidateCount: evaluatedCandidates.length },
-      );
-    }
+    const hasOnlyOutOfServiceCandidates =
+      !recommendedCandidate && !hasUnknown && evaluatedCandidates.length > 0;
 
     const candidates = evaluatedCandidates.map((candidate) => ({
       ...candidate,
       recommended: candidate.id === recommendedCandidate?.id,
     }));
     const warnings: JourneyContractError[] = [];
+    if (hasOnlyOutOfServiceCandidates) {
+      warnings.push(
+        createJourneyContractError(
+          JOURNEY_ERROR_CODE.NO_ACCESSIBLE_ROUTE,
+          '운행 중지 시설을 제외한 대체 경로를 찾지 못해 원래 이동 경로를 표시합니다.',
+          { candidateCount: evaluatedCandidates.length },
+        ),
+      );
+    }
     const positionValidationIssues = candidates.flatMap(
       (candidate) => candidate.validationIssues,
     );

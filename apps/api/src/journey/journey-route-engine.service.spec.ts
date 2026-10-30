@@ -48,17 +48,36 @@ describe('JourneyRouteEngine', () => {
     );
   });
 
-  it('모든 후보의 필수 승강기가 중지되면 NO_ACCESSIBLE_ROUTE를 반환한다', () => {
+  it('모든 후보의 필수 승강기가 중지되어도 원래 경로와 경고를 반환한다', () => {
     const result = engine.plan(
       definition(),
       snapshot('보수중', '보수중'),
       'request-3',
     );
 
-    expect(result).toMatchObject({
-      ok: false,
-      error: { code: JOURNEY_ERROR_CODE.NO_ACCESSIBLE_ROUTE },
-      meta: { dataVersion: '2026-09-29.t11.test' },
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.data.recommendedRouteId).toBeNull();
+    expect(result.data.candidates).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: 'primary',
+          status: ELEVATOR_STATUS.OUT_OF_SERVICE,
+          recommended: false,
+          steps: expect.any(Array),
+        }),
+      ]),
+    );
+    expect(result.warnings).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: JOURNEY_ERROR_CODE.NO_ACCESSIBLE_ROUTE,
+          details: { candidateCount: 2 },
+        }),
+      ]),
+    );
+    expect(result.meta).toMatchObject({
+      dataVersion: '2026-09-29.t11.test',
     });
   });
 
