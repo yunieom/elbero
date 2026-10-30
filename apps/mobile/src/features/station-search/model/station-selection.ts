@@ -70,7 +70,7 @@ export function stationSelectionError(
     return '출발역과 도착역은 서로 달라야 합니다.';
   }
   if (!origin.journeySupported || !destination.journeySupported) {
-    return `선택한 노선의 엘리베이터 안전 경로는 준비 중입니다. 현재 ${supportedJourneyLineNames.join('·')} 경로를 안내할 수 있어요.`;
+    return `선택한 노선의 엘리베이터 경로는 준비 중입니다. 현재 ${supportedJourneyLineNames.join('·')} 경로를 안내할 수 있어요.`;
   }
   return null;
 }

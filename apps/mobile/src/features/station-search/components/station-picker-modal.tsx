@@ -176,7 +176,7 @@ export function StationPickerModal({
             ];
             return (
               <Pressable
-                accessibilityLabel={`${item.stationName}, ${item.lineName}${item.journeySupported ? "" : ", 안전 경로 준비 중"}`}
+                accessibilityLabel={`${item.stationName}, ${item.lineName}${item.journeySupported ? "" : ", 엘리베이터 경로 준비 중"}`}
                 accessibilityRole="button"
                 accessibilityState={{ selected: isSelected }}
                 onPress={() => onSelect(item)}
@@ -224,7 +224,7 @@ export function StationPickerModal({
                   </Text>
                   {!item.journeySupported ? (
                     <Text maxFontSizeMultiplier={2} style={styles.supportText}>
-                      안전 경로 준비 중
+                      엘리베이터 경로 준비 중
                     </Text>
                   ) : null}
                 </View>

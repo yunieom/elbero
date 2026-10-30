@@ -15,12 +15,18 @@
 | 오프라인·재실행 복구 | 완료 | `evidence/t19/android-offline-recovery.png` |
 | 큰 글자·VoiceOver·TalkBack 기반 | 완료 | `evidence/t21/*` |
 | 오류 제보 메일·복사 대안 | 완료 | 자동 테스트와 앱 QA 화면 |
+| 개인정보·약관·저장 데이터 삭제 | 완료 | 앱 `/service-info`, `/privacy`, `/terms`, `/support` |
+| 민감 권한·광고/분석 SDK 차단 | 완료 | `app.json`, 출시 정적 검사 |
+| 기본 색 대비·노선 배지 대비 | 완료 | 모바일 대비 자동 테스트 |
+| 프로덕션 QA 화면 차단 | 완료 | `__DEV__` 게이트와 출시 정적 검사 |
 
 ## 현재 회귀 명령
 
 ```bash
 npm test
 npm run typecheck
+npm run lint
+npm run build
 npm run release:check:static
 ```
 
@@ -31,7 +37,8 @@ Docker QA 환경은 [`맥미니 배포 문서`](../deployment/mac-mini-docker-co
 - 대표 역사 일부의 실제 지상→승강장→환승→지상 동선 대조
 - iOS·Android 실제 기기에서 네트워크 단절·재실행·스크린 리더 최종 확인
 - TestFlight·Play 내부 테스트 사용자 관찰과 제보 반영
-- HTTPS 운영 API, 오류 제보 이메일, 스토어 개인정보 URL 확정
+- HTTPS 운영 API, 실제 운영자명, 오류 제보 이메일, 공개 개인정보·약관·지원 URL 확정
+- 웹 키보드 포커스 순서와 양 플랫폼 법적 화면의 큰 글자 최종 확인
 
 노선 데이터 검증 잔여 항목은 이 문서에 중복하지 않고 [`지원 노선 검증 대기 목록`](../research/supported-lines-user-verification-pending.md)에서 관리한다.
 

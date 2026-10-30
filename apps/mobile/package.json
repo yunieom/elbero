@@ -30,7 +30,7 @@
     "ios": "expo start --ios",
     "preweb": "npm run build --workspace @elbero/contracts",
     "web": "expo start --web",
-    "test": "node --experimental-strip-types --test src/features/station-search/model/station-selection.spec.mjs src/features/journey-search/model/journey-snapshot.spec.mjs src/features/journey-search/model/journey-error.spec.mjs src/features/journey-report/model/journey-report.spec.mjs src/features/journey-report/service/journey-report-delivery-core.spec.mjs",
+    "test": "node --experimental-strip-types --test src/features/station-search/model/station-selection.spec.mjs src/features/journey-search/model/journey-snapshot.spec.mjs src/features/journey-search/model/journey-error.spec.mjs src/features/journey-report/model/journey-report.spec.mjs src/features/journey-report/service/journey-report-delivery-core.spec.mjs src/shared/theme/contrast.spec.mjs",
     "typecheck": "tsc --noEmit"
   },
   "private": true

@@ -11,7 +11,7 @@ import {
 import type { JourneyStatus, JourneyStep } from "@/entities/journey";
 import { JourneyReportModal } from "@/features/journey-report";
 import { transitLines } from "@/entities/station/transit-lines";
-import { colors, radius, spacing } from "@/shared/theme";
+import { colors, radius, readableTextColor, spacing } from "@/shared/theme";
 import { PrimaryButton, Screen } from "@/shared/ui";
 
 import { GuidanceStepCard } from "../components/guidance-step-card";
@@ -62,7 +62,7 @@ export function JourneyResultScreen({
             승강기 상태를 확인하고 있어요
           </Text>
           <Text maxFontSizeMultiplier={2} style={styles.loadingText}>
-            안전한 차량·문과 이용 가능한 엘리베이터를 연결하는 중입니다.
+            승강장 간격과 이용 가능한 엘리베이터를 연결하는 중입니다.
           </Text>
         </View>
       </Screen>
@@ -133,7 +133,16 @@ export function JourneyResultScreen({
                 { backgroundColor: routeLines[index]?.color ?? colors.primary },
               ]}
             >
-              <Text style={styles.lineBadgeText}>
+              <Text
+                style={[
+                  styles.lineBadgeText,
+                  {
+                    color: readableTextColor(
+                      routeLines[index]?.color ?? colors.primary,
+                    ),
+                  },
+                ]}
+              >
                 {routeLines[index]?.badge ?? lineName}
               </Text>
             </View>
@@ -314,7 +323,7 @@ function Header({ onBack }: { onBack: () => void }) {
         </Text>
       </Pressable>
       <Text maxFontSizeMultiplier={2} style={styles.headerTitle}>
-        안전 경로 안내
+        엘리베이터 경로 안내
       </Text>
     </View>
   );
@@ -487,7 +496,6 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   lineBadgeText: {
-    color: colors.white,
     fontSize: 12,
     fontWeight: "800",
   },

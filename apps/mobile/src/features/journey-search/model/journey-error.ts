@@ -21,16 +21,16 @@ const byCode: Record<string, JourneyErrorPresentation> = {
     actionLabel: "다른 역 선택",
   },
   DATA_MISSING: {
-    title: "안전 경로 정보가 부족해요",
+    title: "엘리베이터 경로 정보가 부족해요",
     description:
-      "필수 위치 정보가 없어 이 여정을 안전 경로로 안내할 수 없습니다.",
+      "필수 위치 정보가 없어 검증된 엘리베이터 동선을 안내할 수 없습니다.",
     action: "search",
     actionLabel: "다른 역 선택",
   },
   DATA_CONFLICT: {
-    title: "안전 경로를 확인 중이에요",
+    title: "경로 정보를 확인 중이에요",
     description:
-      "출처별 정보가 달라 검증 전에는 안전 경로로 추천하지 않습니다.",
+      "출처별 정보가 달라 검증 전에는 확정된 동선으로 안내하지 않습니다.",
     action: "search",
     actionLabel: "다른 역 선택",
   },
@@ -42,7 +42,7 @@ const byCode: Record<string, JourneyErrorPresentation> = {
     actionLabel: "상태 다시 확인",
   },
   NO_ACCESSIBLE_ROUTE: {
-    title: "현재 이용 가능한 안전 경로가 없어요",
+    title: "현재 이용 가능한 엘리베이터 경로가 없어요",
     description: "운행 중지 시설을 제외한 대체 경로를 찾지 못했습니다.",
     action: "retry",
     actionLabel: "대체 경로 다시 찾기",

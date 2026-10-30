@@ -104,7 +104,7 @@ export function StationSearchScreen() {
           출발지와 도착지를{`\n`}입력해 주세요
         </Text>
         <Text maxFontSizeMultiplier={2} style={styles.description}>
-          운행 중인 엘리베이터와 안전한 승하차 위치를 반영해 경로를 안내해요.
+          공공데이터의 엘리베이터 상태와 승하차 위치를 반영해 경로를 안내해요.
         </Text>
       </View>
 
@@ -197,28 +197,32 @@ export function StationSearchScreen() {
       ) : null}
 
       <PrimaryButton
-        accessibilityLabel="엘리베이터 안전 경로 찾기"
-        label="안전 경로 찾기"
+        accessibilityLabel="엘리베이터 경로 찾기"
+        label="엘리베이터 경로 찾기"
         onPress={handleSubmit}
       />
 
-      <Pressable
-        accessibilityRole="button"
-        onPress={handleUseExample}
-        style={styles.exampleButton}
-      >
-        <Text style={styles.exampleText}>
-          QA 예시 채우기 · 답십리 → 굽은다리
-        </Text>
-      </Pressable>
+      {__DEV__ ? (
+        <>
+          <Pressable
+            accessibilityRole="button"
+            onPress={handleUseExample}
+            style={styles.exampleButton}
+          >
+            <Text style={styles.exampleText}>
+              QA 예시 채우기 · 답십리 → 굽은다리
+            </Text>
+          </Pressable>
 
-      <Pressable
-        accessibilityRole="button"
-        onPress={() => router.push("/qa/states")}
-        style={styles.qaStateButton}
-      >
-        <Text style={styles.qaStateButtonText}>QA 예외 상태 시제품 보기</Text>
-      </Pressable>
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push("/qa/states")}
+            style={styles.qaStateButton}
+          >
+            <Text style={styles.qaStateButtonText}>QA 예외 상태 시제품 보기</Text>
+          </Pressable>
+        </>
+      ) : null}
 
       <View style={styles.infoCard}>
         <Text style={styles.infoTitle}>안내 기준</Text>
@@ -227,6 +231,17 @@ export function StationSearchScreen() {
           경로와 함께 ‘안전 경로 미확인’으로 표시합니다.
         </Text>
       </View>
+
+      <Pressable
+        accessibilityHint="개인정보 처리방침, 이용약관, 지원 안내와 저장 데이터 관리를 엽니다."
+        accessibilityRole="link"
+        onPress={() => router.push("/service-info")}
+        style={styles.serviceInfoLink}
+      >
+        <Text maxFontSizeMultiplier={2} style={styles.serviceInfoText}>
+          서비스 정보 · 개인정보 · 이용약관
+        </Text>
+      </Pressable>
 
       <StationPickerModal
         onClose={() => setActiveField(null)}
@@ -489,5 +504,20 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontSize: 13,
     lineHeight: 20,
+  },
+  serviceInfoLink: {
+    minHeight: 48,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: spacing.lg,
+    paddingHorizontal: spacing.md,
+  },
+  serviceInfoText: {
+    color: colors.primary,
+    fontSize: 13,
+    lineHeight: 20,
+    fontWeight: "700",
+    textAlign: "center",
+    textDecorationLine: "underline",
   },
 });

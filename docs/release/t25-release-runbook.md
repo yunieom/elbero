@@ -10,8 +10,8 @@
 | iOS buildNumber | `1`부터 시작 |
 | Android Package | `com.elbero.mobile` |
 | Android versionCode | `1`부터 시작 |
-| 지원 노선 | 15개 |
-| 모바일 역 카탈로그 | 533역 |
+| 지원 노선 | 16개 |
+| 모바일 지원 역 항목 | 596개 |
 | EAS 버전 관리 | local, production 자동 증가 |
 
 ## 1. 운영 API 준비
@@ -32,6 +32,10 @@
 npx eas-cli init
 npx eas-cli env:set --name EXPO_PUBLIC_API_URL --value https://API주소 --environment production --visibility plaintext
 npx eas-cli env:set --name EXPO_PUBLIC_REPORT_EMAIL --value 지원이메일 --environment production --visibility plaintext
+npx eas-cli env:set --name EXPO_PUBLIC_OPERATOR_NAME --value 운영자명 --environment production --visibility plaintext
+npx eas-cli env:set --name EXPO_PUBLIC_PRIVACY_URL --value https://공개주소/privacy --environment production --visibility plaintext
+npx eas-cli env:set --name EXPO_PUBLIC_TERMS_URL --value https://공개주소/terms --environment production --visibility plaintext
+npx eas-cli env:set --name EXPO_PUBLIC_SUPPORT_URL --value https://공개주소/support --environment production --visibility plaintext
 npx eas-cli env:list --environment production
 ```
 
@@ -44,6 +48,10 @@ npx eas-cli env:list --environment production
 ```bash
 EXPO_PUBLIC_API_URL=https://API주소 \
 EXPO_PUBLIC_REPORT_EMAIL=지원이메일 \
+EXPO_PUBLIC_OPERATOR_NAME=운영자명 \
+EXPO_PUBLIC_PRIVACY_URL=https://공개주소/privacy \
+EXPO_PUBLIC_TERMS_URL=https://공개주소/terms \
+EXPO_PUBLIC_SUPPORT_URL=https://공개주소/support \
 npm run release:check
 
 npm test

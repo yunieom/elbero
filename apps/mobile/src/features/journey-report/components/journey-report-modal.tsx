@@ -241,6 +241,9 @@ export function JourneyReportModal({
                 <View style={styles.privacyCard}>
                   <Text maxFontSizeMultiplier={2} style={styles.privacyText}>
                     현재 위치, GPS 좌표, 이전 이동 이력은 포함하지 않습니다.
+                    이름·연락처·건강정보 등 불필요한 개인정보는 설명에 적지
+                    마세요. 메일 앱에서 내용을 확인하고 직접 보내야 제보가
+                    전달됩니다.
                   </Text>
                 </View>
 

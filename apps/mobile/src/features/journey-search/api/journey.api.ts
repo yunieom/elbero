@@ -63,7 +63,7 @@ export async function fetchJourneyPlan(
       );
     }
     throw new JourneyApiError(
-      "안전 경로를 불러오지 못했습니다.",
+      "엘리베이터 경로를 불러오지 못했습니다.",
       "invalid_response",
     );
   }

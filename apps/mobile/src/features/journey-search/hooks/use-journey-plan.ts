@@ -133,7 +133,7 @@ export function useJourneyPlan(
             : new JourneyApiError(
                 caught instanceof Error
                   ? caught.message
-                  : "안전 경로를 불러오지 못했습니다.",
+                  : "엘리베이터 경로를 불러오지 못했습니다.",
                 "invalid_response",
               );
         if (apiError.kind === "network" && matchingSnapshot) {

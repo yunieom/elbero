@@ -1,5 +1,11 @@
 name: elbero
 
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   api:
     build:
@@ -13,6 +19,7 @@ services:
     ports:
       - "${API_PORT:-3000}:3000"
     restart: unless-stopped
+    logging: *default-logging
     healthcheck:
       test:
         [
@@ -34,12 +41,17 @@ services:
       args:
         EXPO_PUBLIC_API_URL: /api
         EXPO_PUBLIC_REPORT_EMAIL: ${EXPO_PUBLIC_REPORT_EMAIL:-}
+        EXPO_PUBLIC_OPERATOR_NAME: ${EXPO_PUBLIC_OPERATOR_NAME:-}
+        EXPO_PUBLIC_PRIVACY_URL: ${EXPO_PUBLIC_PRIVACY_URL:-}
+        EXPO_PUBLIC_TERMS_URL: ${EXPO_PUBLIC_TERMS_URL:-}
+        EXPO_PUBLIC_SUPPORT_URL: ${EXPO_PUBLIC_SUPPORT_URL:-}
     depends_on:
       api:
         condition: service_healthy
     ports:
       - "${WEB_PORT:-4318}:80"
     restart: unless-stopped
+    logging: *default-logging
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/health"]
       interval: 15s
@@ -55,6 +67,10 @@ services:
     environment:
       EXPO_PUBLIC_API_URL: http://${MAC_MINI_HOST:-127.0.0.1}:${API_PORT:-3000}
       EXPO_PUBLIC_REPORT_EMAIL: ${EXPO_PUBLIC_REPORT_EMAIL:-}
+      EXPO_PUBLIC_OPERATOR_NAME: ${EXPO_PUBLIC_OPERATOR_NAME:-}
+      EXPO_PUBLIC_PRIVACY_URL: ${EXPO_PUBLIC_PRIVACY_URL:-}
+      EXPO_PUBLIC_TERMS_URL: ${EXPO_PUBLIC_TERMS_URL:-}
+      EXPO_PUBLIC_SUPPORT_URL: ${EXPO_PUBLIC_SUPPORT_URL:-}
       REACT_NATIVE_PACKAGER_HOSTNAME: ${MAC_MINI_HOST:-127.0.0.1}
     depends_on:
       api:
@@ -62,3 +78,4 @@ services:
     ports:
       - "${METRO_PORT:-8081}:8081"
     restart: unless-stopped
+    logging: *default-logging

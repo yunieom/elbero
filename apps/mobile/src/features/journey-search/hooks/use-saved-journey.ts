@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import { useFocusEffect } from "expo-router";
 
 import { decideStoredJourneyRecovery } from "../model/journey-snapshot";
 import { journeySnapshotRepository } from "../repository/journey-snapshot.repository";
@@ -62,9 +63,11 @@ export function useSavedJourney() {
     });
   }, []);
 
-  useEffect(() => {
-    void refresh();
-  }, [refresh]);
+  useFocusEffect(
+    useCallback(() => {
+      void refresh();
+    }, [refresh]),
+  );
 
   return { savedJourney, recoveryMessage, refresh };
 }

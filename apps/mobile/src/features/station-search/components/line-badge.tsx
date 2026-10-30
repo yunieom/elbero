@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import { transitLineById, type TransitLineId } from '@/entities/station';
-import { colors, radius } from '@/shared/theme';
+import { radius, readableTextColor } from '@/shared/theme';
 
 interface LineBadgeProps {
   lineId: TransitLineId;
@@ -19,7 +19,13 @@ export function LineBadge({ lineId, compact = false }: LineBadgeProps) {
         { backgroundColor: line.color },
       ]}
     >
-      <Text style={[styles.text, compact && styles.compactText]}>
+      <Text
+        style={[
+          styles.text,
+          compact && styles.compactText,
+          { color: readableTextColor(line.color) },
+        ]}
+      >
         {line.badge}
       </Text>
     </View>
@@ -36,6 +42,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   compactBadge: { minWidth: 24, height: 24 },
-  text: { color: colors.white, fontSize: 13, fontWeight: '900' },
+  text: { fontSize: 13, fontWeight: '900' },
   compactText: { fontSize: 11 },
 });

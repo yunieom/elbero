@@ -18,7 +18,7 @@ test("미지원·데이터 누락·상태 미확인 오류를 서로 다르게 �
   );
   assert.equal(
     presentJourneyError(contractError("DATA_MISSING")).title,
-    "안전 경로 정보가 부족해요",
+    "엘리베이터 경로 정보가 부족해요",
   );
   assert.equal(
     presentJourneyError(contractError("FACILITY_STATUS_UNKNOWN", true)).title,
@@ -26,7 +26,7 @@ test("미지원·데이터 누락·상태 미확인 오류를 서로 다르게 �
   );
 });
 
-test("운행 중지로 안전 경로가 없으면 대체 경로 재탐색을 제안한다", () => {
+test("운행 중지로 엘리베이터 경로가 없으면 대체 경로 재탐색을 제안한다", () => {
   const presentation = presentJourneyError(
     contractError("NO_ACCESSIBLE_ROUTE"),
   );

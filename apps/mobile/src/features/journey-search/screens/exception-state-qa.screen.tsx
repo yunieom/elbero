@@ -123,7 +123,7 @@ export function ExceptionStateQaScreen() {
             blockingReasons={[
               "필수 승강기의 위치와 실시간 상태 연결이 확인되지 않았습니다.",
             ]}
-            reason="일반 경로는 표시하지만 안전한 엘리베이터 경로로 추천하지 않습니다."
+            reason="일반 경로는 표시하지만 검증된 엘리베이터 동선으로 확정하지 않습니다."
             status="unknown"
           />
         ) : selectedScenario === "outage" ? (
