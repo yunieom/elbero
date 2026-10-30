@@ -47,16 +47,16 @@ GET http://localhost:3000/journeys/plan?originStationCode=2543&destinationStatio
 ```
 
 현재 지원 여정과 안전한 제외 기준은
-[`T03 대표 여정 지원 범위와 G0 점검`](docs/product/t03-g0-support-scope.md)에 기록합니다.
+[`제품 범위와 UX 결정`](docs/product/product-decisions.md)에 기록합니다.
 
 실제 휴대폰에서 개발 API에 연결할 때는 `apps/mobile/.env.example`을 복사한 뒤
 localhost를 개발 PC의 같은 네트워크 IP로 바꿉니다.
 
 ## 공공데이터 조사
 
-T02의 KRIC 동선·환승·엘리베이터 API 검증 결과는
-[`docs/research/t02-f03-public-data-validation.md`](docs/research/t02-f03-public-data-validation.md)에
-기록합니다. 인증키 없이 요청 목록을 점검하려면 다음 명령을 실행합니다.
+T02의 KRIC 동선·환승·엘리베이터 API 검증 기록은
+[`보관 문서`](docs/archive/research/t02-f03-public-data-validation.md)에 유지합니다.
+인증키 없이 요청 목록을 점검하려면 다음 명령을 실행합니다.
 
 ```bash
 npm run research:t02 -- --dry-run
@@ -86,8 +86,11 @@ npm run research:line-sync -- --line suin-bundang
 
 ## 아키텍처와 컨벤션
 
+- [전체 문서 안내](docs/README.md)
+- [시스템 구조와 데이터 계약](docs/architecture/system-design.md)
 - [기술 스택과 기술 결정](docs/architecture/technology-stack.md)
 - [모바일 앱 아키텍처 및 코딩 컨벤션](docs/conventions/mobile-app-convention.md)
+- [출시 검증 현황](docs/qa/release-validation.md)
 
 ## 출시 준비
 

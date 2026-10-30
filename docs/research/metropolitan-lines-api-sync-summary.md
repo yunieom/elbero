@@ -14,37 +14,37 @@
 
 | 노선 | 운영기관 코드 | 대상 역 | 차이 역 | 차이 항목 | green | yellow | red | 값 없음 | 상세 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| 1호선 | KR, S1 | 102 | 100 | 296 | 4171 | 3205 | 584 | 40 | [보고서](line-1-api-sync-audit.md) |
-| 2호선 | S1 | 51 | 45 | 69 | 2958 | 697 | 81 | 0 | [보고서](line-2-api-sync-audit.md) |
-| 3호선 | KR, S1 | 44 | 38 | 72 | 2531 | 871 | 118 | 0 | [보고서](line-3-api-sync-audit.md) |
-| 4호선 | KR, NU, S1 | 51 | 49 | 118 | 3115 | 570 | 155 | 0 | [보고서](line-4-api-sync-audit.md) |
-| 5호선 | S1 | 56 | 49 | 85 | 3164 | 322 | 98 | 0 | [보고서](line-5-api-sync-audit.md) |
-| 6호선 | S1 | 39 | 34 | 61 | 2025 | 226 | 53 | 0 | [보고서](line-6-api-sync-audit.md) |
-| 7호선 | IC, S1 | 53 | 45 | 89 | 3075 | 253 | 32 | 0 | [보고서](line-7-api-sync-audit.md) |
-| 8호선 | GU, NU, S1 | 24 | 23 | 41 | 935 | 70 | 3 | 144 | [보고서](line-8-api-sync-audit.md) |
-| 9호선 | S9 | 38 | 38 | 95 | 1815 | 9 | 0 | 0 | [보고서](line-9-api-sync-audit.md) |
+| 1호선 | KR, S1 | 102 | 100 | 296 | 4171 | 3205 | 584 | 40 | [보고서](../archive/research/generated/line-1-api-sync-audit.md) |
+| 2호선 | S1 | 51 | 45 | 69 | 2958 | 697 | 81 | 0 | [보고서](../archive/research/generated/line-2-api-sync-audit.md) |
+| 3호선 | KR, S1 | 44 | 38 | 72 | 2531 | 871 | 118 | 0 | [보고서](../archive/research/generated/line-3-api-sync-audit.md) |
+| 4호선 | KR, NU, S1 | 51 | 49 | 118 | 3115 | 570 | 155 | 0 | [보고서](../archive/research/generated/line-4-api-sync-audit.md) |
+| 5호선 | S1 | 56 | 49 | 85 | 3164 | 322 | 98 | 0 | [보고서](../archive/research/generated/line-5-api-sync-audit.md) |
+| 6호선 | S1 | 39 | 34 | 61 | 2025 | 226 | 53 | 0 | [보고서](../archive/research/generated/line-6-api-sync-audit.md) |
+| 7호선 | IC, S1 | 53 | 45 | 89 | 3075 | 253 | 32 | 0 | [보고서](../archive/research/generated/line-7-api-sync-audit.md) |
+| 8호선 | GU, NU, S1 | 24 | 23 | 41 | 935 | 70 | 3 | 144 | [보고서](../archive/research/generated/line-8-api-sync-audit.md) |
+| 9호선 | S9 | 38 | 38 | 95 | 1815 | 9 | 0 | 0 | [보고서](../archive/research/generated/line-9-api-sync-audit.md) |
 | **소계** |  | **458** | **421** | **926** | **23789** | **6223** | **1124** | **184** |  |
 
 ## 추가 수도권 노선
 
 | 노선 | 코드 | 운영기관 코드 | 대상 역 | 차이 역 | 차이 항목 | green | yellow | red | 값 없음 | 상세 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| 공항철도 | A1 | AR | 14 | 14 | 42 | 636 | 0 | 0 | 60 | [보고서](airport-railroad-api-sync-audit.md) |
-| 인천 1호선 | I1 | IC | 33 | 33 | 102 | 1909 | 11 | 0 | 0 | [보고서](incheon-line-1-api-sync-audit.md) |
-| 인천 2호선 | I2 | IC | 27 | 27 | 81 | 324 | 0 | 0 | 0 | [보고서](incheon-line-2-api-sync-audit.md) |
-| 신분당선 | D1 | DX | 16 | 16 | 48 | 768 | 0 | 0 | 0 | [보고서](shinbundang-line-api-sync-audit.md) |
-| 에버라인 | E1 | EV | 15 | 15 | 47 | 58 | 0 | 0 | 0 | [보고서](everline-api-sync-audit.md) |
-| 김포골드라인 | G1 | GM | 10 | 10 | 30 | 80 | 0 | 0 | 0 | [보고서](gimpo-goldline-api-sync-audit.md) |
-| GTX-A | A | GX, SR | 9 | 9 | 17 | 192 | 0 | 0 | 0 | [보고서](gtx-a-api-sync-audit.md) |
-| 인천공항 자기부상철도 | M1 | IA | 6 | 5 | 10 | 0 | 0 | 0 | 0 | [보고서](airport-maglev-api-sync-audit.md) |
-| 수인분당선 | K1 | KR | 63 | 63 | 177 | 2206 | 90 | 8 | 816 | [보고서](suin-bundang-line-api-sync-audit.md) |
-| 경춘선 | K2 | KR | 25 | 25 | 76 | 1476 | 420 | 69 | 128 | [보고서](gyeongchun-line-api-sync-audit.md) |
-| 경의중앙선 | K4 | KR | 58 | 57 | 173 | 2418 | 1319 | 131 | 0 | [보고서](gyeongui-jungang-line-api-sync-audit.md) |
-| 경강선 | K5 | KR | 12 | 12 | 26 | 352 | 0 | 0 | 0 | [보고서](gyeonggang-line-api-sync-audit.md) |
-| 서해선 | WS | KR, SW | 21 | 21 | 62 | 336 | 0 | 0 | 0 | [보고서](seohae-line-api-sync-audit.md) |
-| 신림선 | L1 | SL | 11 | 11 | 33 | 128 | 4 | 0 | 0 | [보고서](sillim-line-api-sync-audit.md) |
-| 우이신설선 | UI | UI | 13 | 13 | 38 | 104 | 0 | 0 | 0 | [보고서](ui-sinseol-line-api-sync-audit.md) |
-| 의정부경전철 | U1 | UL | 15 | 15 | 45 | 180 | 0 | 0 | 0 | [보고서](uijeongbu-light-rail-api-sync-audit.md) |
+| 공항철도 | A1 | AR | 14 | 14 | 42 | 636 | 0 | 0 | 60 | [보고서](../archive/research/generated/airport-railroad-api-sync-audit.md) |
+| 인천 1호선 | I1 | IC | 33 | 33 | 102 | 1909 | 11 | 0 | 0 | [보고서](../archive/research/generated/incheon-line-1-api-sync-audit.md) |
+| 인천 2호선 | I2 | IC | 27 | 27 | 81 | 324 | 0 | 0 | 0 | [보고서](../archive/research/generated/incheon-line-2-api-sync-audit.md) |
+| 신분당선 | D1 | DX | 16 | 16 | 48 | 768 | 0 | 0 | 0 | [보고서](../archive/research/generated/shinbundang-line-api-sync-audit.md) |
+| 에버라인 | E1 | EV | 15 | 15 | 47 | 58 | 0 | 0 | 0 | [보고서](../archive/research/generated/everline-api-sync-audit.md) |
+| 김포골드라인 | G1 | GM | 10 | 10 | 30 | 80 | 0 | 0 | 0 | [보고서](../archive/research/generated/gimpo-goldline-api-sync-audit.md) |
+| GTX-A | A | GX, SR | 9 | 9 | 17 | 192 | 0 | 0 | 0 | [보고서](../archive/research/generated/gtx-a-api-sync-audit.md) |
+| 인천공항 자기부상철도 | M1 | IA | 6 | 5 | 10 | 0 | 0 | 0 | 0 | [보고서](../archive/research/generated/airport-maglev-api-sync-audit.md) |
+| 수인분당선 | K1 | KR | 63 | 63 | 177 | 2206 | 90 | 8 | 816 | [보고서](../archive/research/generated/suin-bundang-line-api-sync-audit.md) |
+| 경춘선 | K2 | KR | 25 | 25 | 76 | 1476 | 420 | 69 | 128 | [보고서](../archive/research/generated/gyeongchun-line-api-sync-audit.md) |
+| 경의중앙선 | K4 | KR | 58 | 57 | 173 | 2418 | 1319 | 131 | 0 | [보고서](../archive/research/generated/gyeongui-jungang-line-api-sync-audit.md) |
+| 경강선 | K5 | KR | 12 | 12 | 26 | 352 | 0 | 0 | 0 | [보고서](../archive/research/generated/gyeonggang-line-api-sync-audit.md) |
+| 서해선 | WS | KR, SW | 21 | 21 | 62 | 336 | 0 | 0 | 0 | [보고서](../archive/research/generated/seohae-line-api-sync-audit.md) |
+| 신림선 | L1 | SL | 11 | 11 | 33 | 128 | 4 | 0 | 0 | [보고서](../archive/research/generated/sillim-line-api-sync-audit.md) |
+| 우이신설선 | UI | UI | 13 | 13 | 38 | 104 | 0 | 0 | 0 | [보고서](../archive/research/generated/ui-sinseol-line-api-sync-audit.md) |
+| 의정부경전철 | U1 | UL | 15 | 15 | 45 | 180 | 0 | 0 | 0 | [보고서](../archive/research/generated/uijeongbu-light-rail-api-sync-audit.md) |
 | **소계** |  |  | **348** | **346** | **1007** | **11167** | **1844** | **208** | **1004** |  |
 
 ## 이격거리 전체 집계

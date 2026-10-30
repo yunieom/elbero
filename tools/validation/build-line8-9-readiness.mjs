@@ -215,7 +215,7 @@ for (const lineId of lineIds) {
 }
 
 await writeFile(
-  resolve('docs/research/line-8-9-guidance-readiness.md'),
+  resolve('docs/archive/research/line-8-9-guidance-readiness.md'),
   renderMarkdown(results),
   'utf8',
 );

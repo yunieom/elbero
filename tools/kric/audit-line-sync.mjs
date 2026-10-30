@@ -162,14 +162,18 @@ const reportPath = path.join(
   reportDirectory,
   `${lineTarget.artifactStem}-latest.json`,
 );
-const markdownPath = path.join(
+const markdownDirectory = path.join(
   repositoryRoot,
-  'docs/research',
+  'docs/archive/research/generated',
+);
+const markdownPath = path.join(
+  markdownDirectory,
   `${lineTarget.artifactStem}-api-sync-audit.md`,
 );
 
 await mkdir(rawDirectory, { recursive: true });
 await mkdir(reportDirectory, { recursive: true });
+await mkdir(markdownDirectory, { recursive: true });
 
 const kricRequests = [];
 
@@ -1071,7 +1075,7 @@ const markdown = [
   `- 차이가 기록된 역: ${affectedStations.length}개`,
   `- 차이 항목: ${differences.length}건`,
   '- 판정 원칙: 어떤 API가 맞는지 결정하지 않고 API별 반환 값만 병기한다.',
-  `- 상세 응답: [${lineTarget.artifactStem}-latest.json](../../data/research/line-sync/${lineTarget.artifactStem}-latest.json)`,
+  `- 상세 응답: [${lineTarget.artifactStem}-latest.json](../../../../data/research/line-sync/${lineTarget.artifactStem}-latest.json)`,
   '',
   '## 비교 기준',
   '',

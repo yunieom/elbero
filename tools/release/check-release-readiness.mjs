@@ -64,7 +64,7 @@ const trackedFiles = execFileSync("git", ["ls-files"], {
   .filter(Boolean);
 const forbiddenTrackedFiles = trackedFiles.filter(
   (path) =>
-    (/(^|\/)\.env(?:\.|$)/.test(path) && !path.endsWith(".env.example")) ||
+    (/(^|\/)\.env(?:\.|$)/.test(path) && !path.endsWith(".example")) ||
     /\.(?:jks|p8|p12|mobileprovision)$/i.test(path),
 );
 check(
