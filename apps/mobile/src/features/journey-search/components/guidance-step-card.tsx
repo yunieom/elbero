@@ -2,7 +2,13 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { JourneyStep } from "@/entities/journey";
 import { transitLines } from "@/entities/station";
-import { colors, radius, readableTextColor, spacing } from "@/shared/theme";
+import {
+  accessibleAccentColor,
+  colors,
+  radius,
+  readableTextColor,
+  spacing,
+} from "@/shared/theme";
 
 const stepTypeLabels: Record<string, string> = {
   entry: "역 진입",
@@ -98,25 +104,18 @@ export function GuidanceStepCard({
                   ? `${positionLabel} ${boardingPosition}`
                   : `${positionLabel} 위치 미확인`}
               </Text>
-              <View
+              <Text
                 style={[
-                  styles.trainDirectionBadge,
-                  { backgroundColor: trainLineColor ?? colors.primary },
+                  styles.trainDirection,
+                  {
+                    color: accessibleAccentColor(
+                      trainLineColor ?? colors.primary,
+                    ),
+                  },
                 ]}
               >
-                <Text
-                  style={[
-                    styles.trainDirection,
-                    {
-                      color: readableTextColor(
-                        trainLineColor ?? colors.primary,
-                      ),
-                    },
-                  ]}
-                >
-                  {toTerminalDirection(train.direction, train.lineName)}
-                </Text>
-              </View>
+                {toTerminalDirection(train.direction, train.lineName)}
+              </Text>
             </View>
           ) : null}
           {access ? (
@@ -312,16 +311,11 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   trainDirection: {
+    alignSelf: "flex-start",
+    maxWidth: "100%",
     fontSize: 13,
     lineHeight: 20,
     fontWeight: "800",
-  },
-  trainDirectionBadge: {
-    alignSelf: "flex-start",
-    maxWidth: "100%",
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 7,
   },
   accessDetails: {
     borderTopWidth: 1,

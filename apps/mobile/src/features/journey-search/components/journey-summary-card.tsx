@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import type { JourneyRoute } from "@/entities/journey";
 import { transitLines } from "@/entities/station";
-import { colors, radius, readableTextColor, spacing } from "@/shared/theme";
+import { accessibleAccentColor, colors, radius, spacing } from "@/shared/theme";
 
 export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
   const { summary, trainSegments } = route;
@@ -36,19 +36,15 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
           const lineName = trainSegments[index]?.lineName;
           const lineColor = getLineColor(lineName);
           return (
-            <View
+            <Text
               key={`${lineName ?? "line"}-${direction}`}
-              style={[styles.directionBadge, { backgroundColor: lineColor }]}
+              style={[
+                styles.direction,
+                { color: accessibleAccentColor(lineColor) },
+              ]}
             >
-              <Text
-                style={[
-                  styles.direction,
-                  { color: readableTextColor(lineColor) },
-                ]}
-              >
-                {toTerminalDirection(direction, lineName)}
-              </Text>
-            </View>
+              {toTerminalDirection(direction, lineName)}
+            </Text>
           );
         })}
       </View>
@@ -148,12 +144,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: spacing.xs,
     marginTop: spacing.md,
-  },
-  directionBadge: {
-    maxWidth: "100%",
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 7,
   },
   direction: {
     fontSize: 13,

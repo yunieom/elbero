@@ -1,11 +1,11 @@
-import assert from 'node:assert/strict';
-import test from 'node:test';
+import assert from "node:assert/strict";
+import test from "node:test";
 
-import { transitLines } from '../../entities/station/transit-lines.ts';
-import { colors } from './colors.ts';
-import { readableTextColor } from './contrast.ts';
+import { transitLines } from "../../entities/station/transit-lines.ts";
+import { colors } from "./colors.ts";
+import { accessibleAccentColor, readableTextColor } from "./contrast.ts";
 
-test('기본 텍스트와 버튼은 WCAG AA 일반 텍스트 대비를 충족한다', () => {
+test("기본 텍스트와 버튼은 WCAG AA 일반 텍스트 대비를 충족한다", () => {
   for (const [foreground, background] of [
     [colors.textPrimary, colors.background],
     [colors.textSecondary, colors.background],
@@ -21,12 +21,22 @@ test('기본 텍스트와 버튼은 WCAG AA 일반 텍스트 대비를 충족한
   }
 });
 
-test('모든 노선 배지는 배경에 맞는 읽기 가능한 글자색을 사용한다', () => {
+test("모든 노선 배지는 배경에 맞는 읽기 가능한 글자색을 사용한다", () => {
   for (const line of transitLines) {
     const foreground = readableTextColor(line.color);
     assert.ok(
       contrastRatio(foreground, line.color) >= 4.5,
       `${line.name} 배지 대비가 부족합니다.`,
+    );
+  }
+});
+
+test("노선색 텍스트는 흰 배경에서 원래 색조와 접근성 대비를 유지한다", () => {
+  for (const line of transitLines) {
+    const foreground = accessibleAccentColor(line.color);
+    assert.ok(
+      contrastRatio(foreground, colors.surface) >= 4.5,
+      `${line.name} 텍스트 대비가 부족합니다.`,
     );
   }
 });
@@ -40,7 +50,7 @@ function contrastRatio(first, second) {
 }
 
 function relativeLuminance(hex) {
-  const value = hex.replace('#', '');
+  const value = hex.replace("#", "");
   const channels = [0, 2, 4].map((index) =>
     Number.parseInt(value.slice(index, index + 2), 16),
   );
