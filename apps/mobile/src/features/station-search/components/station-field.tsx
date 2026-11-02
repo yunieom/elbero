@@ -53,9 +53,9 @@ const styles = StyleSheet.create({
     minHeight: 78,
     flexDirection: "row",
     alignItems: "center",
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     paddingHorizontal: spacing.md,
-    backgroundColor: colors.surfaceMuted,
+    backgroundColor: colors.surface,
   },
   pressed: {
     backgroundColor: colors.primarySoft,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
   },
   label: {
-    color: colors.textSecondary,
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: "600",
     marginBottom: spacing.xxs,

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "expo-router";
-import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { stationCatalog, type Station } from "@/entities/station";
 import { useSavedJourney } from "@/features/journey-search";
@@ -96,15 +96,18 @@ export function StationSearchScreen() {
       </View>
 
       <View style={styles.hero}>
+        <Text maxFontSizeMultiplier={1.6} style={styles.eyebrow}>
+          엘리베이터 중심 길찾기
+        </Text>
         <Text
           accessibilityRole="header"
           maxFontSizeMultiplier={2}
           style={styles.title}
         >
-          출발지와 도착지를{`\n`}입력해 주세요
+          출발역과 도착역을{`\n`}선택해 주세요
         </Text>
         <Text maxFontSizeMultiplier={2} style={styles.description}>
-          공공데이터의 엘리베이터 상태와 승하차 위치를 반영해 경로를 안내해요.
+          운행 상태와 승하차 위치를 확인해 덜 헤매는 경로를 안내해요.
         </Text>
       </View>
 
@@ -199,6 +202,7 @@ export function StationSearchScreen() {
         accessibilityLabel="엘리베이터 경로 찾기"
         label="엘리베이터 경로 찾기"
         onPress={handleSubmit}
+        style={styles.searchButton}
       />
 
       {__DEV__ ? (
@@ -218,7 +222,9 @@ export function StationSearchScreen() {
             onPress={() => router.push("/qa/states")}
             style={styles.qaStateButton}
           >
-            <Text style={styles.qaStateButtonText}>QA 예외 상태 시제품 보기</Text>
+            <Text style={styles.qaStateButtonText}>
+              QA 예외 상태 시제품 보기
+            </Text>
           </Pressable>
         </>
       ) : null}
@@ -271,14 +277,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexWrap: "wrap",
     gap: spacing.sm,
-    paddingTop: spacing.lg,
+    paddingTop: spacing.md,
   },
   brandMark: {
-    width: 34,
-    height: 34,
+    width: 36,
+    height: 36,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: radius.sm,
+    borderRadius: radius.pill,
     backgroundColor: colors.primary,
   },
   brandMarkText: {
@@ -288,14 +294,14 @@ const styles = StyleSheet.create({
   },
   brand: {
     color: colors.textPrimary,
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: "800",
   },
   betaBadge: {
     maxWidth: "100%",
     borderRadius: radius.pill,
     paddingHorizontal: spacing.sm,
-    paddingVertical: 5,
+    paddingVertical: 6,
     marginLeft: "auto",
     backgroundColor: colors.primarySoft,
   },
@@ -306,19 +312,28 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   hero: {
-    marginTop: 54,
-    marginBottom: spacing.xxl,
+    marginTop: spacing.xxxl,
+    marginBottom: spacing.xl,
+  },
+  eyebrow: {
+    color: colors.primary,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: "800",
+    marginBottom: spacing.xs,
   },
   resumeCard: {
     minHeight: 88,
     flexDirection: "row",
     alignItems: "center",
-    borderRadius: radius.lg,
+    borderRadius: radius.xl,
     borderWidth: 1,
-    borderColor: colors.primary,
-    padding: spacing.md,
+    borderLeftWidth: 4,
+    borderColor: colors.border,
+    borderLeftColor: colors.primary,
+    padding: spacing.lg,
     marginBottom: spacing.lg,
-    backgroundColor: colors.primarySoft,
+    backgroundColor: colors.surface,
   },
   resumeTextArea: {
     flex: 1,
@@ -355,36 +370,24 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.textPrimary,
-    fontSize: 30,
-    lineHeight: 40,
+    fontSize: 32,
+    lineHeight: 41,
     fontWeight: "800",
     letterSpacing: -0.8,
   },
   description: {
     maxWidth: 430,
     color: colors.textSecondary,
-    fontSize: 15,
-    lineHeight: 23,
-    marginTop: spacing.sm,
+    fontSize: 16,
+    lineHeight: 24,
+    marginTop: spacing.md,
   },
   formCard: {
     position: "relative",
     gap: spacing.xs,
-    borderRadius: radius.lg,
+    borderRadius: radius.xl,
     padding: spacing.xs,
-    backgroundColor: colors.surface,
-    ...Platform.select({
-      web: {
-        boxShadow: "0 8px 20px rgba(28, 39, 69, 0.08)",
-      },
-      default: {
-        shadowColor: "#1C2745",
-        shadowOffset: { width: 0, height: 8 },
-        shadowOpacity: 0.08,
-        shadowRadius: 20,
-        elevation: 3,
-      },
-    }),
+    backgroundColor: colors.primarySoft,
   },
   connector: {
     position: "absolute",
@@ -406,7 +409,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.primarySoft,
     backgroundColor: colors.surface,
     transform: [{ translateY: -23 }],
     zIndex: 3,
@@ -425,15 +428,19 @@ const styles = StyleSheet.create({
   optionRow: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: spacing.lg,
-    paddingHorizontal: spacing.xs,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    marginVertical: spacing.md,
+    padding: spacing.md,
+    backgroundColor: colors.surface,
   },
   checkBox: {
     width: 22,
     height: 22,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 6,
+    borderRadius: radius.pill,
     marginRight: spacing.sm,
     backgroundColor: colors.primary,
   },
@@ -460,6 +467,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     marginBottom: spacing.sm,
+  },
+  searchButton: {
+    borderRadius: radius.lg,
   },
   exampleButton: {
     minHeight: 48,
@@ -488,10 +498,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   infoCard: {
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
     marginTop: spacing.lg,
-    backgroundColor: colors.unknownSoft,
+    backgroundColor: colors.surface,
   },
   infoTitle: {
     color: colors.textPrimary,
@@ -512,11 +524,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   serviceInfoText: {
-    color: colors.primary,
+    color: colors.textMuted,
     fontSize: 13,
     lineHeight: 20,
     fontWeight: "700",
     textAlign: "center",
-    textDecorationLine: "underline",
   },
 });
