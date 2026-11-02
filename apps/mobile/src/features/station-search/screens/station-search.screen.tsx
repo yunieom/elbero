@@ -198,7 +198,7 @@ export function StationSearchScreen() {
         style={styles.searchButton}
       />
 
-      {__DEV__ ? (
+      {__DEV__ && process.env.EXPO_PUBLIC_SHOW_QA_CONTROLS === 'true' ? (
         <>
           <Pressable
             accessibilityRole="button"
