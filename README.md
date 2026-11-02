@@ -91,6 +91,7 @@ npm run research:line-sync -- --line suin-bundang
 - [기술 스택과 기술 결정](docs/architecture/technology-stack.md)
 - [모바일 앱 아키텍처 및 코딩 컨벤션](docs/conventions/mobile-app-convention.md)
 - [출시 검증 현황](docs/qa/release-validation.md)
+- [실기기 출시 QA 체크리스트](docs/qa/device-release-checklist.md)
 
 ## 출시 준비
 

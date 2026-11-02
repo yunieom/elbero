@@ -11,6 +11,7 @@
 - 지원 노선 검증 대기: [`research/supported-lines-user-verification-pending.md`](./research/supported-lines-user-verification-pending.md)
 - 수도권 API 감사 요약: [`research/metropolitan-lines-api-sync-summary.md`](./research/metropolitan-lines-api-sync-summary.md)
 - 출시 검증 현황: [`qa/release-validation.md`](./qa/release-validation.md)
+- 실기기 출시 QA 체크리스트: [`qa/device-release-checklist.md`](./qa/device-release-checklist.md)
 - 맥미니 배포: [`deployment/mac-mini-docker-compose.md`](./deployment/mac-mini-docker-compose.md)
 - 출시 자료: [`release`](./release)
 
