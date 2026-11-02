@@ -84,9 +84,11 @@ function formatPosition(
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: radius.lg,
-    padding: spacing.md,
-    marginBottom: spacing.lg,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.lg,
+    marginBottom: spacing.md,
     backgroundColor: colors.surface,
   },
   metrics: {
@@ -106,13 +108,14 @@ const styles = StyleSheet.create({
   },
   metricValue: {
     color: colors.textPrimary,
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: "800",
     marginTop: spacing.xxs,
   },
   direction: {
     color: colors.primary,
-    fontSize: 14,
+    fontSize: 15,
+    lineHeight: 22,
     fontWeight: "800",
     marginTop: spacing.md,
   },

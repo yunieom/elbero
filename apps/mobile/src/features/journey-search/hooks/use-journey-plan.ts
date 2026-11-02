@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { JourneyPlan } from "@/entities/journey";
 
@@ -6,7 +6,6 @@ import { fetchJourneyPlan, JourneyApiError } from "../api/journey.api";
 import {
   createStoredJourneySnapshot,
   decideStoredJourneyRecovery,
-  updateStoredJourneyStep,
   type StoredJourneySnapshot,
 } from "../model/journey-snapshot";
 import { toJourneyPlan } from "../model/journey.mapper";
@@ -22,11 +21,9 @@ export function useJourneyPlan(
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<JourneyApiError | null>(null);
   const [requestKey, setRequestKey] = useState(0);
-  const [currentStepOrder, setCurrentStepOrderState] = useState(1);
   const [savedAt, setSavedAt] = useState<string | null>(null);
   const [recoveryMode, setRecoveryMode] = useState<JourneyRecoveryMode>("live");
   const [storageNotice, setStorageNotice] = useState<string | null>(null);
-  const snapshotRef = useRef<StoredJourneySnapshot | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -39,7 +36,6 @@ export function useJourneyPlan(
       setStorageNotice(null);
       setSavedAt(null);
       setRecoveryMode("live");
-      snapshotRef.current = null;
       let matchingSnapshot: StoredJourneySnapshot | null = null;
 
       const stored = await journeySnapshotRepository.read();
@@ -62,9 +58,7 @@ export function useJourneyPlan(
         });
         if (decision.canShowStoredDirections) {
           matchingSnapshot = stored.snapshot;
-          snapshotRef.current = stored.snapshot;
           setJourney(stored.snapshot.journey);
-          setCurrentStepOrderState(stored.snapshot.currentStepOrder);
           setSavedAt(stored.snapshot.savedAt);
           setRecoveryMode(
             decision.canTrustStoredFacilityStatus ? "stored" : "stale",
@@ -89,25 +83,10 @@ export function useJourneyPlan(
         );
         if (!active) return;
         const freshJourney = toJourneyPlan(response.data, response.warnings);
-        const keepStep =
-          matchingSnapshot?.dataVersion === freshJourney.dataVersion &&
-          matchingSnapshot.selectedRouteId === freshJourney.route.id;
-        const firstStepOrder = freshJourney.route.steps[0]?.order ?? 1;
-        const storedStepOrder = matchingSnapshot?.currentStepOrder;
-        const canKeepStoredStep =
-          keepStep &&
-          storedStepOrder !== undefined &&
-          freshJourney.route.steps.some(
-            (step) => step.order === storedStepOrder,
-          );
-        const nextStepOrder = canKeepStoredStep
-          ? storedStepOrder
-          : firstStepOrder;
         const nextSnapshot = createStoredJourneySnapshot({
           journey: freshJourney,
           originStationCode,
           destinationStationCode,
-          currentStepOrder: nextStepOrder,
         });
         let saved = true;
         try {
@@ -119,9 +98,7 @@ export function useJourneyPlan(
           );
         }
         if (!active) return;
-        snapshotRef.current = saved ? nextSnapshot : null;
         setJourney(freshJourney);
-        setCurrentStepOrderState(nextStepOrder);
         setSavedAt(saved ? nextSnapshot.savedAt : null);
         setRecoveryMode("live");
       } catch (caught: unknown) {
@@ -156,31 +133,13 @@ export function useJourneyPlan(
     };
   }, [destinationStationCode, originStationCode, requestKey]);
 
-  async function setCurrentStepOrder(order: number) {
-    const snapshot = snapshotRef.current;
-    if (!snapshot) return;
-    const validOrders = snapshot.journey.route.steps.map((step) => step.order);
-    if (!validOrders.includes(order)) return;
-    const updated = updateStoredJourneyStep(snapshot, order);
-    snapshotRef.current = updated;
-    setCurrentStepOrderState(order);
-    try {
-      await journeySnapshotRepository.write(updated);
-      setSavedAt(updated.savedAt);
-    } catch {
-      setStorageNotice("현재 단계를 저장하지 못했습니다.");
-    }
-  }
-
   return {
     journey,
     isLoading,
     error,
-    currentStepOrder,
     savedAt,
     recoveryMode,
     storageNotice,
     retry: () => setRequestKey((current) => current + 1),
-    setCurrentStepOrder,
   };
 }

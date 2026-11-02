@@ -36,12 +36,10 @@ export function JourneyResultScreen({
     journey,
     isLoading,
     error,
-    currentStepOrder,
     savedAt,
     recoveryMode,
     storageNotice,
     retry,
-    setCurrentStepOrder,
   } = useJourneyPlan(originStationCode, destinationStationCode);
   const returnToStationSearch = () => {
     if (router.canGoBack()) {
@@ -107,12 +105,6 @@ export function JourneyResultScreen({
   }
 
   const route = journey.route;
-  const currentStepIndex = Math.max(
-    0,
-    route.steps.findIndex((step) => step.order === currentStepOrder),
-  );
-  const previousStep = route.steps[currentStepIndex - 1] ?? null;
-  const nextStep = route.steps[currentStepIndex + 1] ?? null;
   const sources = formatSources(
     route.steps.map((step) => step.stationAccess?.source),
   );
@@ -178,7 +170,7 @@ export function JourneyResultScreen({
           <Text maxFontSizeMultiplier={2} style={styles.recoveryText}>
             {recoveryMode === "offline" || recoveryMode === "stale"
               ? "이동 순서는 계속 볼 수 있지만 승강기 상태는 저장 시점 정보입니다."
-              : "저장한 단계부터 이어서 보여드리며 최신 상태를 확인하고 있습니다."}
+              : "저장된 전체 여정을 보여드리며 최신 상태를 확인하고 있습니다."}
           </Text>
         </View>
       ) : null}
@@ -210,7 +202,7 @@ export function JourneyResultScreen({
       <View>
         {route.steps.map((step, index) => (
           <GuidanceStepCard
-            isCurrent={step.order === currentStepOrder}
+            isFirst={index === 0}
             isLast={index === route.steps.length - 1}
             key={step.id}
             onReport={() => setReportStep(step)}
@@ -222,42 +214,6 @@ export function JourneyResultScreen({
             step={step}
           />
         ))}
-      </View>
-
-      <View
-        accessibilityLabel={`현재 ${currentStepOrder}단계, 전체 ${route.steps.length}단계`}
-        style={styles.stepControls}
-      >
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ disabled: !previousStep }}
-          disabled={!previousStep}
-          onPress={() =>
-            previousStep && void setCurrentStepOrder(previousStep.order)
-          }
-          style={[
-            styles.stepButton,
-            !previousStep && styles.stepButtonDisabled,
-          ]}
-        >
-          <Text maxFontSizeMultiplier={2} style={styles.stepButtonText}>
-            이전 단계
-          </Text>
-        </Pressable>
-        <Text maxFontSizeMultiplier={2} style={styles.stepPosition}>
-          {currentStepIndex + 1} / {route.steps.length}
-        </Text>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ disabled: !nextStep }}
-          disabled={!nextStep}
-          onPress={() => nextStep && void setCurrentStepOrder(nextStep.order)}
-          style={[styles.stepButton, !nextStep && styles.stepButtonDisabled]}
-        >
-          <Text maxFontSizeMultiplier={2} style={styles.stepButtonText}>
-            다음 단계
-          </Text>
-        </Pressable>
       </View>
 
       <View style={styles.sectionHeader}>
@@ -388,28 +344,31 @@ function formatSources(sources: Array<string | undefined>) {
 
 const styles = StyleSheet.create({
   header: {
-    minHeight: 56,
+    minHeight: 52,
     flexDirection: "row",
     alignItems: "center",
-    flexWrap: "wrap",
+    gap: spacing.sm,
     paddingTop: spacing.xs,
   },
   backButton: {
-    width: 48,
-    height: 48,
-    alignItems: "flex-start",
+    width: 40,
+    height: 40,
+    alignItems: "center",
     justifyContent: "center",
+    borderRadius: radius.pill,
+    backgroundColor: colors.surface,
   },
   backIcon: {
     color: colors.textPrimary,
-    fontSize: 38,
-    lineHeight: 38,
+    fontSize: 32,
+    lineHeight: 34,
+    marginTop: -2,
   },
   headerTitle: {
     flexShrink: 1,
     color: colors.textPrimary,
-    fontSize: 17,
-    fontWeight: "800",
+    fontSize: 16,
+    fontWeight: "700",
   },
   centerState: {
     flex: 1,
@@ -453,19 +412,16 @@ const styles = StyleSheet.create({
   },
   routeTitleArea: {
     alignItems: "flex-start",
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.xl,
+    paddingTop: spacing.xl,
+    paddingBottom: spacing.xxl,
   },
   recoveryBanner: {
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.primary,
-    padding: spacing.md,
-    marginBottom: spacing.md,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    marginBottom: spacing.lg,
     backgroundColor: colors.primarySoft,
   },
   recoveryBannerWarning: {
-    borderColor: colors.warning,
     backgroundColor: colors.warningSoft,
   },
   recoveryTitle: {
@@ -501,69 +457,40 @@ const styles = StyleSheet.create({
   },
   routeTitle: {
     color: colors.textPrimary,
-    fontSize: 28,
-    lineHeight: 38,
+    fontSize: 30,
+    lineHeight: 40,
     fontWeight: "800",
-    letterSpacing: -0.7,
-    marginTop: spacing.sm,
+    letterSpacing: -0.9,
+    marginTop: spacing.md,
   },
   routeSubtitle: {
     color: colors.textSecondary,
-    fontSize: 14,
+    fontSize: 15,
+    lineHeight: 23,
     marginTop: spacing.xs,
   },
   sectionHeader: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: spacing.xxl,
+    marginTop: spacing.xxxl,
     marginBottom: spacing.md,
   },
   sectionTitle: {
     color: colors.textPrimary,
-    fontSize: 20,
+    fontSize: 21,
     fontWeight: "800",
+    letterSpacing: -0.3,
   },
   sectionCount: {
     color: colors.textSecondary,
     fontSize: 13,
     marginLeft: "auto",
   },
-  stepControls: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: spacing.sm,
-    marginTop: spacing.xs,
-  },
-  stepButton: {
-    minHeight: 48,
-    minWidth: 112,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.primary,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.surface,
-  },
-  stepButtonDisabled: {
-    borderColor: colors.border,
-    opacity: 0.45,
-  },
-  stepButtonText: {
-    color: colors.primary,
-    fontSize: 14,
-    fontWeight: "800",
-  },
-  stepPosition: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    fontWeight: "700",
-  },
   facilityCard: {
-    borderRadius: radius.lg,
-    paddingHorizontal: spacing.md,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.lg,
     backgroundColor: colors.surface,
   },
   facilityRow: {
@@ -597,10 +524,10 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   dataCard: {
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
     marginTop: spacing.xxl,
-    backgroundColor: colors.unknownSoft,
+    backgroundColor: colors.surfaceMuted,
   },
   dataTitle: {
     color: colors.textPrimary,
@@ -620,12 +547,10 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   secondaryButton: {
-    minHeight: 52,
+    minHeight: 56,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
+    borderRadius: radius.lg,
     marginTop: spacing.lg,
     backgroundColor: colors.surface,
   },

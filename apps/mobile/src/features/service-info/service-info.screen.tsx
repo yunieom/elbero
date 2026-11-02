@@ -74,13 +74,13 @@ export function ServiceInfoScreen() {
           내 기기의 저장 데이터
         </Text>
         <Text maxFontSizeMultiplier={2} style={styles.body}>
-          오프라인 복구용 최근 여정과 현재 단계만 기기에 저장됩니다. 계정이나 서버 이동 이력은 없습니다.
+          오프라인 복구용 최근 여정만 기기에 저장됩니다. 계정이나 서버 이동 이력은 없습니다.
         </Text>
 
         {confirmingDelete ? (
           <View style={styles.confirmCard}>
             <Text accessibilityLiveRegion="polite" maxFontSizeMultiplier={2} style={styles.confirmText}>
-              저장된 최근 여정과 진행 단계를 삭제할까요?
+              저장된 최근 여정을 삭제할까요?
             </Text>
             <View style={styles.confirmActions}>
               <Pressable accessibilityRole="button" onPress={() => setConfirmingDelete(false)} style={styles.cancelButton}>
@@ -93,7 +93,7 @@ export function ServiceInfoScreen() {
           </View>
         ) : (
           <Pressable
-            accessibilityHint="최근 여정과 진행 단계를 이 기기에서 제거합니다."
+            accessibilityHint="최근 여정을 이 기기에서 제거합니다."
             accessibilityRole="button"
             onPress={() => {
               setDeleteMessage(null);

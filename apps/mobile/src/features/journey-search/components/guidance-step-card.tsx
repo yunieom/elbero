@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { JourneyStep } from "@/entities/journey";
 import { colors, radius, spacing } from "@/shared/theme";
@@ -14,16 +14,16 @@ const stepTypeLabels: Record<string, string> = {
 
 interface GuidanceStepCardProps {
   step: JourneyStep;
+  isFirst: boolean;
   isLast: boolean;
-  isCurrent?: boolean;
   positionLabel?: "빠른환승" | "빠른하차";
   onReport?: () => void;
 }
 
 export function GuidanceStepCard({
   step,
+  isFirst,
   isLast,
-  isCurrent = false,
   positionLabel = "빠른하차",
   onReport,
 }: GuidanceStepCardProps) {
@@ -62,24 +62,20 @@ export function GuidanceStepCard({
         importantForAccessibility="no-hide-descendants"
         style={styles.timeline}
       >
+        {!isFirst ? <View style={styles.lineTop} /> : null}
+        {!isLast ? <View style={styles.lineBottom} /> : null}
         <View style={styles.numberCircle}>
           <Text maxFontSizeMultiplier={1.6} style={styles.number}>
             {step.order}
           </Text>
         </View>
-        {!isLast ? <View style={styles.line} /> : null}
       </View>
-      <View style={[styles.card, isCurrent && styles.currentCard]}>
+      <View style={styles.card}>
         <View
           accessible
-          accessibilityLabel={`${isCurrent ? "현재 단계, " : ""}${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, ${positionLabel} ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
+          accessibilityLabel={`${step.order}단계, ${stepTypeLabels[step.type] ?? step.type}, ${step.stationName}, ${displayInstruction}${boardingPosition ? `, ${positionLabel} ${boardingPosition}` : ""}${train?.direction ? `, ${toTerminalDirection(train.direction, train.lineName)}` : ""}${accessLabel ? `, ${accessLabel}` : ""}${gap ? `, 승강장 간격 ${gap.label}` : isGapUnknown ? ", 승강장 간격 미확인" : ""}`}
         >
           <View style={styles.cardHeader}>
-            {isCurrent ? (
-              <Text maxFontSizeMultiplier={2} style={styles.currentLabel}>
-                현재 단계
-              </Text>
-            ) : null}
             <Text maxFontSizeMultiplier={2} style={styles.typeLabel}>
               {stepTypeLabels[step.type] ?? step.type}
             </Text>
@@ -203,19 +199,35 @@ function DetailRow({ label, value }: { label: string; value: string }) {
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
+    alignItems: "stretch",
   },
   timeline: {
-    width: 52,
+    position: "relative",
+    width: 48,
     flexShrink: 0,
     alignItems: "center",
   },
+  lineTop: {
+    position: "absolute",
+    top: 0,
+    left: 23,
+    width: 2,
+    height: 18,
+    backgroundColor: colors.border,
+  },
+  lineBottom: {
+    position: "absolute",
+    top: 18,
+    bottom: 0,
+    left: 23,
+    width: 2,
+    backgroundColor: colors.border,
+  },
   numberCircle: {
-    minWidth: 32,
-    minHeight: 32,
+    width: 36,
+    height: 36,
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 8,
-    paddingVertical: 6,
     borderRadius: radius.pill,
     backgroundColor: colors.primary,
     zIndex: 1,
@@ -225,61 +237,56 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "800",
   },
-  line: {
-    width: 2,
-    flex: 1,
-    minHeight: 32,
-    backgroundColor: colors.border,
-  },
   card: {
     flex: 1,
     minWidth: 0,
-    borderRadius: radius.lg,
-    padding: spacing.md,
-    marginBottom: spacing.md,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.lg,
+    marginBottom: spacing.sm,
     backgroundColor: colors.surface,
-  },
-  currentCard: {
-    borderWidth: 2,
-    borderColor: colors.primary,
+    ...Platform.select({
+      web: {
+        boxShadow: "0 8px 24px rgba(25, 31, 40, 0.04)",
+      },
+      default: {
+        shadowColor: "#191F28",
+        shadowOffset: { width: 0, height: 6 },
+        shadowOpacity: 0.04,
+        shadowRadius: 18,
+        elevation: 1,
+      },
+    }),
   },
   cardHeader: {
     flexDirection: "row",
     alignItems: "center",
     flexWrap: "wrap",
     gap: spacing.xs,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.md,
   },
   typeLabel: {
     borderRadius: radius.pill,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
     color: colors.primary,
     fontSize: 12,
     fontWeight: "800",
     backgroundColor: colors.primarySoft,
     overflow: "hidden",
   },
-  currentLabel: {
-    borderRadius: radius.pill,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 5,
-    color: colors.white,
-    fontSize: 12,
-    fontWeight: "800",
-    backgroundColor: colors.primary,
-    overflow: "hidden",
-  },
   stationName: {
     color: colors.textSecondary,
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: "700",
   },
   instruction: {
     color: colors.textPrimary,
     fontSize: 17,
-    lineHeight: 26,
+    lineHeight: 27,
     fontWeight: "700",
+    letterSpacing: -0.2,
   },
   trainDetails: {
     marginTop: spacing.sm,
@@ -298,7 +305,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   accessDetails: {
-    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: 1,
     borderTopColor: colors.border,
     marginTop: spacing.md,
     paddingTop: spacing.sm,
@@ -363,12 +370,12 @@ const styles = StyleSheet.create({
     color: colors.unknown,
   },
   reportButton: {
-    alignSelf: "flex-start",
+    alignSelf: "stretch",
     minHeight: 44,
     justifyContent: "center",
-    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopWidth: 1,
     borderTopColor: colors.border,
-    paddingTop: spacing.sm,
+    paddingTop: spacing.md,
     marginTop: spacing.md,
   },
   reportButtonText: {

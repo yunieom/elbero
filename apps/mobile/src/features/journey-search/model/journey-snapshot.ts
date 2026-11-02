@@ -18,7 +18,6 @@ export function createStoredJourneySnapshot(input: {
   journey: JourneyPlan;
   originStationCode: string;
   destinationStationCode: string;
-  currentStepOrder: number;
   now?: string;
 }): StoredJourneySnapshot {
   const savedAt = input.now ?? new Date().toISOString();
@@ -36,7 +35,7 @@ export function createStoredJourneySnapshot(input: {
     originStationCode: input.originStationCode,
     destinationStationCode: input.destinationStationCode,
     selectedRouteId: route.id,
-    currentStepOrder: input.currentStepOrder,
+    currentStepOrder: route.steps[0]?.order ?? 1,
     dataVersion: input.journey.dataVersion,
     statusCheckedAt: input.journey.statusCheckedAt,
     payload: {
@@ -56,18 +55,6 @@ export function createStoredJourneySnapshot(input: {
       },
     },
     journey: input.journey,
-  };
-}
-
-export function updateStoredJourneyStep(
-  snapshot: StoredJourneySnapshot,
-  currentStepOrder: number,
-  now = new Date().toISOString(),
-): StoredJourneySnapshot {
-  return {
-    ...snapshot,
-    currentStepOrder,
-    savedAt: now,
   };
 }
 

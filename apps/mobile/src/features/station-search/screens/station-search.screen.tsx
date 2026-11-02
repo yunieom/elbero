@@ -110,7 +110,7 @@ export function StationSearchScreen() {
 
       {savedJourney ? (
         <Pressable
-          accessibilityHint={`${savedJourney.currentStepOrder}단계부터 저장된 안내를 엽니다.`}
+          accessibilityHint="저장된 전체 여정 안내를 엽니다."
           accessibilityLabel={`저장된 여정 계속 보기, ${savedJourney.originName}에서 ${savedJourney.destinationName}`}
           accessibilityRole="button"
           onPress={handleResume}
@@ -124,7 +124,6 @@ export function StationSearchScreen() {
               {savedJourney.originName} → {savedJourney.destinationName}
             </Text>
             <Text maxFontSizeMultiplier={2} style={styles.resumeMeta}>
-              {savedJourney.currentStepOrder}단계 ·{" "}
               {formatSavedAt(savedJourney.savedAt)}
               {savedJourney.isStatusStale ? " · 시설 상태 재확인 필요" : ""}
             </Text>

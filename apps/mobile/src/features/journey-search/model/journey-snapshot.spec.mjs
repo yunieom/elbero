@@ -5,7 +5,6 @@ import {
   createStoredJourneySnapshot,
   decideStoredJourneyRecovery,
   parseStoredJourneySnapshot,
-  updateStoredJourneyStep,
 } from "./journey-snapshot.ts";
 
 const now = "2026-10-01T01:00:00.000Z";
@@ -66,30 +65,16 @@ function makeSnapshot() {
     journey,
     originStationCode: "2543",
     destinationStationCode: "2551",
-    currentStepOrder: 1,
     now,
   });
 }
 
-test("snapshot에 여정·현재 단계·저장 시각을 기록하고 복구한다", () => {
+test("snapshot에 전체 여정과 저장 시각을 기록하고 복구한다", () => {
   const snapshot = makeSnapshot();
   const parsed = parseStoredJourneySnapshot(JSON.stringify(snapshot));
   assert.equal(parsed?.journey.originName, "답십리");
   assert.equal(parsed?.currentStepOrder, 1);
   assert.equal(parsed?.savedAt, now);
-});
-
-test("단계 변경은 여정 내용과 데이터 만료 시각을 유지한다", () => {
-  const snapshot = makeSnapshot();
-  const updated = updateStoredJourneyStep(
-    snapshot,
-    2,
-    "2026-10-01T01:10:00.000Z",
-  );
-  assert.equal(updated.currentStepOrder, 2);
-  assert.equal(updated.savedAt, "2026-10-01T01:10:00.000Z");
-  assert.equal(updated.expiresAt, snapshot.expiresAt);
-  assert.deepEqual(updated.journey, snapshot.journey);
 });
 
 test("손상 snapshot은 복구하지 않는다", () => {

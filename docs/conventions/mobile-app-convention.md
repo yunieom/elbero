@@ -31,7 +31,7 @@ Elbero의 초기 기능 모듈은 다음을 기준으로 한다.
 - `station-search`: 출발·도착역 검색과 선택
 - `journey-search`: 접근 가능한 여정 요청과 후보 선택
 - `journey-guidance`: 진입·탑승·환승·퇴장 단계 안내
-- `journey-progress`: 현재 단계와 이전·다음 이동
+- `journey-guidance`: 전체 이동 순서를 연결된 타임라인으로 표시
 - `issue-report`: 오류 제보와 도움말
 
 ### 2.2 라우트는 얇게 유지한다

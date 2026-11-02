@@ -9,7 +9,6 @@ export interface SavedJourneyPreview {
   destinationStationCode: string;
   originName: string;
   destinationName: string;
-  currentStepOrder: number;
   savedAt: string;
   isStatusStale: boolean;
 }
@@ -57,7 +56,6 @@ export function useSavedJourney() {
       destinationStationCode: result.snapshot.destinationStationCode,
       originName: result.snapshot.journey.originName,
       destinationName: result.snapshot.journey.destinationName,
-      currentStepOrder: result.snapshot.currentStepOrder,
       savedAt: result.snapshot.savedAt,
       isStatusStale: !decision.canTrustStoredFacilityStatus,
     });

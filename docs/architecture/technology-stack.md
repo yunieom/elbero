@@ -92,7 +92,7 @@ Expo SDK 57은 React Native 0.86과 React 19.2.3 조합을 대상으로 한다. 
 | 컴포넌트 테스트 | Jest Expo + React Native Testing Library | 채택 예정 | Expo 공식 테스트 흐름과 사용자 행동 중심 검증 |
 | E2E | Maestro | 채택 예정 | iOS·Android 핵심 여정 반복 검증 |
 
-상태 도구는 중복해서 사용하지 않는다. 서버에서 받은 여정은 TanStack Query, 현재 단계처럼 한
+상태 도구는 중복해서 사용하지 않는다. 서버에서 받은 여정은 TanStack Query, 검색 입력처럼 한
 화면 흐름에 속한 상태는 React state, 재실행 후 복구할 데이터는 저장소가 소유한다.
 
 ## 5. 데이터 저장 결정

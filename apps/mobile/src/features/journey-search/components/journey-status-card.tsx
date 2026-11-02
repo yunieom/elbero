@@ -72,12 +72,12 @@ export function JourneyStatusCard({
 const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
-    borderRadius: radius.lg,
-    padding: spacing.md,
+    borderRadius: radius.xl,
+    padding: spacing.lg,
   },
   icon: {
-    width: 34,
-    height: 34,
+    width: 40,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: radius.pill,
@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "800",
   },
   reason: {
-    fontSize: 13,
-    lineHeight: 19,
+    fontSize: 14,
+    lineHeight: 21,
     marginTop: spacing.xxs,
   },
   blockingArea: {
