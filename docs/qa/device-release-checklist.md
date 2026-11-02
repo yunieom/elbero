@@ -2,19 +2,36 @@
 
 이 문서는 iPhone과 Android에서 첫 출시 전 반드시 확인할 동작을 한곳에 모은 실행용 체크리스트다. 자동 테스트 결과는 [`release-validation.md`](./release-validation.md), 노선별 원천 데이터 확인은 [`지원 노선 검증 대기 목록`](../research/supported-lines-user-verification-pending.md)에서 별도로 관리한다.
 
+> 현재 iPhone·Android에 설치된 Expo Go 또는 개발 빌드에서는 `QA 예시 채우기`와 `QA 예외 상태 시제품 보기`가 보이는 것이 정상이다. `production` 프로필로 만든 심사 빌드에서는 홈의 두 진입점이 렌더링되지 않으며 `/qa/states`를 직접 열어도 홈으로 이동한다.
+
 ## 1. QA 실행 정보
 
 테스트를 시작하기 전에 아래 값을 기록한다.
 
 | 항목 | iOS | Android |
 | --- | --- | --- |
-| 테스트 날짜 |  |  |
-| 테스트 담당자 |  |  |
-| 기기·OS |  |  |
-| 앱 버전·빌드 |  |  |
-| Git 커밋 |  |  |
-| API 주소 |  |  |
-| 네트워크 | Wi-Fi / 셀룰러 / 오프라인 | Wi-Fi / 셀룰러 / 오프라인 |
+| 테스트 날짜 | 2026-10-12 접근성 QA · 2026-11-02 자동 회귀 | 2026-10-12 접근성 QA · 2026-11-02 자동 회귀 |
+| 테스트 담당자 | 자동 회귀: Codex · 최종 실기기: 사용자 확인 대기 | 자동 회귀: Codex · 최종 실기기: 사용자 확인 대기 |
+| 기기·OS | iPhone 18 Pro Simulator · iOS 27 | `medium_phone` Emulator · Android 16(API 36) |
+| 앱 버전·빌드 | 1.0.0 (1) | 1.0.0 (1) |
+| Git 커밋 | `d875105` 기준 | `d875105` 기준 |
+| API 주소 | 최종 심사 빌드 QA에서 기록 | 최종 심사 빌드 QA에서 기록 |
+| 네트워크 | 시뮬레이터 온라인 · 실제 Wi-Fi/셀룰러 재확인 필요 | 에뮬레이터 온라인·오프라인 통과 · 실제 기기 재확인 필요 |
+
+### 현재까지 채운 결과
+
+| 범위 | 결과 | 근거 | 심사 빌드 재확인 |
+| --- | --- | --- | --- |
+| API·모바일 자동 회귀 | 통과 | API 131개 · 모바일 22개 테스트 통과 | 불필요 |
+| 타입·린트·백엔드 빌드 | 통과 | 2026-11-02 로컬 회귀 | 불필요 |
+| 출시 정적 검사 | 통과 | 버전·식별자·권한·Privacy Manifest·문서·비밀 파일 16/16 | 불필요 |
+| QA 전용 UI 차단 | 통과 | production export에 QA 홈 문구 없음 · QA 직접 주소는 홈으로 이동 | production 설치본에서 육안 재확인 |
+| iOS 큰 글자·VoiceOver | 시뮬레이터 통과 | [`T21 접근성 QA`](../archive/qa/t21-large-text-accessibility.md) | 실제 iPhone 필요 |
+| Android 큰 글자·TalkBack | 에뮬레이터 통과 | [`T21 접근성 QA`](../archive/qa/t21-large-text-accessibility.md) | 실제 Android 필요 |
+| Android 오프라인·재실행 | 에뮬레이터 통과 | [`T19 통합 회귀`](../archive/qa/t19-integrated-regression-g2.md) | 실제 Android 필요 |
+| 새 심사 빌드 설치·대표 여정 | 대기 | 아직 production 바이너리를 양 플랫폼에 설치하지 않음 | 필수 |
+
+아래 체크박스는 **새 production 심사 빌드의 실제 기기 실행 기록**이다. 자동 테스트나 과거 시뮬레이터 증거만으로 체크하지 않는다.
 
 ## 2. 시작 전 준비
 

@@ -88,10 +88,21 @@ const qaRoute = await readFile(
   resolve(root, "apps/mobile/app/qa/states.tsx"),
   "utf8",
 );
+const stationSearchScreen = await readFile(
+  resolve(
+    root,
+    "apps/mobile/src/features/station-search/screens/station-search.screen.tsx",
+  ),
+  "utf8",
+);
 check(
   "프로덕션 QA 화면 차단",
-  qaRoute.includes("!__DEV__") && qaRoute.includes("<Redirect"),
-  "개발 빌드에서만 접근",
+  qaRoute.includes("!__DEV__") &&
+    qaRoute.includes("<Redirect") &&
+    stationSearchScreen.includes("{__DEV__ ? (") &&
+    stationSearchScreen.includes("QA 예시 채우기") &&
+    stationSearchScreen.includes("QA 예외 상태 시제품 보기"),
+  "홈 진입점은 개발 빌드에서만 노출 · 직접 주소는 프로덕션에서 홈으로 이동",
 );
 
 const requiredDocs = [
