@@ -1,4 +1,4 @@
-import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { JourneyStep } from "@/entities/journey";
 import { colors, radius, spacing } from "@/shared/theme";
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: radius.pill,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.textPrimary,
     zIndex: 1,
   },
   number: {
@@ -246,18 +246,6 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     marginBottom: spacing.sm,
     backgroundColor: colors.surface,
-    ...Platform.select({
-      web: {
-        boxShadow: "0 8px 24px rgba(25, 31, 40, 0.04)",
-      },
-      default: {
-        shadowColor: "#191F28",
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.04,
-        shadowRadius: 18,
-        elevation: 1,
-      },
-    }),
   },
   cardHeader: {
     flexDirection: "row",
@@ -270,10 +258,10 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    color: colors.primary,
+    color: colors.textSecondary,
     fontSize: 12,
     fontWeight: "800",
-    backgroundColor: colors.primarySoft,
+    backgroundColor: colors.surfaceMuted,
     overflow: "hidden",
   },
   stationName: {

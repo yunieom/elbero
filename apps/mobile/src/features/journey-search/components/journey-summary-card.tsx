@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.xxs,
   },
   direction: {
-    color: colors.primary,
+    color: colors.textPrimary,
     fontSize: 15,
     lineHeight: 22,
     fontWeight: "800",
