@@ -153,6 +153,7 @@ export function StationSearchScreen() {
           accessibilityLabel="출발역과 도착역 바꾸기"
           accessibilityRole="button"
           disabled={!origin && !destination}
+          hitSlop={6}
           onPress={handleSwap}
           style={({ pressed }) => [
             styles.swapButton,
@@ -383,17 +384,17 @@ const styles = StyleSheet.create({
   },
   swapButton: {
     position: "absolute",
-    right: spacing.lg,
+    right: spacing.lg + 3,
     top: "50%",
-    width: 46,
-    height: 46,
+    width: 40,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.primarySoft,
     backgroundColor: colors.surface,
-    transform: [{ translateY: -23 }],
+    transform: [{ translateY: -20 }],
     zIndex: 3,
   },
   swapPressed: {
@@ -404,7 +405,7 @@ const styles = StyleSheet.create({
   },
   swapIcon: {
     color: colors.primary,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "700",
   },
   optionRow: {
