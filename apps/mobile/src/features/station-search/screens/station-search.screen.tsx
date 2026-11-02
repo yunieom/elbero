@@ -76,15 +76,6 @@ export function StationSearchScreen() {
   return (
     <Screen>
       <View style={styles.brandRow}>
-        <View
-          accessibilityElementsHidden
-          importantForAccessibility="no-hide-descendants"
-          style={styles.brandMark}
-        >
-          <Text allowFontScaling={false} style={styles.brandMarkText}>
-            ↕
-          </Text>
-        </View>
         <Text maxFontSizeMultiplier={1.6} style={styles.brand}>
           엘베로
         </Text>
@@ -279,19 +270,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: spacing.sm,
     paddingTop: spacing.md,
-  },
-  brandMark: {
-    width: 36,
-    height: 36,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: radius.pill,
-    backgroundColor: colors.primary,
-  },
-  brandMarkText: {
-    color: colors.white,
-    fontSize: 19,
-    fontWeight: "800",
   },
   brand: {
     color: colors.textPrimary,
