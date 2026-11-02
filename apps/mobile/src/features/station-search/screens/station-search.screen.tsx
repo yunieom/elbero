@@ -151,6 +151,7 @@ export function StationSearchScreen() {
           station={origin}
         />
         <View style={styles.connector} />
+        <View style={styles.fieldDivider} />
         <StationField
           label="도착역"
           markerColor={colors.primary}
@@ -327,13 +328,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: radius.xl,
-    borderWidth: 1,
     borderLeftWidth: 4,
-    borderColor: colors.border,
     borderLeftColor: colors.primary,
     padding: spacing.lg,
     marginBottom: spacing.lg,
-    backgroundColor: colors.surface,
+    backgroundColor: colors.surfaceMuted,
   },
   resumeTextArea: {
     flex: 1,
@@ -384,10 +383,11 @@ const styles = StyleSheet.create({
   },
   formCard: {
     position: "relative",
-    gap: spacing.xs,
     borderRadius: radius.xl,
-    padding: spacing.xs,
-    backgroundColor: colors.primarySoft,
+    borderWidth: 1,
+    borderColor: colors.border,
+    overflow: "hidden",
+    backgroundColor: colors.surface,
   },
   connector: {
     position: "absolute",
@@ -398,6 +398,12 @@ const styles = StyleSheet.create({
     transform: [{ translateY: -8 }],
     backgroundColor: colors.border,
     zIndex: 2,
+  },
+  fieldDivider: {
+    height: 1,
+    marginLeft: 52,
+    marginRight: spacing.md,
+    backgroundColor: colors.border,
   },
   swapButton: {
     position: "absolute",
@@ -428,12 +434,10 @@ const styles = StyleSheet.create({
   optionRow: {
     flexDirection: "row",
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: colors.border,
     borderRadius: radius.lg,
     marginVertical: spacing.md,
     padding: spacing.md,
-    backgroundColor: colors.surface,
+    backgroundColor: colors.surfaceMuted,
   },
   checkBox: {
     width: 22,
@@ -498,12 +502,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   infoCard: {
-    borderWidth: 1,
-    borderColor: colors.border,
     borderRadius: radius.lg,
     padding: spacing.lg,
     marginTop: spacing.lg,
-    backgroundColor: colors.surface,
+    backgroundColor: colors.surfaceMuted,
   },
   infoTitle: {
     color: colors.textPrimary,
