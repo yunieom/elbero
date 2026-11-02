@@ -1,7 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { JourneyStep } from "@/entities/journey";
-import { colors, radius, spacing } from "@/shared/theme";
+import { transitLines } from "@/entities/station";
+import { colors, radius, readableTextColor, spacing } from "@/shared/theme";
 
 const stepTypeLabels: Record<string, string> = {
   entry: "역 진입",
@@ -30,6 +31,11 @@ export function GuidanceStepCard({
   const gap = step.platformGap;
   const access = step.stationAccess;
   const train = step.trainSegment;
+  const trainLineColor = train
+    ? (transitLines.find((line) => line.name === train.lineName)?.color ??
+      colors.primary)
+    : null;
+  const nodeColor = trainLineColor ?? colors.textPrimary;
   const isGapWarning = gap?.level === "yellow";
   const isGapDanger = gap?.level === "red";
   const isGapUnknown = Boolean(train) && !gap;
@@ -64,8 +70,11 @@ export function GuidanceStepCard({
       >
         {!isFirst ? <View style={styles.lineTop} /> : null}
         {!isLast ? <View style={styles.lineBottom} /> : null}
-        <View style={styles.numberCircle}>
-          <Text maxFontSizeMultiplier={1.6} style={styles.number}>
+        <View style={[styles.numberCircle, { backgroundColor: nodeColor }]}>
+          <Text
+            maxFontSizeMultiplier={1.6}
+            style={[styles.number, { color: readableTextColor(nodeColor) }]}
+          >
             {step.order}
           </Text>
         </View>
@@ -89,9 +98,25 @@ export function GuidanceStepCard({
                   ? `${positionLabel} ${boardingPosition}`
                   : `${positionLabel} 위치 미확인`}
               </Text>
-              <Text style={styles.trainDirection}>
-                {toTerminalDirection(train.direction, train.lineName)}
-              </Text>
+              <View
+                style={[
+                  styles.trainDirectionBadge,
+                  { backgroundColor: trainLineColor ?? colors.primary },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.trainDirection,
+                    {
+                      color: readableTextColor(
+                        trainLineColor ?? colors.primary,
+                      ),
+                    },
+                  ]}
+                >
+                  {toTerminalDirection(train.direction, train.lineName)}
+                </Text>
+              </View>
             </View>
           ) : null}
           {access ? (
@@ -278,7 +303,7 @@ const styles = StyleSheet.create({
   },
   trainDetails: {
     marginTop: spacing.sm,
-    gap: spacing.xxs,
+    gap: spacing.sm,
   },
   quickTransfer: {
     color: colors.textPrimary,
@@ -287,10 +312,16 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   trainDirection: {
-    color: colors.textSecondary,
-    fontSize: 14,
-    lineHeight: 21,
-    fontWeight: "600",
+    fontSize: 13,
+    lineHeight: 20,
+    fontWeight: "800",
+  },
+  trainDirectionBadge: {
+    alignSelf: "flex-start",
+    maxWidth: "100%",
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 7,
   },
   accessDetails: {
     borderTopWidth: 1,

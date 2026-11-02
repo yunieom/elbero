@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 
 import type { JourneyRoute } from "@/entities/journey";
-import { colors, radius, spacing } from "@/shared/theme";
+import { transitLines } from "@/entities/station";
+import { colors, radius, readableTextColor, spacing } from "@/shared/theme";
 
 export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
   const { summary, trainSegments } = route;
@@ -30,29 +31,53 @@ export function JourneySummaryCard({ route }: { route: JourneyRoute }) {
           value={`${summary.elevatorCount}회`}
         />
       </View>
-      <Text style={styles.direction}>
-        {summary.directions
-          .map((direction, index) =>
-            toTerminalDirection(direction, trainSegments[index]?.lineName),
-          )
-          .join(" · ")}
-      </Text>
-      {trainSegments.map((segment, index) => (
-        <View
-          key={`${segment.order}-${segment.lineName}`}
-          style={styles.segment}
-        >
-          <Text style={styles.segmentTitle}>
-            {segment.lineName} · {segment.originStationName} →{" "}
-            {segment.destinationStationName}
-          </Text>
-          <Text style={styles.segmentPosition}>
-            {segment.positionBasis === "destination_elevator"
-              ? `${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} ${formatPosition(segment.boardingPosition)}`
-              : `${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} 위치 미확인`}
-          </Text>
-        </View>
-      ))}
+      <View style={styles.directions}>
+        {summary.directions.map((direction, index) => {
+          const lineName = trainSegments[index]?.lineName;
+          const lineColor = getLineColor(lineName);
+          return (
+            <View
+              key={`${lineName ?? "line"}-${direction}`}
+              style={[styles.directionBadge, { backgroundColor: lineColor }]}
+            >
+              <Text
+                style={[
+                  styles.direction,
+                  { color: readableTextColor(lineColor) },
+                ]}
+              >
+                {toTerminalDirection(direction, lineName)}
+              </Text>
+            </View>
+          );
+        })}
+      </View>
+      {trainSegments.map((segment, index) => {
+        const lineColor = getLineColor(segment.lineName);
+        return (
+          <View
+            key={`${segment.order}-${segment.lineName}`}
+            style={styles.segment}
+          >
+            <View
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+              style={[styles.segmentAccent, { backgroundColor: lineColor }]}
+            />
+            <View style={styles.segmentContent}>
+              <Text style={styles.segmentTitle}>
+                {segment.lineName} · {segment.originStationName} →{" "}
+                {segment.destinationStationName}
+              </Text>
+              <Text style={styles.segmentPosition}>
+                {segment.positionBasis === "destination_elevator"
+                  ? `${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} ${formatPosition(segment.boardingPosition)}`
+                  : `${index === trainSegments.length - 1 ? "빠른하차" : "빠른환승"} 위치 미확인`}
+              </Text>
+            </View>
+          </View>
+        );
+      })}
     </View>
   );
 }
@@ -63,6 +88,12 @@ function toTerminalDirection(direction: string, lineName?: string) {
     return "하남검단산·상일동행 / 마천행";
   }
   return direction.replace(/\s*방면$/u, "행");
+}
+
+function getLineColor(lineName?: string) {
+  return (
+    transitLines.find((line) => line.name === lineName)?.color ?? colors.primary
+  );
 }
 
 function SummaryMetric({ label, value }: { label: string; value: string }) {
@@ -112,18 +143,39 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     marginTop: spacing.xxs,
   },
-  direction: {
-    color: colors.textPrimary,
-    fontSize: 15,
-    lineHeight: 22,
-    fontWeight: "800",
+  directions: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: spacing.xs,
     marginTop: spacing.md,
   },
+  directionBadge: {
+    maxWidth: "100%",
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 7,
+  },
+  direction: {
+    fontSize: 13,
+    lineHeight: 20,
+    fontWeight: "800",
+  },
   segment: {
+    flexDirection: "row",
+    alignItems: "stretch",
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
     paddingTop: spacing.sm,
     marginTop: spacing.sm,
+  },
+  segmentAccent: {
+    width: 4,
+    borderRadius: radius.pill,
+    marginRight: spacing.sm,
+  },
+  segmentContent: {
+    flex: 1,
+    minWidth: 0,
   },
   segmentTitle: {
     color: colors.textPrimary,
