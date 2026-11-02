@@ -21,29 +21,33 @@
 
 | 노선 | 역 | 진행 방향 | 남은 이유 |
 | --- | --- | --- | --- |
-| 1호선 | 망월사 (KR0112) | 회룡 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 망월사 (KR0112) | 도봉산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 창동 (KR0116) | 방학 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 창동 (KR0116) | 녹천 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 광운대 (KR0119) | 월계 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 광운대 (KR0119) | 석계 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 외대앞 (KR0122) | 신이문 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 외대앞 (KR0122) | 회기 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 남영 (KR0134) | 서울역 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 남영 (KR0134) | 용산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 노량진 (KR0136) | 용산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 노량진 (KR0136) | 대방 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 구로 (KR0141) | 신도림 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 구로 (KR0141) | 구일 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 구로 (KR0141) | 가산디지털단지 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 구일 (KR0142) | 구로 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 구일 (KR0142) | 개봉 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 석수 (KRP145) | 금천구청 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 석수 (KRP145) | 관악 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 화서 (KRP154) | 성균관대 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 화서 (KRP154) | 수원 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 탕정 (KRP173) | 아산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
-| 1호선 | 탕정 (KRP173) | 배방 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 망월사 (KR0112) | 회룡 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 | KRIC 정보없음
+| 1호선 | 망월사 (KR0112) | 도봉산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 창동 (KR0116) | 방학 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 창동 (KR0116) | 녹천 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 광운대 (KR0119) | 월계 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 광운대 (KR0119) | 석계 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 외대앞 (KR0122) | 신이문 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |엘리베이터 없음 
+| 1호선 | 외대앞 (KR0122) | 회기 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 | 엘리베이터 없음
+| 1호선 | 남영 (KR0134) | 서울역 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |엘리베이터 없음
+| 1호선 | 남영 (KR0134) | 용산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |엘리베이터 없음
+| 1호선 | 노량진 (KR0136) | 용산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 노량진 (KR0136) | 대방 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 구로 (KR0141) | 신도림 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 구로 (KR0141) | 구일 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 구로 (KR0141) | 가산디지털단지 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 구일 (KR0142) | 구로 방향 |  일반승강기	[1호기](1F)2번출입구,맞이방,구로방면승강장(1번홈)앞(2F)인천방면승강장(4번홈),중선방향(2,3번홈)
+일반승강기 일반승강기	[2호기](1F)구로,인천방면승강장(2,3번홈)(2F)연결통로,구로방면승강장(1번홈),인천방면승강장(4번홈),2번출구방면
+일반승강기 일반승강기	[3호기](1F)인천방면승강장(4번홈),1번출구방면(2F)연결통로,구로방면승강장(1번홈),2번출구방면stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 구일 (KR0142) | 개봉 방향 |  일반승강기	[1호기](1F)2번출입구,맞이방,구로방면승강장(1번홈)앞(2F)인천방면승강장(4번홈),중선방향(2,3번홈)
+일반승강기 일반승강기	[2호기](1F)구로,인천방면승강장(2,3번홈)(2F)연결통로,구로방면승강장(1번홈),인천방면승강장(4번홈),2번출구방면
+일반승강기 일반승강기	[3호기](1F)인천방면승강장(4번홈),1번출구방면(2F)연결통로,구로방면승강장(1번홈),2번출구방면stationElevator·stationElevatorCarNumber 재조회 후보 없음 |
+| 1호선 | 석수 (KRP145) | 금천구청 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |엘리베이터 없음
+| 1호선 | 석수 (KRP145) | 관악 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |엘리베이터 없음
+| 1호선 | 화서 (KRP154) | 성균관대 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 화서 (KRP154) | 수원 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 탕정 (KRP173) | 아산 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
+| 1호선 | 탕정 (KRP173) | 배방 방향 | stationElevator·stationElevatorCarNumber 재조회 후보 없음 |KRIC 정보없음
 
 ## 전체 노선 요약
 
