@@ -8,7 +8,7 @@
 | 부제 | 엘리베이터 중심 지하철 길찾기 |
 | 기본 언어 | 한국어 |
 | 카테고리 | 내비게이션 또는 여행 |
-| 앱 버전 | 1.0.0 |
+| 앱 버전 | 1.0.1 |
 | iOS Bundle ID | `com.elbero.mobile` |
 | Android Package | `com.elbero.mobile` |
 
@@ -83,7 +83,7 @@
 - 앱 아이콘: `apps/mobile/assets/icon.png`
 - Google Play feature graphic: [`assets/google-play-feature-graphic.png`](./assets/google-play-feature-graphic.png), `1024×500` PNG, 투명도 없음
 - 스크린샷 대체 텍스트: 화면마다 핵심 기능을 140자 이내로 설명
-- iPad 지원은 1.0.0에서 제외해 검증하지 않은 태블릿 스크린샷 요구를 만들지 않는다.
+- iPad 지원은 1.0.1에서 제외해 검증하지 않은 태블릿 스크린샷 요구를 만들지 않는다.
 
 ## 데이터 공개 초안
 
