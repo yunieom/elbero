@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import * as Linking from 'expo-linking';
+import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { journeySnapshotRepository } from '@/features/journey-search/repository/journey-snapshot.repository';
+import {
+  governmentAffiliationDisclaimer,
+  officialDataSources,
+} from '@/shared/config/official-data-sources';
 import { serviceInfo } from '@/shared/config/service-info';
 import { colors, radius, spacing } from '@/shared/theme';
 import { Screen } from '@/shared/ui';
@@ -25,6 +30,14 @@ export function ServiceInfoScreen() {
       setDeleteMessage('기기에 저장된 여정을 삭제했습니다.');
     } catch {
       setDeleteMessage('저장된 여정을 삭제하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+    }
+  }
+
+  async function openOfficialSource(url: string) {
+    try {
+      await Linking.openURL(url);
+    } catch {
+      Alert.alert('링크를 열 수 없어요', '잠시 후 다시 시도해 주세요.');
     }
   }
 
@@ -67,6 +80,42 @@ export function ServiceInfoScreen() {
             <Text accessibilityElementsHidden allowFontScaling={false} style={styles.arrow}>›</Text>
           </Pressable>
         ))}
+      </View>
+
+      <View style={styles.sourceCard}>
+        <Text accessibilityRole="header" maxFontSizeMultiplier={2} style={styles.sectionTitle}>
+          공식 데이터 출처
+        </Text>
+        <Text maxFontSizeMultiplier={2} style={styles.sourceIntroduction}>
+          경로와 시설 안내에 사용한 공공데이터의 원문을 아래 링크에서 확인할 수 있습니다.
+        </Text>
+        {officialDataSources.map((source) => (
+          <Pressable
+            accessibilityHint="공식 데이터 원문을 브라우저에서 엽니다."
+            accessibilityLabel={`${source.title}, ${source.provider}`}
+            accessibilityRole="link"
+            key={source.url}
+            onPress={() => void openOfficialSource(source.url)}
+            style={({ pressed }) => [styles.sourceRow, pressed && styles.pressed]}
+          >
+            <View style={styles.sourceTextGroup}>
+              <Text maxFontSizeMultiplier={2} style={styles.sourceTitle}>{source.title}</Text>
+              <Text maxFontSizeMultiplier={2} style={styles.sourceProvider}>{source.provider}</Text>
+              <Text maxFontSizeMultiplier={2} style={styles.sourceDescription}>{source.description}</Text>
+              <Text numberOfLines={2} style={styles.sourceUrl}>{source.url}</Text>
+            </View>
+            <Text accessibilityElementsHidden allowFontScaling={false} style={styles.externalArrow}>↗</Text>
+          </Pressable>
+        ))}
+      </View>
+
+      <View style={styles.affiliationCard}>
+        <Text accessibilityRole="header" maxFontSizeMultiplier={2} style={styles.affiliationTitle}>
+          비공식 서비스 안내
+        </Text>
+        <Text maxFontSizeMultiplier={2} style={styles.affiliationBody}>
+          {governmentAffiliationDisclaimer}
+        </Text>
       </View>
 
       <View style={styles.dataCard}>
@@ -133,6 +182,18 @@ const styles = StyleSheet.create({
   linkText: { flex: 1, color: colors.textPrimary, fontSize: 15, lineHeight: 23, fontWeight: '700' },
   arrow: { color: colors.primary, fontSize: 28, marginLeft: spacing.sm },
   dataCard: { borderRadius: radius.lg, padding: spacing.lg, marginTop: spacing.lg, backgroundColor: colors.surface },
+  sourceCard: { overflow: 'hidden', borderRadius: radius.lg, paddingTop: spacing.lg, marginTop: spacing.lg, backgroundColor: colors.surface },
+  sourceIntroduction: { color: colors.textSecondary, fontSize: 14, lineHeight: 23, paddingHorizontal: spacing.lg, marginTop: spacing.sm, marginBottom: spacing.sm },
+  sourceRow: { minHeight: 104, flexDirection: 'row', alignItems: 'center', borderTopWidth: 1, borderTopColor: colors.border, paddingHorizontal: spacing.lg, paddingVertical: spacing.md },
+  sourceTextGroup: { flex: 1 },
+  sourceTitle: { color: colors.textPrimary, fontSize: 15, lineHeight: 23, fontWeight: '800' },
+  sourceProvider: { color: colors.textSecondary, fontSize: 13, lineHeight: 20, marginTop: 2 },
+  sourceDescription: { color: colors.textSecondary, fontSize: 13, lineHeight: 20, marginTop: 2 },
+  sourceUrl: { color: colors.primary, fontSize: 11, lineHeight: 17, marginTop: spacing.xs },
+  externalArrow: { color: colors.primary, fontSize: 20, marginLeft: spacing.sm },
+  affiliationCard: { borderWidth: 1, borderColor: colors.border, borderRadius: radius.lg, padding: spacing.lg, marginTop: spacing.lg, backgroundColor: colors.surface },
+  affiliationTitle: { color: colors.textPrimary, fontSize: 17, lineHeight: 25, fontWeight: '800' },
+  affiliationBody: { color: colors.textSecondary, fontSize: 14, lineHeight: 23, marginTop: spacing.sm },
   sectionTitle: { color: colors.textPrimary, fontSize: 17, lineHeight: 25, fontWeight: '800' },
   body: { color: colors.textSecondary, fontSize: 14, lineHeight: 23, marginTop: spacing.sm },
   outlineButton: { minHeight: 52, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: colors.danger, borderRadius: radius.md, paddingHorizontal: spacing.md, marginTop: spacing.lg },

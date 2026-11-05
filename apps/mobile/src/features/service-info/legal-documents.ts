@@ -1,4 +1,5 @@
 import { serviceInfo } from '@/shared/config/service-info';
+import { governmentAffiliationDisclaimer } from '@/shared/config/official-data-sources';
 
 export type LegalDocumentKind = 'privacy' | 'terms' | 'support';
 
@@ -116,6 +117,8 @@ export const legalDocuments: Record<LegalDocumentKind, LegalDocument> = {
         title: '5. 데이터와 권리',
         paragraphs: [
           '철도 시설 정보의 권리는 각 공공데이터 제공기관에 있습니다. 엘베로의 코드, 문구, 아이콘과 화면 자산은 해당 라이선스와 권리자의 조건에 따라 보호됩니다.',
+          governmentAffiliationDisclaimer,
+          '공식 데이터 원문과 URL은 서비스 정보 화면의 ‘공식 데이터 출처’에서 확인할 수 있습니다.',
         ],
       },
       {
@@ -152,6 +155,13 @@ export const legalDocuments: Record<LegalDocumentKind, LegalDocument> = {
           '운행 중지: 중지 상태가 확인된 시설은 추천에서 제외합니다.',
           '승강장 간격 미확인: 공공데이터에 해당 값이 없습니다.',
           '안전 경로 미확인: 필수 위치 정보가 없거나 출처가 충돌합니다.',
+        ],
+      },
+      {
+        title: '공식 데이터 출처와 서비스 관계',
+        paragraphs: [
+          governmentAffiliationDisclaimer,
+          '국가철도공단 철도 데이터 포털과 서울 열린데이터광장 등 공식 데이터 원문은 서비스 정보 화면의 ‘공식 데이터 출처’에서 확인할 수 있습니다.',
         ],
       },
       {
